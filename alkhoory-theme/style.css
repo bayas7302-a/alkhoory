@@ -1,0 +1,557 @@
+/*
+Theme Name: Al Khoory Automobiles
+Theme URI: https://soharon.co.uk/alkhoory/
+Author: Al Khoory Automobiles
+Description: Lightweight custom theme for Al Khoory Automobiles, designed for Elementor (free). Provides the site header and footer from the Figma design; page content is built in Elementor using the "Elementor Full Width" template.
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: alkhoory
+*/
+
+/* ---------- Design tokens (from Figma) ---------- */
+:root {
+	--ak-blue: #1f6dd1;
+	--ak-navy: #0b1f3a;
+	--ak-deep: #00356f;
+	--ak-ink: #1e2430;
+	--ak-muted: #5b6270;
+	--ak-line: #e6eaf0;
+	--ak-soft: #f4f7fb;
+	--ak-white: #ffffff;
+	--ak-font-head: "Poppins", sans-serif;
+	--ak-font-body: "Archivo", sans-serif;
+	--ak-gutter: 100px;
+	--ak-max: 1240px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--ak-white);
+	color: var(--ak-muted);
+	font-family: var(--ak-font-body);
+	font-size: 16px;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: var(--ak-blue);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--ak-navy);
+	font-family: var(--ak-font-head);
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+[id] {
+	scroll-margin-top: 100px;
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+
+.ak-skip-link {
+	position: absolute;
+	top: -100px;
+	left: 16px;
+	z-index: 1000;
+	padding: 10px 16px;
+	background: var(--ak-navy);
+	color: var(--ak-white);
+	border-radius: 8px;
+}
+
+.ak-skip-link:focus {
+	top: 16px;
+}
+
+:focus-visible {
+	outline: 2px solid var(--ak-blue);
+	outline-offset: 3px;
+}
+
+/* ---------- Buttons ---------- */
+.ak-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 13px 26px;
+	border-radius: 999px;
+	font-family: var(--ak-font-head);
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.ak-btn--primary {
+	background: var(--ak-blue);
+	color: var(--ak-white);
+}
+
+.ak-btn--primary:hover,
+.ak-btn--primary:focus-visible {
+	background: #1659b0;
+	color: var(--ak-white);
+}
+
+/* ---------- Header ---------- */
+.ak-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--ak-white);
+	border-bottom: 1px solid var(--ak-line);
+}
+
+.admin-bar .ak-header {
+	top: 32px;
+}
+
+.ak-header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	min-height: 88px;
+	padding: 0 var(--ak-gutter);
+}
+
+.ak-header__logo {
+	display: block;
+	flex: 0 0 auto;
+	line-height: 0;
+}
+
+.ak-header__logo img {
+	width: 240px;
+	height: auto;
+}
+
+.ak-header__panel {
+	display: flex;
+	flex: 1 1 auto;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.ak-nav {
+	margin: 0 auto;
+}
+
+.ak-nav__list {
+	display: flex;
+	gap: 36px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ak-nav__list a {
+	color: var(--ak-ink);
+	font-family: var(--ak-font-head);
+	font-size: 15px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: color 0.2s;
+}
+
+.ak-nav__list a:hover,
+.ak-nav__list a:focus-visible,
+.ak-nav__list .current-menu-item > a {
+	color: var(--ak-blue);
+}
+
+.ak-nav__list .sub-menu {
+	display: none;
+}
+
+.ak-header__right {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.ak-header__divider {
+	width: 1px;
+	height: 40px;
+	background: var(--ak-line);
+}
+
+.ak-header__group {
+	display: block;
+	line-height: 0;
+}
+
+.ak-header__group img {
+	width: 32px;
+	height: auto;
+}
+
+.ak-header__toggle {
+	display: none;
+	position: relative;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 1px solid var(--ak-line);
+	border-radius: 12px;
+	background: var(--ak-white);
+	cursor: pointer;
+}
+
+.ak-header__toggle-bar,
+.ak-header__toggle-bar::before,
+.ak-header__toggle-bar::after {
+	position: absolute;
+	left: 50%;
+	width: 20px;
+	height: 2px;
+	margin-left: -10px;
+	background: var(--ak-navy);
+	border-radius: 2px;
+	transition: transform 0.2s, opacity 0.2s;
+}
+
+.ak-header__toggle-bar {
+	top: 50%;
+	margin-top: -1px;
+}
+
+.ak-header__toggle-bar::before,
+.ak-header__toggle-bar::after {
+	content: "";
+	left: 0;
+	margin-left: 0;
+}
+
+.ak-header__toggle-bar::before {
+	top: -6px;
+}
+
+.ak-header__toggle-bar::after {
+	top: 6px;
+}
+
+.ak-header.is-open .ak-header__toggle-bar {
+	background: transparent;
+}
+
+.ak-header.is-open .ak-header__toggle-bar::before {
+	transform: translateY(6px) rotate(45deg);
+}
+
+.ak-header.is-open .ak-header__toggle-bar::after {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---------- Footer ---------- */
+.ak-footer {
+	background: var(--ak-deep);
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.ak-footer__inner {
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+	padding: 80px var(--ak-gutter) 32px;
+}
+
+.ak-footer__top {
+	display: flex;
+	justify-content: space-between;
+	gap: 48px;
+}
+
+.ak-footer__brand {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	max-width: 340px;
+}
+
+.ak-footer__brand p {
+	margin: 0;
+	line-height: 1.65;
+}
+
+.ak-footer__logo {
+	line-height: 0;
+}
+
+.ak-footer__logo img {
+	width: 240px;
+	height: auto;
+}
+
+.ak-footer__columns {
+	display: flex;
+	gap: 64px;
+}
+
+.ak-footer__title {
+	margin: 0 0 20px;
+	color: var(--ak-white);
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.ak-footer__list,
+.ak-footer__legal {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ak-footer__list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.ak-footer address {
+	font-style: normal;
+}
+
+.ak-footer a {
+	color: inherit;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.ak-footer a:hover,
+.ak-footer a:focus-visible {
+	color: var(--ak-white);
+}
+
+.ak-footer__bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px 32px;
+	padding-top: 32px;
+	border-top: 1px solid rgba(255, 255, 255, 0.14);
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.ak-footer__bottom p {
+	margin: 0;
+}
+
+.ak-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ak-footer__legal li + li::before {
+	content: "·";
+	margin: 0 14px;
+}
+
+/* ---------- Plain (non-Elementor) content ---------- */
+.ak-container {
+	max-width: calc(var(--ak-max) + 2 * var(--ak-gutter));
+	margin: 0 auto;
+	padding: 0 var(--ak-gutter);
+}
+
+.ak-content {
+	padding-top: 80px;
+	padding-bottom: 100px;
+}
+
+.ak-content__title {
+	margin: 0 0 32px;
+	font-size: 40px;
+}
+
+.ak-entry + .ak-entry {
+	margin-top: 48px;
+}
+
+.ak-entry__title {
+	margin: 0 0 8px;
+	font-size: 24px;
+}
+
+.ak-entry__title a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.ak-entry__meta {
+	margin: 0 0 12px;
+	color: var(--ak-blue);
+	font-family: var(--ak-font-head);
+	font-size: 13px;
+	font-weight: 500;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1280px) {
+	:root {
+		--ak-gutter: 48px;
+	}
+
+	.ak-nav__list {
+		gap: 24px;
+	}
+
+	.ak-footer__columns {
+		gap: 40px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.ak-header__toggle {
+		display: block;
+	}
+
+	.ak-header__panel {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		display: none;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 24px;
+		padding: 24px var(--ak-gutter) 32px;
+		background: var(--ak-white);
+		border-bottom: 1px solid var(--ak-line);
+		box-shadow: 0 20px 40px rgba(11, 31, 58, 0.08);
+	}
+
+	.ak-header.is-open .ak-header__panel {
+		display: flex;
+	}
+
+	.ak-nav {
+		margin: 0;
+	}
+
+	.ak-nav__list {
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.ak-nav__list a {
+		display: block;
+		padding: 12px 0;
+		border-bottom: 1px solid var(--ak-line);
+		font-size: 16px;
+	}
+
+	.ak-header__right {
+		justify-content: space-between;
+	}
+
+	.ak-footer__top {
+		flex-direction: column;
+	}
+
+	.ak-footer__columns {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 40px 32px;
+	}
+
+	.ak-footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 782px) {
+	.admin-bar .ak-header {
+		top: 46px;
+	}
+}
+
+@media (max-width: 600px) {
+	:root {
+		--ak-gutter: 20px;
+	}
+
+	.ak-header__inner {
+		min-height: 72px;
+	}
+
+	.ak-header__logo img {
+		width: 190px;
+	}
+
+	.ak-footer__inner {
+		padding-top: 56px;
+	}
+
+	.ak-footer__columns {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.ak-footer__legal {
+		gap: 8px 20px;
+	}
+
+	.ak-footer__legal li + li::before {
+		content: none;
+	}
+
+	.ak-content__title {
+		font-size: 30px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	* {
+		transition: none !important;
+	}
+}
