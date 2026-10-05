@@ -1,0 +1,106 @@
+{
+ "key": "hero",
+ "order": 2,
+ "xml_structure": "<e-flexbox configuration-id=\"hero-section\"><e-flexbox configuration-id=\"hero-stickers\"><e-paragraph configuration-id=\"hero-sticker-studio\"></e-paragraph><e-paragraph configuration-id=\"hero-sticker-location\"></e-paragraph></e-flexbox><e-heading configuration-id=\"hero-title\"></e-heading><e-paragraph configuration-id=\"hero-subtitle\"></e-paragraph><e-flexbox configuration-id=\"hero-ctas\"><e-button configuration-id=\"hero-cta-packages\"></e-button><e-button configuration-id=\"hero-cta-work\"></e-button></e-flexbox><e-flexbox configuration-id=\"hero-highlights\"><e-flexbox configuration-id=\"hero-highlight-1\"><e-div-block configuration-id=\"hero-highlight-1-dot\"></e-div-block><e-paragraph configuration-id=\"hero-highlight-1-text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"hero-highlight-2\"><e-div-block configuration-id=\"hero-highlight-2-dot\"></e-div-block><e-paragraph configuration-id=\"hero-highlight-2-text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"hero-highlight-3\"><e-div-block configuration-id=\"hero-highlight-3-dot\"></e-div-block><e-paragraph configuration-id=\"hero-highlight-3-text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"hero-highlight-4\"><e-div-block configuration-id=\"hero-highlight-4-dot\"></e-div-block><e-paragraph configuration-id=\"hero-highlight-4-text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"hero-visual\"><e-image configuration-id=\"hero-mockup-image\"></e-image><e-flexbox configuration-id=\"hero-card-responsive\"><e-div-block configuration-id=\"hero-card-responsive-icon\"></e-div-block><e-flexbox configuration-id=\"hero-card-responsive-text\"><e-paragraph configuration-id=\"hero-card-responsive-title\"></e-paragraph><e-paragraph configuration-id=\"hero-card-responsive-sub\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"hero-card-seo\"><e-div-block configuration-id=\"hero-card-seo-icon\"></e-div-block><e-flexbox configuration-id=\"hero-card-seo-text\"><e-paragraph configuration-id=\"hero-card-seo-title\"></e-paragraph><e-paragraph configuration-id=\"hero-card-seo-sub\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "hero-highlight-1-text": {
+   "paragraph": "Starting from AED 1,000"
+  },
+  "hero-highlight-2-text": {
+   "paragraph": "Hosting for the 1st year"
+  },
+  "hero-highlight-3-text": {
+   "paragraph": "WhatsApp integration"
+  },
+  "hero-highlight-4-text": {
+   "paragraph": "Basic on-page SEO"
+  },
+  "hero-card-responsive-title": {
+   "paragraph": "Responsive on every device"
+  },
+  "hero-card-responsive-sub": {
+   "paragraph": "Mobile, tablet &amp; desktop"
+  },
+  "hero-card-seo-title": {
+   "paragraph": "SEO-friendly by default"
+  },
+  "hero-card-seo-sub": {
+   "paragraph": "Built to be found"
+  },
+  "hero-section": {
+   "tag": "section"
+  },
+  "hero-sticker-studio": {
+   "paragraph": "WEB DESIGN STUDIO"
+  },
+  "hero-sticker-location": {
+   "paragraph": "DUBAI, UAE"
+  },
+  "hero-title": {
+   "tag": "h1",
+   "title": "WEB DESIGN THAT CLICKS<br><span>FUNCTIONAL &amp; BUILT TO PERFORM</span>"
+  },
+  "hero-subtitle": {
+   "paragraph": "Dubai's custom web design studio — we blend strategy and technology to create fast, smart websites for UAE businesses. Your professional website design company, built to perform."
+  },
+  "hero-cta-packages": {
+   "text": "Explore Packages&nbsp;&nbsp;→",
+   "link": {
+    "destination": "#packages",
+    "isTargetBlank": false
+   }
+  },
+  "hero-cta-work": {
+   "text": "See Our Work&nbsp;&nbsp;→",
+   "link": {
+    "destination": "#work",
+    "isTargetBlank": false
+   }
+  },
+  "hero-mockup-image": {
+   "image": {
+    "src": {
+     "id": 16383,
+     "alt": "Website mockup preview"
+    },
+    "size": "full"
+   }
+  }
+ },
+ "style": {
+  "hero-highlight-1": "flex-direction: row; align-items: center; gap: 8px; padding: 0;",
+  "hero-highlight-1-dot": "width: 18px; height: 18px; border-radius: 50%; background-color: var(--hl-green); flex-shrink: 0;",
+  "hero-highlight-1-text": "font-family: var(--font-body); font-size: 15px; font-weight: 500; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { font-size: 14px; }",
+  "hero-highlight-2": "flex-direction: row; align-items: center; gap: 8px; padding: 0;",
+  "hero-highlight-2-dot": "width: 18px; height: 18px; border-radius: 50%; background-color: var(--hl-green); flex-shrink: 0;",
+  "hero-highlight-2-text": "font-family: var(--font-body); font-size: 15px; font-weight: 500; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { font-size: 14px; }",
+  "hero-highlight-3": "flex-direction: row; align-items: center; gap: 8px; padding: 0;",
+  "hero-highlight-3-dot": "width: 18px; height: 18px; border-radius: 50%; background-color: var(--hl-green); flex-shrink: 0;",
+  "hero-highlight-3-text": "font-family: var(--font-body); font-size: 15px; font-weight: 500; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { font-size: 14px; }",
+  "hero-highlight-4": "flex-direction: row; align-items: center; gap: 8px; padding: 0;",
+  "hero-highlight-4-dot": "width: 18px; height: 18px; border-radius: 50%; background-color: var(--hl-green); flex-shrink: 0;",
+  "hero-highlight-4-text": "font-family: var(--font-body); font-size: 15px; font-weight: 500; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { font-size: 14px; }",
+  "hero-card-responsive": "position: absolute; left: -40px; top: 110px; z-index: 2; flex-direction: row; align-items: center; gap: 14px; padding: 16px 22px 16px 18px; background-color: #ffffff; border: 1.5px solid #0e2a25; border-radius: 18px; box-shadow: 5px 5px 0px #0e2a25; @media(--tablet) { left: -16px; top: 60px; } @media(--mobile) { position: relative; left: auto; right: auto; top: auto; align-self: stretch; padding: 12px 16px; }",
+  "hero-card-responsive-icon": "width: 44px; height: 44px; border-radius: 12px; background-color: var(--hl-amber); flex-shrink: 0;",
+  "hero-card-responsive-text": "flex-direction: column; align-items: flex-start; gap: 2px; padding: 0;",
+  "hero-card-responsive-title": "font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { white-space: normal; font-size: 15px; }",
+  "hero-card-responsive-sub": "font-family: var(--font-body); font-size: 13px; font-weight: 400; line-height: normal; color: #56665f;",
+  "hero-card-seo": "position: absolute; right: -44px; top: 420px; z-index: 2; flex-direction: row; align-items: center; gap: 14px; padding: 16px 22px 16px 18px; background-color: #ffffff; border: 1.5px solid #0e2a25; border-radius: 18px; box-shadow: 5px 5px 0px #0e2a25; @media(--tablet) { right: -16px; top: 300px; } @media(--mobile) { position: relative; left: auto; right: auto; top: auto; align-self: stretch; padding: 12px 16px; }",
+  "hero-card-seo-icon": "width: 44px; height: 44px; border-radius: 12px; background-color: var(--hl-coral); flex-shrink: 0;",
+  "hero-card-seo-text": "flex-direction: column; align-items: flex-start; gap: 2px; padding: 0;",
+  "hero-card-seo-title": "font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: normal; color: var(--hl-ink); white-space: nowrap; @media(--mobile) { white-space: normal; font-size: 15px; }",
+  "hero-card-seo-sub": "font-family: var(--font-body); font-size: 13px; font-weight: 400; line-height: normal; color: #56665f;",
+  "hero-section": "width: 100%; flex-direction: column; align-items: center; gap: 32px; padding: 96px 120px 90px 120px; background-color: var(--hl-cream); @media(--tablet) { padding: 72px 40px 70px 40px; gap: 28px; } @media(--mobile) { padding: 48px 16px 56px 16px; gap: 24px; }",
+  "hero-stickers": "flex-direction: row; align-items: center; padding: 6px 0; gap: 0px; @media(--mobile) { flex-wrap: wrap; justify-content: center; row-gap: 10px; }",
+  "hero-sticker-studio": "font-family: var(--font-body); font-size: 17px; font-weight: 700; letter-spacing: 1.02px; line-height: normal; text-transform: uppercase; border: 1.5px solid #0e2a25; border-radius: 4px; padding: 8px 14px; box-shadow: 3px 3px 0px #0e2a25; white-space: nowrap; background-color: var(--hl-amber); color: var(--hl-ink); transform: rotate(3deg); position: relative; z-index: 1; @media(--mobile) { font-size: 14px; }",
+  "hero-sticker-location": "font-family: var(--font-body); font-size: 17px; font-weight: 700; letter-spacing: 1.02px; line-height: normal; text-transform: uppercase; border: 1.5px solid #0e2a25; border-radius: 4px; padding: 8px 14px; box-shadow: 3px 3px 0px #0e2a25; white-space: nowrap; background-color: var(--hl-green); color: var(--hl-cream); transform: rotate(-2deg); margin-left: -6px; @media(--mobile) { font-size: 14px; }",
+  "hero-title": "font-family: var(--font-display); font-size: 104px; font-weight: 400; line-height: 1; text-align: center; color: var(--hl-green); text-transform: uppercase; & span { color: var(--hl-coral); } @media(--tablet) { font-size: 76px; } @media(--mobile) { font-size: 48px; line-height: 1.05; }",
+  "hero-subtitle": "font-family: var(--font-body); font-size: 20px; font-weight: 400; line-height: 1.55; color: #56665f; text-align: center; max-width: 720px; @media(--tablet) { font-size: 18px; } @media(--mobile) { font-size: 16px; }",
+  "hero-ctas": "flex-direction: row; align-items: flex-start; justify-content: center; gap: 16px; padding: 0 0 7px 0; flex-wrap: wrap;",
+  "hero-cta-packages": "font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: normal; color: var(--hl-ink); border: 1.5px solid #0e2a25; border-radius: 100px; padding: 15px 28px; box-shadow: 3px 3px 0px #0e2a25; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; &:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #0e2a25; } @media(--mobile) { font-size: 15px; padding: 13px 22px; } background-color: var(--hl-amber);",
+  "hero-cta-work": "font-family: var(--font-body); font-size: 16px; font-weight: 700; line-height: normal; color: var(--hl-ink); border: 1.5px solid #0e2a25; border-radius: 100px; padding: 15px 28px; box-shadow: 3px 3px 0px #0e2a25; white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; &:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #0e2a25; } @media(--mobile) { font-size: 15px; padding: 13px 22px; } background-color: var(--hl-cream);",
+  "hero-highlights": "flex-direction: row; align-items: center; justify-content: center; gap: 28px; padding: 0; flex-wrap: wrap; @media(--mobile) { gap: 12px; flex-direction: column; align-items: flex-start; }",
+  "hero-visual": "position: relative; width: 100%; max-width: 1200px; flex-direction: column; gap: 16px; padding: 40px 0 20px 0; @media(--mobile) { padding: 16px 0 0 0; }",
+  "hero-mockup-image": "display: block; width: 100%; height: 560px; object-fit: cover; border: 2px solid #0e2a25; border-radius: 28px; box-shadow: 10px 10px 0px #0e2a25; background-color: #f3f3f3; @media(--tablet) { height: 420px; } @media(--mobile) { height: 240px; border-radius: 18px; box-shadow: 6px 6px 0px #0e2a25; }"
+ }
+}

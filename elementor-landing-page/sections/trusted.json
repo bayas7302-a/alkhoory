@@ -1,0 +1,147 @@
+{
+ "key": "trusted",
+ "order": 6,
+ "xml_structure": "<e-flexbox configuration-id=\"trusted-section\"><e-paragraph configuration-id=\"trusted-label\"></e-paragraph><e-flexbox configuration-id=\"trusted-logos\"><e-flexbox configuration-id=\"trusted-logo-card-1\"><e-image configuration-id=\"trusted-logo-1\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-2\"><e-image configuration-id=\"trusted-logo-2\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-3\"><e-image configuration-id=\"trusted-logo-3\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-4\"><e-image configuration-id=\"trusted-logo-4\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-5\"><e-image configuration-id=\"trusted-logo-5\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-6\"><e-image configuration-id=\"trusted-logo-6\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-7\"><e-image configuration-id=\"trusted-logo-7\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-8\"><e-image configuration-id=\"trusted-logo-8\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-9\"><e-image configuration-id=\"trusted-logo-9\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-10\"><e-image configuration-id=\"trusted-logo-10\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-11\"><e-image configuration-id=\"trusted-logo-11\"></e-image></e-flexbox><e-flexbox configuration-id=\"trusted-logo-card-12\"><e-image configuration-id=\"trusted-logo-12\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "trusted-label": {
+   "paragraph": "TRUSTED BY GROWING BRANDS ACROSS THE UAE"
+  },
+  "trusted-logo-1": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-1.png",
+     "alt": "Fancy Interiors logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-2": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-2.png",
+     "alt": "Design Street logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-3": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-3.png",
+     "alt": "Network Media logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-4": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-4.png",
+     "alt": "Heriot-Watt University logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-5": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-5.png",
+     "alt": "Quplast logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-6": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/LP-logos-6.png",
+     "alt": "Savvy logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-7": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/kitchen-escap.png",
+     "alt": "KitchenScape logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-8": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/trustigo.png",
+     "alt": "TrustiGo logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-9": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/Mak.png",
+     "alt": "MAK logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-10": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/hustle-copy.png",
+     "alt": "HustleHub Office Spaces logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-11": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/no-bridge-1.png",
+     "alt": "Noble Bridge Consultancy logo"
+    },
+    "size": "full"
+   }
+  },
+  "trusted-logo-12": {
+   "image": {
+    "src": {
+     "url": "https://soharon.com/wp-content/uploads/2024/12/output-onlinepngtools-1-1.png",
+     "alt": "Dar Al Taqa logo"
+    },
+    "size": "full"
+   }
+  }
+ },
+ "style": {
+  "trusted-section": "display:flex; flex-direction:column; align-items:center; gap:32px; width:100%; padding:72px 120px; background-color:var(--hl-cream); @media(--tablet){padding:56px 40px;} @media(--mobile){padding:48px 16px; gap:24px;}",
+  "trusted-label": "font-family:var(--font-body); font-weight:700; font-size:13px; letter-spacing:1.82px; line-height:1.4; color:#56665f; text-align:center; margin:0; @media(--mobile){font-size:12px; letter-spacing:1.4px;}",
+  "trusted-logos": "display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px; width:100%; max-width:1200px; padding:0; @media(--tablet){justify-content:center; gap:20px;} @media(--mobile){flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; gap:12px; padding:0 0 8px 0;}",
+  "trusted-logo-card-1": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-1": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-2": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-2": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-3": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-3": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-4": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-4": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-5": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-5": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-6": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-6": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-7": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-7": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-8": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-8": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-9": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-9": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-10": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-10": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-11": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-11": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}",
+  "trusted-logo-card-12": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:170px; height:72px; flex-shrink:0; padding:12px 20px; background-color:#fbeadb; border:1px solid #eadacb; border-radius:14px; transition:background-color 0.3s, border-color 0.3s; &:hover{background-color:#f7dcc4; border-color:#d9c3ae;} @media(--mobile){width:140px; height:64px; padding:10px 16px;}",
+  "trusted-logo-12": "display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; filter:brightness(0); opacity:0.62; @media(--mobile){max-height:34px;}"
+ }
+}

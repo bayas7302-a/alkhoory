@@ -1,0 +1,116 @@
+{
+ "key": "about",
+ "order": 8,
+ "xml_structure": "<e-flexbox configuration-id=\"about-section\"><e-flexbox configuration-id=\"about-inner\"><e-div-block configuration-id=\"about-visual\"><e-image configuration-id=\"about-image-main\"></e-image><e-image configuration-id=\"about-image-small\"></e-image></e-div-block><e-flexbox configuration-id=\"about-content\"><e-flexbox configuration-id=\"about-eyebrow\"><e-div-block configuration-id=\"about-eyebrow-line\"></e-div-block><e-paragraph configuration-id=\"about-eyebrow-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"about-title\"></e-heading><e-paragraph configuration-id=\"about-text-1\"></e-paragraph><e-paragraph configuration-id=\"about-text-2\"></e-paragraph><e-div-block configuration-id=\"about-features\"><e-flexbox configuration-id=\"about-feature-1\"><e-paragraph configuration-id=\"about-feature-check-1\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-1\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"about-feature-2\"><e-paragraph configuration-id=\"about-feature-check-2\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-2\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"about-feature-3\"><e-paragraph configuration-id=\"about-feature-check-3\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-3\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"about-feature-4\"><e-paragraph configuration-id=\"about-feature-check-4\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-4\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"about-feature-5\"><e-paragraph configuration-id=\"about-feature-check-5\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-5\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"about-feature-6\"><e-paragraph configuration-id=\"about-feature-check-6\"></e-paragraph><e-paragraph configuration-id=\"about-feature-text-6\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"about-cta-wrap\"><e-button configuration-id=\"about-cta\"></e-button></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "about-image-main": {
+   "image": {
+    "src": {
+     "id": 24953,
+     "alt": "Hee&Lee web design team at work"
+    },
+    "size": "full"
+   }
+  },
+  "about-image-small": {
+   "image": {
+    "src": {
+     "id": 24953,
+     "alt": "Website design detail"
+    },
+    "size": "full"
+   }
+  },
+  "about-eyebrow-text": {
+   "paragraph": "WHY HEE&amp;LEE"
+  },
+  "about-title": {
+   "tag": "h2",
+   "title": "TAILORED APPROACH TO <span style=\"color:#e15338\">ONLINE PRESENCE</span>"
+  },
+  "about-text-1": {
+   "paragraph": "Your website should be more than just good-looking, it should work hard for your brand. We build responsive, SEO-friendly sites that are designed to convert and easy to manage."
+  },
+  "about-text-2": {
+   "paragraph": "Whether you’re launching something new or upgrading your online presence, we blend design and tech to create fast, smart, and user-focused websites that deliver real results."
+  },
+  "about-cta": {
+   "text": "Talk to the Expert Now &nbsp;→",
+   "link": {
+    "destination": "#contact",
+    "isTargetBlank": false
+   }
+  },
+  "about-feature-check-1": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-1": {
+   "paragraph": "Professional UI/UX"
+  },
+  "about-feature-check-2": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-2": {
+   "paragraph": "Responsive Development"
+  },
+  "about-feature-check-3": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-3": {
+   "paragraph": "SEO-Ready Foundation"
+  },
+  "about-feature-check-4": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-4": {
+   "paragraph": "Transparent Pricing"
+  },
+  "about-feature-check-5": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-5": {
+   "paragraph": "Full Ownership"
+  },
+  "about-feature-check-6": {
+   "paragraph": "✓"
+  },
+  "about-feature-text-6": {
+   "paragraph": "Ongoing Support"
+  }
+ },
+ "style": {
+  "about-section": "display:flex; flex-direction:column; align-items:center; width:100%; padding:110px 120px; background-color:var(--hl-cream); @media(--tablet){padding:80px 40px;} @media(--mobile){padding:64px 16px;}",
+  "about-inner": "display:flex; flex-direction:row; align-items:center; gap:80px; width:100%; max-width:1200px; padding:0; @media(--tablet){flex-direction:column; align-items:stretch; gap:56px;} @media(--mobile){gap:40px;}",
+  "about-visual": "position:relative; width:560px; max-width:100%; aspect-ratio:560/540; flex-shrink:0; padding:0; @media(--tablet){margin:0 auto;}",
+  "about-image-main": "position:absolute; left:0; top:1.85%; width:73.2%; height:88.9%; object-fit:cover; border:2px solid var(--hl-ink); border-radius:24px; box-shadow:8px 8px 0px 0px #0e2a25; @media(--mobile){border-radius:18px; box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "about-image-small": "position:absolute; left:53.6%; top:55.6%; width:44.6%; height:42.6%; object-fit:cover; border:2px solid var(--hl-ink); border-radius:20px; box-shadow:6px 6px 0px 0px #0e2a25; @media(--mobile){border-radius:14px; box-shadow:4px 4px 0px 0px #0e2a25;}",
+  "about-content": "display:flex; flex-direction:column; align-items:flex-start; gap:24px; flex:1 1 0; min-width:0; padding:0; @media(--mobile){gap:20px;}",
+  "about-eyebrow": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-eyebrow-line": "width:28px; height:2px; background-color:var(--hl-coral); flex-shrink:0;",
+  "about-eyebrow-text": "font-family:var(--font-body); font-size:13px; letter-spacing:1.82px; line-height:1.2; color:var(--hl-coral); margin:0;",
+  "about-title": "font-family:var(--font-display); font-weight:400; font-size:56px; line-height:1.02; color:var(--hl-green); margin:0; @media(--tablet){font-size:44px;} @media(--mobile){font-size:34px;}",
+  "about-text-1": "font-family:var(--font-body); font-size:18px; line-height:1.6; color:#56665f; margin:0; @media(--mobile){font-size:16px;}",
+  "about-text-2": "font-family:var(--font-body); font-size:18px; line-height:1.6; color:#56665f; margin:0; @media(--mobile){font-size:16px;}",
+  "about-features": "display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; width:100%; padding:0; @media(--mobile){grid-template-columns:1fr; gap:12px;}",
+  "about-cta": "display:inline-flex; align-items:center; font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.2; color:var(--hl-ink); background-color:var(--hl-amber); border:1.5px solid var(--hl-ink); border-radius:100px; padding:15px 28px; box-shadow:3px 3px 0px 0px #0e2a25; transition:transform 0.2s, box-shadow 0.2s; &:hover{transform:translate(2px, 2px); box-shadow:1px 1px 0px 0px #0e2a25; color:var(--hl-ink); background-color:var(--hl-amber);}",
+  "about-feature-1": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-1": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-1": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-feature-2": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-2": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-2": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-feature-3": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-3": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-3": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-feature-4": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-4": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-4": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-feature-5": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-5": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-5": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-feature-6": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "about-feature-check-6": "display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0; border-radius:12px; background-color:var(--hl-green); color:#ffffff; font-family:var(--font-body); font-weight:700; font-size:12px; line-height:1; margin:0;",
+  "about-feature-text-6": "font-family:var(--font-body); font-weight:600; font-size:16px; line-height:1.3; color:var(--hl-ink); margin:0; @media(--mobile){font-size:15px;}",
+  "about-cta-wrap": "display:flex; flex-direction:row; padding:0; margin-top:4px;"
+ }
+}

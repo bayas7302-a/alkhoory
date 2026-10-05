@@ -1,0 +1,2 @@
+/* Atomic (V4) elements also carry the legacy .e-con class, whose width:var(--width)=100% forces every flex child full-width. Restore natural sizing; element styles (higher specificity) still win. */
+:where(.e-con).e-atomic-element{--width:auto;width:auto;--container-max-width:none;min-width:0;}
