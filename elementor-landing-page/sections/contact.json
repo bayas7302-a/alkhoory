@@ -1,0 +1,107 @@
+{
+ "key": "contact",
+ "order": 12,
+ "xml_structure": "<e-flexbox configuration-id=\"contact-section\"><e-flexbox configuration-id=\"contact-card\"><e-flexbox configuration-id=\"contact-intro\"><e-flexbox configuration-id=\"contact-eyebrow\"><e-div-block configuration-id=\"contact-eyebrow-line\"></e-div-block><e-paragraph configuration-id=\"contact-eyebrow-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"contact-title\"></e-heading><e-paragraph configuration-id=\"contact-lead\"></e-paragraph><e-flexbox configuration-id=\"contact-details\"><e-flexbox configuration-id=\"contact-call\"><e-flexbox configuration-id=\"contact-call-icon\"><e-image configuration-id=\"contact-call-icon-img\"></e-image></e-flexbox><e-flexbox configuration-id=\"contact-call-text\"><e-paragraph configuration-id=\"contact-call-label\"></e-paragraph><e-paragraph configuration-id=\"contact-call-value\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"contact-email\"><e-flexbox configuration-id=\"contact-email-icon\"><e-image configuration-id=\"contact-email-icon-img\"></e-image></e-flexbox><e-flexbox configuration-id=\"contact-email-text\"><e-paragraph configuration-id=\"contact-email-label\"></e-paragraph><e-paragraph configuration-id=\"contact-email-value\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"contact-visit\"><e-flexbox configuration-id=\"contact-visit-icon\"><e-image configuration-id=\"contact-visit-icon-img\"></e-image></e-flexbox><e-flexbox configuration-id=\"contact-visit-text\"><e-paragraph configuration-id=\"contact-visit-label\"></e-paragraph><e-paragraph configuration-id=\"contact-visit-value\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox><e-div-block configuration-id=\"contact-form-slot\"></e-div-block></e-flexbox></e-flexbox>",
+ "element_config": {
+  "contact-eyebrow-text": {
+   "paragraph": "GET IN TOUCH"
+  },
+  "contact-call-icon-img": {
+   "image": {
+    "src": {
+     "id": 24958,
+     "alt": "Phone"
+    },
+    "size": "full"
+   }
+  },
+  "contact-call-label": {
+   "paragraph": "CALL"
+  },
+  "contact-call-value": {
+   "paragraph": "+971 55 151 4803",
+   "link": {
+    "destination": "tel:+971551514803",
+    "isTargetBlank": false
+   }
+  },
+  "contact-email-icon-img": {
+   "image": {
+    "src": {
+     "id": 24959,
+     "alt": "Email"
+    },
+    "size": "full"
+   }
+  },
+  "contact-email-label": {
+   "paragraph": "EMAIL"
+  },
+  "contact-email-value": {
+   "paragraph": "info@soharon.com",
+   "link": {
+    "destination": "mailto:info@soharon.com",
+    "isTargetBlank": false
+   }
+  },
+  "contact-visit-icon-img": {
+   "image": {
+    "src": {
+     "id": 24960,
+     "alt": "Location"
+    },
+    "size": "full"
+   }
+  },
+  "contact-visit-label": {
+   "paragraph": "VISIT"
+  },
+  "contact-visit-value": {
+   "paragraph": "Office 912-06, Mai Tower, Al Nahda 1, Dubai, UAE",
+   "link": {
+    "destination": "https://www.google.com/maps/search/?api=1&query=Mai+Tower+Al+Nahda+1+Dubai",
+    "isTargetBlank": true
+   }
+  },
+  "contact-section": {
+   "tag": "section"
+  },
+  "contact-title": {
+   "tag": "h2",
+   "title": "Let’s Turn Your Ideas Into Impact"
+  },
+  "contact-lead": {
+   "paragraph": "We work side by side with you—because your brand deserves more than a template. We deliver bold, practical work that helps you show up stronger and win in your space."
+  }
+ },
+ "style": {
+  "contact-eyebrow-line": "width:28px; height:2px; background:var(--hl-coral); padding:0; flex:0 0 28px;",
+  "contact-eyebrow": "display:flex; flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "contact-eyebrow-text": "font-family:var(--font-body); font-weight:700; font-size:13px; line-height:1.2; letter-spacing:1.82px; text-transform:uppercase; color:var(--hl-coral); margin:0;",
+  "contact-call": "display:flex; flex-direction:row; align-items:center; gap:14px; width:100%; padding:0;",
+  "contact-call-icon": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; border-radius:22px; background:var(--hl-coral); padding:0;",
+  "contact-call-icon-img": "width:18px; height:18px; object-fit:contain; display:block;",
+  "contact-call-text": "display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding:0; min-width:0;",
+  "contact-call-label": "font-family:var(--font-body); font-weight:700; font-size:11px; line-height:1.2; letter-spacing:1.32px; color:#56665f; margin:0;",
+  "contact-call-value": "font-family:var(--font-body); font-weight:600; font-size:17px; line-height:1.3; color:var(--hl-ink); margin:0; text-decoration:none; &:hover{color:var(--hl-coral);} @media(--mobile){font-size:15px;}",
+  "contact-email": "display:flex; flex-direction:row; align-items:center; gap:14px; width:100%; padding:0;",
+  "contact-email-icon": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; border-radius:22px; background:var(--hl-coral); padding:0;",
+  "contact-email-icon-img": "width:18px; height:18px; object-fit:contain; display:block;",
+  "contact-email-text": "display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding:0; min-width:0;",
+  "contact-email-label": "font-family:var(--font-body); font-weight:700; font-size:11px; line-height:1.2; letter-spacing:1.32px; color:#56665f; margin:0;",
+  "contact-email-value": "font-family:var(--font-body); font-weight:600; font-size:17px; line-height:1.3; color:var(--hl-ink); margin:0; text-decoration:none; &:hover{color:var(--hl-coral);} @media(--mobile){font-size:15px;}",
+  "contact-visit": "display:flex; flex-direction:row; align-items:center; gap:14px; width:100%; padding:0;",
+  "contact-visit-icon": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; border-radius:22px; background:var(--hl-coral); padding:0;",
+  "contact-visit-icon-img": "width:18px; height:18px; object-fit:contain; display:block;",
+  "contact-visit-text": "display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding:0; min-width:0;",
+  "contact-visit-label": "font-family:var(--font-body); font-weight:700; font-size:11px; line-height:1.2; letter-spacing:1.32px; color:#56665f; margin:0;",
+  "contact-visit-value": "font-family:var(--font-body); font-weight:600; font-size:17px; line-height:1.3; color:var(--hl-ink); margin:0; text-decoration:none; &:hover{color:var(--hl-coral);} @media(--mobile){font-size:15px;}",
+  "contact-section": "display:flex; flex-direction:column; align-items:center; width:100%; background:var(--hl-green); padding:120px 120px 130px 120px; @media(--tablet){padding:80px 40px 90px 40px;} @media(--mobile){padding:60px 16px 70px 16px;}",
+  "contact-card": "display:flex; flex-direction:row; align-items:flex-start; gap:64px; width:100%; max-width:1200px; margin:0 auto; padding:64px; background:var(--hl-cream); border:2px solid #0e2a25; border-radius:32px; box-shadow:14px 14px 0px #e15338; @media(--tablet){flex-direction:column; gap:40px; padding:48px 40px;} @media(--mobile){gap:32px; padding:28px 20px; border-radius:24px; box-shadow:8px 8px 0px #e15338;}",
+  "contact-intro": "display:flex; flex-direction:column; align-items:flex-start; gap:22px; width:400px; flex:0 0 400px; padding:0; @media(--tablet){width:100%; flex:0 0 auto;}",
+  "contact-title": "font-family:var(--font-body); font-weight:700; font-size:46px; line-height:1.12; color:var(--hl-green); margin:0; @media(--tablet){font-size:38px;} @media(--mobile){font-size:30px;}",
+  "contact-lead": "font-family:var(--font-body); font-weight:400; font-size:17px; line-height:1.6; color:#56665f; margin:0; @media(--mobile){font-size:16px;}",
+  "contact-details": "display:flex; flex-direction:column; align-items:flex-start; gap:14px; width:100%; padding:8px 0 0 0;",
+  "contact-form-slot": "display:block; flex:1 1 0; min-width:0; width:100%; padding:0; background:transparent; border-radius:0; @media(--tablet){flex:0 0 auto;}"
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "key": "process",
+ "order": 10,
+ "xml_structure": "<e-flexbox configuration-id=\"process-section\"><e-flexbox configuration-id=\"process-inner\"><e-flexbox configuration-id=\"process-header\"><e-flexbox configuration-id=\"process-eyebrow\"><e-div-block configuration-id=\"process-eyebrow-line-left\"></e-div-block><e-paragraph configuration-id=\"process-eyebrow-text\"></e-paragraph><e-div-block configuration-id=\"process-eyebrow-line-right\"></e-div-block></e-flexbox><e-heading configuration-id=\"process-title\"></e-heading><e-paragraph configuration-id=\"process-intro\"></e-paragraph></e-flexbox><e-grid configuration-id=\"process-steps\"><e-flexbox configuration-id=\"process-step-1\"><e-flexbox configuration-id=\"process-step-1-number\"><e-paragraph configuration-id=\"process-step-1-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-1-title\"></e-heading><e-paragraph configuration-id=\"process-step-1-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-2\"><e-flexbox configuration-id=\"process-step-2-number\"><e-paragraph configuration-id=\"process-step-2-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-2-title\"></e-heading><e-paragraph configuration-id=\"process-step-2-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-3\"><e-flexbox configuration-id=\"process-step-3-number\"><e-paragraph configuration-id=\"process-step-3-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-3-title\"></e-heading><e-paragraph configuration-id=\"process-step-3-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-4\"><e-flexbox configuration-id=\"process-step-4-number\"><e-paragraph configuration-id=\"process-step-4-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-4-title\"></e-heading><e-paragraph configuration-id=\"process-step-4-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-5\"><e-flexbox configuration-id=\"process-step-5-number\"><e-paragraph configuration-id=\"process-step-5-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-5-title\"></e-heading><e-paragraph configuration-id=\"process-step-5-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-6\"><e-flexbox configuration-id=\"process-step-6-number\"><e-paragraph configuration-id=\"process-step-6-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-6-title\"></e-heading><e-paragraph configuration-id=\"process-step-6-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-7\"><e-flexbox configuration-id=\"process-step-7-number\"><e-paragraph configuration-id=\"process-step-7-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-7-title\"></e-heading><e-paragraph configuration-id=\"process-step-7-desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"process-step-8\"><e-flexbox configuration-id=\"process-step-8-number\"><e-paragraph configuration-id=\"process-step-8-number-text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"process-step-8-title\"></e-heading><e-paragraph configuration-id=\"process-step-8-desc\"></e-paragraph></e-flexbox></e-grid></e-flexbox></e-flexbox>",
+ "element_config": {
+  "process-eyebrow-text": {
+   "paragraph": "OUR PROCESS"
+  },
+  "process-title": {
+   "tag": "h2",
+   "title": "A WEBSITE IS MORE THAN A FINAL PRODUCT. <span style=\"color:#e15338\">IT’S A JOURNEY.</span>"
+  },
+  "process-intro": {
+   "paragraph": "Eight clear stages, one team. Here is the exact sequence every project runs through — no surprises along the way."
+  },
+  "process-step-1-number-text": {
+   "paragraph": "01"
+  },
+  "process-step-1-title": {
+   "tag": "h3",
+   "title": "UNDERSTAND"
+  },
+  "process-step-1-desc": {
+   "paragraph": "We start with your business, your audience, your competitors and what the website actually needs to achieve."
+  },
+  "process-step-2-number-text": {
+   "paragraph": "02"
+  },
+  "process-step-2-title": {
+   "tag": "h3",
+   "title": "PLAN"
+  },
+  "process-step-2-desc": {
+   "paragraph": "Sitemap, user journeys and content structure are mapped out before any design begins."
+  },
+  "process-step-3-number-text": {
+   "paragraph": "03"
+  },
+  "process-step-3-title": {
+   "tag": "h3",
+   "title": "DESIGN"
+  },
+  "process-step-3-desc": {
+   "paragraph": "Your website is designed around your brand — never assembled from a template."
+  },
+  "process-step-4-number-text": {
+   "paragraph": "04"
+  },
+  "process-step-4-title": {
+   "tag": "h3",
+   "title": "BUILD"
+  },
+  "process-step-4-desc": {
+   "paragraph": "We turn the approved design into a fast, responsive website built for your business."
+  },
+  "process-step-5-number-text": {
+   "paragraph": "05"
+  },
+  "process-step-5-title": {
+   "tag": "h3",
+   "title": "REFINE"
+  },
+  "process-step-5-desc": {
+   "paragraph": "You review, we refine. Feedback is handled quickly, clearly and without endless back-and-forth."
+  },
+  "process-step-6-number-text": {
+   "paragraph": "06"
+  },
+  "process-step-6-title": {
+   "tag": "h3",
+   "title": "TEST"
+  },
+  "process-step-6-desc": {
+   "paragraph": "Every page is checked across devices and browsers, along with forms, speed and SEO basics."
+  },
+  "process-step-7-number-text": {
+   "paragraph": "07"
+  },
+  "process-step-7-title": {
+   "tag": "h3",
+   "title": "LAUNCH"
+  },
+  "process-step-7-desc": {
+   "paragraph": "We take care of going live, so launch day is smooth and stress-free."
+  },
+  "process-step-8-number-text": {
+   "paragraph": "08"
+  },
+  "process-step-8-title": {
+   "tag": "h3",
+   "title": "SUPPORT"
+  },
+  "process-step-8-desc": {
+   "paragraph": "Our relationship doesn’t end at launch — we stay available for ongoing support and updates."
+  }
+ },
+ "style": {
+  "process-section": "flex-direction:column; align-items:stretch; width:100%; padding:110px 120px; background-color:var(--hl-cream); @media(--tablet){padding:80px 40px;} @media(--mobile){padding:60px 16px;}",
+  "process-inner": "flex-direction:column; align-items:center; gap:56px; padding:0; width:100%; max-width:1200px; margin:0 auto; @media(--mobile){gap:36px;}",
+  "process-header": "flex-direction:column; align-items:center; gap:16px; padding:0; width:100%;",
+  "process-eyebrow": "flex-direction:row; align-items:center; gap:10px; padding:0;",
+  "process-eyebrow-line-left": "width:28px; height:2px; background-color:var(--hl-coral); padding:0;",
+  "process-eyebrow-text": "font-family:var(--font-body); font-size:13px; letter-spacing:1.82px; line-height:normal; color:var(--hl-coral); text-transform:uppercase;",
+  "process-eyebrow-line-right": "width:28px; height:2px; background-color:var(--hl-coral); padding:0;",
+  "process-title": "font-family:var(--font-display); font-size:60px; line-height:1.02; font-weight:400; color:var(--hl-green); text-align:center; margin:0; max-width:1000px; @media(--tablet){font-size:45px;} @media(--mobile){font-size:36px;}",
+  "process-intro": "font-family:var(--font-body); font-size:18px; line-height:1.55; color:#56665f; text-align:center; max-width:640px; @media(--mobile){font-size:16px;}",
+  "process-steps": "display:grid; grid-template-columns:repeat(4, 1fr); grid-template-rows:repeat(2, auto); gap:24px; padding:0; width:100%; @media(--tablet){grid-template-columns:repeat(2, 1fr); grid-template-rows:repeat(4, auto); gap:20px;} @media(--mobile){grid-template-columns:repeat(1, 1fr); grid-template-rows:repeat(8, auto); gap:16px;}",
+  "process-step-1": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-1-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-1-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-1-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-1-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-2": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-2-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-2-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-2-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-2-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-3": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:var(--hl-green); transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-3-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-amber);",
+  "process-step-3-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:var(--hl-ink);",
+  "process-step-3-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-amber);",
+  "process-step-3-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:var(--hl-muted);",
+  "process-step-4": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-4-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-4-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-4-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-4-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-5": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-5-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-5-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-5-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-5-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-6": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-6-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-6-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-6-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-6-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-7": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-7-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-7-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-7-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-7-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;",
+  "process-step-8": "flex-direction:column; align-items:flex-start; gap:14px; padding:26px 26px 30px 26px; border:1.5px solid #0e2a25; border-radius:22px; background-color:#ffffff; transition:transform 0.3s, box-shadow 0.3s; &:hover{transform:translate(-3px,-3px); box-shadow:6px 6px 0px 0px #0e2a25;}",
+  "process-step-8-number": "width:52px; height:52px; border-radius:26px; padding:0; flex-direction:row; align-items:center; justify-content:center; background-color:var(--hl-coral);",
+  "process-step-8-number-text": "font-family:var(--font-display); font-size:20px; line-height:1; color:#ffffff;",
+  "process-step-8-title": "font-family:var(--font-display); font-size:26px; line-height:normal; font-weight:400; margin:0; color:var(--hl-green);",
+  "process-step-8-desc": "font-family:var(--font-body); font-size:15px; line-height:1.55; color:#56665f;"
+ }
+}

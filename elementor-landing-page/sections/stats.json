@@ -1,0 +1,50 @@
+{
+ "key": "stats",
+ "order": 5,
+ "xml_structure": "<e-flexbox configuration-id=\"stats-section\"><e-flexbox configuration-id=\"stats-row\"><e-flexbox configuration-id=\"stats-item-1\"><e-paragraph configuration-id=\"stats-number-1\"></e-paragraph><e-paragraph configuration-id=\"stats-label-1\"></e-paragraph></e-flexbox><e-div-block configuration-id=\"stats-divider-1\"></e-div-block><e-flexbox configuration-id=\"stats-item-2\"><e-paragraph configuration-id=\"stats-number-2\"></e-paragraph><e-paragraph configuration-id=\"stats-label-2\"></e-paragraph></e-flexbox><e-div-block configuration-id=\"stats-divider-2\"></e-div-block><e-flexbox configuration-id=\"stats-item-3\"><e-paragraph configuration-id=\"stats-number-3\"></e-paragraph><e-paragraph configuration-id=\"stats-label-3\"></e-paragraph></e-flexbox><e-div-block configuration-id=\"stats-divider-3\"></e-div-block><e-flexbox configuration-id=\"stats-item-4\"><e-paragraph configuration-id=\"stats-number-4\"></e-paragraph><e-paragraph configuration-id=\"stats-label-4\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "stats-number-1": {
+   "paragraph": "500+"
+  },
+  "stats-label-1": {
+   "paragraph": "WEBSITES DELIVERED"
+  },
+  "stats-number-2": {
+   "paragraph": "7+"
+  },
+  "stats-label-2": {
+   "paragraph": "YEARS OF EXPERIENCE"
+  },
+  "stats-number-3": {
+   "paragraph": "200+"
+  },
+  "stats-label-3": {
+   "paragraph": "BUSINESSES SERVED"
+  },
+  "stats-number-4": {
+   "paragraph": "100%"
+  },
+  "stats-label-4": {
+   "paragraph": "OWNERSHIP OF YOUR SITE"
+  }
+ },
+ "style": {
+  "stats-section": "display:flex; flex-direction:column; align-items:center; width:100%; padding:72px 120px; background-color:var(--hl-green); @media(--tablet){padding:56px 40px;} @media(--mobile){padding:48px 16px;}",
+  "stats-row": "display:flex; flex-direction:row; flex-wrap:wrap; justify-content:space-between; align-items:center; width:100%; max-width:1200px; padding:0; gap:0; @media(--tablet){justify-content:center; gap:40px;} @media(--mobile){gap:32px;}",
+  "stats-item-1": "display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; @media(--tablet){width:calc(50% - 20px);} @media(--mobile){width:calc(50% - 16px);}",
+  "stats-number-1": "font-family:var(--font-display); font-size:72px; line-height:1; color:var(--hl-amber); margin:0; text-align:center; @media(--tablet){font-size:56px;} @media(--mobile){font-size:44px;}",
+  "stats-label-1": "font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:1.56px; line-height:1.3; color:var(--hl-cream); margin:0; text-align:center; @media(--mobile){font-size:11px; letter-spacing:1.1px;}",
+  "stats-divider-1": "width:1px; height:90px; background-color:rgba(255,255,255,0.2); flex-shrink:0; @media(--tablet){display:none;}",
+  "stats-item-2": "display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; @media(--tablet){width:calc(50% - 20px);} @media(--mobile){width:calc(50% - 16px);}",
+  "stats-number-2": "font-family:var(--font-display); font-size:72px; line-height:1; color:var(--hl-amber); margin:0; text-align:center; @media(--tablet){font-size:56px;} @media(--mobile){font-size:44px;}",
+  "stats-label-2": "font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:1.56px; line-height:1.3; color:var(--hl-cream); margin:0; text-align:center; @media(--mobile){font-size:11px; letter-spacing:1.1px;}",
+  "stats-divider-2": "width:1px; height:90px; background-color:rgba(255,255,255,0.2); flex-shrink:0; @media(--tablet){display:none;}",
+  "stats-item-3": "display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; @media(--tablet){width:calc(50% - 20px);} @media(--mobile){width:calc(50% - 16px);}",
+  "stats-number-3": "font-family:var(--font-display); font-size:72px; line-height:1; color:var(--hl-amber); margin:0; text-align:center; @media(--tablet){font-size:56px;} @media(--mobile){font-size:44px;}",
+  "stats-label-3": "font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:1.56px; line-height:1.3; color:var(--hl-cream); margin:0; text-align:center; @media(--mobile){font-size:11px; letter-spacing:1.1px;}",
+  "stats-divider-3": "width:1px; height:90px; background-color:rgba(255,255,255,0.2); flex-shrink:0; @media(--tablet){display:none;}",
+  "stats-item-4": "display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; @media(--tablet){width:calc(50% - 20px);} @media(--mobile){width:calc(50% - 16px);}",
+  "stats-number-4": "font-family:var(--font-display); font-size:72px; line-height:1; color:var(--hl-amber); margin:0; text-align:center; @media(--tablet){font-size:56px;} @media(--mobile){font-size:44px;}",
+  "stats-label-4": "font-family:var(--font-body); font-weight:600; font-size:13px; letter-spacing:1.56px; line-height:1.3; color:var(--hl-cream); margin:0; text-align:center; @media(--mobile){font-size:11px; letter-spacing:1.1px;}"
+ }
+}

@@ -1,0 +1,218 @@
+{
+ "key": "footer",
+ "order": 13,
+ "xml_structure": "<e-flexbox configuration-id=\"footer-section\"><e-flexbox configuration-id=\"footer-main\"><e-flexbox configuration-id=\"footer-brand\"><e-div-block configuration-id=\"footer-logo-chip\"><e-image configuration-id=\"footer-logo\"></e-image></e-div-block><e-paragraph configuration-id=\"footer-about\"></e-paragraph><e-flexbox configuration-id=\"footer-socials\"><e-flexbox configuration-id=\"footer-social-linkedin\"><e-image configuration-id=\"footer-social-linkedin-img\"></e-image></e-flexbox><e-flexbox configuration-id=\"footer-social-instagram\"><e-image configuration-id=\"footer-social-instagram-img\"></e-image></e-flexbox><e-flexbox configuration-id=\"footer-social-facebook\"><e-image configuration-id=\"footer-social-facebook-img\"></e-image></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"footer-col-contact\"><e-paragraph configuration-id=\"footer-col-contact-head\"></e-paragraph><e-paragraph configuration-id=\"footer-col-contact-1\"></e-paragraph><e-paragraph configuration-id=\"footer-col-contact-2\"></e-paragraph><e-paragraph configuration-id=\"footer-col-contact-3\"></e-paragraph><e-paragraph configuration-id=\"footer-col-contact-4\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"footer-col-links\"><e-paragraph configuration-id=\"footer-col-links-head\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-1\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-2\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-3\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-4\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-5\"></e-paragraph><e-paragraph configuration-id=\"footer-col-links-6\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"footer-col-services\"><e-paragraph configuration-id=\"footer-col-services-head\"></e-paragraph><e-paragraph configuration-id=\"footer-col-services-1\"></e-paragraph><e-paragraph configuration-id=\"footer-col-services-2\"></e-paragraph><e-paragraph configuration-id=\"footer-col-services-3\"></e-paragraph><e-paragraph configuration-id=\"footer-col-services-4\"></e-paragraph></e-flexbox></e-flexbox><e-div-block configuration-id=\"footer-bar\"><e-paragraph configuration-id=\"footer-copy\"></e-paragraph></e-div-block></e-flexbox>",
+ "element_config": {
+  "footer-social-linkedin": {
+   "link": {
+    "destination": "https://www.linkedin.com/company/soharoninfotech/",
+    "isTargetBlank": true
+   }
+  },
+  "footer-social-linkedin-img": {
+   "image": {
+    "src": {
+     "id": 24955,
+     "alt": "LinkedIn"
+    },
+    "size": "full"
+   }
+  },
+  "footer-social-instagram": {
+   "link": {
+    "destination": "https://www.instagram.com/soharoninfotech/",
+    "isTargetBlank": true
+   }
+  },
+  "footer-social-instagram-img": {
+   "image": {
+    "src": {
+     "id": 24956,
+     "alt": "Instagram"
+    },
+    "size": "full"
+   }
+  },
+  "footer-social-facebook": {
+   "link": {
+    "destination": "https://www.facebook.com/soharoninfotech",
+    "isTargetBlank": true
+   }
+  },
+  "footer-social-facebook-img": {
+   "image": {
+    "src": {
+     "id": 24957,
+     "alt": "Facebook"
+    },
+    "size": "full"
+   }
+  },
+  "footer-logo": {
+   "image": {
+    "src": {
+     "id": 24954,
+     "alt": "Hee & Lee Design Studio"
+    },
+    "size": "full"
+   },
+   "link": {
+    "destination": "#",
+    "isTargetBlank": false
+   }
+  },
+  "footer-about": {
+   "paragraph": "Custom web design for businesses across Dubai &amp; the UAE — Hee &amp; Lee is a professional website design company delivering fast, beautiful, and results-driven websites."
+  },
+  "footer-col-contact-head": {
+   "paragraph": "CONTACT"
+  },
+  "footer-col-contact-1": {
+   "paragraph": "+971 55 151 4803",
+   "link": {
+    "destination": "tel:+971551514803",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-contact-2": {
+   "paragraph": "info@soharon.com",
+   "link": {
+    "destination": "mailto:info@soharon.com",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-contact-3": {
+   "paragraph": "Office 912-06, Mai Tower,",
+   "link": {
+    "destination": "https://www.google.com/maps/search/?api=1&query=Mai+Tower+Al+Nahda+1+Dubai",
+    "isTargetBlank": true
+   }
+  },
+  "footer-col-contact-4": {
+   "paragraph": "Al Nahda 1, Dubai, UAE.",
+   "link": {
+    "destination": "https://www.google.com/maps/search/?api=1&query=Mai+Tower+Al+Nahda+1+Dubai",
+    "isTargetBlank": true
+   }
+  },
+  "footer-col-links-head": {
+   "paragraph": "QUICK LINKS"
+  },
+  "footer-col-links-1": {
+   "paragraph": "Packages",
+   "link": {
+    "destination": "#packages",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-links-2": {
+   "paragraph": "Portfolio",
+   "link": {
+    "destination": "#work",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-links-3": {
+   "paragraph": "Services",
+   "link": {
+    "destination": "#services",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-links-4": {
+   "paragraph": "Process",
+   "link": {
+    "destination": "#process",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-links-5": {
+   "paragraph": "FAQ",
+   "link": {
+    "destination": "#faq",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-links-6": {
+   "paragraph": "Contact",
+   "link": {
+    "destination": "#contact",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-services-head": {
+   "paragraph": "SERVICES"
+  },
+  "footer-col-services-1": {
+   "paragraph": "Branding &amp; Designing",
+   "link": {
+    "destination": "#services",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-services-2": {
+   "paragraph": "Web Designing &amp; Development",
+   "link": {
+    "destination": "#services",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-services-3": {
+   "paragraph": "Digital Marketing",
+   "link": {
+    "destination": "#services",
+    "isTargetBlank": false
+   }
+  },
+  "footer-col-services-4": {
+   "paragraph": "Video &amp; Motion Animation",
+   "link": {
+    "destination": "#services",
+    "isTargetBlank": false
+   }
+  },
+  "footer-section": {
+   "tag": "footer"
+  },
+  "footer-copy": {
+   "paragraph": "© Copyright Hee and Lee Portal 2025"
+  }
+ },
+ "style": {
+  "footer-social-linkedin": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:22px; transition:background, border-color; &:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.6);}",
+  "footer-social-linkedin-img": "width:14px; height:16px; object-fit:contain; display:block;",
+  "footer-social-instagram": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:22px; transition:background, border-color; &:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.6);}",
+  "footer-social-instagram-img": "width:14px; height:16px; object-fit:contain; display:block;",
+  "footer-social-facebook": "display:flex; flex-direction:row; align-items:center; justify-content:center; width:44px; height:44px; flex:0 0 44px; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:22px; transition:background, border-color; &:hover{background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.6);}",
+  "footer-social-facebook-img": "width:10px; height:16px; object-fit:contain; display:block;",
+  "footer-col-contact": "display:flex; flex-direction:column; align-items:flex-start; gap:14px; flex:1 1 0; min-width:0; padding:0; @media(--tablet){flex:1 1 200px;}",
+  "footer-col-contact-head": "font-family:var(--font-body); font-weight:700; font-size:13px; line-height:1.2; letter-spacing:1.82px; color:var(--hl-amber); margin:0 0 18px 0;",
+  "footer-col-contact-1": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-contact-2": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-contact-3": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-contact-4": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links": "display:flex; flex-direction:column; align-items:flex-start; gap:14px; flex:1 1 0; min-width:0; padding:0; @media(--tablet){flex:1 1 200px;}",
+  "footer-col-links-head": "font-family:var(--font-body); font-weight:700; font-size:13px; line-height:1.2; letter-spacing:1.82px; color:var(--hl-amber); margin:0 0 18px 0;",
+  "footer-col-links-1": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links-2": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links-3": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links-4": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links-5": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-links-6": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-services": "display:flex; flex-direction:column; align-items:flex-start; gap:14px; flex:1 1 0; min-width:0; padding:0; @media(--tablet){flex:1 1 200px;}",
+  "footer-col-services-head": "font-family:var(--font-body); font-weight:700; font-size:13px; line-height:1.2; letter-spacing:1.82px; color:var(--hl-amber); margin:0 0 18px 0;",
+  "footer-col-services-1": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-services-2": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-services-3": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-col-services-4": "font-family:var(--font-body); font-weight:500; font-size:15px; line-height:20px; color:var(--hl-cream); margin:0; text-decoration:none; &:hover{color:var(--hl-amber);}",
+  "footer-section": "display:flex; flex-direction:column; width:100%; gap:0; padding:0; background:#043f37;",
+  "footer-main": "display:flex; flex-direction:row; align-items:flex-start; gap:64px; width:100%; max-width:1440px; margin:0 auto; padding:80px 120px 64px 120px; @media(--tablet){flex-wrap:wrap; gap:40px; padding:64px 40px 48px 40px;} @media(--mobile){flex-direction:column; gap:36px; padding:56px 16px 40px 16px;}",
+  "footer-brand": "display:flex; flex-direction:column; align-items:flex-start; gap:22px; width:340px; flex:0 0 340px; padding:0; @media(--tablet){width:100%; flex:0 0 100%;}",
+  "footer-logo-chip": "display:inline-block; background:var(--hl-cream); padding:12px 18px; border-radius:16px; width:auto;",
+  "footer-logo": "width:183px; height:50px; object-fit:contain; display:block;",
+  "footer-about": "font-family:var(--font-body); font-weight:400; font-size:15px; line-height:1.6; color:var(--hl-muted); margin:0; @media(--tablet){max-width:520px;}",
+  "footer-socials": "display:flex; flex-direction:row; gap:10px; padding:0;",
+  "footer-bar": "display:block; width:100%; background:var(--hl-coral); padding:20px 16px;",
+  "footer-copy": "font-family:var(--font-body); font-weight:500; font-size:14px; line-height:18px; color:#ffffff; text-align:center; margin:0;"
+ }
+}
