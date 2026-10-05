@@ -1,0 +1,421 @@
+<style id="elementor-post-11">.elementor-11 .elementor-element.elementor-element-fbc8392{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-11 .elementor-element.elementor-element-c8465f8 img{width:1920px;height:600px;object-fit:cover;object-position:center center;}.elementor-11 .elementor-element.elementor-element-9b72eb6{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:80px;--padding-bottom:80px;--padding-left:10px;--padding-right:10px;}.elementor-11 .elementor-element.elementor-element-cd7764a{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 20px) 0px;}.elementor-11 .elementor-element.elementor-element-cd7764a.elementor-element{--align-self:center;}.elementor-11 .elementor-element.elementor-element-f732bf7{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--gap:0px 0px;--row-gap:0px;--column-gap:0px;--margin-top:0px;--margin-bottom:80px;--margin-left:0px;--margin-right:0px;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-11 .elementor-element.elementor-element-e498436{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;}.elementor-11 .elementor-element.elementor-element-e498436.elementor-element{--align-self:center;}.elementor-11 .elementor-element.elementor-element-00b14be{margin:30px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;}.elementor-11 .elementor-element.elementor-element-3812a24{--swiper-slides-to-display:4;--swiper-slides-gap:30px;--swiper-pagination-size:10px;--dots-normal-color:#222222;--dots-hover-color:#6D6E71;--swiper-pagination-spacing:46px;}.elementor-11 .elementor-element.elementor-element-3812a24 .swiper-slide > .elementor-element{height:100%;}.elementor-11 .elementor-element.elementor-element-1c65c82{width:auto;max-width:auto;}.elementor-11 .elementor-element.elementor-element-1c65c82.elementor-element{--align-self:center;}:root{--page-title-display:none;}@media(min-width:768px){.elementor-11 .elementor-element.elementor-element-9b72eb6{--content-width:1300px;}.elementor-11 .elementor-element.elementor-element-f732bf7{--content-width:1400px;}}@media(max-width:1366px){.elementor-11 .elementor-element.elementor-element-3812a24{--swiper-slides-to-display:3;}}@media(max-width:1024px){.elementor-11 .elementor-element.elementor-element-3812a24{--swiper-slides-to-display:2;}}@media(max-width:767px){.elementor-11 .elementor-element.elementor-element-c8465f8 img{height:235px;}.elementor-11 .elementor-element.elementor-element-9b72eb6{--padding-top:30px;--padding-bottom:30px;--padding-left:10px;--padding-right:10px;}.elementor-11 .elementor-element.elementor-element-f732bf7{--margin-top:0px;--margin-bottom:30px;--margin-left:0px;--margin-right:0px;--padding-top:0px;--padding-bottom:0px;--padding-left:10px;--padding-right:10px;}.elementor-11 .elementor-element.elementor-element-3812a24{--swiper-slides-to-display:2;--swiper-slides-gap:10px;}.elementor-11 .elementor-element.elementor-element-1c65c82{margin:30px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;}}/* Start custom CSS for shortcode, class: .elementor-element-042a668 */.soharon-cart { font-family: 'Jost', sans-serif; color: #222; max-width: 1200px; margin: 0 auto; }
+
+.soharon-cart__head,
+.soharon-cart__row {
+    grid-template-columns: 40px 90px 1fr 120px 170px; /* last col 120px -> 170px */
+}
+
+/* keep the whole price on one line */
+.soharon-cart__row .col-price {
+    white-space: nowrap;
+    
+}
+
+.soharon-cart__row{
+    padding: 0px!important;
+}
+
+/* Coupon bar */
+.soharon-coupon-bar { background: #eee; border-radius: 6px; padding: 22px; text-align: center; margin-bottom: 30px;
+max-width: 550px;
+    margin: 0 auto 30px;
+}
+.soharon-coupon-bar p { margin: 0; font-weight: 300; color: #6D6E71; }
+.soharon-coupon-bar .soharon-showcoupon { color: #222; font-weight: 400; text-decoration: none; }
+.soharon-coupon-form { margin-top: 16px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }
+.soharon-coupon-input { width: 320px; max-width: 100%; height: 48px; border: 1px solid #ccc; padding: 0 12px; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 15px; }
+.soharon-coupon-apply { height: 48px; padding: 0 24px; background: #222; color: #fff; border: none; font-family: 'Jost', sans-serif; font-weight: 300; text-transform: uppercase; cursor: pointer; }
+.soharon-coupon-apply:hover { background: #474747; }
+.soharon-coupon-msg { width: 100%; font-size: 14px; color: #6D6E71; }
+
+/* Layout: items left, summary right */
+.soharon-cart__layout { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start; }
+
+/* Items table */
+.soharon-cart__head,
+.soharon-cart__row {
+    display: grid;
+    grid-template-columns: 40px 90px 1fr 120px 120px;
+    align-items: center;
+    gap: 16px;
+}
+.soharon-cart__head { padding: 0 0 14px; border-bottom: 1px solid #e5e5e5; }
+.soharon-cart__head span { font-weight: 300; letter-spacing: .04em; color: #222; }
+.soharon-cart__head .col-qty,
+.soharon-cart__row .col-qty { text-align: center; }
+.soharon-cart__head .col-price,
+.soharon-cart__row .col-price { text-align: right; }
+
+.soharon-cart__row { padding: 26px 0; border-bottom: 1px solid #e5e5e5; }
+.soharon-cart__row img { width: 100%; height: 155px; object-fit: cover; display: block; }
+.soharon-cart__row .col-name a { color: #222; text-decoration: none; font-weight: 300; text-transform: uppercase; letter-spacing: .03em; }
+
+.soharon-remove { background: none; border: none; font-size: 22px; line-height: 1; color: #777; cursor: pointer; padding: 0; }
+.soharon-remove:hover { color: #000; }
+
+/* Price */
+.col-price del { color: #b0b0b0; font-weight: 300; margin-right: 8px; }
+.col-price del .woocommerce-Price-amount { color: #b0b0b0; }
+.col-price ins { text-decoration: none; font-weight: 400; color: #000; }
+
+/* Qty stepper */
+.soharon-qty { display: inline-flex; align-items: center; gap: 12px; }
+.soharon-qty .sq-btn { background: none; border: none; font-size: 18px; line-height: 1; color: #6D6E71; cursor: pointer; padding: 0; width: 20px; }
+.soharon-qty .sq-val { min-width: 16px; text-align: center; font-weight: 400; }
+
+/* Summary */
+.soharon-cart__summary { border-left: 0; }
+.soharon-summary__title { font-weight: 300; letter-spacing: .04em; margin: 0 0 10px; font-size: 18px; }
+.soharon-summary__row { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid #e5e5e5; font-weight: 300; color: #6D6E71; }
+.soharon-summary__row span:last-child { color: #222; }
+.soharon-summary__total span { font-weight: 400; color: #000; }
+.soharon-freeship { text-align: center; font-weight: 300; font-size: 14px; color: #222; padding: 16px 0; margin: 0; }
+.soharon-freeship--done { color: #1a7f37; }
+
+.soharon-checkout-btn { display: block; width: 100%; background: #222; color: #fff; text-align: center; height: 56px; line-height: 56px; border-radius: 4px; text-decoration: none; font-weight: 300; letter-spacing: .08em; }
+.soharon-checkout-btn:hover { background: #393939; color: #FFFFFF;}
+
+.soharon-cart__empty { text-align: center; padding: 60px 0; font-weight: 300; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .soharon-cart__layout { grid-template-columns: 1fr; gap: 40px; }
+    
+    .soharon-cart__row { grid-template-columns: 40px 70px 1fr; grid-auto-rows: auto; row-gap: 10px; }
+    .soharon-cart__row .col-qty { grid-column: 2 / 4; text-align: left; }
+    .soharon-cart__row .col-price { grid-column: 2 / 4; text-align: left; }
+    .soharon-cart__row img { width: 70px; height: 70px; }
+}
+
+@media (max-width: 767px) {
+
+    .soharon-cart,
+    .soharon-cart * {
+        box-sizing: border-box !important;
+    }
+    .soharon-cart {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    .soharon-cart__layout {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .soharon-coupon-bar {
+        width: 340px !important;
+        max-width: 100% !important;
+        border-radius: 9px !important;
+        background-color: #e2e2e2 !important;
+        margin: 0 auto 20px !important;
+    }
+    .soharon-coupon-bar p {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+    .soharon-coupon-bar .soharon-showcoupon {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+
+    .soharon-cart__head {
+        display: grid !important;
+        grid-template-columns: 1fr 60px 60px !important;
+        gap: 8px !important;
+        padding: 0 0 14px !important;
+    }
+    .soharon-cart__head .col-remove,
+    .soharon-cart__head .col-image {
+        display: none !important;
+    }
+    .soharon-cart__head span {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 11px !important;
+        color: #6d6e71 !important;
+        text-transform: uppercase !important;
+    }
+    .soharon-cart__head .col-qty { text-align: left !important; }
+    .soharon-cart__head .col-price { text-align: right !important; }
+
+    .soharon-cart__row {
+        display: grid !important;
+        grid-template-columns: 24px 55px 1fr 60px !important;
+        grid-template-areas:
+            "remove image name price"
+            "remove image qty price" !important;
+        row-gap: 6px !important;
+        column-gap: 8px !important;
+        padding: 16px 0 !important;
+        border-bottom: 0.5px solid #6b6a6b !important;
+        align-items: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .soharon-cart__row > .col-remove {
+        grid-area: remove !important;
+        min-width: 0 !important;
+        align-self: start !important;
+    }
+    .soharon-remove { font-size: 16px !important; }
+
+    .soharon-cart__row > .col-image {
+        grid-area: image !important;
+        min-width: 0 !important;
+        align-self: start !important;
+    }
+    .soharon-cart__row img {
+        width: 55px !important;
+        height: 55px !important;
+        object-fit: cover !important;
+    }
+
+    .soharon-cart__row > .col-name {
+        grid-area: name !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        align-self: end !important;
+    }
+    .soharon-cart__row .col-name a {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 13px !important;
+        color: #222222 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
+    }
+
+    .soharon-cart__row > .col-qty {
+        grid-area: qty !important;
+        min-width: 0 !important;
+        align-self: start !important;
+        text-align: left !important;
+    }
+    .soharon-qty .sq-btn { font-size: 14px !important; }
+    .soharon-qty .sq-val {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        color: #222222 !important;
+    }
+
+    .soharon-cart__row > .col-price {
+        grid-area: price !important;
+        min-width: 0 !important;
+        max-width: 60px !important;
+        overflow: hidden !important;
+        text-align: right !important;
+        align-self: center !important;
+    }
+    .soharon-cart__row .col-price,
+    .soharon-cart__row .col-price span,
+    .soharon-cart__row .col-price bdi,
+    .soharon-cart__row .col-price ins,
+    .soharon-cart__row .col-price del,
+    .soharon-cart__row .col-price .woocommerce-Price-amount,
+    .soharon-cart__row .col-price .woocommerce-Price-currencySymbol {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+        color: #222222 !important;
+        white-space: nowrap !important;
+    }
+
+    .soharon-cart__summary {
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+    .soharon-summary__title {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 700 !important;
+        font-size: 16px !important;
+        color: #222222 !important;
+    }
+    .soharon-summary__row {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #000000 !important;
+        border-bottom: 0.5px solid #e5e5e5 !important;
+        padding: 10px 0 !important;
+    }
+    .soharon-summary__row span:last-child {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        color: #222222 !important;
+    }
+    .soharon-summary__total span {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+        color: #000000 !important;
+    }
+    .soharon-freeship {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #222222 !important;
+        text-align: left !important;
+    }
+
+    .soharon-checkout-btn {
+        width: 340px !important;
+        max-width: 100% !important;
+        height: 40px !important;
+        line-height: 40px !important;
+        border-radius: 9px !important;
+        background-color: #222222 !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        color: #ffffff !important;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .soharon-cart__row .col-price img.aed-symbol,
+    .soharon-summary__row img.aed-symbol,
+    img.aed-symbol {
+        height: 13px !important;
+        width: auto !important;
+        max-height: 13px !important;
+        margin-top: 0 !important;
+        vertical-align: middle !important;
+        display: inline-block !important;
+    }
+
+}/* End custom CSS */
+/* Start custom CSS for html, class: .elementor-element-00b14be */.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #222222;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background-color: #222222;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link:hover::after,
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link.active::after {
+  left: 0;
+  right: 0;
+}
+
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link:hover,
+.elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link.active {
+  color: #222222;
+}
+
+@media (max-width: 768px) {
+  .elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav {
+    gap: 20px!important;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0px;
+  }
+
+  .elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav .cat-link {
+    font-size: 10px!important;
+  }
+  
+  .elementor-11 .elementor-element.elementor-element-00b14be .shop-cat-nav{
+      margin-bottom: 15px;
+  }
+}/* End custom CSS */
+/* Start custom CSS for loop-carousel, class: .elementor-element-3812a24 *//* After AJAX filter, render products as a 4-up grid instead of the broken carousel */
+.elementor-loop-container.soharon-filtered-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 30px !important;
+    transform: none !important;      /* kill Swiper's translate3d */
+    overflow: hidden !important;
+}
+
+/* If the returned markup still keeps a .swiper-wrapper, let the grid see the items */
+.elementor-loop-container.soharon-filtered-grid .swiper-wrapper {
+    display: contents !important;
+    transform: none !important;
+}
+
+/* Make each product fill exactly one grid cell */
+.elementor-loop-container.soharon-filtered-grid .e-loop-item,
+.elementor-loop-container.soharon-filtered-grid .swiper-slide {
+    width: 100% !important;
+    margin: 0 !important;
+    flex: none !important;
+}
+
+/* Match the carousel's original responsive counts */
+@media (max-width: 1024px) {
+    .elementor-loop-container.soharon-filtered-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 767px) {
+    .elementor-loop-container.soharon-filtered-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Optional: hide the carousel dots once it's a grid */
+.elementor-widget-loop-carousel:has(.soharon-filtered-grid) .swiper-pagination {
+    display: none !important;
+}
+
+.swiper-pagination-bullet {
+    background: #222222; /* current/default dot color — adjust to match what you have now */
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #6d6e71 !important;
+    opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .elementor-11 .elementor-element.elementor-element-3812a24 .swiper-pagination-bullet {
+        width: 7px!important;
+        height: 7px!important;
+    }
+}/* End custom CSS */
+/* Start custom CSS for html, class: .elementor-element-1c65c82 */@media (max-width: 767px)
+{
+h2{
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #222222;
+    margin: 0;
+    line-height: 1;
+}
+}/* End custom CSS */</style>{"id":11,"slug":"cart","content":{"raw":"<img width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart.webp\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart.webp 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-300x94.webp 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-1024x320.webp 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-768x240.webp 768w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-1536x480.webp 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-600x188.webp 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n    <h2>CART<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:14px;\n    text-align: center;\n}\n.custom-title span{\n    width:40px;\n    height:0.25px;\n}\n}\n<\/style>\t\t[soharon_cart]\t\t\t\n    <h2>YOU'LL LOVE THESE<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:18px;\n}\n.custom-title span{\n    width:40px;\n}\n}\n<\/style>\t\t\t\t\t\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/necklaces\/\" data-cat=\"necklaces\">NECKLACES<\/a>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/earrings\/\" data-cat=\"earrings\">EARRINGS<\/a>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/bracelets-bangles\/\" data-cat=\"bracelets-bangles\">BRACELETS &amp; BANGLES<\/a>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/gift-sets\/\" data-cat=\"gift-sets\">GIFT SETS<\/a>\n        <h2>LETS SOCIALIZE <\/h2>\n        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a>\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a>\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a>\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a>\n<style>\n    .social-icons {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n}\n.social-icons a img {\n    width: 35px;\n    height: 35px;\n    display: block;\n    transition-duration: .1s;\n}\n.social-icons a img:hover{\n    scale: .9;\n    transition-duration: .1s;\n}\n .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 13px;\n    text-align: center;\n}\n.bsh-heading-social {\n    display: grid;\n    grid-template-columns: 1fr auto 1fr;\n    align-items: center;\n    gap: 25px!important;\n}\n .bsh-heading-social .bsh-line {\n    width: 75px!important;\n    height: 1px;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n.bsh-heading-social .bsh-text-col {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px!important;\n    text-align: center;\n}\n .bsh-heading-social .bsh-title {\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 22px;\n    color: #222222;\n    margin: 0;\n    line-height: 1;\n}\n.bsh-heading-social .bsh-subtitle{\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    color: #6d6e71;\n}\n@media (max-width: 767px) {\n    .bsh-heading-social .bsh-title {\n        font-size: 14px;\n    }\n    .social-icons a img {\n        width: 16px;\n    height: 16px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons a img {\n        width: 20px;\n    height: 20px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons {\n        gap: 10px;\n    }\n    .bsh-heading-social .bsh-line {\n    width: 35px!important;\n    height: 0.25;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n    .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px;\n    text-align: center;\n}\n}\n}\n<\/style>","rendered":"<p><img loading=\"lazy\" decoding=\"async\" width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart.webp\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart.webp 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-300x94.webp 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-1024x320.webp 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-768x240.webp 768w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-1536x480.webp 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Cart-600x188.webp 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<\/p>\n<h2>CART<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:14px;\n    text-align: center;\n}\n.custom-title span{\n    width:40px;\n    height:0.25px;\n}\n}\n<\/style>\n\n<h2>YOU&#8217;LL LOVE THESE<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:18px;\n}\n.custom-title span{\n    width:40px;\n}\n}\n<\/style>\n<p>  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/necklaces\/\" data-cat=\"necklaces\">NECKLACES<\/a><br \/>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/earrings\/\" data-cat=\"earrings\">EARRINGS<\/a><br \/>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/bracelets-bangles\/\" data-cat=\"bracelets-bangles\">BRACELETS &amp; BANGLES<\/a><br \/>\n  <a href=\"https:\/\/soharon.co.uk\/dev-101\/product-category\/gift-sets\/\" data-cat=\"gift-sets\">GIFT SETS<\/a><\/p>\n<h2>LETS SOCIALIZE <\/h2>\n<p>        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a><br \/>\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a><br \/>\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a><br \/>\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a><\/p>\n<style>\n    .social-icons {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n}\n.social-icons a img {\n    width: 35px;\n    height: 35px;\n    display: block;\n    transition-duration: .1s;\n}\n.social-icons a img:hover{\n    scale: .9;\n    transition-duration: .1s;\n}\n .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 13px;\n    text-align: center;\n}\n.bsh-heading-social {\n    display: grid;\n    grid-template-columns: 1fr auto 1fr;\n    align-items: center;\n    gap: 25px!important;\n}\n .bsh-heading-social .bsh-line {\n    width: 75px!important;\n    height: 1px;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n.bsh-heading-social .bsh-text-col {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px!important;\n    text-align: center;\n}\n .bsh-heading-social .bsh-title {\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 22px;\n    color: #222222;\n    margin: 0;\n    line-height: 1;\n}\n.bsh-heading-social .bsh-subtitle{\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    color: #6d6e71;\n}\n@media (max-width: 767px) {\n    .bsh-heading-social .bsh-title {\n        font-size: 14px;\n    }\n    .social-icons a img {\n        width: 16px;\n    height: 16px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons a img {\n        width: 20px;\n    height: 20px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons {\n        gap: 10px;\n    }\n    .bsh-heading-social .bsh-line {\n    width: 35px!important;\n    height: 0.25;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n    .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px;\n    text-align: center;\n}\n}\n}\n<\/style>\n","protected":false,"block_version":0},"meta":{"_acf_changed":false,"footnotes":"","_elementor_edit_mode":"builder","_elementor_template_type":"wp-page","_elementor_data":"[{\"id\":\"fbc8392\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"content_width\":\"full\",\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":true},\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"lqd_sticky_row_offset\":\"0px\"},\"elements\":[{\"id\":\"c8465f8\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/07\\\/Cart.webp\",\"id\":1576,\"size\":\"\",\"alt\":\"\",\"source\":\"library\"},\"image_size\":\"full\",\"width\":{\"unit\":\"px\",\"size\":1920,\"sizes\":[]},\"width_tablet\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"width_mobile\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"height\":{\"unit\":\"px\",\"size\":600,\"sizes\":[]},\"object-fit\":\"cover\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"height_mobile\":{\"unit\":\"px\",\"size\":235,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"image\"}],\"isInner\":false},{\"id\":\"9b72eb6\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"boxed_width\":{\"unit\":\"px\",\"size\":1300,\"sizes\":[]},\"padding\":{\"unit\":\"px\",\"top\":\"80\",\"right\":\"10\",\"bottom\":\"80\",\"left\":\"10\",\"isLinked\":false},\"margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"padding_mobile\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"10\",\"bottom\":\"30\",\"left\":\"10\",\"isLinked\":false}},\"elements\":[{\"id\":\"cd7764a\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"custom-title\\\">\\r\\n    <span><\\\/span>\\r\\n    <h2>CART<\\\/h2>\\r\\n    <span><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n.custom-title{\\r\\n    display:flex;\\r\\n    align-items:center;\\r\\n    justify-content:center;\\r\\n    gap:20px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    margin:0;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:22px;\\r\\n    font-weight:300;\\r\\n    color:#222222;\\r\\n    line-height:1;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:80px;\\r\\n    height:0.5px;\\r\\n    background:#6d6e71;\\r\\n    display:block;\\r\\n}\\r\\n\\r\\n\\\/* Mobile Responsive *\\\/\\r\\n@media(max-width:767px){\\r\\n\\r\\n.custom-title{\\r\\n    gap:10px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    font-size:14px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:40px;\\r\\n    height:0.25px;\\r\\n}\\r\\n\\r\\n}\\r\\n<\\\/style>\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":37,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false},\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":64,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"html\"},{\"id\":\"042a668\",\"elType\":\"widget\",\"settings\":{\"shortcode\":\"[soharon_cart]\",\"custom_css\":\".soharon-cart { font-family: 'Jost', sans-serif; color: #222; max-width: 1200px; margin: 0 auto; }\\r\\n\\r\\n.soharon-cart__head,\\r\\n.soharon-cart__row {\\r\\n    grid-template-columns: 40px 90px 1fr 120px 170px; \\\/* last col 120px -> 170px *\\\/\\r\\n}\\r\\n\\r\\n\\\/* keep the whole price on one line *\\\/\\r\\n.soharon-cart__row .col-price {\\r\\n    white-space: nowrap;\\r\\n    \\r\\n}\\r\\n\\r\\n.soharon-cart__row{\\r\\n    padding: 0px!important;\\r\\n}\\r\\n\\r\\n\\\/* Coupon bar *\\\/\\r\\n.soharon-coupon-bar { background: #eee; border-radius: 6px; padding: 22px; text-align: center; margin-bottom: 30px;\\r\\nmax-width: 550px;\\r\\n    margin: 0 auto 30px;\\r\\n}\\r\\n.soharon-coupon-bar p { margin: 0; font-weight: 300; color: #6D6E71; }\\r\\n.soharon-coupon-bar .soharon-showcoupon { color: #222; font-weight: 400; text-decoration: none; }\\r\\n.soharon-coupon-form { margin-top: 16px; display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; }\\r\\n.soharon-coupon-input { width: 320px; max-width: 100%; height: 48px; border: 1px solid #ccc; padding: 0 12px; font-family: 'Jost', sans-serif; font-weight: 300; font-size: 15px; }\\r\\n.soharon-coupon-apply { height: 48px; padding: 0 24px; background: #222; color: #fff; border: none; font-family: 'Jost', sans-serif; font-weight: 300; text-transform: uppercase; cursor: pointer; }\\r\\n.soharon-coupon-apply:hover { background: #474747; }\\r\\n.soharon-coupon-msg { width: 100%; font-size: 14px; color: #6D6E71; }\\r\\n\\r\\n\\\/* Layout: items left, summary right *\\\/\\r\\n.soharon-cart__layout { display: grid; grid-template-columns: 1fr 360px; gap: 60px; align-items: start; }\\r\\n\\r\\n\\\/* Items table *\\\/\\r\\n.soharon-cart__head,\\r\\n.soharon-cart__row {\\r\\n    display: grid;\\r\\n    grid-template-columns: 40px 90px 1fr 120px 120px;\\r\\n    align-items: center;\\r\\n    gap: 16px;\\r\\n}\\r\\n.soharon-cart__head { padding: 0 0 14px; border-bottom: 1px solid #e5e5e5; }\\r\\n.soharon-cart__head span { font-weight: 300; letter-spacing: .04em; color: #222; }\\r\\n.soharon-cart__head .col-qty,\\r\\n.soharon-cart__row .col-qty { text-align: center; }\\r\\n.soharon-cart__head .col-price,\\r\\n.soharon-cart__row .col-price { text-align: right; }\\r\\n\\r\\n.soharon-cart__row { padding: 26px 0; border-bottom: 1px solid #e5e5e5; }\\r\\n.soharon-cart__row img { width: 100%; height: 155px; object-fit: cover; display: block; }\\r\\n.soharon-cart__row .col-name a { color: #222; text-decoration: none; font-weight: 300; text-transform: uppercase; letter-spacing: .03em; }\\r\\n\\r\\n.soharon-remove { background: none; border: none; font-size: 22px; line-height: 1; color: #777; cursor: pointer; padding: 0; }\\r\\n.soharon-remove:hover { color: #000; }\\r\\n\\r\\n\\\/* Price *\\\/\\r\\n.col-price del { color: #b0b0b0; font-weight: 300; margin-right: 8px; }\\r\\n.col-price del .woocommerce-Price-amount { color: #b0b0b0; }\\r\\n.col-price ins { text-decoration: none; font-weight: 400; color: #000; }\\r\\n\\r\\n\\\/* Qty stepper *\\\/\\r\\n.soharon-qty { display: inline-flex; align-items: center; gap: 12px; }\\r\\n.soharon-qty .sq-btn { background: none; border: none; font-size: 18px; line-height: 1; color: #6D6E71; cursor: pointer; padding: 0; width: 20px; }\\r\\n.soharon-qty .sq-val { min-width: 16px; text-align: center; font-weight: 400; }\\r\\n\\r\\n\\\/* Summary *\\\/\\r\\n.soharon-cart__summary { border-left: 0; }\\r\\n.soharon-summary__title { font-weight: 300; letter-spacing: .04em; margin: 0 0 10px; font-size: 18px; }\\r\\n.soharon-summary__row { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-bottom: 1px solid #e5e5e5; font-weight: 300; color: #6D6E71; }\\r\\n.soharon-summary__row span:last-child { color: #222; }\\r\\n.soharon-summary__total span { font-weight: 400; color: #000; }\\r\\n.soharon-freeship { text-align: center; font-weight: 300; font-size: 14px; color: #222; padding: 16px 0; margin: 0; }\\r\\n.soharon-freeship--done { color: #1a7f37; }\\r\\n\\r\\n.soharon-checkout-btn { display: block; width: 100%; background: #222; color: #fff; text-align: center; height: 56px; line-height: 56px; border-radius: 4px; text-decoration: none; font-weight: 300; letter-spacing: .08em; }\\r\\n.soharon-checkout-btn:hover { background: #393939; color: #FFFFFF;}\\r\\n\\r\\n.soharon-cart__empty { text-align: center; padding: 60px 0; font-weight: 300; }\\r\\n\\r\\n\\\/* Responsive *\\\/\\r\\n@media (max-width: 900px) {\\r\\n    .soharon-cart__layout { grid-template-columns: 1fr; gap: 40px; }\\r\\n    \\r\\n    .soharon-cart__row { grid-template-columns: 40px 70px 1fr; grid-auto-rows: auto; row-gap: 10px; }\\r\\n    .soharon-cart__row .col-qty { grid-column: 2 \\\/ 4; text-align: left; }\\r\\n    .soharon-cart__row .col-price { grid-column: 2 \\\/ 4; text-align: left; }\\r\\n    .soharon-cart__row img { width: 70px; height: 70px; }\\r\\n}\\r\\n\\r\\n@media (max-width: 767px) {\\r\\n\\r\\n    .soharon-cart,\\r\\n    .soharon-cart * {\\r\\n        box-sizing: border-box !important;\\r\\n    }\\r\\n    .soharon-cart {\\r\\n        overflow-x: hidden !important;\\r\\n        width: 100% !important;\\r\\n    }\\r\\n    .soharon-cart__layout {\\r\\n        display: block !important;\\r\\n        width: 100% !important;\\r\\n    }\\r\\n\\r\\n    .soharon-coupon-bar {\\r\\n        width: 340px !important;\\r\\n        max-width: 100% !important;\\r\\n        border-radius: 9px !important;\\r\\n        background-color: #e2e2e2 !important;\\r\\n        margin: 0 auto 20px !important;\\r\\n    }\\r\\n    .soharon-coupon-bar p {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n    .soharon-coupon-bar .soharon-showcoupon {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 500 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__head {\\r\\n        display: grid !important;\\r\\n        grid-template-columns: 1fr 60px 60px !important;\\r\\n        gap: 8px !important;\\r\\n        padding: 0 0 14px !important;\\r\\n    }\\r\\n    .soharon-cart__head .col-remove,\\r\\n    .soharon-cart__head .col-image {\\r\\n        display: none !important;\\r\\n    }\\r\\n    .soharon-cart__head span {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 11px !important;\\r\\n        color: #6d6e71 !important;\\r\\n        text-transform: uppercase !important;\\r\\n    }\\r\\n    .soharon-cart__head .col-qty { text-align: left !important; }\\r\\n    .soharon-cart__head .col-price { text-align: right !important; }\\r\\n\\r\\n    .soharon-cart__row {\\r\\n        display: grid !important;\\r\\n        grid-template-columns: 24px 55px 1fr 60px !important;\\r\\n        grid-template-areas:\\r\\n            \\\"remove image name price\\\"\\r\\n            \\\"remove image qty price\\\" !important;\\r\\n        row-gap: 6px !important;\\r\\n        column-gap: 8px !important;\\r\\n        padding: 16px 0 !important;\\r\\n        border-bottom: 0.5px solid #6b6a6b !important;\\r\\n        align-items: center !important;\\r\\n        width: 100% !important;\\r\\n        overflow: hidden !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__row > .col-remove {\\r\\n        grid-area: remove !important;\\r\\n        min-width: 0 !important;\\r\\n        align-self: start !important;\\r\\n    }\\r\\n    .soharon-remove { font-size: 16px !important; }\\r\\n\\r\\n    .soharon-cart__row > .col-image {\\r\\n        grid-area: image !important;\\r\\n        min-width: 0 !important;\\r\\n        align-self: start !important;\\r\\n    }\\r\\n    .soharon-cart__row img {\\r\\n        width: 55px !important;\\r\\n        height: 55px !important;\\r\\n        object-fit: cover !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__row > .col-name {\\r\\n        grid-area: name !important;\\r\\n        min-width: 0 !important;\\r\\n        overflow: hidden !important;\\r\\n        align-self: end !important;\\r\\n    }\\r\\n    .soharon-cart__row .col-name a {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 13px !important;\\r\\n        color: #222222 !important;\\r\\n        white-space: nowrap !important;\\r\\n        overflow: hidden !important;\\r\\n        text-overflow: ellipsis !important;\\r\\n        display: block !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__row > .col-qty {\\r\\n        grid-area: qty !important;\\r\\n        min-width: 0 !important;\\r\\n        align-self: start !important;\\r\\n        text-align: left !important;\\r\\n    }\\r\\n    .soharon-qty .sq-btn { font-size: 14px !important; }\\r\\n    .soharon-qty .sq-val {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #222222 !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__row > .col-price {\\r\\n        grid-area: price !important;\\r\\n        min-width: 0 !important;\\r\\n        max-width: 60px !important;\\r\\n        overflow: hidden !important;\\r\\n        text-align: right !important;\\r\\n        align-self: center !important;\\r\\n    }\\r\\n    .soharon-cart__row .col-price,\\r\\n    .soharon-cart__row .col-price span,\\r\\n    .soharon-cart__row .col-price bdi,\\r\\n    .soharon-cart__row .col-price ins,\\r\\n    .soharon-cart__row .col-price del,\\r\\n    .soharon-cart__row .col-price .woocommerce-Price-amount,\\r\\n    .soharon-cart__row .col-price .woocommerce-Price-currencySymbol {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 500 !important;\\r\\n        font-size: 13px !important;\\r\\n        line-height: 1.2 !important;\\r\\n        color: #222222 !important;\\r\\n        white-space: nowrap !important;\\r\\n    }\\r\\n\\r\\n    .soharon-cart__summary {\\r\\n        width: 100% !important;\\r\\n        margin-top: 30px !important;\\r\\n    }\\r\\n    .soharon-summary__title {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 700 !important;\\r\\n        font-size: 16px !important;\\r\\n        color: #222222 !important;\\r\\n    }\\r\\n    .soharon-summary__row {\\r\\n        display: flex !important;\\r\\n        justify-content: space-between !important;\\r\\n        width: 100% !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #000000 !important;\\r\\n        border-bottom: 0.5px solid #e5e5e5 !important;\\r\\n        padding: 10px 0 !important;\\r\\n    }\\r\\n    .soharon-summary__row span:last-child {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 500 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #222222 !important;\\r\\n    }\\r\\n    .soharon-summary__total span {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 500 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #000000 !important;\\r\\n    }\\r\\n    .soharon-freeship {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #222222 !important;\\r\\n        text-align: left !important;\\r\\n    }\\r\\n\\r\\n    .soharon-checkout-btn {\\r\\n        width: 340px !important;\\r\\n        max-width: 100% !important;\\r\\n        height: 40px !important;\\r\\n        line-height: 40px !important;\\r\\n        border-radius: 9px !important;\\r\\n        background-color: #222222 !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #ffffff !important;\\r\\n        margin: 0 auto !important;\\r\\n        display: block !important;\\r\\n    }\\r\\n}\\r\\n\\r\\n@media (max-width: 767px) {\\r\\n    .soharon-cart__row .col-price img.aed-symbol,\\r\\n    .soharon-summary__row img.aed-symbol,\\r\\n    img.aed-symbol {\\r\\n        height: 13px !important;\\r\\n        width: auto !important;\\r\\n        max-height: 13px !important;\\r\\n        margin-top: 0 !important;\\r\\n        vertical-align: middle !important;\\r\\n        display: inline-block !important;\\r\\n    }\\r\\n\\r\\n}\"},\"elements\":[],\"widgetType\":\"shortcode\"}],\"isInner\":false},{\"id\":\"f732bf7\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"boxed_width\":{\"unit\":\"px\",\"size\":1400,\"sizes\":[]},\"margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"80\",\"left\":\"0\",\"isLinked\":false},\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"flex_gap\":{\"column\":\"0\",\"row\":\"0\",\"isLinked\":false,\"unit\":\"px\",\"size\":0},\"margin_mobile\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"30\",\"left\":\"0\",\"isLinked\":false},\"padding_mobile\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"10\",\"bottom\":\"0\",\"left\":\"10\",\"isLinked\":false}},\"elements\":[{\"id\":\"e498436\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"custom-title\\\">\\r\\n    <span><\\\/span>\\r\\n    <h2>YOU'LL LOVE THESE<\\\/h2>\\r\\n    <span><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n.custom-title{\\r\\n    display:flex;\\r\\n    align-items:center;\\r\\n    justify-content:center;\\r\\n    gap:20px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    margin:0;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:22px;\\r\\n    font-weight:300;\\r\\n    color:#222222;\\r\\n    line-height:1;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:80px;\\r\\n    height:0.5px;\\r\\n    background:#6d6e71;\\r\\n    display:block;\\r\\n}\\r\\n\\r\\n\\\/* Mobile Responsive *\\\/\\r\\n@media(max-width:767px){\\r\\n\\r\\n.custom-title{\\r\\n    gap:10px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    font-size:18px;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:40px;\\r\\n}\\r\\n\\r\\n}\\r\\n<\\\/style>\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":37,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":64,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"html\"},{\"id\":\"00b14be\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"shop-cat-nav\\\">\\n  <a href=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/product-category\\\/necklaces\\\/\\\" class=\\\"cat-link\\\" data-cat=\\\"necklaces\\\">NECKLACES<\\\/a>\\n  <a href=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/product-category\\\/earrings\\\/\\\" class=\\\"cat-link\\\" data-cat=\\\"earrings\\\">EARRINGS<\\\/a>\\n  <a href=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/product-category\\\/bracelets-bangles\\\/\\\" class=\\\"cat-link\\\" data-cat=\\\"bracelets-bangles\\\">BRACELETS &amp; BANGLES<\\\/a>\\n  <a href=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/product-category\\\/gift-sets\\\/\\\" class=\\\"cat-link\\\" data-cat=\\\"gift-sets\\\">GIFT SETS<\\\/a>\\n<\\\/div>\\n\\n<script>\\njQuery(document).ready(function ($) {\\n\\n    var MAX_SLIDES = 8;\\n\\n    var SW_BREAKPOINTS = {\\n        768:  { slidesPerView: 2, spaceBetween: 30, slidesPerGroup: 2 },\\n        1025: { slidesPerView: 4, spaceBetween: 30, slidesPerGroup: 4 }\\n    };\\n\\n    function reinitSwiper($carousel) {\\n        if (typeof Swiper === 'undefined') return;\\n        var el = $carousel.get(0);\\n        if (el.swiper) { try { el.swiper.destroy(true, true); } catch (e) {} }\\n\\n        var $widget = $carousel.closest('.elementor-widget-loop-carousel');\\n        var pagEl   = $widget.find('.swiper-pagination').get(0);\\n        if (pagEl) {\\n            pagEl.classList.remove('swiper-pagination-lock');\\n            pagEl.innerHTML = '';\\n        }\\n\\n        var sw = new Swiper(el, {\\n            loop: true,\\n            speed: 500,\\n            watchOverflow: true,\\n            observer: true,\\n            observeParents: true,\\n            slidesPerView: 2,\\n            spaceBetween: 10,\\n            slidesPerGroup: 2,\\n            pagination: pagEl ? { el: pagEl, clickable: true } : false,\\n            breakpoints: SW_BREAKPOINTS\\n        });\\n\\n        setTimeout(function () { try { sw.update(); } catch (e) {} }, 50);\\n    }\\n\\n    function normalizeToWrapper(itemsHtml) {\\n        var $tmp = $('<div>').html(itemsHtml);\\n        $tmp.children('.swiper-slide-duplicate').remove();\\n        if (MAX_SLIDES > 0) { $tmp.children().slice(MAX_SLIDES).remove(); }\\n\\n        $tmp.children().each(function () {\\n            this.className = this.className\\n                .replace(\\\/swiper-slide-(active|next|prev|duplicate[\\\\w-]*)\\\/g, '')\\n                .replace(\\\/\\\\s+\\\/g, ' ')\\n                .trim();\\n            if (!$(this).hasClass('swiper-slide')) { $(this).addClass('swiper-slide'); }\\n            this.removeAttribute('style');\\n            this.removeAttribute('aria-hidden');\\n            this.removeAttribute('inert');\\n        });\\n\\n        return '<div class=\\\"swiper-wrapper\\\">' + $tmp.html() + '<\\\/div>';\\n    }\\n\\n    function getOriginalItemsHtml($carousel) {\\n        var html = '';\\n        $carousel.find('.swiper-slide').not('.swiper-slide-duplicate').each(function () {\\n            html += this.outerHTML;\\n        });\\n        return html;\\n    }\\n\\n    function extractFirstStyle(html) {\\n        var m = html && html.match(\\\/<style[\\\\s\\\\S]*?<\\\\\\\/style>\\\/i);\\n        return m ? m[0] : '';\\n    }\\n\\n    function rebuild($carousel, itemsHtml, prefixHtml) {\\n        $carousel\\n            .html((prefixHtml || '') + normalizeToWrapper(itemsHtml))\\n            .removeClass('soharon-filtered-grid')\\n            .css('opacity', '1');\\n        reinitSwiper($carousel);\\n    }\\n\\n    $(document).on('click', '.shop-cat-nav .cat-link', function (e) {\\n        e.preventDefault();\\n\\n        var $link = $(this);\\n        var $nav  = $link.closest('.shop-cat-nav');\\n\\n        var $carousel = $();\\n        $link.parents().each(function () {\\n            var found = $(this).find('.elementor-loop-container').first();\\n            if (found.length) { $carousel = found; return false; }\\n        });\\n        if (!$carousel.length) return;\\n\\n        if (!$carousel.data('originalItems')) {\\n            $carousel.data('originalItems', getOriginalItemsHtml($carousel));\\n            var styleHtml = '';\\n            $carousel.closest('.elementor-widget-loop-carousel')\\n                     .find('style').each(function () { styleHtml += this.outerHTML; });\\n            $carousel.data('cardStyle', styleHtml);\\n        }\\n\\n        if ($link.hasClass('active')) {\\n            $link.removeClass('active');\\n            rebuild($carousel, $carousel.data('originalItems'), $carousel.data('cardStyle'));\\n            return;\\n        }\\n\\n        $nav.find('.cat-link').removeClass('active');\\n        $link.addClass('active');\\n\\n        var cat = $link.data('cat');\\n\\n        $.ajax({\\n            url: soharonFilter.ajaxUrl,\\n            type: 'POST',\\n            data: {\\n                action: 'filter_products_by_category',\\n                category: cat,\\n                nonce: soharonFilter.nonce\\n            },\\n            beforeSend: function () { $carousel.css('opacity', '0.4'); },\\n            success: function (response) {\\n                if (response.success) {\\n                    if (!$carousel.data('cardStyle')) {\\n                        $carousel.data('cardStyle', extractFirstStyle(response.data.html));\\n                    }\\n                    rebuild($carousel, response.data.html);\\n                } else {\\n                    $carousel.css('opacity', '1');\\n                    console.log('Filter error:', response.data);\\n                }\\n            },\\n            error: function (xhr) {\\n                $carousel.css('opacity', '1');\\n                console.log('AJAX error:', xhr.responseText);\\n                alert('Filter failed. Please try again.');\\n            }\\n        });\\n    });\\n});\\n<\\\/script>\",\"_margin\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"custom_css\":\"selector .shop-cat-nav {\\r\\n  display: flex;\\r\\n  justify-content: center;\\r\\n  gap: 60px;\\r\\n}\\r\\n\\r\\nselector .shop-cat-nav .cat-link {\\r\\n  font-family: 'Jost', sans-serif;\\r\\n  font-weight: 300;\\r\\n  font-size: 18px;\\r\\n  color: #222222;\\r\\n  text-decoration: none;\\r\\n  text-transform: uppercase;\\r\\n  letter-spacing: 1px;\\r\\n  position: relative;\\r\\n  display: inline-block;\\r\\n  padding-bottom: 4px;\\r\\n}\\r\\n\\r\\nselector .shop-cat-nav .cat-link::after {\\r\\n  content: '';\\r\\n  position: absolute;\\r\\n  bottom: -2px;\\r\\n  left: 50%;\\r\\n  right: 50%;\\r\\n  height: 2px;\\r\\n  background-color: #222222;\\r\\n  transition: left 0.3s ease, right 0.3s ease;\\r\\n}\\r\\n\\r\\nselector .shop-cat-nav .cat-link:hover::after,\\r\\nselector .shop-cat-nav .cat-link.active::after {\\r\\n  left: 0;\\r\\n  right: 0;\\r\\n}\\r\\n\\r\\nselector .shop-cat-nav .cat-link:hover,\\r\\nselector .shop-cat-nav .cat-link.active {\\r\\n  color: #222222;\\r\\n}\\r\\n\\r\\n@media (max-width: 768px) {\\r\\n  selector .shop-cat-nav {\\r\\n    gap: 20px!important;\\r\\n    flex-wrap: wrap;\\r\\n    justify-content: center;\\r\\n    padding: 0px;\\r\\n  }\\r\\n\\r\\n  selector .shop-cat-nav .cat-link {\\r\\n    font-size: 10px!important;\\r\\n  }\\r\\n  \\r\\n  selector .shop-cat-nav{\\r\\n      margin-bottom: 15px;\\r\\n  }\\r\\n}\"},\"elements\":[],\"widgetType\":\"html\"},{\"id\":\"3812a24\",\"elType\":\"widget\",\"settings\":{\"_skin\":\"product\",\"template_id\":\"171\",\"posts_per_page\":8,\"slides_to_show\":\"4\",\"autoplay\":\"\",\"arrows\":\"\",\"image_spacing_custom\":{\"unit\":\"px\",\"size\":30,\"sizes\":[]},\"dots_size\":{\"unit\":\"px\",\"size\":10,\"sizes\":[]},\"dots_normal_color\":\"#222222\",\"dots_pagination_spacing\":{\"unit\":\"px\",\"size\":46,\"sizes\":[]},\"custom_css\":\"\\\/* After AJAX filter, render products as a 4-up grid instead of the broken carousel *\\\/\\r\\n.elementor-loop-container.soharon-filtered-grid {\\r\\n    display: grid !important;\\r\\n    grid-template-columns: repeat(4, 1fr) !important;\\r\\n    gap: 30px !important;\\r\\n    transform: none !important;      \\\/* kill Swiper's translate3d *\\\/\\r\\n    overflow: hidden !important;\\r\\n}\\r\\n\\r\\n\\\/* If the returned markup still keeps a .swiper-wrapper, let the grid see the items *\\\/\\r\\n.elementor-loop-container.soharon-filtered-grid .swiper-wrapper {\\r\\n    display: contents !important;\\r\\n    transform: none !important;\\r\\n}\\r\\n\\r\\n\\\/* Make each product fill exactly one grid cell *\\\/\\r\\n.elementor-loop-container.soharon-filtered-grid .e-loop-item,\\r\\n.elementor-loop-container.soharon-filtered-grid .swiper-slide {\\r\\n    width: 100% !important;\\r\\n    margin: 0 !important;\\r\\n    flex: none !important;\\r\\n}\\r\\n\\r\\n\\\/* Match the carousel's original responsive counts *\\\/\\r\\n@media (max-width: 1024px) {\\r\\n    .elementor-loop-container.soharon-filtered-grid { grid-template-columns: repeat(2, 1fr) !important; }\\r\\n}\\r\\n@media (max-width: 767px) {\\r\\n    .elementor-loop-container.soharon-filtered-grid { grid-template-columns: 1fr !important; }\\r\\n}\\r\\n\\r\\n\\\/* Optional: hide the carousel dots once it's a grid *\\\/\\r\\n.elementor-widget-loop-carousel:has(.soharon-filtered-grid) .swiper-pagination {\\r\\n    display: none !important;\\r\\n}\\r\\n\\r\\n.swiper-pagination-bullet {\\r\\n    background: #222222; \\\/* current\\\/default dot color \\u2014 adjust to match what you have now *\\\/\\r\\n    opacity: 1;\\r\\n}\\r\\n\\r\\n.swiper-pagination-bullet-active {\\r\\n    background: #6d6e71 !important;\\r\\n    opacity: 1;\\r\\n}\\r\\n\\r\\n@media screen and (max-width: 480px) {\\r\\n  selector .swiper-pagination-bullet {\\r\\n        width: 7px!important;\\r\\n        height: 7px!important;\\r\\n    }\\r\\n}\\r\\n\",\"slides_to_show_mobile\":\"2\",\"image_spacing_custom_mobile\":{\"unit\":\"px\",\"size\":10,\"sizes\":[]},\"dots_hover_color\":\"#6D6E71\",\"slides_to_scroll\":\"4\"},\"elements\":[],\"widgetType\":\"loop-carousel\"},{\"id\":\"1c65c82\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"bsh-heading-social\\\" class=\\\"social\\\">\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n    <div class=\\\"bsh-text-col-social\\\">\\r\\n        <h2 class=\\\"bsh-title\\\">LETS SOCIALIZE <\\\/h2>\\r\\n        <div class=\\\"social-icons\\\">\\r\\n        <a href=\\\"https:\\\/\\\/www.instagram.com\\\/fierrojewellery\\\/\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Instagram-Icon.svg\\\" alt=\\\"Instagram\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.facebook.com\\\/profile.php?id=61592874454475\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Facebook-Icon.svg\\\" alt=\\\"Facebook\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.tiktok.com\\\/@fierrojewellery\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/TikTok-Icon.svg\\\" alt=\\\"TitTok\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/wa.me\\\/971527794759\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/WhatsApp-Icon.svg\\\" alt=\\\"WhatsApp\\\"><\\\/a>\\r\\n    <\\\/div>\\r\\n\\r\\n    <\\\/div>\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n    .social-icons {\\r\\n    display: flex;\\r\\n    align-items: center;\\r\\n    gap: 16px;\\r\\n}\\r\\n.social-icons a img {\\r\\n    width: 35px;\\r\\n    height: 35px;\\r\\n    display: block;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n.social-icons a img:hover{\\r\\n    scale: .9;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n\\r\\n .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 13px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social {\\r\\n    display: grid;\\r\\n    grid-template-columns: 1fr auto 1fr;\\r\\n    align-items: center;\\r\\n    gap: 25px!important;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-line {\\r\\n    width: 75px!important;\\r\\n    height: 1px;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social .bsh-text-col {\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px!important;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-title {\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 22px;\\r\\n    color: #222222;\\r\\n    margin: 0;\\r\\n    line-height: 1;\\r\\n}\\r\\n.bsh-heading-social .bsh-subtitle{\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 16px;\\r\\n    color: #6d6e71;\\r\\n}\\r\\n@media (max-width: 767px) {\\r\\n    .bsh-heading-social .bsh-title {\\r\\n        font-size: 14px;\\r\\n    }\\r\\n    \\r\\n    .social-icons a img {\\r\\n        width: 16px;\\r\\n    height: 16px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons a img {\\r\\n        width: 20px;\\r\\n    height: 20px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons {\\r\\n        gap: 10px;\\r\\n    }\\r\\n    .bsh-heading-social .bsh-line {\\r\\n    width: 35px!important;\\r\\n    height: 0.25;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n    .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px;\\r\\n    text-align: center;\\r\\n}\\r\\n}\\r\\n}\\r\\n\\r\\n\\r\\n\\r\\n<\\\/style>\\r\\n\",\"_element_width\":\"auto\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":24,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":66,\"sizes\":[]},\"custom_css\":\"   \\n@media (max-width: 767px)\\n{\\nh2{\\n    font-family: 'Jost', sans-serif;\\n    font-weight: 300;\\n    font-size: 18px;\\n    color: #222222;\\n    margin: 0;\\n    line-height: 1;\\n}\\n}\",\"_margin_mobile\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"_background_color_stop_laptop\":{\"unit\":\"%\"},\"_background_color_stop_tablet\":{\"unit\":\"%\"},\"_background_color_stop_mobile\":{\"unit\":\"%\"},\"_background_color_b_stop_laptop\":{\"unit\":\"%\"},\"_background_color_b_stop_tablet\":{\"unit\":\"%\"},\"_background_color_b_stop_mobile\":{\"unit\":\"%\"},\"_background_gradient_angle_laptop\":{\"unit\":\"deg\"},\"_background_gradient_angle_tablet\":{\"unit\":\"deg\"},\"_background_gradient_angle_mobile\":{\"unit\":\"deg\"},\"_background_hover_color_stop_laptop\":{\"unit\":\"%\"},\"_background_hover_color_stop_tablet\":{\"unit\":\"%\"},\"_background_hover_color_stop_mobile\":{\"unit\":\"%\"},\"_background_hover_color_b_stop_laptop\":{\"unit\":\"%\"},\"_background_hover_color_b_stop_tablet\":{\"unit\":\"%\"},\"_background_hover_color_b_stop_mobile\":{\"unit\":\"%\"},\"_background_hover_gradient_angle_laptop\":{\"unit\":\"deg\"},\"_background_hover_gradient_angle_tablet\":{\"unit\":\"deg\"},\"_background_hover_gradient_angle_mobile\":{\"unit\":\"deg\"}},\"elements\":[],\"widgetType\":\"html\"}],\"isInner\":false}]","_elementor_page_settings":{"hide_title":"yes"},"_elementor_conditions":[]}}

@@ -1,0 +1,364 @@
+<style id="elementor-post-12">.elementor-12 .elementor-element.elementor-element-8b65d14{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-12 .elementor-element.elementor-element-5a79fb6 img{width:1920px;height:600px;object-fit:cover;object-position:center center;}.elementor-12 .elementor-element.elementor-element-2dfe3b3{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--margin-top:0px;--margin-bottom:0px;--margin-left:0px;--margin-right:0px;--padding-top:80px;--padding-bottom:80px;--padding-left:10px;--padding-right:10px;}.elementor-12 .elementor-element.elementor-element-5ea86a8{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 20px) 0px;}.elementor-12 .elementor-element.elementor-element-5ea86a8.elementor-element{--align-self:center;}.elementor-12 .elementor-element.elementor-element-2da4cdb{margin:80px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;width:auto;max-width:auto;}.elementor-12 .elementor-element.elementor-element-2da4cdb.elementor-element{--align-self:center;}:root{--page-title-display:none;}@media(max-width:767px){.elementor-12 .elementor-element.elementor-element-5a79fb6 img{height:235px;}.elementor-12 .elementor-element.elementor-element-2dfe3b3{--padding-top:30px;--padding-bottom:30px;--padding-left:10px;--padding-right:10px;}.elementor-12 .elementor-element.elementor-element-2da4cdb{margin:30px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;}}@media(min-width:768px){.elementor-12 .elementor-element.elementor-element-8b65d14{--width:100%;}.elementor-12 .elementor-element.elementor-element-2dfe3b3{--content-width:1300px;}}/* Start custom CSS for shortcode, class: .elementor-element-d4e9a74 */.elementor-12 .elementor-element.elementor-element-d4e9a74 .woocommerce table.shop_table{
+    border: none;
+}
+
+
+.soharon-checkout #order_review{
+        margin-top: -30px;
+}
+
+
+.woocommerce-checkout #payment div.payment_box{
+    padding: 0px!important;
+}
+
+
+/* Coupon bar */
+.soharon-checkout-coupon form.checkout_coupon {
+        padding: 0px;
+        border: none;
+}
+
+button.button.soharon-coupon-apply {
+    height: 48px;
+    padding: 0 24px;
+    background: #222;
+    color: #fff;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button.button.soharon-coupon-apply:hover{
+    background-color: #474747;
+}
+
+.soharon-checkout-coupon form.checkout_coupon{
+    margin-bottom: 0px;}
+
+
+/* ===================== SOHARON CHECKOUT ===================== */
+.soharon-checkout { font-family: 'Jost', sans-serif; color: #222; max-width: 1300px; margin: 0 auto; }
+.soharon-checkout * { box-sizing: border-box; }
+
+/* Coupon bar */
+.soharon-checkout-coupon {
+    width: 550px; max-width: 100%; margin: 0 auto 40px; padding: 16px 20px;
+    background: #e2e2e2; border-radius: 5px; text-align: center;
+}
+.soharon-checkout-coupon p { margin: 0; font-weight: 300; font-size: 16px; color: #6d6e71; }
+.soharon-checkout-coupon .soharon-showcoupon { font-weight: 500; color: #6d6e71; text-decoration: none; }
+.soharon-checkout-coupon form.checkout_coupon { margin-top: 14px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.soharon-checkout-coupon .input-text { width: 300px; max-width: 100%; height: 46px; border: 1px solid #ccc; padding: 0 12px; }
+.soharon-checkout-coupon .button { height: 46px; padding: 0 22px; background: #222; color: #fff; border: none; text-transform: uppercase; font-weight: 300; cursor: pointer; }
+
+/* ---- THE KEY FIX: make the real Woo form a 2-column grid ---- */
+.soharon-checkout form.checkout.woocommerce-checkout {
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    gap: 70px;
+    align-items: start;
+}
+/* left column holds billing; right column holds order review + payment.
+   The shortcode outputs #customer_details, then #order_review_heading,
+   #order_review and #payment as siblings — place them explicitly. */
+.soharon-checkout #customer_details { grid-column: 1; grid-row: 1 / span 3; }
+.soharon-checkout #order_review_heading { grid-column: 2; grid-row: 1; margin: 0; }
+.soharon-checkout #order_review { grid-column: 2; grid-row: 2; }
+.soharon-checkout #payment { grid-column: 2; grid-row: 3; }
+
+@media (max-width: 1024px) {
+    .soharon-checkout form.checkout.woocommerce-checkout { grid-template-columns: 1fr; gap: 30px; }
+    .soharon-checkout #customer_details,
+    .soharon-checkout #order_review_heading,
+    .soharon-checkout #order_review,
+    .soharon-checkout #payment { grid-column: 1; grid-row: auto; }
+}
+
+/* Billing columns: stack the col-1/col-2 into one flow, full width */
+.soharon-checkout .col2-set,
+.soharon-checkout .col2-set .col-1,
+.soharon-checkout .col2-set .col-2 { width: 100%; float: none; padding: 0; }
+
+/* Headings */
+.soharon-checkout h3 {
+    font-weight: 300; font-size: 24px; letter-spacing: .02em; text-transform: uppercase;
+    color: #222; margin: 0 0 24px;
+}
+
+/* Fields: stacked, full width */
+.soharon-checkout .form-row { display: block; width: 100%; margin: 0 0 20px; padding: 0; float: none; }
+.soharon-checkout .form-row label { display: block; font-weight: 300; font-size: 16px; color: #222; margin-bottom: 8px; }
+.soharon-checkout .form-row label .required { color: #222; }
+.soharon-checkout .form-row .optional { display: none; }
+
+.soharon-checkout .input-text,
+.soharon-checkout textarea,
+.soharon-checkout select,
+.soharon-checkout .select2-container .select2-selection--single {
+    width: 100% !important; height: 56px;
+    border: 1px solid #d9d9d9 !important; border-radius: 0;
+    padding: 0 16px; background: #fff; box-shadow: none; outline: none;
+    font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; color: #222;
+}
+.soharon-checkout textarea { height: 120px; padding: 14px 16px; resize: vertical; }
+.soharon-checkout .input-text::placeholder,
+.soharon-checkout textarea::placeholder { color: #b3b3b3; }
+
+/* select2 country to match */
+.soharon-checkout .select2-container--default .select2-selection--single { display: flex; align-items: center; }
+.soharon-checkout .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 54px; padding: 0; color: #222; }
+.soharon-checkout .select2-container--default .select2-selection--single .select2-selection__arrow { height: 54px; }
+
+/* ship-to + notes */
+.soharon-checkout #ship-to-different-address { margin: 6px 0 20px; font-size: 16px; font-weight: 300; }
+.soharon-checkout #ship-to-different-address label { display: inline-flex; align-items: center; gap: 10px; }
+.soharon-checkout .woocommerce-additional-fields h3 { display: none; }
+
+/* ---- Order summary box (right) ---- */
+.soharon-checkout #order_review_heading { font-weight: 300; font-size: 22px; text-transform: uppercase; }
+.soharon-checkout #order_review { border: 1px solid #e2e2e2; padding: 30px; }
+.soharon-checkout .shop_table { width: 100%; border-collapse: collapse; }
+.soharon-checkout .shop_table th,
+.soharon-checkout .shop_table td { padding: 16px 0; border: 0; font-weight: 300; font-size: 16px; color: #222; text-align: left; }
+.soharon-checkout .shop_table thead th { color: #6d6e71; padding-bottom: 10px; }
+.soharon-checkout .shop_table thead th.product-total { text-align: right; }
+.soharon-checkout .shop_table .cart_item td { border-bottom: 1px solid #e2e2e2; vertical-align: middle; }
+.soharon-checkout .checkout-product-thumb { width: 60px; height: 60px; object-fit: cover; }
+.soharon-checkout .product-total { text-align: right; white-space: nowrap; }
+.soharon-checkout tfoot th, .soharon-checkout tfoot td { border-bottom: 1px solid #e2e2e2; color: #6d6e71; }
+.soharon-checkout tfoot td { text-align: right; color: #222; }
+.soharon-checkout tfoot .order-total th, .soharon-checkout tfoot .order-total td { color: #000; font-weight: 400; border-bottom: 0; }
+
+/* payment */
+.soharon-checkout #payment { background: transparent; border: 0; padding: 0; margin-top: 24px; }
+.soharon-checkout #payment ul.payment_methods { border: 0; padding: 0; margin: 0 0 20px; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.soharon-checkout #payment ul.payment_methods li { border: 1px solid #d9d9d9; border-radius: 6px; padding: 16px 18px; display: flex; align-items: center; gap: 12px; }
+.soharon-checkout #payment ul.payment_methods li label { margin: 0; font-weight: 400; font-size: 16px; }
+.soharon-checkout #payment .payment_box { background: transparent; margin: 10px 0 0; padding: 0; font-size: 14px; color: #6d6e71; }
+.soharon-checkout #payment .payment_box::before { display: none; }
+.soharon-checkout .woocommerce-privacy-policy-text p { font-weight: 300; font-size: 14px; color: #6d6e71; line-height: 1.6; }
+
+/* place order */
+.soharon-checkout #place_order {
+    display: block; width: 100%; height: 60px; line-height: 60px;
+    background: #111 !important; color: #fff !important; border: 0; border-radius: 2px; padding: 0;
+    font-weight: 300; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; text-align: center; cursor: pointer;
+}
+.soharon-checkout #place_order:hover { background: #333 !important; }
+
+.soharon-checkout .woocommerce-info { background: #f7f7f7; border: 0; padding: 14px 16px; font-size: 14px; color: #6d6e71; }
+
+@media (max-width: 767px) {
+    
+   /* Matches the real markup: <p class="form-row..."><input class="input-text"> */
+    .form-row input.input-text,
+    .form-row select,
+    .form-row textarea {
+        border-radius: 9px !important;
+    }
+
+    /* Round the visible Select2 country box (the real select is hidden) */
+    .select2-container--default .select2-selection--single {
+        border-radius: 9px !important;
+    }
+
+    .form-row textarea {
+        margin-bottom: 30px !important;
+    }
+
+    #order_review_heading,
+    .woocommerce-billing-fields h3 {
+        font-size: 15px !important;
+    }
+    
+
+    .soharon-checkout,
+    .soharon-checkout * {
+        box-sizing: border-box !important;
+    }
+    .soharon-checkout {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Coupon bar */
+    .soharon-checkout-coupon {
+        width: 340px !important;
+        max-width: 100% !important;
+        border-radius: 9px !important;
+        background-color: #e2e2e2 !important;
+        padding: 12px 16px !important;
+    }
+    .soharon-checkout-coupon p {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+    .soharon-checkout-coupon .soharon-showcoupon {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 500 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+    .soharon-checkout-coupon .input-text {
+        width: 100% !important;
+        height: 40px !important;
+        font-size: 12px !important;
+    }
+    .soharon-checkout-coupon .button {
+        height: 40px !important;
+        font-size: 12px !important;
+        border-radius: 9px !important;
+    }
+
+    /* Force single column layout */
+    .soharon-checkout form.checkout.woocommerce-checkout {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .soharon-checkout #customer_details,
+    .soharon-checkout #order_review_heading,
+    .soharon-checkout #order_review,
+    .soharon-checkout #payment {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+    }
+
+    /* Headings */
+    .soharon-checkout h3 {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        color: #222222 !important;
+        margin: 0 0 14px !important;
+    }
+
+    /* Billing fields */
+    .soharon-checkout .form-row {
+        margin: 0 0 14px !important;
+    }
+    .soharon-checkout .form-row label {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #222222 !important;
+        margin-bottom: 6px !important;
+    }
+    .soharon-checkout .input-text,
+    .soharon-checkout textarea,
+    .soharon-checkout select,
+    .soharon-checkout .select2-container .select2-selection--single {
+        height: 40px !important;
+        border-radius: 9px !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+        padding: 0 12px !important;
+    }
+    .soharon-checkout textarea {
+        height: 100px !important;
+        padding: 12px !important;
+    }
+    .soharon-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {
+        line-height: 40px !important;
+        font-size: 12px !important;
+    }
+    .soharon-checkout .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 40px !important;
+    }
+
+    /* Ship to different address */
+    .soharon-checkout #ship-to-different-address {
+        margin: 14px 0 !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+
+    /* Order notes textarea */
+    .soharon-checkout .woocommerce-additional-fields textarea {
+        height: 100px !important;
+        border-radius: 9px !important;
+    }
+
+    /* Order review box (right column, now stacked) */
+    .soharon-checkout #order_review {
+        border: 0.25px solid #6b6a6b !important;
+        border-radius: 9px !important;
+        padding: 16px !important;
+    }
+    .soharon-checkout #order_review_heading {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        color: #222222 !important;
+    }
+    .soharon-checkout .shop_table th,
+    .soharon-checkout .shop_table td {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #222222 !important;
+        padding: 10px 0 !important;
+    }
+    .soharon-checkout .shop_table thead th {
+        color: #6d6e71 !important;
+    }
+    .soharon-checkout .checkout-product-thumb {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    /* Payment methods */
+    .soharon-checkout #payment ul.payment_methods li {
+        border-radius: 9px !important;
+        padding: 12px 14px !important;
+    }
+    .soharon-checkout #payment ul.payment_methods li label {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 400 !important;
+        font-size: 12px !important;
+    }
+    .soharon-checkout #payment .payment_box {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+    .soharon-checkout .woocommerce-privacy-policy-text p {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #6d6e71 !important;
+    }
+
+    /* Place order button */
+    .soharon-checkout #place_order {
+        height: 40px !important;
+        line-height: 40px !important;
+        border-radius: 9px !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+    }
+}/* End custom CSS */
+/* Start custom CSS for html, class: .elementor-element-2da4cdb */@media (max-width: 767px)
+{
+h2{
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #222222;
+    margin: 0;
+    line-height: 1;
+}
+}/* End custom CSS */</style>{"id":12,"slug":"checkout","content":{"raw":"<img width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout.webp\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout.webp 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-300x94.webp 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-1024x320.webp 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-768x240.webp 768w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-1536x480.webp 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-600x188.webp 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n    <h2>CHECKOUT<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:14px;\n    text-align: center;\n}\n.custom-title span{\n    width:40px;\n    height:0.25px;\n}\n}\n<\/style>\t\t[soharon_checkout]\t\t\t\n        <h2>LETS SOCIALIZE <\/h2>\n        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a>\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a>\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a>\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a>\n<style>\n    .social-icons {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n}\n.social-icons a img {\n    width: 35px;\n    height: 35px;\n    display: block;\n    transition-duration: .1s;\n}\n.social-icons a img:hover{\n    scale: .9;\n    transition-duration: .1s;\n}\n .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 13px;\n    text-align: center;\n}\n.bsh-heading-social {\n    display: grid;\n    grid-template-columns: 1fr auto 1fr;\n    align-items: center;\n    gap: 25px!important;\n}\n .bsh-heading-social .bsh-line {\n    width: 75px!important;\n    height: 1px;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n.bsh-heading-social .bsh-text-col {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px!important;\n    text-align: center;\n}\n .bsh-heading-social .bsh-title {\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 22px;\n    color: #222222;\n    margin: 0;\n    line-height: 1;\n}\n.bsh-heading-social .bsh-subtitle{\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    color: #6d6e71;\n}\n@media (max-width: 767px) {\n    .bsh-heading-social .bsh-title {\n        font-size: 14px;\n    }\n    .social-icons a img {\n        width: 16px;\n    height: 16px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons a img {\n        width: 20px;\n    height: 20px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons {\n        gap: 10px;\n    }\n    .bsh-heading-social .bsh-line {\n    width: 35px!important;\n    height: 0.25;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n    .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px;\n    text-align: center;\n}\n}\n}\n<\/style>","rendered":"\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"12\" class=\"elementor elementor-12\" data-elementor-post-type=\"page\">\n\t\t\t\t<div class=\"elementor-element elementor-element-8b65d14 e-con-full e-flex e-con e-parent\" data-id=\"8b65d14\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-5a79fb6 elementor-widget elementor-widget-image\" data-id=\"5a79fb6\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"image.default\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img fetchpriority=\"high\" decoding=\"async\" width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout.webp\" class=\"attachment-full size-full wp-image-1602\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout.webp 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-300x94.webp 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-1024x320.webp 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-768x240.webp 768w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-1536x480.webp 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/07\/Checkout-600x188.webp 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t<div class=\"elementor-element elementor-element-2dfe3b3 e-flex e-con-boxed e-con e-parent\" data-id=\"2dfe3b3\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-5ea86a8 elementor-widget elementor-widget-html\" data-id=\"5ea86a8\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"html.default\">\n\t\t\t\t\t<div class=\"custom-title\">\r\n    <span><\/span>\r\n    <h2>CHECKOUT<\/h2>\r\n    <span><\/span>\r\n<\/div>\r\n\r\n<style>\r\n.custom-title{\r\n    display:flex;\r\n    align-items:center;\r\n    justify-content:center;\r\n    gap:20px;\r\n}\r\n\r\n.custom-title h2{\r\n    margin:0;\r\n    font-family:\"Jost\", Sans-serif;\r\n    font-size:22px;\r\n    font-weight:300;\r\n    color:#222222;\r\n    line-height:1;\r\n}\r\n\r\n.custom-title span{\r\n    width:80px;\r\n    height:0.5px;\r\n    background:#6d6e71;\r\n    display:block;\r\n}\r\n\r\n\/* Mobile Responsive *\/\r\n@media(max-width:767px){\r\n\r\n.custom-title{\r\n    gap:10px;\r\n}\r\n\r\n.custom-title h2{\r\n    font-size:14px;\r\n    text-align: center;\r\n}\r\n\r\n.custom-title span{\r\n    width:40px;\r\n    height:0.25px;\r\n}\r\n\r\n}\r\n<\/style>\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-d4e9a74 elementor-widget elementor-widget-shortcode\" data-id=\"d4e9a74\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"shortcode.default\">\n\t\t\t\t\t\t\t<div class=\"elementor-shortcode\"><div class=\"soharon-checkout\"><div class=\"woocommerce\"><\/div><\/div><\/div>\n\t\t\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-2da4cdb elementor-widget__width-auto elementor-widget elementor-widget-html\" data-id=\"2da4cdb\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"html.default\">\n\t\t\t\t\t<div class=\"bsh-heading-social\" class=\"social\">\r\n    <span class=\"bsh-line\"><\/span>\r\n    <div class=\"bsh-text-col-social\">\r\n        <h2 class=\"bsh-title\">LETS SOCIALIZE <\/h2>\r\n        <div class=\"social-icons\">\r\n        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a>\r\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a>\r\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a>\r\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a>\r\n    <\/div>\r\n\r\n    <\/div>\r\n    <span class=\"bsh-line\"><\/span>\r\n<\/div>\r\n\r\n<style>\r\n    .social-icons {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 16px;\r\n}\r\n.social-icons a img {\r\n    width: 35px;\r\n    height: 35px;\r\n    display: block;\r\n    transition-duration: .1s;\r\n}\r\n\r\n.social-icons a img:hover{\r\n    scale: .9;\r\n    transition-duration: .1s;\r\n}\r\n\r\n\r\n .bsh-heading-social .bsh-text-col-social{\r\n        display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 13px;\r\n    text-align: center;\r\n}\r\n\r\n.bsh-heading-social {\r\n    display: grid;\r\n    grid-template-columns: 1fr auto 1fr;\r\n    align-items: center;\r\n    gap: 25px!important;\r\n}\r\n\r\n .bsh-heading-social .bsh-line {\r\n    width: 75px!important;\r\n    height: 1px;\r\n    background-color: #6D6E71;\r\n    justify-self: center;\r\n}\r\n\r\n.bsh-heading-social .bsh-text-col {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 5px!important;\r\n    text-align: center;\r\n}\r\n\r\n .bsh-heading-social .bsh-title {\r\n    font-family: 'Jost', sans-serif;\r\n    font-weight: 300;\r\n    font-size: 22px;\r\n    color: #222222;\r\n    margin: 0;\r\n    line-height: 1;\r\n}\r\n.bsh-heading-social .bsh-subtitle{\r\n    font-family: 'Jost', sans-serif;\r\n    font-weight: 300;\r\n    font-size: 16px;\r\n    color: #6d6e71;\r\n}\r\n@media (max-width: 767px) {\r\n    .bsh-heading-social .bsh-title {\r\n        font-size: 14px;\r\n    }\r\n    \r\n    .social-icons a img {\r\n        width: 16px;\r\n    height: 16px;\r\n    display: block;\r\n    transition-duration: .1s; \r\n        \r\n    }\r\n    .social-icons a img {\r\n        width: 20px;\r\n    height: 20px;\r\n    display: block;\r\n    transition-duration: .1s; \r\n        \r\n    }\r\n    .social-icons {\r\n        gap: 10px;\r\n    }\r\n    .bsh-heading-social .bsh-line {\r\n    width: 35px!important;\r\n    height: 0.25;\r\n    background-color: #6D6E71;\r\n    justify-self: center;\r\n}\r\n    .bsh-heading-social .bsh-text-col-social{\r\n        display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 5px;\r\n    text-align: center;\r\n}\r\n}\r\n}\r\n\r\n\r\n\r\n<\/style>\r\n\t\t\t\t<\/div>\n\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t","protected":false,"block_version":0},"meta":{"_acf_changed":false,"footnotes":"","_elementor_edit_mode":"builder","_elementor_template_type":"wp-page","_elementor_data":"[{\"id\":\"8b65d14\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"content_width\":\"full\",\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":true},\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"lqd_sticky_row_offset\":\"0px\",\"width\":{\"unit\":\"%\",\"size\":100,\"sizes\":[]},\"width_tablet\":{\"unit\":\"%\",\"size\":\"\",\"sizes\":[]},\"width_mobile\":{\"unit\":\"%\",\"size\":\"\",\"sizes\":[]}},\"elements\":[{\"id\":\"5a79fb6\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/07\\\/Checkout.webp\",\"id\":1602,\"size\":\"\",\"alt\":\"\",\"source\":\"library\"},\"image_size\":\"full\",\"width\":{\"unit\":\"px\",\"size\":1920,\"sizes\":[]},\"width_tablet\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"width_mobile\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"height\":{\"unit\":\"px\",\"size\":600,\"sizes\":[]},\"object-fit\":\"cover\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"height_mobile\":{\"unit\":\"px\",\"size\":235,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"image\"}],\"isInner\":false},{\"id\":\"2dfe3b3\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"boxed_width\":{\"unit\":\"px\",\"size\":1300,\"sizes\":[]},\"padding\":{\"unit\":\"px\",\"top\":\"80\",\"right\":\"10\",\"bottom\":\"80\",\"left\":\"10\",\"isLinked\":false},\"margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"padding_mobile\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"10\",\"bottom\":\"30\",\"left\":\"10\",\"isLinked\":false}},\"elements\":[{\"id\":\"5ea86a8\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"custom-title\\\">\\r\\n    <span><\\\/span>\\r\\n    <h2>CHECKOUT<\\\/h2>\\r\\n    <span><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n.custom-title{\\r\\n    display:flex;\\r\\n    align-items:center;\\r\\n    justify-content:center;\\r\\n    gap:20px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    margin:0;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:22px;\\r\\n    font-weight:300;\\r\\n    color:#222222;\\r\\n    line-height:1;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:80px;\\r\\n    height:0.5px;\\r\\n    background:#6d6e71;\\r\\n    display:block;\\r\\n}\\r\\n\\r\\n\\\/* Mobile Responsive *\\\/\\r\\n@media(max-width:767px){\\r\\n\\r\\n.custom-title{\\r\\n    gap:10px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    font-size:14px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:40px;\\r\\n    height:0.25px;\\r\\n}\\r\\n\\r\\n}\\r\\n<\\\/style>\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":37,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"20\",\"left\":\"0\",\"isLinked\":false},\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":64,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"html\"},{\"id\":\"d4e9a74\",\"elType\":\"widget\",\"settings\":{\"shortcode\":\"[soharon_checkout]\",\"custom_css\":\"selector .woocommerce table.shop_table{\\r\\n    border: none;\\r\\n}\\r\\n\\r\\n\\r\\n.soharon-checkout #order_review{\\r\\n        margin-top: -30px;\\r\\n}\\r\\n\\r\\n\\r\\n.woocommerce-checkout #payment div.payment_box{\\r\\n    padding: 0px!important;\\r\\n}\\r\\n\\r\\n\\r\\n\\\/* Coupon bar *\\\/\\r\\n.soharon-checkout-coupon form.checkout_coupon {\\r\\n        padding: 0px;\\r\\n        border: none;\\r\\n}\\r\\n\\r\\nbutton.button.soharon-coupon-apply {\\r\\n    height: 48px;\\r\\n    padding: 0 24px;\\r\\n    background: #222;\\r\\n    color: #fff;\\r\\n    border: none;\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    text-transform: uppercase;\\r\\n    cursor: pointer;\\r\\n}\\r\\n\\r\\nbutton.button.soharon-coupon-apply:hover{\\r\\n    background-color: #474747;\\r\\n}\\r\\n\\r\\n.soharon-checkout-coupon form.checkout_coupon{\\r\\n    margin-bottom: 0px;}\\r\\n\\r\\n\\r\\n\\\/* ===================== SOHARON CHECKOUT ===================== *\\\/\\r\\n.soharon-checkout { font-family: 'Jost', sans-serif; color: #222; max-width: 1300px; margin: 0 auto; }\\r\\n.soharon-checkout * { box-sizing: border-box; }\\r\\n\\r\\n\\\/* Coupon bar *\\\/\\r\\n.soharon-checkout-coupon {\\r\\n    width: 550px; max-width: 100%; margin: 0 auto 40px; padding: 16px 20px;\\r\\n    background: #e2e2e2; border-radius: 5px; text-align: center;\\r\\n}\\r\\n.soharon-checkout-coupon p { margin: 0; font-weight: 300; font-size: 16px; color: #6d6e71; }\\r\\n.soharon-checkout-coupon .soharon-showcoupon { font-weight: 500; color: #6d6e71; text-decoration: none; }\\r\\n.soharon-checkout-coupon form.checkout_coupon { margin-top: 14px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }\\r\\n.soharon-checkout-coupon .input-text { width: 300px; max-width: 100%; height: 46px; border: 1px solid #ccc; padding: 0 12px; }\\r\\n.soharon-checkout-coupon .button { height: 46px; padding: 0 22px; background: #222; color: #fff; border: none; text-transform: uppercase; font-weight: 300; cursor: pointer; }\\r\\n\\r\\n\\\/* ---- THE KEY FIX: make the real Woo form a 2-column grid ---- *\\\/\\r\\n.soharon-checkout form.checkout.woocommerce-checkout {\\r\\n    display: grid;\\r\\n    grid-template-columns: 1fr 500px;\\r\\n    gap: 70px;\\r\\n    align-items: start;\\r\\n}\\r\\n\\\/* left column holds billing; right column holds order review + payment.\\r\\n   The shortcode outputs #customer_details, then #order_review_heading,\\r\\n   #order_review and #payment as siblings \\u2014 place them explicitly. *\\\/\\r\\n.soharon-checkout #customer_details { grid-column: 1; grid-row: 1 \\\/ span 3; }\\r\\n.soharon-checkout #order_review_heading { grid-column: 2; grid-row: 1; margin: 0; }\\r\\n.soharon-checkout #order_review { grid-column: 2; grid-row: 2; }\\r\\n.soharon-checkout #payment { grid-column: 2; grid-row: 3; }\\r\\n\\r\\n@media (max-width: 1024px) {\\r\\n    .soharon-checkout form.checkout.woocommerce-checkout { grid-template-columns: 1fr; gap: 30px; }\\r\\n    .soharon-checkout #customer_details,\\r\\n    .soharon-checkout #order_review_heading,\\r\\n    .soharon-checkout #order_review,\\r\\n    .soharon-checkout #payment { grid-column: 1; grid-row: auto; }\\r\\n}\\r\\n\\r\\n\\\/* Billing columns: stack the col-1\\\/col-2 into one flow, full width *\\\/\\r\\n.soharon-checkout .col2-set,\\r\\n.soharon-checkout .col2-set .col-1,\\r\\n.soharon-checkout .col2-set .col-2 { width: 100%; float: none; padding: 0; }\\r\\n\\r\\n\\\/* Headings *\\\/\\r\\n.soharon-checkout h3 {\\r\\n    font-weight: 300; font-size: 24px; letter-spacing: .02em; text-transform: uppercase;\\r\\n    color: #222; margin: 0 0 24px;\\r\\n}\\r\\n\\r\\n\\\/* Fields: stacked, full width *\\\/\\r\\n.soharon-checkout .form-row { display: block; width: 100%; margin: 0 0 20px; padding: 0; float: none; }\\r\\n.soharon-checkout .form-row label { display: block; font-weight: 300; font-size: 16px; color: #222; margin-bottom: 8px; }\\r\\n.soharon-checkout .form-row label .required { color: #222; }\\r\\n.soharon-checkout .form-row .optional { display: none; }\\r\\n\\r\\n.soharon-checkout .input-text,\\r\\n.soharon-checkout textarea,\\r\\n.soharon-checkout select,\\r\\n.soharon-checkout .select2-container .select2-selection--single {\\r\\n    width: 100% !important; height: 56px;\\r\\n    border: 1px solid #d9d9d9 !important; border-radius: 0;\\r\\n    padding: 0 16px; background: #fff; box-shadow: none; outline: none;\\r\\n    font-family: 'Jost', sans-serif; font-weight: 300; font-size: 16px; color: #222;\\r\\n}\\r\\n.soharon-checkout textarea { height: 120px; padding: 14px 16px; resize: vertical; }\\r\\n.soharon-checkout .input-text::placeholder,\\r\\n.soharon-checkout textarea::placeholder { color: #b3b3b3; }\\r\\n\\r\\n\\\/* select2 country to match *\\\/\\r\\n.soharon-checkout .select2-container--default .select2-selection--single { display: flex; align-items: center; }\\r\\n.soharon-checkout .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 54px; padding: 0; color: #222; }\\r\\n.soharon-checkout .select2-container--default .select2-selection--single .select2-selection__arrow { height: 54px; }\\r\\n\\r\\n\\\/* ship-to + notes *\\\/\\r\\n.soharon-checkout #ship-to-different-address { margin: 6px 0 20px; font-size: 16px; font-weight: 300; }\\r\\n.soharon-checkout #ship-to-different-address label { display: inline-flex; align-items: center; gap: 10px; }\\r\\n.soharon-checkout .woocommerce-additional-fields h3 { display: none; }\\r\\n\\r\\n\\\/* ---- Order summary box (right) ---- *\\\/\\r\\n.soharon-checkout #order_review_heading { font-weight: 300; font-size: 22px; text-transform: uppercase; }\\r\\n.soharon-checkout #order_review { border: 1px solid #e2e2e2; padding: 30px; }\\r\\n.soharon-checkout .shop_table { width: 100%; border-collapse: collapse; }\\r\\n.soharon-checkout .shop_table th,\\r\\n.soharon-checkout .shop_table td { padding: 16px 0; border: 0; font-weight: 300; font-size: 16px; color: #222; text-align: left; }\\r\\n.soharon-checkout .shop_table thead th { color: #6d6e71; padding-bottom: 10px; }\\r\\n.soharon-checkout .shop_table thead th.product-total { text-align: right; }\\r\\n.soharon-checkout .shop_table .cart_item td { border-bottom: 1px solid #e2e2e2; vertical-align: middle; }\\r\\n.soharon-checkout .checkout-product-thumb { width: 60px; height: 60px; object-fit: cover; }\\r\\n.soharon-checkout .product-total { text-align: right; white-space: nowrap; }\\r\\n.soharon-checkout tfoot th, .soharon-checkout tfoot td { border-bottom: 1px solid #e2e2e2; color: #6d6e71; }\\r\\n.soharon-checkout tfoot td { text-align: right; color: #222; }\\r\\n.soharon-checkout tfoot .order-total th, .soharon-checkout tfoot .order-total td { color: #000; font-weight: 400; border-bottom: 0; }\\r\\n\\r\\n\\\/* payment *\\\/\\r\\n.soharon-checkout #payment { background: transparent; border: 0; padding: 0; margin-top: 24px; }\\r\\n.soharon-checkout #payment ul.payment_methods { border: 0; padding: 0; margin: 0 0 20px; list-style: none; display: flex; flex-direction: column; gap: 12px; }\\r\\n.soharon-checkout #payment ul.payment_methods li { border: 1px solid #d9d9d9; border-radius: 6px; padding: 16px 18px; display: flex; align-items: center; gap: 12px; }\\r\\n.soharon-checkout #payment ul.payment_methods li label { margin: 0; font-weight: 400; font-size: 16px; }\\r\\n.soharon-checkout #payment .payment_box { background: transparent; margin: 10px 0 0; padding: 0; font-size: 14px; color: #6d6e71; }\\r\\n.soharon-checkout #payment .payment_box::before { display: none; }\\r\\n.soharon-checkout .woocommerce-privacy-policy-text p { font-weight: 300; font-size: 14px; color: #6d6e71; line-height: 1.6; }\\r\\n\\r\\n\\\/* place order *\\\/\\r\\n.soharon-checkout #place_order {\\r\\n    display: block; width: 100%; height: 60px; line-height: 60px;\\r\\n    background: #111 !important; color: #fff !important; border: 0; border-radius: 2px; padding: 0;\\r\\n    font-weight: 300; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; text-align: center; cursor: pointer;\\r\\n}\\r\\n.soharon-checkout #place_order:hover { background: #333 !important; }\\r\\n\\r\\n.soharon-checkout .woocommerce-info { background: #f7f7f7; border: 0; padding: 14px 16px; font-size: 14px; color: #6d6e71; }\\r\\n\\r\\n@media (max-width: 767px) {\\r\\n    \\r\\n   \\\/* Matches the real markup: <p class=\\\"form-row...\\\"><input class=\\\"input-text\\\"> *\\\/\\r\\n    .form-row input.input-text,\\r\\n    .form-row select,\\r\\n    .form-row textarea {\\r\\n        border-radius: 9px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Round the visible Select2 country box (the real select is hidden) *\\\/\\r\\n    .select2-container--default .select2-selection--single {\\r\\n        border-radius: 9px !important;\\r\\n    }\\r\\n\\r\\n    .form-row textarea {\\r\\n        margin-bottom: 30px !important;\\r\\n    }\\r\\n\\r\\n    #order_review_heading,\\r\\n    .woocommerce-billing-fields h3 {\\r\\n        font-size: 15px !important;\\r\\n    }\\r\\n    \\r\\n\\r\\n    .soharon-checkout,\\r\\n    .soharon-checkout * {\\r\\n        box-sizing: border-box !important;\\r\\n    }\\r\\n    .soharon-checkout {\\r\\n        overflow-x: hidden !important;\\r\\n        width: 100% !important;\\r\\n        max-width: 100% !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Coupon bar *\\\/\\r\\n    .soharon-checkout-coupon {\\r\\n        width: 340px !important;\\r\\n        max-width: 100% !important;\\r\\n        border-radius: 9px !important;\\r\\n        background-color: #e2e2e2 !important;\\r\\n        padding: 12px 16px !important;\\r\\n    }\\r\\n    .soharon-checkout-coupon p {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n    .soharon-checkout-coupon .soharon-showcoupon {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 500 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n    .soharon-checkout-coupon .input-text {\\r\\n        width: 100% !important;\\r\\n        height: 40px !important;\\r\\n        font-size: 12px !important;\\r\\n    }\\r\\n    .soharon-checkout-coupon .button {\\r\\n        height: 40px !important;\\r\\n        font-size: 12px !important;\\r\\n        border-radius: 9px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Force single column layout *\\\/\\r\\n    .soharon-checkout form.checkout.woocommerce-checkout {\\r\\n        display: block !important;\\r\\n        grid-template-columns: 1fr !important;\\r\\n        gap: 20px !important;\\r\\n    }\\r\\n    .soharon-checkout #customer_details,\\r\\n    .soharon-checkout #order_review_heading,\\r\\n    .soharon-checkout #order_review,\\r\\n    .soharon-checkout #payment {\\r\\n        grid-column: 1 !important;\\r\\n        grid-row: auto !important;\\r\\n        width: 100% !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Headings *\\\/\\r\\n    .soharon-checkout h3 {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #222222 !important;\\r\\n        margin: 0 0 14px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Billing fields *\\\/\\r\\n    .soharon-checkout .form-row {\\r\\n        margin: 0 0 14px !important;\\r\\n    }\\r\\n    .soharon-checkout .form-row label {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #222222 !important;\\r\\n        margin-bottom: 6px !important;\\r\\n    }\\r\\n    .soharon-checkout .input-text,\\r\\n    .soharon-checkout textarea,\\r\\n    .soharon-checkout select,\\r\\n    .soharon-checkout .select2-container .select2-selection--single {\\r\\n        height: 40px !important;\\r\\n        border-radius: 9px !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n        padding: 0 12px !important;\\r\\n    }\\r\\n    .soharon-checkout textarea {\\r\\n        height: 100px !important;\\r\\n        padding: 12px !important;\\r\\n    }\\r\\n    .soharon-checkout .select2-container--default .select2-selection--single .select2-selection__rendered {\\r\\n        line-height: 40px !important;\\r\\n        font-size: 12px !important;\\r\\n    }\\r\\n    .soharon-checkout .select2-container--default .select2-selection--single .select2-selection__arrow {\\r\\n        height: 40px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Ship to different address *\\\/\\r\\n    .soharon-checkout #ship-to-different-address {\\r\\n        margin: 14px 0 !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Order notes textarea *\\\/\\r\\n    .soharon-checkout .woocommerce-additional-fields textarea {\\r\\n        height: 100px !important;\\r\\n        border-radius: 9px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Order review box (right column, now stacked) *\\\/\\r\\n    .soharon-checkout #order_review {\\r\\n        border: 0.25px solid #6b6a6b !important;\\r\\n        border-radius: 9px !important;\\r\\n        padding: 16px !important;\\r\\n    }\\r\\n    .soharon-checkout #order_review_heading {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #222222 !important;\\r\\n    }\\r\\n    .soharon-checkout .shop_table th,\\r\\n    .soharon-checkout .shop_table td {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #222222 !important;\\r\\n        padding: 10px 0 !important;\\r\\n    }\\r\\n    .soharon-checkout .shop_table thead th {\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n    .soharon-checkout .checkout-product-thumb {\\r\\n        width: 45px !important;\\r\\n        height: 45px !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Payment methods *\\\/\\r\\n    .soharon-checkout #payment ul.payment_methods li {\\r\\n        border-radius: 9px !important;\\r\\n        padding: 12px 14px !important;\\r\\n    }\\r\\n    .soharon-checkout #payment ul.payment_methods li label {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 400 !important;\\r\\n        font-size: 12px !important;\\r\\n    }\\r\\n    .soharon-checkout #payment .payment_box {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n    .soharon-checkout .woocommerce-privacy-policy-text p {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #6d6e71 !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Place order button *\\\/\\r\\n    .soharon-checkout #place_order {\\r\\n        height: 40px !important;\\r\\n        line-height: 40px !important;\\r\\n        border-radius: 9px !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n    }\\r\\n}\"},\"elements\":[],\"widgetType\":\"shortcode\"},{\"id\":\"2da4cdb\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"bsh-heading-social\\\" class=\\\"social\\\">\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n    <div class=\\\"bsh-text-col-social\\\">\\r\\n        <h2 class=\\\"bsh-title\\\">LETS SOCIALIZE <\\\/h2>\\r\\n        <div class=\\\"social-icons\\\">\\r\\n        <a href=\\\"https:\\\/\\\/www.instagram.com\\\/fierrojewellery\\\/\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Instagram-Icon.svg\\\" alt=\\\"Instagram\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.facebook.com\\\/profile.php?id=61592874454475\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Facebook-Icon.svg\\\" alt=\\\"Facebook\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.tiktok.com\\\/@fierrojewellery\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/TikTok-Icon.svg\\\" alt=\\\"TitTok\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/wa.me\\\/971527794759\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/WhatsApp-Icon.svg\\\" alt=\\\"WhatsApp\\\"><\\\/a>\\r\\n    <\\\/div>\\r\\n\\r\\n    <\\\/div>\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n    .social-icons {\\r\\n    display: flex;\\r\\n    align-items: center;\\r\\n    gap: 16px;\\r\\n}\\r\\n.social-icons a img {\\r\\n    width: 35px;\\r\\n    height: 35px;\\r\\n    display: block;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n.social-icons a img:hover{\\r\\n    scale: .9;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n\\r\\n .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 13px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social {\\r\\n    display: grid;\\r\\n    grid-template-columns: 1fr auto 1fr;\\r\\n    align-items: center;\\r\\n    gap: 25px!important;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-line {\\r\\n    width: 75px!important;\\r\\n    height: 1px;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social .bsh-text-col {\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px!important;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-title {\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 22px;\\r\\n    color: #222222;\\r\\n    margin: 0;\\r\\n    line-height: 1;\\r\\n}\\r\\n.bsh-heading-social .bsh-subtitle{\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 16px;\\r\\n    color: #6d6e71;\\r\\n}\\r\\n@media (max-width: 767px) {\\r\\n    .bsh-heading-social .bsh-title {\\r\\n        font-size: 14px;\\r\\n    }\\r\\n    \\r\\n    .social-icons a img {\\r\\n        width: 16px;\\r\\n    height: 16px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons a img {\\r\\n        width: 20px;\\r\\n    height: 20px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons {\\r\\n        gap: 10px;\\r\\n    }\\r\\n    .bsh-heading-social .bsh-line {\\r\\n    width: 35px!important;\\r\\n    height: 0.25;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n    .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px;\\r\\n    text-align: center;\\r\\n}\\r\\n}\\r\\n}\\r\\n\\r\\n\\r\\n\\r\\n<\\\/style>\\r\\n\",\"_element_width\":\"auto\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":24,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":66,\"sizes\":[]},\"custom_css\":\"   \\n@media (max-width: 767px)\\n{\\nh2{\\n    font-family: 'Jost', sans-serif;\\n    font-weight: 300;\\n    font-size: 18px;\\n    color: #222222;\\n    margin: 0;\\n    line-height: 1;\\n}\\n}\",\"_margin_mobile\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false},\"_margin\":{\"unit\":\"px\",\"top\":\"80\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"html\"}],\"isInner\":false}]","_elementor_page_settings":{"hide_title":"yes"},"_elementor_conditions":[]}}

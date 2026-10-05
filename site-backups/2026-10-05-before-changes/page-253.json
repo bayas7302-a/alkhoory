@@ -1,0 +1,189 @@
+<style id="elementor-post-253">.elementor-253 .elementor-element.elementor-element-aac2295{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--padding-top:0px;--padding-bottom:0px;--padding-left:0px;--padding-right:0px;}.elementor-253 .elementor-element.elementor-element-b270a08 img{width:1920px;height:600px;object-fit:cover;object-position:center center;}.elementor-253 .elementor-element.elementor-element-1e05a77{--display:flex;--flex-direction:column;--container-widget-width:100%;--container-widget-height:initial;--container-widget-flex-grow:0;--container-widget-align-self:initial;--flex-wrap-mobile:wrap;--gap:0px 0px;--row-gap:0px;--column-gap:0px;--padding-top:80px;--padding-bottom:80px;--padding-left:0px;--padding-right:0px;}.elementor-253 .elementor-element.elementor-element-1d36d2f{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 40px) 0px;width:var( --container-widget-width, 37% );max-width:37%;--container-widget-width:37%;--container-widget-flex-grow:0;}.elementor-253 .elementor-element.elementor-element-1d36d2f.elementor-element{--align-self:center;}.elementor-253 .elementor-element.elementor-element-0135e3b{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 80px) 0px;}.elementor-253 .elementor-element.elementor-element-0135e3b.elementor-element{--align-self:center;}.elementor-253 .elementor-element.elementor-element-4682e51{width:auto;max-width:auto;}.elementor-253 .elementor-element.elementor-element-4682e51.elementor-element{--align-self:center;}:root{--page-title-display:none;}@media(min-width:768px){.elementor-253 .elementor-element.elementor-element-1e05a77{--content-width:915px;}}@media(max-width:1366px){.elementor-253 .elementor-element.elementor-element-b270a08 img{height:300px;}}@media(max-width:1024px){.elementor-253 .elementor-element.elementor-element-b270a08 img{height:250px;}.elementor-253 .elementor-element.elementor-element-1d36d2f{--container-widget-width:60%;--container-widget-flex-grow:0;width:var( --container-widget-width, 60% );max-width:60%;}}@media(max-width:767px){.elementor-253 .elementor-element.elementor-element-b270a08 img{height:250px;}.elementor-253 .elementor-element.elementor-element-1e05a77{--align-items:center;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--padding-top:30px;--padding-bottom:30px;--padding-left:10px;--padding-right:10px;}.elementor-253 .elementor-element.elementor-element-1d36d2f{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 30px) 0px;--container-widget-width:64%;--container-widget-flex-grow:0;width:var( --container-widget-width, 64% );max-width:64%;}.elementor-253 .elementor-element.elementor-element-0135e3b{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 30px) 0px;}.elementor-253 .elementor-element.elementor-element-4682e51{margin:0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;}}/* Start custom CSS for shortcode, class: .elementor-element-0135e3b */.elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7 form.wpcf7-form.sent .wpcf7-response-output, .elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7 form.invalid .wpcf7-response-output, .elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7 form.failed .wpcf7-response-output, .elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7 form.spam .wpcf7-response-output, .elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7 form.submitting .wpcf7-response-output{
+    background-color: #383838!important
+}
+
+/* Main Form */
+.custom-contact-form{
+    width:585px;
+   
+}
+
+/* Gap Between Sections */
+.custom-contact-form .form-group{
+    margin-bottom:30px;
+}
+
+/* Labels */
+/* Labels */
+.custom-contact-form label {
+    display: block;
+    font-family: "Jost", Sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+    line-height: 1;
+    margin-bottom: 8px; /* ← ADD THIS */
+}
+
+/* Input & Textarea */
+.custom-contact-form input[type="text"],
+.custom-contact-form input[type="email"],
+.custom-contact-form textarea {
+    width: 585px;
+    height: 65px;
+    border: 0.5px solid #6d6e71;
+    border-radius: 5px;
+    background: transparent;
+    font-family: "Jost", Sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: none;
+    margin: 0; /* ← already present, keep this */
+    margin-top: 0 !important; /* ← ADD THIS to override any theme defaults */
+}
+/* Name & Email Fields */
+.custom-contact-form input[type="text"],
+.custom-contact-form input[type="email"]{
+    height:65px !important;
+    min-height:65px;
+    padding:0 20px;
+    line-height:65px;
+}
+
+/* Message Field */
+.custom-contact-form textarea{
+    height:220px;
+    padding:20px;
+    resize:none;
+}
+
+/* Placeholder */
+.custom-contact-form ::placeholder{
+    color:#9a9a9a;
+    font-family:"Jost", Sans-serif;
+    font-size:16px;
+    font-weight:300;
+}
+
+/* Submit Button */
+.custom-contact-form .submit-btn{
+    margin-top:-4px;
+    margin-bottom:-40px;
+}
+
+.custom-contact-form input[type="submit"]{
+    width:585px;
+    height:65px;
+    border:none;
+    border-radius:5px;
+    background:#222222;
+    font-family:"Jost", Sans-serif;
+    font-size:22px;
+    font-weight:300;
+    color:#ffffff;
+    cursor:pointer;
+    transition:none;
+    padding:0;
+}
+
+/* No Hover Animation */
+.custom-contact-form input[type="submit"]:hover{
+    background:#222222;
+    color:#ffffff;
+}
+
+/* Mobile */
+@media(max-width:767px){
+
+.custom-contact-form{
+    width:100%;
+}
+
+.custom-contact-form input[type="text"],
+.custom-contact-form input[type="email"],
+.custom-contact-form textarea,
+.custom-contact-form input[type="submit"]{
+    width:100%;
+}
+
+
+
+}
+
+.custom-contact-form br {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+
+    .custom-contact-form {
+        width: 100% !important;
+    }
+.custom-contact-form .form-group {
+    margin-bottom: 0px;
+}
+    /* Labels */
+    .custom-contact-form label {
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        color: #000000 !important;
+    }
+
+    /* Name & Email fields */
+    .custom-contact-form input[type="text"],
+    .custom-contact-form input[type="email"] {
+        max-width: 100% !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        line-height: 30px !important;
+        border-radius: 9px !important;
+        border: 0.5px solid #bcbec0 !important;
+    }
+
+    /* Message textarea */
+    .custom-contact-form textarea {
+
+        max-width: 100% !important;
+        height: 100px !important;
+        border-radius: 9px !important;
+        border: 0.5px solid #bcbec0 !important;
+    }
+
+    /* Submit button */
+    .custom-contact-form input[type="submit"] {
+
+        max-width: 100% !important;
+        height: 40px !important;
+        border-radius: 9px !important;
+        background-color: #222222 !important;
+        font-family: 'Jost', sans-serif !important;
+        font-weight: 300 !important;
+        font-size: 14px !important;
+        color: #ffffff !important;
+    }
+    .elementor-253 .elementor-element.elementor-element-0135e3b .wpcf7-spinner{
+        display: none;
+    }
+    .wpcf7 form .wpcf7-response-output {
+    padding: 20px 24px !important;
+    text-align: center !important;
+    font-family: "Jost", Sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+}/* End custom CSS */
+/* Start custom CSS for html, class: .elementor-element-4682e51 */@media (max-width: 767px)
+{
+h2{
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #222222;
+    margin: 0;
+    line-height: 1;
+}
+}/* End custom CSS */</style>{"id":253,"slug":"contact-us","content":{"raw":"<img width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner.jpg\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner.jpg 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-300x94.jpg 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-1024x320.jpg 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-1536x480.jpg 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-600x188.jpg 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n    <h2>CONTACT US<\/h2>\n<style>\n.custom-title{\n    display:flex;\n    align-items:center;\n    justify-content:center;\n    gap:20px;\n}\n.custom-title h2{\n    margin:0;\n    font-family:\"Jost\", Sans-serif;\n    font-size:22px;\n    font-weight:300;\n    color:#222222;\n    line-height:1;\n}\n.custom-title span{\n    width:80px;\n    height:0.5px;\n    background:#6d6e71;\n    display:block;\n}\n\/* Mobile Responsive *\/\n@media(max-width:767px){\n.custom-title{\n    gap:10px;\n}\n.custom-title h2{\n    font-size:14px;\n    text-align: center;\n}\n.custom-title span{\n    width:40px;\n    height:0.25px;\n}\n}\n<\/style>\t\t[contact-form-7 id=\"6a51cc0\" title=\"Contact Page Form\"]\t\t\t\n        <h2>LETS SOCIALIZE <\/h2>\n        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a>\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a>\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a>\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a>\n<style>\n    .social-icons {\n    display: flex;\n    align-items: center;\n    gap: 16px;\n}\n.social-icons a img {\n    width: 35px;\n    height: 35px;\n    display: block;\n    transition-duration: .1s;\n}\n.social-icons a img:hover{\n    scale: .9;\n    transition-duration: .1s;\n}\n .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 13px;\n    text-align: center;\n}\n.bsh-heading-social {\n    display: grid;\n    grid-template-columns: 1fr auto 1fr;\n    align-items: center;\n    gap: 25px!important;\n}\n .bsh-heading-social .bsh-line {\n    width: 75px!important;\n    height: 1px;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n.bsh-heading-social .bsh-text-col {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px!important;\n    text-align: center;\n}\n .bsh-heading-social .bsh-title {\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 22px;\n    color: #222222;\n    margin: 0;\n    line-height: 1;\n}\n.bsh-heading-social .bsh-subtitle{\n    font-family: 'Jost', sans-serif;\n    font-weight: 300;\n    font-size: 16px;\n    color: #6d6e71;\n}\n@media (max-width: 767px) {\n    .bsh-heading-social .bsh-title {\n        font-size: 14px;\n    }\n    .social-icons a img {\n        width: 16px;\n    height: 16px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons a img {\n        width: 20px;\n    height: 20px;\n    display: block;\n    transition-duration: .1s; \n    }\n    .social-icons {\n        gap: 10px;\n    }\n    .bsh-heading-social .bsh-line {\n    width: 35px!important;\n    height: 0.25;\n    background-color: #6D6E71;\n    justify-self: center;\n}\n    .bsh-heading-social .bsh-text-col-social{\n        display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: 5px;\n    text-align: center;\n}\n}\n}\n<\/style>","rendered":"\t\t<div data-elementor-type=\"wp-page\" data-elementor-id=\"253\" class=\"elementor elementor-253\" data-elementor-post-type=\"page\">\n\t\t\t\t<div class=\"elementor-element elementor-element-aac2295 e-con-full e-flex e-con e-parent\" data-id=\"aac2295\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t<div class=\"elementor-element elementor-element-b270a08 elementor-widget elementor-widget-image\" data-id=\"b270a08\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"image.default\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img fetchpriority=\"high\" decoding=\"async\" width=\"1920\" height=\"600\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner.jpg\" class=\"attachment-full size-full wp-image-304\" alt=\"\" srcset=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner.jpg 1920w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-300x94.jpg 300w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-1024x320.jpg 1024w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-1536x480.jpg 1536w, https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Contact-Us-Page-Banner-600x188.jpg 600w\" sizes=\"(max-width: 1920px) 100vw, 1920px\" \/>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t<div class=\"elementor-element elementor-element-1e05a77 e-flex e-con-boxed e-con e-parent\" data-id=\"1e05a77\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t<div class=\"elementor-element elementor-element-1d36d2f elementor-widget__width-initial elementor-widget elementor-widget-html\" data-id=\"1d36d2f\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"html.default\">\n\t\t\t\t\t<div class=\"custom-title\">\r\n    <span><\/span>\r\n    <h2>CONTACT US<\/h2>\r\n    <span><\/span>\r\n<\/div>\r\n\r\n<style>\r\n.custom-title{\r\n    display:flex;\r\n    align-items:center;\r\n    justify-content:center;\r\n    gap:20px;\r\n}\r\n\r\n.custom-title h2{\r\n    margin:0;\r\n    font-family:\"Jost\", Sans-serif;\r\n    font-size:22px;\r\n    font-weight:300;\r\n    color:#222222;\r\n    line-height:1;\r\n}\r\n\r\n.custom-title span{\r\n    width:80px;\r\n    height:0.5px;\r\n    background:#6d6e71;\r\n    display:block;\r\n}\r\n\r\n\/* Mobile Responsive *\/\r\n@media(max-width:767px){\r\n\r\n.custom-title{\r\n    gap:10px;\r\n}\r\n\r\n.custom-title h2{\r\n    font-size:14px;\r\n    text-align: center;\r\n}\r\n\r\n.custom-title span{\r\n    width:40px;\r\n    height:0.25px;\r\n}\r\n\r\n}\r\n<\/style>\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-0135e3b elementor-widget elementor-widget-shortcode\" data-id=\"0135e3b\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"shortcode.default\">\n\t\t\t\t\t\t\t<div class=\"elementor-shortcode\">\n<div class=\"wpcf7 no-js\" id=\"wpcf7-f252-o2\" lang=\"en-US\" dir=\"ltr\" data-wpcf7-id=\"252\">\n<div class=\"screen-reader-response\"><p role=\"status\" aria-live=\"polite\" aria-atomic=\"true\"><\/p> <ul><\/ul><\/div>\n<form action=\"\/dev-101\/wp-json\/wp\/v2\/pages\/253?context=edit&#038;_fields=id%2Cslug%2Cmeta%2Ccontent#wpcf7-f252-o2\" method=\"post\" class=\"wpcf7-form init\" aria-label=\"Contact form\" novalidate=\"novalidate\" data-status=\"init\">\n<fieldset class=\"hidden-fields-container\"><input type=\"hidden\" name=\"_wpcf7\" value=\"252\" \/><input type=\"hidden\" name=\"_wpcf7_version\" value=\"6.1.7\" \/><input type=\"hidden\" name=\"_wpcf7_locale\" value=\"en_US\" \/><input type=\"hidden\" name=\"_wpcf7_unit_tag\" value=\"wpcf7-f252-o2\" \/><input type=\"hidden\" name=\"_wpcf7_container_post\" value=\"0\" \/><input type=\"hidden\" name=\"_wpcf7_posted_data_hash\" value=\"\" \/>\n<\/fieldset>\n<div class=\"custom-contact-form\">\n\t<div class=\"form-group\">\n\t\t<p><label>Full Name *<\/label><br \/>\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-name\"><input size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-text wpcf7-validates-as-required\" autocomplete=\"name\" aria-required=\"true\" aria-invalid=\"false\" value=\"\" type=\"text\" name=\"your-name\" \/><\/span>\n\t\t<\/p>\n\t<\/div>\n\t<div class=\"form-group\">\n\t\t<p><label>Email Address *<\/label><br \/>\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-email\"><input size=\"40\" maxlength=\"400\" class=\"wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email\" autocomplete=\"email\" aria-required=\"true\" aria-invalid=\"false\" value=\"\" type=\"email\" name=\"your-email\" \/><\/span>\n\t\t<\/p>\n\t<\/div>\n\t<div class=\"form-group\">\n\t\t<p><label>Message *<\/label><br \/>\n<span class=\"wpcf7-form-control-wrap\" data-name=\"your-message\"><textarea cols=\"10\" rows=\"5\" maxlength=\"2000\" class=\"wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required\" aria-required=\"true\" aria-invalid=\"false\" placeholder=\"Type Your Message\" name=\"your-message\"><\/textarea><\/span>\n\t\t<\/p>\n\t<\/div>\n\t<div class=\"form-group submit-btn\">\n\t\t<p><input class=\"wpcf7-form-control wpcf7-submit has-spinner\" type=\"submit\" value=\"SUBMIT\" \/>\n\t\t<\/p>\n\t<\/div>\n<\/div><div class=\"wpcf7-response-output\" aria-hidden=\"true\"><\/div>\n<\/form>\n<\/div>\n<\/div>\n\t\t\t\t\t\t<\/div>\n\t\t\t\t<div class=\"elementor-element elementor-element-4682e51 elementor-widget__width-auto elementor-widget elementor-widget-html\" data-id=\"4682e51\" data-element_type=\"widget\" data-e-type=\"widget\" data-widget_type=\"html.default\">\n\t\t\t\t\t<div class=\"bsh-heading-social\" class=\"social\">\r\n    <span class=\"bsh-line\"><\/span>\r\n    <div class=\"bsh-text-col-social\">\r\n        <h2 class=\"bsh-title\">LETS SOCIALIZE <\/h2>\r\n        <div class=\"social-icons\">\r\n        <a href=\"https:\/\/www.instagram.com\/fierrojewellery\/\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Instagram-Icon.svg\" alt=\"Instagram\"><\/a>\r\n        <a href=\"https:\/\/www.facebook.com\/profile.php?id=61592874454475\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/Facebook-Icon.svg\" alt=\"Facebook\"><\/a>\r\n        <a href=\"https:\/\/www.tiktok.com\/@fierrojewellery\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/TikTok-Icon.svg\" alt=\"TitTok\"><\/a>\r\n        <a href=\"https:\/\/wa.me\/971527794759\" target=\"_blank\"><img decoding=\"async\" src=\"https:\/\/soharon.co.uk\/dev-101\/wp-content\/uploads\/2026\/05\/WhatsApp-Icon.svg\" alt=\"WhatsApp\"><\/a>\r\n    <\/div>\r\n\r\n    <\/div>\r\n    <span class=\"bsh-line\"><\/span>\r\n<\/div>\r\n\r\n<style>\r\n    .social-icons {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 16px;\r\n}\r\n.social-icons a img {\r\n    width: 35px;\r\n    height: 35px;\r\n    display: block;\r\n    transition-duration: .1s;\r\n}\r\n\r\n.social-icons a img:hover{\r\n    scale: .9;\r\n    transition-duration: .1s;\r\n}\r\n\r\n\r\n .bsh-heading-social .bsh-text-col-social{\r\n        display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 13px;\r\n    text-align: center;\r\n}\r\n\r\n.bsh-heading-social {\r\n    display: grid;\r\n    grid-template-columns: 1fr auto 1fr;\r\n    align-items: center;\r\n    gap: 25px!important;\r\n}\r\n\r\n .bsh-heading-social .bsh-line {\r\n    width: 75px!important;\r\n    height: 1px;\r\n    background-color: #6D6E71;\r\n    justify-self: center;\r\n}\r\n\r\n.bsh-heading-social .bsh-text-col {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 5px!important;\r\n    text-align: center;\r\n}\r\n\r\n .bsh-heading-social .bsh-title {\r\n    font-family: 'Jost', sans-serif;\r\n    font-weight: 300;\r\n    font-size: 22px;\r\n    color: #222222;\r\n    margin: 0;\r\n    line-height: 1;\r\n}\r\n.bsh-heading-social .bsh-subtitle{\r\n    font-family: 'Jost', sans-serif;\r\n    font-weight: 300;\r\n    font-size: 16px;\r\n    color: #6d6e71;\r\n}\r\n@media (max-width: 767px) {\r\n    .bsh-heading-social .bsh-title {\r\n        font-size: 14px;\r\n    }\r\n    \r\n    .social-icons a img {\r\n        width: 16px;\r\n    height: 16px;\r\n    display: block;\r\n    transition-duration: .1s; \r\n        \r\n    }\r\n    .social-icons a img {\r\n        width: 20px;\r\n    height: 20px;\r\n    display: block;\r\n    transition-duration: .1s; \r\n        \r\n    }\r\n    .social-icons {\r\n        gap: 10px;\r\n    }\r\n    .bsh-heading-social .bsh-line {\r\n    width: 35px!important;\r\n    height: 0.25;\r\n    background-color: #6D6E71;\r\n    justify-self: center;\r\n}\r\n    .bsh-heading-social .bsh-text-col-social{\r\n        display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    gap: 5px;\r\n    text-align: center;\r\n}\r\n}\r\n}\r\n\r\n\r\n\r\n<\/style>\r\n\t\t\t\t<\/div>\n\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\t\t","protected":false,"block_version":0},"meta":{"_acf_changed":false,"footnotes":"","_elementor_edit_mode":"builder","_elementor_template_type":"wp-page","_elementor_data":"[{\"id\":\"aac2295\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"content_width\":\"full\",\"padding\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":true},\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"lqd_sticky_row_offset\":\"0px\"},\"elements\":[{\"id\":\"b270a08\",\"elType\":\"widget\",\"settings\":{\"image\":{\"url\":\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Contact-Us-Page-Banner.jpg\",\"id\":304,\"size\":\"\",\"alt\":\"\",\"source\":\"library\"},\"image_size\":\"full\",\"width\":{\"unit\":\"px\",\"size\":1920,\"sizes\":[]},\"width_tablet\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"width_mobile\":{\"unit\":\"px\",\"size\":\"\",\"sizes\":[]},\"height\":{\"unit\":\"px\",\"size\":600,\"sizes\":[]},\"object-fit\":\"cover\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"height_mobile\":{\"unit\":\"px\",\"size\":250,\"sizes\":[]},\"height_laptop\":{\"unit\":\"px\",\"size\":300,\"sizes\":[]},\"height_tablet\":{\"unit\":\"px\",\"size\":250,\"sizes\":[]}},\"elements\":[],\"widgetType\":\"image\"}],\"isInner\":false},{\"id\":\"1e05a77\",\"elType\":\"container\",\"settings\":{\"flex_direction\":\"column\",\"boxed_width\":{\"unit\":\"px\",\"size\":915,\"sizes\":[]},\"flex_gap\":{\"column\":\"0\",\"row\":\"0\",\"isLinked\":true,\"unit\":\"px\",\"size\":0},\"padding\":{\"unit\":\"px\",\"top\":\"80\",\"right\":\"0\",\"bottom\":\"80\",\"left\":\"0\",\"isLinked\":false},\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"lqd_sticky_row_offset\":\"0px\",\"padding_mobile\":{\"unit\":\"px\",\"top\":\"30\",\"right\":\"10\",\"bottom\":\"30\",\"left\":\"10\",\"isLinked\":false},\"flex_align_items_mobile\":\"center\"},\"elements\":[{\"id\":\"1d36d2f\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"custom-title\\\">\\r\\n    <span><\\\/span>\\r\\n    <h2>CONTACT US<\\\/h2>\\r\\n    <span><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n.custom-title{\\r\\n    display:flex;\\r\\n    align-items:center;\\r\\n    justify-content:center;\\r\\n    gap:20px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    margin:0;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:22px;\\r\\n    font-weight:300;\\r\\n    color:#222222;\\r\\n    line-height:1;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:80px;\\r\\n    height:0.5px;\\r\\n    background:#6d6e71;\\r\\n    display:block;\\r\\n}\\r\\n\\r\\n\\\/* Mobile Responsive *\\\/\\r\\n@media(max-width:767px){\\r\\n\\r\\n.custom-title{\\r\\n    gap:10px;\\r\\n}\\r\\n\\r\\n.custom-title h2{\\r\\n    font-size:14px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.custom-title span{\\r\\n    width:40px;\\r\\n    height:0.25px;\\r\\n}\\r\\n\\r\\n}\\r\\n<\\\/style>\",\"_element_width\":\"initial\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":37,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"40\",\"left\":\"0\",\"isLinked\":false},\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":64,\"sizes\":[]},\"_element_custom_width_tablet\":{\"unit\":\"%\",\"size\":60,\"sizes\":[]},\"_margin_mobile\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"30\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"html\"},{\"id\":\"0135e3b\",\"elType\":\"widget\",\"settings\":{\"shortcode\":\"[contact-form-7 id=\\\"6a51cc0\\\" title=\\\"Contact Page Form\\\"]\",\"_margin\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"80\",\"left\":\"0\",\"isLinked\":false},\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"custom_css\":\"selector .wpcf7 form.wpcf7-form.sent .wpcf7-response-output, selector .wpcf7 form.invalid .wpcf7-response-output, selector .wpcf7 form.failed .wpcf7-response-output, selector .wpcf7 form.spam .wpcf7-response-output, selector .wpcf7 form.submitting .wpcf7-response-output{\\r\\n    background-color: #383838!important\\r\\n}\\r\\n\\r\\n\\\/* Main Form *\\\/\\r\\n.custom-contact-form{\\r\\n    width:585px;\\r\\n   \\r\\n}\\r\\n\\r\\n\\\/* Gap Between Sections *\\\/\\r\\n.custom-contact-form .form-group{\\r\\n    margin-bottom:30px;\\r\\n}\\r\\n\\r\\n\\\/* Labels *\\\/\\r\\n\\\/* Labels *\\\/\\r\\n.custom-contact-form label {\\r\\n    display: block;\\r\\n    font-family: \\\"Jost\\\", Sans-serif;\\r\\n    font-size: 16px;\\r\\n    font-weight: 300;\\r\\n    color: #000000;\\r\\n    line-height: 1;\\r\\n    margin-bottom: 8px; \\\/* \\u2190 ADD THIS *\\\/\\r\\n}\\r\\n\\r\\n\\\/* Input & Textarea *\\\/\\r\\n.custom-contact-form input[type=\\\"text\\\"],\\r\\n.custom-contact-form input[type=\\\"email\\\"],\\r\\n.custom-contact-form textarea {\\r\\n    width: 585px;\\r\\n    height: 65px;\\r\\n    border: 0.5px solid #6d6e71;\\r\\n    border-radius: 5px;\\r\\n    background: transparent;\\r\\n    font-family: \\\"Jost\\\", Sans-serif;\\r\\n    font-size: 16px;\\r\\n    font-weight: 300;\\r\\n    color: #000000;\\r\\n    box-sizing: border-box;\\r\\n    outline: none;\\r\\n    box-shadow: none;\\r\\n    margin: 0; \\\/* \\u2190 already present, keep this *\\\/\\r\\n    margin-top: 0 !important; \\\/* \\u2190 ADD THIS to override any theme defaults *\\\/\\r\\n}\\r\\n\\\/* Name & Email Fields *\\\/\\r\\n.custom-contact-form input[type=\\\"text\\\"],\\r\\n.custom-contact-form input[type=\\\"email\\\"]{\\r\\n    height:65px !important;\\r\\n    min-height:65px;\\r\\n    padding:0 20px;\\r\\n    line-height:65px;\\r\\n}\\r\\n\\r\\n\\\/* Message Field *\\\/\\r\\n.custom-contact-form textarea{\\r\\n    height:220px;\\r\\n    padding:20px;\\r\\n    resize:none;\\r\\n}\\r\\n\\r\\n\\\/* Placeholder *\\\/\\r\\n.custom-contact-form ::placeholder{\\r\\n    color:#9a9a9a;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:16px;\\r\\n    font-weight:300;\\r\\n}\\r\\n\\r\\n\\\/* Submit Button *\\\/\\r\\n.custom-contact-form .submit-btn{\\r\\n    margin-top:-4px;\\r\\n    margin-bottom:-40px;\\r\\n}\\r\\n\\r\\n.custom-contact-form input[type=\\\"submit\\\"]{\\r\\n    width:585px;\\r\\n    height:65px;\\r\\n    border:none;\\r\\n    border-radius:5px;\\r\\n    background:#222222;\\r\\n    font-family:\\\"Jost\\\", Sans-serif;\\r\\n    font-size:22px;\\r\\n    font-weight:300;\\r\\n    color:#ffffff;\\r\\n    cursor:pointer;\\r\\n    transition:none;\\r\\n    padding:0;\\r\\n}\\r\\n\\r\\n\\\/* No Hover Animation *\\\/\\r\\n.custom-contact-form input[type=\\\"submit\\\"]:hover{\\r\\n    background:#222222;\\r\\n    color:#ffffff;\\r\\n}\\r\\n\\r\\n\\\/* Mobile *\\\/\\r\\n@media(max-width:767px){\\r\\n\\r\\n.custom-contact-form{\\r\\n    width:100%;\\r\\n}\\r\\n\\r\\n.custom-contact-form input[type=\\\"text\\\"],\\r\\n.custom-contact-form input[type=\\\"email\\\"],\\r\\n.custom-contact-form textarea,\\r\\n.custom-contact-form input[type=\\\"submit\\\"]{\\r\\n    width:100%;\\r\\n}\\r\\n\\r\\n\\r\\n\\r\\n}\\r\\n\\r\\n.custom-contact-form br {\\r\\n    display: none !important;\\r\\n}\\r\\n\\r\\n@media (max-width: 767px) {\\r\\n\\r\\n    .custom-contact-form {\\r\\n        width: 100% !important;\\r\\n    }\\r\\n.custom-contact-form .form-group {\\r\\n    margin-bottom: 0px;\\r\\n}\\r\\n    \\\/* Labels *\\\/\\r\\n    .custom-contact-form label {\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 12px !important;\\r\\n        color: #000000 !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Name & Email fields *\\\/\\r\\n    .custom-contact-form input[type=\\\"text\\\"],\\r\\n    .custom-contact-form input[type=\\\"email\\\"] {\\r\\n        max-width: 100% !important;\\r\\n        height: 30px !important;\\r\\n        min-height: 30px !important;\\r\\n        line-height: 30px !important;\\r\\n        border-radius: 9px !important;\\r\\n        border: 0.5px solid #bcbec0 !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Message textarea *\\\/\\r\\n    .custom-contact-form textarea {\\r\\n\\r\\n        max-width: 100% !important;\\r\\n        height: 100px !important;\\r\\n        border-radius: 9px !important;\\r\\n        border: 0.5px solid #bcbec0 !important;\\r\\n    }\\r\\n\\r\\n    \\\/* Submit button *\\\/\\r\\n    .custom-contact-form input[type=\\\"submit\\\"] {\\r\\n\\r\\n        max-width: 100% !important;\\r\\n        height: 40px !important;\\r\\n        border-radius: 9px !important;\\r\\n        background-color: #222222 !important;\\r\\n        font-family: 'Jost', sans-serif !important;\\r\\n        font-weight: 300 !important;\\r\\n        font-size: 14px !important;\\r\\n        color: #ffffff !important;\\r\\n    }\\r\\n    selector .wpcf7-spinner{\\r\\n        display: none;\\r\\n    }\\r\\n    .wpcf7 form .wpcf7-response-output {\\r\\n    padding: 20px 24px !important;\\r\\n    text-align: center !important;\\r\\n    font-family: \\\"Jost\\\", Sans-serif;\\r\\n    font-size: 15px;\\r\\n    line-height: 1.5;\\r\\n}\\r\\n}\",\"_flex_align_self\":\"center\",\"_margin_mobile\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"30\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"shortcode\"},{\"id\":\"4682e51\",\"elType\":\"widget\",\"settings\":{\"html\":\"<div class=\\\"bsh-heading-social\\\" class=\\\"social\\\">\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n    <div class=\\\"bsh-text-col-social\\\">\\r\\n        <h2 class=\\\"bsh-title\\\">LETS SOCIALIZE <\\\/h2>\\r\\n        <div class=\\\"social-icons\\\">\\r\\n        <a href=\\\"https:\\\/\\\/www.instagram.com\\\/fierrojewellery\\\/\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Instagram-Icon.svg\\\" alt=\\\"Instagram\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.facebook.com\\\/profile.php?id=61592874454475\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/Facebook-Icon.svg\\\" alt=\\\"Facebook\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/www.tiktok.com\\\/@fierrojewellery\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/TikTok-Icon.svg\\\" alt=\\\"TitTok\\\"><\\\/a>\\r\\n        <a href=\\\"https:\\\/\\\/wa.me\\\/971527794759\\\" target=\\\"_blank\\\"><img src=\\\"https:\\\/\\\/soharon.co.uk\\\/dev-101\\\/wp-content\\\/uploads\\\/2026\\\/05\\\/WhatsApp-Icon.svg\\\" alt=\\\"WhatsApp\\\"><\\\/a>\\r\\n    <\\\/div>\\r\\n\\r\\n    <\\\/div>\\r\\n    <span class=\\\"bsh-line\\\"><\\\/span>\\r\\n<\\\/div>\\r\\n\\r\\n<style>\\r\\n    .social-icons {\\r\\n    display: flex;\\r\\n    align-items: center;\\r\\n    gap: 16px;\\r\\n}\\r\\n.social-icons a img {\\r\\n    width: 35px;\\r\\n    height: 35px;\\r\\n    display: block;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n.social-icons a img:hover{\\r\\n    scale: .9;\\r\\n    transition-duration: .1s;\\r\\n}\\r\\n\\r\\n\\r\\n .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 13px;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social {\\r\\n    display: grid;\\r\\n    grid-template-columns: 1fr auto 1fr;\\r\\n    align-items: center;\\r\\n    gap: 25px!important;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-line {\\r\\n    width: 75px!important;\\r\\n    height: 1px;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n\\r\\n.bsh-heading-social .bsh-text-col {\\r\\n    display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px!important;\\r\\n    text-align: center;\\r\\n}\\r\\n\\r\\n .bsh-heading-social .bsh-title {\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 22px;\\r\\n    color: #222222;\\r\\n    margin: 0;\\r\\n    line-height: 1;\\r\\n}\\r\\n.bsh-heading-social .bsh-subtitle{\\r\\n    font-family: 'Jost', sans-serif;\\r\\n    font-weight: 300;\\r\\n    font-size: 16px;\\r\\n    color: #6d6e71;\\r\\n}\\r\\n@media (max-width: 767px) {\\r\\n    .bsh-heading-social .bsh-title {\\r\\n        font-size: 14px;\\r\\n    }\\r\\n    \\r\\n    .social-icons a img {\\r\\n        width: 16px;\\r\\n    height: 16px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons a img {\\r\\n        width: 20px;\\r\\n    height: 20px;\\r\\n    display: block;\\r\\n    transition-duration: .1s; \\r\\n        \\r\\n    }\\r\\n    .social-icons {\\r\\n        gap: 10px;\\r\\n    }\\r\\n    .bsh-heading-social .bsh-line {\\r\\n    width: 35px!important;\\r\\n    height: 0.25;\\r\\n    background-color: #6D6E71;\\r\\n    justify-self: center;\\r\\n}\\r\\n    .bsh-heading-social .bsh-text-col-social{\\r\\n        display: flex;\\r\\n    flex-direction: column;\\r\\n    align-items: center;\\r\\n    gap: 5px;\\r\\n    text-align: center;\\r\\n}\\r\\n}\\r\\n}\\r\\n\\r\\n\\r\\n\\r\\n<\\\/style>\\r\\n\",\"_element_width\":\"auto\",\"_element_custom_width\":{\"unit\":\"%\",\"size\":24,\"sizes\":[]},\"_flex_align_self\":\"center\",\"lqd_parallax_settings_trigger_start\":\"top bottom\",\"lqd_parallax_settings_trigger_end\":\"bottom top\",\"_element_custom_width_mobile\":{\"unit\":\"%\",\"size\":66,\"sizes\":[]},\"custom_css\":\"   \\n@media (max-width: 767px)\\n{\\nh2{\\n    font-family: 'Jost', sans-serif;\\n    font-weight: 300;\\n    font-size: 18px;\\n    color: #222222;\\n    margin: 0;\\n    line-height: 1;\\n}\\n}\",\"_margin_mobile\":{\"unit\":\"px\",\"top\":\"0\",\"right\":\"0\",\"bottom\":\"0\",\"left\":\"0\",\"isLinked\":false}},\"elements\":[],\"widgetType\":\"html\"}],\"isInner\":false}]","_elementor_page_settings":{"header_mobile_menu":"","header_template":16,"footer_template":147,"liquid_sidebar_one":"","hide_title":"yes"},"_elementor_conditions":[]}}
