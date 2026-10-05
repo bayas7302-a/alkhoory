@@ -32,7 +32,7 @@ Site is built with classic Elementor (not Atomic). Legend:
 ## Product page
 - [ ] [W/D] First gallery image doesn't open the fullscreen lightbox (the other images do).
 - [ ] [E] Accordion: rename "Delivery & Returns" to "Returns & Exchange".
-- [ ] [?] Fill it with the Returns & Exchange text "provided in the Word file". Need the file.
+- [ ] [E] Fill it with the Returns & Exchange text. Ready to paste: `content/returns-exchange.html` (from `Returns & Exchanges.docx`).
 
 ## Cart page (mobile)
 - [ ] [E] Center "You are AED 100 away from Free Shipping".
@@ -56,18 +56,18 @@ Site is built with classic Elementor (not Atomic). Legend:
 
 ## Checkout (desktop + mobile)
 - [ ] [W] Coupon `FTS10`: 10% discount (WooCommerce → Marketing → Coupons).
-- [ ] [W] Remove Cash on Delivery. Keep Tabby only.
-- [ ] [W] Show "VAT 5%" under the price (WooCommerce Tax). [?] Are prices VAT-inclusive or should 5% be added on top?
-- [ ] [W] UAE shipping: AED 25 flat rate, free over AED 150 (Shipping zones).
-- [ ] [W/D] Overseas shipping: FedEx real-time rates. Needs a FedEx shipping plugin and FedEx API credentials. [?]
+- [ ] [W] Remove Cash on Delivery. Keep Tabby only (WhatsApp/Mamo flow skipped for now).
+- [ ] [W] Add 5% VAT **at checkout** (prices entered excl. VAT): WooCommerce → Settings → Tax, standard rate 5% for AE, show "VAT 5%" row under the price.
+- [ ] [W] UAE shipping: AED 25 flat rate, free when the subtotal **before VAT** is over AED 150 (Shipping zones → Free shipping, min. amount 150).
+- ~~[W/D] Overseas shipping: FedEx real-time rates~~ **Skipped for now.**
 - [ ] [W] State / County field shows only a label with no input for some countries (e.g. South Korea). Probably a theme CSS or checkout-field plugin issue.
-- [ ] [D] "Place Order via WhatsApp" + Mamo payment-link flow (create order, Mamo API link, WhatsApp message with order summary). This is custom development. [?] See questions below.
+- ~~[D] "Place Order via WhatsApp" + Mamo payment-link flow~~ **Skipped for now.**
 
-## Questions for the client
-1. Hero banner (desktop), Bags/Hats/Watches banner, Wishlist banner: please share the files or a Google Drive link.
-2. Returns & Exchange Word file: please share it.
-3. VAT: are product prices VAT-inclusive (show "incl. 5% VAT") or should 5% be added at checkout?
-4. FedEx: account number + API key/secret, and which plugin (if any) is already licensed.
-5. Payments: the notes say "only Tabby" but also "pay via Mamo link on WhatsApp". Should checkout offer Tabby **and** WhatsApp/Mamo, or only WhatsApp/Mamo?
-6. WhatsApp flow: who sends the WhatsApp message? Automatic sending needs the WhatsApp Business API (Meta, Twilio, etc.). The simpler option opens WhatsApp on the customer's phone with a pre-filled message. Also need Mamo API credentials.
-7. Free shipping threshold: is AED 150 measured before or after VAT/discounts?
+## Client answers (Oct 2026)
+1. Banners are in Google Drive folder "2026 FIERRO SITE". Category banners go on the **category thumbnail** (Products → Categories → Thumbnail), so check that the category pages use the thumbnail correctly.
+2. Returns & Exchange text: `Returns & Exchanges.docx` → `content/returns-exchange.html`.
+3. VAT is added at checkout.
+4. FedEx: skipped for now.
+5. WhatsApp order flow: skipped for now.
+6. WhatsApp API: skipped.
+7. Free shipping threshold AED 150 is measured **before VAT**.
