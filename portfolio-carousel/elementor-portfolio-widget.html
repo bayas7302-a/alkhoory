@@ -16,7 +16,7 @@
     --sio-amber: #eeac4c;
     --sio-coral: #e15338;
     --sio-muted: #c9d8d3;
-    --sio-slab: var(--font-body, "Hanken Grotesk"), sans-serif;
+    --sio-slab: "TypoSlab Irregular Demo", var(--font-body, "Hanken Grotesk"), serif;
     --sio-display: var(--font-display, "Anton"), Impact, sans-serif;
     --sio-sans: var(--font-body, "Hanken Grotesk"), system-ui, sans-serif;
     --sio-gap: 24px;
@@ -65,6 +65,9 @@
     margin-right: -120px; padding: 0 120px 4px 0;
   }
   .sio-portfolio__track::-webkit-scrollbar { display: none; }
+  .sio-portfolio__track { cursor: grab; }
+  .sio-portfolio__track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
+  .sio-portfolio__track.is-dragging a { pointer-events: none; }
 
   /* Card */
   .sio-card {
@@ -73,8 +76,8 @@
     background: var(--sio-cream); border: 1.5px solid var(--sio-ink); border-radius: 24px;
     padding: 14px 14px 26px; display: flex; flex-direction: column; gap: 20px;
   }
-  .sio-card__media { height: 270px; border-radius: 16px; overflow: hidden; background: #f2f2f2; display: block; }
-  .sio-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .4s ease; }
+  .sio-card__media { aspect-ratio: 16 / 10; height: auto; border-radius: 16px; overflow: hidden; background: #f2f2f2; display: block; -webkit-user-drag: none; }
+  .sio-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .6s cubic-bezier(.22,1,.36,1); -webkit-user-drag: none; user-select: none; pointer-events: none; }
   .sio-card:hover .sio-card__media img { transform: scale(1.04); }
   .sio-card__body { padding: 0 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; flex: 1; }
   .sio-card__tag { background: rgba(225,83,56,.12); color: var(--sio-coral); border-radius: 100px; padding: 5px 10px; font-family: var(--sio-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; }
@@ -83,15 +86,18 @@
     display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 100px;
     background: var(--sio-amber); color: var(--sio-ink); border: 1.5px solid var(--sio-ink); box-shadow: 3px 3px 0 var(--sio-ink);
     font-size: 16px; line-height: 1; text-decoration: none; white-space: nowrap;
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);
   }
-  .sio-card__cta span:first-child { font-family: var(--sio-sans); font-weight: 700; }
+  .sio-card__cta span:first-child { font-family: var(--sio-slab); font-weight: 400; }
   .sio-card__cta span:last-child { font-family: var(--sio-sans); font-weight: 700; }
-  .sio-card__cta:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--sio-ink); color: var(--sio-ink); }
+  .sio-card__cta:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--sio-ink); color: var(--sio-ink); }
 
   /* Progress */
-  .sio-portfolio__progress { height: 4px; border-radius: 4px; background: rgba(255,246,238,.15); overflow: hidden; }
-  .sio-portfolio__bar { height: 100%; width: 33.333%; border-radius: 4px; background: var(--sio-amber); transition: transform .35s ease, width .35s ease; }
+  .sio-portfolio__progress { position: relative; height: 4px; border-radius: 4px; background: rgba(255,246,238,.15); cursor: pointer; touch-action: none; transition: height .2s ease; }
+  .sio-portfolio__progress::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; bottom: -10px; }
+  .sio-portfolio__progress:hover, .sio-portfolio__progress.is-dragging { height: 8px; }
+  .sio-portfolio__bar { position: absolute; left: 0; top: 0; height: 100%; width: 33.333%; border-radius: 4px; background: var(--sio-amber); cursor: grab; }
+  .sio-portfolio__progress.is-dragging .sio-portfolio__bar { cursor: grabbing; }
 
   @media (max-width: 1024px) {
     .sio-portfolio { padding: 80px 40px; --sio-per-view: 2; }
@@ -103,7 +109,6 @@
     .sio-portfolio { padding: 64px 16px; --sio-per-view: 1; --sio-gap: 16px; }
     .sio-portfolio__track { margin-right: -16px; padding-right: 16px; }
     .sio-card { flex-basis: 85%; }
-    .sio-card__media { height: 220px; }
     .sio-portfolio__title { font-size: 38px; }
     .sio-portfolio__btn { width: 50px; height: 50px; font-size: 18px; }
   }
@@ -134,7 +139,7 @@
       <!-- cards are built from the [portfolio_carousel] shortcode output (Website Portfolio posts) -->
     </div>
 
-    <div class="sio-portfolio__progress" aria-hidden="true"><div class="sio-portfolio__bar"></div></div>
+    <div class="sio-portfolio__progress" role="scrollbar" aria-label="Scroll projects" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="sio-portfolio__bar"></div></div>
   </div>
 </section>
 
@@ -188,14 +193,17 @@
     function maxIndex() { return Math.max(0, count - perView()); }
     function index() { return Math.min(maxIndex(), Math.round(track.scrollLeft / step())); }
 
+    var progress = root.querySelector('.sio-portfolio__progress');
+    function maxScroll() { return Math.max(1, track.scrollWidth - track.clientWidth); }
     function update() {
       var i = index(), max = maxIndex(), pv = Math.min(perView(), count);
       current.textContent = pad(i + 1);
-      prev.disabled = i <= 0;
-      next.disabled = i >= max;
-      var w = pv / count * 100;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= maxScroll() - 2;
+      var w = pv / count * 100, frac = Math.min(1, Math.max(0, track.scrollLeft / maxScroll()));
       bar.style.width = w + '%';
-      bar.style.transform = 'translateX(' + (max ? i / max * (100 / w * (100 - w)) : 0) + '%)';
+      bar.style.left = (frac * (100 - w)) + '%';
+      progress.setAttribute('aria-valuenow', Math.round(frac * 100));
     }
     function go(i) {
       i = Math.max(0, Math.min(maxIndex(), i));
@@ -208,6 +216,63 @@
       if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
     });
+    /* drag the cards with the mouse */
+    var drag = null, suppressClick = false;
+    track.addEventListener('click', function (ev) { if (suppressClick) { ev.preventDefault(); ev.stopPropagation(); } }, true);
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { x: e.clientX, left: track.scrollLeft, moved: false, id: e.pointerId };
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!drag || e.pointerId !== drag.id) return;
+      var dx = e.clientX - drag.x;
+      if (!drag.moved && Math.abs(dx) > 5) { drag.moved = true; track.classList.add('is-dragging'); }
+      if (drag.moved) { e.preventDefault(); track.scrollLeft = drag.left - dx; }
+    });
+    function endDrag() {
+      if (!drag) return;
+      var moved = drag.moved; drag = null;
+      if (moved) {
+        var target = Math.round(track.scrollLeft / step());
+        track.classList.remove('is-dragging');
+        go(target);
+        suppressClick = true;
+        setTimeout(function () { suppressClick = false; }, 0);
+      }
+    }
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
+    track.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+    /* scrollbar: drag the thumb or click the rail */
+    var sb = null;
+    function railFrac(clientX, offset) {
+      var r = progress.getBoundingClientRect(), bw = bar.getBoundingClientRect().width;
+      return Math.min(1, Math.max(0, (clientX - r.left - offset) / Math.max(1, r.width - bw)));
+    }
+    progress.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      var br = bar.getBoundingClientRect();
+      var onThumb = e.clientX >= br.left && e.clientX <= br.right;
+      sb = { offset: onThumb ? e.clientX - br.left : br.width / 2, id: e.pointerId };
+      progress.setPointerCapture(e.pointerId);
+      progress.classList.add('is-dragging');
+      track.classList.add('is-dragging');
+      track.scrollLeft = railFrac(e.clientX, sb.offset) * maxScroll();
+    });
+    progress.addEventListener('pointermove', function (e) {
+      if (!sb || e.pointerId !== sb.id) return;
+      track.scrollLeft = railFrac(e.clientX, sb.offset) * maxScroll();
+    });
+    function endSb() {
+      if (!sb) return; sb = null;
+      progress.classList.remove('is-dragging');
+      track.classList.remove('is-dragging');
+      go(Math.round(track.scrollLeft / step()));
+    }
+    progress.addEventListener('pointerup', endSb);
+    progress.addEventListener('pointercancel', endSb);
+
     var raf;
     track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, { passive: true });
     window.addEventListener('resize', update);
