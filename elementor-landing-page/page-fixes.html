@@ -115,8 +115,12 @@ html{scroll-behavior:smooth;}
 .hl-menu-open .hl-burger span:nth-child(1){top:22px;transform:rotate(45deg)}
 .hl-menu-open .hl-burger span:nth-child(2){opacity:0}
 .hl-menu-open .hl-burger span:nth-child(3){top:22px;transform:rotate(-45deg)}
-.hl-flyout-overlay{position:fixed;inset:0;background:rgba(14,42,37,.45);opacity:0;visibility:hidden;transition:opacity .4s ease, visibility .4s;z-index:9998;}
-.hl-flyout{position:fixed;top:0;right:0;bottom:0;width:min(86vw,360px);background:var(--hl-cream);border-left:2px solid var(--hl-ink);box-shadow:-8px 0 0 0 var(--hl-green);transform:translateX(110%);transition:transform .55s cubic-bezier(.22,1,.36,1);z-index:9999;display:flex;flex-direction:column;padding:96px 28px 32px;overflow-y:auto;}
+.hl-flyout-overlay{position:fixed;inset:0;background:rgba(14,42,37,.45);opacity:0;visibility:hidden;transition:opacity .4s ease, visibility .4s;z-index:10001;}
+.hl-flyout{position:fixed;top:0;right:0;bottom:0;width:min(86vw,360px);background:var(--hl-cream);border-left:2px solid var(--hl-ink);box-shadow:-8px 0 0 0 var(--hl-green);transform:translateX(110%);transition:transform .55s cubic-bezier(.22,1,.36,1);z-index:10002;display:flex;flex-direction:column;padding:0 28px 32px;overflow-y:auto;}
+.hl-fl-head{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 18px;margin-bottom:10px;background:var(--hl-cream);border-bottom:1.5px solid rgba(14,42,37,.15);z-index:1;}
+.hl-fl-head img{display:block;width:146px;height:auto;}
+.hl-fl-close{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hl-ink);background:var(--hl-coral);box-shadow:3px 3px 0 0 var(--hl-ink);color:var(--hl-cream);font:700 22px/1 var(--font-body),sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:transform .45s cubic-bezier(.22,1,.36,1);}
+.hl-fl-close:active{transform:translate(2px,2px);box-shadow:1px 1px 0 0 var(--hl-ink);}
 .hl-flyout a.hl-fl-link{display:flex;align-items:center;justify-content:space-between;font-family:var(--font-display),Impact,sans-serif;font-size:34px;line-height:1.1;color:var(--hl-green);text-decoration:none;text-transform:uppercase;padding:14px 0;border-bottom:1.5px solid rgba(14,42,37,.15);opacity:0;transform:translateX(24px);transition:opacity .4s ease, transform .5s cubic-bezier(.22,1,.36,1), color .3s ease;}
 .hl-flyout a.hl-fl-link::after{content:"\2192";font-family:var(--font-body),sans-serif;font-size:20px;color:var(--hl-coral);transition:transform .35s cubic-bezier(.22,1,.36,1);}
 .hl-flyout a.hl-fl-link:hover, .hl-flyout a.hl-fl-link.is-active{color:var(--hl-coral);}
@@ -134,6 +138,10 @@ html.hl-menu-open{overflow:hidden;}
 @media (prefers-reduced-motion:reduce){.hl-flyout,.hl-flyout *,.hl-burger,.hl-burger span{transition:none !important;}}
 
 
+.elementor .elementor-element.elementor-element-6ed39e70 img{filter:none !important;opacity:1 !important;}
+.float-bottom, .floating-buton{display:none !important;}
+/* this landing page has its own header/footer: hide the site-wide theme-builder ones */
+[data-elementor-type="header"][data-elementor-id="18833"], [data-elementor-type="footer"][data-elementor-id="19329"], .elementor-location-header, .elementor-location-footer{display:none !important;}
 @keyframes hl-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .elementor-24951 .hl-clone{display:none !important;}
 @media (max-width:767px){
@@ -169,6 +177,9 @@ html.hl-menu-open{overflow:hidden;}
     inner.appendChild(btn);
     var ov=document.createElement('div'); ov.className='hl-flyout-overlay';
     var fl=document.createElement('nav'); fl.className='hl-flyout'; fl.id='hl-flyout'; fl.setAttribute('aria-label','Mobile menu');
+    var head=document.createElement('div'); head.className='hl-fl-head';
+    head.innerHTML='<a href="#home" aria-label="Hee &amp; Lee home"><img src="https://soharon.com/wp-content/uploads/2026/10/hl-logo.png" alt="Hee &amp; Lee Design Studio" width="146" height="40"></a><button type="button" class="hl-fl-close" aria-label="Close menu">&times;</button>';
+    fl.appendChild(head);
     var seen={};
     links.forEach(function(a,i){ var h=a.getAttribute('href'); if(seen[h]) return; seen[h]=1;
       var l=document.createElement('a'); l.className='hl-fl-link'; l.href=h; l.textContent=a.textContent.trim(); l.style.transitionDelay=(0.08+i*0.05)+'s'; fl.appendChild(l); });
@@ -178,7 +189,7 @@ html.hl-menu-open{overflow:hidden;}
     function set(open){ root.classList.toggle('hl-menu-open',open); btn.setAttribute('aria-expanded',open?'true':'false'); btn.setAttribute('aria-label',open?'Close menu':'Open menu'); }
     btn.addEventListener('click',function(){ set(!root.classList.contains('hl-menu-open')); });
     ov.addEventListener('click',function(){ set(false); });
-    fl.addEventListener('click',function(e){ if(e.target.closest('a')) set(false); });
+    fl.addEventListener('click',function(e){ if(e.target.closest('a')||e.target.closest('.hl-fl-close')) set(false); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') set(false); });
     window.addEventListener('resize',function(){ if(window.innerWidth>767) set(false); });
     // mirror scrollspy state into the flyout
