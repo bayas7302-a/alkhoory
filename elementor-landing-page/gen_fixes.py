@@ -77,6 +77,10 @@ for i in range(1, 5):
 {R}:hover .elementor-element-{M[img]}{{opacity:1;transform:scale(1) rotate(4deg) !important;}}
 @media (max-width:1024px){{{s1(img)}{{display:none !important;}}}}""")
 
+# Hero stickers: straight (no tilt), side by side
+css.append(s1('hero-sticker-studio') + '{transform:none !important;}')
+css.append(s1('hero-sticker-location') + '{transform:none !important;margin-left:10px !important;}')
+
 # Mobile header: hamburger + flyout panel (built by JS from the existing nav links)
 css.append("""
 .hl-burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hl-ink);background:var(--hl-amber);box-shadow:3px 3px 0 0 var(--hl-ink);cursor:pointer;padding:0;flex-shrink:0;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
