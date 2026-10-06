@@ -13,6 +13,8 @@ Backups of every page/template touched: `site-backups/2026-10-05-before-changes/
 - ✅ Mobile menu shows "SEASONAL SALE" and scrolls to the Seasonal Sale section (`/#sale`). Desktop bar still says "SALE" because the longer label wrapped the desktop menu.
 - ✅ Mini-cart heading "Your Cart (N)" uses the real cart count. It used to add up the desktop + mobile carts and show 2 for 1 item.
 
+- ✅ Removed the white strip under the welcome bar (caused by the header fix block taking space).
+
 ## Home page
 - ⏳ Desktop hero banner: new design is in the client's Google Drive. Need the file.
 - ✅ Mobile hero video no longer cropped (shown full width at its 720×470 ratio).
@@ -23,7 +25,7 @@ Backups of every page/template touched: `site-backups/2026-10-05-before-changes/
 
 ## Footer
 - ✅ "Seasonal Sale" links (desktop + mobile) go to the Seasonal Sale section. Also fixed "Seasonal Sales" typo and the missing My Account link.
-- ✅ Mobile newsletter "thank you" message sits closer to SUBSCRIBE and is centered.
+- ✅ Mobile newsletter message sits 10px under SUBSCRIBE (the hidden CF7 spinner was adding ~30px) and is centered.
 - ✅ Mobile: removed the double divider and extra gap above "Payment Methods".
 
 ## Category / listing pages
@@ -31,7 +33,7 @@ Backups of every page/template touched: `site-backups/2026-10-05-before-changes/
 - ✅ Collection page tab rows use the same gap as the home page.
 
 ## Product page
-- ✅ Clicking/tapping any gallery image (including the first) opens a fullscreen preview with arrows, swipe, and Esc to close.
+- ✅ Clicking/tapping any gallery image (including the first) opens the image popup styled like fierrojewelry.com: white rounded card on a dimmed page, X top-right, ‹ › arrows, swipe, Esc to close.
 - ✅ Accordion renamed "Returns & Exchange" and filled with the text from `Returns & Exchanges.docx`.
 
 ## Cart page
