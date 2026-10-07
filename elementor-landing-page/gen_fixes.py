@@ -81,6 +81,36 @@ for i in range(1, 5):
 css.append(s1('hero-sticker-studio') + '{transform:none !important;}')
 css.append(s1('hero-sticker-location') + '{transform:none !important;margin-left:10px !important;}')
 
+# Contact form: simple 2-column layout (reference design) on this page only
+SL = '.elementor .elementor-element-' + M['contact-form-slot']
+css.append(f"""
+{SL} .scf label, {SL} .scf .scf-note, {SL} .scf-field:has([name="your-site"]), {SL} .scf-field:has(.scf-pills){{display:none !important;}}
+{SL} .scf{{display:grid !important;grid-template-columns:1fr 1fr;grid-template-areas:"name brief" "email brief" "phone brief" "company submit";gap:14px 20px;}}
+{SL} .scf-row{{display:contents !important;}}
+{SL} .scf-field, {SL} .scf-submit{{margin:0 !important;padding:0 !important;}}
+{SL} .scf-field:has([name="your-name"]){{grid-area:name;}}
+{SL} .scf-field:has([name="your-email"]){{grid-area:email;}}
+{SL} .scf-field:has([name="your-phone"]){{grid-area:phone;}}
+{SL} .scf-field:has([name="your-company"]){{grid-area:company;}}
+{SL} .scf-field:has([name="your-message"]){{grid-area:brief;display:flex !important;flex-direction:column;}}
+{SL} .scf-field:has([name="your-message"]) .wpcf7-form-control-wrap{{display:flex;flex-direction:column;flex:1;}}
+{SL} .scf-field:has([name="your-message"]) textarea{{flex:1 1 auto;height:100% !important;}}
+{SL} .scf-field:has([name="your-message"]) > p{{display:flex;flex-direction:column;flex:1 1 auto;margin:0 !important;}}
+{SL} .scf-submit > *, {SL} .scf-submit p{{flex:1 1 auto;width:100% !important;margin:0 !important;}}
+{SL} .scf-submit{{grid-area:submit;display:flex !important;align-items:stretch;}}
+{SL} .scf input[type=text], {SL} .scf input[type=email], {SL} .scf input[type=tel]{{width:100% !important;height:56px !important;padding:0 24px !important;border:1.5px solid var(--hl-amber) !important;border-radius:100px !important;background:transparent !important;box-shadow:none !important;font:400 15px/1 var(--font-body),sans-serif !important;color:var(--hl-ink) !important;transition:border-color .3s ease, box-shadow .3s ease !important;}}
+{SL} .scf textarea{{width:100% !important;height:auto !important;min-height:100% !important;flex:1;padding:18px 24px !important;border:1.5px solid var(--hl-amber) !important;border-radius:24px !important;background:transparent !important;box-shadow:none !important;resize:none !important;font:400 15px/1.5 var(--font-body),sans-serif !important;color:var(--hl-ink) !important;}}
+{SL} .scf input::placeholder, {SL} .scf textarea::placeholder{{color:#7c8581 !important;opacity:1;}}
+{SL} .scf input:focus, {SL} .scf textarea:focus{{outline:none !important;border-color:var(--hl-green) !important;box-shadow:0 0 0 3px rgba(6,83,72,.12) !important;}}
+{SL} .scf .wpcf7-submit{{width:100% !important;height:64px !important;margin:0 !important;padding:0 24px !important;border:0 !important;border-radius:100px !important;background:var(--hl-green) !important;color:var(--hl-cream) !important;box-shadow:none !important;font:400 20px/1 "TypoSlab Irregular Demo",var(--font-body),serif !important;letter-spacing:.3px;cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1), background-color .35s ease !important;}}
+{SL} .scf .wpcf7-submit:hover{{background:var(--hl-ink) !important;transform:translateY(-2px);}}
+{SL} .wpcf7-spinner{{position:absolute;}}
+@media (max-width:767px){{
+  {SL} .scf{{grid-template-columns:1fr;grid-template-areas:"name" "email" "phone" "company" "brief" "submit";}}
+  {SL} .scf textarea{{min-height:150px !important;}}
+}}
+""")
+
 # Mobile header: hamburger + flyout panel (built by JS from the existing nav links)
 css.append("""
 .hl-burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hl-ink);background:var(--hl-amber);box-shadow:3px 3px 0 0 var(--hl-ink);cursor:pointer;padding:0;flex-shrink:0;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
@@ -130,6 +160,15 @@ css.append('''
 
 js_extra = '''<script nowprocket>(function(){
   function go(){
+    /* simple contact form: reference placeholders, no pre-selected options */
+    var slot=document.querySelector('.elementor-element-__SLOT__');
+    if(slot){
+      var ph={'your-name':'Your Name','your-email':'Your Email','your-phone':'Your Contact Number','your-company':'Your Company','your-message':'Your Brief'};
+      Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f) f.setAttribute('placeholder',ph[n]); });
+      slot.querySelectorAll('.scf-pills input[type=radio]').forEach(function(r){ r.checked=false; });
+      var sb=slot.querySelector('.wpcf7-submit'); if(sb) sb.value='Submit';
+      var ta=slot.querySelector('textarea'); if(ta) ta.setAttribute('rows','6');
+    }
     /* Home: its anchor lives in the sticky header, so scroll to the very top instead */
     document.addEventListener('click',function(e){
       var a=e.target.closest&&e.target.closest('a[href="#home"]'); if(!a) return;
@@ -154,7 +193,7 @@ js_extra = '''<script nowprocket>(function(){
     window.addEventListener('resize',pick); pick();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
-})();</script>'''.replace('__TLOGOS__', M['trusted-logos']).replace('__ROWS__', json.dumps([M['services-row-%d' % i] for i in range(1,5)]))
+})();</script>'''.replace('__TLOGOS__', M['trusted-logos']).replace('__SLOT__', M['contact-form-slot']).replace('__ROWS__', json.dumps([M['services-row-%d' % i] for i in range(1,5)]))
 
 js_menu = """<script nowprocket>(function(){
   function menu(){
