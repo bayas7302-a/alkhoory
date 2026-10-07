@@ -111,6 +111,23 @@ css.append(f"""
 }}
 """)
 
+# Contact card: intro + form side by side, contact details as a full-width row at the bottom
+CC = s1('contact-card'); CD = s1('contact-details')
+css.append(f"""
+{CC}{{flex-wrap:wrap !important;align-items:flex-start !important;row-gap:44px !important;}}
+{CD}{{flex:0 0 100% !important;width:100% !important;flex-direction:row !important;flex-wrap:wrap;align-items:center !important;justify-content:space-between !important;gap:20px 32px !important;padding:30px 0 0 !important;margin:0 !important;border-top:1.5px dashed rgba(14,42,37,.18);}}
+{s1('contact-call')}, {s1('contact-email')}, {s1('contact-visit')}{{width:auto !important;flex:0 1 auto !important;}}
+@media (max-width:1024px){{
+  {CD}{{justify-content:flex-start !important;}}
+  {s1('contact-call')}, {s1('contact-email')}, {s1('contact-visit')}{{flex:1 1 220px !important;}}
+}}
+@media (max-width:767px){{
+  {CC}{{row-gap:32px !important;}}
+  {CD}{{flex-direction:column !important;align-items:flex-start !important;gap:16px !important;padding-top:24px !important;}}
+  {s1('contact-call')}, {s1('contact-email')}, {s1('contact-visit')}{{flex:0 0 auto !important;width:100% !important;}}
+}}
+""")
+
 # Mobile header: hamburger + flyout panel (built by JS from the existing nav links)
 css.append("""
 .hl-burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hl-ink);background:var(--hl-amber);box-shadow:3px 3px 0 0 var(--hl-ink);cursor:pointer;padding:0;flex-shrink:0;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
