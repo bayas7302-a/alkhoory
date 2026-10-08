@@ -208,9 +208,18 @@ def wrapper_layout(ctx, eid, parent_dir):
         if s.get('position') in ('absolute', 'fixed', 'relative'):
             if s['position'] != 'relative':
                 o['position'] = s['position']
-                for k in ('top', 'left', 'right', 'bottom'):
-                    if s.get(k) not in (None, 'auto'):
-                        o[k] = s[k]
+                offs = {}
+                for media, devs_ in (('', DEV), ('@media(max-width:1024px)', ('tablet', 'mobile')), ('@media(max-width:767px)', ('mobile',))):
+                    if dev in devs_:
+                        r = ctx.rule(eid, '', media)
+                        offs.update({k: r[k] for k in ('top', 'left', 'right', 'bottom') if k in r})
+                        if 'inset-inline-start' in r:
+                            offs['left'] = r['inset-inline-start']
+                        if 'inset-inline-end' in r:
+                            offs['right'] = r['inset-inline-end']
+                if not offs:
+                    offs = {k: s[k] for k in ('top', 'left') if s.get(k) not in (None, 'auto')}
+                o.update(offs)
             if s.get('z-index') not in (None, 'auto'):
                 o['z-index'] = s['z-index']
         if s.get('align-self') not in (None, 'auto', 'normal'):
@@ -579,7 +588,7 @@ def convert_heading(ctx, node, parent_dir):
     if parent_dir.startswith('column'):
         for dev in DEV:
             if dev in devs and 'width' not in devs[dev]:
-                devs[dev]['width'] = '100%'
+                devs[dev].setdefault('align-self', 'stretch')
     if tag == 'p':
         cfg = {'paragraph': content, 'tag': 'p'}
         wt = 'e-paragraph'
@@ -647,7 +656,7 @@ def svg_key(ctx, wid, k):
     return h, s
 
 
-def icon_image(ctx, wid, k, label='Icon'):
+def icon_image(ctx, wid, k, label='Icon', key=None):
     h, s = svg_key(ctx, wid, k)
     if not h:
         return None
@@ -658,8 +667,14 @@ def icon_image(ctx, wid, k, label='Icon'):
     w, hh = round(s['w']), round(s['h'])
     if not w or not hh:
         return None
-    cid = elem(ctx, 'e-image', label, config={'image': {'src': {'id': a['id']}, 'size': 'full'}},
-               devs={'desktop': {'width': f'{w}px', 'height': f'{hh}px', 'flex-shrink': '0'}})
+    devs = {'desktop': {'width': f'{w}px', 'height': f'{hh}px', 'flex-shrink': '0'}}
+    if key:
+        # per-breakpoint size of the original svg (when it was visible there)
+        for dev in ('tablet', 'mobile'):
+            c = ctx.c(wid, dev, key) or {}
+            if c.get('_w') and c.get('_h'):
+                devs[dev] = {'width': f"{c['_w']}px", 'height': f"{c['_h']}px"}
+    cid = elem(ctx, 'e-image', label, config={'image': {'src': {'id': a['id']}, 'size': 'full'}}, devs=devs)
     return xml('e-image', cid)
 
 
@@ -704,7 +719,7 @@ def convert_iconbox(ctx, node, parent_dir):
         icon_xml = xml('e-image', cid)
     elif svg is not None:
         all_svgs = node.select('svg')
-        icon_xml = icon_image(ctx, eid, all_svgs.index(svg))
+        icon_xml = icon_image(ctx, eid, all_svgs.index(svg), key='svg')
     if icon_xml:
         ic = ctx.c(eid, 'desktop', 'icon') or {}
         iw = ctx.c(eid, 'desktop', 'iconwrap') or {}

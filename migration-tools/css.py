@@ -23,6 +23,8 @@ def parse_rules(html):
                     if ':' in p:
                         k,v=p.split(':',1); d[k.strip()]=v.strip()
                 for s in sel.split(','):
+                    if 'body.rtl' in s or '.rtl ' in s or '[dir=rtl]' in s:
+                        continue
                     m=re.search(r'\.elementor-element-([0-9a-f]{6,8})((?:[^ ]*)?)(.*)$',s.strip())
                     if m: rules[m.group(1)].append((media,(m.group(2)+m.group(3)).strip(),d))
     for st in re.findall(r'<style[^>]*>(.*?)</style>',html,re.S): walk(st,'')
