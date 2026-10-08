@@ -36,7 +36,7 @@ Dynamic blocks are Elementor Paragraphs whose whole text is a shortcode. The the
 |---|---|
 | `[ab_projects layout="featured" id="home-projects" button="View all projects"]` + `[ab_project_filters target="home-projects" style="pills"]` | Home, "Our Projects" mosaic + filter pills |
 | `[ab_projects per_page="8"]` | Projects page: category tabs, grid, Load More |
-| `[ab_services_tabs]` | About + Services: tabs on desktop, accordion on mobile (content from the company profile) |
+| `[ab_services_tabs]` | Services: tabs on desktop, accordion on mobile (content from the company profile) |
 | `[ab_clients_marquee]` / `[ab_clients_grid]` | Home logo marquee / About client wall |
 | `[ab_contact_card]` | "Reach us directly" card |
 | `[contact-form-7 title="AB Productions Enquiry"]` | Enquiry form |
@@ -53,6 +53,8 @@ Order with *Page Attributes → Order*.
 - Clicking a card opens a pop-up with **only the full image** (arrows, keyboard and swipe move between visible projects; Esc closes).
 
 ## Hover effects
+
+The theme does **not** load Hello Elementor's own stylesheets (its reset coloured links/buttons pink `#c36` on hover and squared button corners); `main.css` starts with its own small reset.
 
 Card hovers are in `assets/css/main.css` under "Hover effects for the Elementor cards". They target the Elementor global classes (Elementor prints the class label on the element):
 `abp-svc-card*` (service cards: lift, zoom, gradient shade, arrow rotates), `abp-ind-card*` (industry cards turn brand-gradient with an arrow, as drawn in Figma), `abp-reason*`, `abp-pillar*`, `abp-strength*`, `abp-loc-card*`, `abp-arrow-link*`.

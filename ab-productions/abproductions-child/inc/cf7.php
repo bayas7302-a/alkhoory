@@ -25,7 +25,7 @@ function abp_cf7_form_markup() {
 <label class="abp-field"><span>Email</span>[email* your-email autocomplete:email placeholder "you@company.com"]</label>
 <label class="abp-field"><span>Phone</span>[tel* your-phone autocomplete:tel placeholder "+971"]</label>
 </div>
-<div class="abp-field"><span>Enquiring as</span>[radio enquiring-as class:abp-segment default:1 "Company" "Individual"]</div>
+<div class="abp-field"><span>Enquiring as</span>[radio enquiring-as class:abp-segment use_label_element default:1 "Company" "Individual"]</div>
 <label class="abp-field"><span>What can we help you with?</span>[select* service class:abp-select first_as_label "Select a service — Interiors, Events, Rentals, Printing…" "Interior & Fitouts" "Rental Services" "Events Production" "Bespoke Printing" "Bespoke Furniture" "Deep Cleaning" "Landscape Designing" "Something else"]</label>
 <label class="abp-field"><span>Project details</span>[textarea project-details x4 placeholder "Tell us about your space, event date, location and budget…"]</label>
 [submit class:abp-submit "Send Enquiry →"]
@@ -78,6 +78,30 @@ add_action( 'admin_init', function () {
 		update_option( 'abp_cf7_installed', 1 );
 	}
 } );
+
+/**
+ * 1.0.1: the "Enquiring as" radio needs use_label_element so the whole
+ * Company / Individual pill is clickable. Patch the stored form once, but
+ * only if that tag is still the theme's original one (leave edited forms alone).
+ */
+function abp_cf7_upgrade_form() {
+	if ( get_option( 'abp_cf7_form_v' ) >= 2 || ! class_exists( 'WPCF7_ContactForm' ) ) {
+		return;
+	}
+	$post = abp_cf7_find_form();
+	if ( $post ) {
+		$form   = WPCF7_ContactForm::get_instance( $post->ID );
+		$markup = $form ? $form->prop( 'form' ) : '';
+		$old    = '[radio enquiring-as class:abp-segment default:1 "Company" "Individual"]';
+		if ( $form && false !== strpos( $markup, $old ) ) {
+			$form->set_properties( array( 'form' => str_replace( $old, '[radio enquiring-as class:abp-segment use_label_element default:1 "Company" "Individual"]', $markup ) ) );
+			$form->save();
+		}
+	}
+	update_option( 'abp_cf7_form_v', 2 );
+}
+add_action( 'admin_init', 'abp_cf7_upgrade_form', 20 );
+add_action( 'wp', 'abp_cf7_upgrade_form' );
 
 /** CF7 wraps fields in <p>/<br>; the form layout above doesn't need them. */
 add_filter( 'wpcf7_autop_or_not', '__return_false' );

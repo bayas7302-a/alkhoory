@@ -26,7 +26,17 @@
 @media (max-width: 1024px) { :root { --abp-gutter: 40px; } }
 @media (max-width: 767px)  { :root { --abp-gutter: 20px; } }
 
-html { scroll-behavior: smooth; }
+/* Base reset (replaces Hello Elementor's reset.css, which is not loaded) */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { line-height: 1.5; }
+a { color: var(--abp-magenta); text-decoration: none; background-color: transparent; }
+img { border-style: none; vertical-align: middle; }
+button, input, select, textarea { font: inherit; margin: 0; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--abp-purple); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
 body.abp-site {
 	margin: 0;
 	font-family: var(--abp-sans);
@@ -68,6 +78,28 @@ body.abp-site {
 .abp-btn--ghost { border-color: rgba(255, 255, 255, .3); color: #fff; background: transparent; }
 .abp-btn--ghost:hover { color: #fff; border-color: #fff; background: rgba(255, 255, 255, .08); }
 .abp-btn--sm { padding: 13px 22px; font-size: 14px; }
+
+/*
+ * Elementor buttons (global classes abp-btn-grad / -ghost / -white).
+ * Elementor's base button style is square-ish (2px) and blue; repeat the
+ * shape here so buttons stay pill-shaped even while Elementor regenerates
+ * its CSS files.
+ */
+.elementor .e-button-base.abp-btn-grad,
+.elementor .e-button-base.abp-btn-ghost,
+.elementor .e-button-base.abp-btn-white {
+	display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+	border-radius: 40px; font-family: var(--abp-sans); line-height: 1.2; text-decoration: none;
+	transition: transform .45s var(--abp-ease), box-shadow .45s var(--abp-ease), background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+.elementor .e-button-base.abp-btn-grad { background-color: transparent; background-image: var(--abp-grad); color: #fff; border: 0; }
+.elementor .e-button-base.abp-btn-ghost { background-color: rgba(255, 255, 255, .06); color: #fff; border: 1px solid rgba(255, 255, 255, .35); }
+.elementor .e-button-base.abp-btn-white { background-color: #fff; background-image: none; color: var(--abp-purple); border: 0; }
+.elementor .e-button-base.abp-btn-grad:hover, .elementor .e-button-base.abp-btn-grad:focus-visible { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(164, 0, 124, .35); }
+.elementor .e-button-base.abp-btn-ghost:hover, .elementor .e-button-base.abp-btn-ghost:focus-visible { color: #fff; border-color: #fff; background-color: rgba(255, 255, 255, .14); transform: translateY(-2px); }
+.elementor .e-button-base.abp-btn-white:hover, .elementor .e-button-base.abp-btn-white:focus-visible { color: #7f0083; transform: translateY(-3px); box-shadow: 0 18px 36px rgba(20, 15, 24, .25); }
+.elementor .e-button-base span { transition: transform .35s var(--abp-ease); }
+.elementor .e-button-base:hover span { transform: translateX(4px); }
 
 /* -------------------------------------------------------------------------
    Header
@@ -511,9 +543,9 @@ body.abp-lb-open { overflow: hidden; }
 .abp-reach__row { display: flex; align-items: center; gap: 18px; padding: 18px 0; border-top: 1px solid rgba(255, 255, 255, .1); }
 .abp-reach__icon {
 	flex: 0 0 48px; display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px;
-	border: 1px solid rgba(232, 56, 138, .35); background: rgba(192, 19, 138, .12); color: var(--abp-pink); transition: background-color .3s, color .3s, transform .4s var(--abp-ease);
+	border: 1px solid rgba(232, 56, 138, .35); background: rgba(192, 19, 138, .12); color: var(--abp-pink); transition: background-color .3s, color .3s, border-color .3s;
 }
-.abp-reach__row:hover .abp-reach__icon { background: var(--abp-grad); color: #fff; transform: rotate(-6deg) scale(1.05); }
+.abp-reach__row:hover .abp-reach__icon { background: var(--abp-grad); border-color: transparent; color: #fff; }
 .abp-reach__label { margin: 0 0 4px; font: 600 11px/1.2 var(--abp-sans); letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .5); }
 .abp-reach__value { margin: 0; font: 500 15px/1.55 var(--abp-sans); color: #fff; }
 .abp-reach__value a { color: #fff; text-decoration: none; transition: color .25s; }
@@ -544,9 +576,11 @@ body.abp-lb-open { overflow: hidden; }
 }
 /* Segmented "Company / Individual" radio */
 .abp-segment.wpcf7-radio { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid #e8dfea; border-radius: 14px; background: var(--abp-lilac); }
-.abp-segment .wpcf7-list-item { margin: 0; }
+.abp-segment .wpcf7-list-item { position: relative; margin: 0; }
 .abp-segment .wpcf7-list-item label { position: relative; display: block; cursor: pointer; }
-.abp-segment .wpcf7-list-item input { position: absolute; opacity: 0; pointer-events: none; }
+/* The radio sits invisibly over the whole pill, so a click anywhere selects it
+   (works with or without CF7's use_label_element). */
+.abp-segment .wpcf7-list-item input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
 .abp-segment .wpcf7-list-item-label { display: block; padding: 12px 22px; border-radius: 10px; font: 500 14px/1.2 var(--abp-sans); color: var(--abp-muted); transition: color .25s, background-color .25s; }
 .abp-segment .wpcf7-list-item label:hover .wpcf7-list-item-label { color: var(--abp-purple); }
 .abp-segment input:checked + .wpcf7-list-item-label { background: var(--abp-grad); color: #fff; }

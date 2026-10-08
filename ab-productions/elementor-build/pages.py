@@ -110,7 +110,7 @@ def locations():
             ]),
         ], ['abp-loc-card'])
     return section('Locations', SEC + ' background: #f7f3f8;', [
-        head('Locations', '04', 'Our Locations', 'TWO LOCATIONS.<br><em>ONE TEAM.</em>', 'Our Dubai headquarters and our Sharjah branch work as one team — with in-house production facilities keeping quality and timelines in our hands.'),
+        head('Locations', '03', 'Our Locations', 'TWO LOCATIONS.<br><em>ONE TEAM.</em>', 'Our Dubai headquarters and our Sharjah branch work as one team — with in-house production facilities keeping quality and timelines in our hands.'),
         grid('Locations grid', 'grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(1, auto); gap: 20px; margin-top: 64px; @media(--mobile) { grid-template-columns: repeat(1, minmax(0, 1fr)); grid-template-rows: repeat(2, auto); margin-top: 40px; }', [
             card('Location HQ', 'location-av-control', 'Dubai · Headquarters', 'The Onyx Towers', 'Office 313, P3 Floor, Tower 1, The Greens,<br>P.O. Box 391186, Dubai, UAE', 'The+Onyx+Towers+The+Greens+Dubai'),
             card('Location Branch', 'service-rental', 'Sharjah · Branch &amp; Workshop', 'Al Sajaa Facility', 'Warehouse Shed 8, Plot No. 550,<br>Al Sajaa, Sharjah, UAE', 'Al+Sajaa+Industrial+Area+Sharjah'),
@@ -120,7 +120,7 @@ def locations():
 
 def clientele():
     return section('Clientele', SEC + ' background: #ffffff;', [
-        head('Clientele', '05', 'Our Clientele', 'TRUSTED BY THOSE<br><em>WHO EXPECT MORE.</em>', 'Every client brings a different vision, challenge and expectation. We bring the experience and production capability to turn those requirements into reality.'),
+        head('Clientele', '04', 'Our Clientele', 'TRUSTED BY THOSE<br><em>WHO EXPECT MORE.</em>', 'Every client brings a different vision, challenge and expectation. We bring the experience and production capability to turn those requirements into reality.'),
         sc('Clientele logos', '[ab_clients_grid]', 'margin-top: 64px; @media(--mobile) { margin-top: 40px; }'),
     ], anchor='clientele')
 
@@ -155,9 +155,9 @@ def find_us():
 
 PAGES = {
     ABOUT: lambda: [page_hero('About hero', 'About Us', 'ABOUT US', 'One partner for interiors, events, production and everything in between — built around bringing ideas to life, seamlessly.', 'hero-exhibition-stand'),
-                    who(), strengths(), full_scope(), locations(), clientele(), home.cta()],
+                    who(), strengths(), locations(), clientele(), home.cta()],
     SERVICES: lambda: [page_hero('Services hero', 'Services', 'OUR SERVICES', 'Seven capabilities under one roof — interiors, rentals, events, printing, furniture, cleaning and landscape, delivered by one production partner.', 'hero-event-stage'),
-                       full_scope('01', 'full-scope'), services_cards(), home.industries('03'), home.cta()],
+                       full_scope('01', 'full-scope'), services_cards(), home.cta()],
     PROJECTS: lambda: [page_hero('Projects hero', 'Projects', 'OUR PROJECTS', 'Events, exhibitions, activations and spaces we’ve brought to life for brands across the UAE.', 'hero-concert-crowd'),
                        projects_grid(), home.cta()],
     CONTACT: lambda: [page_hero('Contact hero', 'Contact Us', 'GET IN TOUCH', 'Planning a fit-out, an event, a stand or all of it? Tell us what you need and our team will take it from there.', 'hero-event-stage-screens'),

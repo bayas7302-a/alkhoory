@@ -20,6 +20,21 @@ add_action( 'after_setup_theme', function () {
 	add_image_size( 'abp-wide', 1600, 1000, false );
 } );
 
+/*
+ * Hello Elementor's reset.css colours links pink (#c36) / navy on hover and
+ * gives every <button> a pink hover background and 3px corners, which leaked
+ * into the filters, tabs, form and lightbox. The theme ships its own base
+ * styles in main.css instead.
+ */
+add_filter( 'hello_elementor_enqueue_style', '__return_false' );
+add_filter( 'hello_elementor_enqueue_theme_style', '__return_false' );
+add_filter( 'hello_elementor_header_footer', '__return_false' );
+add_action( 'wp_enqueue_scripts', function () {
+	foreach ( array( 'hello-elementor', 'hello-elementor-theme-style', 'hello-elementor-header-footer' ) as $handle ) {
+		wp_dequeue_style( $handle );
+	}
+}, 99 );
+
 add_action( 'wp_enqueue_scripts', function () {
 	// Poppins comes from Elementor's Google Fonts loader; this registers the same
 	// handle Elementor uses so pages without Elementor content still get it once.
