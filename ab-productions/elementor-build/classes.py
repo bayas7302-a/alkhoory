@@ -1,0 +1,45 @@
+import json
+G='linear-gradient(90deg, #7f0083 0%, #a4007c 55%, #e0287f 100%)'
+C={
+'abp-h':"font-family: var(--ab-font-display); font-weight: 900; line-height: 0.92; text-transform: uppercase; color: #140f18; margin: 0;",
+'abp-h-dark':"color: #ffffff;",
+'abp-label':"display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 0; width: auto;",
+'abp-label-num':"font-family: var(--ab-font-display); font-weight: 700; font-size: 18px; line-height: 1; color: #c0138a; margin: 0;",
+'abp-label-bar':f"width: 40px; min-width: 40px; height: 2px; padding: 0; background: {G};",
+'abp-label-text':"font-family: var(--ab-font-body); font-weight: 600; font-size: 13px; line-height: 1; letter-spacing: 2.34px; text-transform: uppercase; color: #1b1720; margin: 0;",
+'abp-body':"font-family: var(--ab-font-body); font-weight: 400; font-size: 16px; line-height: 1.7; color: #5a5360; margin: 0;",
+'abp-btn-grad':f"display: inline-flex; align-items: center; gap: 10px; font-family: var(--ab-font-body); font-weight: 600; font-size: 15px; line-height: 1.2; color: #ffffff; padding: 15px 26px; border-radius: 40px; border: 0; background: {G}; transition: transform 0.45s, box-shadow 0.45s; &:hover {{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(164, 0, 124, 0.35); color: #ffffff; }}",
+'abp-btn-ghost':"display: inline-flex; align-items: center; gap: 10px; font-family: var(--ab-font-body); font-weight: 500; font-size: 15px; line-height: 1.2; color: #ffffff; padding: 14px 24px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.06); transition: background-color 0.3s, border-color 0.3s, transform 0.45s; &:hover { background: rgba(255, 255, 255, 0.14); border-color: #ffffff; transform: translateY(-2px); color: #ffffff; }",
+'abp-btn-white':"display: inline-flex; align-items: center; justify-content: center; gap: 12px; font-family: var(--ab-font-body); font-weight: 600; font-size: 16px; line-height: 1.2; color: #a4007c; padding: 20px 32px; border-radius: 40px; background: #ffffff; transition: transform 0.45s, box-shadow 0.45s; &:hover { transform: translateY(-3px); box-shadow: 0 18px 36px rgba(20, 15, 24, 0.25); color: #7f0083; }",
+# hover hooks (full rules live in the theme stylesheet)
+'abp-svc-card':"position: relative; overflow: hidden;",
+'abp-svc-card__img':"display: block;",
+'abp-svc-card__shade':"position: absolute;",
+'abp-svc-card__accent':"height: 2px;",
+'abp-svc-card__list':"margin: 0;",
+'abp-svc-card__arrow':"position: absolute;",
+'abp-ind-card':"position: relative; overflow: hidden;",
+'abp-ind-card__title':"margin: 0;",
+'abp-ind-card__text':"margin: 0;",
+'abp-ind-card__num':"margin: 0;",
+'abp-ind-card__line':"height: 1.5px;",
+'abp-ind-card__arrow':"position: absolute;",
+'abp-reason':"position: relative;",
+'abp-reason__title':"margin: 0;",
+'abp-pillar':"position: relative;",
+'abp-pillar__rule':"height: 2px;",
+'abp-pillar__title':"margin: 0;",
+'abp-strength':"position: relative;",
+'abp-strength__rule':"height: 2px;",
+'abp-strength__num':"margin: 0;",
+'abp-loc-card':"position: relative;",
+'abp-loc-card__media':"overflow: hidden;",
+'abp-loc-card__img':"display: block;",
+'abp-arrow-link':"cursor: pointer;",
+'abp-arrow-link__icon':"display: inline-flex;",
+'abp-hover-lift':"position: relative;",
+'abp-hero-in':"position: relative;",
+}
+ops=[{"action":"create","label":k,"css":v} for k,v in C.items()]
+ops.append({"action":"delete","label":"ab-test-card"})
+print(json.dumps({"operations":ops}))
