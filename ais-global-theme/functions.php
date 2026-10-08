@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'AIS_GLOBAL_VERSION', '1.0.0' );
+define( 'AIS_GLOBAL_VERSION', '1.1.0' );
 
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/security.php';
@@ -73,6 +73,33 @@ function ais_global_is_elementor( $post_id = null ) {
 	$post_id = $post_id ? $post_id : get_the_ID();
 	return $post_id && 'builder' === get_post_meta( $post_id, '_elementor_edit_mode', true );
 }
+
+/**
+ * Make Elementor load the footer document's styles in <head>.
+ *
+ * Elementor only enqueues V4 (atomic) styles for documents announced through
+ * `elementor/post/render` before `elementor/frontend/after_enqueue_post_styles`
+ * runs. The footer is printed later, so it is announced here. Calling
+ * enqueue_styles() also covers pages that were not built with Elementor
+ * (it only runs once per request).
+ */
+function ais_global_enqueue_footer_styles() {
+	$footer_id = absint( get_theme_mod( 'ais_footer_page', 0 ) );
+	if ( ! $footer_id || ! did_action( 'elementor/loaded' ) || ! ais_global_is_elementor( $footer_id ) ) {
+		return;
+	}
+	add_action(
+		'elementor/frontend/after_enqueue_styles',
+		function () use ( $footer_id ) {
+			do_action( 'elementor/post/render', $footer_id );
+			if ( class_exists( 'Elementor\\Core\\Files\\CSS\\Post' ) ) {
+				\Elementor\Core\Files\CSS\Post::create( $footer_id )->enqueue();
+			}
+		}
+	);
+	\Elementor\Plugin::instance()->frontend->enqueue_styles();
+}
+add_action( 'wp_enqueue_scripts', 'ais_global_enqueue_footer_styles', 19 );
 
 /**
  * Render an Elementor document (used for the footer) with a plain fallback.

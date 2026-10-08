@@ -204,3 +204,8 @@ p { margin: 0 0 1em; }
 @media (max-width: 767px) {
 	.ais-cf7 .cf7-form-grid { grid-template-columns: 1fr; gap: 12px; }
 }
+
+/* Highlighted words inside Elementor headings/paragraphs (e.g. "Get In <span>Touch</span>") */
+.elementor .e-heading-base span,
+.elementor .e-paragraph-base span { color: var(--ais-primary); }
+.elementor h1.e-heading-base span { color: #36bcff; }

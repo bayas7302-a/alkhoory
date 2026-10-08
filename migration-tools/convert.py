@@ -134,6 +134,7 @@ class Ctx:
         self.config = {}
         self.style = {}
         self.missing_svgs = []
+        self.align_stack = ['normal']
         self.containers = set(re.findall(r'data-id="([0-9a-f]+)" data-element_type="container"', html))
 
     def cid(self, label):
@@ -241,6 +242,9 @@ def wrapper_layout(ctx, eid, parent_dir):
                 out.setdefault(dev, {})['max-width'] = mw
     is_container = ctx.c(eid, 'desktop', 'inner') is not None or (eid in ctx.containers)
     any_w = any(w[d] and w[d] not in ('initial', 'auto') for d in DEV)
+    if not is_container and not any_w and parent_dir.startswith('row'):
+        for dev in DEV:
+            out.setdefault(dev, {})['width'] = 'auto'
     for dev in DEV:
         if w[dev] and w[dev] not in ('initial', 'auto'):
             out.setdefault(dev, {})['width'] = w[dev]
@@ -305,11 +309,8 @@ def background(ctx, eid):
             css['background-color'] = col
         elif bg.startswith('#') or bg.startswith('rgb'):
             css['background-color'] = bg
-        if layers:
-            css['background-image'] = ', '.join(layers)
-            css['background-size'] = ', '.join(sizes)
-            css['background-position'] = ', '.join(poss)
-            css['background-repeat'] = ', '.join(reps)
+        css['_layers'] = [{'background-image': l, 'background-size': sz, 'background-position': ps, 'background-repeat': rp}
+                          for l, sz, ps, rp in zip(layers, sizes, poss, reps)]
         res[dev] = css
     return res
 
@@ -413,7 +414,7 @@ def convert_container(ctx, node, parent_dir='column', top=False):
             'align-items': L.get('align-items') if L.get('align-items') not in ('normal',) else 'stretch',
         }
         rg, cg = L.get('row-gap'), L.get('column-gap')
-        lay['gap'] = rg if rg == cg else f'{rg} {cg}'
+        lay['gap'] = rg if rg == cg else (rg if (L.get('flex-direction') or '').startswith('column') else cg)
         if rg in ('normal',):
             lay['gap'] = '0px'
         if L.get('display') == 'none' or s.get('display') == 'none':
@@ -449,13 +450,47 @@ def convert_container(ctx, node, parent_dir='column', top=False):
         else:
             devs_outer[dev] = {**box, **lay}
     bgd = background(ctx, eid)
+    layered = any(len((bgd.get(d) or {}).get('_layers', [])) > 1 for d in DEV)
+    bg_img, bg_ov = {}, {}
+    for dev in DEV:
+        b = dict(bgd.get(dev) or {})
+        layers = b.pop('_layers', [])
+        if layered:
+            bg_img[dev] = dict(b)
+            if layers:
+                bg_img[dev].update(layers[-1])
+            if len(layers) > 1:
+                bg_ov[dev] = {'background-image': layers[0]['background-image']}
+        else:
+            bg_img[dev] = b
+            if layers:
+                bg_img[dev].update(layers[0])
     wl = wrapper_layout(ctx, eid, parent_dir)
-    hover = ''
-    outer = merge_devs(devs_outer, bgd, wl)
+    outer = merge_devs(devs_outer, bg_img, wl)
     my_dir = (ctx.c(eid, 'desktop', lay_src) or {}).get('flex-direction', 'column')
+    ctx.align_stack.append((ctx.c(eid, 'desktop', lay_src) or {}).get('align-items', 'normal'))
     kids = [convert_node(ctx, ch, my_dir) for ch in children_of(node)]
+    ctx.align_stack.pop()
     kids = [k for k in kids if k]
     tag = 'e-flexbox'
+    if layered:
+        # Overlay layer as a separate full-size flexbox (multi-layer backgrounds are not supported natively)
+        ov = {}
+        for dev in DEV:
+            o = outer.get(dev) or {}
+            keep = {k: o[k] for k in ('padding', 'min-height', 'flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'gap', 'border-radius') if k in o}
+            ov[dev] = {**keep, **(bg_ov.get(dev) or {}), 'width': '100%', 'flex-grow': '1', 'display': 'flex'}
+            if 'padding' in o:
+                o['padding'] = '0px'
+            o['flex-direction'] = 'column'
+            o['align-items'] = 'stretch'
+            o['gap'] = '0px'
+        if boxed:
+            icid = elem(ctx, tag, 'Inner', devs=devs_inner)
+            kids = [xml(tag, icid, kids)]
+        vcid = elem(ctx, tag, 'Overlay', devs=ov)
+        ocid = elem(ctx, tag, 'Section' if top else 'Box', config={'tag': 'section'} if top else None, devs=outer)
+        return xml(tag, ocid, [xml(tag, vcid, kids)])
     if boxed:
         icid = elem(ctx, tag, 'Inner', devs=devs_inner)
         inner_xml = xml(tag, icid, kids)
@@ -513,16 +548,21 @@ def convert_heading(ctx, node, parent_dir):
     base_color = (ctx.c(eid, 'desktop', 't') or {}).get('color')
     comp_spans = (ctx.comp['desktop'].get(eid) or {}).get('spans') or []
     span_colors, flag = [], None
+    heading_color = None
     if spans:
-        parts = []
+        raw = []
         for i, sp in enumerate(spans):
             img = sp.find('img')
             if img is not None:
                 flag = (img, comp_spans[i]['img'] if i < len(comp_spans) else None)
                 continue
-            txt = clean_inline(sp)
-            col = comp_spans[i]['color'] if i < len(comp_spans) else base_color
-            if col and col != base_color:
+            raw.append((clean_inline(sp), comp_spans[i]['color'] if i < len(comp_spans) else base_color))
+        first = raw[0][1] if raw else base_color
+        if first != base_color:
+            heading_color = first
+        parts = []
+        for txt, col in raw:
+            if col and col != first:
                 span_colors.append(col)
                 parts.append(f'<span>{txt}</span>')
             else:
@@ -532,11 +572,14 @@ def convert_heading(ctx, node, parent_dir):
         content = norm_ws(clean_inline(el))
     devs = merge_devs(widget_box(ctx, eid, parent_dir, inner_key='t'), text_devs(ctx, eid, 't', align_key='wrap'))
     extra = ''
-    if span_colors:
-        if len(set(span_colors)) == 1:
-            extra = f'& span {{ color: {span_colors[0]}; }}'
-        else:
-            extra = ' '.join(f'& span:nth-of-type({i+1}) {{ color: {c}; }}' for i, c in enumerate(span_colors))
+    if heading_color:
+        for dev in DEV:
+            if dev in devs:
+                devs[dev]['color'] = heading_color
+    if parent_dir.startswith('column'):
+        for dev in DEV:
+            if dev in devs and 'width' not in devs[dev]:
+                devs[dev]['width'] = '100%'
     if tag == 'p':
         cfg = {'paragraph': content, 'tag': 'p'}
         wt = 'e-paragraph'
@@ -637,9 +680,13 @@ def convert_iconbox(ctx, node, parent_dir):
             if c:
                 o = typo(c)
                 o.update(boxstyle(c))
-                o.update({'position': 'absolute', 'top': c.get('top'), 'left': c.get('left')})
-                if c.get('right') not in (None, 'auto') and c.get('left') in (None, 'auto'):
-                    o['right'] = c['right']
+                o.update({'position': 'absolute', 'top': c.get('top')})
+                lr = divider_rules(ctx, eid, '.iconbox-label', dev)
+                start, end = lr.get('inset-inline-start'), lr.get('inset-inline-end')
+                if end not in (None, 'auto', '') and start in (None, 'auto', ''):
+                    o['right'] = end
+                else:
+                    o['left'] = start if start not in (None, '') else c.get('left')
                 ld[dev] = o
         cid = elem(ctx, 'e-paragraph', 'Label', config={'paragraph': norm_ws(clean_inline(lab)), 'tag': 'span'}, devs=ld)
         kids.append(xml('e-paragraph', cid))
@@ -791,9 +838,12 @@ def convert_button(ctx, node, parent_dir):
         if k in cls:
             al = v
     wl = wrapper_layout(ctx, eid, parent_dir)
-    if al and parent_dir.startswith('column'):
+    if parent_dir.startswith('column') and 'btn-block' not in a.get('class', []):
+        # V3 widget wrappers are full width in column containers; the button sits by the wrapper's text-align
         for dev in DEV:
-            wl.setdefault(dev, {}).setdefault('align-self', al)
+            ta = ((ctx.c(eid, dev) or {}).get('text-align') or 'start')
+            fallback = {'center': 'center', 'right': 'flex-end', 'end': 'flex-end'}.get(ta, 'flex-start')
+            wl.setdefault(dev, {}).setdefault('align-self', al or fallback)
     if 'btn-block' in a.get('class', []):
         for dev in DEV:
             devs.setdefault(dev, {})['width'] = '100%'
@@ -961,16 +1011,15 @@ def convert_divider(ctx, node, parent_dir):
             o['margin-left'] = 'auto'; o['margin-right'] = '0px'
         if label:
             o.update({'flex-direction': 'row', 'align-items': 'center', 'gap': '10px'})
-            line_devs[dev] = {'flex-grow': '1', 'height': '0px', 'padding': '0px', 'min-width': '10px', 'border-top': f'{bw} {bs} {col}'}
+            line_devs[dev] = {'flex-grow': '1', 'height': bw, 'padding': '0px', 'min-width': '10px', 'background-color': col}
             t = divider_rules(ctx, eid, '.elementor-divider__text', dev)
             td = {k: resolve_var(ctx, t.get(k)) for k in ('color', 'font-size', 'font-weight', 'text-transform', 'letter-spacing', 'line-height') if t.get(k)}
             if t.get('font-family'):
                 td['font-family'] = font_family(t['font-family'])
             td['flex-shrink'] = '0'
-            td['white-space'] = 'nowrap'
             text_devs_[dev] = td
         else:
-            o.update({'height': '0px', 'border-top': f'{bw} {bs} {col}'})
+            o.update({'height': bw, 'background-color': col})
         devs[dev] = o
     devs = merge_devs(devs, wrapper_layout(ctx, eid, parent_dir))
     if not label:
@@ -1028,7 +1077,8 @@ def convert_icon_list(ctx, node, parent_dir):
             lic = ci[i]['li'] if i < len(ci) else {}
             icc = ci[i]['icon'] if i < len(ci) else {}
             gap = icc.get('padding-right') if icc and px(icc.get('padding-right')) else (icc.get('margin-right') if icc else '8px')
-            rdevs[dev] = {'flex-direction': 'row', 'align-items': 'center', 'gap': gap or '8px', 'padding': box4(lic, 'padding') if lic else '0px', 'width': 'auto', 'margin': box4(lic, 'margin') if lic and box4(lic, 'margin') != '0px' else '0px'}
+            li_align = (lic or {}).get('align-items')
+            rdevs[dev] = {'flex-direction': 'row', 'align-items': li_align if li_align not in (None, 'normal') else 'center', 'gap': gap or '8px', 'padding': box4(lic, 'padding') if lic else '0px', 'width': 'auto', 'margin': box4(lic, 'margin') if lic and box4(lic, 'margin') != '0px' else '0px'}
         cfg = {'tag': 'a', 'link': {'destination': a['href'], 'tag': 'a'}} if a is not None else None
         rcid = elem(ctx, 'e-flexbox', 'List Item', config=cfg, devs=rdevs)
         kids.append(xml('e-flexbox', rcid, parts))
@@ -1110,12 +1160,12 @@ def convert_carousel(ctx, node, parent_dir):
         d = {}
         for dev in DEV:
             w = iw.get(dev) or iw.get('tablet' if dev == 'mobile' else 'desktop') or '33.33%'
-            d[dev] = {'flex': f'0 0 calc({w} - 20px)' if dev != 'mobile' else '0 0 88%', 'padding': '0px', 'scroll-snap-align': 'start'}
+            d[dev] = {'flex': {'desktop': '0 0 calc(33.333% - 14px)', 'tablet': '0 0 calc(50% - 10px)', 'mobile': '0 0 100%'}[dev], 'padding': '0px', 'display': 'flex'}
         cid = elem(ctx, 'e-flexbox', 'Slide', devs=d)
         kids.append(xml('e-flexbox', cid, inner))
     devs = widget_box(ctx, eid, parent_dir, shown='flex')
     for dev in DEV:
-        devs[dev].update({'flex-direction': 'row', 'flex-wrap': 'nowrap', 'gap': '20px', 'padding': '0px 0px 12px 0px', 'overflow-x': 'auto', 'scroll-snap-type': 'x mandatory', 'align-items': 'stretch'})
+        devs[dev].update({'flex-direction': 'row', 'flex-wrap': 'wrap', 'gap': '20px', 'padding': '0px', 'align-items': 'stretch'})
     cid = elem(ctx, 'e-flexbox', 'Carousel', devs=devs)
     return xml('e-flexbox', cid, kids)
 
