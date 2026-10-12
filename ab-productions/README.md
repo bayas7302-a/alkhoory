@@ -15,7 +15,7 @@ Site: https://soharon.co.uk/ab-production/ · Design: Figma `CCKeyRvX5nJ6sH6ifEz
 1. **Appearance → Themes → Add New → Upload Theme** → `dist/abproductions-child.zip` → **Activate**.
    Hello Elementor (the parent) is already installed.
 2. On activation the theme:
-   - creates the Project Categories (Events, Exhibitions, Brand Activations, Hospitality, Interiors & Fit-Outs) and 8 sample projects from the company profile,
+   - creates the Project Categories (Events, Exhibitions, Brand Activations, Hospitality, Interiors & Fit-Outs) and 8 sample projects from the company profile, each using the Figma reference rectangle (lilac | pink | lilac) as a placeholder image,
    - creates the Contact Form 7 form **"AB Productions Enquiry"** (Contact Form 7 is already installed and active).
 3. **Font**: the primary font is *Dharma Gothic E*. `https://soharon.co.uk/ab-production/Dharma%20Gothic%20E.otf` currently returns **404**.
    Either upload the file to that URL, or copy it into the theme as `assets/fonts/DharmaGothicE.otf`.

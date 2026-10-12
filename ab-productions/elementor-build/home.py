@@ -84,7 +84,7 @@ SERVICES = [
     ('interior-fitouts', '01', 'INTERIOR<br>&amp; FITOUTS', 'Commercial &amp; Residential Fit-Out<br>Space Planning  ·  Joinery', 'service-interior-fitouts', ''),
     ('rental-services', '02', 'RENTAL<br>SERVICES', 'LED Screens  ·  Sound Systems<br>Lighting  ·  Stage Equipment', 'service-rental', ''),
     ('bespoke-printing', '04', 'BESPOKE<br>PRINTING', 'Large Format  ·  Event Graphics<br>Packaging &amp; Signage', 'service-printing', ''),
-    ('bespoke-furniture', '05', 'BESPOKE<br>FURNITURE', 'Reception Counters<br>Exhibition &amp; Custom Furniture', None, ''),
+    ('bespoke-furniture', '05', 'BESPOKE<br>FURNITURE', 'Reception Counters<br>Exhibition &amp; Custom Furniture', 'service-furniture', ''),
     ('deep-cleaning', '06', 'DEEP<br>CLEANING', 'Post-Event  ·  Commercial &amp; Office<br>Kitchen Deep Cleaning', 'service-cleaning', ''),
     ('landscape-designing', '07', 'LANDSCAPE<br>DESIGNING', 'Soft &amp; Hard Scape  ·  Irrigation<br>Landscape Maintenance', 'service-landscape', ''),
 ]

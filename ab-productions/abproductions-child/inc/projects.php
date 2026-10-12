@@ -190,14 +190,14 @@ function abp_default_project_categories() {
 
 function abp_sample_projects() {
 	return array(
-		array( 'Abu Dhabi Mall Christmas', 'events', 'Seasonal Décor  |  Abu Dhabi', 'Events · Seasonal Décor', 'project-abu-dhabi-mall-christmas.jpg', false ),
-		array( 'Yas Island Fan Zone', 'events', 'World Cup Fan Zone  |  Abu Dhabi', 'Events · LED & AV', 'project-yas-island-fan-zone.jpg', true ),
-		array( 'CÉ LA VI New Year’s', 'hospitality', 'Hospitality Event  |  Dubai', 'Hospitality · Production', 'project-ce-la-vi-new-years.jpg', true ),
-		array( 'Moët & Chandon', 'brand-activations', '#ToastWithMoet Activation', 'Brand Activation', 'project-moet-chandon.jpg', true ),
-		array( 'UAE National Day', 'events', 'Branding & Structures  |  Emaar', 'Branding & Structures', 'project-uae-national-day.jpg', true ),
-		array( 'Montblanc Anniversary', 'brand-activations', 'Backdrop & Floral Set Design', 'Backdrop & Set Design', 'project-montblanc-anniversary.jpg', true ),
-		array( 'Mirbad Jewellery Exhibition', 'exhibitions', 'Exhibition Stand', 'Exhibition Stand', 'project-mirbad-jewellery.jpg', true ),
-		array( 'Sharjah Bridal Fair', 'exhibitions', 'Event Branding  |  Sharjah', 'Event Branding', 'project-sharjah-bridal-fair.jpg', false ),
+		array( 'Abu Dhabi Mall Christmas', 'events', 'Seasonal Décor  |  Abu Dhabi', 'Events · Seasonal Décor', 'project-reference-rectangle.png', false ),
+		array( 'Yas Island Fan Zone', 'events', 'World Cup Fan Zone  |  Abu Dhabi', 'Events · LED & AV', 'project-reference-rectangle.png', true ),
+		array( 'CÉ LA VI New Year’s', 'hospitality', 'Hospitality Event  |  Dubai', 'Hospitality · Production', 'project-reference-rectangle.png', true ),
+		array( 'Moët & Chandon', 'brand-activations', '#ToastWithMoet Activation', 'Brand Activation', 'project-reference-rectangle.png', true ),
+		array( 'UAE National Day', 'events', 'Branding & Structures  |  Emaar', 'Branding & Structures', 'project-reference-rectangle.png', true ),
+		array( 'Montblanc Anniversary', 'brand-activations', 'Backdrop & Floral Set Design', 'Backdrop & Set Design', 'project-reference-rectangle.png', true ),
+		array( 'Mirbad Jewellery Exhibition', 'exhibitions', 'Exhibition Stand', 'Exhibition Stand', 'project-reference-rectangle.png', true ),
+		array( 'Sharjah Bridal Fair', 'exhibitions', 'Event Branding  |  Sharjah', 'Event Branding', 'project-reference-rectangle.png', false ),
 	);
 }
 
@@ -222,7 +222,8 @@ function abp_seed_projects() {
 	require_once ABSPATH . 'wp-admin/includes/image.php';
 
 	// Order on the home mosaic: Yas Island (large), CÉ LA VI, Mirbad, Moët, UAE National Day, Montblanc.
-	$home_order = array( 'Yas Island Fan Zone' => 1, 'CÉ LA VI New Year’s' => 2, 'Mirbad Jewellery Exhibition' => 3, 'Moët & Chandon' => 4, 'UAE National Day' => 5, 'Montblanc Anniversary' => 6 );
+	$attachments = array();
+	$home_order  = array( 'Yas Island Fan Zone' => 1, 'CÉ LA VI New Year’s' => 2, 'Mirbad Jewellery Exhibition' => 3, 'Moët & Chandon' => 4, 'UAE National Day' => 5, 'Montblanc Anniversary' => 6 );
 
 	foreach ( abp_sample_projects() as $i => $p ) {
 		list( $title, $cat, $subtitle, $tag, $file, $featured ) = $p;
@@ -242,14 +243,22 @@ function abp_seed_projects() {
 		update_post_meta( $post_id, 'abp_tag', $tag );
 		update_post_meta( $post_id, 'abp_featured', $featured ? 1 : 0 );
 
-		$src = ABP_DIR . '/assets/img/projects/' . $file;
-		if ( file_exists( $src ) ) {
-			$tmp = wp_tempnam( $file );
-			copy( $src, $tmp );
-			$att = media_handle_sideload( array( 'name' => $file, 'tmp_name' => $tmp ), $post_id, $title );
-			if ( ! is_wp_error( $att ) ) {
-				set_post_thumbnail( $post_id, $att );
+		// Every sample uses the Figma reference rectangle (left | centre | right
+		// thirds) until real photos are uploaded; it is imported once and shared.
+		if ( ! isset( $attachments[ $file ] ) ) {
+			$attachments[ $file ] = 0;
+			$src                  = ABP_DIR . '/assets/img/projects/' . $file;
+			if ( file_exists( $src ) ) {
+				$tmp = wp_tempnam( $file );
+				copy( $src, $tmp );
+				$att = media_handle_sideload( array( 'name' => $file, 'tmp_name' => $tmp ), 0, 'Project image placeholder' );
+				if ( ! is_wp_error( $att ) ) {
+					$attachments[ $file ] = $att;
+				}
 			}
+		}
+		if ( $attachments[ $file ] ) {
+			set_post_thumbnail( $post_id, $attachments[ $file ] );
 		}
 	}
 	update_option( 'abp_projects_seeded', 1 );
