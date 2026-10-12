@@ -62,6 +62,9 @@ function subaru_enquiry_types() {
 		'brochure'   => __( 'Brochure request', 'subaru-alkhoory' ),
 		'offer'      => __( 'Current offers', 'subaru-alkhoory' ),
 		'service'    => __( 'Service & maintenance', 'subaru-alkhoory' ),
+		'warranty'   => __( 'Warranty', 'subaru-alkhoory' ),
+		'assistance' => __( 'On-road assistance', 'subaru-alkhoory' ),
+		'hybrid'     => __( 'Hybrid technology', 'subaru-alkhoory' ),
 		'parts'      => __( 'Parts & accessories', 'subaru-alkhoory' ),
 		'feedback'   => __( 'Feedback', 'subaru-alkhoory' ),
 	);
@@ -110,7 +113,7 @@ function subaru_form_fields( $type ) {
 				'email'   => $email,
 				'mobile'  => $mobile,
 				'enquiry' => array( 'label' => __( 'Enquiry type', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_enquiry_types() ),
-				'model'   => array_merge( $model, array( 'required' => false, 'label' => __( 'Model of interest', 'subaru-alkhoory' ), 'half' => false, 'show_if' => 'enquiry:sales,test-drive,brochure,offer' ) ),
+				'model'   => array_merge( $model, array( 'required' => false, 'label' => __( 'Model of interest', 'subaru-alkhoory' ), 'half' => false, 'show_if' => 'enquiry:sales,test-drive,brochure,offer,hybrid,warranty' ) ),
 				'message' => array( 'label' => __( 'Your message', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => true ),
 				'consent' => $consent,
 			);

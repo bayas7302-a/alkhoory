@@ -322,3 +322,52 @@ function subaru_comment( $comment, $args, $depth ) {
 		</article>
 	<?php
 }
+
+/**
+ * Featured post for the Newsroom: newest sticky post, else the latest post.
+ *
+ * @return int Post ID or 0.
+ */
+function subaru_featured_post_id() {
+	static $id = null;
+	if ( null !== $id ) {
+		return $id;
+	}
+	$id     = 0;
+	$sticky = array_filter( array_map( 'intval', (array) get_option( 'sticky_posts', array() ) ) );
+	$args   = array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => 1,
+		'fields'              => 'ids',
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
+	if ( $sticky ) {
+		$args['post__in'] = $sticky;
+	}
+	$found = get_posts( $args );
+	if ( ! $found && $sticky ) {
+		unset( $args['post__in'] );
+		$found = get_posts( $args );
+	}
+	$id = $found ? (int) $found[0] : 0;
+	return $id;
+}
+
+/**
+ * Newsroom main query: exclude the featured post from the grid, no sticky duplication.
+ *
+ * @param WP_Query $query Query.
+ */
+function subaru_blog_query( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_home() ) {
+		return;
+	}
+	$query->set( 'ignore_sticky_posts', true );
+	$featured = subaru_featured_post_id();
+	if ( $featured ) {
+		$query->set( 'post__not_in', array( $featured ) );
+	}
+}
+add_action( 'pre_get_posts', 'subaru_blog_query' );
