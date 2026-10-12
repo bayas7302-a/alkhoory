@@ -392,7 +392,7 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 			if ( ! empty( $f['autocomplete'] ) ) {
 				$extra .= ' autocomplete="' . esc_attr( $f['autocomplete'] ) . '"';
 			}
-			echo '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" placeholder=" " aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" placeholder="' . esc_attr( $is_news ? $f['label'] : ' ' ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '<label for="' . esc_attr( $id ) . '"' . ( $is_news ? ' class="screen-reader-text"' : '' ) . '>' . $label . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			if ( 'date' === $type ) {
 				subaru_the_icon( 'calendar', 16, 'sa-field__chev' );
