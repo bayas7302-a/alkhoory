@@ -36,3 +36,8 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 ## v1.1 revisions
 - Theme: simpler motion (no intro loader, parallax, Ken Burns, magnetic buttons, cursor glow, image fade); buttons change colour only on hover; phone fields accept any format (no UAE-only hint/validation); footer copyright + "A member of" on one line; all page sections' content is 1250px wide; mobile overflow guards; test-drive step 1 is a working model picker that fills the form and advances the step bar; links into accordion items open them.
 - Site data (live): animations reduced to an H1 fade on load plus a single fade-in for card grids/galleries; Forester and Crosstrek grade sections converted into a grade accordion; inline 1240px max-widths set to 1250px; two-column layout overflow fixes on Home, Our Range and About Us.
+
+## v1.1.2 revisions (client "Updates on Website" doc)
+- Contact, Book a Test Drive and After-Sales forms rebuilt to the Figma field sets and style (labels above fields, compact inputs, placeholders, Emirate/Grade selects; test-drive model comes from the step-1 cards and Grade is filtered by the chosen model).
+- Newsroom/theme CTA band: grille image restored (bundled fallback) and "Find a Showroom" is an outline button again (CSS specificity fix).
+- Section spacing reduced site-wide: 80px desktop / 64px tablet / 48px mobile (was up to 120px).

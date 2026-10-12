@@ -273,12 +273,15 @@ function subaru_cta_band() {
 			array(
 				'post_type'      => 'attachment',
 				'post_status'    => 'inherit',
-				'name'           => '1c84b',
+				'name'           => '1c84b-1',
 				'posts_per_page' => 1,
 				'fields'         => 'ids',
 			)
 		);
 		$img = $found ? wp_get_attachment_image_url( $found[0], 'large' ) : '';
+	}
+	if ( ! $img ) {
+		$img = get_theme_file_uri( 'assets/img/cta-grille.jpg' );
 	}
 	get_template_part( 'template-parts/cta', null, array( 'image' => $img ) );
 }

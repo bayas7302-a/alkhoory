@@ -36,7 +36,7 @@
 		var v = input.type === 'checkbox' ? (input.checked ? '1' : '') : String(input.value || '').trim();
 		var msg = '';
 		if (input.required && !v) {
-			msg = input.type === 'checkbox' ? (i18n.consent || 'Please accept to continue.') : (i18n.required || 'This field is required.');
+			msg = input.type === 'checkbox' ? (i18n.consent || 'Please accept to continue.') : (input.getAttribute('data-required-msg') || i18n.required || 'This field is required.');
 		} else if (v && input.type === 'email' && !EMAIL.test(v)) {
 			msg = i18n.email || 'Please enter a valid email address.';
 		} else if (v && input.type === 'tel' && !PHONE.test(v.replace(/[\s\-().]/g, ''))) {
@@ -103,6 +103,7 @@
 			li.id = select.id + '-opt-' + i;
 			li.setAttribute('role', 'option');
 			li.textContent = o.textContent;
+			if (o.getAttribute('data-group')) { li.setAttribute('data-group', o.getAttribute('data-group')); }
 			li.addEventListener('mousedown', function (e) { e.preventDefault(); });
 			li.addEventListener('click', function () { choose(i); close(); btn.focus(); });
 			list.appendChild(li);
@@ -112,7 +113,9 @@
 
 		function render() {
 			var sel = select.selectedIndex > -1 ? select.options[select.selectedIndex] : null;
-			txt.textContent = sel && sel.value ? sel.textContent : '';
+			var ph = select.getAttribute('data-placeholder') || '';
+			txt.textContent = sel && sel.value ? sel.textContent : ph;
+			btn.classList.toggle('is-placeholder', !(sel && sel.value));
 			lis.forEach(function (li, i) { li.setAttribute('aria-selected', opts[i].selected ? 'true' : 'false'); });
 			syncFilled(field);
 		}
@@ -202,6 +205,26 @@
 		if (page) { page.value = w.location.href.split('#')[0]; }
 
 		$$('.sa-field', form).forEach(syncFilled);
+		// Dependent selects (e.g. grade filtered by model): options carry data-group, the select names its source.
+		$$('select[data-filter-by]', form).forEach(function (sel) {
+			var src = form.querySelector('[name="' + sel.getAttribute('data-filter-by') + '"]');
+			if (!src) { return; }
+			function apply() {
+				var group = src.value;
+				Array.prototype.forEach.call(sel.options, function (o) {
+					if (!o.value) { return; }
+					var ok = !group || o.getAttribute('data-group') === group;
+					o.hidden = !ok;
+					o.disabled = !ok;
+				});
+				var f = fieldOf(sel);
+				if (f) { $$('.sa-select__opt[data-group]', f).forEach(function (li) { li.hidden = !!group && li.getAttribute('data-group') !== group; }); }
+				var cur = sel.options[sel.selectedIndex];
+				if (cur && cur.disabled) { sel.value = ''; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+			}
+			src.addEventListener('change', apply);
+			apply();
+		});
 		$$('select', form).forEach(enhanceSelect);
 		applyConditions(form);
 
@@ -224,7 +247,7 @@
 			e.preventDefault();
 			if (form.classList.contains('is-loading')) { return; }
 			var firstBad = null;
-			$$('input:not([type="hidden"]):not([name="sa_website"]), select, textarea', form).forEach(function (input) {
+			$$('input:not([type="hidden"]):not([name="sa_website"]), input[type="hidden"][required], select, textarea', form).forEach(function (input) {
 				if (input.disabled) { return; }
 				if (validateInput(input) && !firstBad) { firstBad = input; }
 			});
@@ -232,7 +255,12 @@
 			if (firstBad) {
 				var f = fieldOf(firstBad);
 				var focusEl = (f && f.querySelector('.sa-select__btn')) || firstBad;
-				focusEl.focus();
+				if (firstBad.type === 'hidden') {
+					// e.g. the test-drive model, picked with the model cards above the form.
+					focusEl = d.querySelector('.sub-model-pick') || form;
+					focusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				}
+				focusEl.focus({ preventScroll: firstBad.type === 'hidden' });
 				if (status && !form.classList.contains('sa-form--inline')) { status.textContent = i18n.fix || 'Please check the highlighted fields.'; status.classList.add('is-error'); }
 				return;
 			}

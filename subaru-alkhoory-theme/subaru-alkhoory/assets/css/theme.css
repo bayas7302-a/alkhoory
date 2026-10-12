@@ -82,11 +82,11 @@ body.sa-theme ::selection { background: var(--sub-blue); color: #fff; }
 	transition: background-color .3s, color .3s, border-color .3s, transform .3s, box-shadow .3s;
 }
 :root .sa-btn:hover, :root .sa-btn:focus-visible { background: var(--sub-blue-dark); border-color: var(--sub-blue-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 30px rgba(1, 96, 180, .35); }
-.sa-btn--sm { font-size: 14px; padding: 11px 20px; }
-.sa-btn--outline { background: transparent; color: var(--sub-ink); border-color: var(--sub-ink); }
-.sa-btn--outline:hover, .sa-btn--outline:focus-visible { background: var(--sub-ink); color: #fff; border-color: var(--sub-ink); box-shadow: none; }
-.sa-btn--outline-light { background: transparent; color: #fff; border-color: #fff; }
-.sa-btn--outline-light:hover, .sa-btn--outline-light:focus-visible { background: #fff; color: var(--sub-ink); border-color: #fff; box-shadow: none; }
+:root .sa-btn--sm { font-size: 14px; padding: 11px 20px; }
+:root .sa-btn--outline { background: transparent; color: var(--sub-ink); border-color: var(--sub-ink); }
+:root .sa-btn--outline:hover, :root .sa-btn--outline:focus-visible { background: var(--sub-ink); color: #fff; border-color: var(--sub-ink); box-shadow: none; }
+:root .sa-btn--outline-light { background: transparent; color: #fff; border-color: #fff; }
+:root .sa-btn--outline-light:hover, :root .sa-btn--outline-light:focus-visible { background: #fff; color: var(--sub-ink); border-color: #fff; box-shadow: none; }
 :root .sa-btn .sa-icon { transition: transform .3s var(--sa-ease); }
 :root .sa-btn:hover .sa-icon--arrow { transform: translateX(4px); }
 .sa-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; color: var(--sub-blue); text-decoration: none; transition: color .3s; }
@@ -330,7 +330,7 @@ html.sa-locked, html.sa-locked body { overflow: hidden; }
 @keyframes sa-pulse { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(1.7); opacity: 0; } }
 
 /* 10. Theme CTA band ---------------------------------------------------------- */
-.sa-cta { padding: 120px var(--sa-gutter); background: #fff; }
+.sa-cta { padding: 80px var(--sa-gutter); background: #fff; }
 .sa-cta__card { position: relative; max-width: var(--sa-max); min-height: 460px; margin: 0 auto; overflow: hidden; border-radius: 24px; background: var(--sub-navy); display: flex; align-items: center; isolation: isolate; }
 .sa-cta__img { position: absolute; top: 0; right: 0; width: 61.3%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.4s var(--sa-ease); }
 .sa-cta__card:hover .sa-cta__img { transform: scale(1.04); }

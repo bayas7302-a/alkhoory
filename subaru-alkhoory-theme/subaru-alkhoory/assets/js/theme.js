@@ -1050,7 +1050,7 @@
 	/* ------------------------------------- 13. test-drive model picker + steps */
 	function initModelPicker() {
 		var cards = $$('.sub-model-pick');
-		var select = $('.sa-form select[name="model"]');
+		var select = $('.sa-form [name="model"]');
 		if (!cards.length || !select) { return; }
 		var form = select.closest('form');
 		var steps = $$('.sub-step');
@@ -1085,9 +1085,10 @@
 			c.setAttribute('role', 'button');
 			c.addEventListener('click', function (e) {
 				var m = modelOf(c);
-				if (!m || !select.querySelector('option[value="' + m + '"]')) { return; }
+				if (!m || (select.tagName === 'SELECT' && !select.querySelector('option[value="' + m + '"]'))) { return; }
 				e.preventDefault();
 				select.value = m;
+				select.dispatchEvent(new Event('input', { bubbles: true }));
 				select.dispatchEvent(new Event('change', { bubbles: true }));
 				if (w.history && w.history.replaceState) {
 					var u = new URL(w.location.href);

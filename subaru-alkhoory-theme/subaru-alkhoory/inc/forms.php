@@ -23,6 +23,40 @@ function subaru_model_options() {
 }
 
 /**
+ * Emirate options.
+ *
+ * @return array
+ */
+function subaru_emirate_options() {
+	$out = array();
+	foreach ( array( 'Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah' ) as $e ) {
+		$out[ $e ] = $e;
+	}
+	return apply_filters( 'subaru_emirate_options', $out );
+}
+
+/**
+ * Grade options keyed "Model Grade"; each carries its model as the option group (see 'filter_by').
+ *
+ * @return array value => array( label, group )
+ */
+function subaru_grade_options() {
+	$grades = array(
+		'Forester'  => array( '2.5i-S EyeSight', '2.5i EyeSight', '2.5i-Sport EyeSight' ),
+		'Crosstrek' => array( '2.0i-S EyeSight', '2.0i-L EyeSight' ),
+		'WRX'       => array( 'WRX tS EyeSight', 'WRX HIGH EyeSight', 'WRX HIGH' ),
+		'BRZ'       => array( 'BRZ Automatic', 'BRZ Manual' ),
+	);
+	$out = array();
+	foreach ( $grades as $model => $list ) {
+		foreach ( $list as $g ) {
+			$out[ $model . ' ' . preg_replace( '/^' . preg_quote( $model, '/' ) . ' /', '', $g ) ] = array( 'label' => $g, 'group' => $model );
+		}
+	}
+	return apply_filters( 'subaru_grade_options', $out );
+}
+
+/**
  * Location options filtered by kind (showroom|service).
  *
  * @param string $kind Kind.
@@ -79,71 +113,72 @@ function subaru_enquiry_types() {
  * @return array
  */
 function subaru_form_fields( $type ) {
-	$first   = array( 'label' => __( 'First name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'given-name' );
-	$last    = array( 'label' => __( 'Last name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'family-name' );
-	$name    = array( 'label' => __( 'Full name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'name' );
-	$email   = array( 'label' => __( 'Email address', 'subaru-alkhoory' ), 'type' => 'email', 'required' => true, 'half' => true, 'autocomplete' => 'email' );
-	$mobile  = array( 'label' => __( 'Mobile number', 'subaru-alkhoory' ), 'type' => 'tel', 'required' => true, 'half' => true, 'autocomplete' => 'tel' );
-	$model   = array( 'label' => __( 'Model', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_model_options() );
+	$name    = array( 'label' => __( 'Full Name', 'subaru-alkhoory' ), 'placeholder' => __( 'Enter your full name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'name' );
+	$email   = array( 'label' => __( 'E-mail Address', 'subaru-alkhoory' ), 'placeholder' => __( 'name@example.com', 'subaru-alkhoory' ), 'type' => 'email', 'required' => true, 'half' => true, 'autocomplete' => 'email' );
+	$mobile  = array( 'label' => __( 'Phone Number', 'subaru-alkhoory' ), 'placeholder' => __( 'Enter your phone number', 'subaru-alkhoory' ), 'type' => 'tel', 'required' => true, 'half' => true, 'autocomplete' => 'tel' );
+	$model   = array( 'label' => __( 'Model', 'subaru-alkhoory' ), 'placeholder' => __( 'Select model', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_model_options() );
+	$emirate = array( 'label' => __( 'Emirate', 'subaru-alkhoory' ), 'placeholder' => __( 'Select emirate', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_emirate_options() );
+	$date    = array( 'label' => __( 'Preferred Date', 'subaru-alkhoory' ), 'placeholder' => __( 'DD / MM / YYYY', 'subaru-alkhoory' ), 'type' => 'date', 'required' => true, 'half' => true );
 	$consent = array( 'label' => __( 'I agree to be contacted by Al Khoory Automobiles about my enquiry and accept the Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true );
 	$slots   = array(
 		'Morning (9am – 12pm)'   => __( 'Morning (9am – 12pm)', 'subaru-alkhoory' ),
 		'Afternoon (12pm – 4pm)' => __( 'Afternoon (12pm – 4pm)', 'subaru-alkhoory' ),
 		'Evening (4pm – 8pm)'    => __( 'Evening (4pm – 8pm)', 'subaru-alkhoory' ),
 	);
+	$time    = array( 'label' => __( 'Preferred Time', 'subaru-alkhoory' ), 'placeholder' => __( 'Select a time slot', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => $slots );
 
 	switch ( $type ) {
 		case 'test-drive':
+			// The model is picked with the model cards above the form (step 1); it travels in a hidden field.
 			$fields = array(
-				'model'    => $model,
-				'showroom' => array( 'label' => __( 'Preferred showroom', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_location_options( 'showroom' ) ),
-				'first_name' => $first,
-				'last_name'  => $last,
-				'email'      => $email,
-				'mobile'     => $mobile,
-				'date'       => array( 'label' => __( 'Preferred date', 'subaru-alkhoory' ), 'type' => 'date', 'required' => true, 'half' => true ),
-				'time'       => array( 'label' => __( 'Preferred time', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => $slots ),
-				'comments'   => array( 'label' => __( 'Comments (optional)', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => false ),
-				'consent'    => $consent,
+				'model'    => array( 'label' => __( 'Model', 'subaru-alkhoory' ), 'type' => 'hidden', 'required' => true, 'options' => subaru_model_options(), 'required_msg' => __( 'Please choose a model above (step 1).', 'subaru-alkhoory' ) ),
+				'date'     => $date,
+				'time'     => $time,
+				'showroom' => array( 'label' => __( 'Location', 'subaru-alkhoory' ), 'placeholder' => __( 'Select location', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_location_options( 'showroom' ) ),
+				'grade'    => array( 'label' => __( 'Grade (optional)', 'subaru-alkhoory' ), 'placeholder' => __( 'Select grade', 'subaru-alkhoory' ), 'type' => 'select', 'required' => false, 'half' => true, 'options' => subaru_grade_options(), 'filter_by' => 'model' ),
+				'name'     => $name,
+				'mobile'   => $mobile,
+				'email'    => $email,
+				'emirate'  => $emirate,
+				'consent'  => array( 'label' => __( 'I hold a valid UAE driving licence and agree to the test drive terms and Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true ),
 			);
 			break;
 		case 'contact':
 			$fields = array(
-				'name'    => $name,
-				'email'   => $email,
+				'name'    => array_merge( $name, array( 'label' => __( 'Your Name', 'subaru-alkhoory' ) ) ),
 				'mobile'  => $mobile,
-				'enquiry' => array( 'label' => __( 'Enquiry type', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_enquiry_types() ),
-				'model'   => array_merge( $model, array( 'required' => false, 'label' => __( 'Model of interest', 'subaru-alkhoory' ), 'half' => false, 'show_if' => 'enquiry:sales,test-drive,brochure,offer,hybrid,warranty' ) ),
-				'message' => array( 'label' => __( 'Your message', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => true ),
-				'consent' => $consent,
+				'email'   => $email,
+				'emirate' => array_merge( $emirate, array( 'required' => false ) ),
+				'model'   => array_merge( $model, array( 'required' => false ) ),
+				'enquiry' => array( 'label' => __( 'Enquiry Type', 'subaru-alkhoory' ), 'placeholder' => __( 'Sales, service or parts', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_enquiry_types() ),
+				'message' => array( 'label' => __( 'Comments', 'subaru-alkhoory' ), 'placeholder' => __( 'Tell us how we can help', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => false ),
+				'consent' => array( 'label' => __( 'I agree to be contacted by Subaru UAE regarding my enquiry and accept the Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true ),
 			);
 			break;
 		case 'service':
 			$fields = array(
-				'name'    => $name,
-				'mobile'  => $mobile,
-				'email'   => $email,
 				'model'   => $model,
-				'vin'     => array( 'label' => __( 'Plate number or VIN', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true ),
-				'mileage' => array( 'label' => __( 'Current mileage (km)', 'subaru-alkhoory' ), 'type' => 'number', 'required' => false, 'half' => true ),
+				'vin'     => array( 'label' => __( 'Registration / VIN', 'subaru-alkhoory' ), 'placeholder' => __( 'e.g. Dubai X 12345', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true ),
 				'service' => array(
-					'label'    => __( 'Service type', 'subaru-alkhoory' ),
-					'type'     => 'select',
-					'required' => true,
-					'half'     => true,
-					'options'  => array(
-						'Periodic maintenance' => __( 'Periodic maintenance', 'subaru-alkhoory' ),
-						'Repair / diagnosis'   => __( 'Repair / diagnosis', 'subaru-alkhoory' ),
-						'Warranty work'        => __( 'Warranty work', 'subaru-alkhoory' ),
-						'Tyres & battery'      => __( 'Tyres & battery', 'subaru-alkhoory' ),
-						'Body & paint'         => __( 'Body & paint', 'subaru-alkhoory' ),
-						'Other'                => __( 'Other', 'subaru-alkhoory' ),
+					'label'       => __( 'Service Type', 'subaru-alkhoory' ),
+					'placeholder' => __( 'Scheduled maintenance', 'subaru-alkhoory' ),
+					'type'        => 'select',
+					'required'    => true,
+					'half'        => true,
+					'options'     => array(
+						'Scheduled maintenance' => __( 'Scheduled maintenance', 'subaru-alkhoory' ),
+						'Repair / diagnosis'    => __( 'Repair / diagnosis', 'subaru-alkhoory' ),
+						'Warranty work'         => __( 'Warranty work', 'subaru-alkhoory' ),
+						'Tyres & battery'       => __( 'Tyres & battery', 'subaru-alkhoory' ),
+						'Body & paint'          => __( 'Body & paint', 'subaru-alkhoory' ),
+						'Other'                 => __( 'Other', 'subaru-alkhoory' ),
 					),
 				),
-				'date'    => array( 'label' => __( 'Preferred date', 'subaru-alkhoory' ), 'type' => 'date', 'required' => true, 'half' => true ),
-				'centre'  => array( 'label' => __( 'Service centre', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'options' => subaru_location_options( 'service' ) ),
-				'notes'   => array( 'label' => __( 'Notes (optional)', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => false ),
-				'consent' => $consent,
+				'mileage' => array( 'label' => __( 'Current Mileage', 'subaru-alkhoory' ), 'placeholder' => __( 'e.g. 35,000 km', 'subaru-alkhoory' ), 'type' => 'number', 'required' => false, 'half' => true ),
+				'date'    => $date,
+				'time'    => $time,
+				'name'    => $name,
+				'mobile'  => $mobile,
 			);
 			break;
 		case 'brochure':
@@ -184,8 +219,8 @@ function subaru_form_fields( $type ) {
  */
 function subaru_form_submit_label( $type ) {
 	$labels = array(
-		'test-drive' => __( 'Book My Test Drive', 'subaru-alkhoory' ),
-		'contact'    => __( 'Send Enquiry', 'subaru-alkhoory' ),
+		'test-drive' => __( 'Request Test Drive', 'subaru-alkhoory' ),
+		'contact'    => __( 'Submit Enquiry', 'subaru-alkhoory' ),
 		'service'    => __( 'Request Service Booking', 'subaru-alkhoory' ),
 		'brochure'   => __( 'Request Brochure', 'subaru-alkhoory' ),
 		'offer'      => __( 'Enquire About This Offer', 'subaru-alkhoory' ),
@@ -276,7 +311,7 @@ function subaru_render_form( $type, $atts = array() ) {
 
 	$uid     = 'sa-form-' . $instance;
 	$is_news = 'newsletter' === $type;
-	$classes = 'sa-form sa-form--' . $type . ( $is_news ? ' sa-form--inline' : '' ) . ( $atts['class'] ? ' ' . $atts['class'] : '' );
+	$classes = 'sa-form sa-form--' . $type . ( $is_news ? ' sa-form--inline' : ' sa-form--stacked' ) . ( $atts['class'] ? ' ' . $atts['class'] : '' );
 
 	ob_start();
 	?>
@@ -338,21 +373,33 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 	$req_attr = $required ? ' required aria-required="true"' : '';
 	$show_if  = ! empty( $f['show_if'] ) ? ' data-show-if="' . esc_attr( $f['show_if'] ) . '"' : '';
 	$label    = esc_html( $f['label'] ) . ( $required && ! $is_news ? '<span class="sa-req" aria-hidden="true">*</span>' : '' );
+	$ph       = isset( $f['placeholder'] ) ? $f['placeholder'] : '';
+
+	if ( 'hidden' === $f['type'] ) {
+		$msg = ! empty( $f['required_msg'] ) ? ' data-required-msg="' . esc_attr( $f['required_msg'] ) . '"' : '';
+		echo '<div class="sa-field sa-field--hidden">';
+		echo '<input type="hidden" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" aria-describedby="' . esc_attr( $err_id ) . '"' . ( $required ? ' required' : '' ) . $msg . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<span class="sa-field__error" id="' . esc_attr( $err_id ) . '"></span></div>';
+		return;
+	}
 
 	echo '<div class="' . esc_attr( $cls ) . '"' . $show_if . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
 
 	switch ( $f['type'] ) {
 		case 'select':
-			echo '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo '<option value=""></option>';
+			$sel_extra = ( $ph ? ' data-placeholder="' . esc_attr( $ph ) . '"' : '' ) . ( ! empty( $f['filter_by'] ) ? ' data-filter-by="' . esc_attr( $f['filter_by'] ) . '"' : '' );
+			echo '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $sel_extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<option value="">' . esc_html( $ph ) . '</option>';
 			foreach ( $f['options'] as $ov => $ol ) {
-				echo '<option value="' . esc_attr( $ov ) . '"' . selected( (string) $value, (string) $ov, false ) . '>' . esc_html( $ol ) . '</option>';
+				$group = is_array( $ol ) && isset( $ol['group'] ) ? ' data-group="' . esc_attr( $ol['group'] ) . '"' : '';
+				$text  = is_array( $ol ) ? $ol['label'] : $ol;
+				echo '<option value="' . esc_attr( $ov ) . '"' . $group . selected( (string) $value, (string) $ov, false ) . '>' . esc_html( $text ) . '</option>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			echo '</select><label for="' . esc_attr( $id ) . '">' . $label . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			subaru_the_icon( 'chevron', 16, 'sa-field__chev' );
 			break;
 		case 'textarea':
-			echo '<textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" rows="4" placeholder=" " maxlength="3000" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . '></textarea>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<textarea id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" rows="4" placeholder="' . esc_attr( $ph ? $ph : ' ' ) . '" maxlength="3000" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . '></textarea>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '<label for="' . esc_attr( $id ) . '">' . $label . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			break;
 		case 'consent':
@@ -392,7 +439,7 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 			if ( ! empty( $f['autocomplete'] ) ) {
 				$extra .= ' autocomplete="' . esc_attr( $f['autocomplete'] ) . '"';
 			}
-			echo '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" placeholder="' . esc_attr( $is_news ? $f['label'] : ' ' ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<input type="' . esc_attr( $type ) . '" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" placeholder="' . esc_attr( $is_news ? $f['label'] : ( $ph ? $ph : ' ' ) ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '<label for="' . esc_attr( $id ) . '"' . ( $is_news ? ' class="screen-reader-text"' : '' ) . '>' . $label . '</label>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			if ( 'date' === $type ) {
 				subaru_the_icon( 'calendar', 16, 'sa-field__chev' );
@@ -506,8 +553,9 @@ function subaru_form_submit() {
 				$val = '' === trim( $raw ) ? '' : (string) absint( $raw );
 				break;
 			case 'select':
+			case 'hidden':
 				$val = sanitize_text_field( $raw );
-				if ( '' !== $val && ! isset( $f['options'][ $val ] ) ) {
+				if ( '' !== $val && isset( $f['options'] ) && ! isset( $f['options'][ $val ] ) ) {
 					$errors[ $key ] = __( 'Please choose an option from the list.', 'subaru-alkhoory' );
 				}
 				break;
@@ -523,7 +571,7 @@ function subaru_form_submit() {
 				$val = function_exists( 'mb_substr' ) ? mb_substr( $val, 0, 200 ) : substr( $val, 0, 200 );
 		}
 		if ( ! empty( $f['required'] ) && '' === $val && ! isset( $errors[ $key ] ) ) {
-			$errors[ $key ] = 'consent' === $f['type'] ? __( 'Please accept to continue.', 'subaru-alkhoory' ) : __( 'This field is required.', 'subaru-alkhoory' );
+			$errors[ $key ] = 'consent' === $f['type'] ? __( 'Please accept to continue.', 'subaru-alkhoory' ) : ( ! empty( $f['required_msg'] ) ? $f['required_msg'] : __( 'This field is required.', 'subaru-alkhoory' ) );
 		}
 		$clean[ $key ] = $val;
 	}
@@ -587,8 +635,9 @@ function subaru_form_submit() {
 		if ( 'consent' === $fields[ $key ]['type'] ) {
 			$label = __( 'Consent', 'subaru-alkhoory' );
 		}
-		if ( 'select' === $fields[ $key ]['type'] && isset( $fields[ $key ]['options'][ $val ] ) ) {
-			$val = $fields[ $key ]['options'][ $val ];
+		if ( in_array( $fields[ $key ]['type'], array( 'select', 'hidden' ), true ) && isset( $fields[ $key ]['options'][ $val ] ) ) {
+			$opt = $fields[ $key ]['options'][ $val ];
+			$val = is_array( $opt ) ? $val : $opt;
 		}
 		$labels[ $label ] = $val;
 	}
