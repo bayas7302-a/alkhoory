@@ -1,0 +1,17 @@
+/*
+Theme Name:   Subaru Al Khoory
+Theme URI:    https://soharon.co.uk/subaru/
+Description:  Child theme of Hello Elementor for Subaru UAE / Al Khoory Automobiles. Adds the branded header & footer, behaviours for Elementor V4 atomic layouts (hero carousel, tabs, colour swatches, sub-nav scrollspy, counters, lightbox, FAQ), AJAX enquiry forms, newsroom templates and custom Elementor widgets.
+Author:       Al Khoory Automobiles
+Template:     hello-elementor
+Version:      1.0.0
+Requires at least: 6.3
+Tested up to: 6.8
+Requires PHP: 7.4
+License:      GNU General Public License v2 or later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  subaru-alkhoory
+Tags:         custom-menu, custom-logo, featured-images, translation-ready, blog
+*/
+
+/* All styles live in assets/css/*.css (enqueued from inc/enqueue.php). */
