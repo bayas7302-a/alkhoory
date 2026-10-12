@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SUBARU_VERSION', '1.1.0' );
+define( 'SUBARU_VERSION', '1.1.1' );
 define( 'SUBARU_DIR', get_stylesheet_directory() );
 define( 'SUBARU_URI', get_stylesheet_directory_uri() );
 

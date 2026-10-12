@@ -664,7 +664,15 @@ html.sa-locked, html.sa-locked body { overflow: hidden; }
 :root { --sa-content: 1250px; --sa-side: max(20px, calc((100% - var(--sa-content)) / 2)); }
 .elementor[data-elementor-type="wp-page"] > .e-con:not(.sub-hero-carousel) { padding-inline: var(--sa-side) !important; }
 .elementor .sub-container { max-width: var(--sa-content) !important; }
-.elementor .sub-hero-carousel .sub-hero-slide { padding-inline: var(--sa-side) !important; }
+/* Hero carousel: full-viewport slides; overlay layer stays full-bleed, only the content is held to 1250px. */
+.elementor .sub-hero-carousel .sub-hero-slide { padding: 0 !important; min-height: 100vh !important; min-height: 100svh !important; }
+.elementor .sub-hero-carousel .sub-hero-slide > .e-con { min-height: 100vh !important; min-height: 100svh !important; justify-content: center; padding: 150px var(--sa-side) 190px !important; box-sizing: border-box; }
+.elementor .sub-hero-carousel .e-tabs-content-area-base { padding: 0 !important; }
+.elementor .sub-hero-carousel .sub-hero-tabs { padding-bottom: 28px !important; }
+@media (max-width: 767px) {
+	.elementor .sub-hero-carousel .sub-hero-slide > .e-con { padding: 120px 20px 150px !important; }
+	.elementor .sub-hero-carousel .sub-hero-tabs { padding-bottom: 16px !important; }
+}
 .elementor .sub-hero-carousel .sub-hero-tabs { padding-inline: var(--sa-side) !important; }
 .elementor .sub-subnav { padding-inline: var(--sa-side) !important; }
 
