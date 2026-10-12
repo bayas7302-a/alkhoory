@@ -711,3 +711,11 @@ html.sa-locked, html.sa-locked body { overflow: hidden; }
 .elementor .sub-grade-item[open] { border-color: #d5dde8; }
 .elementor .sub-grade-head { cursor: pointer; list-style: none; }
 .elementor .sub-grade-head::-webkit-details-marker { display: none; }
+
+/* 16.7 Mobile overflow guards. */
+html, body { overflow-x: clip; }
+@media (max-width: 767px) {
+	.sa-pills { flex-wrap: wrap; }
+	.elementor .sub-subnav > .e-con { min-width: 0; overflow-x: auto; scrollbar-width: none; }
+	.elementor .sub-subnav > .e-con::-webkit-scrollbar { display: none; }
+}

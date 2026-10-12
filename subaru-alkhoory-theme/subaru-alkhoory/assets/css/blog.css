@@ -179,8 +179,7 @@
 	.sa-listing { padding-top: 48px; }
 	.sa-grid { grid-template-columns: 1fr; }
 	.sa-toolbar { flex-direction: column; align-items: stretch; }
-	.sa-pills { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--sa-gutter) * -1); padding: 2px var(--sa-gutter); scrollbar-width: none; }
-	.sa-pills::-webkit-scrollbar { display: none; }
+	.sa-pills { flex-wrap: wrap; }
 	.sa-pill { flex: none; }
 	.sa-search-inline { max-width: none; }
 	.sa-article__layout { padding-top: 48px; padding-bottom: 48px; }

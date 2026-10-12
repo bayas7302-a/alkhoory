@@ -32,3 +32,7 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Blog posts "Crosstrek Owners Weekend" and "Summer Care Tips" — review; post "Subaru Expands Its Presence in the UAE" featured image carries a stock-photo watermark (replace with a licensed image).
 - Real per-colour car photos for colour pickers (current ones are recoloured approximations) and brochure PDFs.
 - Privacy Policy page (still a WordPress draft).
+
+## v1.1 revisions
+- Theme: simpler motion (no intro loader, parallax, Ken Burns, magnetic buttons, cursor glow, image fade); buttons change colour only on hover; phone fields accept any format (no UAE-only hint/validation); footer copyright + "A member of" on one line; all page sections' content is 1250px wide; mobile overflow guards; test-drive step 1 is a working model picker that fills the form and advances the step bar; links into accordion items open them.
+- Site data (live): animations reduced to an H1 fade on load plus a single fade-in for card grids/galleries; Forester and Crosstrek grade sections converted into a grade accordion; inline 1240px max-widths set to 1250px; two-column layout overflow fixes on Home, Our Range and About Us.
