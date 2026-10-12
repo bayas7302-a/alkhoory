@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ABP_VERSION', '1.0.2' );
+define( 'ABP_VERSION', '1.0.3' );
 define( 'ABP_DIR', get_stylesheet_directory() );
 define( 'ABP_URI', get_stylesheet_directory_uri() );
 

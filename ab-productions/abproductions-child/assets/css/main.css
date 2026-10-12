@@ -359,7 +359,17 @@ body.abp-site {
 .abp-projects--featured .abp-project:nth-child(2),
 .abp-projects--featured .abp-project:nth-child(3) { grid-column: 8 / span 5; }
 .abp-projects--featured.is-filtering .abp-project { grid-column: span 4 !important; grid-row: auto !important; }
-.abp-projects--featured .abp-project__media { position: absolute; inset: 0; }
+.abp-projects--featured .abp-project__media { position: absolute; inset: 0; overflow: hidden; container-type: size; }
+/*
+ * Mosaic tiles are wider than the image's centre third, so zoom the image
+ * until that centre third (302 x 380 in the reference rectangle) covers the
+ * whole tile; the left and right thirds always stay outside the tile.
+ */
+.abp-projects--featured .abp-project .abp-card__img {
+	inset: auto; left: 50%; top: 50%;
+	width: max(300cqw, calc(300cqh * 302 / 380)); height: auto; min-height: 100%;
+	transform: translate(-50%, -50%);
+}
 .abp-project__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 11, 18, 0) 30%, rgba(14, 11, 18, .92) 100%); transition: background .5s ease; }
 .abp-projects--featured .abp-project__body { position: absolute; left: 26px; right: 90px; bottom: 24px; z-index: 2; }
 .abp-project__tag {
@@ -379,7 +389,7 @@ body.abp-site {
 .abp-projects--featured.is-filtering .abp-project .abp-project__title { font-size: 32px !important; }
 .abp-projects--featured .abp-project:hover,
 .abp-projects--featured .abp-project:focus-visible { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(192, 19, 138, .3); }
-.abp-projects--featured .abp-project:hover .abp-card__img { transform: scale(1.07); }
+.abp-projects--featured .abp-project:hover .abp-card__img { transform: translate(-50%, -50%) scale(1.07); }
 .abp-projects--featured .abp-project:hover .abp-project__shade { background: linear-gradient(180deg, rgba(127, 0, 131, .15) 10%, rgba(14, 11, 18, .92) 100%); }
 .abp-projects--featured .abp-project:hover .abp-project__arrow { transform: rotate(45deg) scale(1.08); box-shadow: 0 10px 24px rgba(224, 40, 127, .5); }
 @media (max-width: 1024px) {
