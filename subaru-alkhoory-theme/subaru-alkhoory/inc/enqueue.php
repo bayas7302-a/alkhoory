@@ -51,7 +51,7 @@ function subaru_enqueue_assets() {
 			'i18n'    => array(
 				'required' => __( 'This field is required.', 'subaru-alkhoory' ),
 				'email'    => __( 'Please enter a valid email address.', 'subaru-alkhoory' ),
-				'phone'    => __( 'Please enter a valid UAE mobile number, e.g. 05X XXX XXXX.', 'subaru-alkhoory' ),
+				'phone'    => __( 'Please enter a valid phone number.', 'subaru-alkhoory' ),
 				'date'     => __( 'Please choose a date from tomorrow onwards.', 'subaru-alkhoory' ),
 				'consent'  => __( 'Please accept to continue.', 'subaru-alkhoory' ),
 				'sending'  => __( 'Sending…', 'subaru-alkhoory' ),

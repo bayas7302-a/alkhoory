@@ -48,9 +48,9 @@ $subaru_wa      = subaru_setting( 'whatsapp_number' );
 			<div class="sa-footer__brand">
 				<img class="sa-footer__group" src="<?php echo esc_url( subaru_image_url( 'subaru_group_logo', 'al-khoory-group.png' ) ); ?>" alt="<?php esc_attr_e( 'Al Khoory Group', 'subaru-alkhoory' ); ?>" width="47" height="71" loading="lazy">
 				<div class="sa-footer__legal-text">
-					<p class="sa-footer__copy">&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_theme_mod( 'subaru_copyright', 'Al Khoory Automobiles LLC' ) ); ?>. <?php esc_html_e( 'All rights reserved.', 'subaru-alkhoory' ); ?></p>
-					<p class="sa-footer__member"><span><?php esc_html_e( 'A member of', 'subaru-alkhoory' ); ?></span>
-						<img src="<?php echo esc_url( subaru_image_url( 'subaru_member_logo', 'subaru-wordmark.png' ) ); ?>" alt="Subaru" width="81" height="14" loading="lazy"></p>
+					<p class="sa-footer__copy-line"><span class="sa-footer__copy">&copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( get_theme_mod( 'subaru_copyright', 'Al Khoory Automobiles LLC' ) ); ?>. <?php esc_html_e( 'All rights reserved.', 'subaru-alkhoory' ); ?></span>
+					<span class="sa-footer__member"><span><?php esc_html_e( 'A member of', 'subaru-alkhoory' ); ?></span>
+						<img src="<?php echo esc_url( subaru_image_url( 'subaru_member_logo', 'subaru-wordmark.png' ) ); ?>" alt="Subaru" width="81" height="14" loading="lazy"></span></p>
 				</div>
 			</div>
 

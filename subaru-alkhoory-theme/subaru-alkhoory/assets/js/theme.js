@@ -370,6 +370,12 @@
 			}
 			panel = panel.parentElement ? panel.parentElement.closest('[role="tabpanel"]') : null;
 		}
+		// Accordion items (<details>): the target itself or any closed ancestor gets opened.
+		var det = target.tagName === 'DETAILS' ? target : target.closest('details');
+		while (det) {
+			if (!det.open) { det.open = true; changed = true; }
+			det = det.parentElement ? det.parentElement.closest('details') : null;
+		}
 		return changed;
 	}
 
@@ -1041,6 +1047,63 @@
 		setTimeout(function () { html.classList.remove('sa-intro'); }, 950);
 	}
 
+	/* ------------------------------------- 13. test-drive model picker + steps */
+	function initModelPicker() {
+		var cards = $$('.sub-model-pick');
+		var select = $('.sa-form select[name="model"]');
+		if (!cards.length || !select) { return; }
+		var form = select.closest('form');
+		var steps = $$('.sub-step');
+
+		function modelOf(card) {
+			var m = /[?&]model=([^&#]+)/.exec(card.getAttribute('href') || '');
+			return m ? decodeURIComponent(m[1]) : '';
+		}
+		function filled(name) {
+			var el = form && form.querySelector('[name="' + name + '"]');
+			return !!(el && String(el.value || '').trim());
+		}
+		function updateSteps() {
+			if (!steps.length) { return; }
+			var current = !select.value ? 0 : (filled('date') && filled('time') ? 2 : 1);
+			steps.forEach(function (s, i) {
+				s.classList.toggle('is-active', i === current);
+				s.classList.toggle('is-done', i < current);
+				if (i === current) { s.setAttribute('aria-current', 'step'); } else { s.removeAttribute('aria-current'); }
+			});
+		}
+		function sync() {
+			cards.forEach(function (c) {
+				var on = modelOf(c) === select.value;
+				c.classList.toggle('is-selected', on);
+				c.setAttribute('aria-pressed', on ? 'true' : 'false');
+			});
+			updateSteps();
+		}
+
+		cards.forEach(function (c) {
+			c.setAttribute('role', 'button');
+			c.addEventListener('click', function (e) {
+				var m = modelOf(c);
+				if (!m || !select.querySelector('option[value="' + m + '"]')) { return; }
+				e.preventDefault();
+				select.value = m;
+				select.dispatchEvent(new Event('change', { bubbles: true }));
+				if (w.history && w.history.replaceState) {
+					var u = new URL(w.location.href);
+					u.searchParams.set('model', m);
+					w.history.replaceState(null, '', u.pathname + u.search + u.hash);
+				}
+			});
+		});
+		select.addEventListener('change', sync);
+		if (form) {
+			form.addEventListener('change', updateSteps);
+			form.addEventListener('input', updateSteps);
+		}
+		sync();
+	}
+
 	/* --------------------------------------------------------------- boot */
 	function initScope(scope) {
 		scope = scope || d;
@@ -1048,12 +1111,8 @@
 		initHero(scope);
 		initSwatches(scope);
 		initCounters(scope);
-		initParallax(scope);
 		initGallery(scope);
 		initFaq(scope);
-		initMagnetic(scope);
-		initGlow(scope);
-		initImageFade(scope);
 		initReveal(scope);
 	}
 
@@ -1066,7 +1125,6 @@
 	};
 	w.SubaruTheme = cfg;
 
-	initIntro();
 	ready(function () {
 		detectHero();
 		initHeader();
@@ -1076,6 +1134,7 @@
 		initAnchors();
 		initCookie();
 		initCopy();
+		initModelPicker();
 		initialHash();
 		// Late layout changes (fonts, images) affect header/sub-nav heights.
 		w.addEventListener('load', function () { measureHeader(); updateHeader(); });

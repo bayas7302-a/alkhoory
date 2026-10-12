@@ -83,7 +83,7 @@ function subaru_form_fields( $type ) {
 	$last    = array( 'label' => __( 'Last name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'family-name' );
 	$name    = array( 'label' => __( 'Full name', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true, 'autocomplete' => 'name' );
 	$email   = array( 'label' => __( 'Email address', 'subaru-alkhoory' ), 'type' => 'email', 'required' => true, 'half' => true, 'autocomplete' => 'email' );
-	$mobile  = array( 'label' => __( 'Mobile number', 'subaru-alkhoory' ), 'type' => 'tel', 'required' => true, 'half' => true, 'autocomplete' => 'tel', 'hint' => __( 'UAE mobile, e.g. 05X XXX XXXX or +971 5X XXX XXXX', 'subaru-alkhoory' ) );
+	$mobile  = array( 'label' => __( 'Mobile number', 'subaru-alkhoory' ), 'type' => 'tel', 'required' => true, 'half' => true, 'autocomplete' => 'tel' );
 	$model   = array( 'label' => __( 'Model', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_model_options() );
 	$consent = array( 'label' => __( 'I agree to be contacted by Al Khoory Automobiles about my enquiry and accept the Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true );
 	$slots   = array(
@@ -384,7 +384,7 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 				$extra = ' min="' . esc_attr( wp_date( 'Y-m-d', time() + DAY_IN_SECONDS ) ) . '"';
 			}
 			if ( 'tel' === $type ) {
-				$extra = ' inputmode="tel" pattern="^(?:\+?971|00971|0)?\s?5[0-9](?:[\s-]?[0-9]){7}$"';
+				$extra = ' inputmode="tel"';
 			}
 			if ( 'number' === $type ) {
 				$extra = ' inputmode="numeric" min="0" max="2000000" step="1"';
@@ -406,14 +406,14 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 }
 
 /**
- * Validate a UAE mobile number.
+ * Validate a phone number (any format: 7–15 digits, optional leading +).
  *
  * @param string $v Value.
  * @return bool
  */
-function subaru_valid_uae_mobile( $v ) {
-	$digits = preg_replace( '/[\s\-()]/', '', (string) $v );
-	return (bool) preg_match( '/^(?:\+971|00971|971|0)?5[0-9]{8}$/', $digits );
+function subaru_valid_phone( $v ) {
+	$digits = preg_replace( '/[\s\-().]/', '', (string) $v );
+	return (bool) preg_match( '/^\+?[0-9]{7,15}$/', $digits );
 }
 
 /**
@@ -489,8 +489,8 @@ function subaru_form_submit() {
 				break;
 			case 'tel':
 				$val = sanitize_text_field( $raw );
-				if ( '' !== $val && ! subaru_valid_uae_mobile( $val ) ) {
-					$errors[ $key ] = __( 'Please enter a valid UAE mobile number, e.g. 05X XXX XXXX.', 'subaru-alkhoory' );
+				if ( '' !== $val && ! subaru_valid_phone( $val ) ) {
+					$errors[ $key ] = __( 'Please enter a valid phone number.', 'subaru-alkhoory' );
 				}
 				break;
 			case 'date':

@@ -13,7 +13,7 @@
 
 	function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
 
-	var UAE_MOBILE = /^(?:\+971|00971|971|0)?5[0-9]{8}$/;
+	var PHONE = /^\+?[0-9]{7,15}$/;
 	var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 	function fieldOf(input) { return input.closest('.sa-field'); }
@@ -39,8 +39,8 @@
 			msg = input.type === 'checkbox' ? (i18n.consent || 'Please accept to continue.') : (i18n.required || 'This field is required.');
 		} else if (v && input.type === 'email' && !EMAIL.test(v)) {
 			msg = i18n.email || 'Please enter a valid email address.';
-		} else if (v && input.type === 'tel' && !UAE_MOBILE.test(v.replace(/[\s\-()]/g, ''))) {
-			msg = i18n.phone || 'Please enter a valid UAE mobile number.';
+		} else if (v && input.type === 'tel' && !PHONE.test(v.replace(/[\s\-().]/g, ''))) {
+			msg = i18n.phone || 'Please enter a valid phone number.';
 		} else if (v && input.type === 'date' && input.min && v < input.min) {
 			msg = i18n.date || 'Please choose a date from tomorrow onwards.';
 		}

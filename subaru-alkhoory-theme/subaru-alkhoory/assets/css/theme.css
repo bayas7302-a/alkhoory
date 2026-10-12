@@ -29,7 +29,7 @@
 
 	/* Theme internals. */
 	--sa-gutter: clamp(20px, 6.95vw, 100px);
-	--sa-max: 1240px;
+	--sa-max: 1250px;
 	--sa-radius: 20px;
 	--sa-ease: cubic-bezier(.2, .7, .2, 1);
 	--sa-ease-io: cubic-bezier(.65, 0, .35, 1);
@@ -657,3 +657,57 @@ html.sa-locked, html.sa-locked body { overflow: hidden; }
 .elementor .sub-swatch .sa-tip { bottom: auto; top: calc(100% + 12px); transform: translate(-50%, -6px); }
 .elementor .sub-swatch .sa-tip::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--sub-navy); }
 .elementor .sub-swatch:is(:hover, :focus-visible) .sa-tip { transform: translate(-50%, 0); }
+
+/* 16. v1.1 client revisions ------------------------------------------------ */
+
+/* 16.1 Content width: every page section's content is 1250px wide (backgrounds stay full-bleed). */
+:root { --sa-content: 1250px; --sa-side: max(20px, calc((100% - var(--sa-content)) / 2)); }
+.elementor[data-elementor-type="wp-page"] > .e-con:not(.sub-hero-carousel) { padding-inline: var(--sa-side) !important; }
+.elementor .sub-container { max-width: var(--sa-content) !important; }
+.elementor .sub-hero-carousel .sub-hero-slide { padding-inline: var(--sa-side) !important; }
+.elementor .sub-hero-carousel .sub-hero-tabs { padding-inline: var(--sa-side) !important; }
+.elementor .sub-subnav { padding-inline: var(--sa-side) !important; }
+
+/* 16.2 Buttons: no hover motion (no lift, shadow, ripple, magnetic or arrow nudge) — colour change only. */
+.elementor .sub-btn, .elementor .sub-btn:hover, .elementor .sub-btn:focus-visible,
+:root .sa-btn, :root .sa-btn:hover, :root .sa-btn:focus-visible { transform: none !important; translate: none !important; box-shadow: none !important; }
+.elementor .sub-btn::before { display: none !important; }
+:root .sa-btn:hover .sa-icon--arrow, .elementor .sub-link:hover::after, .elementor .sub-link:focus-visible::after { transform: none !important; }
+.elementor .sub-link:hover { transform: none !important; }
+
+/* 16.3 Simpler motion: no Ken Burns, no blur/rise on hero text, plain fades for tab panels. */
+.sub-hero-slide.e--selected > .sa-kb { animation: none !important; }
+.sub-hero-carousel .sub-hero-slide.sa-text-in .sa-anim { animation: sa-fade-in .6s ease both !important; animation-delay: .15s !important; }
+.elementor [role="tabpanel"].e--selected:not(.sub-hero-slide):not(.sub-colour-stage) { animation: sa-fade-in .35s ease both !important; }
+.elementor .sub-colour-stage.e--selected img { animation: sa-fade-in .4s ease both !important; }
+.sa-px-img, .sa-px-layer { translate: none !important; }
+.sa-intro .sa-intro-screen { display: none !important; }
+
+/* 16.4 Footer: copyright and "A member of" on one line. */
+.sa-footer__copy-line { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 0; }
+.sa-footer__copy-line .sa-footer__copy { white-space: nowrap; }
+.sa-footer__copy-line .sa-footer__member { display: inline-flex; }
+@media (max-width: 767px) { .sa-footer__copy-line .sa-footer__copy { white-space: normal; } }
+
+/* 16.5 Book a test drive: step bar + selectable model cards. */
+.elementor .sub-step { background-color: var(--sub-bg) !important; border-radius: 12px; transition: background-color .25s; }
+.elementor .sub-step p { color: var(--sub-ink) !important; }
+.elementor .sub-step .sub-step-num { background-color: #fff !important; color: var(--sub-ink) !important; border-radius: 50%; }
+.elementor .sub-step.is-active { background-color: var(--sub-navy) !important; }
+.elementor .sub-step.is-active p { color: #fff !important; }
+.elementor .sub-step.is-active .sub-step-num { background-color: var(--sub-blue) !important; color: #fff !important; }
+.elementor .sub-step.is-done .sub-step-num { background-color: var(--sub-blue) !important; color: transparent !important; position: relative; }
+.elementor .sub-step.is-done .sub-step-num::after { content: ""; position: absolute; left: 50%; top: 46%; width: 9px; height: 5px; border: solid #fff; border-width: 0 0 2px 2px; transform: translate(-50%, -50%) rotate(-45deg); }
+.elementor .sub-model-pick { border: 2px solid transparent !important; transition: border-color .25s, background-color .25s; }
+.elementor .sub-model-pick.is-selected { border-color: var(--sub-blue) !important; background-color: var(--sub-tint) !important; }
+.elementor .sub-model-pick:focus-visible { outline: 2px solid var(--sub-blue); outline-offset: 3px; }
+.elementor .sub-model-pick .sub-model-pick-ind { position: relative; font-size: 0 !important; color: transparent !important; background: #fff !important; border: 1.5px solid #c8d2e0 !important; border-radius: 50% !important; }
+.elementor .sub-model-pick.is-selected .sub-model-pick-ind { background: var(--sub-blue) !important; border-color: var(--sub-blue) !important; }
+.elementor .sub-model-pick.is-selected .sub-model-pick-ind::after { content: ""; position: absolute; left: 50%; top: 45%; width: 10px; height: 5px; border: solid #fff; border-width: 0 0 2px 2px; transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* 16.6 Grade accordions on model pages. */
+.elementor .sub-grade-acc { display: flex; flex-direction: column; gap: 16px; }
+.elementor .sub-grade-item { background: #fff; border: 1px solid var(--sub-line); border-radius: 20px; overflow: hidden; }
+.elementor .sub-grade-item[open] { border-color: #d5dde8; }
+.elementor .sub-grade-head { cursor: pointer; list-style: none; }
+.elementor .sub-grade-head::-webkit-details-marker { display: none; }

@@ -40,7 +40,7 @@ function subaru_setting_defaults() {
 		'phone'                => '',
 		'email'                => '',
 		'showrooms'            => '',
-		'page_intro'           => 1,
+		'page_intro'           => 0,
 	);
 }
 
