@@ -32,7 +32,7 @@ Admin screens, reports and the WooCommerce REST API stay in AED.
 [fierro_currency_switcher]                 dropdown
 [fierro_currency_switcher style="buttons"] buttons
 [fierro_currency_rates]                    rate table (amount="100", currencies="USD,SAR", show_updated="no")
-[fierro_convert amount="150"]              an AED amount in the visitor's currency
+[fierro_convert amount="150"]              an AED amount in the visitor's currency (Dirham image in AED; add color="white" for dark bars)
 
 == Notes ==
 - Page cache: WP-Optimize is told to keep a separate cache per currency. After

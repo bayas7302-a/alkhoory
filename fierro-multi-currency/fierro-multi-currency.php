@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       FIERRO Multi Currency
  * Description:       Shows WooCommerce prices in GCC currencies and USD. Exchange rates update automatically from a free API, and any rate can be overridden manually. Shortcodes: [fierro_currency_switcher], [fierro_currency_rates], [fierro_convert].
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            FIERRO
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -627,11 +627,30 @@ final class Fierro_Multi_Currency {
 	 * Handy for text such as "Free delivery above [fierro_convert amount=150]".
 	 */
 	public function sc_convert( $atts ) {
-		$atts = shortcode_atts( array( 'amount' => 0 ), $atts, 'fierro_convert' );
+		$atts = shortcode_atts( array( 'amount' => 0, 'color' => '' ), $atts, 'fierro_convert' );
 		$amt  = (float) $atts['amount'];
 		$code = $this->current_currency();
-		$val  = $code === $this->base_currency() ? $amt : $this->convert_raw( $amt, $code );
-		return function_exists( 'wc_price' ) ? wc_price( $val, array( 'currency' => $code ) ) : esc_html( $this->format_number( $val, 2 ) . ' ' . $code );
+		$base = $this->base_currency();
+		$val  = $code === $base ? $amt : $this->convert_raw( $amt, $code );
+
+		// Whole amounts without decimals ("150"), otherwise the currency's decimals ("40.84").
+		$s   = self::get_settings();
+		$dec = isset( $s['currencies'][ $code ]['decimals'] ) ? (int) $s['currencies'][ $code ]['decimals'] : 2;
+		$num = abs( $val - round( $val ) ) < 0.005 ? $this->format_number( round( $val ), 0 ) : $this->format_number( $val, $dec );
+
+		if ( 'AED' === $code ) {
+			// Same Dirham image the theme uses; color="white" inverts it for dark bars.
+			$style = 'height:.75em;width:auto;vertical-align:-0.05em;display:inline-block;margin:0 1px';
+			if ( 'white' === strtolower( $atts['color'] ) ) {
+				$style .= ';filter:invert(1)';
+			}
+			$symbol = '<img decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/e/ee/UAE_Dirham_Symbol.svg" alt="AED" class="aed-symbol" style="' . esc_attr( $style ) . '">';
+			return '<span class="fierro-convert">' . $symbol . ' ' . esc_html( $num ) . '</span>';
+		}
+
+		$symbol = ! empty( $s['currencies'][ $code ]['symbol'] ) ? $s['currencies'][ $code ]['symbol'] : $code;
+		$sep    = preg_match( '/[A-Za-z]$/', $symbol ) ? ' ' : '';
+		return '<span class="fierro-convert">' . esc_html( $symbol . $sep . $num ) . '</span>';
 	}
 
 	private function format_number( $n, $dec ) {
