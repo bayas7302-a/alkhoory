@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       FIERRO Multi Currency
  * Description:       Shows WooCommerce prices in GCC currencies and USD. Exchange rates update automatically from a free API, and any rate can be overridden manually. Shortcodes: [fierro_currency_switcher], [fierro_currency_rates], [fierro_convert].
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            FIERRO
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -564,10 +564,17 @@ final class Fierro_Multi_Currency {
 		}
 		echo '</div>';
 		echo '<style>
-			.fierro-mc-switcher{display:inline-flex;align-items:center;gap:6px;font-family:"Jost",sans-serif;font-weight:300}
-			.fierro-mc-select{font:inherit;padding:4px 8px;border:0.5px solid #bcbec0;border-radius:6px;background:#fff;color:#222}
-			.fierro-mc-btn{padding:3px 8px;border:0.5px solid #bcbec0;border-radius:6px;color:#222;text-decoration:none;font-size:13px}
+			/* Closed: no background, no border, sharp edges. White text on desktop, black on mobile. */
+			.fierro-mc-switcher{display:inline-flex;align-items:center;gap:6px;font-family:"Jost",sans-serif;font-weight:300;color:#ffffff}
+			.fierro-mc-switcher .fierro-mc-select{-webkit-appearance:none;-moz-appearance:none;appearance:none;font:inherit;font-size:14px;line-height:1.2;color:#ffffff;background-color:transparent;background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22 viewBox=%220 0 10 6%22%3E%3Cpath d=%22M1 1l4 4 4-4%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%221.2%22/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;background-size:10px 6px;border:0;border-radius:0;box-shadow:none;outline:none;padding:2px 16px 2px 0;margin:0;height:auto;min-height:0;width:auto;cursor:pointer}
+			/* Open list: solid background */
+			.fierro-mc-switcher .fierro-mc-select option{background:#ffffff;color:#222222}
+			.fierro-mc-btn{padding:3px 8px;border:0.5px solid currentColor;border-radius:0;color:inherit;background:transparent;text-decoration:none;font-size:13px}
 			.fierro-mc-btn.is-active{background:#222;color:#fff;border-color:#222}
+			@media (max-width:767px){
+				.fierro-mc-switcher{color:#000000}
+				.fierro-mc-switcher .fierro-mc-select{color:#000000;background-image:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2210%22 height=%226%22 viewBox=%220 0 10 6%22%3E%3Cpath d=%22M1 1l4 4 4-4%22 fill=%22none%22 stroke=%22%23000000%22 stroke-width=%221.2%22/%3E%3C/svg%3E")}
+			}
 		</style>';
 		return ob_get_clean();
 	}
