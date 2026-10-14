@@ -5,7 +5,7 @@
   This script reads the cards that shortcode renders from the "Website Portfolio" posts
   (title, category tag, screenshot, live URL), hides the original carousel and rebuilds it
   in the Figma design. Add/edit projects in WP Admin → Website Portfolio — no code changes.
-  "View More" opens the project's live website in a new tab.
+  "Visit the site" opens the project's live website in a new tab.
 -->
 
 <style>
@@ -69,27 +69,44 @@
   .sio-portfolio__track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
   .sio-portfolio__track.is-dragging a { pointer-events: none; }
 
-  /* Card */
+  /* Card: laptop mockup, site scrolls inside the screen on hover */
   .sio-card {
     flex: 0 0 calc((100% - 120px - var(--sio-gap) * (var(--sio-per-view) - 1)) / var(--sio-per-view));
     scroll-snap-align: start;
-    background: var(--sio-cream); border: 1.5px solid var(--sio-ink); border-radius: 24px;
-    padding: 14px 14px 26px; display: flex; flex-direction: column; gap: 20px;
+    display: flex; flex-direction: column; gap: 14px; color: var(--sio-cream);
   }
-  .sio-card__media { aspect-ratio: 16 / 10; height: auto; border-radius: 16px; overflow: hidden; background: #f2f2f2; display: block; -webkit-user-drag: none; }
-  .sio-card__media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .6s cubic-bezier(.22,1,.36,1); -webkit-user-drag: none; user-select: none; pointer-events: none; }
-  .sio-card:hover .sio-card__media img { transform: scale(1.04); }
-  .sio-card__body { padding: 0 12px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; flex: 1; }
-  .sio-card__tag { background: rgba(225,83,56,.12); color: var(--sio-coral); border-radius: 100px; padding: 5px 10px; font-family: var(--sio-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; }
-  .sio-card__title { font-family: var(--sio-display); font-weight: 400; font-size: 24px; line-height: 1.15; color: var(--sio-green); text-transform: uppercase; margin: 0; flex: 1; }
+  .sio-laptop { display: block; position: relative; text-decoration: none; padding-bottom: 6px; -webkit-user-drag: none; }
+  .sio-laptop__screen {
+    display: block; position: relative; margin: 0 6.5%; aspect-ratio: 16 / 10;
+    background: #0b0b0c; border: 9px solid #1c1c1e; border-bottom-width: 11px; border-radius: 14px 14px 0 0;
+    overflow: hidden; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .sio-laptop__screen::before { /* camera */
+    content: ""; position: absolute; top: -6px; left: 50%; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: #3a3a3c; z-index: 2;
+  }
+  .sio-laptop__site {
+    position: absolute; inset: 0; background-color: #f2f2f2; background-repeat: no-repeat; background-size: 100% auto; background-position: 50% 0%;
+    transition: background-position var(--sio-scroll, 6s) cubic-bezier(.45,.05,.55,.95);
+  }
+  .sio-card:hover .sio-laptop__site, .sio-laptop:focus-visible .sio-laptop__site { background-position: 50% 100%; transition-duration: var(--sio-scroll, 6s); }
+  .sio-laptop__base {
+    display: block; position: relative; height: 13px; border-radius: 2px 2px 14px 14px;
+    background: linear-gradient(180deg, #f1f2f4 0%, #d4d6d9 55%, #a9acb1 100%);
+    box-shadow: 0 10px 18px -8px rgba(0,0,0,.55);
+  }
+  .sio-laptop__base::after { /* opening notch */
+    content: ""; position: absolute; top: 0; left: 50%; width: 16%; height: 5px; transform: translateX(-50%);
+    background: linear-gradient(180deg, #b7b9bd, #d9dbde); border-radius: 0 0 8px 8px;
+  }
+  .sio-card__meta { margin: 6px 0 0; font-family: var(--sio-sans); font-weight: 500; font-size: 12px; letter-spacing: 1.1px; text-transform: uppercase; color: rgba(255,246,238,.82); }
+  .sio-card__meta span { opacity: .6; margin: 0 8px; }
+  .sio-card__title { margin: 0; font-family: var(--sio-sans); font-weight: 700; font-size: 19px; line-height: 1.3; color: var(--sio-cream); text-transform: none; }
   .sio-card__cta {
-    display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 100px;
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; padding: 11px 22px; border-radius: 100px;
     background: var(--sio-amber); color: var(--sio-ink); border: 1.5px solid var(--sio-ink); box-shadow: 3px 3px 0 var(--sio-ink);
-    font-size: 16px; line-height: 1; text-decoration: none; white-space: nowrap;
+    font-family: var(--sio-slab); font-size: 15px; line-height: 1; text-decoration: none; white-space: nowrap;
     transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);
   }
-  .sio-card__cta span:first-child { font-family: var(--sio-slab); font-weight: 400; }
-  .sio-card__cta span:last-child { font-family: var(--sio-sans); font-weight: 700; }
   .sio-card__cta:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--sio-ink); color: var(--sio-ink); }
 
   /* Progress */
@@ -159,19 +176,32 @@
       var tagEl = c.querySelector('.pc-tag');
       var a = document.createElement('article');
       a.className = 'sio-card';
+      var tag = tagEl ? tagEl.textContent.trim() : '';
+      var desc = tag ? (tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase() + ' website for ' + title) : ('Website for ' + title);
       a.innerHTML =
-        '<a class="sio-card__media" href="' + esc(url) + '" target="_blank" rel="noopener"><img src="' + esc(img) + '" alt="' + esc(title) + ' website" loading="lazy"></a>' +
-        '<div class="sio-card__body">' +
-          (tagEl ? '<span class="sio-card__tag">' + esc(tagEl.textContent.trim()) + '</span>' : '') +
-          '<h3 class="sio-card__title">' + esc(title) + '</h3>' +
-          '<a class="sio-card__cta" href="' + esc(url) + '" target="_blank" rel="noopener" aria-label="View ' + esc(title) + ' website"><span>View More</span><span aria-hidden="true">&rarr;</span></a>' +
-        '</div>';
+        '<a class="sio-laptop" href="' + esc(url) + '" target="_blank" rel="noopener" aria-label="Open ' + esc(title) + ' website">' +
+          '<span class="sio-laptop__screen"><span class="sio-laptop__site" style="background-image:url(&quot;' + esc(img) + '&quot;) !important"></span></span>' +
+          '<span class="sio-laptop__base"></span>' +
+        '</a>' +
+        '<p class="sio-card__meta">' + esc(title) + (tag ? '<span>|</span>' + esc(tag) : '') + '</p>' +
+        '<h3 class="sio-card__title">' + esc(desc) + '</h3>' +
+        '<a class="sio-card__cta" href="' + esc(url) + '" target="_blank" rel="noopener" aria-label="Visit the ' + esc(title) + ' website">Visit the site</a>';
+      (function (card, src) {
+        var im = new Image();
+        im.onload = function () {
+          var r = im.naturalHeight / Math.max(1, im.naturalWidth);   /* taller page = longer scroll */
+          card.style.setProperty('--sio-scroll', Math.max(3, Math.min(14, r * 1.6)).toFixed(1) + 's');
+        };
+        im.src = src;
+      })(a, img);
       track.appendChild(a);
     });
     Array.prototype.forEach.call(document.querySelectorAll('.pc-carousel'), function (pc) {
       var w = pc.closest('.elementor-widget-shortcode') || pc;
       w.style.display = 'none';
     });
+    /* opt this section out of Elementor's lazy background loading (it hides background-image with !important) */
+    var host = root.closest('.e-con'); if (host) host.classList.add('e-no-lazyload');
     var cards = Array.prototype.slice.call(track.querySelectorAll('.sio-card'));
     var prev = root.querySelector('.sio-portfolio__btn--prev');
     var next = root.querySelector('.sio-portfolio__btn--next');
