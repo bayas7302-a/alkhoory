@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       FIERRO Multi Currency
  * Description:       Shows WooCommerce prices in GCC currencies and USD. Exchange rates update automatically from a free API, and any rate can be overridden manually. Shortcodes: [fierro_currency_switcher], [fierro_currency_rates], [fierro_convert].
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            FIERRO
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -169,6 +169,7 @@ final class Fierro_Multi_Currency {
 		add_shortcode( 'fierro_currency_rates', array( $this, 'sc_rates' ) );
 		add_shortcode( 'fierro_convert', array( $this, 'sc_convert' ) );
 		add_action( 'wp_footer', array( $this, 'footer_script' ) );
+		add_action( 'wp_head', array( $this, 'head_data' ), 1 );
 	}
 
 	/* ------------------------------------------------------------------
@@ -684,6 +685,25 @@ final class Fierro_Multi_Currency {
 		})();
 		</script>
 		<?php
+	}
+
+	/**
+	 * window.fierroMC = { currency, base, rate, decimals } for theme scripts
+	 * (e.g. the cart's "X away from free shipping" message).
+	 */
+	public function head_data() {
+		if ( is_admin() ) {
+			return;
+		}
+		$code = $this->current_currency();
+		$s    = self::get_settings();
+		$data = array(
+			'currency' => $code,
+			'base'     => $this->base_currency(),
+			'rate'     => $this->effective_rate( $code ),
+			'decimals' => isset( $s['currencies'][ $code ]['decimals'] ) ? (int) $s['currencies'][ $code ]['decimals'] : 2,
+		);
+		echo '<script>window.fierroMC=' . wp_json_encode( $data ) . ';</script>' . "\n";
 	}
 
 	/* ------------------------------------------------------------------
