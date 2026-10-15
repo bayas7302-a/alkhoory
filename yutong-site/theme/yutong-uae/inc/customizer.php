@@ -17,7 +17,6 @@ function yutong_uae_defaults() {
 		'phone_label' => 'Spare Parts — Tel: 04 3146235',
 		'phone'       => '+97143146235',
 		'map_url'     => 'https://maps.google.com/?q=Al+Khoory+Automobiles+Al+Quoz+Industrial+Area+3+Dubai',
-		'quote_url'   => '#request-a-quote',
 		'copyright'   => '© {year} Al Khoory Automobiles LLC. All rights reserved.',
 	);
 }
@@ -47,7 +46,6 @@ add_action( 'customize_register', function ( $wp_customize ) {
 		'phone_label' => array( __( 'Phone line (as displayed)', 'yutong-uae' ), 'text', 'sanitize_text_field' ),
 		'phone'       => array( __( 'Phone number (for tel: link)', 'yutong-uae' ), 'text', 'sanitize_text_field' ),
 		'map_url'     => array( __( '"View Location" map link', 'yutong-uae' ), 'url', 'esc_url_raw' ),
-		'quote_url'   => array( __( '"Request a Quote" button link', 'yutong-uae' ), 'text', 'sanitize_text_field' ),
 		'copyright'   => array( __( 'Copyright line ({year} = current year)', 'yutong-uae' ), 'text', 'sanitize_text_field' ),
 	);
 	$defaults = yutong_uae_defaults();

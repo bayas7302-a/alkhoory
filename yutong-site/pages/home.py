@@ -35,7 +35,7 @@ def hero():
               FB + 'max-width: 560px; font-size: 18px; font-weight: 300; line-height: 30px; color: rgba(255,255,255,0.88); margin: 0; @media(--mobile) { font-size: 16px; line-height: 26px; }'),
             flex('Hero Buttons', 'width: auto; padding: 0; gap: 14px; flex-wrap: wrap;', [
                 btn('Hero Explore', 'Explore Models', URL['models']),
-                btn('Hero Quote', 'Request a Quote', URL['quote'], kind='outline', arrow=False),
+                btn('Hero Contact', 'Contact Us', URL['contact'], kind='outline', arrow=False),
             ]),
         ]),
         flex('Hero Stats', 'max-width: 1200px; padding: 26px 40px; justify-content: space-between; align-items: center; border-radius: 20px; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(12px); @media(--mobile) { flex-wrap: wrap; gap: 20px; padding: 22px; }', cells),
@@ -96,7 +96,6 @@ def featured(m):
             ]),
             flex(n + ' Buttons', 'width: auto; padding: 6px 0 0; gap: 12px; flex-wrap: wrap;', [
                 btn(n + ' Explore', 'Explore Model', URL['models']),
-                btn(n + ' Quote', 'Request a Quote', URL['quote'], kind='outline-blue', arrow=False),
             ]),
         ]),
     ])

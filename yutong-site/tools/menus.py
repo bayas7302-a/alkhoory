@@ -4,7 +4,7 @@ assign them to its menu locations. Page-object items get WP's current/ancestor c
 
 usage: menus.py
 """
-import json, os, subprocess
+import html, json, os, subprocess
 API = 'https://soharon.co.uk/yutong/wp-json/wp/v2'
 AUTH = json.load(open(os.path.expanduser('~/.claude.json')))['mcpServers']['my-blog-elementor']['headers']['Authorization']
 SITE = 'https://soharon.co.uk/yutong'
@@ -13,7 +13,7 @@ SITE = 'https://soharon.co.uk/yutong'
 MENUS = [
     ('Header menu', 'yutong-primary', [('Home', 8, None), ('Models', 9, None), ('Technologies', None, SITE + '/models/#technology'),
                                        ('About', 10, None), ('News', 13, None), ('Contact', 11, None)]),
-    ('Quick Links', 'yutong-footer-1', [('About Us', 10, None), ('Contact Us', 11, None), ('Request a Quote', None, SITE + '/contact/#request-a-quote')]),
+    ('Quick Links', 'yutong-footer-1', [('About Us', 10, None), ('Contact Us', 11, None), ('Media Library', 14, None)]),
     ('Models', 'yutong-footer-2', [('All Models', 9, None), ('Coaches', None, SITE + '/models/'), ('Vans', None, SITE + '/models/'), ('E-Buses', None, SITE + '/models/')]),
     ('Ownership & Support', 'yutong-footer-3', [('Service Centres', None, SITE + '/ownership-support/#service-network'),
                                                 ('Spare Parts', None, SITE + '/ownership-support/#spare-parts')]),
@@ -31,7 +31,7 @@ def rest(method, path, body=None):
 
 
 locations = rest('GET', '/menu-locations') or {}
-existing = {m['name']: m['id'] for m in rest('GET', '/menus?per_page=100&context=edit')}
+existing = {html.unescape(m['name']): m['id'] for m in rest('GET', '/menus?per_page=100&context=edit')}
 for name, loc, items in MENUS:
     body = {'name': name}
     if loc in locations:

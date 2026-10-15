@@ -192,7 +192,7 @@ def quote_section(pad='110px 120px'):
             @media(--tablet) { flex-direction: column; align-items: stretch; padding: 44px 32px; gap: 40px; }
             @media(--mobile) { padding: 32px 20px; border-radius: 24px; }''', [
             flex('Quote Info', 'padding: 0; flex: 1 1 0; flex-direction: column; gap: 20px;', [
-                eyebrow('Quote Eyebrow', 'Request a Quote', '#ffffff'),
+                eyebrow('Quote Eyebrow', 'Get in Touch', '#ffffff'),
                 h('Quote Title', 'Coaches, vans and ' + hl('e&#8209;buses') + ' built for the UAE', 'h2', FD + 'font-size: 40px; font-weight: 700; line-height: 50px; color: #ffffff; margin: 0; @media(--mobile) { font-size: 30px; line-height: 38px; }').c('yt-hl-sky'),
                 body('Quote Text', 'Official Yutong distributor in the UAE, with sales, servicing and genuine spare parts for fleet operators, schools and transport companies.', 'line-height: 26px;', 'rgba(255,255,255,0.8)'),
                 flex('Quote Contacts', 'padding: 8px 0 0; flex-direction: column; gap: 14px;', rows),

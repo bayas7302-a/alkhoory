@@ -67,9 +67,9 @@ def model_card(i, name, tag, photo, sub, specs):
                     p(n + ' Spec %d Value' % (k + 1), val, FD + 'font-size: 14px; font-weight: 600; line-height: 20px; color: #003376; margin: 0;'),
                 ]) for k, (lab, val) in enumerate(specs)]),
             flex(n + ' More', 'width: auto; padding: 4px 0 0; gap: 6px; align-items: center; align-self: flex-start;', [
-                p(n + ' More Text', 'Request a quote', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
+                p(n + ' More Text', 'Contact us', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
                 img(n + ' More Arrow', 'models-ic-arrow-b16', 'width: 16px;'),
-            ], href=URL['quote']),
+            ], href=URL['contact']),
         ]),
     ]).c('yt-lift')
 

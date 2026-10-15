@@ -22,7 +22,7 @@ function yutong_uae_fallback_links( $location ) {
 		'yutong-footer-1' => array(
 			'About Us'        => '/about/',
 			'Contact Us'      => '/contact/',
-			'Request a Quote' => '/contact/#request-a-quote',
+			'Media Library'   => '/library/',
 		),
 		'yutong-footer-2' => array(
 			'All Models' => '/models/',
@@ -63,7 +63,7 @@ function yutong_uae_footer_heading( $location ) {
 	if ( ! empty( $locations[ $location ] ) ) {
 		$menu = wp_get_nav_menu_object( $locations[ $location ] );
 		if ( $menu ) {
-			return $menu->name;
+			return html_entity_decode( $menu->name, ENT_QUOTES, 'UTF-8' ); // stored escaped; printed with esc_html()
 		}
 	}
 	return $headings[ $location ] ?? '';

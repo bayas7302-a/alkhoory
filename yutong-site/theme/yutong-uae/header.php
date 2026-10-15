@@ -26,12 +26,14 @@ defined( 'ABSPATH' ) || exit;
 		</nav>
 
 		<div class="yt-header__actions">
-			<a class="yt-header__search" href="<?php echo esc_url( home_url( '/news/' ) ); ?>" aria-label="<?php esc_attr_e( 'News', 'yutong-uae' ); ?>">
-				<?php echo yutong_uae_icon( 'search', 18 ); ?>
-			</a>
-			<a class="yt-btn yt-btn--sm yt-header__quote" href="<?php echo esc_url( yutong_uae_opt( 'quote_url' ) ); ?>">
-				<?php esc_html_e( 'Request a Quote', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'arrow', 15 ); ?>
-			</a>
+			<details class="yt-search">
+				<summary class="yt-header__search" aria-label="<?php esc_attr_e( 'Search', 'yutong-uae' ); ?>">
+					<?php echo yutong_uae_icon( 'search', 18 ) . yutong_uae_icon( 'close', 18 ); ?>
+				</summary>
+				<div class="yt-search__panel">
+					<?php yutong_uae_search_form( 'header' ); ?>
+				</div>
+			</details>
 			<img class="yt-header__akg" src="<?php echo yutong_uae_asset( 'img/logo-akg.png' ); ?>" width="28" height="42" alt="Al Khoory Group">
 
 			<details class="yt-mobile-menu">
@@ -40,9 +42,6 @@ defined( 'ABSPATH' ) || exit;
 				</summary>
 				<div class="yt-mobile-menu__panel">
 					<?php yutong_uae_menu( 'yutong-primary', 'yt-mobile-menu__list' ); ?>
-					<a class="yt-btn yt-btn--sm" href="<?php echo esc_url( yutong_uae_opt( 'quote_url' ) ); ?>">
-						<?php esc_html_e( 'Request a Quote', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'arrow', 15 ); ?>
-					</a>
 				</div>
 			</details>
 		</div>

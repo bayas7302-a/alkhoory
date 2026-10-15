@@ -111,7 +111,6 @@ def body_section(it):
             para(3, LOREM[2]),
             flex('Article Actions', 'padding: 10px 0 0; gap: 12px; flex-wrap: wrap;', [
                 btn('Article Back', back[0], back[1], kind='outline-blue', arrow=False),
-                btn('Article Quote CTA', 'Request a Quote', URL['quote']),
             ]),
         ]),
     ], tag='article')

@@ -8,11 +8,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'YUTONG_UAE_VERSION', '1.0.0' );
+define( 'YUTONG_UAE_VERSION', '1.1.0' );
 
 require_once __DIR__ . '/inc/customizer.php';
 require_once __DIR__ . '/inc/menus.php';
 require_once __DIR__ . '/inc/icons.php';
+require_once __DIR__ . '/inc/search.php';
 
 /**
  * Theme setup: menu locations and logo support.
