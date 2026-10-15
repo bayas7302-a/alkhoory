@@ -5,6 +5,8 @@ const { execFileSync } = require('child_process');
 const path = require('path');
 (async () => {
   const [pid, out, w] = process.argv.slice(2);
+  // Elementor keeps stale per-post CSS after MCP saves; clear its CSS cache first.
+  execFileSync('python3', ['-c', "import urllib.request,sys;sys.path.insert(0,'"+__dirname+"');from mcp import auth_header;urllib.request.urlopen(urllib.request.Request('https://soharon.co.uk/onora/wp-json/elementor/v1/cache',method='DELETE',headers={'Authorization':auth_header()}))"]);
   const r = JSON.parse(execFileSync(path.join(__dirname, 'mcp.py'), ['elementor-create-preview-link', JSON.stringify({ post_id: +pid })]).toString());
   const url = r.preview_url || r.url || r.link;
   if (!url) { console.error(JSON.stringify(r)); process.exit(1); }
