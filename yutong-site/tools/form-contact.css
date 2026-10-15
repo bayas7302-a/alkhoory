@@ -1,0 +1,14 @@
+.yt-contact-form .wpcf7 input[type=text],.yt-contact-form .wpcf7 input[type=email],.yt-contact-form .wpcf7 input[type=tel],.yt-contact-form .wpcf7 select{height:52px;border-radius:14px}
+.yt-contact-form .wpcf7 input[type=tel]{width:100%;box-sizing:border-box;padding:0 16px;border:1px solid #e3e9f1;background:#f2f6fb;font-family:Poppins,sans-serif;font-size:14px;color:#00050b;outline:none}
+.yt-contact-form .wpcf7 textarea{height:120px;border-radius:14px}
+.yt-contact-form .yt-seats .wpcf7-radio{display:flex;flex-wrap:wrap;gap:10px}
+.yt-contact-form .yt-seats .wpcf7-list-item{margin:0}
+.yt-contact-form .yt-seats .wpcf7-list-item label{display:block;cursor:pointer}
+.yt-contact-form .yt-seats input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+.yt-contact-form .yt-seats .wpcf7-list-item-label{display:inline-block;padding:10px 18px;border:1px solid #e3e9f1;border-radius:40px;background:#f2f6fb;font-size:13px;font-weight:500;color:#323232;transition:all .2s}
+.yt-contact-form .yt-seats input[type=radio]:checked+.wpcf7-list-item-label{background:#0160b4;border-color:#0160b4;color:#fff}
+.yt-contact-form .wpcf7-acceptance .wpcf7-list-item{margin:0}
+.yt-contact-form .wpcf7-acceptance label{display:flex;gap:10px;align-items:center;font-family:Poppins,sans-serif;font-size:13px;color:#747474;cursor:pointer}
+.yt-contact-form .wpcf7-acceptance input{width:18px;height:18px;accent-color:#0160b4;margin:0}
+.yt-contact-form .wpcf7 input[type=submit]{text-transform:none}
+.wpcf7 input[type=tel]{width:100%;box-sizing:border-box;height:50px;padding:0 16px;border:1px solid #e3e9f1;border-radius:12px;background:#f2f6fb;font-family:Poppins,sans-serif;font-size:14px;color:#00050b;outline:none}
