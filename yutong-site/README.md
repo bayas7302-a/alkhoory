@@ -57,14 +57,14 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 - `$YT_WORK` (default: the session scratchpad) holds `wpmcp.sh`/`call.sh` (raw MCP JSON-RPC over curl),
   payloads, screenshots and the asset map.
 
-## Content still to come from the client
+## Content notes
 
-- Placeholder copy kept verbatim from Figma: Awards grid ("Lorem ipsum dolor" + Subaru text), hero intros,
-  News/Library headings, About accordion items 02–06, Contact enquiry panel.
-- Copy written during the build where Figma had none (replace when real copy arrives): Home model tabs
-  other than E-bus, Models page Battery/E-Drive tabs, Ownership "Keep Your Fleet Moving" items 02–04.
-- Contact page details are Yutong HQ (Zhengzhou, +86 numbers) as designed; the footer/quote use the UAE details.
-- Low-resolution source photos in Figma: Home hero (716px), Models hero (768px), Ownership hero, About history.
-- Static UI with no backend yet: Models search/filters, Subscribe field, News/Library filter pills and pagination,
-  Library downloads (link to Contact). Footer legal links are `#` until those pages exist.
-- Model T12E page: not built (models to be supplied later).
+- All copy and most photos now come from https://en.yutong.com/ (client-approved), adapted to the
+  UAE-distributor voice; UAE contact details (Showroom 12, Al Quoz, 04 3146235, info@subaru-uae.com) are used site-wide.
+- News cards and Library items link to the original articles/videos on en.yutong.com (new tab).
+  Library videos are `e-self-hosted-video` widgets streaming Yutong's own mp4 files (preload none) — they
+  depend on en.yutong.com keeping those URLs; re-host them in the media library if that becomes a problem.
+- Models page catalogue and Home model tabs use real models/specs from en.yutong.com product pages;
+  edit `FEATURED` in `pages/home.py` to swap a featured model.
+- Still static (no backend): Models quick-contact WhatsApp (links to Contact), Subscribe banner,
+  footer legal links (`#`). Model T12E detail page not built (models to be supplied later).
