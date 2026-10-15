@@ -233,7 +233,7 @@ def footer():
         flex('Footer Bottom', 'padding: 0; justify-content: space-between; align-items: center; gap: 16px; @media(--mobile) { flex-direction: column; align-items: flex-start; }', [
             p('Footer Copy', '2026 © Al Khoory Automobiles LLC. All rights reserved.', FB + 'font-size: 12px; color: rgba(255,255,255,0.55); margin: 0;'),
             flex('Footer Legal', 'width: auto; padding: 0; gap: 22px; flex-wrap: wrap; @media(--mobile) { gap: 14px; }',
-                 [p('Footer Legal %d' % (i + 1), t, FB + 'font-size: 12px; color: rgba(255,255,255,0.55); margin: 0; &:hover { color: #ffffff; }', href=SITE + '/privacy-policy/' if t == 'Privacy Policy' else '#') for i, t in enumerate(legal)]),
+                 [p('Footer Legal %d' % (i + 1), t, FB + 'font-size: 12px; color: rgba(255,255,255,0.55); margin: 0; &:hover { color: #ffffff; }', href='#') for i, t in enumerate(legal)]),
         ]),
     ], tag='footer')
 

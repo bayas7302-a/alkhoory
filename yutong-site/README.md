@@ -27,9 +27,12 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 - `tools/assets.py name=URL ...` — downloads Figma MCP asset URLs, rasterises SVG to 3x PNG
   (WordPress refuses SVG uploads), converts big opaque PNGs to JPEG, uploads to the media library,
   dedupes by hash into `$YT_WORK/assets/map.json`. Use the name with `img('…', name)` / `bg(name)`.
+- `tools/check.py` — smoke test of every live page at 1440/820/390: HTTP 200, no horizontal overflow,
+  images loaded (images hidden at a breakpoint show as false positives), CF7 form present, internal links.
 - `tools/finalize.py <post_id>` — the MCP composer only knows atomic widgets, so classic widgets are
   injected into placeholder slots through the REST API: `Quote Form Slot` / `Contact Form Slot` get the
-  Contact Form 7 shortcode (form id 44) + `tools/form.css`; `Anchor <id>` divs get `<span id="<id>">`.
+  Contact Form 7 shortcode (form 44 "Yutong Enquiry"; the Contact page uses form 243 "Yutong Contact" with
+  phone/model/seats/consent + `tools/form-contact.css`) + `tools/form.css`; `Anchor <id>` divs get `<span id="<id>">`.
   It then clears Elementor's CSS cache (REST meta writes don't regenerate atomic CSS).
   **Order matters:** publishing re-saves from Elementor's own copy and drops injected widgets, so
   always publish first, finalize last (`run.py` does this).
@@ -51,3 +54,15 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 - Credentials are read from the `my-blog-elementor` entry in `~/.claude.json`; nothing secret is in this repo.
 - `$YT_WORK` (default: the session scratchpad) holds `wpmcp.sh`/`call.sh` (raw MCP JSON-RPC over curl),
   payloads, screenshots and the asset map.
+
+## Content still to come from the client
+
+- Placeholder copy kept verbatim from Figma: Awards grid ("Lorem ipsum dolor" + Subaru text), hero intros,
+  News/Library headings, About accordion items 02–06, Contact enquiry panel.
+- Copy written during the build where Figma had none (replace when real copy arrives): Home model tabs
+  other than E-bus, Models page Battery/E-Drive tabs, Ownership "Keep Your Fleet Moving" items 02–04.
+- Contact page details are Yutong HQ (Zhengzhou, +86 numbers) as designed; the footer/quote use the UAE details.
+- Low-resolution source photos in Figma: Home hero (716px), Models hero (768px), Ownership hero, About history.
+- Static UI with no backend yet: Models search/filters, Subscribe field, News/Library filter pills and pagination,
+  Library downloads (link to Contact). Footer legal links are `#` until those pages exist.
+- Model T12E page: not built (models to be supplied later).

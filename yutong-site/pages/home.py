@@ -23,7 +23,7 @@ def hero():
         background-image: linear-gradient(180deg, rgba(0,5,11,0) 55%, rgba(0,5,11,0.75) 100%), linear-gradient(90deg, rgba(7,43,82,0.95) 0%, rgba(7,43,82,0.7) 42%, rgba(7,43,82,0) 72%), ''' + bg('hero-home-bg') + ''';
         background-size: cover; background-position: center center;
         @media(--tablet) { padding: 170px 40px 50px; min-height: 760px; }
-        @media(--mobile) { padding: 130px 20px 40px; min-height: 0; background-position: 70% 50%; }''', [
+        @media(--mobile) { padding: 130px 20px 40px; min-height: 0; }''', [
         flex('Hero Content', 'max-width: 720px; padding: 0; flex-direction: column; align-items: flex-start; gap: 26px;', [
             flex('Hero Badge', 'width: auto; padding: 8px 16px; gap: 8px; align-items: center; border-radius: 30px; background-color: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3);', [
                 div('Hero Badge Dot', 'width: 8px; min-width: 8px; height: 8px; padding: 0; border-radius: 50%; background-color: #2c84cb;'),
