@@ -28,7 +28,7 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
   (WordPress refuses SVG uploads), converts big opaque PNGs to JPEG, uploads to the media library,
   dedupes by hash into `$YT_WORK/assets/map.json`. Use the name with `img('…', name)` / `bg(name)`.
 - `tools/check.py` — smoke test of every live page at 1440/820/390: HTTP 200, no horizontal overflow,
-  images loaded (images hidden at a breakpoint show as false positives), CF7 form present, internal links.
+  visible images loaded (hidden ones, e.g. closed tabs, are skipped), CF7 form present, internal links.
 - `tools/finalize.py <post_id>` — the MCP composer only knows atomic widgets, so classic widgets are
   injected into placeholder slots through the REST API: `Quote Form Slot` / `Contact Form Slot` get the
   Contact Form 7 shortcode (form 44 "Yutong Enquiry"; the Contact page uses form 243 "Yutong Contact" with

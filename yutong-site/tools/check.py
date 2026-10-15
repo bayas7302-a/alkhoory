@@ -16,7 +16,7 @@ with sync_playwright() as pw:
             pg.wait_for_timeout(1500)
             d = pg.evaluate('''() => ({
                 sw: document.documentElement.scrollWidth, h: document.body.scrollHeight,
-                broken: [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.src.split('/').pop()),
+                broken: [...document.images].filter(i => i.getClientRects().length && (!i.complete || !i.naturalWidth)).map(i => i.src.split('/').pop()),
                 form: document.querySelectorAll('form.wpcf7-form').length,
                 wide: [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > window.innerWidth + 1 && getComputedStyle(e).position !== 'fixed').slice(0, 3).map(e => (e.className || e.tagName).toString().slice(0, 40)),
                 links: [...document.querySelectorAll('a[href]')].map(a => a.href) })''')
