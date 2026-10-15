@@ -219,15 +219,10 @@ def honors():
     ], tag='section')
 
 
-def cta_gap():
-    # shared cta_section() drops its top padding below desktop; keep air under the navy Honors band
-    return div('CTA Gap', 'display: none; padding: 0; height: 80px; background-color: #ffffff; @media(--tablet) { display: block; } @media(--mobile) { height: 64px; }')
-
-
 SECTIONS = [
     ('about-1', lambda: hero() + [why()]),
     ('about-2', lambda: [expansion(), empower()]),
     ('about-3', lambda: [services(), history()]),
-    ('about-4', lambda: [honors(), cta_gap(), cta_section('Find the right Yutong ' + hl('coach, bus or e&#8209;bus') + ' for your fleet with the official Yutong distributor in the UAE.', 'about-cta', pad='110px 120px 0')]),
+    ('about-4', lambda: [honors(), cta_section('Find the right Yutong ' + hl('coach, bus or e&#8209;bus') + ' for your fleet with the official Yutong distributor in the UAE.', 'about-cta', pad='110px 120px')]),
     ('about-5', lambda: [news_section(), quote_section(), footer()]),
 ]

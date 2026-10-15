@@ -61,7 +61,7 @@ def model_card(i, name, tag, photo, sub, specs):
                 p(n + ' Tag', tag, FB + 'width: auto; padding: 4px 10px; border-radius: 20px; background-color: #e3effa; font-size: 11px; font-weight: 600; color: #0160b4; margin: 0;').c('yt-nowrap'),
             ]),
             p(n + ' Sub', sub, FB + 'font-size: 13px; line-height: 20px; color: #747474; margin: 0;'),
-            flex(n + ' Specs', 'padding: 12px 0 0; gap: 8px; margin-top: auto; border-top: 1px solid #e3e9f1;', [
+            flex(n + ' Specs', 'padding: 12px 0 0; gap: 8px; margin-top: auto; border-width: 1px 0 0 0; border-style: solid; border-color: #e3e9f1;', [
                 flex(n + ' Spec %d' % (k + 1), 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 2px;', [
                     p(n + ' Spec %d Label' % (k + 1), lab, FB + 'font-size: 11px; color: #747474; margin: 0;'),
                     p(n + ' Spec %d Value' % (k + 1), val, FD + 'font-size: 14px; font-weight: 600; line-height: 20px; color: #003376; margin: 0;'),

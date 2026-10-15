@@ -127,7 +127,7 @@ def models():
 
 def why():
     checks = ['Local after-sales support & service network', 'Genuine spare parts availability', 'Fleet solutions for transit, tourism, corporate & schools']
-    return flex('Why Choose Us', 'padding: 40px 120px 110px; gap: 72px; align-items: center; background-color: #ffffff; @media(--tablet) { flex-direction: column; padding: 40px 40px 80px; gap: 48px; } @media(--mobile) { padding: 24px 20px 64px; }', [
+    return flex('Why Choose Us', 'padding: 0 120px 110px; gap: 72px; align-items: center; background-color: #ffffff; @media(--tablet) { flex-direction: column; padding: 0 40px 80px; gap: 48px; } @media(--mobile) { padding: 0 20px 64px; }', [
         div('Why Visual', 'width: 560px; max-width: 100%; flex: 0 0 auto; height: 640px; padding: 0; position: relative; @media(--mobile) { height: 520px; }', [
             img('Why Bus Photo', 'why-bus', 'position: absolute; left: 0; top: 0; width: 440px; max-width: 80%; height: 640px; object-fit: cover; border-radius: 28px; @media(--mobile) { height: 520px; }'),
             flex('Why Badge', 'position: absolute; left: 340px; top: 48px; width: auto; padding: 18px 24px; flex-direction: column; background-color: #0160b4; border-radius: 20px; box-shadow: 0 20px 24px rgba(0,26,64,0.16); @media(--mobile) { left: auto; right: 0; }', [

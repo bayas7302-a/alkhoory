@@ -29,6 +29,10 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
   dedupes by hash into `$YT_WORK/assets/map.json`. Use the name with `img('…', name)` / `bg(name)`.
 - `tools/check.py` — smoke test of every live page at 1440/820/390: HTTP 200, no horizontal overflow,
   visible images loaded (hidden ones, e.g. closed tabs, are skipped), CF7 form present, internal links.
+- `tools/rhythm.py` — vertical-spacing audit at 1440/820/390: gaps between same-colour sections must equal the
+  standard (110 / 80 / 64px); a section between different colours needs equal space above and below.
+  `tools/spacing.py [page/]` prints the raw per-section measurements. Use `responsive_pad()` in parts.py for
+  sections whose desktop padding has a 0 side.
 - `tools/finalize.py <post_id>` — the MCP composer only knows atomic widgets, so classic widgets are
   injected into placeholder slots through the REST API: `Quote Form Slot` / `Contact Form Slot` get the
   Contact Form 7 shortcode (form 44 "Yutong Enquiry"; the Contact page uses form 243 "Yutong Contact" with

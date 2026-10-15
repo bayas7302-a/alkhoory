@@ -99,6 +99,20 @@ def header(active):
     return flex('Header', 'position: absolute; top: 28px; left: 0; z-index: 30; padding: 0 60px; justify-content: center; @media(--tablet) { padding: 0 24px; } @media(--mobile) { top: 14px; padding: 0 14px; }', [bar])
 
 
+# ---------- vertical rhythm ----------
+
+def responsive_pad(pad, tablet=('80px', '40px'), mobile=('64px', '16px')):
+    """Tablet/mobile padding that mirrors the desktop one: a side that is 0 on desktop (section chained
+    to a same-coloured neighbour) stays 0, every other side gets the breakpoint's section spacing.
+    Keeps the gap between sections equal at every breakpoint."""
+    v = pad.split()
+    top, bottom = v[0], (v[2] if len(v) > 2 else v[0])
+    out = ''
+    for bp, (vert, side) in (('tablet', tablet), ('mobile', mobile)):
+        out += ' @media(--%s) { padding: %s %s %s; }' % (bp, '0' if top == '0' else vert, side, '0' if bottom == '0' else vert)
+    return out
+
+
 # ---------- slots (filled by inject.py / finalize) ----------
 
 def slot(name):
@@ -165,7 +179,7 @@ def quote_section(pad='110px 120px'):
             flex('Quote Contact %d Icon' % (i + 1), 'width: 40px; min-width: 40px; height: 40px; padding: 0; border-radius: 20px; background-color: rgba(255,255,255,0.1); justify-content: center; align-items: center;', [img('Quote Contact %d Glyph' % (i + 1), ic, 'width: 18px;')]),
             p('Quote Contact %d Text' % (i + 1), t, FB + 'font-size: 14px; color: #ffffff; margin: 0;'),
         ]))
-    return flex('Request a Quote', 'padding: %s; background-color: #ffffff; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 56px 16px; }' % pad, [
+    return flex('Request a Quote', 'padding: %s; background-color: #ffffff; position: relative;' % pad + responsive_pad(pad), [
         anchor('request-a-quote'),
         flex('Quote Card', '''padding: 56px; gap: 56px; align-items: center; border-radius: 32px; overflow: hidden; position: relative;
             background-color: #072b52; background-image: radial-gradient(circle at 8% 0%, rgba(44,132,203,0.45) 0%, rgba(44,132,203,0) 45%);
@@ -267,7 +281,7 @@ def page_hero(active, crumbs, heading, text, photo, height=600, extra=None):
 # ---------- CTA band (shared pattern) ----------
 
 def cta_section(text, photo, eyebrow_text='Ready to Move Forward', button='Contact Us', href=None, pad='0 120px 110px'):
-    return flex('CTA', 'padding: %s; background-color: #ffffff; @media(--tablet) { padding: 0 40px 80px; } @media(--mobile) { padding: 0 16px 64px; }' % pad, [
+    return flex('CTA', 'padding: %s; background-color: #ffffff;' % pad + responsive_pad(pad), [
         flex('CTA Panel', '''min-height: 360px; padding: 56px; flex-direction: column; justify-content: center; border-radius: 32px; overflow: hidden;
             background-color: #072b52; background-image: linear-gradient(90deg, rgba(7,43,82,0.96) 0%%, rgba(7,43,82,0.75) 60%%, rgba(7,43,82,0.3) 100%%), %s;
             background-size: cover; background-position: center center;
@@ -283,7 +297,7 @@ def cta_section(text, photo, eyebrow_text='Ready to Move Forward', button='Conta
 
 # ---------- Yutong at a Glance (shared) ----------
 
-def glance_section(pad='0 120px 100px'):
+def glance_section(pad='0 120px 110px'):
     stats = [('glance-globe', '90+', 'Countries with Yutong fleets'), ('glance-factory', '65,000', 'Units annual production capacity'),
              ('glance-chart', '10+%', 'Global bus market share'), ('glance-cal', '7 Days', 'Showroom open every week')]
     cards = []
@@ -295,7 +309,7 @@ def glance_section(pad='0 120px 100px'):
             p('Glance Stat %d Number' % (i + 1), n, FD + 'font-size: 38px; font-weight: 700; color: %s; margin: 0; text-align: center; line-height: 1.25;' % ('#ffffff' if blue else '#003376')),
             p('Glance Stat %d Label' % (i + 1), t, FB + 'font-size: 14px; color: %s; margin: 0; text-align: center;' % ('rgba(255,255,255,0.85)' if blue else '#747474')),
         ]).c('yt-lift'))
-    return flex('Yutong at a Glance', 'padding: %s; flex-direction: column; align-items: center; gap: 32px; background-color: #ffffff; @media(--tablet) { padding: 0 40px 80px; } @media(--mobile) { padding: 0 20px 64px; }' % pad, [
+    return flex('Yutong at a Glance', 'padding: %s; flex-direction: column; align-items: center; gap: 32px; background-color: #ffffff;' % pad + responsive_pad(pad, mobile=('64px', '20px')), [
         flex('Glance Head', 'padding: 0; flex-direction: column; align-items: center; gap: 10px;', [
             eyebrow('Glance Eyebrow', 'Yutong at a Glance', center=True),
             title('Glance Title', 'Trusted worldwide', 'font-size: 32px; font-weight: 700; color: #00050b; text-align: center;'),

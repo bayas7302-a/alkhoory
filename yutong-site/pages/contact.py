@@ -90,7 +90,7 @@ def info_section():
 
 
 def form_section():
-    return flex('Enquiry Form', 'padding: 110px 120px; background-color: #ffffff; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 56px 16px; }', [
+    return flex('Enquiry Form', 'padding: 110px 120px; background-color: #ffffff; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 16px; }', [
         anchor('request-a-quote'),
         flex('Enquiry Card', 'padding: 0; align-items: stretch; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 32px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.08); @media(--tablet) { flex-direction: column; } @media(--mobile) { border-radius: 24px; }', [
             flex('Enquiry Visual', '''width: 460px; flex: 0 0 auto; min-height: 640px; padding: 32px; flex-direction: column; justify-content: flex-end;
