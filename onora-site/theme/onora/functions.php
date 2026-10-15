@@ -5,7 +5,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ONORA_VERSION', '1.2.0' );
+define( 'ONORA_VERSION', '1.3.1' );
 
 /** Business details shown in the header and footer. */
 function onora_contact( $key ) {
@@ -110,48 +110,71 @@ function onora_logo( $variant = 'navy' ) {
  * ---------------------------------------------------------------------- */
 
 define( 'ONORA_QUOTE_FORM', 'ONORA quotation' );
+define( 'ONORA_NEWSLETTER_FORM', 'ONORA newsletter' );
 
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
-add_action( 'init', function () {
-	if ( ! function_exists( 'wpcf7_save_contact_form' ) || get_option( 'onora_cf7_version' ) === ONORA_VERSION ) {
-		return;
-	}
-	$find = function ( $title ) {
-		$ids = get_posts( array( 'post_type' => 'wpcf7_contact_form', 'title' => $title, 'posts_per_page' => 1, 'fields' => 'ids', 'post_status' => 'any' ) );
+/** Saves one CF7 form from the theme's /cf7 files (creates it, or updates the form with the same title). */
+function onora_save_cf7_form( $title, $slug, $subject, $reply_to, $messages, $fallback_title = '' ) {
+	$find = function ( $t ) {
+		$ids = get_posts( array( 'post_type' => 'wpcf7_contact_form', 'title' => $t, 'posts_per_page' => 1, 'fields' => 'ids', 'post_status' => 'any' ) );
 		return $ids ? (int) $ids[0] : 0;
 	};
-	// Reuse our form, else CF7's untouched default form, else create a new one.
-	$id  = $find( ONORA_QUOTE_FORM ) ?: ( $find( 'Contact form 1' ) ?: -1 );
+	$id  = $find( $title ) ?: ( $fallback_title ? $find( $fallback_title ) : 0 ) ?: -1;
 	$dir = get_template_directory() . '/cf7/';
 	wpcf7_save_contact_form( array(
 		'id'       => $id,
-		'title'    => ONORA_QUOTE_FORM,
+		'title'    => $title,
 		'locale'   => 'en_US',
-		'form'     => file_get_contents( $dir . 'quotation-form.txt' ),
+		'form'     => file_get_contents( $dir . $slug . '-form.txt' ),
 		'mail'     => array(
 			'active'             => true,
 			'recipient'          => onora_contact( 'email' ),
 			'sender'             => 'ONORA Website <wordpress@' . wp_parse_url( home_url(), PHP_URL_HOST ) . '>',
-			'subject'            => 'Quotation request: [your-company] ([your-name])',
-			'additional_headers' => 'Reply-To: [your-name] <[your-email]>',
-			'body'               => file_get_contents( $dir . 'quotation-mail.txt' ),
+			'subject'            => $subject,
+			'additional_headers' => 'Reply-To: ' . $reply_to,
+			'body'               => file_get_contents( $dir . $slug . '-mail.txt' ),
 			'attachments'        => '',
 			'use_html'           => false,
 			'exclude_blank'      => true,
 		),
 		'mail_2'   => array( 'active' => false ),
-		'messages' => array(
-			'mail_sent_ok'     => 'Thank you — your enquiry has been sent. We will reply within one working day.',
-			'mail_sent_ng'     => 'Sorry, your enquiry could not be sent. Please email ' . onora_contact( 'email' ) . ' or call ' . onora_contact( 'phone' ) . '.',
-			'validation_error' => 'Please check the highlighted fields and try again.',
-			'invalid_required' => 'Please fill in this field.',
-			'invalid_email'    => 'Please enter a valid email address.',
-			'invalid_tel'      => 'Please enter a valid phone number.',
-		),
+		'messages' => $messages,
 	) );
+}
+
+add_action( 'init', function () {
+	if ( ! function_exists( 'wpcf7_save_contact_form' ) || get_option( 'onora_cf7_version' ) === ONORA_VERSION ) {
+		return;
+	}
+	$common = array(
+		'validation_error' => 'Please check the highlighted fields and try again.',
+		'invalid_required' => 'Please fill in this field.',
+		'invalid_email'    => 'Please enter a valid email address.',
+		'invalid_tel'      => 'Please enter a valid phone number.',
+	);
+	// The quotation form reuses CF7's default "Contact form 1" the first time.
+	onora_save_cf7_form( ONORA_QUOTE_FORM, 'quotation', 'Quotation request: [your-company] ([your-name])', '[your-name] <[your-email]>', array(
+		'mail_sent_ok' => 'Thank you — your enquiry has been sent. We will reply within one working day.',
+		'mail_sent_ng' => 'Sorry, your enquiry could not be sent. Please email ' . onora_contact( 'email' ) . ' or call ' . onora_contact( 'phone' ) . '.',
+	) + $common, 'Contact form 1' );
+	onora_save_cf7_form( ONORA_NEWSLETTER_FORM, 'newsletter', 'Newsletter signup: [newsletter-email]', '[newsletter-email]', array(
+		'mail_sent_ok'     => 'Thank you — you are on the list.',
+		'mail_sent_ng'     => 'Sorry, that did not work. Please try again or email ' . onora_contact( 'email' ) . '.',
+		'invalid_required' => 'Please enter your email address.',
+		'validation_error' => 'Please enter a valid email address.',
+	) + $common );
 	update_option( 'onora_cf7_version', ONORA_VERSION, false );
 }, 20 );
+
+/** Footer newsletter: the CF7 form, or a plain mailto form if CF7 is not active. */
+function onora_newsletter_form() {
+	if ( shortcode_exists( 'contact-form-7' ) ) {
+		echo do_shortcode( '[contact-form-7 title="' . ONORA_NEWSLETTER_FORM . '" html_class="onora-newsletter-cf7"]' );
+		return;
+	}
+	printf( '<form class="onora-newsletter" action="mailto:%1$s?subject=Newsletter%%20signup" method="post" enctype="text/plain"><input type="email" name="email" placeholder="Your email address" required aria-label="Your email address"><button type="submit">Subscribe</button></form>', esc_attr( onora_contact( 'email' ) ) );
+}
 
 /** Puts the quotation form inside the Elementor element whose ID is "onora-quote-form" (Contact page). */
 add_filter( 'elementor/frontend/the_content', function ( $content ) {

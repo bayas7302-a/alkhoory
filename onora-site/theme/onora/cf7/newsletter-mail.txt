@@ -1,0 +1,6 @@
+New newsletter signup from the ONORA website
+
+Email: [newsletter-email]
+
+--
+Sent from the footer newsletter form on [_site_url]

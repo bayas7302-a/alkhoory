@@ -63,9 +63,14 @@ clearing the CSS cache (`DELETE /wp-json/elementor/v1/cache`, done by `shot.js`)
 `tools/<page>_build*.sh|.py` + generators (`home_build.py`, `about_gen.py`, `brands_gen.py`, `products_gen.py`, `contact_gen.py`)
 regenerate the section JSON. Some scripts were written in a scratch folder; adjust their paths before reuse.
 
-## Contact form (Contact Form 7)
-The quotation form is the CF7 form **"ONORA quotation"** (id 291). Its markup and email body live in the theme
-(`theme/onora/cf7/quotation-form.txt`, `quotation-mail.txt`); `functions.php` saves them into CF7 once per theme
+## Forms (Contact Form 7)
+Two CF7 forms, both defined in the theme (`theme/onora/cf7/<slug>-form.txt` + `<slug>-mail.txt`):
+- **"ONORA quotation"** (id 291): Contact page form card.
+- **"ONORA newsletter"** (id 310): footer email signup (`onora_newsletter_form()` in `functions.php`); each signup
+  emails `onora_contact('email')`. There is no mailing-list service, so collect addresses from those emails or
+  connect a list later.
+
+The quotation form's files are `functions.php` saves them into CF7 once per theme
 version with `wpcf7_save_contact_form()` (CF7's REST API returns success without saving), and injects the form into the
 Elementor element with ID `onora-quote-form` on the Contact page. Mail goes to `onora_contact('email')` with
 Reply-To set to the enquirer. Styles: "Contact Form 7" block in `assets/css/theme.css`.

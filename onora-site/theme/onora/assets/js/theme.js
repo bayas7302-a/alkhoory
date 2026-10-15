@@ -32,18 +32,6 @@
 		});
 	}
 
-	// Footer newsletter: no mailing-list service yet, so open a pre-filled email.
-	var form = document.querySelector('.onora-newsletter');
-	if (form) {
-		form.addEventListener('submit', function (e) {
-			e.preventDefault();
-			var email = form.querySelector('input[type="email"]').value;
-			window.location.href = 'mailto:' + form.getAttribute('data-mailto') +
-				'?subject=' + encodeURIComponent('Newsletter signup') +
-				'&body=' + encodeURIComponent('Please add ' + email + ' to the ONORA newsletter.');
-		});
-	}
-
 	// Brands page filter: chips (#brand-filters, links to #<category>) show the matching brand cards.
 	var BRAND_CATEGORIES = {
 		'lusini': ['tableware', 'buffet-service', 'kitchen'],

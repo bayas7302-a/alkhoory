@@ -7,11 +7,7 @@
 			<div class="onora-footer__brand">
 				<?php onora_logo( 'white' ); ?>
 				<p class="onora-footer__about">ONORA Hotel Supplies brings world-class tableware, buffet, bar and service equipment to hotels, restaurants and cafés across the UAE.</p>
-				<form class="onora-newsletter" action="#" data-mailto="<?php echo esc_attr( onora_contact( 'email' ) ); ?>">
-					<label class="screen-reader-text" for="onora-newsletter-email"><?php esc_html_e( 'Your email address', 'onora' ); ?></label>
-					<input id="onora-newsletter-email" type="email" name="email" placeholder="Your email address" required>
-					<button type="submit">Subscribe</button>
-				</form>
+				<?php onora_newsletter_form(); ?>
 				<p class="onora-footer__note">New collections and insider offers — straight to your inbox.</p>
 			</div>
 			<div class="onora-footer__cols">

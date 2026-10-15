@@ -1,6 +1,6 @@
 {
  "post_id": 29,
- "xml_structure": "<e-flexbox configuration-id=\"Quick contact\"><e-flexbox configuration-id=\"Card Call us\"><e-paragraph configuration-id=\"Card Call us label\"></e-paragraph><e-paragraph configuration-id=\"Card Call us value\"></e-paragraph><e-paragraph configuration-id=\"Card Call us note\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Email us\"><e-paragraph configuration-id=\"Card Email us label\"></e-paragraph><e-paragraph configuration-id=\"Card Email us value\"></e-paragraph><e-paragraph configuration-id=\"Card Email us note\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Visit us\"><e-paragraph configuration-id=\"Card Visit us label\"></e-paragraph><e-paragraph configuration-id=\"Card Visit us value\"></e-paragraph><e-paragraph configuration-id=\"Card Visit us note\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Website\"><e-paragraph configuration-id=\"Card Website label\"></e-paragraph><e-paragraph configuration-id=\"Card Website value\"></e-paragraph><e-paragraph configuration-id=\"Card Website note\"></e-paragraph></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Quick contact\"><e-flexbox configuration-id=\"Card Call us\"><e-paragraph configuration-id=\"Card Call us label\"></e-paragraph><e-paragraph configuration-id=\"Card Call us value\"></e-paragraph><e-paragraph configuration-id=\"Card Call us note\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Email us\"><e-paragraph configuration-id=\"Card Email us label\"></e-paragraph><e-paragraph configuration-id=\"Card Email us value\"></e-paragraph><e-paragraph configuration-id=\"Card Email us note\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Visit us\"><e-paragraph configuration-id=\"Card Visit us label\"></e-paragraph><e-paragraph configuration-id=\"Card Visit us value\"></e-paragraph><e-paragraph configuration-id=\"Card Visit us note\"></e-paragraph></e-flexbox></e-flexbox>",
  "element_config": {
   "Card Call us": {
    "link": {
@@ -42,22 +42,6 @@
   },
   "Card Visit us note": {
    "paragraph": "Karama, Dubai — UAE"
-  },
-  "Card Website": {
-   "link": {
-    "destination": "https://onorahs.com",
-    "isTargetBlank": true,
-    "tag": "a"
-   }
-  },
-  "Card Website label": {
-   "paragraph": "Website"
-  },
-  "Card Website value": {
-   "paragraph": "onorahs.com"
-  },
-  "Card Website note": {
-   "paragraph": "Catalogues &amp; brand updates"
   }
  },
  "style": {
@@ -73,11 +57,7 @@
   "Card Visit us": "flex-direction: column; gap: 14px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; align-items: flex-start; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); } @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 1 1 auto; padding: 32px 24px; }",
   "Card Visit us label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; color: #C9962E;",
   "Card Visit us value": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: #0B2F62;",
-  "Card Visit us note": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #5F6675;",
-  "Card Website": "flex-direction: column; gap: 14px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; align-items: flex-start; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); } @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 1 1 auto; padding: 32px 24px; }",
-  "Card Website label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; color: #C9962E;",
-  "Card Website value": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: #0B2F62;",
-  "Card Website note": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #5F6675;"
+  "Card Visit us note": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #5F6675;"
  },
  "classes": {}
 }

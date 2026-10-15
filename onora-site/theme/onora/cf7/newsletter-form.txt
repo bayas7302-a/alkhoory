@@ -1,0 +1,1 @@
+<div class="onora-news">[email* newsletter-email autocomplete:email placeholder "Your email address"][submit class:onora-news__button "Subscribe"]</div>

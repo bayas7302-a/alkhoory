@@ -25,6 +25,7 @@ REMOVE = {
     "home-02-intro.json": ["Intro signature"],
     "about-02-our-story.json": ["Signature"],
     "contact-03-enquiry.json": ["Contact person", "Hours", "Form row 1", "Form row 2", "Interests", "Form row 3", "Submit row"],
+    "contact-02-quick-contact.json": ["Card Website"],
     "contact-04-map.json": ["Map ring large", "Map ring small"],
     **{f"products-{n:02d}-{slug}.json": [f"C{n-2:02d} catalogue"] for n, slug in [
         (3, "chinaware"), (4, "cutlery"), (5, "glassware"), (6, "polycarbonate-drinkware"), (7, "melamine"), (8, "kitchen"),
