@@ -1,0 +1,30 @@
+{
+ "xml_structure": "<e-flexbox configuration-id=\"Products hero\"><e-div-block configuration-id=\"Hero ring outer\"></e-div-block><e-div-block configuration-id=\"Hero ring inner\"></e-div-block><e-flexbox configuration-id=\"Hero content\"><e-paragraph configuration-id=\"Hero breadcrumb\"></e-paragraph><e-heading configuration-id=\"Hero title\"></e-heading><e-div-block configuration-id=\"Hero rule\"></e-div-block><e-paragraph configuration-id=\"Hero lead\"></e-paragraph></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Products hero": {
+   "tag": "section"
+  },
+  "Hero breadcrumb": {
+   "paragraph": "Home&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Products"
+  },
+  "Hero title": {
+   "title": "Twelve collections for every moment of service.",
+   "tag": "h1"
+  },
+  "Hero lead": {
+   "paragraph": "From the first coffee of the morning to the last cocktail of the night — explore our complete hospitality range in one place."
+  }
+ },
+ "style": {
+  "Products hero": "min-height: 560px; padding: 74px 100px 60px 100px; position: relative; overflow: hidden; flex-direction: column; align-items: flex-start; background-color: #071F44; background-image: linear-gradient(90deg, rgba(7,31,68,0.96) 0%, rgba(11,47,98,0.78) 55%, rgba(11,47,98,0.3) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/products-hero-bg.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ padding: 72px 40px 64px 40px; min-height: 480px; } @media(--mobile){ padding: 56px 20px 56px 20px; min-height: 0px; }",
+  "Hero ring outer": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -120px; left: 980px; width: 620px; height: 620px; min-width: 620px; border-width: 1.2px; border-color: rgba(201,150,46,0.45); @media(--tablet){ left: auto; right: -260px; } @media(--mobile){ display: none; }",
+  "Hero ring inner": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -45px; left: 1055px; width: 470px; height: 470px; min-width: 470px; border-width: 1px; border-color: rgba(201,150,46,0.25); @media(--tablet){ left: auto; right: -185px; } @media(--mobile){ display: none; }",
+  "Hero content": "flex-direction: column; gap: 24px; padding: 0px; width: 780px; max-width: 100%; align-items: flex-start; z-index: 1;",
+  "Hero breadcrumb": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); line-height: 1.2;",
+  "Hero title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 88px; line-height: 88px; color: #FFFFFF; @media(--tablet){ font-size: 64px; line-height: 66px; } @media(--mobile){ font-size: 44px; line-height: 48px; }",
+  "Hero rule": "width: 90px; min-width: 90px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Hero lead": "font-family: var(--on-sans); font-weight: 400; font-size: 17px; line-height: 30px; color: rgba(255,255,255,0.82); width: 560px; max-width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }"
+ },
+ "classes": {},
+ "post_id": 28
+}

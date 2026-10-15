@@ -1,0 +1,169 @@
+{
+ "xml_structure": "<e-flexbox configuration-id=\"C04 Polycarbonate Drinkware\"><e-div-block configuration-id=\"C04 ring\"></e-div-block><e-flexbox configuration-id=\"C04 details\"><e-flexbox configuration-id=\"C04 label row\"><e-div-block configuration-id=\"C04 rule\"></e-div-block><e-paragraph configuration-id=\"C04 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C04 title\"></e-heading><e-paragraph configuration-id=\"C04 desc\"></e-paragraph><e-flexbox configuration-id=\"C04 specs\"><e-flexbox configuration-id=\"C04 range\"><e-paragraph configuration-id=\"C04 range title\"></e-paragraph><e-flexbox configuration-id=\"C04 range 1\"><e-div-block configuration-id=\"C04 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C04 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C04 range 2\"><e-div-block configuration-id=\"C04 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C04 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C04 range 3\"><e-div-block configuration-id=\"C04 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C04 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C04 range 4\"><e-div-block configuration-id=\"C04 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C04 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C04 ideal\"><e-paragraph configuration-id=\"C04 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C04 ideal 1\"><e-div-block configuration-id=\"C04 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C04 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C04 ideal 2\"><e-div-block configuration-id=\"C04 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C04 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C04 ideal 3\"><e-div-block configuration-id=\"C04 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C04 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C04 brands\"><e-paragraph configuration-id=\"C04 brands title\"></e-paragraph><e-flexbox configuration-id=\"C04 brand chips\"><e-paragraph configuration-id=\"C04 brand 1\"></e-paragraph><e-paragraph configuration-id=\"C04 brand 2\"></e-paragraph><e-paragraph configuration-id=\"C04 brand 3\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C04 actions\"><e-button configuration-id=\"C04 quote\"></e-button><e-button configuration-id=\"C04 catalogue\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C04 mosaic\"><e-div-block configuration-id=\"C04 main wrap\"><e-image configuration-id=\"C04 main image\"></e-image><e-flexbox configuration-id=\"C04 tag\"><e-paragraph configuration-id=\"C04 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C04 thumbs\"><e-image configuration-id=\"C04 thumb 1\"></e-image><e-image configuration-id=\"C04 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "C04 Polycarbonate Drinkware": {
+   "tag": "section",
+   "_cssid": "polycarbonate-drinkware"
+  },
+  "C04 label": {
+   "paragraph": "Collection 04"
+  },
+  "C04 title": {
+   "title": "Polycarbonate Drinkware",
+   "tag": "h2"
+  },
+  "C04 desc": {
+   "paragraph": "Shatter-resistant drinkware with the clarity of glass — made for pools, beaches, rooftops and high-traffic venues."
+  },
+  "C04 range title": {
+   "paragraph": "Range includes"
+  },
+  "C04 range 1 text": {
+   "paragraph": "Wine &amp; cocktail goblets"
+  },
+  "C04 range 2 text": {
+   "paragraph": "Tumblers &amp; highballs"
+  },
+  "C04 range 3 text": {
+   "paragraph": "Champagne flutes"
+  },
+  "C04 range 4 text": {
+   "paragraph": "Pitchers &amp; carafes"
+  },
+  "C04 ideal title": {
+   "paragraph": "Ideal for"
+  },
+  "C04 ideal 1 text": {
+   "paragraph": "Pool &amp; beach"
+  },
+  "C04 ideal 2 text": {
+   "paragraph": "Outdoor events"
+  },
+  "C04 ideal 3 text": {
+   "paragraph": "Rooftop bars"
+  },
+  "C04 brands title": {
+   "paragraph": "Featured brands"
+  },
+  "C04 brand 1": {
+   "paragraph": "UnbreakMyGlass"
+  },
+  "C04 brand 2": {
+   "paragraph": "GraMonty"
+  },
+  "C04 brand 3": {
+   "paragraph": "Nipco"
+  },
+  "C04 quote": {
+   "text": "Request a quote&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "C04 catalogue": {
+   "text": "Catalogue&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "C04 main image": {
+   "image": {
+    "src": {
+     "id": 150
+    },
+    "size": "large"
+   }
+  },
+  "C04 tag text": {
+   "paragraph": "04 / 12"
+  },
+  "C04 thumb 1": {
+   "image": {
+    "src": {
+     "id": 151
+    },
+    "size": "large"
+   }
+  },
+  "C04 thumb 2": {
+   "image": {
+    "src": {
+     "id": 152
+    },
+    "size": "large"
+   }
+  }
+ },
+ "style": {
+  "C04 Polycarbonate Drinkware": "background: #F7F4EE; padding: 110px 100px; gap: 88px; align-items: center; position: relative; overflow: hidden; scroll-margin-top: 140px; @media(--tablet){ flex-direction: column; align-items: stretch; padding: 88px 40px; gap: 48px; } @media(--mobile){ flex-direction: column; align-items: stretch; padding: 64px 20px; gap: 36px; scroll-margin-top: 170px; }",
+  "C04 ring": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -140px; left: 1180px; width: 420px; height: 420px; min-width: 420px; border-width: 1.1px; border-color: rgba(201,150,46,0.3); @media(--tablet){ left: auto; right: -200px; } @media(--mobile){ display: none; }",
+  "C04 details": "flex-direction: column; gap: 24px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; z-index: 1; @media(--tablet){ width: 100%; } @media(--mobile){ width: 100%; gap: 20px; }",
+  "C04 label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "C04 rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
+  "C04 title": "font-family: var(--on-serif); font-weight: 600; font-size: 58px; line-height: 60px; letter-spacing: -0.3px; color: #0B2F62; width: 100%; @media(--tablet){ font-size: 50px; line-height: 54px; } @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "C04 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: #5F6675; width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }",
+  "C04 specs": "padding: 24px 0px; gap: 32px; align-items: flex-start; width: 100%; border-width: 1px 0px 1px 0px; border-style: solid; border-color: #E6E0D6; @media(--mobile){ gap: 16px; padding: 20px 0px; }",
+  "C04 range": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start;",
+  "C04 range title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2; @media(--mobile){ font-size: 10px; letter-spacing: 1.6px; }",
+  "C04 range 1": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 range 1 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 range 1 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 range 2": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 range 2 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 range 2 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 range 3": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 range 3 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 range 3 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 range 4": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 range 4 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 range 4 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 ideal": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start;",
+  "C04 ideal title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2; @media(--mobile){ font-size: 10px; letter-spacing: 1.6px; }",
+  "C04 ideal 1": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 ideal 1 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 ideal 1 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 ideal 2": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 ideal 2 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 ideal 2 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 ideal 3": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C04 ideal 3 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C04 ideal 3 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C04 brands": "flex-direction: column; gap: 12px; padding: 0px; width: 100%; align-items: flex-start;",
+  "C04 brands title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2;",
+  "C04 brand chips": "padding: 0px; flex-wrap: wrap; gap: 8px; align-items: flex-start; width: 100%;",
+  "C04 brand 1": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #FFFFFF; padding: 8px 14px;",
+  "C04 brand 2": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #FFFFFF; padding: 8px 14px;",
+  "C04 brand 3": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #FFFFFF; padding: 8px 14px;",
+  "C04 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; }",
+  "C04 quote": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }",
+  "C04 catalogue": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }",
+  "C04 mosaic": "flex-direction: column; gap: 20px; padding: 0px; width: 660px; min-width: 660px; flex-shrink: 0; z-index: 1; @media(--tablet){ width: 100%; min-width: 0px; order: -1; } @media(--mobile){ width: 100%; min-width: 0px; order: -1; gap: 12px; }",
+  "C04 main wrap": "position: relative; padding: 0px; width: 100%; height: 420px; overflow: hidden; @media(--mobile){ height: 240px; }",
+  "C04 main image": "display: block; width: 100%; height: 420px; object-fit: cover; @media(--mobile){ height: 240px; }",
+  "C04 tag": "position: absolute; top: 0px; left: 0px; width: auto; padding: 12px 18px; background: #0B2F62; z-index: 2;",
+  "C04 tag text": "font-family: var(--on-serif); font-weight: 600; font-size: 20px; line-height: 1.2; color: #E2BB6C;",
+  "C04 thumbs": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ gap: 12px; }",
+  "C04 thumb 1": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }",
+  "C04 thumb 2": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }"
+ },
+ "classes": {
+  "C04 label row": [
+   "on-eyebrow-row"
+  ],
+  "C04 rule": [
+   "on-rule"
+  ],
+  "C04 quote": [
+   "on-btn-navy"
+  ],
+  "C04 catalogue": [
+   "on-btn-outline-navy"
+  ]
+ },
+ "post_id": 28
+}

@@ -1,0 +1,139 @@
+{
+ "post_id": 26,
+ "xml_structure": "<e-flexbox configuration-id=\"Why choose us\"><e-flexbox configuration-id=\"Why row\"><e-flexbox configuration-id=\"Why intro\"><e-flexbox configuration-id=\"Why label row\"><e-div-block configuration-id=\"Why rule\"></e-div-block><e-paragraph configuration-id=\"Why label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Why title\"></e-heading><e-paragraph configuration-id=\"Why body\"></e-paragraph><e-button configuration-id=\"Why button\"></e-button></e-flexbox><e-flexbox configuration-id=\"Reasons\"><e-flexbox configuration-id=\"Reason row 1\"><e-flexbox configuration-id=\"Reason 1\"><e-paragraph configuration-id=\"Reason 1 num\"></e-paragraph><e-heading configuration-id=\"Reason 1 title\"></e-heading><e-paragraph configuration-id=\"Reason 1 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Reason 2\"><e-paragraph configuration-id=\"Reason 2 num\"></e-paragraph><e-heading configuration-id=\"Reason 2 title\"></e-heading><e-paragraph configuration-id=\"Reason 2 body\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Reason row 2\"><e-flexbox configuration-id=\"Reason 3\"><e-paragraph configuration-id=\"Reason 3 num\"></e-paragraph><e-heading configuration-id=\"Reason 3 title\"></e-heading><e-paragraph configuration-id=\"Reason 3 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Reason 4\"><e-paragraph configuration-id=\"Reason 4 num\"></e-paragraph><e-heading configuration-id=\"Reason 4 title\"></e-heading><e-paragraph configuration-id=\"Reason 4 body\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Reason row 3\"><e-flexbox configuration-id=\"Reason 5\"><e-paragraph configuration-id=\"Reason 5 num\"></e-paragraph><e-heading configuration-id=\"Reason 5 title\"></e-heading><e-paragraph configuration-id=\"Reason 5 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Reason 6\"><e-paragraph configuration-id=\"Reason 6 num\"></e-paragraph><e-heading configuration-id=\"Reason 6 title\"></e-heading><e-paragraph configuration-id=\"Reason 6 body\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Why choose us": {
+   "tag": "section"
+  },
+  "Why label": {
+   "paragraph": "Why ONORA"
+  },
+  "Why title": {
+   "title": "Six reasons venues choose to work with us.",
+   "tag": "h2"
+  },
+  "Why body": {
+   "paragraph": "We combine the reach of a global sourcing partner with the attention of a local team that understands UAE hospitality."
+  },
+  "Why button": {
+   "text": "Talk to our team&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Reason 1 num": {
+   "paragraph": "01"
+  },
+  "Reason 1 title": {
+   "title": "Curated global brands",
+   "tag": "h3"
+  },
+  "Reason 1 body": {
+   "paragraph": "Hand-picked manufacturers from Germany, Portugal, Italy, the Czech Republic, India and beyond."
+  },
+  "Reason 2 num": {
+   "paragraph": "02"
+  },
+  "Reason 2 title": {
+   "title": "Hospitality expertise",
+   "tag": "h3"
+  },
+  "Reason 2 body": {
+   "paragraph": "We speak the language of F&amp;B — covers, par levels, service styles and concept stories."
+  },
+  "Reason 3 num": {
+   "paragraph": "03"
+  },
+  "Reason 3 title": {
+   "title": "Tailored solutions",
+   "tag": "h3"
+  },
+  "Reason 3 body": {
+   "paragraph": "Ranges built around your concept, from boutique cafés to 500-key resorts."
+  },
+  "Reason 4 num": {
+   "paragraph": "04"
+  },
+  "Reason 4 title": {
+   "title": "Reliable, timely delivery",
+   "tag": "h3"
+  },
+  "Reason 4 body": {
+   "paragraph": "Organised logistics across the UAE, planned around openings and peak seasons."
+  },
+  "Reason 5 num": {
+   "paragraph": "05"
+  },
+  "Reason 5 title": {
+   "title": "Consistent quality",
+   "tag": "h3"
+  },
+  "Reason 5 body": {
+   "paragraph": "Commercial-grade products tested for durability, finish and dishwasher performance."
+  },
+  "Reason 6 num": {
+   "paragraph": "06"
+  },
+  "Reason 6 title": {
+   "title": "Dedicated account support",
+   "tag": "h3"
+  },
+  "Reason 6 body": {
+   "paragraph": "One point of contact — from first sample to replenishment orders."
+  }
+ },
+ "style": {
+  "Why choose us": "flex-direction: column; padding: 120px 100px; gap: 64px; position: relative; overflow: hidden; @media(--tablet){ padding: 96px 40px; gap: 48px; } @media(--mobile){ padding: 72px 20px; gap: 40px; } background: #FFFFFF;",
+  "Why row": "padding: 0px; gap: 96px; align-items: flex-start; @media(--tablet){ flex-direction: column; gap: 48px; } @media(--mobile){ flex-direction: column; gap: 40px; }",
+  "Why intro": "flex-direction: column; gap: 26px; padding: 0px; width: 420px; min-width: 0px; max-width: 100%; flex-shrink: 0; align-items: flex-start;",
+  "Why label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "Why rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Why label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
+  "Why title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 56px; line-height: 58px; color: var(--on-navy); @media(--tablet){ font-size: 46px; line-height: 50px; } @media(--mobile){ font-size: 36px; line-height: 40px; }",
+  "Why body": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: var(--on-muted);",
+  "Reasons": "flex-direction: column; padding: 0px; gap: 0px; flex: 1 1 0px; min-width: 0px; width: 100%; @media(--tablet){ flex: 0 0 auto; } @media(--mobile){ flex: 0 0 auto; }",
+  "Reason row 1": "padding: 36px 0px; gap: 48px; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: var(--on-line); @media(--mobile){ flex-direction: column; gap: 32px; padding: 28px 0px; }",
+  "Reason 1": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 1 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 1 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 1 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);",
+  "Reason 2": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 2 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 2 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 2 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);",
+  "Reason row 2": "padding: 36px 0px; gap: 48px; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: var(--on-line); @media(--mobile){ flex-direction: column; gap: 32px; padding: 28px 0px; }",
+  "Reason 3": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 3 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 3 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 3 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);",
+  "Reason 4": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 4 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 4 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 4 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);",
+  "Reason row 3": "padding: 36px 0px; gap: 48px; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: var(--on-line); @media(--mobile){ flex-direction: column; gap: 32px; padding: 28px 0px; }",
+  "Reason 5": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 5 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 5 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 5 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);",
+  "Reason 6": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; @media(--mobile){ flex: 0 0 auto; }",
+  "Reason 6 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 34px; line-height: 36px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); background-clip: text; color: transparent;",
+  "Reason 6 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 28px; line-height: 32px; color: var(--on-navy);",
+  "Reason 6 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: var(--on-muted);"
+ },
+ "classes": {
+  "Why label row": [
+   "on-eyebrow-row"
+  ],
+  "Why rule": [
+   "on-rule"
+  ],
+  "Why label": [
+   "on-eyebrow"
+  ],
+  "Why button": [
+   "on-btn-navy"
+  ]
+ }
+}

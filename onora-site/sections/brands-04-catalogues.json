@@ -1,0 +1,360 @@
+{
+ "post_id": 27,
+ "xml_structure": "<e-flexbox configuration-id=\"Catalogues\"><e-flexbox configuration-id=\"Catalogues inner\"><e-flexbox configuration-id=\"Catalogues head\"><e-flexbox configuration-id=\"Catalogues head left\"><e-flexbox configuration-id=\"Catalogues label\"><e-div-block configuration-id=\"Catalogues rule\"></e-div-block><e-paragraph configuration-id=\"Catalogues eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Catalogues title\"></e-heading></e-flexbox><e-paragraph configuration-id=\"Catalogues lead\"></e-paragraph></e-flexbox><e-grid configuration-id=\"Catalogue list\"><e-flexbox configuration-id=\"Catalogue 1\"><e-flexbox configuration-id=\"Catalogue 1 badge\"><e-paragraph configuration-id=\"Catalogue 1 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 1 info\"><e-paragraph configuration-id=\"Catalogue 1 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 1 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 1 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 2\"><e-flexbox configuration-id=\"Catalogue 2 badge\"><e-paragraph configuration-id=\"Catalogue 2 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 2 info\"><e-paragraph configuration-id=\"Catalogue 2 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 2 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 2 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 3\"><e-flexbox configuration-id=\"Catalogue 3 badge\"><e-paragraph configuration-id=\"Catalogue 3 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 3 info\"><e-paragraph configuration-id=\"Catalogue 3 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 3 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 3 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 4\"><e-flexbox configuration-id=\"Catalogue 4 badge\"><e-paragraph configuration-id=\"Catalogue 4 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 4 info\"><e-paragraph configuration-id=\"Catalogue 4 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 4 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 4 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 5\"><e-flexbox configuration-id=\"Catalogue 5 badge\"><e-paragraph configuration-id=\"Catalogue 5 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 5 info\"><e-paragraph configuration-id=\"Catalogue 5 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 5 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 5 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 6\"><e-flexbox configuration-id=\"Catalogue 6 badge\"><e-paragraph configuration-id=\"Catalogue 6 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 6 info\"><e-paragraph configuration-id=\"Catalogue 6 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 6 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 6 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 7\"><e-flexbox configuration-id=\"Catalogue 7 badge\"><e-paragraph configuration-id=\"Catalogue 7 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 7 info\"><e-paragraph configuration-id=\"Catalogue 7 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 7 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 7 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 8\"><e-flexbox configuration-id=\"Catalogue 8 badge\"><e-paragraph configuration-id=\"Catalogue 8 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 8 info\"><e-paragraph configuration-id=\"Catalogue 8 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 8 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 8 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 9\"><e-flexbox configuration-id=\"Catalogue 9 badge\"><e-paragraph configuration-id=\"Catalogue 9 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 9 info\"><e-paragraph configuration-id=\"Catalogue 9 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 9 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 9 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 10\"><e-flexbox configuration-id=\"Catalogue 10 badge\"><e-paragraph configuration-id=\"Catalogue 10 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 10 info\"><e-paragraph configuration-id=\"Catalogue 10 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 10 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 10 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 11\"><e-flexbox configuration-id=\"Catalogue 11 badge\"><e-paragraph configuration-id=\"Catalogue 11 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 11 info\"><e-paragraph configuration-id=\"Catalogue 11 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 11 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 11 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 12\"><e-flexbox configuration-id=\"Catalogue 12 badge\"><e-paragraph configuration-id=\"Catalogue 12 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 12 info\"><e-paragraph configuration-id=\"Catalogue 12 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 12 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 12 download\"></e-button></e-flexbox><e-flexbox configuration-id=\"Catalogue 13\"><e-flexbox configuration-id=\"Catalogue 13 badge\"><e-paragraph configuration-id=\"Catalogue 13 pdf\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Catalogue 13 info\"><e-paragraph configuration-id=\"Catalogue 13 title\"></e-paragraph><e-paragraph configuration-id=\"Catalogue 13 meta\"></e-paragraph></e-flexbox><e-button configuration-id=\"Catalogue 13 download\"></e-button></e-flexbox></e-grid></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Catalogues eyebrow": {
+   "paragraph": "Download centre"
+  },
+  "Catalogues title": {
+   "tag": "h2",
+   "title": "Brand catalogues &amp; look-books."
+  },
+  "Catalogues lead": {
+   "paragraph": "Browse full ranges, dimensions and specifications. Need pricing? Send us your selection and we will prepare a tailored quote."
+  },
+  "Catalogue 1 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 1 title": {
+   "paragraph": "Lusini Annual Catalogue"
+  },
+  "Catalogue 1 meta": {
+   "paragraph": "Lusini&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 1 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Lusini%20Annual%20Catalogue",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 2 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 2 title": {
+   "paragraph": "Stylepoint Collection"
+  },
+  "Catalogue 2 meta": {
+   "paragraph": "Stylepoint&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 2 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Stylepoint%20Collection",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 3 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 3 title": {
+   "paragraph": "Stylepoint Raw Premium"
+  },
+  "Catalogue 3 meta": {
+   "paragraph": "Stylepoint&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 3 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Stylepoint%20Raw%20Premium",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 4 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 4 title": {
+   "paragraph": "Chromolite Cutlery"
+  },
+  "Catalogue 4 meta": {
+   "paragraph": "Chromolite&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 4 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Chromolite%20Cutlery",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 5 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 5 title": {
+   "paragraph": "Belo Inox Lifestyle"
+  },
+  "Catalogue 5 meta": {
+   "paragraph": "Belo Inox&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 5 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Belo%20Inox%20Lifestyle",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 6 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 6 title": {
+   "paragraph": "Unity Drinkware"
+  },
+  "Catalogue 6 meta": {
+   "paragraph": "Nipco&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 6 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Unity%20Drinkware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 7 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 7 title": {
+   "paragraph": "Kolk E-Light"
+  },
+  "Catalogue 7 meta": {
+   "paragraph": "Kolk&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2024–25"
+  },
+  "Catalogue 7 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Kolk%20E-Light",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 8 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 8 title": {
+   "paragraph": "GraMonty Drinkware"
+  },
+  "Catalogue 8 meta": {
+   "paragraph": "GraMonty&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 8 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20GraMonty%20Drinkware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 9 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 9 title": {
+   "paragraph": "Falkenporzellan Premium Designs"
+  },
+  "Catalogue 9 meta": {
+   "paragraph": "Falkenporzellan&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 9 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Falkenporzellan%20Premium%20Designs",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 10 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 10 title": {
+   "paragraph": "Nipco Catalogue"
+  },
+  "Catalogue 10 meta": {
+   "paragraph": "Nipco&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;2025"
+  },
+  "Catalogue 10 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Nipco%20Catalogue",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 11 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 11 title": {
+   "paragraph": "Schönhuber Franchi Fine Bone China"
+  },
+  "Catalogue 11 meta": {
+   "paragraph": "Schönhuber Franchi&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 11 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Schönhuber%20Franchi%20Fine%20Bone%20China",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 12 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 12 title": {
+   "paragraph": "Schönhuber Franchi Buffet"
+  },
+  "Catalogue 12 meta": {
+   "paragraph": "Schönhuber Franchi&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 12 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Schönhuber%20Franchi%20Buffet",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Catalogue 13 pdf": {
+   "paragraph": "PDF"
+  },
+  "Catalogue 13 title": {
+   "paragraph": "Schönhuber Franchi Tableware"
+  },
+  "Catalogue 13 meta": {
+   "paragraph": "Schönhuber Franchi&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;Current"
+  },
+  "Catalogue 13 download": {
+   "text": "Download&nbsp;&nbsp;↓",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Schönhuber%20Franchi%20Tableware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Catalogues": "background: var(--on-cream); gap: 0px;",
+  "Catalogues inner": "gap: 64px; @media(--mobile){ gap: 40px; }",
+  "Catalogues head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 24px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 20px; }",
+  "Catalogues head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%; align-items: flex-start;",
+  "Catalogues label": "position: relative; z-index: 1;",
+  "Catalogues lead": "width: 420px; max-width: 100%;",
+  "Catalogue list": "padding: 0px; gap: 16px; grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; @media(--tablet){ grid-template-columns: repeat(1, 1fr); gap: 16px; } @media(--mobile){ grid-template-columns: repeat(1, 1fr); gap: 12px; }",
+  "Catalogue 1": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 1 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 1 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 1 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 1 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 1 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 1 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 2": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 2 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 2 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 2 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 2 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 2 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 2 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 3": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 3 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 3 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 3 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 3 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 3 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 3 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 4": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 4 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 4 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 4 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 4 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 4 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 4 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 5": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 5 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 5 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 5 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 5 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 5 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 5 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 6": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 6 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 6 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 6 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 6 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 6 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 6 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 7": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 7 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 7 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 7 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 7 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 7 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 7 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 8": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 8 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 8 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 8 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 8 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 8 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 8 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 9": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 9 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 9 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 9 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 9 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 9 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 9 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 10": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 10 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 10 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 10 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 10 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 10 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 10 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 11": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 11 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 11 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 11 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 11 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 11 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 11 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 12": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 12 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 12 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 12 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 12 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 12 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 12 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }",
+  "Catalogue 13": "background: #FFFFFF; min-height: 110px; padding: 20px 24px 20px 20px; gap: 22px; align-items: center; @media(--mobile){ padding: 16px; gap: 14px; flex-wrap: wrap; }",
+  "Catalogue 13 badge": "width: 56px; min-width: 56px; height: 64px; padding: 0px; background: var(--on-navy); justify-content: center; align-items: center;",
+  "Catalogue 13 pdf": "font-family: var(--on-sans); font-weight: 700; font-size: 11px; letter-spacing: 1.5px; color: var(--on-gold-soft);",
+  "Catalogue 13 info": "flex-direction: column; gap: 6px; padding: 0px; flex-grow: 1; flex-basis: 0px; align-items: stretch; @media(--mobile){ flex-basis: 160px; }",
+  "Catalogue 13 title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 28px; letter-spacing: -0.3px; color: var(--on-navy); @media(--mobile){ font-size: 21px; line-height: 25px; }",
+  "Catalogue 13 meta": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
+  "Catalogue 13 download": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; line-height: 1.2; color: var(--on-navy); background: transparent; border: 1px solid #0B2F62; border-radius: 0px; padding: 12px 18px; transition: background-color 0.3s; &:hover{ background: #0B2F62; color: #FFFFFF; } @media(--mobile){ margin-left: 70px; }"
+ },
+ "classes": {
+  "Catalogues": [
+   "on-section"
+  ],
+  "Catalogues inner": [
+   "on-inner"
+  ],
+  "Catalogues label": [
+   "on-eyebrow-row"
+  ],
+  "Catalogues rule": [
+   "on-rule"
+  ],
+  "Catalogues eyebrow": [
+   "on-eyebrow"
+  ],
+  "Catalogues title": [
+   "on-h2"
+  ],
+  "Catalogues lead": [
+   "on-body"
+  ]
+ }
+}

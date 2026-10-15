@@ -1,0 +1,140 @@
+{
+ "post_id": 25,
+ "xml_structure": "<e-flexbox configuration-id=\"Hero\"><e-div-block configuration-id=\"Hero ring large\"></e-div-block><e-div-block configuration-id=\"Hero ring small\"></e-div-block><e-flexbox configuration-id=\"Hero content\"><e-flexbox configuration-id=\"Hero eyebrow\"><e-div-block configuration-id=\"Hero eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Hero eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Hero title\"></e-heading><e-paragraph configuration-id=\"Hero lead\"></e-paragraph><e-flexbox configuration-id=\"Hero buttons\"><e-button configuration-id=\"Hero explore\"></e-button><e-button configuration-id=\"Hero brands\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Hero card\"><e-image configuration-id=\"Hero card image\"></e-image><e-flexbox configuration-id=\"Hero card text\"><e-paragraph configuration-id=\"Hero card label\"></e-paragraph><e-paragraph configuration-id=\"Hero card title\"></e-paragraph><e-paragraph configuration-id=\"Hero card link\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Stats bar\"><e-flexbox configuration-id=\"Stat 1\"><e-flexbox configuration-id=\"Stat 1 text\"><e-paragraph configuration-id=\"Stat 1 number\"></e-paragraph><e-paragraph configuration-id=\"Stat 1 label\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Stat 2\"><e-div-block configuration-id=\"Stat 2 divider\"></e-div-block><e-flexbox configuration-id=\"Stat 2 text\"><e-paragraph configuration-id=\"Stat 2 number\"></e-paragraph><e-paragraph configuration-id=\"Stat 2 label\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Stat 3\"><e-div-block configuration-id=\"Stat 3 divider\"></e-div-block><e-flexbox configuration-id=\"Stat 3 text\"><e-paragraph configuration-id=\"Stat 3 number\"></e-paragraph><e-paragraph configuration-id=\"Stat 3 label\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Stat 4\"><e-div-block configuration-id=\"Stat 4 divider\"></e-div-block><e-flexbox configuration-id=\"Stat 4 text\"><e-paragraph configuration-id=\"Stat 4 number\"></e-paragraph><e-paragraph configuration-id=\"Stat 4 label\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Hero eyebrow text": {
+   "paragraph": "Hotel · Restaurant · Café supplies"
+  },
+  "Hero title": {
+   "tag": "h1",
+   "title": "The art of hospitality, served beautifully."
+  },
+  "Hero lead": {
+   "paragraph": "From refined chinaware and precision-crafted cutlery to buffet, bar and service equipment — ONORA brings world-class hospitality products to every table you set."
+  },
+  "Hero explore": {
+   "text": "Explore products&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Hero brands": {
+   "text": "Our brands&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Hero card": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Hero card image": {
+   "image": {
+    "src": {
+     "id": 43
+    },
+    "size": "full"
+   }
+  },
+  "Hero card label": {
+   "paragraph": "New season"
+  },
+  "Hero card title": {
+   "paragraph": "Contemporary porcelain collection"
+  },
+  "Hero card link": {
+   "paragraph": "View collection&nbsp;&nbsp;→"
+  },
+  "Stat 1 number": {
+   "paragraph": "12"
+  },
+  "Stat 1 label": {
+   "paragraph": "Product collections"
+  },
+  "Stat 2 number": {
+   "paragraph": "19+"
+  },
+  "Stat 2 label": {
+   "paragraph": "Global brand partners"
+  },
+  "Stat 3 number": {
+   "paragraph": "HORECA"
+  },
+  "Stat 3 label": {
+   "paragraph": "Hotels · Restaurants · Cafés"
+  },
+  "Stat 4 number": {
+   "paragraph": "Dubai"
+  },
+  "Stat 4 label": {
+   "paragraph": "Serving the UAE"
+  }
+ },
+ "style": {
+  "Hero": "flex-direction: column; justify-content: space-between; align-items: flex-start; min-height: 900px; padding: 150px 100px 0px 100px; gap: 64px; overflow: hidden; background-image: linear-gradient(90deg, rgba(7,31,68,0.97) 0%, rgba(11,47,98,0.82) 50%, rgba(11,47,98,0.2) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/home-hero-bg.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; background-color: #071F44; @media(--tablet){ min-height: 0px; padding: 120px 40px 0px 40px; } @media(--mobile){ min-height: 0px; padding: 72px 20px 0px 20px; gap: 48px; }",
+  "Hero ring large": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 860px; top: 40px; width: 720px; height: 720px; min-width: 720px; @media(--tablet){ display: none; } @media(--mobile){ display: none; }",
+  "Hero ring small": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 940px; top: 120px; width: 560px; height: 560px; min-width: 560px; @media(--tablet){ display: none; } @media(--mobile){ display: none; }",
+  "Hero content": "flex-direction: column; gap: 28px; padding: 0px; width: 760px; max-width: 100%; align-items: flex-start; z-index: 2;",
+  "Hero eyebrow text": "color: var(--on-gold-soft);",
+  "Hero title": "font-size: 104px; line-height: 100px; letter-spacing: -0.3px; @media(--tablet){ font-size: 76px; line-height: 76px; } @media(--mobile){ font-size: 50px; line-height: 52px; }",
+  "Hero lead": "color: rgba(255,255,255,0.82); font-weight: 400; max-width: 560px; @media(--mobile){ font-size: 16px; line-height: 27px; }",
+  "Hero buttons": "padding: 0px; gap: 16px; width: auto; flex-wrap: wrap; @media(--mobile){ width: 100%; }",
+  "Hero brands": "border-color: rgba(255,255,255,0.5);",
+  "Hero card": "position: absolute; right: 100px; top: 300px; width: auto; padding: 16px; gap: 18px; align-items: center; z-index: 2; background-color: rgba(255,255,255,0.1); border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.22); backdrop-filter: blur(10px); @media(--tablet){ display: none; } @media(--mobile){ display: none; }",
+  "Hero card image": "width: 96px; height: 96px; min-width: 96px; object-fit: cover;",
+  "Hero card text": "flex-direction: column; gap: 6px; padding: 0px; width: 220px; align-items: flex-start;",
+  "Hero card label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.4px; text-transform: uppercase; color: var(--on-gold-soft);",
+  "Hero card title": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 26px; letter-spacing: -0.3px; color: #FFFFFF;",
+  "Hero card link": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 0.6px; color: rgba(255,255,255,0.8);",
+  "Stats bar": "background-color: #FFFFFF; padding: 34px 48px; justify-content: space-between; align-items: flex-start; gap: 20px; z-index: 2; max-width: 1240px; @media(--tablet){ padding: 28px 32px; } @media(--mobile){ flex-wrap: wrap; padding: 24px 20px; gap: 24px; }",
+  "Stat 1": "padding: 0px; width: auto; gap: 20px; align-items: center; @media(--mobile){ width: calc(50% - 12px); }",
+  "Stat 1 text": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
+  "Stat 1 number": "font-family: var(--on-serif); font-weight: 600; font-size: 44px; line-height: 44px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 36px; line-height: 38px; } @media(--mobile){ font-size: 30px; line-height: 32px; }",
+  "Stat 1 label": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--on-muted); @media(--tablet){ font-size: 10px; letter-spacing: 0.8px; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; line-height: 15px; }",
+  "Stat 2": "padding: 0px; width: auto; gap: 20px; align-items: center; @media(--mobile){ width: calc(50% - 12px); }",
+  "Stat 2 divider": "width: 1px; min-width: 1px; height: 56px; padding: 0px; background-color: #E6E0D6; @media(--mobile){ display: none; }",
+  "Stat 2 text": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
+  "Stat 2 number": "font-family: var(--on-serif); font-weight: 600; font-size: 44px; line-height: 44px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 36px; line-height: 38px; } @media(--mobile){ font-size: 30px; line-height: 32px; }",
+  "Stat 2 label": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--on-muted); @media(--tablet){ font-size: 10px; letter-spacing: 0.8px; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; line-height: 15px; }",
+  "Stat 3": "padding: 0px; width: auto; gap: 20px; align-items: center; @media(--mobile){ width: calc(50% - 12px); }",
+  "Stat 3 divider": "width: 1px; min-width: 1px; height: 56px; padding: 0px; background-color: #E6E0D6; @media(--mobile){ display: none; }",
+  "Stat 3 text": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
+  "Stat 3 number": "font-family: var(--on-serif); font-weight: 600; font-size: 44px; line-height: 44px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 36px; line-height: 38px; } @media(--mobile){ font-size: 30px; line-height: 32px; }",
+  "Stat 3 label": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--on-muted); @media(--tablet){ font-size: 10px; letter-spacing: 0.8px; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; line-height: 15px; }",
+  "Stat 4": "padding: 0px; width: auto; gap: 20px; align-items: center; @media(--mobile){ width: calc(50% - 12px); }",
+  "Stat 4 divider": "width: 1px; min-width: 1px; height: 56px; padding: 0px; background-color: #E6E0D6; @media(--mobile){ display: none; }",
+  "Stat 4 text": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
+  "Stat 4 number": "font-family: var(--on-serif); font-weight: 600; font-size: 44px; line-height: 44px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 36px; line-height: 38px; } @media(--mobile){ font-size: 30px; line-height: 32px; }",
+  "Stat 4 label": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--on-muted); @media(--tablet){ font-size: 10px; letter-spacing: 0.8px; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; line-height: 15px; }"
+ },
+ "classes": {
+  "Hero eyebrow": [
+   "on-eyebrow-row"
+  ],
+  "Hero eyebrow rule": [
+   "on-rule"
+  ],
+  "Hero eyebrow text": [
+   "on-eyebrow"
+  ],
+  "Hero title": [
+   "on-h1"
+  ],
+  "Hero lead": [
+   "on-lead"
+  ],
+  "Hero explore": [
+   "on-btn-gold"
+  ],
+  "Hero brands": [
+   "on-btn-outline-light"
+  ]
+ }
+}

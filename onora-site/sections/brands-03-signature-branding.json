@@ -1,0 +1,86 @@
+{
+ "post_id": 27,
+ "xml_structure": "<e-flexbox configuration-id=\"Signature branding\"><e-div-block configuration-id=\"Branding image\"></e-div-block><e-flexbox configuration-id=\"Branding panel\"><e-div-block configuration-id=\"Branding ring\"></e-div-block><e-flexbox configuration-id=\"Branding label\"><e-div-block configuration-id=\"Branding rule\"></e-div-block><e-paragraph configuration-id=\"Branding eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Branding title\"></e-heading><e-paragraph configuration-id=\"Branding lead\"></e-paragraph><e-flexbox configuration-id=\"Branding list\"><e-flexbox configuration-id=\"Branding item 1\"><e-paragraph configuration-id=\"Branding item 1 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 2\"><e-paragraph configuration-id=\"Branding item 2 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 3\"><e-paragraph configuration-id=\"Branding item 3 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 4\"><e-paragraph configuration-id=\"Branding item 4 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-button configuration-id=\"Branding button\"></e-button></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Branding eyebrow": {
+   "paragraph": "Signature branding"
+  },
+  "Branding title": {
+   "tag": "h2",
+   "title": "Your logo, beautifully placed on every touchpoint."
+  },
+  "Branding lead": {
+   "paragraph": "Make your venue unforgettable with custom-branded tableware and service pieces produced with our manufacturing partners."
+  },
+  "Branding item 1 no": {
+   "paragraph": "01"
+  },
+  "Branding item 1 text": {
+   "paragraph": "Personalised chinaware with back-stamps and rim decals"
+  },
+  "Branding item 2 no": {
+   "paragraph": "02"
+  },
+  "Branding item 2 text": {
+   "paragraph": "Logo-engraved cutlery and glassware"
+  },
+  "Branding item 3 no": {
+   "paragraph": "03"
+  },
+  "Branding item 3 text": {
+   "paragraph": "Custom-printed linens, menus and table accessories"
+  },
+  "Branding item 4 no": {
+   "paragraph": "04"
+  },
+  "Branding item 4 text": {
+   "paragraph": "Branded buffet signage and display accents"
+  },
+  "Branding button": {
+   "text": "Start a branding project&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Signature branding": "padding: 0px; gap: 0px; align-items: stretch; background: var(--on-navy); @media(--tablet){ flex-direction: column; } @media(--mobile){ flex-direction: column; }",
+  "Branding image": "width: 50%; min-height: 845px; padding: 0px; background-image: url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/brands-branding-plate.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ width: 100%; min-height: 520px; } @media(--mobile){ width: 100%; min-height: 360px; }",
+  "Branding panel": "width: 50%; flex-direction: column; justify-content: center; align-items: flex-start; gap: 28px; padding: 100px 100px 100px 88px; overflow: hidden; background: var(--on-navy); @media(--tablet){ width: 100%; padding: 88px 40px; } @media(--mobile){ width: 100%; padding: 64px 20px; gap: 24px; }",
+  "Branding ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -140px; top: -180px; width: 520px; height: 520px; border-width: 1.2px; border-color: rgba(222,175,87,0.35); @media(--mobile){ right: -300px; }",
+  "Branding label": "position: relative; z-index: 1;",
+  "Branding eyebrow": "color: var(--on-gold-soft);",
+  "Branding title": "font-family: var(--on-serif); font-weight: 600; font-size: 52px; line-height: 56px; letter-spacing: -0.3px; color: #FFFFFF; position: relative; z-index: 1; @media(--tablet){ font-size: 44px; line-height: 48px; } @media(--mobile){ font-size: 36px; line-height: 40px; }",
+  "Branding lead": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: rgba(255,255,255,0.78); position: relative; z-index: 1;",
+  "Branding list": "position: relative; z-index: 1; flex-direction: column; padding: 0px; gap: 0px; align-items: stretch;",
+  "Branding item 1": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "Branding item 1 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
+  "Branding item 1 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
+  "Branding item 2": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "Branding item 2 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
+  "Branding item 2 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
+  "Branding item 3": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "Branding item 3 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
+  "Branding item 3 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
+  "Branding item 4": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "Branding item 4 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
+  "Branding item 4 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
+  "Branding button": "position: relative; z-index: 1; @media(--mobile){ padding: 16px 20px; letter-spacing: 1.6px; }"
+ },
+ "classes": {
+  "Branding label": [
+   "on-eyebrow-row"
+  ],
+  "Branding rule": [
+   "on-rule"
+  ],
+  "Branding eyebrow": [
+   "on-eyebrow"
+  ],
+  "Branding button": [
+   "on-btn-gold"
+  ]
+ }
+}

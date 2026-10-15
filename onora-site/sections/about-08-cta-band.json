@@ -1,0 +1,68 @@
+{
+ "post_id": 26,
+ "xml_structure": "<e-flexbox configuration-id=\"CTA band\"><e-div-block configuration-id=\"CTA ring outer\"></e-div-block><e-div-block configuration-id=\"CTA ring inner\"></e-div-block><e-flexbox configuration-id=\"CTA content\"><e-flexbox configuration-id=\"CTA label row\"><e-div-block configuration-id=\"CTA rule\"></e-div-block><e-paragraph configuration-id=\"CTA label\"></e-paragraph><e-div-block configuration-id=\"CTA rule 2\"></e-div-block></e-flexbox><e-heading configuration-id=\"CTA title\"></e-heading><e-paragraph configuration-id=\"CTA lead\"></e-paragraph><e-flexbox configuration-id=\"CTA buttons\"><e-button configuration-id=\"CTA quote\"></e-button><e-button configuration-id=\"CTA call\"></e-button></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "CTA band": {
+   "tag": "section"
+  },
+  "CTA label": {
+   "paragraph": "Let's work together"
+  },
+  "CTA title": {
+   "title": "Let’s build your next opening together.",
+   "tag": "h2"
+  },
+  "CTA lead": {
+   "paragraph": "Tell us about your venue and we will curate the right products, brands and quantities — from a single outlet to a full hotel opening."
+  },
+  "CTA quote": {
+   "text": "Request a quote&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "CTA call": {
+   "text": "Call +971 50 203 8005&nbsp;&nbsp;→",
+   "link": {
+    "destination": "tel:+971502038005",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "CTA band": "min-height: 560px; padding: 107px 100px; position: relative; overflow: hidden; flex-direction: column; align-items: center; justify-content: flex-start; background-color: #071F44; background-image: linear-gradient(rgba(7,31,68,0.84), rgba(7,31,68,0.84)), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/about-cta-bg.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ padding: 96px 40px; min-height: 0px; } @media(--mobile){ padding: 72px 20px; min-height: 0px; }",
+  "CTA ring outer": "position: absolute; top: -100px; left: 50%; margin-left: -380px; width: 760px; height: 760px; min-width: 760px; padding: 0px; border-radius: 50%; border-width: 1.2px; border-style: solid; border-color: rgba(201,150,46,0.3); z-index: 0; ",
+  "CTA ring inner": "position: absolute; top: 0px; left: 50%; margin-left: -280px; width: 560px; height: 560px; min-width: 560px; padding: 0px; border-radius: 50%; border-width: 1px; border-style: solid; border-color: rgba(201,150,46,0.18); z-index: 0; ",
+  "CTA content": "flex-direction: column; gap: 26px; padding: 0px; width: 900px; max-width: 100%; align-items: center; z-index: 1;",
+  "CTA label row": "padding: 0px; width: auto; gap: 14px; align-items: center; justify-content: center;",
+  "CTA rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "CTA label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--on-gold-soft); line-height: 1.2;",
+  "CTA rule 2": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "CTA title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 68px; line-height: 70px; color: #FFFFFF; text-align: center; width: 860px; max-width: 100%; @media(--tablet){ font-size: 52px; line-height: 56px; } @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "CTA lead": "font-family: var(--on-sans); font-weight: 400; font-size: 17px; line-height: 29px; color: rgba(255,255,255,0.8); text-align: center; width: 640px; max-width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }",
+  "CTA buttons": "padding: 0px; width: auto; gap: 16px; justify-content: center; align-items: flex-start; @media(--mobile){ flex-direction: column; align-items: stretch; width: 100%; }"
+ },
+ "classes": {
+  "CTA label row": [
+   "on-eyebrow-row"
+  ],
+  "CTA rule": [
+   "on-rule"
+  ],
+  "CTA label": [
+   "on-eyebrow"
+  ],
+  "CTA rule 2": [
+   "on-rule"
+  ],
+  "CTA quote": [
+   "on-btn-gold"
+  ],
+  "CTA call": [
+   "on-btn-outline-light"
+  ]
+ }
+}

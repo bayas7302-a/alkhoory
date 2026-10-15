@@ -1,0 +1,119 @@
+{
+ "post_id": 26,
+ "xml_structure": "<e-flexbox configuration-id=\"Portfolio\"><e-flexbox configuration-id=\"Portfolio head\"><e-flexbox configuration-id=\"Portfolio head left\"><e-flexbox configuration-id=\"Portfolio label row\"><e-div-block configuration-id=\"Portfolio rule\"></e-div-block><e-paragraph configuration-id=\"Portfolio label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Portfolio title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Portfolio head right\"><e-paragraph configuration-id=\"Portfolio intro\"></e-paragraph><e-button configuration-id=\"Portfolio button\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Portfolio tiles\"><e-flexbox configuration-id=\"Tile 1\"><e-flexbox configuration-id=\"Tile 1 caption\"><e-div-block configuration-id=\"Tile 1 rule\"></e-div-block><e-heading configuration-id=\"Tile 1 title\"></e-heading><e-paragraph configuration-id=\"Tile 1 sub\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Tile 2\"><e-flexbox configuration-id=\"Tile 2 caption\"><e-div-block configuration-id=\"Tile 2 rule\"></e-div-block><e-heading configuration-id=\"Tile 2 title\"></e-heading><e-paragraph configuration-id=\"Tile 2 sub\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Tile 3\"><e-flexbox configuration-id=\"Tile 3 caption\"><e-div-block configuration-id=\"Tile 3 rule\"></e-div-block><e-heading configuration-id=\"Tile 3 title\"></e-heading><e-paragraph configuration-id=\"Tile 3 sub\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Portfolio": {
+   "tag": "section"
+  },
+  "Portfolio label": {
+   "paragraph": "Our portfolio"
+  },
+  "Portfolio title": {
+   "title": "Everything a hospitality venue needs.",
+   "tag": "h2"
+  },
+  "Portfolio intro": {
+   "paragraph": "Twelve curated collections spanning the full guest journey — from the kitchen pass to the poolside bar."
+  },
+  "Portfolio button": {
+   "text": "View all products&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tile 1": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tile 1 title": {
+   "title": "Tabletop",
+   "tag": "h3"
+  },
+  "Tile 1 sub": {
+   "paragraph": "Chinaware · Cutlery · Glassware · Melamine"
+  },
+  "Tile 2": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tile 2 title": {
+   "title": "Buffet &amp; Service",
+   "tag": "h3"
+  },
+  "Tile 2 sub": {
+   "paragraph": "Buffet · FOH Trolleys · Accessories · Kitchen"
+  },
+  "Tile 3": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tile 3 title": {
+   "title": "Bar &amp; Ambience",
+   "tag": "h3"
+  },
+  "Tile 3 sub": {
+   "paragraph": "Bar Items · Drinkware · Table Lamps · Indian"
+  }
+ },
+ "style": {
+  "Portfolio": "flex-direction: column; padding: 120px 100px; gap: 64px; position: relative; overflow: hidden; @media(--tablet){ padding: 96px 40px; gap: 48px; } @media(--mobile){ padding: 72px 20px; gap: 40px; } background: var(--on-cream);",
+  "Portfolio head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; z-index: 1; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 28px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 24px; }",
+  "Portfolio head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%; align-items: flex-start;",
+  "Portfolio label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "Portfolio rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Portfolio label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
+  "Portfolio title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 60px; line-height: 62px; color: var(--on-navy); @media(--tablet){ font-size: 46px; line-height: 50px; } @media(--mobile){ font-size: 36px; line-height: 40px; }",
+  "Portfolio head right": "flex-direction: column; gap: 24px; padding: 0px; width: 420px; max-width: 100%; align-items: flex-start;",
+  "Portfolio intro": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: var(--on-muted);",
+  "Portfolio tiles": "padding: 0px; gap: 24px; @media(--tablet){ flex-wrap: wrap; } @media(--mobile){ flex-direction: column; gap: 20px; }",
+  "Tile 1": "position: relative; overflow: hidden; height: 520px; flex: 1 1 0px; min-width: 0px; padding: 0px; background-color: #071F44; background-image: linear-gradient(180deg, rgba(7,31,68,0) 35%, rgba(7,31,68,0.92) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/about-story-inset.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ flex: 1 1 calc(50% - 12px); height: 440px; } @media(--mobile){ flex: 0 0 auto; width: 100%; height: 400px; }",
+  "Tile 1 caption": "position: absolute; left: 32px; bottom: 32px; width: 340px; max-width: calc(100% - 64px); flex-direction: column; gap: 12px; padding: 0px; align-items: flex-start;",
+  "Tile 1 rule": "width: 48px; min-width: 48px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Tile 1 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 40px; line-height: 42px; color: #FFFFFF; @media(--mobile){ font-size: 34px; line-height: 38px; }",
+  "Tile 1 sub": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; line-height: 22px; color: rgba(255,255,255,0.8);",
+  "Tile 2": "position: relative; overflow: hidden; height: 520px; flex: 1 1 0px; min-width: 0px; padding: 0px; background-color: #071F44; background-image: linear-gradient(180deg, rgba(7,31,68,0) 35%, rgba(7,31,68,0.92) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/about-portfolio-buffet.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ flex: 1 1 calc(50% - 12px); height: 440px; } @media(--mobile){ flex: 0 0 auto; width: 100%; height: 400px; }",
+  "Tile 2 caption": "position: absolute; left: 32px; bottom: 32px; width: 340px; max-width: calc(100% - 64px); flex-direction: column; gap: 12px; padding: 0px; align-items: flex-start;",
+  "Tile 2 rule": "width: 48px; min-width: 48px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Tile 2 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 40px; line-height: 42px; color: #FFFFFF; @media(--mobile){ font-size: 34px; line-height: 38px; }",
+  "Tile 2 sub": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; line-height: 22px; color: rgba(255,255,255,0.8);",
+  "Tile 3": "position: relative; overflow: hidden; height: 520px; flex: 1 1 0px; min-width: 0px; padding: 0px; background-color: #071F44; background-image: linear-gradient(180deg, rgba(7,31,68,0) 35%, rgba(7,31,68,0.92) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/about-portfolio-bar.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ flex: 1 1 calc(50% - 12px); height: 440px; } @media(--mobile){ flex: 0 0 auto; width: 100%; height: 400px; }",
+  "Tile 3 caption": "position: absolute; left: 32px; bottom: 32px; width: 340px; max-width: calc(100% - 64px); flex-direction: column; gap: 12px; padding: 0px; align-items: flex-start;",
+  "Tile 3 rule": "width: 48px; min-width: 48px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Tile 3 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 40px; line-height: 42px; color: #FFFFFF; @media(--mobile){ font-size: 34px; line-height: 38px; }",
+  "Tile 3 sub": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; line-height: 22px; color: rgba(255,255,255,0.8);"
+ },
+ "classes": {
+  "Portfolio label row": [
+   "on-eyebrow-row"
+  ],
+  "Portfolio rule": [
+   "on-rule"
+  ],
+  "Portfolio label": [
+   "on-eyebrow"
+  ],
+  "Portfolio button": [
+   "on-btn-outline-navy"
+  ],
+  "Tile 1 rule": [
+   "on-rule"
+  ],
+  "Tile 2 rule": [
+   "on-rule"
+  ],
+  "Tile 3 rule": [
+   "on-rule"
+  ]
+ }
+}

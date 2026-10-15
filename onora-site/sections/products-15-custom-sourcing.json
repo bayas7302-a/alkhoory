@@ -1,0 +1,102 @@
+{
+ "xml_structure": "<e-flexbox configuration-id=\"Custom sourcing\"><e-div-block configuration-id=\"CS ring outer\"></e-div-block><e-div-block configuration-id=\"CS ring inner\"></e-div-block><e-flexbox configuration-id=\"CS text\"><e-flexbox configuration-id=\"CS label row\"><e-div-block configuration-id=\"CS rule\"></e-div-block><e-paragraph configuration-id=\"CS label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"CS title\"></e-heading><e-paragraph configuration-id=\"CS lead\"></e-paragraph><e-flexbox configuration-id=\"CS buttons\"><e-button configuration-id=\"CS send\"></e-button><e-button configuration-id=\"CS call\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"CS services\"><e-flexbox configuration-id=\"CS service 1\"><e-heading configuration-id=\"CS service 1 title\"></e-heading><e-paragraph configuration-id=\"CS service 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"CS service 2\"><e-heading configuration-id=\"CS service 2 title\"></e-heading><e-paragraph configuration-id=\"CS service 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"CS service 3\"><e-heading configuration-id=\"CS service 3 title\"></e-heading><e-paragraph configuration-id=\"CS service 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"CS service 4\"><e-heading configuration-id=\"CS service 4 title\"></e-heading><e-paragraph configuration-id=\"CS service 4 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Custom sourcing": {
+   "tag": "section"
+  },
+  "CS label": {
+   "paragraph": "Custom sourcing"
+  },
+  "CS title": {
+   "title": "Can’t find exactly what you need?",
+   "tag": "h2"
+  },
+  "CS lead": {
+   "paragraph": "Matching an existing pattern, sourcing a special finish or equipping a new concept from scratch — our team will find it, sample it and deliver it."
+  },
+  "CS send": {
+   "text": "Send your requirements&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "CS call": {
+   "text": "Call +971 50 203 8005&nbsp;&nbsp;→",
+   "link": {
+    "destination": "tel:+971502038005",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "CS service 1 title": {
+   "title": "Pre-opening packages",
+   "tag": "h3"
+  },
+  "CS service 1 text": {
+   "paragraph": "Complete operating-equipment lists for new hotels and outlets."
+  },
+  "CS service 2 title": {
+   "title": "Pattern matching",
+   "tag": "h3"
+  },
+  "CS service 2 text": {
+   "paragraph": "Replacements and top-ups for existing tableware."
+  },
+  "CS service 3 title": {
+   "title": "Custom branding",
+   "tag": "h3"
+  },
+  "CS service 3 text": {
+   "paragraph": "Logo-printed, engraved and bespoke pieces."
+  },
+  "CS service 4 title": {
+   "title": "Samples &amp; trials",
+   "tag": "h3"
+  },
+  "CS service 4 text": {
+   "paragraph": "Try key items on your tables before you order."
+  }
+ },
+ "style": {
+  "Custom sourcing": "background: #071F44; padding: 110px 100px; gap: 80px; align-items: center; position: relative; overflow: hidden; min-height: 620px; @media(--tablet){ flex-direction: column; align-items: stretch; padding: 88px 40px; gap: 48px; min-height: 0px; } @media(--mobile){ flex-direction: column; align-items: stretch; padding: 64px 20px; gap: 40px; min-height: 0px; }",
+  "CS ring outer": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -180px; left: -160px; width: 640px; height: 640px; min-width: 640px; border-width: 1.2px; border-color: rgba(201,150,46,0.35); @media(--mobile){ display: none; }",
+  "CS ring inner": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -90px; left: -70px; width: 460px; height: 460px; min-width: 460px; border-width: 1px; border-color: rgba(201,150,46,0.2); @media(--mobile){ display: none; }",
+  "CS text": "flex-direction: column; gap: 24px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; z-index: 1;",
+  "CS label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "CS rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "CS label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #E2BB6C; line-height: 1.2;",
+  "CS title": "font-family: var(--on-serif); font-weight: 600; font-size: 60px; line-height: 62px; letter-spacing: -0.3px; color: #FFFFFF; width: 100%; @media(--tablet){ font-size: 50px; line-height: 54px; } @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "CS lead": "font-family: var(--on-sans); font-weight: 400; font-size: 17px; line-height: 30px; color: rgba(255,255,255,0.78); width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }",
+  "CS buttons": "padding: 0px; width: auto; gap: 16px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ flex-direction: column; align-items: stretch; width: 100%; gap: 12px; }",
+  "CS services": "flex-direction: column; padding: 0px; width: 480px; min-width: 480px; flex-shrink: 0; gap: 0px; z-index: 1; @media(--tablet){ width: 100%; min-width: 0px; } @media(--mobile){ width: 100%; min-width: 0px; }",
+  "CS service 1": "flex-direction: column; gap: 6px; padding: 22px 0px; width: 100%; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "CS service 1 title": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 27px; letter-spacing: -0.3px; color: #FFFFFF; @media(--mobile){ font-size: 23px; line-height: 26px; }",
+  "CS service 1 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.7);",
+  "CS service 2": "flex-direction: column; gap: 6px; padding: 22px 0px; width: 100%; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "CS service 2 title": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 27px; letter-spacing: -0.3px; color: #FFFFFF; @media(--mobile){ font-size: 23px; line-height: 26px; }",
+  "CS service 2 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.7);",
+  "CS service 3": "flex-direction: column; gap: 6px; padding: 22px 0px; width: 100%; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "CS service 3 title": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 27px; letter-spacing: -0.3px; color: #FFFFFF; @media(--mobile){ font-size: 23px; line-height: 26px; }",
+  "CS service 3 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.7);",
+  "CS service 4": "flex-direction: column; gap: 6px; padding: 22px 0px; width: 100%; align-items: flex-start; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
+  "CS service 4 title": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 27px; letter-spacing: -0.3px; color: #FFFFFF; @media(--mobile){ font-size: 23px; line-height: 26px; }",
+  "CS service 4 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.7);"
+ },
+ "classes": {
+  "CS label row": [
+   "on-eyebrow-row"
+  ],
+  "CS rule": [
+   "on-rule"
+  ],
+  "CS send": [
+   "on-btn-gold"
+  ],
+  "CS call": [
+   "on-btn-outline-light"
+  ]
+ },
+ "post_id": 28
+}

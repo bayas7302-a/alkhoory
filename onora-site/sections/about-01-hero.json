@@ -1,0 +1,34 @@
+{
+ "post_id": 26,
+ "xml_structure": "<e-flexbox configuration-id=\"About hero\"><e-div-block configuration-id=\"Hero ring outer\"></e-div-block><e-div-block configuration-id=\"Hero ring inner\"></e-div-block><e-flexbox configuration-id=\"Hero content\"><e-paragraph configuration-id=\"Hero breadcrumb\"></e-paragraph><e-heading configuration-id=\"Hero title\"></e-heading><e-div-block configuration-id=\"Hero rule\"></e-div-block><e-paragraph configuration-id=\"Hero lead\"></e-paragraph></e-flexbox></e-flexbox>",
+ "element_config": {
+  "About hero": {
+   "tag": "section"
+  },
+  "Hero breadcrumb": {
+   "paragraph": "Home&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;About Us"
+  },
+  "Hero title": {
+   "title": "Elevating hospitality, one table at a time.",
+   "tag": "h1"
+  },
+  "Hero lead": {
+   "paragraph": "A Dubai-based supplier of premium hotel, restaurant and café essentials — bringing trusted international brands to the UAE hospitality industry."
+  }
+ },
+ "style": {
+  "About hero": "min-height: 560px; padding: 103px 100px 80px 100px; position: relative; overflow: hidden; flex-direction: column; align-items: flex-start; background-color: #071F44; background-image: linear-gradient(90deg, rgba(7,31,68,0.96) 0%, rgba(11,47,98,0.78) 55%, rgba(11,47,98,0.3) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/about-hero-bg.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ padding: 88px 40px 72px 40px; min-height: 480px; } @media(--mobile){ padding: 64px 20px 56px 20px; min-height: 0px; }",
+  "Hero ring outer": "position: absolute; top: -120px; right: -160px; width: 620px; height: 620px; min-width: 620px; padding: 0px; border-radius: 50%; border-width: 1.2px; border-style: solid; border-color: rgba(201,150,46,0.45); z-index: 0; @media(--mobile){ display: none; }",
+  "Hero ring inner": "position: absolute; top: -45px; right: -85px; width: 470px; height: 470px; min-width: 470px; padding: 0px; border-radius: 50%; border-width: 1px; border-style: solid; border-color: rgba(201,150,46,0.25); z-index: 0; @media(--mobile){ display: none; }",
+  "Hero content": "flex-direction: column; gap: 24px; padding: 0px; width: 780px; max-width: 100%; align-items: flex-start; z-index: 1;",
+  "Hero breadcrumb": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); line-height: 1.2;",
+  "Hero title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 88px; line-height: 88px; color: #FFFFFF; @media(--tablet){ font-size: 64px; line-height: 66px; } @media(--mobile){ font-size: 44px; line-height: 48px; }",
+  "Hero rule": "width: 90px; min-width: 90px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Hero lead": "font-family: var(--on-sans); font-weight: 400; font-size: 17px; line-height: 30px; color: rgba(255,255,255,0.82); width: 560px; max-width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }"
+ },
+ "classes": {
+  "Hero rule": [
+   "on-rule"
+  ]
+ }
+}

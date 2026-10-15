@@ -1,0 +1,78 @@
+{
+ "post_id": 26,
+ "xml_structure": "<e-flexbox configuration-id=\"Mission vision\"><e-flexbox configuration-id=\"MV head\"><e-flexbox configuration-id=\"MV label row\"><e-div-block configuration-id=\"MV rule\"></e-div-block><e-paragraph configuration-id=\"MV label\"></e-paragraph><e-div-block configuration-id=\"MV rule 2\"></e-div-block></e-flexbox><e-heading configuration-id=\"MV title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"MV cards\"><e-flexbox configuration-id=\"Card Mission\"><e-div-block configuration-id=\"Card Mission ring\"></e-div-block><e-paragraph configuration-id=\"Card Mission num\"></e-paragraph><e-heading configuration-id=\"Card Mission title\"></e-heading><e-div-block configuration-id=\"Card Mission rule\"></e-div-block><e-paragraph configuration-id=\"Card Mission body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Card Vision\"><e-div-block configuration-id=\"Card Vision ring\"></e-div-block><e-paragraph configuration-id=\"Card Vision num\"></e-paragraph><e-heading configuration-id=\"Card Vision title\"></e-heading><e-div-block configuration-id=\"Card Vision rule\"></e-div-block><e-paragraph configuration-id=\"Card Vision body\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Mission vision": {
+   "tag": "section"
+  },
+  "MV label": {
+   "paragraph": "What drives us"
+  },
+  "MV title": {
+   "title": "Purpose in every piece we supply.",
+   "tag": "h2"
+  },
+  "Card Mission num": {
+   "paragraph": "01 — Mission"
+  },
+  "Card Mission title": {
+   "title": "Our mission",
+   "tag": "h3"
+  },
+  "Card Mission body": {
+   "paragraph": "To equip hospitality businesses with premium, dependable products and genuinely helpful service — so every team can deliver memorable guest experiences with confidence."
+  },
+  "Card Vision num": {
+   "paragraph": "02 — Vision"
+  },
+  "Card Vision title": {
+   "title": "Our vision",
+   "tag": "h3"
+  },
+  "Card Vision body": {
+   "paragraph": "To be the most trusted hospitality supply partner in the region, recognised for curated quality, design-led thinking and long-term relationships with the venues we serve."
+  }
+ },
+ "style": {
+  "Mission vision": "flex-direction: column; padding: 120px 100px; gap: 64px; position: relative; overflow: hidden; @media(--tablet){ padding: 96px 40px; gap: 48px; } @media(--mobile){ padding: 72px 20px; gap: 40px; } background: #FFFFFF;",
+  "MV head": "flex-direction: column; gap: 22px; padding: 0px; align-items: center;",
+  "MV label row": "padding: 0px; width: auto; gap: 14px; align-items: center; justify-content: center;",
+  "MV rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "MV label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
+  "MV rule 2": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "MV title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 60px; line-height: 62px; color: var(--on-navy); @media(--tablet){ font-size: 46px; line-height: 50px; } @media(--mobile){ font-size: 36px; line-height: 40px; } text-align: center; width: 820px; max-width: 100%;",
+  "MV cards": "padding: 0px; gap: 24px; align-items: stretch; @media(--mobile){ flex-direction: column; }",
+  "Card Mission": "flex-direction: column; gap: 24px; padding: 64px 56px; flex: 1 1 0px; min-width: 0px; position: relative; overflow: hidden; background: var(--on-navy); align-items: flex-start; @media(--tablet){ padding: 48px 36px; } @media(--mobile){ padding: 44px 28px; flex: 0 0 auto; width: 100%; }",
+  "Card Mission ring": "position: absolute; left: 360px; top: -120px; width: 340px; height: 340px; min-width: 340px; padding: 0px; border-radius: 50%; border-width: 1.2px; border-style: solid; border-color: rgba(201,150,46,0.45); z-index: 0; @media(--tablet){ left: auto; right: -140px; } @media(--mobile){ left: auto; right: -160px; }",
+  "Card Mission num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1.2; color: var(--on-gold-soft); z-index: 1;",
+  "Card Mission title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 48px; line-height: 50px; color: #FFFFFF; z-index: 1; @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "Card Mission rule": "width: 64px; min-width: 64px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Card Mission body": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: rgba(255,255,255,0.8); z-index: 1;",
+  "Card Vision": "flex-direction: column; gap: 24px; padding: 64px 56px; flex: 1 1 0px; min-width: 0px; position: relative; overflow: hidden; background: var(--on-cream); align-items: flex-start; @media(--tablet){ padding: 48px 36px; } @media(--mobile){ padding: 44px 28px; flex: 0 0 auto; width: 100%; }",
+  "Card Vision ring": "position: absolute; left: 360px; top: -120px; width: 340px; height: 340px; min-width: 340px; padding: 0px; border-radius: 50%; border-width: 1.2px; border-style: solid; border-color: rgba(201,150,46,0.5); z-index: 0; @media(--tablet){ left: auto; right: -140px; } @media(--mobile){ left: auto; right: -160px; }",
+  "Card Vision num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1.2; color: #C9962E; z-index: 1;",
+  "Card Vision title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 48px; line-height: 50px; color: var(--on-navy); z-index: 1; @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "Card Vision rule": "width: 64px; min-width: 64px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Card Vision body": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: var(--on-muted); z-index: 1;"
+ },
+ "classes": {
+  "MV label row": [
+   "on-eyebrow-row"
+  ],
+  "MV rule": [
+   "on-rule"
+  ],
+  "MV label": [
+   "on-eyebrow"
+  ],
+  "MV rule 2": [
+   "on-rule"
+  ],
+  "Card Mission rule": [
+   "on-rule"
+  ],
+  "Card Vision rule": [
+   "on-rule"
+  ]
+ }
+}

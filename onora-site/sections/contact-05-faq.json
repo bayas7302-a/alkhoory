@@ -1,0 +1,119 @@
+{
+ "post_id": 29,
+ "xml_structure": "<e-flexbox configuration-id=\"FAQ\"><e-flexbox configuration-id=\"FAQ row\"><e-flexbox configuration-id=\"FAQ intro\"><e-flexbox configuration-id=\"FAQ label\"><e-div-block configuration-id=\"FAQ rule\"></e-div-block><e-paragraph configuration-id=\"FAQ eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"FAQ title\"></e-heading><e-paragraph configuration-id=\"FAQ lead\"></e-paragraph></e-flexbox><e-accordion configuration-id=\"FAQ accordion\"><e-accordion-item configuration-id=\"Q1\"><e-accordion-item-header configuration-id=\"Q1 header\"><e-accordion-item-title configuration-id=\"Q1 title wrap\"><e-paragraph configuration-id=\"Q1 question\"></e-paragraph></e-accordion-item-title><e-accordion-item-icon configuration-id=\"Q1 icon wrap\"><e-paragraph configuration-id=\"Q1 icon\"></e-paragraph></e-accordion-item-icon></e-accordion-item-header><e-accordion-item-content configuration-id=\"Q1 content\"><e-paragraph configuration-id=\"Q1 answer\"></e-paragraph></e-accordion-item-content></e-accordion-item><e-accordion-item configuration-id=\"Q2\"><e-accordion-item-header configuration-id=\"Q2 header\"><e-accordion-item-title configuration-id=\"Q2 title wrap\"><e-paragraph configuration-id=\"Q2 question\"></e-paragraph></e-accordion-item-title><e-accordion-item-icon configuration-id=\"Q2 icon wrap\"><e-paragraph configuration-id=\"Q2 icon\"></e-paragraph></e-accordion-item-icon></e-accordion-item-header><e-accordion-item-content configuration-id=\"Q2 content\"><e-paragraph configuration-id=\"Q2 answer\"></e-paragraph></e-accordion-item-content></e-accordion-item><e-accordion-item configuration-id=\"Q3\"><e-accordion-item-header configuration-id=\"Q3 header\"><e-accordion-item-title configuration-id=\"Q3 title wrap\"><e-paragraph configuration-id=\"Q3 question\"></e-paragraph></e-accordion-item-title><e-accordion-item-icon configuration-id=\"Q3 icon wrap\"><e-paragraph configuration-id=\"Q3 icon\"></e-paragraph></e-accordion-item-icon></e-accordion-item-header><e-accordion-item-content configuration-id=\"Q3 content\"><e-paragraph configuration-id=\"Q3 answer\"></e-paragraph></e-accordion-item-content></e-accordion-item><e-accordion-item configuration-id=\"Q4\"><e-accordion-item-header configuration-id=\"Q4 header\"><e-accordion-item-title configuration-id=\"Q4 title wrap\"><e-paragraph configuration-id=\"Q4 question\"></e-paragraph></e-accordion-item-title><e-accordion-item-icon configuration-id=\"Q4 icon wrap\"><e-paragraph configuration-id=\"Q4 icon\"></e-paragraph></e-accordion-item-icon></e-accordion-item-header><e-accordion-item-content configuration-id=\"Q4 content\"><e-paragraph configuration-id=\"Q4 answer\"></e-paragraph></e-accordion-item-content></e-accordion-item><e-accordion-item configuration-id=\"Q5\"><e-accordion-item-header configuration-id=\"Q5 header\"><e-accordion-item-title configuration-id=\"Q5 title wrap\"><e-paragraph configuration-id=\"Q5 question\"></e-paragraph></e-accordion-item-title><e-accordion-item-icon configuration-id=\"Q5 icon wrap\"><e-paragraph configuration-id=\"Q5 icon\"></e-paragraph></e-accordion-item-icon></e-accordion-item-header><e-accordion-item-content configuration-id=\"Q5 content\"><e-paragraph configuration-id=\"Q5 answer\"></e-paragraph></e-accordion-item-content></e-accordion-item></e-accordion></e-flexbox></e-flexbox>",
+ "element_config": {
+  "FAQ eyebrow": {
+   "paragraph": "Good to know"
+  },
+  "FAQ title": {
+   "tag": "h2",
+   "title": "Frequently asked questions."
+  },
+  "FAQ lead": {
+   "paragraph": "Anything else? <a href=\"tel:+971502038005\" style=\"color:inherit\">Call</a> or <a href=\"mailto:jason@onorahs.com\" style=\"color:inherit\">email</a> us and we will be happy to help."
+  },
+  "FAQ accordion": {
+   "default_state": "first_expanded",
+   "max_expanded": "one",
+   "show_icon": true,
+   "faq_schema": true
+  },
+  "Q1 question": {
+   "paragraph": "Do you supply outside Dubai?"
+  },
+  "Q1 icon": {
+   "paragraph": "+"
+  },
+  "Q1 answer": {
+   "paragraph": "Yes — we deliver across all seven emirates and can support projects in the wider GCC on request."
+  },
+  "Q2 question": {
+   "paragraph": "Can I order samples before committing?"
+  },
+  "Q2 icon": {
+   "paragraph": "+"
+  },
+  "Q2 answer": {
+   "paragraph": "Absolutely. We offer samples upon request to help you make confident purchasing decisions."
+  },
+  "Q3 question": {
+   "paragraph": "Do you handle full pre-opening packages?"
+  },
+  "Q3 icon": {
+   "paragraph": "+"
+  },
+  "Q3 answer": {
+   "paragraph": "Yes — we can bring chinaware, cutlery, glassware, buffet, bar and service equipment together in one tailored proposal for your opening. Share your outlet list and timeline and we will take it from there."
+  },
+  "Q4 question": {
+   "paragraph": "Can you add our logo to tableware?"
+  },
+  "Q4 icon": {
+   "paragraph": "+"
+  },
+  "Q4 answer": {
+   "paragraph": "Custom branding depends on the brand, product and quantity. Tell us what you have in mind and we will advise on the available options."
+  },
+  "Q5 question": {
+   "paragraph": "How quickly will I receive a quotation?"
+  },
+  "Q5 icon": {
+   "paragraph": "+"
+  },
+  "Q5 answer": {
+   "paragraph": "Usually within one working day of receiving your enquiry, depending on the size of the request."
+  }
+ },
+ "style": {
+  "FAQ": "background: #F7F4EE; flex-direction: column; padding: 120px 100px; @media(--tablet){ padding: 96px 40px; } @media(--mobile){ padding: 72px 20px; }",
+  "FAQ row": "padding: 0px; gap: 96px; align-items: flex-start; @media(--tablet){ flex-direction: column; gap: 48px; } @media(--mobile){ flex-direction: column; gap: 36px; }",
+  "FAQ intro": "flex-direction: column; gap: 24px; padding: 0px; width: 400px; min-width: 400px; align-items: flex-start; @media(--tablet){ width: 100%; min-width: 0px; } @media(--mobile){ width: 100%; min-width: 0px; }",
+  "FAQ label": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "FAQ rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "FAQ eyebrow": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E;",
+  "FAQ title": "font-family: var(--on-serif); font-weight: 600; font-size: 56px; line-height: 58px; letter-spacing: -0.3px; color: #0B2F62; @media(--tablet){ font-size: 48px; line-height: 52px; } @media(--mobile){ font-size: 40px; line-height: 44px; }",
+  "FAQ lead": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: #5F6675;",
+  "FAQ accordion": "flex: 1 1 0px; min-width: 0px; padding: 0px; gap: 0px; @media(--tablet){ width: 100%; flex: 1 1 auto; } @media(--mobile){ width: 100%; flex: 1 1 auto; }",
+  "Q1": "padding: 0px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Q1 header": "padding: 28px 0px; gap: 20px; justify-content: space-between; align-items: center;",
+  "Q1 title wrap": "padding: 0px;",
+  "Q1 question": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 22px; line-height: 27px; }",
+  "Q1 icon wrap": "width: auto; height: auto; padding: 0px;",
+  "Q1 icon": "font-family: var(--on-sans); font-weight: 500; font-size: 24px; line-height: 1; color: #C9962E;",
+  "Q1 content": "padding: 0px 0px 28px 0px;",
+  "Q1 answer": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 27px; color: #5F6675;",
+  "Q2": "padding: 0px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Q2 header": "padding: 28px 0px; gap: 20px; justify-content: space-between; align-items: center;",
+  "Q2 title wrap": "padding: 0px;",
+  "Q2 question": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 22px; line-height: 27px; }",
+  "Q2 icon wrap": "width: auto; height: auto; padding: 0px;",
+  "Q2 icon": "font-family: var(--on-sans); font-weight: 500; font-size: 24px; line-height: 1; color: #C9962E;",
+  "Q2 content": "padding: 0px 0px 28px 0px;",
+  "Q2 answer": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 27px; color: #5F6675;",
+  "Q3": "padding: 0px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Q3 header": "padding: 28px 0px; gap: 20px; justify-content: space-between; align-items: center;",
+  "Q3 title wrap": "padding: 0px;",
+  "Q3 question": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 22px; line-height: 27px; }",
+  "Q3 icon wrap": "width: auto; height: auto; padding: 0px;",
+  "Q3 icon": "font-family: var(--on-sans); font-weight: 500; font-size: 24px; line-height: 1; color: #C9962E;",
+  "Q3 content": "padding: 0px 0px 28px 0px;",
+  "Q3 answer": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 27px; color: #5F6675;",
+  "Q4": "padding: 0px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Q4 header": "padding: 28px 0px; gap: 20px; justify-content: space-between; align-items: center;",
+  "Q4 title wrap": "padding: 0px;",
+  "Q4 question": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 22px; line-height: 27px; }",
+  "Q4 icon wrap": "width: auto; height: auto; padding: 0px;",
+  "Q4 icon": "font-family: var(--on-sans); font-weight: 500; font-size: 24px; line-height: 1; color: #C9962E;",
+  "Q4 content": "padding: 0px 0px 28px 0px;",
+  "Q4 answer": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 27px; color: #5F6675;",
+  "Q5": "padding: 0px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Q5 header": "padding: 28px 0px; gap: 20px; justify-content: space-between; align-items: center;",
+  "Q5 title wrap": "padding: 0px;",
+  "Q5 question": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 32px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 22px; line-height: 27px; }",
+  "Q5 icon wrap": "width: auto; height: auto; padding: 0px;",
+  "Q5 icon": "font-family: var(--on-sans); font-weight: 500; font-size: 24px; line-height: 1; color: #C9962E;",
+  "Q5 content": "padding: 0px 0px 28px 0px;",
+  "Q5 answer": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 27px; color: #5F6675;"
+ },
+ "classes": {}
+}

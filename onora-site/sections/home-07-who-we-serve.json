@@ -1,0 +1,171 @@
+{
+ "post_id": 25,
+ "xml_structure": "<e-flexbox configuration-id=\"Who we serve\"><e-flexbox configuration-id=\"Serve head\"><e-flexbox configuration-id=\"Serve head left\"><e-flexbox configuration-id=\"Serve eyebrow\"><e-div-block configuration-id=\"Serve eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Serve eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Serve title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Serve head right\"><e-paragraph configuration-id=\"Serve intro\"></e-paragraph></e-flexbox></e-flexbox><e-grid configuration-id=\"Sector cards\"><e-flexbox configuration-id=\"Sector hotels\"><e-image configuration-id=\"Sector hotels image\"></e-image><e-flexbox configuration-id=\"Sector hotels row\"><e-paragraph configuration-id=\"Sector hotels title\"></e-paragraph><e-paragraph configuration-id=\"Sector hotels arrow\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Sector hotels desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Sector restaurants\"><e-image configuration-id=\"Sector restaurants image\"></e-image><e-flexbox configuration-id=\"Sector restaurants row\"><e-paragraph configuration-id=\"Sector restaurants title\"></e-paragraph><e-paragraph configuration-id=\"Sector restaurants arrow\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Sector restaurants desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Sector cafes\"><e-image configuration-id=\"Sector cafes image\"></e-image><e-flexbox configuration-id=\"Sector cafes row\"><e-paragraph configuration-id=\"Sector cafes title\"></e-paragraph><e-paragraph configuration-id=\"Sector cafes arrow\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Sector cafes desc\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Sector banquets\"><e-image configuration-id=\"Sector banquets image\"></e-image><e-flexbox configuration-id=\"Sector banquets row\"><e-paragraph configuration-id=\"Sector banquets title\"></e-paragraph><e-paragraph configuration-id=\"Sector banquets arrow\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Sector banquets desc\"></e-paragraph></e-flexbox></e-grid></e-flexbox>",
+ "element_config": {
+  "Serve eyebrow text": {
+   "paragraph": "Who we serve"
+  },
+  "Serve title": {
+   "tag": "h2",
+   "title": "Made for every kind of hospitality."
+  },
+  "Serve intro": {
+   "paragraph": "Whether you run a resort, a fine-dining room or a neighbourhood café, we tailor the range to your service style."
+  },
+  "Sector hotels": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Sector hotels image": {
+   "image": {
+    "src": {
+     "id": 88
+    },
+    "size": "full"
+   }
+  },
+  "Sector hotels title": {
+   "paragraph": "Hotels &amp; Resorts"
+  },
+  "Sector hotels arrow": {
+   "paragraph": "→"
+  },
+  "Sector hotels desc": {
+   "paragraph": "All-day dining, banquets, room service and pool."
+  },
+  "Sector restaurants": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Sector restaurants image": {
+   "image": {
+    "src": {
+     "id": 89
+    },
+    "size": "full"
+   }
+  },
+  "Sector restaurants title": {
+   "paragraph": "Restaurants"
+  },
+  "Sector restaurants arrow": {
+   "paragraph": "→"
+  },
+  "Sector restaurants desc": {
+   "paragraph": "Fine dining to casual — tableware with character."
+  },
+  "Sector cafes": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Sector cafes image": {
+   "image": {
+    "src": {
+     "id": 87
+    },
+    "size": "full"
+   }
+  },
+  "Sector cafes title": {
+   "paragraph": "Cafés &amp; Lounges"
+  },
+  "Sector cafes arrow": {
+   "paragraph": "→"
+  },
+  "Sector cafes desc": {
+   "paragraph": "Durable, beautiful pieces for high turnover."
+  },
+  "Sector banquets": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Sector banquets image": {
+   "image": {
+    "src": {
+     "id": 86
+    },
+    "size": "full"
+   }
+  },
+  "Sector banquets title": {
+   "paragraph": "Banquets &amp; Catering"
+  },
+  "Sector banquets arrow": {
+   "paragraph": "→"
+  },
+  "Sector banquets desc": {
+   "paragraph": "Buffet, display and service for every event size."
+  }
+ },
+ "style": {
+  "Who we serve": "background-color: #FFFFFF; gap: 64px; @media(--mobile){ gap: 40px; }",
+  "Serve head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 24px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 20px; }",
+  "Serve head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%;",
+  "Serve head right": "flex-direction: column; gap: 24px; padding: 0px; width: 420px; max-width: 100%; align-items: flex-start;",
+  "Sector cards": "padding: 0px; gap: 20px; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(1, auto); @media(--tablet){ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, auto); gap: 40px; } @media(--mobile){ grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(4, auto); gap: 36px; }",
+  "Sector hotels": "flex-direction: column; gap: 18px; padding: 0px; align-items: stretch;",
+  "Sector hotels image": "width: 100%; height: 360px; object-fit: cover; @media(--mobile){ height: 260px; }",
+  "Sector hotels row": "padding: 0px; justify-content: space-between; align-items: center; gap: 12px;",
+  "Sector hotels title": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 26px; }",
+  "Sector hotels arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; color: var(--on-gold);",
+  "Sector restaurants": "flex-direction: column; gap: 18px; padding: 0px; align-items: stretch;",
+  "Sector restaurants image": "width: 100%; height: 360px; object-fit: cover; @media(--mobile){ height: 260px; }",
+  "Sector restaurants row": "padding: 0px; justify-content: space-between; align-items: center; gap: 12px;",
+  "Sector restaurants title": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 26px; }",
+  "Sector restaurants arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; color: var(--on-gold);",
+  "Sector cafes": "flex-direction: column; gap: 18px; padding: 0px; align-items: stretch;",
+  "Sector cafes image": "width: 100%; height: 360px; object-fit: cover; @media(--mobile){ height: 260px; }",
+  "Sector cafes row": "padding: 0px; justify-content: space-between; align-items: center; gap: 12px;",
+  "Sector cafes title": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 26px; }",
+  "Sector cafes arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; color: var(--on-gold);",
+  "Sector banquets": "flex-direction: column; gap: 18px; padding: 0px; align-items: stretch;",
+  "Sector banquets image": "width: 100%; height: 360px; object-fit: cover; @media(--mobile){ height: 260px; }",
+  "Sector banquets row": "padding: 0px; justify-content: space-between; align-items: center; gap: 12px;",
+  "Sector banquets title": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy); @media(--tablet){ font-size: 26px; }",
+  "Sector banquets arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; color: var(--on-gold);"
+ },
+ "classes": {
+  "Who we serve": [
+   "on-section"
+  ],
+  "Serve eyebrow": [
+   "on-eyebrow-row"
+  ],
+  "Serve eyebrow rule": [
+   "on-rule"
+  ],
+  "Serve eyebrow text": [
+   "on-eyebrow"
+  ],
+  "Serve title": [
+   "on-h2"
+  ],
+  "Serve intro": [
+   "on-body"
+  ],
+  "Sector hotels desc": [
+   "on-small"
+  ],
+  "Sector restaurants desc": [
+   "on-small"
+  ],
+  "Sector cafes desc": [
+   "on-small"
+  ],
+  "Sector banquets desc": [
+   "on-small"
+  ]
+ }
+}

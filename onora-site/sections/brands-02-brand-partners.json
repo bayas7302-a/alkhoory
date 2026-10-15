@@ -1,0 +1,811 @@
+{
+ "post_id": 27,
+ "xml_structure": "<e-flexbox configuration-id=\"Brand partners\"><e-flexbox configuration-id=\"Partners inner\"><e-flexbox configuration-id=\"Partners head\"><e-flexbox configuration-id=\"Partners head left\"><e-flexbox configuration-id=\"Partners label\"><e-div-block configuration-id=\"Partners rule\"></e-div-block><e-paragraph configuration-id=\"Partners eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Partners title\"></e-heading></e-flexbox><e-paragraph configuration-id=\"Partners lead\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Filter chips\"><e-paragraph configuration-id=\"Chip 1\"></e-paragraph><e-paragraph configuration-id=\"Chip 2\"></e-paragraph><e-paragraph configuration-id=\"Chip 3\"></e-paragraph><e-paragraph configuration-id=\"Chip 4\"></e-paragraph><e-paragraph configuration-id=\"Chip 5\"></e-paragraph><e-paragraph configuration-id=\"Chip 6\"></e-paragraph><e-paragraph configuration-id=\"Chip 7\"></e-paragraph><e-paragraph configuration-id=\"Chip 8\"></e-paragraph></e-flexbox><e-grid configuration-id=\"Brand grid\"><e-flexbox configuration-id=\"Brand 1\"><e-flexbox configuration-id=\"Brand 1 logo area\"><e-div-block configuration-id=\"Brand 1 ring\"></e-div-block><e-image configuration-id=\"Brand 1 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 1 body\"><e-paragraph configuration-id=\"Brand 1 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 1 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 1 foot\"><e-paragraph configuration-id=\"Brand 1 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 1 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 2\"><e-flexbox configuration-id=\"Brand 2 logo area\"><e-div-block configuration-id=\"Brand 2 ring\"></e-div-block><e-image configuration-id=\"Brand 2 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 2 body\"><e-paragraph configuration-id=\"Brand 2 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 2 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 2 foot\"><e-paragraph configuration-id=\"Brand 2 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 2 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 3\"><e-flexbox configuration-id=\"Brand 3 logo area\"><e-div-block configuration-id=\"Brand 3 ring\"></e-div-block><e-image configuration-id=\"Brand 3 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 3 body\"><e-paragraph configuration-id=\"Brand 3 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 3 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 3 foot\"><e-paragraph configuration-id=\"Brand 3 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 3 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 4\"><e-flexbox configuration-id=\"Brand 4 logo area\"><e-image configuration-id=\"Brand 4 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 4 body\"><e-paragraph configuration-id=\"Brand 4 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 4 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 4 foot\"><e-paragraph configuration-id=\"Brand 4 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 4 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 5\"><e-flexbox configuration-id=\"Brand 5 logo area\"><e-image configuration-id=\"Brand 5 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 5 body\"><e-paragraph configuration-id=\"Brand 5 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 5 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 5 foot\"><e-paragraph configuration-id=\"Brand 5 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 5 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 6\"><e-flexbox configuration-id=\"Brand 6 logo area\"><e-image configuration-id=\"Brand 6 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 6 body\"><e-paragraph configuration-id=\"Brand 6 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 6 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 6 foot\"><e-paragraph configuration-id=\"Brand 6 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 6 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 7\"><e-flexbox configuration-id=\"Brand 7 logo area\"><e-div-block configuration-id=\"Brand 7 ring\"></e-div-block><e-image configuration-id=\"Brand 7 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 7 body\"><e-paragraph configuration-id=\"Brand 7 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 7 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 7 foot\"><e-paragraph configuration-id=\"Brand 7 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 7 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 8\"><e-flexbox configuration-id=\"Brand 8 logo area\"><e-image configuration-id=\"Brand 8 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 8 body\"><e-paragraph configuration-id=\"Brand 8 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 8 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 8 foot\"><e-paragraph configuration-id=\"Brand 8 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 8 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 9\"><e-flexbox configuration-id=\"Brand 9 logo area\"><e-image configuration-id=\"Brand 9 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 9 body\"><e-paragraph configuration-id=\"Brand 9 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 9 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 9 foot\"><e-paragraph configuration-id=\"Brand 9 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 9 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 10\"><e-flexbox configuration-id=\"Brand 10 logo area\"><e-image configuration-id=\"Brand 10 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 10 body\"><e-paragraph configuration-id=\"Brand 10 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 10 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 10 foot\"><e-paragraph configuration-id=\"Brand 10 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 10 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 11\"><e-flexbox configuration-id=\"Brand 11 logo area\"><e-div-block configuration-id=\"Brand 11 ring\"></e-div-block><e-image configuration-id=\"Brand 11 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 11 body\"><e-paragraph configuration-id=\"Brand 11 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 11 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 11 foot\"><e-paragraph configuration-id=\"Brand 11 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 11 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 12\"><e-flexbox configuration-id=\"Brand 12 logo area\"><e-image configuration-id=\"Brand 12 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 12 body\"><e-paragraph configuration-id=\"Brand 12 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 12 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 12 foot\"><e-paragraph configuration-id=\"Brand 12 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 12 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 13\"><e-flexbox configuration-id=\"Brand 13 logo area\"><e-div-block configuration-id=\"Brand 13 ring\"></e-div-block><e-image configuration-id=\"Brand 13 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 13 body\"><e-paragraph configuration-id=\"Brand 13 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 13 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 13 foot\"><e-paragraph configuration-id=\"Brand 13 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 13 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 14\"><e-flexbox configuration-id=\"Brand 14 logo area\"><e-image configuration-id=\"Brand 14 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 14 body\"><e-paragraph configuration-id=\"Brand 14 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 14 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 14 foot\"><e-paragraph configuration-id=\"Brand 14 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 14 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 15\"><e-flexbox configuration-id=\"Brand 15 logo area\"><e-div-block configuration-id=\"Brand 15 ring\"></e-div-block><e-image configuration-id=\"Brand 15 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 15 body\"><e-paragraph configuration-id=\"Brand 15 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 15 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 15 foot\"><e-paragraph configuration-id=\"Brand 15 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 15 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 16\"><e-flexbox configuration-id=\"Brand 16 logo area\"><e-div-block configuration-id=\"Brand 16 ring\"></e-div-block><e-image configuration-id=\"Brand 16 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 16 body\"><e-paragraph configuration-id=\"Brand 16 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 16 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 16 foot\"><e-paragraph configuration-id=\"Brand 16 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 16 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 17\"><e-flexbox configuration-id=\"Brand 17 logo area\"><e-image configuration-id=\"Brand 17 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 17 body\"><e-paragraph configuration-id=\"Brand 17 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 17 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 17 foot\"><e-paragraph configuration-id=\"Brand 17 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 17 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 18\"><e-flexbox configuration-id=\"Brand 18 logo area\"><e-div-block configuration-id=\"Brand 18 ring\"></e-div-block><e-image configuration-id=\"Brand 18 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 18 body\"><e-paragraph configuration-id=\"Brand 18 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 18 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 18 foot\"><e-paragraph configuration-id=\"Brand 18 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 18 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Brand 19\"><e-flexbox configuration-id=\"Brand 19 logo area\"><e-image configuration-id=\"Brand 19 logo\"></e-image></e-flexbox><e-flexbox configuration-id=\"Brand 19 body\"><e-paragraph configuration-id=\"Brand 19 name\"></e-paragraph><e-paragraph configuration-id=\"Brand 19 desc\"></e-paragraph><e-flexbox configuration-id=\"Brand 19 foot\"><e-paragraph configuration-id=\"Brand 19 cta\"></e-paragraph><e-paragraph configuration-id=\"Brand 19 arrow\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Custom sourcing\"><e-div-block configuration-id=\"Custom sourcing ring\"></e-div-block><e-flexbox configuration-id=\"Custom label\"><e-div-block configuration-id=\"Custom rule\"></e-div-block><e-paragraph configuration-id=\"Custom eyebrow\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Custom sourcing title\"></e-paragraph><e-paragraph configuration-id=\"Custom sourcing text\"></e-paragraph><e-div-block configuration-id=\"Custom sourcing spacer\"></e-div-block><e-button configuration-id=\"Custom sourcing button\"></e-button></e-flexbox></e-grid></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Partners eyebrow": {
+   "paragraph": "Our brand partners"
+  },
+  "Partners title": {
+   "tag": "h2",
+   "title": "Nineteen names. One standard of excellence."
+  },
+  "Partners lead": {
+   "paragraph": "Every brand in our portfolio is selected for design, durability and the support it gives commercial kitchens and dining rooms."
+  },
+  "Chip 1": {
+   "paragraph": "All brands"
+  },
+  "Chip 2": {
+   "paragraph": "Tableware"
+  },
+  "Chip 3": {
+   "paragraph": "Cutlery"
+  },
+  "Chip 4": {
+   "paragraph": "Glass &amp; drinkware"
+  },
+  "Chip 5": {
+   "paragraph": "Buffet &amp; service"
+  },
+  "Chip 6": {
+   "paragraph": "Kitchen"
+  },
+  "Chip 7": {
+   "paragraph": "Lighting"
+  },
+  "Chip 8": {
+   "paragraph": "Indian tableware"
+  },
+  "Brand 1 logo": {
+   "image": {
+    "src": {
+     "id": 60
+    },
+    "size": "full"
+   }
+  },
+  "Brand 1 name": {
+   "paragraph": "Lusini"
+  },
+  "Brand 1 desc": {
+   "paragraph": "Hospitality equipment &amp; tableware"
+  },
+  "Brand 1 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Lusini",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 1 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 1 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 2 logo": {
+   "image": {
+    "src": {
+     "id": 66
+    },
+    "size": "full"
+   }
+  },
+  "Brand 2 name": {
+   "paragraph": "Stylepoint"
+  },
+  "Brand 2 desc": {
+   "paragraph": "Porcelain &amp; melamine dinnerware"
+  },
+  "Brand 2 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Stylepoint",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 2 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 2 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 3 logo": {
+   "image": {
+    "src": {
+     "id": 57
+    },
+    "size": "full"
+   }
+  },
+  "Brand 3 name": {
+   "paragraph": "Falkenporzellan"
+  },
+  "Brand 3 desc": {
+   "paragraph": "Premium porcelain"
+  },
+  "Brand 3 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Falkenporzellan",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 3 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 3 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 4 logo": {
+   "image": {
+    "src": {
+     "id": 64
+    },
+    "size": "full"
+   }
+  },
+  "Brand 4 name": {
+   "paragraph": "Schönhuber Franchi"
+  },
+  "Brand 4 desc": {
+   "paragraph": "Fine bone china, buffet &amp; tableware"
+  },
+  "Brand 4 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Schönhuber%20Franchi",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 4 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 4 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 5 logo": {
+   "image": {
+    "src": {
+     "id": 65
+    },
+    "size": "full"
+   }
+  },
+  "Brand 5 name": {
+   "paragraph": "Spal Porcelanas"
+  },
+  "Brand 5 desc": {
+   "paragraph": "Porcelain tableware"
+  },
+  "Brand 5 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 5 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 5 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 6 logo": {
+   "image": {
+    "src": {
+     "id": 56
+    },
+    "size": "full"
+   }
+  },
+  "Brand 6 name": {
+   "paragraph": "CTB Ceramics"
+  },
+  "Brand 6 desc": {
+   "paragraph": "Ceramic tableware"
+  },
+  "Brand 6 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 6 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 6 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 7 logo": {
+   "image": {
+    "src": {
+     "id": 68
+    },
+    "size": "full"
+   }
+  },
+  "Brand 7 name": {
+   "paragraph": "Tuppa Stoneware"
+  },
+  "Brand 7 desc": {
+   "paragraph": "Stoneware tableware"
+  },
+  "Brand 7 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 7 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 7 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 8 logo": {
+   "image": {
+    "src": {
+     "id": 54
+    },
+    "size": "full"
+   }
+  },
+  "Brand 8 name": {
+   "paragraph": "Chromolite"
+  },
+  "Brand 8 desc": {
+   "paragraph": "Cutlery"
+  },
+  "Brand 8 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Chromolite",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 8 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 8 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 9 logo": {
+   "image": {
+    "src": {
+     "id": 53
+    },
+    "size": "full"
+   }
+  },
+  "Brand 9 name": {
+   "paragraph": "Belo Inox"
+  },
+  "Brand 9 desc": {
+   "paragraph": "Stainless-steel cutlery"
+  },
+  "Brand 9 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Belo%20Inox",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 9 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 9 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 10 logo": {
+   "image": {
+    "src": {
+     "id": 55
+    },
+    "size": "full"
+   }
+  },
+  "Brand 10 name": {
+   "paragraph": "Crystal Bohemia"
+  },
+  "Brand 10 desc": {
+   "paragraph": "Crystal glassware"
+  },
+  "Brand 10 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 10 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 10 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 11 logo": {
+   "image": {
+    "src": {
+     "id": 70
+    },
+    "size": "full"
+   }
+  },
+  "Brand 11 name": {
+   "paragraph": "Vidivi"
+  },
+  "Brand 11 desc": {
+   "paragraph": "Glassware"
+  },
+  "Brand 11 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 11 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 11 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 12 logo": {
+   "image": {
+    "src": {
+     "id": 69
+    },
+    "size": "full"
+   }
+  },
+  "Brand 12 name": {
+   "paragraph": "UnbreakMyGlass"
+  },
+  "Brand 12 desc": {
+   "paragraph": "Unbreakable drinkware"
+  },
+  "Brand 12 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 12 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 12 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 13 logo": {
+   "image": {
+    "src": {
+     "id": 58
+    },
+    "size": "full"
+   }
+  },
+  "Brand 13 name": {
+   "paragraph": "GraMonty"
+  },
+  "Brand 13 desc": {
+   "paragraph": "Polycarbonate drinkware"
+  },
+  "Brand 13 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20GraMonty",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 13 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 13 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 14 logo": {
+   "image": {
+    "src": {
+     "id": 62
+    },
+    "size": "full"
+   }
+  },
+  "Brand 14 name": {
+   "paragraph": "Nipco"
+  },
+  "Brand 14 desc": {
+   "paragraph": "Drinkware &amp; tableware"
+  },
+  "Brand 14 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Nipco",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 14 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 14 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 15 logo": {
+   "image": {
+    "src": {
+     "id": 71
+    },
+    "size": "full"
+   }
+  },
+  "Brand 15 name": {
+   "paragraph": "WAS Germany"
+  },
+  "Brand 15 desc": {
+   "paragraph": "Kitchen &amp; buffet equipment"
+  },
+  "Brand 15 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 15 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 15 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 16 logo": {
+   "image": {
+    "src": {
+     "id": 67
+    },
+    "size": "full"
+   }
+  },
+  "Brand 16 name": {
+   "paragraph": "Trolley &amp; Cart"
+  },
+  "Brand 16 desc": {
+   "paragraph": "Service trolleys &amp; carts"
+  },
+  "Brand 16 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 16 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 16 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 17 logo": {
+   "image": {
+    "src": {
+     "id": 59
+    },
+    "size": "full"
+   }
+  },
+  "Brand 17 name": {
+   "paragraph": "Kolk"
+  },
+  "Brand 17 desc": {
+   "paragraph": "Hospitality lighting"
+  },
+  "Brand 17 foot": {
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Catalogue%20request%20-%20Kolk",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 17 cta": {
+   "paragraph": "Catalogue"
+  },
+  "Brand 17 arrow": {
+   "paragraph": "↓"
+  },
+  "Brand 18 logo": {
+   "image": {
+    "src": {
+     "id": 63
+    },
+    "size": "full"
+   }
+  },
+  "Brand 18 name": {
+   "paragraph": "Puri Hospitality"
+  },
+  "Brand 18 desc": {
+   "paragraph": "Hospitality solutions"
+  },
+  "Brand 18 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 18 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 18 arrow": {
+   "paragraph": "→"
+  },
+  "Brand 19 logo": {
+   "image": {
+    "src": {
+     "id": 61
+    },
+    "size": "full"
+   }
+  },
+  "Brand 19 name": {
+   "paragraph": "MR International"
+  },
+  "Brand 19 desc": {
+   "paragraph": "Indian tableware"
+  },
+  "Brand 19 foot": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Brand 19 cta": {
+   "paragraph": "Enquire"
+  },
+  "Brand 19 arrow": {
+   "paragraph": "→"
+  },
+  "Custom eyebrow": {
+   "paragraph": "Bespoke"
+  },
+  "Custom sourcing title": {
+   "paragraph": "Looking for another brand?"
+  },
+  "Custom sourcing text": {
+   "paragraph": "Our sourcing team can locate specific ranges, matching replacements and exclusive lines on request."
+  },
+  "Custom sourcing button": {
+   "text": "Ask us&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Brand partners": "background: #FFFFFF; gap: 0px;",
+  "Partners inner": "gap: 40px;",
+  "Partners head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 24px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 20px; }",
+  "Partners head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%; align-items: flex-start;",
+  "Partners label": "position: relative; z-index: 1;",
+  "Partners lead": "width: 420px; max-width: 100%;",
+  "Filter chips": "padding: 0px; flex-wrap: wrap; gap: 12px; align-items: flex-start; @media(--mobile){ gap: 8px; }",
+  "Chip 1": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: #FFFFFF; background: var(--on-navy); border: 1px solid #0B2F62; @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 2": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 3": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 4": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 5": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 6": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 7": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 8": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Brand grid": "padding: 0px; gap: 24px; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto; @media(--tablet){ grid-template-columns: repeat(2, 1fr); } @media(--mobile){ grid-template-columns: repeat(1, 1fr); gap: 16px; }",
+  "Brand 1": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 1 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 1 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 1 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 1 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 1 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 1 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 1 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 1 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 1 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 2": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 2 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 2 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 2 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 2 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 2 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 2 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 2 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 2 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 2 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 3": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 3 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 3 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 3 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 3 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 3 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 3 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 3 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 3 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 3 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 4": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 4 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 4 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 4 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 4 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 4 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 4 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 4 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 4 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 5": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 5 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 5 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 5 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 5 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 5 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 5 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 5 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 5 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 6": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 6 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 6 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 6 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 6 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 6 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 6 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 6 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 6 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 7": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 7 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 7 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 7 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 7 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 7 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 7 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 7 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 7 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 7 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 8": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 8 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 8 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 8 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 8 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 8 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 8 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 8 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 8 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 9": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 9 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 9 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 9 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 9 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 9 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 9 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 9 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 9 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 10": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 10 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 10 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 10 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 10 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 10 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 10 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 10 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 10 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 11": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 11 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 11 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 11 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 11 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 11 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 11 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 11 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 11 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 11 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 12": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 12 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 12 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 12 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 12 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 12 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 12 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 12 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 12 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 13": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 13 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 13 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 13 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 13 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 13 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 13 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 13 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 13 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 13 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 14": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 14 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 14 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 14 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 14 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 14 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 14 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 14 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 14 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 15": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 15 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 15 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 15 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 15 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 15 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 15 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 15 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 15 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 15 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 16": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 16 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 16 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 16 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 16 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 16 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 16 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 16 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 16 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 16 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 17": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 17 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 17 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 17 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 17 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 17 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 17 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 17 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 17 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 18": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 18 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #0B2F62;",
+  "Brand 18 ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -80px; top: -60px; width: 170px; height: 170px; border-width: 1px; border-color: rgba(222,175,87,0.35);",
+  "Brand 18 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 18 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 18 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 18 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 18 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 18 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 18 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Brand 19": "flex-direction: column; padding: 0px; gap: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; overflow: hidden; align-items: stretch; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); }",
+  "Brand 19 logo area": "height: 190px; padding: 0px; justify-content: center; align-items: center; overflow: hidden; background: #F3F3F3;",
+  "Brand 19 logo": "width: 180px; height: 84px; object-fit: contain; position: relative; z-index: 1;",
+  "Brand 19 body": "flex-direction: column; gap: 8px; padding: 22px 24px 24px 24px; align-items: stretch;",
+  "Brand 19 name": "font-family: var(--on-serif); font-weight: 600; font-size: 26px; line-height: 30px; letter-spacing: -0.3px; color: var(--on-navy);",
+  "Brand 19 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 21px; color: var(--on-muted);",
+  "Brand 19 foot": "padding: 14px 0px 0px 0px; border-width: 1px 0px 0px 0px; border-style: solid; border-color: #E6E0D6; justify-content: space-between; align-items: center; gap: 12px;",
+  "Brand 19 cta": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--on-navy);",
+  "Brand 19 arrow": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 18px; color: var(--on-gold);",
+  "Custom sourcing": "flex-direction: column; gap: 18px; padding: 36px 28px 4px 28px; background: var(--on-navy-deep); overflow: hidden; align-items: flex-start; min-height: 338px; @media(--tablet){ padding: 36px 28px; } @media(--mobile){ padding: 36px 28px; }",
+  "Custom sourcing ring": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; right: -88px; top: -80px; width: 260px; height: 260px; border-width: 1.2px; border-color: rgba(222,175,87,0.4);",
+  "Custom label": "position: relative; z-index: 1;",
+  "Custom eyebrow": "color: var(--on-gold-soft);",
+  "Custom sourcing title": "font-family: var(--on-serif); font-weight: 600; font-size: 32px; line-height: 34px; letter-spacing: -0.3px; color: #FFFFFF; position: relative; z-index: 1;",
+  "Custom sourcing text": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 22px; color: rgba(255,255,255,0.75); position: relative; z-index: 1;",
+  "Custom sourcing spacer": "flex-grow: 1; padding: 0px; min-height: 1px;",
+  "Custom sourcing button": "position: relative; z-index: 1;"
+ },
+ "classes": {
+  "Brand partners": [
+   "on-section"
+  ],
+  "Partners inner": [
+   "on-inner"
+  ],
+  "Partners label": [
+   "on-eyebrow-row"
+  ],
+  "Partners rule": [
+   "on-rule"
+  ],
+  "Partners eyebrow": [
+   "on-eyebrow"
+  ],
+  "Partners title": [
+   "on-h2"
+  ],
+  "Partners lead": [
+   "on-body"
+  ],
+  "Custom label": [
+   "on-eyebrow-row"
+  ],
+  "Custom rule": [
+   "on-rule"
+  ],
+  "Custom eyebrow": [
+   "on-eyebrow"
+  ],
+  "Custom sourcing button": [
+   "on-btn-gold"
+  ]
+ }
+}

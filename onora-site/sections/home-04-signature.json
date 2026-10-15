@@ -1,0 +1,80 @@
+{
+ "post_id": 25,
+ "xml_structure": "<e-flexbox configuration-id=\"Signature\"><e-flexbox configuration-id=\"Signature split\"><e-flexbox configuration-id=\"Signature image\"><e-paragraph configuration-id=\"Signature tag\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Signature panel\"><e-div-block configuration-id=\"Signature ring\"></e-div-block><e-flexbox configuration-id=\"Signature eyebrow\"><e-div-block configuration-id=\"Signature eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Signature eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Signature title\"></e-heading><e-paragraph configuration-id=\"Signature body\"></e-paragraph><e-flexbox configuration-id=\"Signature list\"><e-flexbox configuration-id=\"Signature item 1\"><e-div-block configuration-id=\"Signature item 1 dash\"></e-div-block><e-paragraph configuration-id=\"Signature item 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Signature item 2\"><e-div-block configuration-id=\"Signature item 2 dash\"></e-div-block><e-paragraph configuration-id=\"Signature item 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Signature item 3\"><e-div-block configuration-id=\"Signature item 3 dash\"></e-div-block><e-paragraph configuration-id=\"Signature item 3 text\"></e-paragraph></e-flexbox></e-flexbox><e-button configuration-id=\"Signature button\"></e-button></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Signature tag": {
+   "paragraph": "ONORA Collection Exclusive"
+  },
+  "Signature eyebrow text": {
+   "paragraph": "Buffet &amp; service"
+  },
+  "Signature title": {
+   "tag": "h2",
+   "title": "Designed to impress, built to perform."
+  },
+  "Signature body": {
+   "paragraph": "Modern elegance with flawless function. Our buffet and service solutions combine beauty and durability for hotels, banquets and luxury dining."
+  },
+  "Signature item 1 text": {
+   "paragraph": "Display risers, chafers &amp; platters"
+  },
+  "Signature item 2 text": {
+   "paragraph": "Beverage &amp; dessert service"
+  },
+  "Signature item 3 text": {
+   "paragraph": "Built for heavy daily use"
+  },
+  "Signature button": {
+   "text": "Explore buffet&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Signature": "background-color: #FFFFFF;",
+  "Signature split": "padding: 0px; gap: 0px; align-items: stretch; @media(--tablet){ flex-direction: column; } @media(--mobile){ flex-direction: column; }",
+  "Signature image": "width: 700px; min-width: 700px; height: 640px; padding: 28px; align-items: flex-start; background-image: url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/home-signature-buffet.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ width: 100%; min-width: 0px; height: 520px; } @media(--mobile){ width: 100%; min-width: 0px; height: 300px; padding: 16px; }",
+  "Signature tag": "padding: 12px 18px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--on-navy-deep); @media(--mobile){ font-size: 10px; letter-spacing: 1.4px; padding: 10px 14px; }",
+  "Signature panel": "flex-direction: column; justify-content: center; align-items: flex-start; flex-grow: 1; gap: 28px; padding: 64px; background-color: var(--on-navy); overflow: hidden; @media(--tablet){ padding: 56px 48px; } @media(--mobile){ padding: 40px 24px; gap: 24px; }",
+  "Signature ring": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 300px; top: -140px; width: 420px; height: 420px; min-width: 420px; border-color: rgba(226,187,108,0.35); @media(--tablet){ left: auto; right: -120px; } @media(--mobile){ left: auto; right: -200px; }",
+  "Signature eyebrow text": "color: var(--on-gold-soft);",
+  "Signature title": "font-size: 52px; line-height: 54px; color: #FFFFFF; max-width: 410px; @media(--tablet){ font-size: 44px; line-height: 48px; } @media(--mobile){ font-size: 36px; line-height: 40px; }",
+  "Signature body": "color: rgba(255,255,255,0.78); max-width: 410px;",
+  "Signature list": "flex-direction: column; gap: 16px; padding: 0px;",
+  "Signature item 1": "padding: 0px; gap: 14px; align-items: center;",
+  "Signature item 1 dash": "width: 18px; min-width: 18px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Signature item 1 text": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; color: #FFFFFF;",
+  "Signature item 2": "padding: 0px; gap: 14px; align-items: center;",
+  "Signature item 2 dash": "width: 18px; min-width: 18px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Signature item 2 text": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; color: #FFFFFF;",
+  "Signature item 3": "padding: 0px; gap: 14px; align-items: center;",
+  "Signature item 3 dash": "width: 18px; min-width: 18px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Signature item 3 text": "font-family: var(--on-sans); font-weight: 500; font-size: 15px; color: #FFFFFF;"
+ },
+ "classes": {
+  "Signature": [
+   "on-section"
+  ],
+  "Signature eyebrow": [
+   "on-eyebrow-row"
+  ],
+  "Signature eyebrow rule": [
+   "on-rule"
+  ],
+  "Signature eyebrow text": [
+   "on-eyebrow"
+  ],
+  "Signature title": [
+   "on-h2"
+  ],
+  "Signature body": [
+   "on-body"
+  ],
+  "Signature button": [
+   "on-btn-gold"
+  ]
+ }
+}

@@ -1,0 +1,242 @@
+{
+ "post_id": 29,
+ "xml_structure": "<e-flexbox configuration-id=\"Enquiry\"><e-flexbox configuration-id=\"Enquiry row\"><e-flexbox configuration-id=\"Details\"><e-flexbox configuration-id=\"Details label\"><e-div-block configuration-id=\"Details rule\"></e-div-block><e-paragraph configuration-id=\"Details eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Details title\"></e-heading><e-paragraph configuration-id=\"Details lead\"></e-paragraph><e-flexbox configuration-id=\"Contact person\"><e-flexbox configuration-id=\"Avatar\"><e-paragraph configuration-id=\"Avatar initials\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Person text\"><e-paragraph configuration-id=\"Person name\"></e-paragraph><e-paragraph configuration-id=\"Person role\"></e-paragraph><e-paragraph configuration-id=\"Person contacts\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Hours\"><e-paragraph configuration-id=\"Hours title\"></e-paragraph><e-flexbox configuration-id=\"Hours Sunday – Thursday\"><e-paragraph configuration-id=\"Hours Sunday – Thursday day\"></e-paragraph><e-paragraph configuration-id=\"Hours Sunday – Thursday time\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Hours Friday\"><e-paragraph configuration-id=\"Hours Friday day\"></e-paragraph><e-paragraph configuration-id=\"Hours Friday time\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Hours Saturday\"><e-paragraph configuration-id=\"Hours Saturday day\"></e-paragraph><e-paragraph configuration-id=\"Hours Saturday time\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Social chips\"><e-paragraph configuration-id=\"Social Instagram\"></e-paragraph><e-paragraph configuration-id=\"Social LinkedIn\"></e-paragraph><e-paragraph configuration-id=\"Social Facebook\"></e-paragraph><e-paragraph configuration-id=\"Social WhatsApp\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Enquiry form\"><e-div-block configuration-id=\"Form gold bar\"></e-div-block><e-heading configuration-id=\"Form title\"></e-heading><e-paragraph configuration-id=\"Form note\"></e-paragraph><e-flexbox configuration-id=\"Form row 1\"><e-flexbox configuration-id=\"Field name\"><e-paragraph configuration-id=\"Field name label\"></e-paragraph><e-paragraph configuration-id=\"Field name input\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Field company\"><e-paragraph configuration-id=\"Field company label\"></e-paragraph><e-paragraph configuration-id=\"Field company input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Form row 2\"><e-flexbox configuration-id=\"Field email\"><e-paragraph configuration-id=\"Field email label\"></e-paragraph><e-paragraph configuration-id=\"Field email input\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Field phone\"><e-paragraph configuration-id=\"Field phone label\"></e-paragraph><e-paragraph configuration-id=\"Field phone input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Interests\"><e-paragraph configuration-id=\"Interests label\"></e-paragraph><e-flexbox configuration-id=\"Chips\"><e-paragraph configuration-id=\"Chip Chinaware\"></e-paragraph><e-paragraph configuration-id=\"Chip Cutlery\"></e-paragraph><e-paragraph configuration-id=\"Chip Glassware\"></e-paragraph><e-paragraph configuration-id=\"Chip Drinkware\"></e-paragraph><e-paragraph configuration-id=\"Chip Melamine\"></e-paragraph><e-paragraph configuration-id=\"Chip Kitchen\"></e-paragraph><e-paragraph configuration-id=\"Chip Buffet\"></e-paragraph><e-paragraph configuration-id=\"Chip Bar\"></e-paragraph><e-paragraph configuration-id=\"Chip Trolleys\"></e-paragraph><e-paragraph configuration-id=\"Chip Accessories\"></e-paragraph><e-paragraph configuration-id=\"Chip Lamps\"></e-paragraph><e-paragraph configuration-id=\"Chip Indian\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Form row 3\"><e-flexbox configuration-id=\"Field message\"><e-paragraph configuration-id=\"Field message label\"></e-paragraph><e-paragraph configuration-id=\"Field message input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Submit row\"><e-paragraph configuration-id=\"Privacy note\"></e-paragraph><e-button configuration-id=\"Send enquiry\"></e-button></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Details eyebrow": {
+   "paragraph": "Get in touch"
+  },
+  "Details title": {
+   "tag": "h2",
+   "title": "Tell us about your venue."
+  },
+  "Details lead": {
+   "paragraph": "Share a few details and we will come back with product recommendations, brand options and a tailored quotation — usually within one working day."
+  },
+  "Avatar initials": {
+   "paragraph": "JD"
+  },
+  "Person name": {
+   "paragraph": "Jason Dsouza"
+  },
+  "Person role": {
+   "paragraph": "Chief Executive Officer"
+  },
+  "Person contacts": {
+   "paragraph": "<a href=\"tel:+971502038005\" style=\"color:inherit;text-decoration:none\">+971&nbsp;50&nbsp;203&nbsp;8005</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href=\"mailto:jason@onorahs.com\" style=\"color:inherit;text-decoration:none\">jason@onorahs.com</a>"
+  },
+  "Hours title": {
+   "paragraph": "Office hours"
+  },
+  "Hours Sunday – Thursday day": {
+   "paragraph": "Sunday – Thursday"
+  },
+  "Hours Sunday – Thursday time": {
+   "paragraph": "9:00 – 18:00"
+  },
+  "Hours Friday day": {
+   "paragraph": "Friday"
+  },
+  "Hours Friday time": {
+   "paragraph": "9:00 – 13:00"
+  },
+  "Hours Saturday day": {
+   "paragraph": "Saturday"
+  },
+  "Hours Saturday time": {
+   "paragraph": "By appointment"
+  },
+  "Social Instagram": {
+   "paragraph": "Instagram",
+   "link": {
+    "destination": "https://www.instagram.com/",
+    "isTargetBlank": true,
+    "tag": "a"
+   }
+  },
+  "Social LinkedIn": {
+   "paragraph": "LinkedIn",
+   "link": {
+    "destination": "https://www.linkedin.com/",
+    "isTargetBlank": true,
+    "tag": "a"
+   }
+  },
+  "Social Facebook": {
+   "paragraph": "Facebook",
+   "link": {
+    "destination": "https://www.facebook.com/",
+    "isTargetBlank": true,
+    "tag": "a"
+   }
+  },
+  "Social WhatsApp": {
+   "paragraph": "WhatsApp",
+   "link": {
+    "destination": "https://wa.me/971502038005",
+    "isTargetBlank": true,
+    "tag": "a"
+   }
+  },
+  "Form title": {
+   "tag": "h3",
+   "title": "Request a quotation"
+  },
+  "Form note": {
+   "paragraph": "Fields marked * are required."
+  },
+  "Field name label": {
+   "paragraph": "Full name *"
+  },
+  "Field name input": {
+   "paragraph": "Your name"
+  },
+  "Field company label": {
+   "paragraph": "Company / venue *"
+  },
+  "Field company input": {
+   "paragraph": "Hotel or restaurant name"
+  },
+  "Field email label": {
+   "paragraph": "Email *"
+  },
+  "Field email input": {
+   "paragraph": "name@company.com"
+  },
+  "Field phone label": {
+   "paragraph": "Phone"
+  },
+  "Field phone input": {
+   "paragraph": "+971"
+  },
+  "Interests label": {
+   "paragraph": "I’m interested in"
+  },
+  "Chip Chinaware": {
+   "paragraph": "Chinaware"
+  },
+  "Chip Cutlery": {
+   "paragraph": "Cutlery"
+  },
+  "Chip Glassware": {
+   "paragraph": "Glassware"
+  },
+  "Chip Drinkware": {
+   "paragraph": "Drinkware"
+  },
+  "Chip Melamine": {
+   "paragraph": "Melamine"
+  },
+  "Chip Kitchen": {
+   "paragraph": "Kitchen"
+  },
+  "Chip Buffet": {
+   "paragraph": "Buffet"
+  },
+  "Chip Bar": {
+   "paragraph": "Bar"
+  },
+  "Chip Trolleys": {
+   "paragraph": "Trolleys"
+  },
+  "Chip Accessories": {
+   "paragraph": "Accessories"
+  },
+  "Chip Lamps": {
+   "paragraph": "Lamps"
+  },
+  "Chip Indian": {
+   "paragraph": "Indian"
+  },
+  "Field message label": {
+   "paragraph": "Message"
+  },
+  "Field message input": {
+   "paragraph": "Tell us about your project, quantities and timeline…"
+  },
+  "Privacy note": {
+   "paragraph": "We respect your privacy — no spam, ever."
+  },
+  "Send enquiry": {
+   "text": "Send enquiry&nbsp;&nbsp;→",
+   "link": {
+    "destination": "mailto:jason@onorahs.com?subject=Quotation%20request%20-%20ONORA%20website",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Enquiry": "background: #FFFFFF; flex-direction: column; padding: 110px 100px 120px 100px; @media(--tablet){ padding: 88px 40px 96px 40px; } @media(--mobile){ padding: 64px 20px 72px 20px; }",
+  "Enquiry row": "padding: 0px; gap: 72px; align-items: flex-start; @media(--tablet){ flex-direction: column; gap: 56px; } @media(--mobile){ flex-direction: column; gap: 48px; }",
+  "Details": "flex-direction: column; gap: 28px; padding: 0px; width: 440px; min-width: 440px; align-items: flex-start; @media(--tablet){ width: 100%; min-width: 0px; } @media(--mobile){ width: 100%; min-width: 0px; }",
+  "Details label": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "Details rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Details eyebrow": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E;",
+  "Details title": "font-family: var(--on-serif); font-weight: 600; font-size: 60px; line-height: 62px; letter-spacing: -0.3px; color: #0B2F62; @media(--tablet){ font-size: 50px; line-height: 54px; } @media(--mobile){ font-size: 40px; line-height: 44px; }",
+  "Details lead": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: #5F6675;",
+  "Contact person": "background: #F7F4EE; padding: 28px; gap: 20px; align-items: center; @media(--mobile){ padding: 20px; gap: 14px; }",
+  "Avatar": "width: 64px; height: 64px; min-width: 64px; padding: 0px; border-radius: 32px; background: #0B2F62; justify-content: center; align-items: center;",
+  "Avatar initials": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 1; color: #E2BB6C;",
+  "Person text": "flex-direction: column; gap: 4px; padding: 0px; min-width: 0px;",
+  "Person name": "font-family: var(--on-serif); font-weight: 600; font-size: 28px; line-height: 29px; letter-spacing: -0.3px; color: #0B2F62;",
+  "Person role": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #C9962E;",
+  "Person contacts": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 18px; color: #5F6675;",
+  "Hours": "flex-direction: column; gap: 0px; padding: 0px;",
+  "Hours title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62;",
+  "Hours Sunday – Thursday": "padding: 14px 0px; justify-content: space-between; align-items: flex-start; gap: 12px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Hours Sunday – Thursday day": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: #16213A;",
+  "Hours Sunday – Thursday time": "font-family: var(--on-sans); font-weight: 500; font-size: 14px; line-height: 17px; color: #0B2F62;",
+  "Hours Friday": "padding: 14px 0px; justify-content: space-between; align-items: flex-start; gap: 12px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Hours Friday day": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: #16213A;",
+  "Hours Friday time": "font-family: var(--on-sans); font-weight: 500; font-size: 14px; line-height: 17px; color: #0B2F62;",
+  "Hours Saturday": "padding: 14px 0px; justify-content: space-between; align-items: flex-start; gap: 12px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6;",
+  "Hours Saturday day": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: #16213A;",
+  "Hours Saturday time": "font-family: var(--on-sans); font-weight: 500; font-size: 14px; line-height: 17px; color: #0B2F62;",
+  "Social chips": "padding: 0px; gap: 8px; width: auto; flex-wrap: wrap;",
+  "Social Instagram": "font-family: var(--on-sans); font-weight: 600; font-size: 10px; line-height: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #0B2F62; padding: 10px 14px; border: 1px solid #E6E0D6; transition: border-color 0.3s, color 0.3s; &:hover{ border-color: #C9962E; color: #C9962E; }",
+  "Social LinkedIn": "font-family: var(--on-sans); font-weight: 600; font-size: 10px; line-height: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #0B2F62; padding: 10px 14px; border: 1px solid #E6E0D6; transition: border-color 0.3s, color 0.3s; &:hover{ border-color: #C9962E; color: #C9962E; }",
+  "Social Facebook": "font-family: var(--on-sans); font-weight: 600; font-size: 10px; line-height: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #0B2F62; padding: 10px 14px; border: 1px solid #E6E0D6; transition: border-color 0.3s, color 0.3s; &:hover{ border-color: #C9962E; color: #C9962E; }",
+  "Social WhatsApp": "font-family: var(--on-sans); font-weight: 600; font-size: 10px; line-height: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #0B2F62; padding: 10px 14px; border: 1px solid #E6E0D6; transition: border-color 0.3s, color 0.3s; &:hover{ border-color: #C9962E; color: #C9962E; }",
+  "Enquiry form": "position: relative; flex-direction: column; gap: 24px; padding: 56px; flex: 1 1 0px; min-width: 0px; background: #FFFFFF; border: 1px solid #E6E0D6; box-shadow: 0px 24px 60px 0px rgba(11,47,98,0.08); @media(--tablet){ width: 100%; flex: 1 1 auto; padding: 48px; } @media(--mobile){ width: 100%; flex: 1 1 auto; padding: 32px 20px; }",
+  "Form gold bar": "position: absolute; top: -1px; left: -1px; right: -1px; width: auto; height: 4px; min-width: 0px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Form title": "font-family: var(--on-serif); font-weight: 600; font-size: 40px; line-height: 42px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 32px; line-height: 36px; }",
+  "Form note": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 16px; color: #5F6675;",
+  "Form row 1": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ flex-direction: column; }",
+  "Field name": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
+  "Field name label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Field name input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
+  "Field company": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
+  "Field company label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Field company input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
+  "Form row 2": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ flex-direction: column; }",
+  "Field email": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
+  "Field email label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Field email input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
+  "Field phone": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
+  "Field phone label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Field phone input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
+  "Interests": "flex-direction: column; gap: 12px; padding: 0px;",
+  "Interests label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Chips": "padding: 0px; gap: 8px; flex-wrap: wrap; align-items: flex-start;",
+  "Chip Chinaware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; background: #0B2F62; color: #FFFFFF; border: 1px solid #0B2F62;",
+  "Chip Cutlery": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Glassware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Drinkware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Melamine": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Kitchen": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Buffet": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; background: #0B2F62; color: #FFFFFF; border: 1px solid #0B2F62;",
+  "Chip Bar": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Trolleys": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Accessories": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Lamps": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Chip Indian": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
+  "Form row 3": "padding: 0px;",
+  "Field message": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
+  "Field message label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
+  "Field message input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%; min-height: 140px;",
+  "Submit row": "padding: 0px; justify-content: space-between; align-items: center; gap: 20px; @media(--mobile){ flex-direction: column-reverse; align-items: stretch; }",
+  "Privacy note": "font-family: var(--on-sans); font-weight: 400; font-size: 12px; line-height: 15px; color: #5F6675;",
+  "Send enquiry": "background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); color: #071F44; font-family: var(--on-sans); font-weight: 600; font-size: 12px; line-height: 18px; letter-spacing: 2.2px; text-transform: uppercase; padding: 18px 30px; border-radius: 0px; transition: opacity 0.3s; &:hover{ opacity: 0.9; }"
+ },
+ "classes": {}
+}

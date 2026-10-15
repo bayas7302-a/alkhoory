@@ -1,0 +1,31 @@
+{
+ "post_id": 27,
+ "xml_structure": "<e-flexbox configuration-id=\"Page hero\"><e-div-block configuration-id=\"Hero ring outer\"></e-div-block><e-div-block configuration-id=\"Hero ring inner\"></e-div-block><e-flexbox configuration-id=\"Hero content\"><e-paragraph configuration-id=\"Hero breadcrumb\"></e-paragraph><e-heading configuration-id=\"Hero title\"></e-heading><e-div-block configuration-id=\"Hero rule\"></e-div-block><e-paragraph configuration-id=\"Hero lead\"></e-paragraph></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Hero breadcrumb": {
+   "paragraph": "<a href=\"https://soharon.co.uk/onora/\">Home</a>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;Brands"
+  },
+  "Hero title": {
+   "tag": "h1",
+   "title": "World-class brands, carefully curated."
+  },
+  "Hero lead": {
+   "paragraph": "We partner with leading manufacturers from Europe and Asia to bring proven hospitality quality to every venue we serve."
+  }
+ },
+ "style": {
+  "Page hero": "flex-direction: column; justify-content: center; align-items: flex-start; min-height: 560px; padding: 118px 100px 117px 100px; overflow: hidden; gap: 0px; background-image: linear-gradient(90deg, rgba(7,31,68,0.96) 0%, rgba(11,47,98,0.78) 55%, rgba(11,47,98,0.3) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/brands-hero-bg.jpg); background-size: cover; background-position: center center; background-repeat: no-repeat; @media(--tablet){ min-height: 480px; padding: 96px 40px; } @media(--mobile){ min-height: 0px; padding: 72px 20px; }",
+  "Hero ring outer": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; left: 980px; top: -120px; width: 620px; height: 620px; border-width: 1.2px; border-color: rgba(222,175,87,0.45); @media(--tablet){ left: auto; right: -320px; } @media(--mobile){ left: auto; right: -420px; top: -200px; }",
+  "Hero ring inner": "position: absolute; padding: 0px; min-width: 0px; border-radius: 50%; border-style: solid; z-index: 0; left: 1055px; top: -45px; width: 470px; height: 470px; border-width: 1px; border-color: rgba(222,175,87,0.25); @media(--tablet){ left: auto; right: -245px; } @media(--mobile){ display: none; }",
+  "Hero content": "flex-direction: column; gap: 24px; padding: 0px; width: 780px; max-width: 100%; align-items: flex-start; position: relative; z-index: 1;",
+  "Hero breadcrumb": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6);",
+  "Hero title": "letter-spacing: -0.3px; line-height: 88px; @media(--tablet){ line-height: 68px; } @media(--mobile){ line-height: 50px; }",
+  "Hero rule": "width: 90px; min-width: 90px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Hero lead": "font-family: var(--on-sans); font-weight: 400; font-size: 17px; line-height: 30px; color: rgba(255,255,255,0.82); width: 560px; max-width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }"
+ },
+ "classes": {
+  "Hero title": [
+   "on-h1"
+  ]
+ }
+}

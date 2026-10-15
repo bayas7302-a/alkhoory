@@ -1,0 +1,134 @@
+{
+ "post_id": 29,
+ "xml_structure": "<e-flexbox configuration-id=\"Header\"><e-flexbox configuration-id=\"Utility bar\"><e-flexbox configuration-id=\"Utility contacts\"><e-paragraph configuration-id=\"Util phone\"></e-paragraph><e-paragraph configuration-id=\"Util email\"></e-paragraph><e-paragraph configuration-id=\"Util location\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Util tagline\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Navigation\"><e-image configuration-id=\"Logo\"></e-image><e-flexbox configuration-id=\"Menu\"><e-flexbox configuration-id=\"Nav Home\"><e-paragraph configuration-id=\"Nav Home label\"></e-paragraph><e-div-block configuration-id=\"Nav Home bar\"></e-div-block></e-flexbox><e-flexbox configuration-id=\"Nav About Us\"><e-paragraph configuration-id=\"Nav About Us label\"></e-paragraph><e-div-block configuration-id=\"Nav About Us bar\"></e-div-block></e-flexbox><e-flexbox configuration-id=\"Nav Brands\"><e-paragraph configuration-id=\"Nav Brands label\"></e-paragraph><e-div-block configuration-id=\"Nav Brands bar\"></e-div-block></e-flexbox><e-flexbox configuration-id=\"Nav Products\"><e-paragraph configuration-id=\"Nav Products label\"></e-paragraph><e-div-block configuration-id=\"Nav Products bar\"></e-div-block></e-flexbox><e-flexbox configuration-id=\"Nav Contact Us\"><e-paragraph configuration-id=\"Nav Contact Us label\"></e-paragraph><e-div-block configuration-id=\"Nav Contact Us bar\"></e-div-block></e-flexbox></e-flexbox><e-button configuration-id=\"Header CTA\"></e-button></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Util phone": {
+   "paragraph": "+971 50 203 8005",
+   "link": {
+    "destination": "tel:+971502038005",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Util email": {
+   "paragraph": "jason@onorahs.com",
+   "link": {
+    "destination": "mailto:jason@onorahs.com",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Util location": {
+   "paragraph": "Karama, Dubai — UAE"
+  },
+  "Util tagline": {
+   "paragraph": "Premium supplies for hotels, restaurants &amp; cafés"
+  },
+  "Logo": {
+   "image": {
+    "src": {
+     "id": 35
+    },
+    "size": "full"
+   },
+   "link": {
+    "destination": "https://soharon.co.uk/onora/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav Home": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav Home label": {
+   "paragraph": "Home"
+  },
+  "Nav About Us": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/about-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav About Us label": {
+   "paragraph": "About Us"
+  },
+  "Nav Brands": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav Brands label": {
+   "paragraph": "Brands"
+  },
+  "Nav Products": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav Products label": {
+   "paragraph": "Products"
+  },
+  "Nav Contact Us": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Nav Contact Us label": {
+   "paragraph": "Contact Us"
+  },
+  "Header CTA": {
+   "text": "Request a quote&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Header": "flex-direction: column; padding: 0px; gap: 0px; position: sticky; top: 0px; z-index: 50; background: #FFFFFF;",
+  "Utility bar": "background: var(--on-navy-deep); padding: 11px 100px; justify-content: space-between; align-items: center; gap: 24px; @media(--tablet){ padding: 10px 40px; } @media(--mobile){ padding: 9px 20px; justify-content: center; }",
+  "Utility contacts": "padding: 0px; width: auto; gap: 32px; @media(--mobile){ gap: 16px; }",
+  "Util phone": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.3px; color: rgba(255,255,255,0.78);",
+  "Util email": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.3px; color: rgba(255,255,255,0.78);",
+  "Util location": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.3px; color: rgba(255,255,255,0.78); @media(--mobile){ display: none; }",
+  "Util tagline": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.4px; color: var(--on-gold-soft); @media(--mobile){ display: none; }",
+  "Navigation": "min-height: 96px; padding: 12px 100px; justify-content: space-between; align-items: center; gap: 24px; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6; background: #FFFFFF; @media(--tablet){ padding: 14px 40px; flex-wrap: wrap; } @media(--mobile){ padding: 14px 20px; flex-wrap: wrap; }",
+  "Logo": "width: 172px; height: auto; @media(--mobile){ width: 140px; }",
+  "Menu": "padding: 0px; width: auto; gap: 44px; align-items: flex-start; @media(--tablet){ order: 3; width: 100%; justify-content: center; gap: 28px; } @media(--mobile){ order: 3; width: 100%; justify-content: space-between; gap: 6px; }",
+  "Nav Home": "flex-direction: column; align-items: center; gap: 8px; padding: 0px; width: auto;",
+  "Nav Home label": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #16213A; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; }",
+  "Nav Home bar": "width: 22px; min-width: 22px; height: 2px; padding: 0px; background: transparent;",
+  "Nav About Us": "flex-direction: column; align-items: center; gap: 8px; padding: 0px; width: auto;",
+  "Nav About Us label": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #16213A; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; }",
+  "Nav About Us bar": "width: 22px; min-width: 22px; height: 2px; padding: 0px; background: transparent;",
+  "Nav Brands": "flex-direction: column; align-items: center; gap: 8px; padding: 0px; width: auto;",
+  "Nav Brands label": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #16213A; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; }",
+  "Nav Brands bar": "width: 22px; min-width: 22px; height: 2px; padding: 0px; background: transparent;",
+  "Nav Products": "flex-direction: column; align-items: center; gap: 8px; padding: 0px; width: auto;",
+  "Nav Products label": "font-family: var(--on-sans); font-weight: 500; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #16213A; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; }",
+  "Nav Products bar": "width: 22px; min-width: 22px; height: 2px; padding: 0px; background: transparent;",
+  "Nav Contact Us": "flex-direction: column; align-items: center; gap: 8px; padding: 0px; width: auto;",
+  "Nav Contact Us label": "font-family: var(--on-sans); font-weight: 600; font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #0B2F62; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ font-size: 10px; letter-spacing: 0.6px; }",
+  "Nav Contact Us bar": "width: 22px; min-width: 22px; height: 2px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Header CTA": "@media(--mobile){ padding: 12px 16px; font-size: 10px; letter-spacing: 1.5px; }"
+ },
+ "classes": {
+  "Header CTA": [
+   "on-btn-navy"
+  ]
+ },
+ "parent_id": "document",
+ "mode": "replace_children"
+}

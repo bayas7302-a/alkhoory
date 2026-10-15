@@ -1,0 +1,39 @@
+{
+ "post_id": 29,
+ "xml_structure": "<e-flexbox configuration-id=\"Map\"><e-div-block configuration-id=\"Map ring large\"></e-div-block><e-div-block configuration-id=\"Map ring small\"></e-div-block><e-div-block configuration-id=\"Map pin halo\"></e-div-block><e-div-block configuration-id=\"Map pin\"></e-div-block><e-flexbox configuration-id=\"Location card\"><e-flexbox configuration-id=\"Location label\"><e-div-block configuration-id=\"Location rule\"></e-div-block><e-paragraph configuration-id=\"Location eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Location title\"></e-heading><e-paragraph configuration-id=\"Location address\"></e-paragraph><e-button configuration-id=\"Get directions\"></e-button></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Location eyebrow": {
+   "paragraph": "Find us"
+  },
+  "Location title": {
+   "tag": "h2",
+   "title": "ONORA Hotel Supplies"
+  },
+  "Location address": {
+   "paragraph": "Office M-A98, Hamra Building<br>Karama, Dubai — United Arab Emirates"
+  },
+  "Get directions": {
+   "text": "Get directions&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://www.google.com/maps/search/?api=1&query=Hamra+Building+Karama+Dubai",
+    "isTargetBlank": true,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Map": "position: relative; overflow: hidden; min-height: 560px; padding: 130px 100px; align-items: center; background: linear-gradient(0deg, rgba(7,31,68,0.72) 0%, rgba(7,31,68,0.72) 100%), url(https://soharon.co.uk/onora/wp-content/uploads/2026/10/contact-map-plate.jpg) center / cover no-repeat, #071F44; @media(--tablet){ min-height: 480px; padding: 96px 40px; } @media(--mobile){ min-height: 0px; padding: 64px 20px 260px 20px; }",
+  "Map ring large": "position: absolute; top: 30px; right: 120px; width: 500px; height: 500px; min-width: 500px; padding: 0px; border: 1.2px solid rgba(222,175,87,0.45); border-radius: 50%; @media(--tablet){ right: -120px; } @media(--mobile){ top: auto; bottom: -140px; right: -55px; }",
+  "Map ring small": "position: absolute; top: 130px; right: 220px; width: 300px; height: 300px; min-width: 300px; padding: 0px; border: 1px solid rgba(222,175,87,0.25); border-radius: 50%; @media(--tablet){ right: -20px; } @media(--mobile){ top: auto; bottom: -40px; right: 45px; }",
+  "Map pin halo": "position: absolute; top: 235px; right: 325px; width: 90px; height: 90px; min-width: 90px; padding: 0px; border-radius: 50%; background: rgba(226,187,108,0.18); @media(--tablet){ right: 85px; } @media(--mobile){ top: auto; bottom: 65px; right: 150px; }",
+  "Map pin": "position: absolute; top: 266px; right: 356px; width: 28px; height: 28px; min-width: 28px; padding: 0px; border-radius: 50%; border: 5px solid #FFFFFF; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); @media(--tablet){ right: 116px; } @media(--mobile){ top: auto; bottom: 96px; right: 181px; }",
+  "Location card": "position: relative; z-index: 2; flex-direction: column; gap: 18px; padding: 44px; width: 440px; max-width: 100%; background: #FFFFFF; align-items: flex-start; @media(--mobile){ padding: 32px 24px; }",
+  "Location label": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "Location rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "Location eyebrow": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E;",
+  "Location title": "font-family: var(--on-serif); font-weight: 600; font-size: 36px; line-height: 37px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 30px; line-height: 32px; }",
+  "Location address": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: #5F6675;",
+  "Get directions": "background: #0B2F62; color: #FFFFFF; font-family: var(--on-sans); font-weight: 600; font-size: 12px; line-height: 18px; letter-spacing: 2.2px; text-transform: uppercase; padding: 18px 30px; border-radius: 0px; transition: background-color 0.3s; &:hover{ background: #071F44; }"
+ },
+ "classes": {}
+}

@@ -1,0 +1,229 @@
+{
+ "post_id": 25,
+ "xml_structure": "<e-flexbox configuration-id=\"Brands strip\"><e-div-block configuration-id=\"Brands ring\"></e-div-block><e-flexbox configuration-id=\"Brands head\"><e-flexbox configuration-id=\"Brands head left\"><e-flexbox configuration-id=\"Brands eyebrow\"><e-div-block configuration-id=\"Brands eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Brands eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Brands title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Brands head right\"><e-paragraph configuration-id=\"Brands intro\"></e-paragraph><e-button configuration-id=\"Brands button\"></e-button></e-flexbox></e-flexbox><e-grid configuration-id=\"Logo wall\"><e-flexbox configuration-id=\"Logo lusini\"><e-image configuration-id=\"Logo lusini image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo stylepoint\"><e-image configuration-id=\"Logo stylepoint image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo eagle\"><e-image configuration-id=\"Logo eagle image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo tuppa\"><e-image configuration-id=\"Logo tuppa image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo vidivi\"><e-image configuration-id=\"Logo vidivi image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo was\"><e-image configuration-id=\"Logo was image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo gramonty\"><e-image configuration-id=\"Logo gramonty image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo trolley-cart\"><e-image configuration-id=\"Logo trolley-cart image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo puri\"><e-image configuration-id=\"Logo puri image\"></e-image></e-flexbox><e-flexbox configuration-id=\"Logo belo-inox\"><e-image configuration-id=\"Logo belo-inox image\"></e-image></e-flexbox></e-grid></e-flexbox>",
+ "element_config": {
+  "Brands eyebrow text": {
+   "paragraph": "Trusted global brands"
+  },
+  "Brands title": {
+   "tag": "h2",
+   "title": "Any global brand you need, at your fingertips."
+  },
+  "Brands intro": {
+   "paragraph": "We represent and source from respected manufacturers across Europe and beyond."
+  },
+  "Brands button": {
+   "text": "View all brands&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo lusini": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo lusini image": {
+   "image": {
+    "src": {
+     "id": 77
+    },
+    "size": "full"
+   }
+  },
+  "Logo stylepoint": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo stylepoint image": {
+   "image": {
+    "src": {
+     "id": 79
+    },
+    "size": "full"
+   }
+  },
+  "Logo eagle": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo eagle image": {
+   "image": {
+    "src": {
+     "id": 75
+    },
+    "size": "full"
+   }
+  },
+  "Logo tuppa": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo tuppa image": {
+   "image": {
+    "src": {
+     "id": 81
+    },
+    "size": "full"
+   }
+  },
+  "Logo vidivi": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo vidivi image": {
+   "image": {
+    "src": {
+     "id": 82
+    },
+    "size": "full"
+   }
+  },
+  "Logo was": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo was image": {
+   "image": {
+    "src": {
+     "id": 83
+    },
+    "size": "full"
+   }
+  },
+  "Logo gramonty": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo gramonty image": {
+   "image": {
+    "src": {
+     "id": 76
+    },
+    "size": "full"
+   }
+  },
+  "Logo trolley-cart": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo trolley-cart image": {
+   "image": {
+    "src": {
+     "id": 80
+    },
+    "size": "full"
+   }
+  },
+  "Logo puri": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo puri image": {
+   "image": {
+    "src": {
+     "id": 78
+    },
+    "size": "full"
+   }
+  },
+  "Logo belo-inox": {
+   "link": {
+    "destination": "https://soharon.co.uk/onora/brands/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Logo belo-inox image": {
+   "image": {
+    "src": {
+     "id": 73
+    },
+    "size": "full"
+   }
+  }
+ },
+ "style": {
+  "Brands strip": "background-color: var(--on-navy); gap: 64px; padding-top: 110px; padding-bottom: 110px; overflow: hidden; @media(--tablet){ padding-top: 88px; padding-bottom: 88px; } @media(--mobile){ padding-top: 64px; padding-bottom: 64px; gap: 40px; }",
+  "Brands ring": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 1040px; top: -220px; width: 640px; height: 640px; min-width: 640px; border-color: rgba(226,187,108,0.35); @media(--tablet){ left: auto; right: -320px; } @media(--mobile){ left: auto; right: -420px; }",
+  "Brands head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 24px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 20px; }",
+  "Brands head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%;",
+  "Brands eyebrow text": "color: var(--on-gold-soft);",
+  "Brands title": "color: #FFFFFF;",
+  "Brands head right": "flex-direction: column; gap: 24px; padding: 0px; width: 420px; max-width: 100%; align-items: flex-start;",
+  "Brands intro": "color: rgba(255,255,255,0.75);",
+  "Brands button": "border-color: rgba(255,255,255,0.5);",
+  "Logo wall": "padding: 0px; gap: 0px; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(2, auto); @media(--mobile){ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(5, auto); }",
+  "Logo lusini": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo lusini image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo stylepoint": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo stylepoint image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo eagle": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo eagle image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo tuppa": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo tuppa image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo vidivi": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo vidivi image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo was": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo was image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo gramonty": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo gramonty image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo trolley-cart": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo trolley-cart image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo puri": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); @media(--mobile){ height: 100px; }",
+  "Logo puri image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }",
+  "Logo belo-inox": "height: 130px; padding: 0px; justify-content: center; align-items: center; border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.12); background-color: #FFFFFF; @media(--mobile){ height: 100px; }",
+  "Logo belo-inox image": "width: 170px; height: 70px; max-width: 80%; object-fit: contain; @media(--mobile){ height: 56px; }"
+ },
+ "classes": {
+  "Brands strip": [
+   "on-section"
+  ],
+  "Brands eyebrow": [
+   "on-eyebrow-row"
+  ],
+  "Brands eyebrow rule": [
+   "on-rule"
+  ],
+  "Brands eyebrow text": [
+   "on-eyebrow"
+  ],
+  "Brands title": [
+   "on-h2"
+  ],
+  "Brands intro": [
+   "on-body"
+  ],
+  "Brands button": [
+   "on-btn-outline-light"
+  ]
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "xml_structure": "<e-flexbox configuration-id=\"C06 Kitchen\"><e-div-block configuration-id=\"C06 ring\"></e-div-block><e-flexbox configuration-id=\"C06 details\"><e-flexbox configuration-id=\"C06 label row\"><e-div-block configuration-id=\"C06 rule\"></e-div-block><e-paragraph configuration-id=\"C06 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C06 title\"></e-heading><e-paragraph configuration-id=\"C06 desc\"></e-paragraph><e-flexbox configuration-id=\"C06 specs\"><e-flexbox configuration-id=\"C06 range\"><e-paragraph configuration-id=\"C06 range title\"></e-paragraph><e-flexbox configuration-id=\"C06 range 1\"><e-div-block configuration-id=\"C06 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C06 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C06 range 2\"><e-div-block configuration-id=\"C06 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C06 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C06 range 3\"><e-div-block configuration-id=\"C06 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C06 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C06 range 4\"><e-div-block configuration-id=\"C06 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C06 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C06 ideal\"><e-paragraph configuration-id=\"C06 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C06 ideal 1\"><e-div-block configuration-id=\"C06 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C06 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C06 ideal 2\"><e-div-block configuration-id=\"C06 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C06 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C06 ideal 3\"><e-div-block configuration-id=\"C06 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C06 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C06 brands\"><e-paragraph configuration-id=\"C06 brands title\"></e-paragraph><e-flexbox configuration-id=\"C06 brand chips\"><e-paragraph configuration-id=\"C06 brand 1\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C06 actions\"><e-button configuration-id=\"C06 quote\"></e-button><e-button configuration-id=\"C06 catalogue\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C06 mosaic\"><e-div-block configuration-id=\"C06 main wrap\"><e-image configuration-id=\"C06 main image\"></e-image><e-flexbox configuration-id=\"C06 tag\"><e-paragraph configuration-id=\"C06 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C06 thumbs\"><e-image configuration-id=\"C06 thumb 1\"></e-image><e-image configuration-id=\"C06 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
+ "element_config": {
+  "C06 Kitchen": {
+   "tag": "section",
+   "_cssid": "kitchen"
+  },
+  "C06 label": {
+   "paragraph": "Collection 06"
+  },
+  "C06 title": {
+   "title": "Kitchen",
+   "tag": "h2"
+  },
+  "C06 desc": {
+   "paragraph": "Professional cookware and prep tools built for the pace and precision of commercial kitchens."
+  },
+  "C06 range title": {
+   "paragraph": "Range includes"
+  },
+  "C06 range 1 text": {
+   "paragraph": "Pots, pans &amp; saucepots"
+  },
+  "C06 range 2 text": {
+   "paragraph": "Prep tools &amp; utensils"
+  },
+  "C06 range 3 text": {
+   "paragraph": "Storage &amp; containers"
+  },
+  "C06 range 4 text": {
+   "paragraph": "Cutting boards"
+  },
+  "C06 ideal title": {
+   "paragraph": "Ideal for"
+  },
+  "C06 ideal 1 text": {
+   "paragraph": "Hotel kitchens"
+  },
+  "C06 ideal 2 text": {
+   "paragraph": "Central kitchens"
+  },
+  "C06 ideal 3 text": {
+   "paragraph": "Restaurants"
+  },
+  "C06 brands title": {
+   "paragraph": "Featured brands"
+  },
+  "C06 brand 1": {
+   "paragraph": "WAS Germany"
+  },
+  "C06 quote": {
+   "text": "Request a quote&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "C06 catalogue": {
+   "text": "Catalogue&nbsp;&nbsp;→",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/contact-us/",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "C06 main image": {
+   "image": {
+    "src": {
+     "id": 141
+    },
+    "size": "large"
+   }
+  },
+  "C06 tag text": {
+   "paragraph": "06 / 12"
+  },
+  "C06 thumb 1": {
+   "image": {
+    "src": {
+     "id": 142
+    },
+    "size": "large"
+   }
+  },
+  "C06 thumb 2": {
+   "image": {
+    "src": {
+     "id": 143
+    },
+    "size": "large"
+   }
+  }
+ },
+ "style": {
+  "C06 Kitchen": "background: #F7F4EE; padding: 110px 100px; gap: 88px; align-items: center; position: relative; overflow: hidden; scroll-margin-top: 140px; @media(--tablet){ flex-direction: column; align-items: stretch; padding: 88px 40px; gap: 48px; } @media(--mobile){ flex-direction: column; align-items: stretch; padding: 64px 20px; gap: 36px; scroll-margin-top: 170px; }",
+  "C06 ring": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -140px; left: 1180px; width: 420px; height: 420px; min-width: 420px; border-width: 1.1px; border-color: rgba(201,150,46,0.3); @media(--tablet){ left: auto; right: -200px; } @media(--mobile){ display: none; }",
+  "C06 details": "flex-direction: column; gap: 24px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; z-index: 1; @media(--tablet){ width: 100%; } @media(--mobile){ width: 100%; gap: 20px; }",
+  "C06 label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
+  "C06 rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
+  "C06 title": "font-family: var(--on-serif); font-weight: 600; font-size: 58px; line-height: 60px; letter-spacing: -0.3px; color: #0B2F62; width: 100%; @media(--tablet){ font-size: 50px; line-height: 54px; } @media(--mobile){ font-size: 38px; line-height: 42px; }",
+  "C06 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: #5F6675; width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }",
+  "C06 specs": "padding: 24px 0px; gap: 32px; align-items: flex-start; width: 100%; border-width: 1px 0px 1px 0px; border-style: solid; border-color: #E6E0D6; @media(--mobile){ gap: 16px; padding: 20px 0px; }",
+  "C06 range": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start;",
+  "C06 range title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2; @media(--mobile){ font-size: 10px; letter-spacing: 1.6px; }",
+  "C06 range 1": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 range 1 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 range 1 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 range 2": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 range 2 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 range 2 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 range 3": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 range 3 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 range 3 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 range 4": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 range 4 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 range 4 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 ideal": "flex-direction: column; gap: 12px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start;",
+  "C06 ideal title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2; @media(--mobile){ font-size: 10px; letter-spacing: 1.6px; }",
+  "C06 ideal 1": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 ideal 1 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 ideal 1 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 ideal 2": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 ideal 2 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 ideal 2 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 ideal 3": "padding: 0px; gap: 12px; align-items: center; width: 100%; @media(--mobile){ gap: 8px; }",
+  "C06 ideal 3 dash": "width: 10px; min-width: 10px; height: 1.5px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
+  "C06 ideal 3 text": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 22px; color: #16213A; flex: 1 1 0px; min-width: 0px; @media(--mobile){ font-size: 13px; line-height: 20px; }",
+  "C06 brands": "flex-direction: column; gap: 12px; padding: 0px; width: 100%; align-items: flex-start;",
+  "C06 brands title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2;",
+  "C06 brand chips": "padding: 0px; flex-wrap: wrap; gap: 8px; align-items: flex-start; width: 100%;",
+  "C06 brand 1": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #FFFFFF; padding: 8px 14px;",
+  "C06 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; }",
+  "C06 quote": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }",
+  "C06 catalogue": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }",
+  "C06 mosaic": "flex-direction: column; gap: 20px; padding: 0px; width: 660px; min-width: 660px; flex-shrink: 0; z-index: 1; @media(--tablet){ width: 100%; min-width: 0px; order: -1; } @media(--mobile){ width: 100%; min-width: 0px; order: -1; gap: 12px; }",
+  "C06 main wrap": "position: relative; padding: 0px; width: 100%; height: 420px; overflow: hidden; @media(--mobile){ height: 240px; }",
+  "C06 main image": "display: block; width: 100%; height: 420px; object-fit: cover; @media(--mobile){ height: 240px; }",
+  "C06 tag": "position: absolute; top: 0px; left: 0px; width: auto; padding: 12px 18px; background: #0B2F62; z-index: 2;",
+  "C06 tag text": "font-family: var(--on-serif); font-weight: 600; font-size: 20px; line-height: 1.2; color: #E2BB6C;",
+  "C06 thumbs": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ gap: 12px; }",
+  "C06 thumb 1": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }",
+  "C06 thumb 2": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }"
+ },
+ "classes": {
+  "C06 label row": [
+   "on-eyebrow-row"
+  ],
+  "C06 rule": [
+   "on-rule"
+  ],
+  "C06 quote": [
+   "on-btn-navy"
+  ],
+  "C06 catalogue": [
+   "on-btn-outline-navy"
+  ]
+ },
+ "post_id": 28
+}
