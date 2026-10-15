@@ -6,7 +6,12 @@ from parts import *
 POST = 11
 SLUG = 'contact'
 
-HERO_TEXT = 'Contact Yutong Bus for vehicle specifications, fleet requirements, customization, parts, training and customer support. Submit your inquiry online or use the verified contact channel for your market.'
+# Copy sources: en.yutong.com /contact/contact/, /service/, /about/about-yutong/; contact details = UAE distributor
+HERO_TEXT = ('Contact Al Khoory Automobiles, the official Yutong distributor in the UAE, for vehicle specifications, fleet requirements, '
+             'customization, spare parts, training and customer support. Send your enquiry online, call us or visit our Dubai showroom.')
+YT_SOCIAL = [('Facebook', 'https://www.facebook.com/YutongGlobal/'), ('LinkedIn', 'https://www.linkedin.com/company/9181418/'),
+             ('Instagram', 'https://www.instagram.com/yutong.global/'), ('YouTube', 'https://www.youtube.com/channel/UCIxtne2jWoPbjtC6SidsvSw'),
+             ('X', 'https://twitter.com/YutongGlobal')]
 MAP_URL = 'https://maps.google.com/?q=Al+Khoory+Automobiles+Al+Quoz+Industrial+Area+3+Dubai'
 
 
@@ -37,8 +42,8 @@ def help_section():
                 kicker('Help Eyebrow', 'Get in Touch'),
                 title('Help Title', 'How Can We ' + hl('Help?'), 'font-size: 42px; font-weight: 700; line-height: 52px; letter-spacing: 0; color: #00050b; @media(--mobile) { line-height: 38px; }'),
             ]),
-            body('Help Body', 'Choose the most relevant inquiry type: vehicle and fleet information, configuration and customization, parts and service support, training, or other business inquiries.  We offer a range of services, including extended warranty products, customized buses, sourcing Yutong bus parts, and support services such as service station construction, charging station construction, vehicle networking services, and training services.', 'line-height: 26px;', '#747474'),
-            p('Help Team', "With a dedicated team of 198 service professionals and 68 international experts, Yutong is your partner in creating value and supporting your fleet's success. For Yutong bus specifications and customization inquiries, please find our contacts below.",
+            body('Help Body', 'Choose the most relevant inquiry type: vehicle and fleet information, configuration and customization, parts and service support, training, or other business inquiries. Together with Yutong we offer a range of services, including extended warranty products, customized buses, sourcing Yutong bus parts, and support services such as service station construction, charging station construction, vehicle networking services, and training services.', 'line-height: 26px;', '#747474'),
+            p('Help Team', "Backed by Yutong's dedicated team of 198 service professionals and 68 international experts, our UAE team is your partner in creating value and supporting your fleet's success. Find our showroom and contact details below.",
               FD + 'font-size: 16px; font-weight: 500; line-height: 26px; color: #003376; margin: 0;'),
         ]),
         flex('Help Topics', 'padding: 0; flex: 1 1 0; flex-direction: column; gap: 14px; @media(--tablet) { width: 100%; flex: 0 0 auto; }', rows),
@@ -60,24 +65,25 @@ def info_card(n, icon, label, value, href=None, dark=False):
 
 def info_section():
     return flex('Contact Info', 'padding: 110px 120px; gap: 56px; align-items: center; background-color: #f2f6fb; @media(--tablet) { flex-direction: column-reverse; align-items: stretch; padding: 80px 40px; gap: 44px; } @media(--mobile) { padding: 64px 20px; gap: 32px; }', [
-        img('Contact Photo', 'contact-photo', 'width: 500px; flex: 0 0 auto; height: 560px; object-fit: cover; border-radius: 28px; @media(--tablet) { width: 100%; height: 420px; } @media(--mobile) { height: 280px; border-radius: 22px; }'),
+        img('Contact Photo', 'ytcontact-photo-doha', 'width: 500px; flex: 0 0 auto; height: 560px; object-fit: cover; border-radius: 28px; @media(--tablet) { width: 100%; height: 420px; } @media(--mobile) { height: 280px; border-radius: 22px; }'),
         flex('Contact Text', 'padding: 0; flex: 1 1 0; flex-direction: column; gap: 18px; @media(--tablet) { flex: 0 0 auto; }', [
             flex('Contact Head', 'padding: 0; flex-direction: column; gap: 14px;', [
                 kicker('Contact Eyebrow', 'Sales & Support'),
-                title('Contact Title', 'Contact Yutong Sales and ' + hl('Customer Support'), 'max-width: 600px; font-size: 42px; font-weight: 700; line-height: 52px; letter-spacing: 0; color: #00050b; @media(--mobile) { line-height: 38px; }'),
+                title('Contact Title', 'Yutong Sales and ' + hl('Customer Support') + ' in the UAE', 'max-width: 600px; font-size: 42px; font-weight: 700; line-height: 52px; letter-spacing: 0; color: #00050b; @media(--mobile) { line-height: 38px; }'),
             ]),
-            body('Contact Body 1', 'Yutong Bus is a globally renowned leader in the bus industry. Its product range caters to diverse market segments, including long distance coaches, tourist coaches, city buses, commuters, school buses, sightseeing vehicles, apron buses, autonomous driving micro-circulation buses and special-purpose vehicles.', 'line-height: 26px;', '#747474'),
-            body('Contact Body 2', 'In 2025, Yutong Bus achieved sales of 49,518 units. To date, Yutong has exported nearly 130,000 vehicles in batches to more than 60 countries and regions worldwide, covering Europe, Latin America, Africa and Asia, and holds nearly 10% of the global market share.', 'line-height: 26px; margin-top: 8px;', '#747474'),
+            body('Contact Body 1', 'Al Khoory Automobiles is the official Yutong distributor in the UAE. Visit our showroom on Sheikh Zayed Road to explore Yutong coaches, city buses, school buses and e-buses, or speak to our sales and spare parts team by phone or e-mail.', 'line-height: 26px;', '#747474'),
+            body('Contact Body 2', 'Yutong Bus is a globally renowned leader in the bus industry. In 2025 it achieved sales of 49,518 units and holds nearly 10% of the global market share.', 'line-height: 26px; margin-top: 8px;', '#747474'),
             flex('Contact Cards', 'padding: 4px 0 0; flex-direction: column; gap: 14px;', [
                 flex('Contact Cards Row 1', 'padding: 0; gap: 14px; align-items: stretch; @media(--mobile) { flex-direction: column; }', [
-                    info_card('Hotline', 'contact-ic-phone', 'Hotline', '+86-371-66718999', 'tel:+8637166718999'),
-                    info_card('Email', 'contact-ic-mail', 'E-mail', 'sales@yutong.com', 'mailto:sales@yutong.com'),
+                    info_card('Hotline', 'contact-ic-phone', 'Telephone', '04 3146235', 'tel:+97143146235'),
+                    info_card('Email', 'contact-ic-mail', 'E-mail', 'info@subaru-uae.com', 'mailto:info@subaru-uae.com'),
                 ]),
                 flex('Contact Cards Row 2', 'padding: 0; gap: 14px; align-items: stretch; @media(--mobile) { flex-direction: column; }', [
-                    info_card('WhatsApp', 'contact-ic-chat', 'WhatsApp', '+86 176 3850 9590', 'https://wa.me/8617638509590'),
-                    info_card('Social', 'contact-ic-share', 'Social', 'LinkedIn · X · Facebook · YouTube'),
+                    info_card('WhatsApp', 'contact-ic-chat', 'WhatsApp &amp; online enquiry', 'Send us a message', URL['quote']),
+                    info_card('Social', 'contact-ic-share', 'Follow Yutong', ' &middot; '.join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, t) for t, u in YT_SOCIAL)),
                 ]),
-                info_card('Address', 'contact-ic-pin', 'Company Address', '66 Yuxing Road, Zhengzhou<br>Economic and Technological Development Zone, Henan<br>450016', MAP_URL, dark=True),
+                info_card('Timing', 'q-clock', 'Showroom Timing', '09:30 AM to 8:00 PM &mdash; Open 7 days a week'),
+                info_card('Address', 'contact-ic-pin', 'Showroom Address', 'Showroom 12, Sheikh Zayed Road<br>Al Quoz Industrial Area 3, Dubai, UAE', MAP_URL, dark=True),
             ]),
         ]),
     ], tag='section')
@@ -92,9 +98,9 @@ def form_section():
                 background-size: cover; background-position: center center;
                 @media(--tablet) { width: 100%%; min-height: 420px; } @media(--mobile) { min-height: 380px; padding: 24px 20px; }''' % bg('contact-form-photo'), [
                 flex('Enquiry Visual Text', 'padding: 0; flex-direction: column; gap: 12px;', [
-                    kicker('Enquiry Eyebrow', 'Enquiry', '#ffffff'),
-                    h('Enquiry Visual Title', 'Lorem ipsum dolor sit', 'h3', FD + 'font-size: 30px; font-weight: 700; line-height: 38px; color: #ffffff; margin: 0; @media(--mobile) { font-size: 26px; line-height: 34px; }'),
-                    p('Enquiry Visual Text Body', 'Lorem ipsum dolor sit amet consectetur. Luctus sem porttitor eget viverra mauris. Elit at vulputate enim vitae quisque consectetur erat volutpat sit. Lorem ipsum dolor sit amet consectetur.',
+                    kicker('Enquiry Eyebrow', 'Order &amp; Buy', '#ffffff'),
+                    h('Enquiry Visual Title', 'We&rsquo;re Here to Help', 'h3', FD + 'font-size: 30px; font-weight: 700; line-height: 38px; color: #ffffff; margin: 0; @media(--mobile) { font-size: 26px; line-height: 34px; }'),
+                    p('Enquiry Visual Text Body', 'Please share your details for prompt assistance. Tell us about your application, from e-bus and e-coach to city bus or coach, and the seating you need, and our UAE sales team will contact you as soon as possible.',
                       FB + 'font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.8); margin: 0;'),
                 ]),
             ]),
