@@ -1,12 +1,9 @@
 {
- "xml_structure": "<e-flexbox configuration-id=\"C10 Accessories\"><e-div-block configuration-id=\"C10 ring\"></e-div-block><e-flexbox configuration-id=\"C10 details\"><e-flexbox configuration-id=\"C10 label row\"><e-div-block configuration-id=\"C10 rule\"></e-div-block><e-paragraph configuration-id=\"C10 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C10 title\"></e-heading><e-paragraph configuration-id=\"C10 desc\"></e-paragraph><e-flexbox configuration-id=\"C10 specs\"><e-flexbox configuration-id=\"C10 range\"><e-paragraph configuration-id=\"C10 range title\"></e-paragraph><e-flexbox configuration-id=\"C10 range 1\"><e-div-block configuration-id=\"C10 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 2\"><e-div-block configuration-id=\"C10 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 3\"><e-div-block configuration-id=\"C10 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 4\"><e-div-block configuration-id=\"C10 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 ideal\"><e-paragraph configuration-id=\"C10 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C10 ideal 1\"><e-div-block configuration-id=\"C10 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 ideal 2\"><e-div-block configuration-id=\"C10 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 ideal 3\"><e-div-block configuration-id=\"C10 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 brands\"><e-paragraph configuration-id=\"C10 brands title\"></e-paragraph><e-flexbox configuration-id=\"C10 brand chips\"><e-paragraph configuration-id=\"C10 brand 1\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 actions\"><e-button configuration-id=\"C10 quote\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 mosaic\"><e-div-block configuration-id=\"C10 main wrap\"><e-image configuration-id=\"C10 main image\"></e-image><e-flexbox configuration-id=\"C10 tag\"><e-paragraph configuration-id=\"C10 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C10 thumbs\"><e-image configuration-id=\"C10 thumb 1\"></e-image><e-image configuration-id=\"C10 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"C10 Accessories\"><e-div-block configuration-id=\"C10 ring\"></e-div-block><e-flexbox configuration-id=\"C10 details\"><e-heading configuration-id=\"C10 title\"></e-heading><e-paragraph configuration-id=\"C10 desc\"></e-paragraph><e-flexbox configuration-id=\"C10 specs\"><e-flexbox configuration-id=\"C10 range\"><e-paragraph configuration-id=\"C10 range title\"></e-paragraph><e-flexbox configuration-id=\"C10 range 1\"><e-div-block configuration-id=\"C10 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 2\"><e-div-block configuration-id=\"C10 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 3\"><e-div-block configuration-id=\"C10 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 range 4\"><e-div-block configuration-id=\"C10 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C10 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 ideal\"><e-paragraph configuration-id=\"C10 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C10 ideal 1\"><e-div-block configuration-id=\"C10 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 ideal 2\"><e-div-block configuration-id=\"C10 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C10 ideal 3\"><e-div-block configuration-id=\"C10 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C10 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 brands\"><e-paragraph configuration-id=\"C10 brands title\"></e-paragraph><e-flexbox configuration-id=\"C10 brand chips\"><e-paragraph configuration-id=\"C10 brand 1\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 actions\"><e-button configuration-id=\"C10 quote\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C10 mosaic\"><e-div-block configuration-id=\"C10 main wrap\"><e-image configuration-id=\"C10 main image\"></e-image></e-div-block><e-flexbox configuration-id=\"C10 thumbs\"><e-image configuration-id=\"C10 thumb 1\"></e-image><e-image configuration-id=\"C10 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "C10 Accessories": {
    "tag": "section",
    "_cssid": "accessories"
-  },
-  "C10 label": {
-   "paragraph": "Collection 10"
   },
   "C10 title": {
    "title": "Accessories",
@@ -64,9 +61,6 @@
     "size": "large"
    }
   },
-  "C10 tag text": {
-   "paragraph": "10 / 12"
-  },
   "C10 thumb 1": {
    "image": {
     "src": {
@@ -88,9 +82,6 @@
   "C10 Accessories": "background: #F7F4EE; padding: 110px max(40px, calc((100% - 1350px) / 2)); gap: 88px; align-items: center; position: relative; overflow: hidden; scroll-margin-top: 170px; @media(--tablet){ flex-direction: column; align-items: stretch; padding: 88px 40px; gap: 48px; } @media(--mobile){ flex-direction: column; align-items: stretch; padding: 64px 20px; gap: 36px; scroll-margin-top: 150px; }",
   "C10 ring": "position: absolute; padding: 0px; border-radius: 50%; border-style: solid; z-index: 0; top: -140px; left: 1180px; width: 420px; height: 420px; min-width: 420px; border-width: 1.1px; border-color: rgba(201,150,46,0.3); @media(--tablet){ left: auto; right: -200px; } @media(--mobile){ display: none; }",
   "C10 details": "flex-direction: column; gap: 24px; padding: 0px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; z-index: 1; @media(--tablet){ width: 100%; } @media(--mobile){ width: 100%; gap: 20px; }",
-  "C10 label row": "padding: 0px; width: auto; gap: 14px; align-items: center;",
-  "C10 rule": "width: 32px; min-width: 32px; height: 2px; padding: 0px; background-image: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
-  "C10 label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
   "C10 title": "font-family: var(--on-serif); font-weight: 600; font-size: 58px; line-height: 60px; letter-spacing: -0.3px; color: #0B2F62; width: 100%; @media(--tablet){ font-size: 50px; line-height: 54px; } @media(--mobile){ font-size: 38px; line-height: 42px; }",
   "C10 desc": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: #5F6675; width: 100%; @media(--mobile){ font-size: 15px; line-height: 26px; }",
   "C10 specs": "padding: 24px 0px; gap: 32px; align-items: flex-start; width: 100%; border-width: 1px 0px 1px 0px; border-style: solid; border-color: #E6E0D6; @media(--mobile){ gap: 16px; padding: 20px 0px; }",
@@ -128,19 +119,11 @@
   "C10 mosaic": "flex-direction: column; gap: 20px; padding: 0px; width: 660px; min-width: 660px; flex-shrink: 0; z-index: 1; @media(--tablet){ width: 100%; min-width: 0px; order: -1; } @media(--mobile){ width: 100%; min-width: 0px; order: -1; gap: 12px; }",
   "C10 main wrap": "position: relative; padding: 0px; width: 100%; height: 420px; overflow: hidden; @media(--mobile){ height: 240px; }",
   "C10 main image": "display: block; width: 100%; height: 420px; object-fit: cover; @media(--mobile){ height: 240px; }",
-  "C10 tag": "position: absolute; top: 0px; left: 0px; width: auto; padding: 12px 18px; background: #0B2F62; z-index: 2;",
-  "C10 tag text": "font-family: var(--on-serif); font-weight: 600; font-size: 20px; line-height: 1.2; color: #E2BB6C;",
   "C10 thumbs": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ gap: 12px; }",
   "C10 thumb 1": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }",
   "C10 thumb 2": "display: block; flex: 1 1 0px; min-width: 0px; width: 50%; height: 240px; object-fit: cover; @media(--mobile){ height: 150px; }"
  },
  "classes": {
-  "C10 label row": [
-   "on-eyebrow-row"
-  ],
-  "C10 rule": [
-   "on-rule"
-  ],
   "C10 quote": [
    "on-btn-navy"
   ]

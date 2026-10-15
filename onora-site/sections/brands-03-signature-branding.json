@@ -1,6 +1,6 @@
 {
  "post_id": 27,
- "xml_structure": "<e-flexbox configuration-id=\"Signature branding\"><e-div-block configuration-id=\"Branding image\"></e-div-block><e-flexbox configuration-id=\"Branding panel\"><e-div-block configuration-id=\"Branding ring\"></e-div-block><e-flexbox configuration-id=\"Branding label\"><e-div-block configuration-id=\"Branding rule\"></e-div-block><e-paragraph configuration-id=\"Branding eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Branding title\"></e-heading><e-paragraph configuration-id=\"Branding lead\"></e-paragraph><e-flexbox configuration-id=\"Branding list\"><e-flexbox configuration-id=\"Branding item 1\"><e-paragraph configuration-id=\"Branding item 1 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 2\"><e-paragraph configuration-id=\"Branding item 2 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 3\"><e-paragraph configuration-id=\"Branding item 3 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 4\"><e-paragraph configuration-id=\"Branding item 4 no\"></e-paragraph><e-paragraph configuration-id=\"Branding item 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-button configuration-id=\"Branding button\"></e-button></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Signature branding\"><e-div-block configuration-id=\"Branding image\"></e-div-block><e-flexbox configuration-id=\"Branding panel\"><e-div-block configuration-id=\"Branding ring\"></e-div-block><e-flexbox configuration-id=\"Branding label\"><e-div-block configuration-id=\"Branding rule\"></e-div-block><e-paragraph configuration-id=\"Branding eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Branding title\"></e-heading><e-paragraph configuration-id=\"Branding lead\"></e-paragraph><e-flexbox configuration-id=\"Branding list\"><e-flexbox configuration-id=\"Branding item 1\"><e-paragraph configuration-id=\"Branding item 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 2\"><e-paragraph configuration-id=\"Branding item 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 3\"><e-paragraph configuration-id=\"Branding item 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Branding item 4\"><e-paragraph configuration-id=\"Branding item 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-button configuration-id=\"Branding button\"></e-button></e-flexbox></e-flexbox>",
  "element_config": {
   "Branding eyebrow": {
    "paragraph": "Signature branding"
@@ -12,26 +12,14 @@
   "Branding lead": {
    "paragraph": "Make your venue unforgettable with custom-branded tableware and service pieces produced with our manufacturing partners."
   },
-  "Branding item 1 no": {
-   "paragraph": "01"
-  },
   "Branding item 1 text": {
    "paragraph": "Personalised chinaware with back-stamps and rim decals"
-  },
-  "Branding item 2 no": {
-   "paragraph": "02"
   },
   "Branding item 2 text": {
    "paragraph": "Logo-engraved cutlery and glassware"
   },
-  "Branding item 3 no": {
-   "paragraph": "03"
-  },
   "Branding item 3 text": {
    "paragraph": "Custom-printed linens, menus and table accessories"
-  },
-  "Branding item 4 no": {
-   "paragraph": "04"
   },
   "Branding item 4 text": {
    "paragraph": "Branded buffet signage and display accents"
@@ -56,16 +44,12 @@
   "Branding lead": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 28px; color: rgba(255,255,255,0.78); position: relative; z-index: 1;",
   "Branding list": "position: relative; z-index: 1; flex-direction: column; padding: 0px; gap: 0px; align-items: stretch;",
   "Branding item 1": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
-  "Branding item 1 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
   "Branding item 1 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
   "Branding item 2": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
-  "Branding item 2 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
   "Branding item 2 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
   "Branding item 3": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
-  "Branding item 3 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
   "Branding item 3 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
   "Branding item 4": "padding: 16px 0px; gap: 18px; align-items: center; border-width: 0px 0px 1px 0px; border-style: solid; border-color: rgba(255,255,255,0.14);",
-  "Branding item 4 no": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 27px; color: var(--on-gold-soft);",
   "Branding item 4 text": "flex-grow: 1; font-family: var(--on-sans); font-weight: 500; font-size: 15px; line-height: 20px; color: #FFFFFF;",
   "Branding button": "position: relative; z-index: 1; @media(--mobile){ padding: 16px 20px; letter-spacing: 1.6px; }"
  },

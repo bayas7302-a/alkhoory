@@ -4,15 +4,22 @@
 - 1350px site width: desktop side padding of every section root becomes max(40px, (100% - 1350px) / 2).
 - Removes Jason Dsouza signatures/contact card, office hours (incl. the Call-us card note), Find-us rings.
 - Products: catalogue buttons removed.
+- No decorative counters (01, 10 / 12, Collection 01) anywhere; Brands bespoke card gets even padding.
 - Brands: working category filter (ids for theme.js); brand cards say "Enquire" and link to Contact (no catalogue downloads).
 - Contact: static form fields replaced by a slot the theme fills with the CF7 quotation form.
 """
-import glob, json, os, re, xml.etree.ElementTree as ET
+import fnmatch, glob, json, os, re, xml.etree.ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SEC = os.path.join(HERE, "..", "sections")
 GUTTER = "max(40px, calc((100% - 1350px) / 2))"
 CONTACT = "https://soharon.co.uk/onora/contact-us/"
+# Decorative counters ("01", "10 / 12", "Collection 01") are not wanted on the site: (file glob, config-id regex)
+COUNTERS = [
+    ("about-04-*", r"Card (Mission|Vision) num"), ("about-06-*", r"Reason \d+ num"), ("about-07-*", r"Step \d+ badge"),
+    ("brands-03-*", r"Branding item \d+ no"), ("contact-02-*", r"Card .+ badge"), ("home-03-*", r"Tile .+ number"),
+    ("home-05-*", r"Promise \d+ ring"), ("products-*", r"C\d\d tag"), ("products-*", r"C\d\d label row"),
+]
 BRAND_FILTERS = ["all", "tableware", "cutlery", "glass-drinkware", "buffet-service", "kitchen", "lighting", "indian-tableware"]
 REMOVE = {
     "home-02-intro.json": ["Intro signature"],
@@ -53,6 +60,14 @@ for f in sorted(glob.glob(os.path.join(SEC, "*.json"))):
     d = json.load(open(f))
     if name in REMOVE:
         remove(d, set(REMOVE[name]))
+    ids = re.findall(r'configuration-id="([^"]+)"', d["xml_structure"])
+    counters = {i for g, rx in COUNTERS if fnmatch.fnmatch(name, g) for i in ids if re.fullmatch(rx, i)}
+    if counters:
+        remove(d, counters)
+    if name == "home-03-collections.json":  # tiles had the number at the top; keep the title at the bottom
+        for k, v in d["style"].items():
+            if re.fullmatch(r"Tile [^ ].*", k) and " text" not in k and "justify-content: space-between;" in v:
+                d["style"][k] = v.replace("justify-content: space-between;", "justify-content: flex-end;")
     if name == "contact-02-quick-contact.json":  # no office hours on the site
         d["element_config"]["Card Call us note"]["paragraph"] = "Call or WhatsApp us"
     if name == "brands-02-brand-partners.json":
@@ -76,7 +91,8 @@ for f in sorted(glob.glob(os.path.join(SEC, "*.json"))):
         cfg.setdefault("Brand grid", {})["_cssid"] = "brand-grid"
         for i, slug in enumerate(BRAND_FILTERS, 1):
             cfg[f"Chip {i}"]["link"] = {"destination": "#" + slug, "isTargetBlank": False, "tag": "a"}
-        st["Chip 1"] = st["Chip 2"]  # active state comes from the theme (.is-active)
+        st["Chip 1"] = st["Chip 2"]
+        st["Custom sourcing"] = st["Custom sourcing"].replace("padding: 36px 28px 4px 28px;", "padding: 36px 28px;")  # active state comes from the theme (.is-active)
         for i in range(1, 20):
             name_ = re.sub(r"&amp;|&", "and", cfg[f"Brand {i} name"]["paragraph"])
             cfg.setdefault(f"Brand {i}", {})["_cssid"] = "brand-" + re.sub(r"[^a-z0-9]+", "-", name_.lower().replace("ö", "o")).strip("-")

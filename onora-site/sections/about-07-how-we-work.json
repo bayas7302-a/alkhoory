@@ -1,6 +1,6 @@
 {
  "post_id": 26,
- "xml_structure": "<e-flexbox configuration-id=\"How we work\"><e-div-block configuration-id=\"Process ring outer\"></e-div-block><e-div-block configuration-id=\"Process ring inner\"></e-div-block><e-flexbox configuration-id=\"Process head\"><e-flexbox configuration-id=\"Process head left\"><e-flexbox configuration-id=\"Process label row\"><e-div-block configuration-id=\"Process rule\"></e-div-block><e-paragraph configuration-id=\"Process label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Process title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Process head right\"><e-paragraph configuration-id=\"Process intro\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Steps\"><e-flexbox configuration-id=\"Step 1\"><e-flexbox configuration-id=\"Step 1 top\"><e-flexbox configuration-id=\"Step 1 badge\"><e-paragraph configuration-id=\"Step 1 num\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Step 1 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 1 title\"></e-heading><e-paragraph configuration-id=\"Step 1 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 2\"><e-flexbox configuration-id=\"Step 2 top\"><e-flexbox configuration-id=\"Step 2 badge\"><e-paragraph configuration-id=\"Step 2 num\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Step 2 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 2 title\"></e-heading><e-paragraph configuration-id=\"Step 2 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 3\"><e-flexbox configuration-id=\"Step 3 top\"><e-flexbox configuration-id=\"Step 3 badge\"><e-paragraph configuration-id=\"Step 3 num\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Step 3 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 3 title\"></e-heading><e-paragraph configuration-id=\"Step 3 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 4\"><e-flexbox configuration-id=\"Step 4 top\"><e-flexbox configuration-id=\"Step 4 badge\"><e-paragraph configuration-id=\"Step 4 num\"></e-paragraph></e-flexbox><e-paragraph configuration-id=\"Step 4 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 4 title\"></e-heading><e-paragraph configuration-id=\"Step 4 body\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"How we work\"><e-div-block configuration-id=\"Process ring outer\"></e-div-block><e-div-block configuration-id=\"Process ring inner\"></e-div-block><e-flexbox configuration-id=\"Process head\"><e-flexbox configuration-id=\"Process head left\"><e-flexbox configuration-id=\"Process label row\"><e-div-block configuration-id=\"Process rule\"></e-div-block><e-paragraph configuration-id=\"Process label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Process title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Process head right\"><e-paragraph configuration-id=\"Process intro\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Steps\"><e-flexbox configuration-id=\"Step 1\"><e-flexbox configuration-id=\"Step 1 top\"><e-paragraph configuration-id=\"Step 1 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 1 title\"></e-heading><e-paragraph configuration-id=\"Step 1 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 2\"><e-flexbox configuration-id=\"Step 2 top\"><e-paragraph configuration-id=\"Step 2 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 2 title\"></e-heading><e-paragraph configuration-id=\"Step 2 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 3\"><e-flexbox configuration-id=\"Step 3 top\"><e-paragraph configuration-id=\"Step 3 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 3 title\"></e-heading><e-paragraph configuration-id=\"Step 3 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Step 4\"><e-flexbox configuration-id=\"Step 4 top\"><e-paragraph configuration-id=\"Step 4 mark\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Step 4 title\"></e-heading><e-paragraph configuration-id=\"Step 4 body\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "How we work": {
    "tag": "section"
@@ -15,9 +15,6 @@
   "Process intro": {
    "paragraph": "From the first conversation to the hundredth reorder, we keep things clear and on time."
   },
-  "Step 1 num": {
-   "paragraph": "01"
-  },
   "Step 1 mark": {
    "paragraph": "→"
   },
@@ -27,9 +24,6 @@
   },
   "Step 1 body": {
    "paragraph": "We learn your concept, covers, service style and budget."
-  },
-  "Step 2 num": {
-   "paragraph": "02"
   },
   "Step 2 mark": {
    "paragraph": "→"
@@ -41,9 +35,6 @@
   "Step 2 body": {
    "paragraph": "We shortlist products and brands, with samples where needed."
   },
-  "Step 3 num": {
-   "paragraph": "03"
-  },
   "Step 3 mark": {
    "paragraph": "→"
   },
@@ -53,9 +44,6 @@
   },
   "Step 3 body": {
    "paragraph": "We confirm, consolidate and deliver on schedule across the UAE."
-  },
-  "Step 4 num": {
-   "paragraph": "04"
   },
   "Step 4 mark": {
    "paragraph": "✓"
@@ -83,29 +71,21 @@
   "Steps": "padding: 0px; gap: 24px; align-items: stretch; z-index: 1; @media(--tablet){ flex-wrap: wrap; } @media(--mobile){ flex-direction: column; gap: 16px; }",
   "Step 1": "flex-direction: column; gap: 20px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; background: rgba(255,255,255,0.05); border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.14); @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 0 0 auto; width: 100%; padding: 32px 24px; }",
   "Step 1 top": "padding: 0px; justify-content: space-between; align-items: center;",
-  "Step 1 badge": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 28px; border-width: 1.2px; border-style: solid; border-color: #A5740B; justify-content: center; align-items: center;",
-  "Step 1 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1; color: var(--on-gold-soft);",
   "Step 1 mark": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; line-height: 1.2; color: var(--on-gold-soft);",
   "Step 1 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 36px; line-height: 37px; color: #FFFFFF;",
   "Step 1 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: rgba(255,255,255,0.75);",
   "Step 2": "flex-direction: column; gap: 20px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; background: rgba(255,255,255,0.05); border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.14); @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 0 0 auto; width: 100%; padding: 32px 24px; }",
   "Step 2 top": "padding: 0px; justify-content: space-between; align-items: center;",
-  "Step 2 badge": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 28px; border-width: 1.2px; border-style: solid; border-color: #A5740B; justify-content: center; align-items: center;",
-  "Step 2 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1; color: var(--on-gold-soft);",
   "Step 2 mark": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; line-height: 1.2; color: var(--on-gold-soft);",
   "Step 2 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 36px; line-height: 37px; color: #FFFFFF;",
   "Step 2 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: rgba(255,255,255,0.75);",
   "Step 3": "flex-direction: column; gap: 20px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; background: rgba(255,255,255,0.05); border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.14); @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 0 0 auto; width: 100%; padding: 32px 24px; }",
   "Step 3 top": "padding: 0px; justify-content: space-between; align-items: center;",
-  "Step 3 badge": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 28px; border-width: 1.2px; border-style: solid; border-color: #A5740B; justify-content: center; align-items: center;",
-  "Step 3 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1; color: var(--on-gold-soft);",
   "Step 3 mark": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; line-height: 1.2; color: var(--on-gold-soft);",
   "Step 3 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 36px; line-height: 37px; color: #FFFFFF;",
   "Step 3 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: rgba(255,255,255,0.75);",
   "Step 4": "flex-direction: column; gap: 20px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; align-items: flex-start; background: rgba(255,255,255,0.05); border-width: 1px; border-style: solid; border-color: rgba(255,255,255,0.14); @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 0 0 auto; width: 100%; padding: 32px 24px; }",
   "Step 4 top": "padding: 0px; justify-content: space-between; align-items: center;",
-  "Step 4 badge": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 28px; border-width: 1.2px; border-style: solid; border-color: #A5740B; justify-content: center; align-items: center;",
-  "Step 4 num": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; letter-spacing: 0px; font-size: 22px; line-height: 1; color: var(--on-gold-soft);",
   "Step 4 mark": "font-family: var(--on-sans); font-weight: 500; font-size: 18px; line-height: 1.2; color: var(--on-gold-soft);",
   "Step 4 title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 36px; line-height: 37px; color: #FFFFFF;",
   "Step 4 body": "font-family: var(--on-sans); font-weight: 400; font-size: 15px; line-height: 26px; color: rgba(255,255,255,0.75);"

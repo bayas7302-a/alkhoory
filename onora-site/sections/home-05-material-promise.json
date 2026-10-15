@@ -1,6 +1,6 @@
 {
  "post_id": 25,
- "xml_structure": "<e-flexbox configuration-id=\"Material promise\"><e-flexbox configuration-id=\"Material head\"><e-flexbox configuration-id=\"Material head left\"><e-flexbox configuration-id=\"Material eyebrow\"><e-div-block configuration-id=\"Material eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Material eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Material title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Material head right\"><e-paragraph configuration-id=\"Material intro\"></e-paragraph></e-flexbox></e-flexbox><e-grid configuration-id=\"Promise cards\"><e-flexbox configuration-id=\"Promise 1\"><e-flexbox configuration-id=\"Promise 1 ring\"><e-paragraph configuration-id=\"Promise 1 number\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Promise 1 title\"></e-heading><e-paragraph configuration-id=\"Promise 1 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 2\"><e-flexbox configuration-id=\"Promise 2 ring\"><e-paragraph configuration-id=\"Promise 2 number\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Promise 2 title\"></e-heading><e-paragraph configuration-id=\"Promise 2 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 3\"><e-flexbox configuration-id=\"Promise 3 ring\"><e-paragraph configuration-id=\"Promise 3 number\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Promise 3 title\"></e-heading><e-paragraph configuration-id=\"Promise 3 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 4\"><e-flexbox configuration-id=\"Promise 4 ring\"><e-paragraph configuration-id=\"Promise 4 number\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Promise 4 title\"></e-heading><e-paragraph configuration-id=\"Promise 4 body\"></e-paragraph></e-flexbox></e-grid></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Material promise\"><e-flexbox configuration-id=\"Material head\"><e-flexbox configuration-id=\"Material head left\"><e-flexbox configuration-id=\"Material eyebrow\"><e-div-block configuration-id=\"Material eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Material eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Material title\"></e-heading></e-flexbox><e-flexbox configuration-id=\"Material head right\"><e-paragraph configuration-id=\"Material intro\"></e-paragraph></e-flexbox></e-flexbox><e-grid configuration-id=\"Promise cards\"><e-flexbox configuration-id=\"Promise 1\"><e-heading configuration-id=\"Promise 1 title\"></e-heading><e-paragraph configuration-id=\"Promise 1 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 2\"><e-heading configuration-id=\"Promise 2 title\"></e-heading><e-paragraph configuration-id=\"Promise 2 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 3\"><e-heading configuration-id=\"Promise 3 title\"></e-heading><e-paragraph configuration-id=\"Promise 3 body\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Promise 4\"><e-heading configuration-id=\"Promise 4 title\"></e-heading><e-paragraph configuration-id=\"Promise 4 body\"></e-paragraph></e-flexbox></e-grid></e-flexbox>",
  "element_config": {
   "Material eyebrow text": {
    "paragraph": "The ONORA material promise"
@@ -12,18 +12,12 @@
   "Material intro": {
    "paragraph": "Every product we supply is selected for long-term performance in demanding hospitality environments — and a finish that reflects lasting value."
   },
-  "Promise 1 number": {
-   "paragraph": "01"
-  },
   "Promise 1 title": {
    "tag": "h3",
    "title": "Engineered for heavy-duty use"
   },
   "Promise 1 body": {
    "paragraph": "Commercial-grade construction that stands up to busy service, dishwashers and daily handling."
-  },
-  "Promise 2 number": {
-   "paragraph": "02"
   },
   "Promise 2 title": {
    "tag": "h3",
@@ -32,18 +26,12 @@
   "Promise 2 body": {
    "paragraph": "Only proven manufacturers and materials, checked against hospitality standards."
   },
-  "Promise 3 number": {
-   "paragraph": "03"
-  },
   "Promise 3 title": {
    "tag": "h3",
    "title": "Precision-crafted finishes"
   },
   "Promise 3 body": {
    "paragraph": "Glazes, polishes and edges that look refined on the first day and the thousandth."
-  },
-  "Promise 4 number": {
-   "paragraph": "04"
   },
   "Promise 4 title": {
    "tag": "h3",
@@ -60,23 +48,15 @@
   "Material head right": "flex-direction: column; gap: 24px; padding: 0px; width: 420px; max-width: 100%; align-items: flex-start;",
   "Promise cards": "padding: 0px; gap: 20px; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(1, auto); @media(--tablet){ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, auto); } @media(--mobile){ grid-template-columns: repeat(1, 1fr); grid-template-rows: repeat(4, auto); }",
   "Promise 1": "flex-direction: column; gap: 20px; padding: 36px; background-color: #FFFFFF; border-width: 1px; border-style: solid; border-color: #E6E0D6; align-items: flex-start; @media(--mobile){ padding: 28px; }",
-  "Promise 1 ring": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: #C9962E; justify-content: center; align-items: center;",
-  "Promise 1 number": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 22px; letter-spacing: -0.3px; color: var(--on-navy);",
   "Promise 1 title": "line-height: 30px;",
   "Promise 1 body": "font-size: 15px; line-height: 26px;",
   "Promise 2": "flex-direction: column; gap: 20px; padding: 36px; background-color: #FFFFFF; border-width: 1px; border-style: solid; border-color: #E6E0D6; align-items: flex-start; @media(--mobile){ padding: 28px; }",
-  "Promise 2 ring": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: #C9962E; justify-content: center; align-items: center;",
-  "Promise 2 number": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 22px; letter-spacing: -0.3px; color: var(--on-navy);",
   "Promise 2 title": "line-height: 30px;",
   "Promise 2 body": "font-size: 15px; line-height: 26px;",
   "Promise 3": "flex-direction: column; gap: 20px; padding: 36px; background-color: #FFFFFF; border-width: 1px; border-style: solid; border-color: #E6E0D6; align-items: flex-start; @media(--mobile){ padding: 28px; }",
-  "Promise 3 ring": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: #C9962E; justify-content: center; align-items: center;",
-  "Promise 3 number": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 22px; letter-spacing: -0.3px; color: var(--on-navy);",
   "Promise 3 title": "line-height: 30px;",
   "Promise 3 body": "font-size: 15px; line-height: 26px;",
   "Promise 4": "flex-direction: column; gap: 20px; padding: 36px; background-color: #FFFFFF; border-width: 1px; border-style: solid; border-color: #E6E0D6; align-items: flex-start; @media(--mobile){ padding: 28px; }",
-  "Promise 4 ring": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: #C9962E; justify-content: center; align-items: center;",
-  "Promise 4 number": "font-family: var(--on-serif); font-weight: 600; font-size: 22px; line-height: 22px; letter-spacing: -0.3px; color: var(--on-navy);",
   "Promise 4 title": "line-height: 30px;",
   "Promise 4 body": "font-size: 15px; line-height: 26px;"
  },
