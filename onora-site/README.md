@@ -40,3 +40,21 @@ Re-running them in order (header first, footer last) rebuilds a page from scratc
 ## Style converter gotchas (Elementor 4.3.5)
 Not saved: `white-space`, `row-gap`/`column-gap`, per-side border shorthands (`border-top: …`), `animation*`.
 Use `border-width: 1px 0 0 0; border-style: solid; border-color: …` instead of `border-top`.
+Not saved either: `pointer-events`, `box-sizing`, `max-width` on e-heading, `width: max-content`, `<br>` in headings, `-webkit-` prefixes.
+Section anchors: pass `"_cssid": "<slug>"` in a container's element_config (Products uses this for `#chinaware` … `#indian-tableware`).
+
+## Publishing / stale CSS
+After a build on a **published** page the live HTML/CSS keeps the old version. Order that works:
+build-composition → `elementor-publish-document` → `elementor-update-page-settings {"template":"elementor_canvas"}`;
+clearing the CSS cache (`DELETE /wp-json/elementor/v1/cache`, done by `shot.js`) also helps.
+
+## Rebuild scripts
+`tools/<page>_build*.sh|.py` + generators (`home_build.py`, `about_gen.py`, `brands_gen.py`, `products_gen.py`, `contact_gen.py`)
+regenerate the section JSON. Some scripts were written in a scratch folder; adjust their paths before reuse.
+
+## Known gaps
+- Contact form is visual only: the atomic form field widgets aren't registered on this site, so "Send enquiry" opens a mailto.
+  A real form needs Elementor's atomic form elements enabled, or a form plugin.
+- Contact FAQ answers 2–5 were written to fill the design (only Q1 has copy in Figma); have the client confirm them.
+- Catalogue "Download" buttons open a mailto request; no PDFs exist yet.
+- Gold rings are CSS circle borders, not the gradient SVG strokes.

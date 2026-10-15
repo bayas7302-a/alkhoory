@@ -27,7 +27,7 @@
   "Signature button": {
    "text": "Explore buffet&nbsp;&nbsp;→",
    "link": {
-    "destination": "https://soharon.co.uk/onora/products/",
+    "destination": "https://soharon.co.uk/onora/products/#buffet",
     "isTargetBlank": false,
     "tag": "a"
    }
