@@ -153,6 +153,21 @@ html{scroll-behavior:smooth;}
 
 .elementor [data-interaction-id="75170124"], .elementor .elementor-element.elementor-element-75170124{height:auto !important;aspect-ratio:1500/920;object-fit:cover !important;object-position:50% 55% !important;background-color:#5b5b5b !important;}
 
+.hl-float{position:fixed;right:22px;bottom:22px;z-index:9990;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
+.hl-float-btn{position:relative;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1.5px solid var(--hl-ink);box-shadow:3px 3px 0 0 var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
+.hl-float-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 0 var(--hl-ink);}
+.hl-float-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 0 var(--hl-ink);}
+.hl-float-btn--wa{background:#25D366;}
+.hl-float-btn--call{background:var(--hl-coral);}
+.hl-float-btn--wa::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #25D366;animation:hl-pulse 2.4s ease-out infinite;pointer-events:none;}
+@keyframes hl-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
+.hl-float-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(6px,-50%);white-space:nowrap;padding:7px 12px;border-radius:100px;background:var(--hl-ink);color:var(--hl-cream);font:700 13px/1 var(--font-body),sans-serif;opacity:0;pointer-events:none;transition:opacity .25s ease, transform .35s cubic-bezier(.22,1,.36,1);}
+.hl-float-btn:hover .hl-float-tip, .hl-float-btn:focus-visible .hl-float-tip{opacity:1;transform:translate(0,-50%);}
+.hl-menu-open .hl-float{opacity:0;pointer-events:none;}
+@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float-btn{width:52px;height:52px;}.hl-float-tip{display:none;}}
+@media (prefers-reduced-motion:reduce){.hl-float-btn--wa::after{animation:none;}}
+
+
 .hl-burger{display:none;position:relative;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--hl-ink);background:var(--hl-amber);box-shadow:3px 3px 0 0 var(--hl-ink);cursor:pointer;padding:0;flex-shrink:0;transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
 .hl-burger span{position:absolute;left:13px;right:13px;height:2px;border-radius:2px;background:var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), opacity .2s ease, top .45s cubic-bezier(.22,1,.36,1);}
 .hl-burger span:nth-child(1){top:16px}.hl-burger span:nth-child(2){top:22px}.hl-burger span:nth-child(3){top:28px}
@@ -195,7 +210,7 @@ html.hl-menu-open{overflow:hidden;}
   .elementor-24951 .hl-clone{display:flex !important;}
 }
 @media (prefers-reduced-motion:reduce){.elementor .elementor-element.elementor-element-6ed39e70{animation:none;overflow-x:auto !important;}}
-</style><script nowprocket>(function(){
+</style><div class="hl-float" id="hl-float-buttons" aria-label="Quick contact"><a id="hl-float-whatsapp" class="hl-float-btn hl-float-btn--wa" href="https://wa.me/971559705983?text=Hi%20Hee%20%26%20Lee%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener" data-track="whatsapp" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg><span class="hl-float-tip">WhatsApp us</span></a><a id="hl-float-call" class="hl-float-btn hl-float-btn--call" href="tel:+971556138232" data-track="call" aria-label="Call us on +971 55 613 8232"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg><span class="hl-float-tip">Call us</span></a></div><script nowprocket>(function(){
   function spy(){
     var nav=document.querySelector('[data-id="67ad7a50"]'); if(!nav) return;
     var map=[].slice.call(nav.querySelectorAll('a[href^="#"]')).map(function(a){return {a:a,t:document.getElementById(a.getAttribute('href').slice(1))};}).filter(function(x){return x.t;});
@@ -231,6 +246,7 @@ html.hl-menu-open{overflow:hidden;}
     document.body.appendChild(ov); document.body.appendChild(fl);
     var root=document.documentElement;
     function set(open){ root.classList.toggle('hl-menu-open',open); btn.setAttribute('aria-expanded',open?'true':'false'); btn.setAttribute('aria-label',open?'Close menu':'Open menu'); }
+    /* note: WP Rocket swallows a visitor's first tap and replays it (untrusted) once delayed JS has loaded - accept it */
     btn.addEventListener('click',function(){ set(!root.classList.contains('hl-menu-open')); });
     ov.addEventListener('click',function(){ set(false); });
     fl.addEventListener('click',function(e){ if(e.target.closest('a')||e.target.closest('.hl-fl-close')) set(false); });
@@ -243,6 +259,17 @@ html.hl-menu-open{overflow:hidden;}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',menu);else menu();
 })();</script><script nowprocket>(function(){
   function go(){
+    /* floating WhatsApp / Call: attach to <body> so position:fixed is relative to the viewport, push GTM events */
+    var fb=document.getElementById('hl-float-buttons');
+    if(fb && fb.parentNode!==document.body) document.body.appendChild(fb);
+    if(fb && !fb.dataset.bound){ fb.dataset.bound='1';
+      var lastT={};
+      fb.addEventListener('click',function(e){ var a=e.target.closest('a[data-track]'); if(!a) return;
+        var now=Date.now(); if(lastT[a.id] && now-lastT[a.id]<800) return; lastT[a.id]=now;  /* count each click once */
+        window.dataLayer=window.dataLayer||[];
+        window.dataLayer.push({event: a.dataset.track==='whatsapp' ? 'floating_whatsapp_click' : 'floating_call_click', button_id: a.id, link_url: a.href, page_path: location.pathname});
+      });
+    }
     /* simple contact form: reference placeholders, no pre-selected options */
     var slot=document.querySelector('.elementor-element-3be999f0');
     if(slot){
