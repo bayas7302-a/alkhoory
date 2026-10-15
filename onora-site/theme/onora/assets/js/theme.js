@@ -44,6 +44,57 @@
 		});
 	}
 
+	// Brands page filter: chips (#brand-filters, links to #<category>) show the matching brand cards.
+	var BRAND_CATEGORIES = {
+		'lusini': ['tableware', 'buffet-service', 'kitchen'],
+		'stylepoint': ['tableware'],
+		'falkenporzellan': ['tableware'],
+		'schonhuber-franchi': ['tableware', 'buffet-service'],
+		'spal-porcelanas': ['tableware'],
+		'ctb-ceramics': ['tableware'],
+		'tuppa-stoneware': ['tableware'],
+		'chromolite': ['cutlery'],
+		'belo-inox': ['cutlery'],
+		'crystal-bohemia': ['glass-drinkware'],
+		'vidivi': ['glass-drinkware'],
+		'unbreakmyglass': ['glass-drinkware'],
+		'gramonty': ['glass-drinkware'],
+		'nipco': ['glass-drinkware', 'tableware'],
+		'was-germany': ['kitchen', 'buffet-service'],
+		'trolley-and-cart': ['buffet-service'],
+		'kolk': ['lighting'],
+		'puri-hospitality': ['indian-tableware', 'buffet-service'],
+		'mr-international': ['indian-tableware']
+	};
+	var filterBar = document.getElementById('brand-filters');
+	var brandGrid = document.getElementById('brand-grid');
+	if (filterBar && brandGrid) {
+		var chips = Array.prototype.slice.call(filterBar.querySelectorAll('a[href^="#"]'));
+		var cards = Array.prototype.slice.call(brandGrid.children).filter(function (el) { return /^brand-/.test(el.id); });
+		var filterBrands = function (cat) {
+			if (!chips.some(function (a) { return a.hash.slice(1) === cat; })) cat = 'all';
+			chips.forEach(function (a) {
+				var on = a.hash.slice(1) === cat;
+				(a.closest('p') || a).classList.toggle('is-active', on);
+				a.setAttribute('aria-pressed', String(on));
+			});
+			cards.forEach(function (card) {
+				var cats = BRAND_CATEGORIES[card.id.replace(/^brand-/, '')] || [];
+				card.classList.toggle('onora-brand-hidden', cat !== 'all' && cats.indexOf(cat) === -1);
+			});
+		};
+		chips.forEach(function (a) {
+			a.setAttribute('role', 'button');
+			a.addEventListener('click', function (e) {
+				e.preventDefault();
+				var cat = a.hash.slice(1);
+				history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
+				filterBrands(cat);
+			});
+		});
+		filterBrands(location.hash.slice(1));
+	}
+
 	// Products page tabs: "All" shows every collection, a collection tab shows only that section.
 	var tabsBar = document.getElementById('product-tabs');
 	if (!tabsBar) return;

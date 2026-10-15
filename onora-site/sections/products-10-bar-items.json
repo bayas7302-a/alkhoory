@@ -1,5 +1,5 @@
 {
- "xml_structure": "<e-flexbox configuration-id=\"C08 Bar Items\"><e-div-block configuration-id=\"C08 ring\"></e-div-block><e-flexbox configuration-id=\"C08 details\"><e-flexbox configuration-id=\"C08 label row\"><e-div-block configuration-id=\"C08 rule\"></e-div-block><e-paragraph configuration-id=\"C08 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C08 title\"></e-heading><e-paragraph configuration-id=\"C08 desc\"></e-paragraph><e-flexbox configuration-id=\"C08 specs\"><e-flexbox configuration-id=\"C08 range\"><e-paragraph configuration-id=\"C08 range title\"></e-paragraph><e-flexbox configuration-id=\"C08 range 1\"><e-div-block configuration-id=\"C08 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 2\"><e-div-block configuration-id=\"C08 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 3\"><e-div-block configuration-id=\"C08 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 4\"><e-div-block configuration-id=\"C08 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 ideal\"><e-paragraph configuration-id=\"C08 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C08 ideal 1\"><e-div-block configuration-id=\"C08 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 ideal 2\"><e-div-block configuration-id=\"C08 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 ideal 3\"><e-div-block configuration-id=\"C08 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 brands\"><e-paragraph configuration-id=\"C08 brands title\"></e-paragraph><e-flexbox configuration-id=\"C08 brand chips\"><e-paragraph configuration-id=\"C08 brand 1\"></e-paragraph><e-paragraph configuration-id=\"C08 brand 2\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 actions\"><e-button configuration-id=\"C08 quote\"></e-button><e-button configuration-id=\"C08 catalogue\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 mosaic\"><e-div-block configuration-id=\"C08 main wrap\"><e-image configuration-id=\"C08 main image\"></e-image><e-flexbox configuration-id=\"C08 tag\"><e-paragraph configuration-id=\"C08 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C08 thumbs\"><e-image configuration-id=\"C08 thumb 1\"></e-image><e-image configuration-id=\"C08 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"C08 Bar Items\"><e-div-block configuration-id=\"C08 ring\"></e-div-block><e-flexbox configuration-id=\"C08 details\"><e-flexbox configuration-id=\"C08 label row\"><e-div-block configuration-id=\"C08 rule\"></e-div-block><e-paragraph configuration-id=\"C08 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C08 title\"></e-heading><e-paragraph configuration-id=\"C08 desc\"></e-paragraph><e-flexbox configuration-id=\"C08 specs\"><e-flexbox configuration-id=\"C08 range\"><e-paragraph configuration-id=\"C08 range title\"></e-paragraph><e-flexbox configuration-id=\"C08 range 1\"><e-div-block configuration-id=\"C08 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 2\"><e-div-block configuration-id=\"C08 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 3\"><e-div-block configuration-id=\"C08 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 range 4\"><e-div-block configuration-id=\"C08 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C08 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 ideal\"><e-paragraph configuration-id=\"C08 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C08 ideal 1\"><e-div-block configuration-id=\"C08 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 ideal 2\"><e-div-block configuration-id=\"C08 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C08 ideal 3\"><e-div-block configuration-id=\"C08 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C08 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 brands\"><e-paragraph configuration-id=\"C08 brands title\"></e-paragraph><e-flexbox configuration-id=\"C08 brand chips\"><e-paragraph configuration-id=\"C08 brand 1\"></e-paragraph><e-paragraph configuration-id=\"C08 brand 2\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 actions\"><e-button configuration-id=\"C08 quote\"></e-button></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C08 mosaic\"><e-div-block configuration-id=\"C08 main wrap\"><e-image configuration-id=\"C08 main image\"></e-image><e-flexbox configuration-id=\"C08 tag\"><e-paragraph configuration-id=\"C08 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C08 thumbs\"><e-image configuration-id=\"C08 thumb 1\"></e-image><e-image configuration-id=\"C08 thumb 2\"></e-image></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "C08 Bar Items": {
    "tag": "section",
@@ -53,14 +53,6 @@
   },
   "C08 quote": {
    "text": "Request a quote&nbsp;&nbsp;→",
-   "link": {
-    "destination": "https://soharon.co.uk/onora/contact-us/",
-    "isTargetBlank": false,
-    "tag": "a"
-   }
-  },
-  "C08 catalogue": {
-   "text": "Catalogue&nbsp;&nbsp;→",
    "link": {
     "destination": "https://soharon.co.uk/onora/contact-us/",
     "isTargetBlank": false,
@@ -137,7 +129,6 @@
   "C08 brand 2": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #FFFFFF; padding: 8px 14px;",
   "C08 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; width: 100%; flex-wrap: nowrap; }",
   "C08 quote": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }",
-  "C08 catalogue": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }",
   "C08 mosaic": "flex-direction: column; gap: 20px; padding: 0px; width: 660px; min-width: 660px; flex-shrink: 0; z-index: 1; @media(--tablet){ width: 100%; min-width: 0px; order: -1; } @media(--mobile){ width: 100%; min-width: 0px; order: -1; gap: 12px; }",
   "C08 main wrap": "position: relative; padding: 0px; width: 100%; height: 420px; overflow: hidden; @media(--mobile){ height: 240px; }",
   "C08 main image": "display: block; width: 100%; height: 420px; object-fit: cover; @media(--mobile){ height: 240px; }",
@@ -156,9 +147,6 @@
   ],
   "C08 quote": [
    "on-btn-navy"
-  ],
-  "C08 catalogue": [
-   "on-btn-outline-navy"
   ]
  },
  "post_id": 28

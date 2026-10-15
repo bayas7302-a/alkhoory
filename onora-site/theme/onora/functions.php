@@ -5,7 +5,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'ONORA_VERSION', '1.1.1' );
+define( 'ONORA_VERSION', '1.2.0' );
 
 /** Business details shown in the header and footer. */
 function onora_contact( $key ) {

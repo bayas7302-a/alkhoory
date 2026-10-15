@@ -72,12 +72,16 @@ Reply-To set to the enquirer. Styles: "Contact Form 7" block in `assets/css/them
 Edits made to the form in WP Admin → Contact are overwritten on the next theme version bump; change the .txt files instead.
 Delivery depends on the server's PHP mail; install an SMTP plugin if test enquiries don't arrive.
 
+## Brands filter
+The chips (`#brand-filters`, links `#tableware`, `#cutlery`, …) filter the cards in `#brand-grid` (card ids `brand-<slug>`).
+Which brand belongs to which category is the `BRAND_CATEGORIES` map in `theme/onora/assets/js/theme.js`; the
+"Looking for another brand?" card always stays. Links like `/brands/#lighting` open pre-filtered.
+
 ## Products tabs
 `sections/products-02-tabs.json` is a nav with ids `product-tabs` / `product-tabs-track`: All + 12 collections in one line
 (scrolls sideways on phones). `theme/onora/assets/js/theme.js` makes it sticky under the header and filters the collection
 sections (ids `#chinaware` … `#indian-tableware`); links like `/products/#cutlery` open that collection only.
 
 ## Known gaps
-- Products collection sections still have a "Catalogue" button (links to Contact).
 - Contact FAQ answers 2–5 were written to fill the design (only Q1 has copy in Figma); have the client confirm them.
 - Gold rings are CSS circle borders, not the gradient SVG strokes.

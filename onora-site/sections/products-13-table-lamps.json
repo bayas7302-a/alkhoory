@@ -1,5 +1,5 @@
 {
- "xml_structure": "<e-flexbox configuration-id=\"C11 Table Lamps\"><e-div-block configuration-id=\"C11 ring\"></e-div-block><e-flexbox configuration-id=\"C11 mosaic\"><e-div-block configuration-id=\"C11 main wrap\"><e-image configuration-id=\"C11 main image\"></e-image><e-flexbox configuration-id=\"C11 tag\"><e-paragraph configuration-id=\"C11 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C11 thumbs\"><e-image configuration-id=\"C11 thumb 1\"></e-image><e-image configuration-id=\"C11 thumb 2\"></e-image></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 details\"><e-flexbox configuration-id=\"C11 label row\"><e-div-block configuration-id=\"C11 rule\"></e-div-block><e-paragraph configuration-id=\"C11 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C11 title\"></e-heading><e-paragraph configuration-id=\"C11 desc\"></e-paragraph><e-flexbox configuration-id=\"C11 specs\"><e-flexbox configuration-id=\"C11 range\"><e-paragraph configuration-id=\"C11 range title\"></e-paragraph><e-flexbox configuration-id=\"C11 range 1\"><e-div-block configuration-id=\"C11 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 2\"><e-div-block configuration-id=\"C11 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 3\"><e-div-block configuration-id=\"C11 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 4\"><e-div-block configuration-id=\"C11 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 ideal\"><e-paragraph configuration-id=\"C11 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C11 ideal 1\"><e-div-block configuration-id=\"C11 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 ideal 2\"><e-div-block configuration-id=\"C11 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 ideal 3\"><e-div-block configuration-id=\"C11 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 brands\"><e-paragraph configuration-id=\"C11 brands title\"></e-paragraph><e-flexbox configuration-id=\"C11 brand chips\"><e-paragraph configuration-id=\"C11 brand 1\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 actions\"><e-button configuration-id=\"C11 quote\"></e-button><e-button configuration-id=\"C11 catalogue\"></e-button></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"C11 Table Lamps\"><e-div-block configuration-id=\"C11 ring\"></e-div-block><e-flexbox configuration-id=\"C11 mosaic\"><e-div-block configuration-id=\"C11 main wrap\"><e-image configuration-id=\"C11 main image\"></e-image><e-flexbox configuration-id=\"C11 tag\"><e-paragraph configuration-id=\"C11 tag text\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"C11 thumbs\"><e-image configuration-id=\"C11 thumb 1\"></e-image><e-image configuration-id=\"C11 thumb 2\"></e-image></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 details\"><e-flexbox configuration-id=\"C11 label row\"><e-div-block configuration-id=\"C11 rule\"></e-div-block><e-paragraph configuration-id=\"C11 label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"C11 title\"></e-heading><e-paragraph configuration-id=\"C11 desc\"></e-paragraph><e-flexbox configuration-id=\"C11 specs\"><e-flexbox configuration-id=\"C11 range\"><e-paragraph configuration-id=\"C11 range title\"></e-paragraph><e-flexbox configuration-id=\"C11 range 1\"><e-div-block configuration-id=\"C11 range 1 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 2\"><e-div-block configuration-id=\"C11 range 2 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 3\"><e-div-block configuration-id=\"C11 range 3 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 3 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 range 4\"><e-div-block configuration-id=\"C11 range 4 dash\"></e-div-block><e-paragraph configuration-id=\"C11 range 4 text\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 ideal\"><e-paragraph configuration-id=\"C11 ideal title\"></e-paragraph><e-flexbox configuration-id=\"C11 ideal 1\"><e-div-block configuration-id=\"C11 ideal 1 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 1 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 ideal 2\"><e-div-block configuration-id=\"C11 ideal 2 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 2 text\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"C11 ideal 3\"><e-div-block configuration-id=\"C11 ideal 3 dash\"></e-div-block><e-paragraph configuration-id=\"C11 ideal 3 text\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 brands\"><e-paragraph configuration-id=\"C11 brands title\"></e-paragraph><e-flexbox configuration-id=\"C11 brand chips\"><e-paragraph configuration-id=\"C11 brand 1\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"C11 actions\"><e-button configuration-id=\"C11 quote\"></e-button></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "C11 Table Lamps": {
    "tag": "section",
@@ -82,14 +82,6 @@
     "isTargetBlank": false,
     "tag": "a"
    }
-  },
-  "C11 catalogue": {
-   "text": "Catalogue&nbsp;&nbsp;→",
-   "link": {
-    "destination": "https://soharon.co.uk/onora/contact-us/",
-    "isTargetBlank": false,
-    "tag": "a"
-   }
   }
  },
  "style": {
@@ -140,8 +132,7 @@
   "C11 brand chips": "padding: 0px; flex-wrap: wrap; gap: 8px; align-items: flex-start; width: 100%;",
   "C11 brand 1": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #F7F4EE; padding: 8px 14px;",
   "C11 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; width: 100%; flex-wrap: nowrap; }",
-  "C11 quote": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }",
-  "C11 catalogue": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }"
+  "C11 quote": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }"
  },
  "classes": {
   "C11 label row": [
@@ -152,9 +143,6 @@
   ],
   "C11 quote": [
    "on-btn-navy"
-  ],
-  "C11 catalogue": [
-   "on-btn-outline-navy"
   ]
  },
  "post_id": 28

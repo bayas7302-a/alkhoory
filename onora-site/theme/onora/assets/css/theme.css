@@ -173,7 +173,8 @@ a { color: inherit; }
 .onora-cf7__submit { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .onora-cf7__privacy { font: 400 12px/15px var(--on-sans); color: var(--on-muted); }
 .onora-cf7 .onora-cf7__button { padding: 18px 30px; border: 0; border-radius: 0; background: var(--on-gold-grad); color: var(--on-navy-deep); font: 600 12px/18px var(--on-sans); letter-spacing: 2.2px; text-transform: uppercase; white-space: pre; cursor: pointer; transition: opacity .3s; }
-.onora-cf7 .onora-cf7__button:hover, .onora-cf7 .onora-cf7__button:focus-visible { opacity: .9; outline: 2px solid var(--on-navy); outline-offset: 2px; }
+.onora-cf7 .onora-cf7__button:hover { opacity: .9; }
+.onora-cf7 .onora-cf7__button:focus-visible { outline: 2px solid var(--on-navy); outline-offset: 2px; }
 .onora-cf7 .onora-cf7__button:disabled { opacity: .6; cursor: wait; }
 .onora-quote .wpcf7-spinner { margin: 0 0 0 12px; }
 .onora-quote .wpcf7-response-output { margin: 20px 0 0 !important; padding: 14px 18px !important; border-width: 1px !important; font-size: 13px; line-height: 1.5; }
@@ -185,3 +186,12 @@ a { color: inherit; }
 	.onora-cf7__submit { flex-direction: column-reverse; align-items: stretch; }
 	.onora-cf7 .onora-cf7__button { width: 100%; }
 }
+
+/* Brands page: category filter (chips #brand-filters, cards in #brand-grid) */
+#brand-filters a { text-decoration: none; color: inherit; }
+#brand-filters .is-active { background: var(--on-navy) !important; border-color: var(--on-navy) !important; color: #fff !important; }
+#brand-filters .is-active a { color: #fff; }
+#brand-grid > * { animation: onora-fade .35s ease both; }
+.onora-brand-hidden { display: none !important; }
+@keyframes onora-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { #brand-grid > * { animation: none; } }

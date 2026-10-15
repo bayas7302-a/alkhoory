@@ -13,28 +13,68 @@
    "paragraph": "Every brand in our portfolio is selected for design, durability and the support it gives commercial kitchens and dining rooms."
   },
   "Chip 1": {
-   "paragraph": "All brands"
+   "paragraph": "All brands",
+   "link": {
+    "destination": "#all",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 2": {
-   "paragraph": "Tableware"
+   "paragraph": "Tableware",
+   "link": {
+    "destination": "#tableware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 3": {
-   "paragraph": "Cutlery"
+   "paragraph": "Cutlery",
+   "link": {
+    "destination": "#cutlery",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 4": {
-   "paragraph": "Glass &amp; drinkware"
+   "paragraph": "Glass &amp; drinkware",
+   "link": {
+    "destination": "#glass-drinkware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 5": {
-   "paragraph": "Buffet &amp; service"
+   "paragraph": "Buffet &amp; service",
+   "link": {
+    "destination": "#buffet-service",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 6": {
-   "paragraph": "Kitchen"
+   "paragraph": "Kitchen",
+   "link": {
+    "destination": "#kitchen",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 7": {
-   "paragraph": "Lighting"
+   "paragraph": "Lighting",
+   "link": {
+    "destination": "#lighting",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Chip 8": {
-   "paragraph": "Indian tableware"
+   "paragraph": "Indian tableware",
+   "link": {
+    "destination": "#indian-tableware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
   },
   "Brand 1 logo": {
    "image": {
@@ -565,6 +605,69 @@
     "isTargetBlank": false,
     "tag": "a"
    }
+  },
+  "Filter chips": {
+   "_cssid": "brand-filters"
+  },
+  "Brand grid": {
+   "_cssid": "brand-grid"
+  },
+  "Brand 1": {
+   "_cssid": "brand-lusini"
+  },
+  "Brand 2": {
+   "_cssid": "brand-stylepoint"
+  },
+  "Brand 3": {
+   "_cssid": "brand-falkenporzellan"
+  },
+  "Brand 4": {
+   "_cssid": "brand-schonhuber-franchi"
+  },
+  "Brand 5": {
+   "_cssid": "brand-spal-porcelanas"
+  },
+  "Brand 6": {
+   "_cssid": "brand-ctb-ceramics"
+  },
+  "Brand 7": {
+   "_cssid": "brand-tuppa-stoneware"
+  },
+  "Brand 8": {
+   "_cssid": "brand-chromolite"
+  },
+  "Brand 9": {
+   "_cssid": "brand-belo-inox"
+  },
+  "Brand 10": {
+   "_cssid": "brand-crystal-bohemia"
+  },
+  "Brand 11": {
+   "_cssid": "brand-vidivi"
+  },
+  "Brand 12": {
+   "_cssid": "brand-unbreakmyglass"
+  },
+  "Brand 13": {
+   "_cssid": "brand-gramonty"
+  },
+  "Brand 14": {
+   "_cssid": "brand-nipco"
+  },
+  "Brand 15": {
+   "_cssid": "brand-was-germany"
+  },
+  "Brand 16": {
+   "_cssid": "brand-trolley-and-cart"
+  },
+  "Brand 17": {
+   "_cssid": "brand-kolk"
+  },
+  "Brand 18": {
+   "_cssid": "brand-puri-hospitality"
+  },
+  "Brand 19": {
+   "_cssid": "brand-mr-international"
   }
  },
  "style": {
@@ -575,7 +678,7 @@
   "Partners label": "position: relative; z-index: 1;",
   "Partners lead": "width: 420px; max-width: 100%;",
   "Filter chips": "padding: 0px; flex-wrap: wrap; gap: 12px; align-items: flex-start; @media(--mobile){ gap: 8px; }",
-  "Chip 1": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: #FFFFFF; background: var(--on-navy); border: 1px solid #0B2F62; @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
+  "Chip 1": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
   "Chip 2": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
   "Chip 3": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
   "Chip 4": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; line-height: 13px; padding: 12px 20px; color: var(--on-navy); background: #FFFFFF; border: 1px solid #E6E0D6; transition: border-color 0.3s; &:hover{ border-color: #C9962E; } @media(--mobile){ padding: 10px 14px; font-size: 10px; letter-spacing: 1.2px; }",
