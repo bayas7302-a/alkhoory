@@ -169,7 +169,8 @@ def smaller_title(nodes):
         for k in n.kids:
             walk(k)
     for n in nodes:
-        walk(n)
+        if n is not None:  # header() is None when the theme provides it
+            walk(n)
     return nodes
 
 

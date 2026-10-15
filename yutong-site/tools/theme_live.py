@@ -36,6 +36,8 @@ for pg in pages:
 for name in PAGES:
     r = subprocess.run([sys.executable, os.path.join(HERE, 'run.py'), name, '--no-shot'], capture_output=True, text=True)
     bad = [l for l in r.stdout.splitlines() if 'not supported' in l or 'stopped' in l or 'ERROR' in l]
-    print('rebuilt', name, 'issues:', len(bad))
+    if r.returncode:
+        bad.append('exit %d: %s' % (r.returncode, r.stderr.strip().splitlines()[-1:] or ''))
+    print('rebuilt', name, 'issues:', len(bad), bad[-1:] if r.returncode else '')
 subprocess.run([sys.executable, os.path.join(HERE, 'check.py')])
 subprocess.run([sys.executable, os.path.join(HERE, 'rhythm.py')])
