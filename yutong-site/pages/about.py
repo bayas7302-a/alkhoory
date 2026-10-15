@@ -42,8 +42,8 @@ def why():
     return flex('Why Choose Us', 'padding: 110px 120px; flex-direction: column; gap: 48px; background-color: #ffffff; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 36px; }', [
         flex('Why Row', 'padding: 0; gap: 64px; align-items: center; @media(--tablet) { flex-direction: column; align-items: stretch; gap: 48px; }', [
             div('Why Collage', 'width: 540px; max-width: 100%; flex: 0 0 auto; height: 520px; padding: 0; position: relative; @media(--tablet) { align-self: center; } @media(--mobile) { height: 380px; }', [
-                img('Why Photo A', 'about-why-photo', 'position: absolute; left: 0; top: 0; width: 440px; max-width: 82%; height: 380px; object-fit: cover; border-radius: 26px; @media(--mobile) { height: 270px; }'),
-                img('Why Photo B', 'about-why-photo', 'position: absolute; left: 220px; top: 280px; width: 320px; max-width: 60%; height: 240px; object-fit: cover; border-radius: 22px; border: 8px solid #ffffff; @media(--mobile) { left: auto; right: 0; top: 200px; height: 180px; }'),
+                img('Why Photo A', 'ytabout2-arches', 'position: absolute; left: 0; top: 0; width: 440px; max-width: 82%; height: 380px; object-fit: cover; border-radius: 26px; @media(--mobile) { height: 270px; }'),
+                img('Why Photo B', 'ytabout2-sydney', 'position: absolute; left: 220px; top: 280px; width: 320px; max-width: 60%; height: 240px; object-fit: cover; border-radius: 22px; border: 8px solid #ffffff; @media(--mobile) { left: auto; right: 0; top: 200px; height: 180px; }'),
                 flex('Why Badge', 'position: absolute; left: 24px; top: 330px; width: auto; padding: 18px 22px; flex-direction: column; background-color: #0160b4; border-radius: 20px; box-shadow: 0 20px 24px rgba(0,26,64,0.16); @media(--mobile) { left: 12px; top: 236px; padding: 14px 18px; }', [
                     p('Why Badge Number', '130,000', FD + 'font-size: 30px; font-weight: 700; color: #ffffff; margin: 0; line-height: 1.25; @media(--mobile) { font-size: 24px; }'),
                     p('Why Badge Label', 'buses exported', FB + 'font-size: 12px; color: rgba(255,255,255,0.85); margin: 0;'),
@@ -84,7 +84,7 @@ def expansion():
             body('Expansion Text 2', 'In 2025, Yutong Bus achieved sales of 49,518 units. Yutong buses now operate in fleets across Europe, Latin America, Africa and Asia-Pacific, supported by a global network of branches, KD plants and authorized service outlets.', 'max-width: 760px; text-align: center; line-height: 27px; margin-top: 13px;', '#747474', 16),
         ]),
         flex('Expansion Map', 'padding: 0; height: 520px; justify-content: center; align-items: center; background-color: #ffffff; border-radius: 28px; overflow: hidden; @media(--tablet) { height: auto; } @media(--mobile) { border-radius: 20px; }', [
-            img('Expansion Map Image', 'about-map', 'width: 100%; height: 520px; object-fit: contain; @media(--tablet) { height: auto; }'),
+            img('Expansion Map Image', 'ytabout2-fleet', 'width: 100%; height: 520px; object-fit: cover; border-radius: 24px; @media(--tablet) { height: 400px; } @media(--mobile) { height: 240px; }'),
         ]),
         flex('Expansion Stats', 'padding: 0; gap: 20px; align-items: flex-start; @media(--tablet) { flex-wrap: wrap; align-items: stretch; } @media(--mobile) { flex-direction: column; }', cards),
     ], tag='section')
@@ -96,15 +96,15 @@ def empower():
     return flex('Empower', '''min-height: 560px; padding: 120px 120px 38px; flex-direction: column; justify-content: space-between; align-items: center; gap: 40px;
         background-color: #072b52; background-image: linear-gradient(180deg, rgba(7,43,82,0.3) 0%%, rgba(7,43,82,0.9) 100%%), %s;
         background-size: cover; background-position: center center;
-        @media(--tablet) { padding: 100px 40px 36px; min-height: 480px; } @media(--mobile) { padding: 72px 20px 28px; min-height: 0; }''' % bg('about-empower'), [
+        @media(--tablet) { padding: 100px 40px 36px; min-height: 480px; } @media(--mobile) { padding: 72px 20px 28px; min-height: 0; }''' % bg('ytabout2-bridge'), [
         flex('Empower Content', 'max-width: 900px; padding: 60px 0 0; flex-direction: column; align-items: center; gap: 14px; @media(--mobile) { padding: 0; }', [
             eyebrow('Empower Eyebrow', 'Our Commitment', '#ffffff', center=True),
             h('Empower Title', "Empower customers' growth and success", 'h2', FD + 'font-size: 52px; font-weight: 700; line-height: 62px; color: #ffffff; text-align: center; margin: 0; @media(--tablet) { font-size: 42px; line-height: 52px; } @media(--mobile) { font-size: 30px; line-height: 38px; }'),
             p('Empower Text', 'Build trusted, lasting partnerships &middot; Deliver premium products and thoughtful service', FB + 'max-width: 640px; font-size: 17px; font-weight: 300; line-height: 28px; color: rgba(255,255,255,0.88); text-align: center; margin: 0; @media(--mobile) { font-size: 15px; line-height: 24px; }'),
         ]),
         flex('Empower Thumbs', 'padding: 0; justify-content: space-between; align-items: flex-end;', [
-            img('Empower Thumb 1', 'about-thumb-1', 'width: 150px; height: 82px; object-fit: cover; border-radius: 14px; border: 3px solid #ffffff; @media(--mobile) { width: 120px; height: 66px; }'),
-            img('Empower Thumb 2', 'about-thumb-2', 'width: 150px; height: 82px; object-fit: cover; border-radius: 14px; border: 3px solid #ffffff; @media(--mobile) { width: 120px; height: 66px; }'),
+            img('Empower Thumb 1', 'ytabout2-meeting', 'width: 150px; height: 82px; object-fit: cover; border-radius: 14px; border: 3px solid #ffffff; @media(--mobile) { width: 120px; height: 66px; }'),
+            img('Empower Thumb 2', 'ytabout2-event', 'width: 150px; height: 82px; object-fit: cover; border-radius: 14px; border: 3px solid #ffffff; @media(--mobile) { width: 120px; height: 66px; }'),
         ]),
     ], tag='section')
 
@@ -175,7 +175,7 @@ def history():
     return flex('Our History', 'padding: 110px 120px; background-color: #f2f6fb; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; }', [
         anchor('our-history'),
         flex('History Card', 'padding: 0; align-items: center; background-color: #ffffff; border-radius: 28px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.08); @media(--tablet) { flex-direction: column; align-items: stretch; } @media(--mobile) { border-radius: 22px; }', [
-            img('History Photo', 'about-history-x', 'width: 560px; flex: 0 0 auto; height: auto; min-height: 420px; align-self: stretch; object-fit: cover; @media(--tablet) { width: 100%; height: 360px; min-height: 0; } @media(--mobile) { height: 240px; }'),
+            img('History Photo', 'ytabout2-archive-crop', 'width: 560px; flex: 0 0 auto; height: auto; min-height: 420px; align-self: stretch; object-fit: cover; object-position: 50% 40%; @media(--tablet) { width: 100%; height: 360px; min-height: 0; } @media(--mobile) { height: 240px; }'),
             flex('History Text', 'padding: 52px; flex: 1 1 0; flex-direction: column; align-items: flex-start; gap: 18px; @media(--tablet) { padding: 40px; } @media(--mobile) { padding: 28px 22px; }', [
                 flex('History Icon', 'width: 56px; min-width: 56px; height: 56px; padding: 0; border-radius: 16px; background-color: #0160b4; justify-content: center; align-items: center;', [img('History Glyph', 'about-ic-history', 'width: 26px;')]),
                 h('History Title', 'Our History', 'h2', FD + 'font-size: 36px; font-weight: 700; line-height: 1.25; color: #00050b; margin: 0; @media(--mobile) { font-size: 30px; }'),
