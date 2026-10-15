@@ -156,7 +156,6 @@ def services():
 
 # ---------- Our History (5:193) ----------
 
-HISTORY_URL = 'https://en.yutong.com/about/history/'
 
 
 def new_tab(node):
@@ -185,7 +184,6 @@ def history():
                         p('History Year %d Number' % (i + 1), y, FD + 'font-size: 24px; font-weight: 700; line-height: 1.25; color: #0160b4; margin: 0;'),
                         p('History Year %d Label' % (i + 1), t, FB + 'font-size: 13px; line-height: 20px; color: #747474; margin: 0;'),
                     ]) for i, (y, t) in enumerate(MILESTONES)]),
-                new_tab(btn('History CTA', 'View Our History', HISTORY_URL, kind='outline-blue')),
             ]),
         ]),
     ], tag='section')

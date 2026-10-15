@@ -6,46 +6,38 @@ from parts import *
 POST = 13
 SLUG = 'news'
 
-# Real Yutong news (client-authorised content from https://en.yutong.com/pressmedia/news/).
-# The UAE site has no article pages, so every card links to the original article in a new tab.
-YT_NEWS = 'https://en.yutong.com/pressmedia/news/'
+# Card summaries; every card links to its own on-site article page (pages/articles.py), never off-site.
 INTRO = ('The latest from Yutong around the world: new vehicles, customer deliveries, events and service milestones, '
          'shared by Al Khoory Automobiles, the official Yutong distributor in the UAE.')
 FEATURED = ('ytnews-europe-thumb', 'September 11, 2026', 'Yutong Opens Its First Comprehensive Service Center in Europe',
             'Opened on September 8 in Stokke, Norway, the new Yutong Service Center brings vehicle delivery, after-sales service, '
-            'spare parts supply and professional training together in one hub for battery-electric bus fleets.',
-            YT_NEWS + '2098336357998006272.shtml')
-# (photo, date, headline, excerpt, url)
+            'spare parts supply and professional training together in one hub for battery-electric bus fleets.')
+# (photo, date, headline, excerpt)
 CARDS = [
     ('ytnews-cop17', 'August 27, 2026', '110 Yutong Buses Serve UNCCD COP17, Advancing Sustainable Development Through Green Mobility',
-     'As designated transport provider for the conference in Ulaanbaatar, Yutong buses shuttled delegates from 197 countries.',
-     YT_NEWS + '2092876156117323776.shtml'),
+     'As designated transport provider for the conference in Ulaanbaatar, Yutong buses shuttled delegates from 197 countries.'),
     ('ytnews-dutch', 'August 10, 2026', 'Customer Voices | Reliable Range, Superior Ride Comfort: Yutong T Series &amp; IC Series Win Acclaim Among Dutch Clients',
-     'Dutch operators share first-hand feedback on the all-electric T Series touring coach and IC Series intercity bus.',
-     YT_NEWS + '2086695012816523264.shtml'),
+     'Dutch operators share first-hand feedback on the all-electric T Series touring coach and IC Series intercity bus.'),
     ('ytnews-workforce', 'July 31, 2026', 'Gather in Yutong, Connect the World, Grow Hand in Hand with Our Global Workforce',
-     "Local employees from more than ten countries met at Yutong's Zhengzhou headquarters for in-person exchanges.",
-     YT_NEWS + '2084848732939096064.shtml'),
+     "Local employees from more than ten countries met at Yutong's Zhengzhou headquarters for in-person exchanges."),
     ('ytnews-hybrid', 'July 29, 2026', 'Operating in 206 Cities, Yutong Hybrid Buses Have Won Global Market Recognition Through Real-World Operation',
-     'Yutong hybrid buses have been delivered to 206 cities worldwide, with cumulative sales reaching 33,000 units.',
-     YT_NEWS + '2082345259316154368.shtml'),
+     'Yutong hybrid buses have been delivered to 206 cities worldwide, with cumulative sales reaching 33,000 units.'),
     ('ytnews-expo-au', 'July 17, 2026', 'Yutong Debuts at 2026 Australasia Bus &amp; Coach Expo, Demonstrating Product Strength for Diverse Scenarios',
-     'Five models on show in Sydney, led by the Australian debut of the 18-metre battery-electric U18.',
-     YT_NEWS + '2077944103810764800.shtml'),
+     'Five models on show in Sydney, led by the Australian debut of the 18-metre battery-electric U18.'),
     ('ytnews-c12e', 'June 18, 2026', '261 km on Just 47% Battery! Yutong C12E Hong Kong Long-Range Challenge Succeeds',
-     'A Hong Kong-spec C12E covered 261 km on a real cross-border route with the air conditioning running non-stop.',
-     YT_NEWS + '2068983698539286528.shtml'),
+     'A Hong Kong-spec C12E covered 261 km on a real cross-border route with the air conditioning running non-stop.'),
 ]
 
 
 def blank(node, url):
-    """Link a node to an external page in a new tab (lib.link() defaults to same tab)."""
-    node.cfg['link'] = link(url, True)
+    """Link a node to an on-site article page."""
+    node.cfg['link'] = link(url)
     return node
 
 
 def featured():
-    photo, date, headline, excerpt, url = FEATURED
+    photo, date, headline, excerpt = FEATURED
+    url = article_url('news', headline)
     return flex('Featured', 'padding: 0; align-items: stretch; background-color: #072b52; border-radius: 28px; overflow: hidden; box-shadow: 0 20px 48px rgba(0,26,64,0.16); @media(--tablet) { flex-direction: column; }', [
         blank(div('Featured Media', 'width: 640px; flex: 0 0 auto; min-height: 380px; padding: 0; position: relative; @media(--tablet) { width: 100%; min-height: 0; height: 320px; } @media(--mobile) { height: 220px; }', [
             img('Featured Photo', photo, 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;'),
@@ -63,7 +55,8 @@ def featured():
     ]).c('yt-lift')
 
 
-def card(i, photo, date, headline, excerpt, url):
+def card(i, photo, date, headline, excerpt):
+    url = article_url('news', headline)
     n = 'News Item %d' % i
     return flex(n, 'padding: 0; flex: 1 1 0; flex-direction: column; align-self: stretch; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.08); @media(--tablet) { flex: 1 1 40%; } @media(--mobile) { flex: 0 0 auto; }', [
         blank(div(n + ' Media', 'padding: 0; height: 230px;', [
@@ -95,7 +88,6 @@ def list_section():
                 eyebrow('News List Eyebrow', 'Press Releases'),
                 title('News List Title', 'Latest from ' + hl('Yutong'), 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; @media(--mobile) { font-size: 30px; line-height: 38px; }'),
             ]),
-            blank(btn('News List Archive', 'All Yutong News', YT_NEWS, kind='outline-blue'), YT_NEWS),
         ]),
         featured(),
         flex('News Rows', 'padding: 0; flex-direction: column; gap: 24px;', rows),

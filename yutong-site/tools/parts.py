@@ -316,3 +316,19 @@ def glance_section(pad='0 120px 110px'):
         ]),
         flex('Glance Cards', 'padding: 0; gap: 24px; @media(--tablet) { flex-wrap: wrap; } @media(--mobile) { flex-direction: column; }', cards),
     ], tag='section')
+
+
+# ---------- on-site article pages (news + awards detail) ----------
+
+def slugify(text, limit=60):
+    import re, html
+    s = re.sub(r'<[^>]+>', '', html.unescape(text)).lower()
+    s = re.sub(r'[^a-z0-9]+', '-', s).strip('-')
+    if len(s) > limit:
+        s = s[:limit].rsplit('-', 1)[0]
+    return s
+
+
+def article_url(kind, title):
+    """URL of a generated detail page: kind 'news' -> /news/<slug>/, 'award' -> /awards/<slug>/."""
+    return '%s/%s/%s/' % (SITE, {'news': 'news', 'award': 'awards'}[kind], slugify(title))

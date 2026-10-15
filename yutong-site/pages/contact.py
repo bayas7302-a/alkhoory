@@ -9,9 +9,6 @@ SLUG = 'contact'
 # Copy sources: en.yutong.com /contact/contact/, /service/, /about/about-yutong/; contact details = UAE distributor
 HERO_TEXT = ('Contact Al Khoory Automobiles, the official Yutong distributor in the UAE, for vehicle specifications, fleet requirements, '
              'customization, spare parts, training and customer support. Send your enquiry online, call us or visit our Dubai showroom.')
-YT_SOCIAL = [('Facebook', 'https://www.facebook.com/YutongGlobal/'), ('LinkedIn', 'https://www.linkedin.com/company/9181418/'),
-             ('Instagram', 'https://www.instagram.com/yutong.global/'), ('YouTube', 'https://www.youtube.com/channel/UCIxtne2jWoPbjtC6SidsvSw'),
-             ('X', 'https://twitter.com/YutongGlobal')]
 MAP_URL = 'https://maps.google.com/?q=Al+Khoory+Automobiles+Al+Quoz+Industrial+Area+3+Dubai'
 
 
@@ -80,7 +77,7 @@ def info_section():
                 ]),
                 flex('Contact Cards Row 2', 'padding: 0; gap: 14px; align-items: stretch; @media(--mobile) { flex-direction: column; }', [
                     info_card('WhatsApp', 'contact-ic-chat', 'WhatsApp &amp; online enquiry', 'Send us a message', URL['quote']),
-                    info_card('Social', 'contact-ic-share', 'Follow Yutong', ' &middot; '.join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, t) for t, u in YT_SOCIAL)),
+                    info_card('Social', 'contact-ic-share', 'News &amp; media', 'Latest Yutong news', URL['news']),
                 ]),
                 info_card('Timing', 'q-clock', 'Showroom Timing', '09:30 AM to 8:00 PM &mdash; Open 7 days a week'),
                 info_card('Address', 'contact-ic-pin', 'Showroom Address', 'Showroom 12, Sheikh Zayed Road<br>Al Quoz Industrial Area 3, Dubai, UAE', MAP_URL, dark=True),
