@@ -137,9 +137,9 @@ CALL_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" f
 WA_URL = 'https://wa.me/971559705983?text=' + __import__('urllib.parse').parse.quote("Hi Hee & Lee, I'd like to discuss a website project.")
 FLOAT_HTML = ('<div class="hl-float" id="hl-float-buttons" aria-label="Quick contact">'
   '<a id="hl-float-whatsapp" class="hl-float-btn hl-float-btn--wa" href="' + WA_URL + '" target="_blank" rel="noopener" '
-  'data-track="whatsapp" aria-label="Chat with us on WhatsApp">' + WA_SVG + '<span class="hl-float-tip">WhatsApp us</span></a>'
+  'data-track="whatsapp" aria-label="Chat with us on WhatsApp">' + WA_SVG + '</a>'
   '<a id="hl-float-call" class="hl-float-btn hl-float-btn--call" href="tel:+971556138232" data-track="call" '
-  'aria-label="Call us on +971 55 613 8232">' + CALL_SVG + '<span class="hl-float-tip">Call us</span></a></div>')
+  'aria-label="Call us on +971 55 613 8232">' + CALL_SVG + '</a></div>')
 css.append("""
 .hl-float{position:fixed;right:22px;bottom:22px;z-index:9990;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
 .hl-float-btn{position:relative;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1.5px solid var(--hl-ink);box-shadow:3px 3px 0 0 var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
@@ -149,10 +149,8 @@ css.append("""
 .hl-float-btn--call{background:var(--hl-coral);}
 .hl-float-btn--wa::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #25D366;animation:hl-pulse 2.4s ease-out infinite;pointer-events:none;}
 @keyframes hl-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
-.hl-float-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(6px,-50%);white-space:nowrap;padding:7px 12px;border-radius:100px;background:var(--hl-ink);color:var(--hl-cream);font:700 13px/1 var(--font-body),sans-serif;opacity:0;pointer-events:none;transition:opacity .25s ease, transform .35s cubic-bezier(.22,1,.36,1);}
-.hl-float-btn:hover .hl-float-tip, .hl-float-btn:focus-visible .hl-float-tip{opacity:1;transform:translate(0,-50%);}
 .hl-menu-open .hl-float{opacity:0;pointer-events:none;}
-@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float-btn{width:52px;height:52px;}.hl-float-tip{display:none;}}
+@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float-btn{width:52px;height:52px;}}
 @media (prefers-reduced-motion:reduce){.hl-float-btn--wa::after{animation:none;}}
 """)
 
