@@ -11,7 +11,7 @@ SLUG = 'news'
 YT_NEWS = 'https://en.yutong.com/pressmedia/news/'
 INTRO = ('The latest from Yutong around the world: new vehicles, customer deliveries, events and service milestones, '
          'shared by Al Khoory Automobiles, the official Yutong distributor in the UAE.')
-FEATURED = ('ytnews-europe', 'September 11, 2026', 'Yutong Opens Its First Comprehensive Service Center in Europe',
+FEATURED = ('ytnews-europe-thumb', 'September 11, 2026', 'Yutong Opens Its First Comprehensive Service Center in Europe',
             'Opened on September 8 in Stokke, Norway, the new Yutong Service Center brings vehicle delivery, after-sales service, '
             'spare parts supply and professional training together in one hub for battery-electric bus fleets.',
             YT_NEWS + '2098336357998006272.shtml')
