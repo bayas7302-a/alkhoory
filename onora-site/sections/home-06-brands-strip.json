@@ -7,7 +7,7 @@
   },
   "Brands title": {
    "tag": "h2",
-   "title": "Any global brand you need,<br>at your fingertips."
+   "title": "Any global brand you need, at your fingertips."
   },
   "Brands intro": {
    "paragraph": "We represent and source from respected manufacturers across Europe and beyond."
@@ -175,7 +175,7 @@
   "Brands strip": "background-color: var(--on-navy); gap: 64px; padding-top: 110px; padding-bottom: 110px; overflow: hidden; @media(--tablet){ padding-top: 88px; padding-bottom: 88px; } @media(--mobile){ padding-top: 64px; padding-bottom: 64px; gap: 40px; }",
   "Brands ring": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 1040px; top: -220px; width: 640px; height: 640px; min-width: 640px; border-color: rgba(226,187,108,0.35); @media(--tablet){ left: auto; right: -320px; } @media(--mobile){ left: auto; right: -420px; }",
   "Brands head": "padding: 0px; justify-content: space-between; align-items: flex-end; gap: 40px; @media(--tablet){ flex-direction: column; align-items: flex-start; gap: 24px; } @media(--mobile){ flex-direction: column; align-items: flex-start; gap: 20px; }",
-  "Brands head left": "flex-direction: column; gap: 22px; padding: 0px; width: 700px; max-width: 100%;",
+  "Brands head left": "flex-direction: column; gap: 22px; padding: 0px; width: 650px; max-width: 100%;",
   "Brands eyebrow text": "color: var(--on-gold-soft);",
   "Brands title": "color: #FFFFFF;",
   "Brands head right": "flex-direction: column; gap: 24px; padding: 0px; width: 420px; max-width: 100%; align-items: flex-start;",

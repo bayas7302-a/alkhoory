@@ -139,9 +139,9 @@
   "C05 brands title": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase; color: #0B2F62; line-height: 1.2;",
   "C05 brand chips": "padding: 0px; flex-wrap: wrap; gap: 8px; align-items: flex-start; width: 100%;",
   "C05 brand 1": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; color: #0B2F62; background: #F7F4EE; padding: 8px 14px;",
-  "C05 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; }",
-  "C05 quote": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }",
-  "C05 catalogue": "@media(--mobile){ padding: 15px 20px; font-size: 11px; letter-spacing: 1.6px; }"
+  "C05 actions": "padding: 8px 0px 0px 0px; width: auto; gap: 14px; align-items: flex-start; flex-wrap: wrap; @media(--mobile){ gap: 10px; width: 100%; flex-wrap: nowrap; }",
+  "C05 quote": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }",
+  "C05 catalogue": "@media(--mobile){ padding: 15px 12px; font-size: 10px; letter-spacing: 1.2px; flex: 1 1 auto; justify-content: center; text-align: center; }"
  },
  "classes": {
   "C05 label row": [
