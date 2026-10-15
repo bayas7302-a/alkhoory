@@ -6,10 +6,9 @@ from parts import *
 POST = 14
 SLUG = 'library'
 
-# Real Yutong photos and videos (client-authorised content from https://en.yutong.com/pressmedia/).
+# Yutong photos and videos, all hosted in this site's media library (no off-site links).
 # Images / Videos is a working e-tabs switch; no download options (client request). The view button
 # on each photo opens the full-size image in a new tab.
-YT_VIDEOS = 'https://en.yutong.com/pressmedia/media-library/video/'
 HERO_TEXT = ('Photos and videos of Yutong buses and coaches at work around the world, from trade shows and '
              'major international events to customer operations and service centres.')
 TALL, SHORT = 369, 240
@@ -30,15 +29,15 @@ PHOTOS = [
     ('ytlib-11', 'Yutong at the Australasia Bus &amp; Coach Expo, Sydney'),
     ('ytlib-12', 'The Yutong team in Sydney'),
 ]
-# (title, mp4 on en.yutong.com, poster asset, original page) -- all mp4s are faststart (moov first) so they stream
-VR = 'https://en.yutong.com/res/res/'
+# (title, mp4 in the WP media library -- 720p web transcodes, faststart, poster asset)
+VU = SITE + '/wp-content/uploads/2026/10/yutong-video-%d.mp4'
 VIDEOS = [
-    ('2026 FIAA @ Spain', VR + '2026/10/9/video/2108434001533472768.mp4', 'ytlib-vid-1', '2108433448623542272'),
-    ('Lean Operation in Norway, More Vision in Europe', VR + '2026/9/14/video/2099419621642866688.mp4', 'ytlib-vid-2', '2099417717110083584'),
-    ("2026 World Events: Yutong's Moments at UNCCD COP17", VR + '2026/9/10/video/2097960633499783168.mp4', 'ytlib-vid-3', '2097960072255770624'),
-    ('Together, We Grow', VR + '2026/8/5/video/2084833000826212352.mp4', 'ytlib-vid-4', '2084831392528732160'),
-    ('Customer Voice | How Yutong T12E Achieves High-efficiency Operation in Denmark', VR + '2026/6/22/video/2068964355818524672.mp4', 'ytlib-vid-5', '2068962839489548288'),
-    ('Yuntai Mountain Energy Saving Challenge', VR + '2026/6/2/video/2061716787686412288.mp4', 'ytlib-vid-6', '2061716242473029632'),
+    ('2026 FIAA @ Spain', VU % 1, 'ytlib-vid-1'),
+    ('Lean Operation in Norway, More Vision in Europe', VU % 2, 'ytlib-vid-2'),
+    ("2026 World Events: Yutong's Moments at UNCCD COP17", VU % 3, 'ytlib-vid-3'),
+    ('Together, We Grow', VU % 4, 'ytlib-vid-4'),
+    ('Customer Voice | How Yutong T12E Achieves High-efficiency Operation in Denmark', VU % 5, 'ytlib-vid-5'),
+    ('Yuntai Mountain Energy Saving Challenge', VU % 6, 'ytlib-vid-6'),
 ]
 
 
@@ -74,7 +73,7 @@ def gallery():
     return flex('Masonry', 'padding: 0; gap: 24px; align-items: flex-start; @media(--tablet) { gap: 16px; } @media(--mobile) { flex-direction: column; align-items: stretch; }', cols)
 
 
-def video_card(i, name, mp4, poster, page):
+def video_card(i, name, mp4, poster):
     n = 'Video %d' % i
     player = Node('e-self-hosted-video', n + ' Player', {
         'source': {'url': mp4}, 'controls': True, 'preload': 'none', 'playsinline': True, 'download': False,
@@ -82,18 +81,14 @@ def video_card(i, name, mp4, poster, page):
     }, 'width: 100%; aspect-ratio: 16/9; height: auto; display: block; object-fit: cover; background-color: #072b52; border-radius: 18px; overflow: hidden;')
     return flex(n, 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 14px; @media(--tablet) { flex: 1 1 40%; } @media(--mobile) { flex: 0 0 auto; }', [
         player,
-        blank(h(n + ' Title', name, 'h3', FD + 'font-size: 17px; font-weight: 600; line-height: 25px; color: #00050b; margin: 0; padding: 0 4px; transition: color 0.3s; &:hover { color: #0160b4; }'), YT_VIDEOS + page + '.shtml'),
+        h(n + ' Title', name, 'h3', FD + 'font-size: 17px; font-weight: 600; line-height: 25px; color: #00050b; margin: 0; padding: 0 4px; transition: color 0.3s; &:hover { color: #0160b4; }'),
     ])
 
 
 def videos():
     rows = [flex('Video Row %d' % (r + 1), 'padding: 0; gap: 24px; align-items: flex-start; @media(--tablet) { flex-wrap: wrap; } @media(--mobile) { flex-direction: column; align-items: stretch; gap: 28px; }',
                  [video_card(r * 3 + c + 1, *VIDEOS[r * 3 + c]) for c in range(3)]) for r in range(2)]
-    more = blank(flex('Videos More', 'width: auto; padding: 0; gap: 8px; align-items: center; align-self: center;', [
-        p('Videos More Text', 'More videos on yutong.com', FB + 'font-size: 15px; font-weight: 500; color: #0160b4; margin: 0;'),
-        img('Videos More Arrow', 'ic-arrow-blue-16b', 'width: 16px;'),
-    ]), YT_VIDEOS)
-    return flex('Videos', 'padding: 0; flex-direction: column; gap: 36px; @media(--mobile) { gap: 28px; }', rows + [more])
+    return flex('Videos', 'padding: 0; flex-direction: column; gap: 36px; @media(--mobile) { gap: 28px; }', rows)
 
 
 def tab(label, icon):

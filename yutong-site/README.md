@@ -33,6 +33,7 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
   standard (110 / 80 / 64px); a section between different colours needs equal space above and below.
   `tools/spacing.py [page/]` prints the raw per-section measurements. Use `responsive_pad()` in parts.py for
   sections whose desktop padding has a 0 side.
+- `pages/articles.py` — generates the news/award detail pages (creates missing WP pages via `ensure_page`).
 - `tools/finalize.py <post_id>` — the MCP composer only knows atomic widgets, so classic widgets are
   injected into placeholder slots through the REST API: `Quote Form Slot` / `Contact Form Slot` get the
   Contact Form 7 shortcode (form 44 "Yutong Enquiry"; the Contact page uses form 243 "Yutong Contact" with
@@ -65,9 +66,12 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 
 - All copy and most photos now come from https://en.yutong.com/ (client-approved), adapted to the
   UAE-distributor voice; UAE contact details (Showroom 12, Al Quoz, 04 3146235, info@subaru-uae.com) are used site-wide.
-- News cards and Library items link to the original articles/videos on en.yutong.com (new tab).
-  Library videos are `e-self-hosted-video` widgets streaming Yutong's own mp4 files (preload none) — they
-  depend on en.yutong.com keeping those URLs; re-host them in the media library if that becomes a problem.
+- **No links leave the soharon domain** (only the Google Maps "View Location" directions link).
+  `tools/offsite.py` scans every published page for off-domain URLs.
+- Every News card and Award card opens its own on-site detail page, built by `pages/articles.py`
+  (`run.py articles`): children of News (13) and Awards (12) at `/news/<slug>/` and `/awards/<slug>/`.
+  The lead paragraph is the card summary; the body, highlights and quote are dummy (lorem) copy to replace.
+- Library videos are 720p web transcodes uploaded to the media library (`yutong-video-1..6.mp4`).
 - Models page catalogue and Home model tabs use real models/specs from en.yutong.com product pages;
   edit `FEATURED` in `pages/home.py` to swap a featured model.
 - Still static (no backend): Models quick-contact WhatsApp (links to Contact), Subscribe banner,
