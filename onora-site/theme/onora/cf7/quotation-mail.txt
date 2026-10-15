@@ -1,0 +1,13 @@
+New quotation request from the ONORA website
+
+Name: [your-name]
+Company / venue: [your-company]
+Email: [your-email]
+Phone: [your-phone]
+Interested in: [your-interests]
+
+Message:
+[your-message]
+
+--
+Sent from the contact form on [_site_url]

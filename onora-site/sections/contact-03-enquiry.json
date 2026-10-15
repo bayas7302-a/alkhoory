@@ -1,6 +1,6 @@
 {
  "post_id": 29,
- "xml_structure": "<e-flexbox configuration-id=\"Enquiry\"><e-flexbox configuration-id=\"Enquiry row\"><e-flexbox configuration-id=\"Details\"><e-flexbox configuration-id=\"Details label\"><e-div-block configuration-id=\"Details rule\"></e-div-block><e-paragraph configuration-id=\"Details eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Details title\"></e-heading><e-paragraph configuration-id=\"Details lead\"></e-paragraph><e-flexbox configuration-id=\"Social chips\"><e-paragraph configuration-id=\"Social Instagram\"></e-paragraph><e-paragraph configuration-id=\"Social LinkedIn\"></e-paragraph><e-paragraph configuration-id=\"Social Facebook\"></e-paragraph><e-paragraph configuration-id=\"Social WhatsApp\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Enquiry form\"><e-div-block configuration-id=\"Form gold bar\"></e-div-block><e-heading configuration-id=\"Form title\"></e-heading><e-paragraph configuration-id=\"Form note\"></e-paragraph><e-flexbox configuration-id=\"Form row 1\"><e-flexbox configuration-id=\"Field name\"><e-paragraph configuration-id=\"Field name label\"></e-paragraph><e-paragraph configuration-id=\"Field name input\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Field company\"><e-paragraph configuration-id=\"Field company label\"></e-paragraph><e-paragraph configuration-id=\"Field company input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Form row 2\"><e-flexbox configuration-id=\"Field email\"><e-paragraph configuration-id=\"Field email label\"></e-paragraph><e-paragraph configuration-id=\"Field email input\"></e-paragraph></e-flexbox><e-flexbox configuration-id=\"Field phone\"><e-paragraph configuration-id=\"Field phone label\"></e-paragraph><e-paragraph configuration-id=\"Field phone input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Interests\"><e-paragraph configuration-id=\"Interests label\"></e-paragraph><e-flexbox configuration-id=\"Chips\"><e-paragraph configuration-id=\"Chip Chinaware\"></e-paragraph><e-paragraph configuration-id=\"Chip Cutlery\"></e-paragraph><e-paragraph configuration-id=\"Chip Glassware\"></e-paragraph><e-paragraph configuration-id=\"Chip Drinkware\"></e-paragraph><e-paragraph configuration-id=\"Chip Melamine\"></e-paragraph><e-paragraph configuration-id=\"Chip Kitchen\"></e-paragraph><e-paragraph configuration-id=\"Chip Buffet\"></e-paragraph><e-paragraph configuration-id=\"Chip Bar\"></e-paragraph><e-paragraph configuration-id=\"Chip Trolleys\"></e-paragraph><e-paragraph configuration-id=\"Chip Accessories\"></e-paragraph><e-paragraph configuration-id=\"Chip Lamps\"></e-paragraph><e-paragraph configuration-id=\"Chip Indian\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Form row 3\"><e-flexbox configuration-id=\"Field message\"><e-paragraph configuration-id=\"Field message label\"></e-paragraph><e-paragraph configuration-id=\"Field message input\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Submit row\"><e-paragraph configuration-id=\"Privacy note\"></e-paragraph><e-button configuration-id=\"Send enquiry\"></e-button></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Enquiry\"><e-flexbox configuration-id=\"Enquiry row\"><e-flexbox configuration-id=\"Details\"><e-flexbox configuration-id=\"Details label\"><e-div-block configuration-id=\"Details rule\"></e-div-block><e-paragraph configuration-id=\"Details eyebrow\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Details title\"></e-heading><e-paragraph configuration-id=\"Details lead\"></e-paragraph><e-flexbox configuration-id=\"Social chips\"><e-paragraph configuration-id=\"Social Instagram\"></e-paragraph><e-paragraph configuration-id=\"Social LinkedIn\"></e-paragraph><e-paragraph configuration-id=\"Social Facebook\"></e-paragraph><e-paragraph configuration-id=\"Social WhatsApp\"></e-paragraph></e-flexbox></e-flexbox><e-flexbox configuration-id=\"Enquiry form\"><e-div-block configuration-id=\"Form gold bar\"></e-div-block><e-heading configuration-id=\"Form title\"></e-heading><e-paragraph configuration-id=\"Form note\"></e-paragraph><e-div-block configuration-id=\"Quote form slot\"></e-div-block></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "Details eyebrow": {
    "paragraph": "Get in touch"
@@ -51,85 +51,8 @@
   "Form note": {
    "paragraph": "Fields marked * are required."
   },
-  "Field name label": {
-   "paragraph": "Full name *"
-  },
-  "Field name input": {
-   "paragraph": "Your name"
-  },
-  "Field company label": {
-   "paragraph": "Company / venue *"
-  },
-  "Field company input": {
-   "paragraph": "Hotel or restaurant name"
-  },
-  "Field email label": {
-   "paragraph": "Email *"
-  },
-  "Field email input": {
-   "paragraph": "name@company.com"
-  },
-  "Field phone label": {
-   "paragraph": "Phone"
-  },
-  "Field phone input": {
-   "paragraph": "+971"
-  },
-  "Interests label": {
-   "paragraph": "I’m interested in"
-  },
-  "Chip Chinaware": {
-   "paragraph": "Chinaware"
-  },
-  "Chip Cutlery": {
-   "paragraph": "Cutlery"
-  },
-  "Chip Glassware": {
-   "paragraph": "Glassware"
-  },
-  "Chip Drinkware": {
-   "paragraph": "Drinkware"
-  },
-  "Chip Melamine": {
-   "paragraph": "Melamine"
-  },
-  "Chip Kitchen": {
-   "paragraph": "Kitchen"
-  },
-  "Chip Buffet": {
-   "paragraph": "Buffet"
-  },
-  "Chip Bar": {
-   "paragraph": "Bar"
-  },
-  "Chip Trolleys": {
-   "paragraph": "Trolleys"
-  },
-  "Chip Accessories": {
-   "paragraph": "Accessories"
-  },
-  "Chip Lamps": {
-   "paragraph": "Lamps"
-  },
-  "Chip Indian": {
-   "paragraph": "Indian"
-  },
-  "Field message label": {
-   "paragraph": "Message"
-  },
-  "Field message input": {
-   "paragraph": "Tell us about your project, quantities and timeline…"
-  },
-  "Privacy note": {
-   "paragraph": "We respect your privacy — no spam, ever."
-  },
-  "Send enquiry": {
-   "text": "Send enquiry&nbsp;&nbsp;→",
-   "link": {
-    "destination": "mailto:jason@onorahs.com?subject=Quotation%20request%20-%20ONORA%20website",
-    "isTargetBlank": false,
-    "tag": "a"
-   }
+  "Quote form slot": {
+   "_cssid": "onora-quote-form"
   }
  },
  "style": {
@@ -150,42 +73,7 @@
   "Form gold bar": "position: absolute; top: -1px; left: -1px; right: -1px; width: auto; height: 4px; min-width: 0px; padding: 0px; background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%);",
   "Form title": "font-family: var(--on-serif); font-weight: 600; font-size: 40px; line-height: 42px; letter-spacing: -0.3px; color: #0B2F62; @media(--mobile){ font-size: 32px; line-height: 36px; }",
   "Form note": "font-family: var(--on-sans); font-weight: 400; font-size: 13px; line-height: 16px; color: #5F6675;",
-  "Form row 1": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ flex-direction: column; }",
-  "Field name": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
-  "Field name label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Field name input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
-  "Field company": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
-  "Field company label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Field company input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
-  "Form row 2": "padding: 0px; gap: 20px; align-items: flex-start; @media(--mobile){ flex-direction: column; }",
-  "Field email": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
-  "Field email label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Field email input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
-  "Field phone": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
-  "Field phone label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Field phone input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%;",
-  "Interests": "flex-direction: column; gap: 12px; padding: 0px;",
-  "Interests label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Chips": "padding: 0px; gap: 8px; flex-wrap: wrap; align-items: flex-start;",
-  "Chip Chinaware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; background: #0B2F62; color: #FFFFFF; border: 1px solid #0B2F62;",
-  "Chip Cutlery": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Glassware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Drinkware": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Melamine": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Kitchen": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Buffet": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; background: #0B2F62; color: #FFFFFF; border: 1px solid #0B2F62;",
-  "Chip Bar": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Trolleys": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Accessories": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Lamps": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Chip Indian": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; line-height: 15px; padding: 9px 14px; color: #0B2F62; border: 1px solid #E6E0D6;",
-  "Form row 3": "padding: 0px;",
-  "Field message": "flex-direction: column; gap: 10px; padding: 0px; flex: 1 1 0px; min-width: 0px;",
-  "Field message label": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #0B2F62;",
-  "Field message input": "font-family: var(--on-sans); font-weight: 400; font-size: 14px; line-height: 17px; color: rgba(95,102,117,0.8); background: #FBFAF7; border: 1px solid #E6E0D6; padding: 16px 18px; width: 100%; min-height: 140px;",
-  "Submit row": "padding: 0px; justify-content: space-between; align-items: center; gap: 20px; @media(--mobile){ flex-direction: column-reverse; align-items: stretch; }",
-  "Privacy note": "font-family: var(--on-sans); font-weight: 400; font-size: 12px; line-height: 15px; color: #5F6675;",
-  "Send enquiry": "background: linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE8826 75%, #A5740B 100%); color: #071F44; font-family: var(--on-sans); font-weight: 600; font-size: 12px; line-height: 18px; letter-spacing: 2.2px; text-transform: uppercase; padding: 18px 30px; border-radius: 0px; transition: opacity 0.3s; &:hover{ opacity: 0.9; }"
+  "Quote form slot": "padding: 0px; width: 100%; min-width: 0px;"
  },
  "classes": {}
 }

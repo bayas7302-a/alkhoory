@@ -1,0 +1,13 @@
+<div class="onora-cf7">
+<div class="onora-cf7__row">
+<label class="onora-cf7__field"><span class="onora-cf7__label">Full name *</span>[text* your-name autocomplete:name placeholder "Your name"]</label>
+<label class="onora-cf7__field"><span class="onora-cf7__label">Company / venue *</span>[text* your-company autocomplete:organization placeholder "Hotel or restaurant name"]</label>
+</div>
+<div class="onora-cf7__row">
+<label class="onora-cf7__field"><span class="onora-cf7__label">Email *</span>[email* your-email autocomplete:email placeholder "name@company.com"]</label>
+<label class="onora-cf7__field"><span class="onora-cf7__label">Phone</span>[tel your-phone autocomplete:tel placeholder "+971"]</label>
+</div>
+<div class="onora-cf7__field"><span class="onora-cf7__label">I’m interested in</span>[checkbox your-interests use_label_element "Chinaware" "Cutlery" "Glassware" "Drinkware" "Melamine" "Kitchen" "Buffet" "Bar" "Trolleys" "Accessories" "Lamps" "Indian"]</div>
+<label class="onora-cf7__field"><span class="onora-cf7__label">Message</span>[textarea your-message placeholder "Tell us about your project, quantities and timeline…"]</label>
+<div class="onora-cf7__submit"><span class="onora-cf7__privacy">We respect your privacy — no spam, ever.</span>[submit class:onora-cf7__button "Send enquiry  →"]</div>
+</div>

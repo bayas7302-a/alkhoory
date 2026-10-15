@@ -63,6 +63,15 @@ clearing the CSS cache (`DELETE /wp-json/elementor/v1/cache`, done by `shot.js`)
 `tools/<page>_build*.sh|.py` + generators (`home_build.py`, `about_gen.py`, `brands_gen.py`, `products_gen.py`, `contact_gen.py`)
 regenerate the section JSON. Some scripts were written in a scratch folder; adjust their paths before reuse.
 
+## Contact form (Contact Form 7)
+The quotation form is the CF7 form **"ONORA quotation"** (id 291). Its markup and email body live in the theme
+(`theme/onora/cf7/quotation-form.txt`, `quotation-mail.txt`); `functions.php` saves them into CF7 once per theme
+version with `wpcf7_save_contact_form()` (CF7's REST API returns success without saving), and injects the form into the
+Elementor element with ID `onora-quote-form` on the Contact page. Mail goes to `onora_contact('email')` with
+Reply-To set to the enquirer. Styles: "Contact Form 7" block in `assets/css/theme.css`.
+Edits made to the form in WP Admin → Contact are overwritten on the next theme version bump; change the .txt files instead.
+Delivery depends on the server's PHP mail; install an SMTP plugin if test enquiries don't arrive.
+
 ## Products tabs
 `sections/products-02-tabs.json` is a nav with ids `product-tabs` / `product-tabs-track`: All + 12 collections in one line
 (scrolls sideways on phones). `theme/onora/assets/js/theme.js` makes it sticky under the header and filters the collection
@@ -70,7 +79,5 @@ sections (ids `#chinaware` … `#indian-tableware`); links like `/products/#cutl
 
 ## Known gaps
 - Products collection sections still have a "Catalogue" button (links to Contact).
-- Contact form is visual only: the atomic form field widgets aren't registered on this site, so "Send enquiry" opens a mailto.
-  A real form needs Elementor's atomic form elements enabled, or a form plugin.
 - Contact FAQ answers 2–5 were written to fill the design (only Q1 has copy in Figma); have the client confirm them.
 - Gold rings are CSS circle borders, not the gradient SVG strokes.

@@ -4,6 +4,7 @@
 - 1350px site width: desktop side padding of every section root becomes max(40px, (100% - 1350px) / 2).
 - Removes Jason Dsouza signatures/contact card, office hours (incl. the Call-us card note), Find-us rings.
 - Brands: brand cards say "Enquire" and link to Contact (no catalogue downloads).
+- Contact: static form fields replaced by a slot the theme fills with the CF7 quotation form.
 """
 import glob, json, os, re, xml.etree.ElementTree as ET
 
@@ -14,7 +15,7 @@ CONTACT = "https://soharon.co.uk/onora/contact-us/"
 REMOVE = {
     "home-02-intro.json": ["Intro signature"],
     "about-02-our-story.json": ["Signature"],
-    "contact-03-enquiry.json": ["Contact person", "Hours"],
+    "contact-03-enquiry.json": ["Contact person", "Hours", "Form row 1", "Form row 2", "Interests", "Form row 3", "Submit row"],
     "contact-04-map.json": ["Map ring large", "Map ring small"],
 }
 
@@ -55,5 +56,16 @@ for f in sorted(glob.glob(os.path.join(SEC, "*.json"))):
                 v["link"]["destination"] = CONTACT
             if re.fullmatch(r"Brand \d+ cta", k):
                 v["paragraph"] = "Enquire"
+            if isinstance(v.get("paragraph"), str):  # former catalogue cards used a download arrow
+                v["paragraph"] = v["paragraph"].replace("↓", "→")
+    if name == "contact-03-enquiry.json" and "Quote form slot" not in d["xml_structure"]:
+        # the theme injects the Contact Form 7 quotation form into this element (id onora-quote-form)
+        d["xml_structure"] = d["xml_structure"].replace(
+            '<e-paragraph configuration-id="Form note"></e-paragraph>',
+            '<e-paragraph configuration-id="Form note"></e-paragraph><e-div-block configuration-id="Quote form slot"></e-div-block>')
+        d["element_config"]["Quote form slot"] = {"_cssid": "onora-quote-form"}
+        d["style"]["Quote form slot"] = "padding: 0px; width: 100%; min-width: 0px;"
+    if name == "home-02-intro.json":  # keep the "12 curated collections" badge inside the image composition
+        d["style"]["Intro badge"] = d["style"]["Intro badge"].replace("left: 470px; top: 520px;", "left: auto; right: 0px; top: 520px;")
     widen(d)
     json.dump(d, open(f, "w"), indent=1, ensure_ascii=False)
