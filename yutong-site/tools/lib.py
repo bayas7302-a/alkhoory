@@ -118,6 +118,30 @@ def bg(name):
     return "url('%s')" % asset(name)['url']
 
 
+CONTENT_WIDTH = 1250  # site-wide content width (px); see global class yt-wrap
+
+
+def _wrap(n):
+    """Top-level sections: swap the desktop 120px side padding for the yt-wrap class, which centres
+    a 1250px content column (padding-inline: max(20px, (100% - 1250px) / 2)). Breakpoint rules
+    inside @media blocks are left alone, so tablet/mobile padding still wins there."""
+    import re
+    css = n.css
+    media = re.findall(r'@media\([^)]*\)\s*\{[^}]*\}', css)
+    base = re.sub(r'@media\([^)]*\)\s*\{[^}]*\}', '', css)
+    m = re.search(r'(?<![-\w])padding:\s*([^;]+);', base)
+    if not m:
+        return
+    v = m.group(1).split()
+    if len(v) < 2 or v[1] != '120px' or (len(v) == 4 and v[3] != '120px'):
+        return
+    top, bottom = v[0], (v[2] if len(v) > 2 else v[0])
+    base = base[:m.start()] + 'padding-top: %s; padding-bottom: %s;' % (top, bottom) + base[m.end():]
+    n.css = base + ' ' + ' '.join(media)
+    if 'yt-wrap' not in n.cls:
+        n.cls.append('yt-wrap')
+
+
 def payload(post_id, roots, parent=None, mode=None):
     xml, cfg, sty, seen, cls = [], {}, {}, {}, {}
 
@@ -143,6 +167,7 @@ def payload(post_id, roots, parent=None, mode=None):
             cls[cid] = n.cls
 
     for r in roots:
+        _wrap(r)
         walk(r)
     d = {'post_id': post_id, 'xml_structure': ''.join(xml), 'element_config': cfg, 'style': sty, 'classes': cls}
     if parent:

@@ -86,7 +86,7 @@ def header(active):
             ]),
         ]),
     ])
-    bar = flex('Header Bar', 'max-width: 1320px; padding: 14px 28px; justify-content: space-between; align-items: center; background-color: #ffffff; border-radius: 18px; box-shadow: 0 10px 14px rgba(0,26,64,0.08); @media(--mobile) { padding: 10px 16px; border-radius: 14px; }', [
+    bar = flex('Header Bar', 'max-width: 1250px; padding: 14px 28px; justify-content: space-between; align-items: center; background-color: #ffffff; border-radius: 18px; box-shadow: 0 10px 14px rgba(0,26,64,0.08); @media(--mobile) { padding: 10px 16px; border-radius: 14px; }', [
         img('Header Logo', 'logo-yutong', 'width: 148px; @media(--mobile) { width: 120px; }', href=URL['home']),
         flex('Header Nav', 'width: auto; padding: 0; gap: 36px; align-items: center; @media(--tablet) { display: none; }', links),
         flex('Header Actions', 'width: auto; padding: 0; gap: 16px; align-items: center; @media(--mobile) { gap: 10px; }', [

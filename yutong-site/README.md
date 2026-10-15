@@ -48,6 +48,8 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 - In a column flex on mobile, `flex: 1 1 0` collapses cards with `overflow: hidden` — add
   `@media(--mobile) { flex: 0 0 auto; }`.
 - Buttons are linked flexboxes (label + arrow image), `align-self: flex-start`.
+- Content width: 1250px site-wide. `payload()` strips the desktop `120px` side padding from every top-level section and
+  attaches the global class `yt-wrap` (`padding-inline: max(20px, (100% - 1250px)/2)`); header bar max-width 1250px.
 - Breakpoints: `@media(--tablet)` (≤1024) and `@media(--mobile)` (≤767).
 - Design tokens (global variables): `yt-navy #072b52`, `yt-blue #0160b4`, `yt-sky #2c84cb`,
   `yt-mist #f2f6fb`, `yt-ink #323232`, `yt-white`; fonts `yt-display` (Lexend), `yt-body` (Poppins).
