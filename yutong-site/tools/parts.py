@@ -41,7 +41,7 @@ def eyebrow(cid, text, color='#0160b4', center=False, line_color=None):
 
 def title(cid, html, css='', tag='h2', color='#0b0b0b', accent='#0160b4'):
     """Section title in Lexend; wrap highlighted words in <span style=color> via hl()."""
-    return h(cid, html, tag, FD + 'font-size: 44px; font-weight: 600; line-height: 1.2; letter-spacing: -0.44px; color: %s; margin: 0; @media(--tablet) { font-size: 36px; } @media(--mobile) { font-size: 30px; } %s' % (color, css)).c(HL_CLASS[accent])
+    return h(cid, html, tag, FD + 'font-size: 44px; font-weight: 600; line-height: 1.2; letter-spacing: -0.44px; color: %s; margin: 0; @media(--tablet) { font-size: 36px; line-height: 1.2; } @media(--mobile) { font-size: 30px; line-height: 1.25; } %s' % (color, css)).c(HL_CLASS[accent])
 
 
 def hl(text, color=None):
