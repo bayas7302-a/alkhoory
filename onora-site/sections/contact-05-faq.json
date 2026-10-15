@@ -65,7 +65,7 @@
   }
  },
  "style": {
-  "FAQ": "background: #F7F4EE; flex-direction: column; padding: 120px 100px; @media(--tablet){ padding: 96px 40px; } @media(--mobile){ padding: 72px 20px; }",
+  "FAQ": "background: #F7F4EE; flex-direction: column; padding: 120px max(40px, calc((100% - 1350px) / 2)); @media(--tablet){ padding: 96px 40px; } @media(--mobile){ padding: 72px 20px; }",
   "FAQ row": "padding: 0px; gap: 96px; align-items: flex-start; @media(--tablet){ flex-direction: column; gap: 48px; } @media(--mobile){ flex-direction: column; gap: 36px; }",
   "FAQ intro": "flex-direction: column; gap: 24px; padding: 0px; width: 400px; min-width: 400px; align-items: flex-start; @media(--tablet){ width: 100%; min-width: 0px; } @media(--mobile){ width: 100%; min-width: 0px; }",
   "FAQ label": "padding: 0px; width: auto; gap: 14px; align-items: center;",

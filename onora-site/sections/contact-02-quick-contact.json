@@ -19,7 +19,7 @@
    "paragraph": "+971 50 203 8005"
   },
   "Card Call us note": {
-   "paragraph": "Sun – Fri, 9:00 – 18:00"
+   "paragraph": "Call or WhatsApp us"
   },
   "Card Email us": {
    "link": {
@@ -73,7 +73,7 @@
   }
  },
  "style": {
-  "Quick contact": "background: #FFFFFF; padding: 80px 100px 0px 100px; gap: 24px; align-items: stretch; @media(--tablet){ flex-wrap: wrap; padding: 64px 40px 0px 40px; } @media(--mobile){ flex-direction: column; padding: 48px 20px 0px 20px; gap: 16px; }",
+  "Quick contact": "background: #FFFFFF; padding: 80px max(40px, calc((100% - 1350px) / 2)) 0px max(40px, calc((100% - 1350px) / 2)); gap: 24px; align-items: stretch; @media(--tablet){ flex-wrap: wrap; padding: 64px 40px 0px 40px; } @media(--mobile){ flex-direction: column; padding: 48px 20px 0px 20px; gap: 16px; }",
   "Card Call us": "flex-direction: column; gap: 14px; padding: 40px 32px; flex: 1 1 0px; min-width: 0px; background: #0B2F62; border: 1px solid #0B2F62; align-items: flex-start; transition: box-shadow 0.3s; &:hover{ box-shadow: 0px 18px 40px rgba(11,47,98,0.10); } @media(--tablet){ flex: 1 1 calc(50% - 12px); } @media(--mobile){ flex: 1 1 auto; padding: 32px 24px; }",
   "Card Call us badge": "width: 52px; height: 52px; min-width: 52px; padding: 0px; border: 1.2px solid #A5740B; border-radius: 26px; justify-content: center; align-items: center;",
   "Card Call us number": "font-family: var(--on-serif); font-weight: 600; font-size: 20px; line-height: 1; color: #E2BB6C;",

@@ -1,6 +1,6 @@
 {
  "post_id": 26,
- "xml_structure": "<e-flexbox configuration-id=\"Our story\"><e-flexbox configuration-id=\"Story row\"><e-div-block configuration-id=\"Story composition\"><e-image configuration-id=\"Story main image\"></e-image><e-image configuration-id=\"Story inset image\"></e-image><e-div-block configuration-id=\"Story ring\"></e-div-block><e-flexbox configuration-id=\"Story badge\"><e-paragraph configuration-id=\"Badge title\"></e-paragraph><e-paragraph configuration-id=\"Badge sub\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"Story text\"><e-flexbox configuration-id=\"Story label row\"><e-div-block configuration-id=\"Story rule\"></e-div-block><e-paragraph configuration-id=\"Story label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Story title\"></e-heading><e-paragraph configuration-id=\"Story body 1\"></e-paragraph><e-paragraph configuration-id=\"Story body 2\"></e-paragraph><e-flexbox configuration-id=\"Signature\"><e-div-block configuration-id=\"Signature disc\"></e-div-block><e-flexbox configuration-id=\"Signature name\"><e-paragraph configuration-id=\"Signature person\"></e-paragraph><e-paragraph configuration-id=\"Signature role\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Our story\"><e-flexbox configuration-id=\"Story row\"><e-div-block configuration-id=\"Story composition\"><e-image configuration-id=\"Story main image\"></e-image><e-image configuration-id=\"Story inset image\"></e-image><e-div-block configuration-id=\"Story ring\"></e-div-block><e-flexbox configuration-id=\"Story badge\"><e-paragraph configuration-id=\"Badge title\"></e-paragraph><e-paragraph configuration-id=\"Badge sub\"></e-paragraph></e-flexbox></e-div-block><e-flexbox configuration-id=\"Story text\"><e-flexbox configuration-id=\"Story label row\"><e-div-block configuration-id=\"Story rule\"></e-div-block><e-paragraph configuration-id=\"Story label\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Story title\"></e-heading><e-paragraph configuration-id=\"Story body 1\"></e-paragraph><e-paragraph configuration-id=\"Story body 2\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox>",
  "element_config": {
   "Our story": {
    "tag": "section"
@@ -39,16 +39,10 @@
   },
   "Story body 2": {
    "paragraph": "Working alongside world-renowned manufacturers from Europe and Asia, we help hospitality teams choose products that look beautiful, perform under pressure and stay within budget — from a single outlet refresh to a full pre-opening package."
-  },
-  "Signature person": {
-   "paragraph": "Jason Dsouza"
-  },
-  "Signature role": {
-   "paragraph": "Chief Executive Officer"
   }
  },
  "style": {
-  "Our story": "flex-direction: column; padding: 120px 100px; gap: 64px; position: relative; overflow: hidden; @media(--tablet){ padding: 96px 40px; gap: 48px; } @media(--mobile){ padding: 72px 20px; gap: 40px; } background: #FFFFFF;",
+  "Our story": "flex-direction: column; padding: 120px max(40px, calc((100% - 1350px) / 2)); gap: 64px; position: relative; overflow: hidden; @media(--tablet){ padding: 96px 40px; gap: 48px; } @media(--mobile){ padding: 72px 20px; gap: 40px; } background: #FFFFFF;",
   "Story row": "padding: 0px; gap: 96px; align-items: center; overflow: hidden; @media(--tablet){ flex-direction: column; gap: 64px; } @media(--mobile){ flex-direction: column; gap: 48px; }",
   "Story composition": "position: relative; width: 560px; min-width: 560px; height: 640px; padding: 0px; @media(--mobile){ width: 100%; min-width: 0px; height: 470px; }",
   "Story main image": "position: absolute; left: 0px; top: 0px; width: 470px; height: 580px; object-fit: cover; @media(--mobile){ width: 86%; height: 400px; }",
@@ -63,12 +57,7 @@
   "Story label": "font-family: var(--on-sans); font-weight: 600; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #C9962E; line-height: 1.2;",
   "Story title": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 56px; line-height: 58px; color: var(--on-navy); @media(--tablet){ font-size: 46px; line-height: 50px; } @media(--mobile){ font-size: 36px; line-height: 40px; }",
   "Story body 1": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: var(--on-muted);",
-  "Story body 2": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: var(--on-muted);",
-  "Signature": "padding: 24px 0px 0px 0px; gap: 20px; align-items: center; border-width: 1px 0px 0px 0px; border-style: solid; border-color: var(--on-line);",
-  "Signature disc": "width: 56px; min-width: 56px; height: 56px; padding: 0px; border-radius: 50%; background: var(--on-cream); border-width: 1.5px; border-style: solid; border-color: #C9962E;",
-  "Signature name": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
-  "Signature person": "font-family: var(--on-serif); font-weight: 600; letter-spacing: -0.3px; font-size: 24px; line-height: 25px; color: var(--on-navy);",
-  "Signature role": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #C9962E; line-height: 1.2;"
+  "Story body 2": "font-family: var(--on-sans); font-weight: 400; font-size: 16px; line-height: 29px; color: var(--on-muted);"
  },
  "classes": {
   "Story label row": [

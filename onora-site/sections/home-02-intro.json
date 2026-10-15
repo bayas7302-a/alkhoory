@@ -1,6 +1,6 @@
 {
  "post_id": 25,
- "xml_structure": "<e-flexbox configuration-id=\"Intro\"><e-flexbox configuration-id=\"Intro row\"><e-flexbox configuration-id=\"Intro text\"><e-flexbox configuration-id=\"Intro eyebrow\"><e-div-block configuration-id=\"Intro eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Intro eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Intro title\"></e-heading><e-paragraph configuration-id=\"Intro lead\"></e-paragraph><e-paragraph configuration-id=\"Intro body\"></e-paragraph><e-flexbox configuration-id=\"Intro actions\"><e-button configuration-id=\"Intro about\"></e-button><e-flexbox configuration-id=\"Intro signature\"><e-paragraph configuration-id=\"Intro sig name\"></e-paragraph><e-paragraph configuration-id=\"Intro sig role\"></e-paragraph></e-flexbox></e-flexbox></e-flexbox><e-div-block configuration-id=\"Intro composition\"><e-div-block configuration-id=\"Intro ring\"></e-div-block><e-image configuration-id=\"Intro main image\"></e-image><e-image configuration-id=\"Intro detail image\"></e-image><e-flexbox configuration-id=\"Intro badge\"><e-paragraph configuration-id=\"Intro badge number\"></e-paragraph><e-paragraph configuration-id=\"Intro badge label\"></e-paragraph></e-flexbox></e-div-block></e-flexbox></e-flexbox>",
+ "xml_structure": "<e-flexbox configuration-id=\"Intro\"><e-flexbox configuration-id=\"Intro row\"><e-flexbox configuration-id=\"Intro text\"><e-flexbox configuration-id=\"Intro eyebrow\"><e-div-block configuration-id=\"Intro eyebrow rule\"></e-div-block><e-paragraph configuration-id=\"Intro eyebrow text\"></e-paragraph></e-flexbox><e-heading configuration-id=\"Intro title\"></e-heading><e-paragraph configuration-id=\"Intro lead\"></e-paragraph><e-paragraph configuration-id=\"Intro body\"></e-paragraph><e-flexbox configuration-id=\"Intro actions\"><e-button configuration-id=\"Intro about\"></e-button></e-flexbox></e-flexbox><e-div-block configuration-id=\"Intro composition\"><e-div-block configuration-id=\"Intro ring\"></e-div-block><e-image configuration-id=\"Intro main image\"></e-image><e-image configuration-id=\"Intro detail image\"></e-image><e-flexbox configuration-id=\"Intro badge\"><e-paragraph configuration-id=\"Intro badge number\"></e-paragraph><e-paragraph configuration-id=\"Intro badge label\"></e-paragraph></e-flexbox></e-div-block></e-flexbox></e-flexbox>",
  "element_config": {
   "Intro eyebrow text": {
    "paragraph": "Everyday luxury, delivered"
@@ -22,12 +22,6 @@
     "isTargetBlank": false,
     "tag": "a"
    }
-  },
-  "Intro sig name": {
-   "paragraph": "Jason Dsouza"
-  },
-  "Intro sig role": {
-   "paragraph": "CEO, ONORA Hotel Supplies"
   },
   "Intro main image": {
    "image": {
@@ -59,9 +53,6 @@
   "Intro lead": "max-width: 540px;",
   "Intro body": "max-width: 540px;",
   "Intro actions": "padding: 0px; width: auto; gap: 28px; align-items: center; flex-wrap: wrap; @media(--mobile){ gap: 20px; }",
-  "Intro signature": "flex-direction: column; gap: 4px; padding: 0px; width: auto;",
-  "Intro sig name": "font-family: var(--on-serif); font-weight: 600; font-size: 24px; line-height: 26px; letter-spacing: -0.3px; color: var(--on-navy);",
-  "Intro sig role": "font-family: var(--on-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.6px; color: var(--on-muted);",
   "Intro composition": "position: relative; width: 620px; min-width: 620px; height: 680px; padding: 0px; @media(--tablet){ align-self: center; } @media(--mobile){ width: 100%; min-width: 0px; height: 440px; }",
   "Intro ring": "position: absolute; padding: 0px; border-radius: 50%; border-width: 1.4px; border-style: solid; border-color: rgba(201,150,46,0.5); background: transparent; left: 300px; top: -40px; width: 360px; height: 360px; min-width: 360px; @media(--mobile){ display: none; }",
   "Intro main image": "position: absolute; left: 200px; top: 0px; width: 420px; height: 560px; object-fit: cover; @media(--mobile){ left: 0px; width: 100%; height: 400px; }",

@@ -1,0 +1,134 @@
+{
+ "post_id": 28,
+ "xml_structure": "<e-flexbox configuration-id=\"Product tabs\"><e-flexbox configuration-id=\"Product tabs track\"><e-paragraph configuration-id=\"Tab All\"></e-paragraph><e-paragraph configuration-id=\"Tab Chinaware\"></e-paragraph><e-paragraph configuration-id=\"Tab Cutlery\"></e-paragraph><e-paragraph configuration-id=\"Tab Glassware\"></e-paragraph><e-paragraph configuration-id=\"Tab Polycarbonate Drinkware\"></e-paragraph><e-paragraph configuration-id=\"Tab Melamine\"></e-paragraph><e-paragraph configuration-id=\"Tab Kitchen\"></e-paragraph><e-paragraph configuration-id=\"Tab Buffet\"></e-paragraph><e-paragraph configuration-id=\"Tab Bar Items\"></e-paragraph><e-paragraph configuration-id=\"Tab FOH Trolleys\"></e-paragraph><e-paragraph configuration-id=\"Tab Accessories\"></e-paragraph><e-paragraph configuration-id=\"Tab Table Lamps\"></e-paragraph><e-paragraph configuration-id=\"Tab Indian Tableware\"></e-paragraph></e-flexbox></e-flexbox>",
+ "element_config": {
+  "Product tabs": {
+   "tag": "nav",
+   "_cssid": "product-tabs"
+  },
+  "Product tabs track": {
+   "_cssid": "product-tabs-track"
+  },
+  "Tab All": {
+   "paragraph": "All",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#all",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Chinaware": {
+   "paragraph": "Chinaware",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#chinaware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Cutlery": {
+   "paragraph": "Cutlery",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#cutlery",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Glassware": {
+   "paragraph": "Glassware",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#glassware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Polycarbonate Drinkware": {
+   "paragraph": "Polycarbonate Drinkware",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#polycarbonate-drinkware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Melamine": {
+   "paragraph": "Melamine",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#melamine",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Kitchen": {
+   "paragraph": "Kitchen",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#kitchen",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Buffet": {
+   "paragraph": "Buffet",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#buffet",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Bar Items": {
+   "paragraph": "Bar Items",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#bar-items",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab FOH Trolleys": {
+   "paragraph": "FOH Trolleys",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#foh-trolleys",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Accessories": {
+   "paragraph": "Accessories",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#accessories",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Table Lamps": {
+   "paragraph": "Table Lamps",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#table-lamps",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  },
+  "Tab Indian Tableware": {
+   "paragraph": "Indian Tableware",
+   "link": {
+    "destination": "https://soharon.co.uk/onora/products/#indian-tableware",
+    "isTargetBlank": false,
+    "tag": "a"
+   }
+  }
+ },
+ "style": {
+  "Product tabs": "padding: 0px max(40px, calc((100% - 1350px) / 2)); background: #FFFFFF; border-width: 0px 0px 1px 0px; border-style: solid; border-color: #E6E0D6; @media(--tablet){ padding: 0px 40px; } @media(--mobile){ padding: 0px 20px; }",
+  "Product tabs track": "padding: 0px; gap: 8px; justify-content: space-between; align-items: stretch; @media(--tablet){ gap: 28px; } @media(--mobile){ gap: 22px; }",
+  "Tab All": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Chinaware": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Cutlery": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Glassware": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Polycarbonate Drinkware": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Melamine": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Kitchen": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Buffet": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Bar Items": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab FOH Trolleys": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Accessories": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Table Lamps": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }",
+  "Tab Indian Tableware": "font-family: var(--on-sans); font-weight: 600; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; line-height: 1.2; color: #16213A; padding: 22px 0px 20px 0px; border-width: 0px 0px 2px 0px; border-style: solid; border-color: transparent; transition: color 0.3s; &:hover{ color: #C9962E; } @media(--mobile){ padding: 18px 0px 16px 0px; }"
+ }
+}

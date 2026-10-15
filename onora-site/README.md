@@ -12,14 +12,25 @@ frames, which adapt the copy from the reference site https://soharon.co.uk/dummy
 | Products | 28 | `products` | 54:2 |
 | Contact | 29 | `contact-us` | 55:2 |
 
-All pages use the **Elementor Canvas** template (no theme header/footer); the header and footer are part of every page.
+**Theme:** the custom `onora` theme (`theme/onora/`) supplies the header (utility bar, sticky nav, mobile burger menu),
+the footer, the 1350px layout and the Products tab filtering. Pages use the theme's default template and contain only
+their content sections. Menus can be managed in Appearance → Menus (locations "Main menu" and "Footer collections");
+until assigned, the theme falls back to the built-in links. Contact details live in `onora_contact()` in `functions.php`.
+
+**Width:** content is 1350px wide. Every section root uses side padding `max(40px, calc((100% - 1350px) / 2))`
+(40px on tablet, 20px on mobile); the theme uses `.onora-container` with the same maths.
 
 ## Tools (`tools/`)
 - `mcp.py TOOL ARGS.json|'{json}'` calls the Elementor MCP endpoint (`/wp-json/elementor/mcp/`). It reads credentials
   from the `my-blog-elementor` entry in `~/.claude.json` (or `ONORA_AUTH=user:app-password`). Nothing secret is stored in the repo.
 - `upload.py FILE…` uploads images to the media library via the WP REST API and caches `{id,url,width,height}` in `tools/media.json`.
-- `chrome.py POST_ID ACTIVE header|footer [--build]` generates/builds the shared header and footer.
-  `header --build` replaces the whole page, so the build order is: header → sections → footer.
+- `rebuild.py PAGE…` replays `sections/<page>-NN-*.json` (first one replaces the page), publishes and sets the template.
+- `deploy_theme.py` pushes `theme/onora` to the server and activates it. WordPress has no theme-upload API, so it
+  needs the **Code Snippets** plugin active (install it via `POST /wp/v2/plugins {"slug":"code-snippets","status":"active"}`);
+  the script adds a temporary snippet, triggers it once and deletes it. Remove the plugin afterwards.
+  Alternatively zip `theme/onora` and upload it in Appearance → Themes → Add New → Upload.
+- `revise.py` applies the content/width revisions (idempotent); `products_tabs.py` generates the Products tab bar.
+- `node tools/live_shots.js OUT_DIR [widths…]` screenshots the five live pages.
 - `node tools/shot.js POST_ID OUT_PREFIX [WIDTH]` renders a signed preview and saves a full-page screenshot.
 
 ## Design tokens (kit global variables, use as `var(--label)`)
@@ -35,7 +46,7 @@ Gold gradient: `linear-gradient(90deg, #A5740B 0%, #DEAF57 25%, #F1C96A 50%, #BE
 
 ## Section payloads
 `sections/<page>-NN-<name>.json` hold the exact `elementor-build-composition` payload for each section, in page order.
-Re-running them in order (header first, footer last) rebuilds a page from scratch.
+`tools/rebuild.py <page>` rebuilds a page from them.
 
 ## Style converter gotchas (Elementor 4.3.5)
 Not saved: `white-space`, `row-gap`/`column-gap`, per-side border shorthands (`border-top: …`), `animation*`.
@@ -52,9 +63,14 @@ clearing the CSS cache (`DELETE /wp-json/elementor/v1/cache`, done by `shot.js`)
 `tools/<page>_build*.sh|.py` + generators (`home_build.py`, `about_gen.py`, `brands_gen.py`, `products_gen.py`, `contact_gen.py`)
 regenerate the section JSON. Some scripts were written in a scratch folder; adjust their paths before reuse.
 
+## Products tabs
+`sections/products-02-tabs.json` is a nav with ids `product-tabs` / `product-tabs-track`: All + 12 collections in one line
+(scrolls sideways on phones). `theme/onora/assets/js/theme.js` makes it sticky under the header and filters the collection
+sections (ids `#chinaware` … `#indian-tableware`); links like `/products/#cutlery` open that collection only.
+
 ## Known gaps
+- Products collection sections still have a "Catalogue" button (links to Contact).
 - Contact form is visual only: the atomic form field widgets aren't registered on this site, so "Send enquiry" opens a mailto.
   A real form needs Elementor's atomic form elements enabled, or a form plugin.
 - Contact FAQ answers 2–5 were written to fill the design (only Q1 has copy in Figma); have the client confirm them.
-- Catalogue "Download" buttons open a mailto request; no PDFs exist yet.
 - Gold rings are CSS circle borders, not the gradient SVG strokes.
