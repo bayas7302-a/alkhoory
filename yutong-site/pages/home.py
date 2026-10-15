@@ -87,7 +87,6 @@ def featured(m):
             img(n + ' Photo', m['photo'], 'position: absolute; left: 0; top: 92px; width: 620px; height: 202px; object-fit: contain; @media(--mobile) { top: 50px; height: 120px; }'),
         ]),
         flex(n + ' Info', 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 18px; @media(--tablet) { flex: 0 0 auto; width: 100%; }', [
-            img(n + ' Wordmark', 'wordmark', 'width: 94px; height: 14px; object-fit: contain;'),
             h(n + ' Name', n, 'h3', FD + 'font-size: 56px; font-weight: 700; line-height: 60px; color: #0160b4; margin: 0; @media(--mobile) { font-size: 44px; line-height: 50px; }'),
             body(n + ' Text', m['text'], 'line-height: 25px;', '#747474'),
             flex(n + ' Specs', 'padding: 0; flex-direction: column; gap: 12px;', [

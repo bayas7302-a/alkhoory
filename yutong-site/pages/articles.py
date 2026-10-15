@@ -67,7 +67,7 @@ def ensure_page(parent, slug, title):
     else:
         r = subprocess.run([os.path.join(WORK, 'call.sh'), 'elementor-create-page', json.dumps({'title': title})], capture_output=True, text=True).stdout
         pid = json.loads(r)['id']
-    rest('POST', '%s/%d' % (API, pid), {'parent': parent, 'slug': slug, 'title': title, 'template': 'elementor_canvas'})
+    rest('POST', '%s/%d' % (API, pid), {'parent': parent, 'slug': slug, 'title': title, 'template': 'elementor_header_footer'})
     return pid
 
 

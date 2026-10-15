@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'YUTONG_UAE_VERSION', '1.1.0' );
+define( 'YUTONG_UAE_VERSION', '1.2.0' );
 
 require_once __DIR__ . '/inc/customizer.php';
 require_once __DIR__ . '/inc/menus.php';
