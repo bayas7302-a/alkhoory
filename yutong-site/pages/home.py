@@ -172,7 +172,7 @@ def global_leader():
     kids = []
     for i, (n, t, d, blue) in enumerate(cards):
         kids.append(flex('Leader Card %d' % (i + 1), 'padding: 36px; flex: 1 1 0; @media(--mobile) { flex: 0 0 auto; } flex-direction: column; gap: 10px; border-radius: 24px; background-color: %s; box-shadow: %s; @media(--mobile) { padding: 28px; }' % ('#0160b4' if blue else '#ffffff', '0 20px 24px rgba(0,26,64,0.16)' if blue else '0 10px 14px rgba(0,26,64,0.08)'), [
-            p('Leader Card %d Number' % (i + 1), n, FD + 'font-size: 50px; font-weight: 700; line-height: 58px; color: %s; margin: 0; @media(--mobile) { font-size: 40px; line-height: 48px; }' % ('#ffffff' if blue else '#0160b4')),
+            p('Leader Card %d Number' % (i + 1), n, FD + 'font-size: 50px; font-weight: 700; line-height: 58px; color: %s; margin: 0; @media(--tablet) { font-size: 36px; line-height: 44px; } @media(--mobile) { font-size: 40px; line-height: 48px; }' % ('#ffffff' if blue else '#0160b4')),
             div('Leader Card %d Rule' % (i + 1), 'width: 40px; min-width: 40px; height: 3px; padding: 0; border-radius: 2px; background-color: %s;' % ('rgba(255,255,255,0.6)' if blue else '#0160b4')),
             p('Leader Card %d Title' % (i + 1), t, FD + 'font-size: 18px; font-weight: 600; color: %s; margin: 0;' % ('#ffffff' if blue else '#00050b')),
             p('Leader Card %d Text' % (i + 1), d, FB + 'font-size: 14px; line-height: 22px; color: %s; margin: 0;' % ('rgba(255,255,255,0.8)' if blue else '#747474')),
