@@ -6,8 +6,8 @@ from parts import *
 POST = 15
 SLUG = 'ownership-support'
 
-# Copy is verbatim from the Figma file (placeholder text pending client content)
-LOREM_INTRO = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mi metus, lobortis at varius eget, elementum non mi. Fusce egestas risus nunc, eget porttitor nunc vulputate vel. Praesent in lectus ut urna egestas porta.'
+# Copy from https://en.yutong.com/service/ (philosophy, service contracts, service network, network parts)
+INTRO = 'Comprehensive Yutong bus and coach services that enhance fleet efficiency and uptime. With Al Khoory Automobiles in the UAE, you get one-stop, 24/7 customer service and a commitment to first-time fixes for worry-free operation.'
 
 # 42/52 section titles (as on Home), with a mobile line-height to match the smaller size
 T42 = 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; @media(--tablet) { line-height: 46px; } @media(--mobile) { line-height: 38px; }'
@@ -40,7 +40,7 @@ def hero():
         flex('Page Hero Content', 'max-width: 700px; padding: 0; flex-direction: column; align-items: flex-start; gap: 22px;', [
             crumbs,
             h('Page Title', 'Ownership &amp; ' + hl('Support'), 'h1', FD + 'font-size: 64px; font-weight: 700; line-height: 74px; color: #ffffff; margin: 0; @media(--tablet) { font-size: 50px; line-height: 58px; } @media(--mobile) { font-size: 38px; line-height: 46px; }').c('yt-hl-sky'),
-            p('Page Intro', LOREM_INTRO, FB + 'max-width: 600px; font-size: 18px; font-weight: 300; line-height: 30px; color: rgba(255,255,255,0.88); margin: 0; @media(--mobile) { font-size: 16px; line-height: 26px; }'),
+            p('Page Intro', INTRO, FB + 'max-width: 600px; font-size: 18px; font-weight: 300; line-height: 30px; color: rgba(255,255,255,0.88); margin: 0; @media(--mobile) { font-size: 16px; line-height: 26px; }'),
         ]),
         flex('Hero Stats', 'max-width: 1200px; padding: 26px 40px; justify-content: space-between; align-items: center; border-radius: 20px; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(12px); @media(--tablet) { flex-wrap: wrap; gap: 24px; } @media(--mobile) { padding: 22px; gap: 18px; }', cells),
     ], tag='section')
@@ -49,12 +49,12 @@ def hero():
 # ---------- Ownership Journey ----------
 
 JOURNEY = [
-    ('own-ic-truck', '01', 'Delivery', 'Vehicle handover, commissioning and operational preparation.'),
-    ('own-ic-box', '02', 'Parts', 'Genuine Yutong parts with verified quality and compatibility.'),
-    ('own-ic-grad', '03', 'Training', 'Driver, maintenance and operation-management training.'),
-    ('own-ic-headset', '04', 'Technical Support', 'Professional service teams and technical assistance when you need it.'),
-    ('own-ic-cal', '05', 'Maintenance', 'Preventive maintenance and technical inspections designed around vehicle usage.'),
-    ('own-ic-loop', '06', 'Lifecycle Care', 'Continuous support to help maintain vehicle performance and operational efficiency.'),
+    ('own-ic-truck', '01', 'Delivery', 'Every Yutong bus and coach undergoes exhaustive testing before it is handed over to you.'),
+    ('own-ic-box', '02', 'Parts', 'Genuine Yutong parts, with targeted parts reserve, urgent procurement and rapid supply.'),
+    ('own-ic-grad', '03', 'Training', 'Driving skills, maintenance and operation-management training, on-site, web-based or live-streamed.'),
+    ('own-ic-headset', '04', 'Technical Support', 'Certified service staff who visit regularly to identify and resolve issues at an early stage.'),
+    ('own-ic-cal', '05', 'Maintenance', 'Preventive maintenance and vehicle inspections planned around your vehicle&#8217;s operation.'),
+    ('own-ic-loop', '06', 'Lifecycle Care', 'Full lifecycle support, with service packages and extended warranty available as paid services.'),
 ]
 
 
@@ -107,9 +107,9 @@ def network():
     card = flex('Location Card', 'width: 360px; max-width: 100%; padding: 26px; flex-direction: column; gap: 14px; background-color: #ffffff; border-radius: 22px; box-shadow: 0 20px 24px rgba(0,26,64,0.16); @media(--mobile) { width: 100%; padding: 20px; }', [
         flex('Location Head', 'padding: 0; gap: 12px; align-items: center;', [
             flex('Location Pin', 'width: 44px; min-width: 44px; height: 44px; padding: 0; border-radius: 22px; background-color: #0160b4; justify-content: center; align-items: center;', [img('Location Pin Icon', 'own-pin', 'width: 19px;')]),
-            h('Location City', 'DUABI', 'h3', FD + 'font-size: 20px; font-weight: 700; color: #003376; margin: 0;'),
+            h('Location City', 'DUBAI', 'h3', FD + 'font-size: 20px; font-weight: 700; color: #003376; margin: 0;'),
         ]),
-        p('Location Address', 'Direct Automart Services Pte Ltd 160 Sin Ming Jabal Ali, UAE', FB + 'font-size: 14px; line-height: 22px; color: #747474; margin: 0;'),
+        p('Location Address', 'Al Khoory Automobiles, Showroom 12, Sheikh Zayed Road, Al Quoz Industrial Area 3, Dubai, UAE', FB + 'font-size: 14px; line-height: 22px; color: #747474; margin: 0;'),
         flex('Location Chips', 'padding: 0; gap: 8px; flex-wrap: wrap;', [
             chip('Location Chip Service', 'own-chip-wrench', 'Service Centers'),
             chip('Location Chip Parts', 'own-chip-box', 'Spare Parts'),
@@ -138,10 +138,10 @@ def network():
 # ---------- Keep Your Fleet Moving (accordion) ----------
 
 MAINT = [
-    ('01', 'Preventive Maintenance', 'Scheduled inspections and maintenance to help keep vehicles in optimal condition.'),
-    ('02', 'Managed Maintenance', None),
-    ('03', 'Repair &amp; Technical Support', None),
-    ('04', 'Configuration Updates', None),
+    ('01', 'Preventive Maintenance', 'Scheduled inspections and maintenance to keep vehicles in optimal condition, including inspection and adjustment of more than 60 checking points on the complete vehicle, planned around your operation to minimise disruption.'),
+    ('02', 'Managed Maintenance', 'A maintenance and repair plan for the vehicle and its key assemblies, built on its configuration and Yutong technical standards, reducing the probability of failure and keeping the vehicle running at its best.'),
+    ('03', 'Extended Warranty &amp; Repair', 'Paid cover that continues after the standard warranty expires: necessary repairs from component wear or failure, roadside assistance and Yutong genuine parts, so you avoid sudden, costly repair bills.'),
+    ('04', 'Configuration Updates', 'Based on your use scenarios, compliant interior and exterior modifications plus functional, safety and fuel-saving configuration upgrades that improve convenience, safety and comfort.'),
 ]
 
 
@@ -154,8 +154,7 @@ def acc_item(i, num, name, text):
         flex(n + ' Open Icon', circle + ' background-color: #0160b4;', [img(n + ' Minus', 'own-minus', 'width: 14px;')]).c('yt-own-open'),
         flex(n + ' Closed Icon', circle + ' background-color: #ffffff; border: 1px solid #e3e9f1;', [img(n + ' Chevron', 'own-chev', 'width: 14px;')]).c('yt-own-closed'),
     ])
-    # placeholder copy for collapsed items isn't in Figma; reuse the item's own wording
-    copy = text or 'Contact our service team to learn more about %s for your Yutong fleet.' % name.replace('&amp;', '&').lower()
+    copy = text
     return Node('e-accordion-item', n, {}, 'padding: 20px 24px; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 18px; @media(--mobile) { padding: 16px 18px; }', [
         Node('e-accordion-item-header', n + ' Header', {'show_icon': False}, 'padding: 0;', [
             Node('e-accordion-item-title', n + ' Head Title', {}, 'padding: 0; width: 100%;', [row]),
@@ -189,10 +188,10 @@ def fleet():
 # ---------- Genuine Spare Parts ----------
 
 PARTS = [
-    ('own-puzzle', 'Perfect Compatibility', 'Parts designed and selected for Yutong vehicles.'),
-    ('own-shield-b', 'Verified Quality', 'Suppliers undergo qualification and quality verification.'),
-    ('own-gauge', 'Reliable Performance', 'Components are developed to support safety, durability and stable operation.'),
-    ('own-globe-b', 'Global Availability', 'A global parts network helps customers access genuine replacement parts.'),
+    ('own-puzzle', 'Perfect Compatibility', 'Yutong genuine parts and components keep each vehicle to its original Yutong technical standards.'),
+    ('own-shield-b', 'Warranty-Backed', 'Warranty repairs are carried out with genuine Yutong parts, as set out in the vehicle&#8217;s Warranty Manual.'),
+    ('own-gauge', 'Rapid Supply', 'Targeted parts reserve, urgent procurement and rapid supply shorten the time a vehicle spends off the road.'),
+    ('own-globe-b', 'Global Parts Network', '4+ self-built regional centre repositories and 101+ parts distributors, covering 80+ countries.'),
 ]
 
 
@@ -214,7 +213,7 @@ def parts():
                 eyebrow('Parts Eyebrow', 'Genuine Spare Parts', '#ffffff'),
                 title('Parts Title', 'Genuine Parts. Made to Fit. ' + hl('Built to Last.'), T42.replace('#00050b', '#ffffff'), accent='#2c84cb'),
             ]),
-            body('Parts Intro', 'Yutong develops and customizes parts with qualified suppliers, with parts entering its supply system only after supplier testing and Yutong quality inspection.', 'flex: 1 1 0; line-height: 26px;', 'rgba(255,255,255,0.8)'),
+            body('Parts Intro', 'Yutong&#8217;s self-operated parts network and classified storage management give customers targeted parts reserve, urgent procurement, rapid supply and privileged discounts.', 'flex: 1 1 0; line-height: 26px;', 'rgba(255,255,255,0.8)'),
         ]),
         flex('Parts Cards', 'padding: 0; gap: 20px; align-items: stretch; @media(--tablet) { flex-wrap: wrap; } @media(--mobile) { flex-direction: column; }', cards),
     ], tag='section')
@@ -228,7 +227,7 @@ def warranty():
             flex('Warranty Text', 'padding: 56px; flex: 1 1 0; flex-direction: column; align-items: flex-start; gap: 18px; @media(--tablet) { flex: 0 0 auto; padding: 44px 32px; } @media(--mobile) { padding: 28px 20px 32px; }', [
                 flex('Warranty Icon', 'width: 56px; min-width: 56px; height: 56px; padding: 0; border-radius: 28px; background-color: #0160b4; justify-content: center; align-items: center;', [img('Warranty Glyph', 'own-shield-w', 'width: 25px;')]),
                 h('Warranty Title', 'Protection Designed for Long-Term Ownership', 'h2', FD + 'font-size: 34px; font-weight: 700; line-height: 42px; color: #00050b; margin: 0; @media(--mobile) { font-size: 26px; line-height: 34px; }'),
-                body('Warranty Body', 'Experience premium electric touring with long-range performance, intelligent technology and Yutong provides warranty support according to applicable local laws and regulations, customer.', 'line-height: 26px;', '#747474'),
+                body('Warranty Body', 'In line with local laws and regulations, your agreement and the Warranty Manual issued with the vehicle, Yutong provides free repair with genuine Yutong parts for faults caused by product quality problems within the warranty period. Extended warranty products continue that protection after it expires.', 'line-height: 26px;', '#747474'),
                 btn('Warranty CTA', 'View Warranty Details', URL['contact']),
             ]),
             img('Warranty Photo', 'own-warranty', 'width: 580px; flex: 0 0 auto; height: 420px; object-fit: cover; @media(--tablet) { width: 100%; height: 320px; } @media(--mobile) { height: 220px; }'),

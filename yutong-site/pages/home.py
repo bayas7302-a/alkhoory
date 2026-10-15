@@ -42,50 +42,62 @@ def hero():
     ])
 
 
-MODEL_TABS = ['E-bus', 'E-Coach', 'City Bus', 'Coach', 'Airport bus']
+# Featured model per tab: the first model Yutong shows in each tab of "View Our Models" on
+# https://en.yutong.com/ (specs from each model's product page; side-view cut-outs from the same tabs)
+FEATURED = [
+    {'tab': 'E-bus', 'name': 'E7S', 'photo': 'ythome-e7s',
+     'text': 'A compact electric mini bus with the longest wheelbase in its class and a turning diameter under 17 m. Short overhangs and 1,200 mm double doors free up space for up to 30 passengers, protected by Yutong\'s YESS battery-safety standard.',
+     'specs': [('Length', '7', 'M'), ('Passengers', '30', ''), ('Battery capacity', '140', 'kWh'), ('Turning diameter', '17', 'M')]},
+    {'tab': 'E-Coach', 'name': 'T12E', 'photo': 'ythome-t12e',
+     'text': 'A 12-metre super-luxury battery-electric tourist coach with Yutong\'s signature smiling front and streamlined body. Yutong EV Long-Life Tech is engineered for 15 years or 1.5 million km of operation.',
+     'specs': [('Length', '12', 'M'), ('Seats', '51/53/55', ''), ('Battery capacity', '399/465', 'kWh'), ('Interior height', '2,012', 'mm')]},
+    {'tab': 'City Bus', 'name': 'ZK6890HG', 'photo': 'ythome-zk6890hg',
+     'text': 'A robust 9-metre diesel city bus with a sturdy, long-life body and advanced safety configuration. Yutong fuel-saving technology meets the Euro V emission standard and keeps operating costs down.',
+     'specs': [('Length', '9', 'M'), ('Passengers', '60', ''), ('Seats', '22+1', ''), ('Emission', 'Euro V', '')]},
+    {'tab': 'Coach', 'name': 'T12', 'photo': 'ythome-t12',
+     'text': 'A premium 12-metre tourist coach with European styling, dual 22-inch HD screens and intelligent safety systems including AEBS, ASR and ACC, powered by a 330 kW DAF engine with BlueCore fuel-saving technology.',
+     'specs': [('Length', '12', 'M'), ('Seats', '53', ''), ('Engine power', '330', 'kW'), ('Emission', 'Euro VI', '')]},
+    {'tab': 'Airport bus', 'name': 'AB14E', 'photo': 'ythome-ab14e',
+     'text': 'A premium battery-electric apron bus for green airports. Its all-aluminium body offers more than 25 years of frame corrosion resistance, with a quiet cabin far below diesel noise levels.',
+     'specs': [('Length', '14', 'M'), ('Passengers', '114', ''), ('Width', '3,012', 'mm'), ('Turning diameter', '27', 'M')]},
+]
+MODEL_TABS = [m['tab'] for m in FEATURED]
 
 
 def spec(cid, label, value, unit=''):
-    row = [p(cid + ' Value', value, FD + 'font-size: 30px; font-weight: 600; color: #003376; margin: 0; line-height: 1.2;')]
+    row = [p(cid + ' Value', value, FD + 'font-size: 30px; font-weight: 600; color: #003376; margin: 0; line-height: 1.2; @media(--mobile) { font-size: 24px; }')]
     if unit:
         row.append(p(cid + ' Unit', unit, FB + 'font-size: 13px; font-weight: 500; color: #0160b4; margin: 0;'))
-    return flex(cid, 'padding: 16px 20px; flex: 1 1 0; flex-direction: column; gap: 4px; background-color: #ffffff; border-radius: 16px;', [
+    return flex(cid, 'padding: 16px 20px; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 4px; background-color: #ffffff; border-radius: 16px; @media(--mobile) { padding: 14px 16px; }', [
         p(cid + ' Label', label, FB + 'font-size: 12px; color: #747474; margin: 0;'),
         flex(cid + ' Row', 'width: auto; padding: 0; gap: 6px; align-items: flex-end;', row),
     ])
 
 
-def featured_ic12e():
-    return flex('Featured IC12E', 'padding: 48px 56px; gap: 40px; align-items: center; background-color: #f2f6fb; border-radius: 28px; overflow: hidden; @media(--tablet) { flex-direction: column; padding: 40px 32px; } @media(--mobile) { padding: 28px 20px; gap: 24px; }', [
-        div('IC12E Visual', 'width: 620px; max-width: 100%; flex: 0 0 auto; height: 340px; padding: 0; position: relative; @media(--mobile) { height: 200px; }', [
-            p('IC12E Ghost', 'IC12E', FD + 'position: absolute; left: 10px; top: 20px; font-size: 190px; font-weight: 700; line-height: 1.2; color: rgba(1,96,180,0.07); margin: 0; @media(--mobile) { font-size: 100px; }'),
-            img('IC12E Shadow', 'ground-shadow', 'position: absolute; left: 36px; top: 268px; width: 548px; max-width: 90%; @media(--mobile) { top: 150px; }'),
-            img('IC12E Photo', 'ic12e', 'position: absolute; left: 0; top: 92px; width: 620px; height: 202px; object-fit: contain; @media(--mobile) { top: 50px; height: 120px; }'),
+def featured(m):
+    """Featured model panel (photo + ghost name, name, text, 2x2 spec tiles, buttons)."""
+    n = m['name']
+    ghost = min(190, int(620 / (0.68 * len(n))))
+    ghost_m = min(100, int(330 / (0.68 * len(n))))
+    s = m['specs']
+    return flex('Featured ' + n, 'padding: 48px 56px; gap: 40px; align-items: center; background-color: #f2f6fb; border-radius: 28px; overflow: hidden; @media(--tablet) { flex-direction: column; padding: 40px 32px; } @media(--mobile) { padding: 28px 20px; gap: 24px; }', [
+        div(n + ' Visual', 'width: 620px; max-width: 100%; flex: 0 0 auto; height: 340px; padding: 0; position: relative; @media(--mobile) { height: 200px; }', [
+            p(n + ' Ghost', n, FD + 'position: absolute; left: 10px; top: 20px; font-size: %dpx; font-weight: 700; line-height: 1.2; color: rgba(1,96,180,0.07); margin: 0; @media(--mobile) { font-size: %dpx; }' % (ghost, ghost_m)),
+            img(n + ' Shadow', 'ground-shadow', 'position: absolute; left: 36px; top: 268px; width: 548px; max-width: 90%; @media(--mobile) { top: 150px; }'),
+            img(n + ' Photo', m['photo'], 'position: absolute; left: 0; top: 92px; width: 620px; height: 202px; object-fit: contain; @media(--mobile) { top: 50px; height: 120px; }'),
         ]),
-        flex('IC12E Info', 'padding: 0; flex: 1 1 0; flex-direction: column; gap: 18px;', [
-            img('IC12E Wordmark', 'wordmark', 'width: 94px; height: 14px; object-fit: contain;'),
-            h('IC12E Name', 'IC12E', 'h3', FD + 'font-size: 56px; font-weight: 700; line-height: 60px; color: #0160b4; margin: 0;'),
-            body('IC12E Text', 'A premium battery-electric intercity coach built for long-range comfort. The IC12E pairs a high-capacity battery with a spacious 47-seat cabin.', 'line-height: 25px;', '#747474'),
-            flex('IC12E Specs', 'padding: 0; flex-direction: column; gap: 12px;', [
-                flex('IC12E Specs Row 1', 'padding: 0; gap: 12px;', [spec('Spec Length', 'Length', '12', 'M'), spec('Spec Battery', 'Battery capacity', '465', 'kWh')]),
-                flex('IC12E Specs Row 2', 'padding: 0; gap: 12px;', [spec('Spec Seats', 'Seats', '47'), spec('Spec Range', 'Range', '610', 'KM')]),
+        flex(n + ' Info', 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 18px; @media(--tablet) { flex: 0 0 auto; width: 100%; }', [
+            img(n + ' Wordmark', 'wordmark', 'width: 94px; height: 14px; object-fit: contain;'),
+            h(n + ' Name', n, 'h3', FD + 'font-size: 56px; font-weight: 700; line-height: 60px; color: #0160b4; margin: 0; @media(--mobile) { font-size: 44px; line-height: 50px; }'),
+            body(n + ' Text', m['text'], 'line-height: 25px;', '#747474'),
+            flex(n + ' Specs', 'padding: 0; flex-direction: column; gap: 12px;', [
+                flex(n + ' Specs Row 1', 'padding: 0; gap: 12px;', [spec(n + ' Spec 1', *s[0]), spec(n + ' Spec 2', *s[1])]),
+                flex(n + ' Specs Row 2', 'padding: 0; gap: 12px;', [spec(n + ' Spec 3', *s[2]), spec(n + ' Spec 4', *s[3])]),
             ]),
-            flex('IC12E Buttons', 'width: auto; padding: 6px 0 0; gap: 12px; flex-wrap: wrap;', [
-                btn('IC12E Explore', 'Explore Model', URL['models']),
-                btn('IC12E Quote', 'Request a Quote', URL['quote'], kind='outline-blue', arrow=False),
+            flex(n + ' Buttons', 'width: auto; padding: 6px 0 0; gap: 12px; flex-wrap: wrap;', [
+                btn(n + ' Explore', 'Explore Model', URL['models']),
+                btn(n + ' Quote', 'Request a Quote', URL['quote'], kind='outline-blue', arrow=False),
             ]),
-        ]),
-    ])
-
-
-def coming_soon(cat):
-    return flex(cat + ' Panel', 'padding: 64px 56px; flex-direction: column; align-items: center; gap: 18px; background-color: #f2f6fb; border-radius: 28px; @media(--mobile) { padding: 40px 20px; }', [
-        img(cat + ' Wordmark', 'wordmark', 'width: 94px; height: 14px; object-fit: contain;'),
-        h(cat + ' Title', cat, 'h3', FD + 'font-size: 44px; font-weight: 700; color: #0160b4; margin: 0; text-align: center;'),
-        body(cat + ' Text', 'Our full %s line-up is being added to the site. Contact our team for availability, specifications and fleet pricing in the UAE.' % cat.lower(), 'max-width: 560px; text-align: center;'),
-        flex(cat + ' Buttons', 'width: auto; padding: 6px 0 0; gap: 12px; flex-wrap: wrap; justify-content: center;', [
-            btn(cat + ' View', 'View all models', URL['models']),
-            btn(cat + ' Quote', 'Request a Quote', URL['quote'], kind='outline-blue', arrow=False),
         ]),
     ])
 
@@ -93,7 +105,7 @@ def coming_soon(cat):
 def models():
     tabs = [Node('e-tab', 'Tab ' + t, {}, FB + 'width: auto; padding: 11px 26px; border-width: 0; border-radius: 34px; background-color: transparent; font-size: 14px; color: #323232; cursor: pointer; @media(--mobile) { padding: 9px 16px; }',
                  [p('Tab %s Label' % t, t, FB + 'font-size: 14px; margin: 0;')]).c('yt-tab') for t in MODEL_TABS]
-    panels = [Node('e-tab-content', 'Panel ' + t, {}, 'padding: 0;', [featured_ic12e() if i == 0 else coming_soon(t)]) for i, t in enumerate(MODEL_TABS)]
+    panels = [Node('e-tab-content', 'Panel ' + m['tab'], {}, 'padding: 0;', [featured(m)]) for m in FEATURED]
     return flex('Models', 'padding: 110px 120px; flex-direction: column; align-items: center; gap: 44px; background-color: #ffffff; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 32px; }', [
         flex('Models Head', 'padding: 0; flex-direction: column; align-items: center; gap: 14px;', [
             eyebrow('Models Eyebrow', 'Our Range', center=True),
@@ -166,8 +178,8 @@ def new_energy():
 
 
 def global_leader():
-    cards = [('210,000+', 'New Energy Buses Sold', 'Over two decades of investment in electric mobility.', True),
-             ('18,356+', 'Vehicles Delivered Worldwide', 'A growing global fleet trusted by public transit operators.', False),
+    cards = [('210,000+', 'New Energy Buses Sold', 'Global total sales of Yutong new energy buses.', True),
+             ('No. 1', 'Global New Energy Bus Sales', 'Ranked first worldwide for sales of new energy buses.', False),
              ('10+%', 'Global Market Share', 'Leading the international bus and coach industry.', False)]
     kids = []
     for i, (n, t, d, blue) in enumerate(cards):

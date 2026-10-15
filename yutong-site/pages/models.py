@@ -6,8 +6,8 @@ from parts import *
 POST = 9
 SLUG = 'models'
 
-# Copy is verbatim from the Figma file (placeholder text pending client content)
-HERO_TEXT = 'Yutong has launched 6-15m battery-electric coaches for new energy market segments such as long-distance e-coach, tourist e-coach, commuter, and intercity e-coach.'
+# Copy and model data from https://en.yutong.com/ (category pages, product pages, /technology/new-energy-buses/)
+HERO_TEXT = 'From 5–18 m electric and city buses to 6–15 m premium coaches and e-coaches, plus apron buses for airports — explore the Yutong range, sold, serviced and supported in the UAE by Al Khoory Automobiles.'
 TEL = 'tel:+97143146235'
 MAIL = 'mailto:info@subaru-uae.com'
 
@@ -27,45 +27,47 @@ def hero():
                 p('Quick %s Label' % t, t, FB + 'font-size: 14px; font-weight: 500; color: #ffffff; margin: 0;').c('yt-nowrap'),
             ], href=href) for t, ic, href in quick]),
     ]
-    return page_hero('models', [('Home', 'home'), ('Products', 'models'), ('E-Coach', None)], 'E-Coach', HERO_TEXT, 'models-hero', 640, extra)
+    return page_hero('models', [('Home', 'home'), ('Models', None)], 'Yutong ' + hl('Models'), HERO_TEXT, 'models-hero', 640, extra)
 
 
 # ---------- catalogue ----------
 
-def chip(cid, text, on=False):
-    return p(cid, text, FB + 'width: auto; padding: 8px 14px; border-radius: 30px; font-size: 13px; line-height: 20px; margin: 0; cursor: pointer; %s' % (
-        'font-weight: 500; color: #ffffff; background-color: #0160b4; border: 1px solid #0160b4;' if on else
-        'font-weight: 400; color: #323232; background-color: #ffffff; border: 1px solid #e3e9f1; transition: border-color 0.3s; &:hover { border-color: #0160b4; }')).c('yt-nowrap')
+# Six models from Yutong's "View Our Models" line-up (product pages /products/<id>.shtml)
+CATALOGUE = [
+    ('U12', 'E-Bus', 'ytmodels-u12', '12m battery electric bus for urban main roads',
+     [('Length', '12 m'), ('Passengers', 'Up to 95'), ('Battery', '465/528 kWh')]),
+    ('IC12E', 'E-Coach', 'ytmodels-ic12e26', 'High-standard battery electric intercity bus',
+     [('Length', '12 m'), ('Seats', 'Up to 61'), ('Battery', '399/465 kWh')]),
+    ('T15E', 'E-Coach', 'ytmodels-t15e', '15m premium battery electric coach',
+     [('Length', '15 m'), ('Seats', '63'), ('Battery', '621/704 kWh')]),
+    ('C13E', 'E-Coach', 'ytmodels-c13e', '13m super-luxury battery electric tourism coach',
+     [('Length', '13 m'), ('Seats', '52/54/58'), ('Battery', '350 kWh')]),
+    ('H10', 'Hybrid Bus', 'ytmodels-h10', '10m hybrid city bus',
+     [('Length', '10 m'), ('Passengers', '80'), ('Emission', 'Euro V/VI')]),
+    ('T12', 'Coach', 'ytmodels-t12', 'Premium tourist coach redefining efficiency and comfort',
+     [('Length', '12 m'), ('Seats', '53'), ('Emission', 'Euro VI')]),
+]
 
 
-def filter_group(n, label, icon, values):
-    return flex('Filter %s' % n, 'padding: 0; flex-direction: column; gap: 12px;', [
-        flex('Filter %s Head' % n, 'width: auto; padding: 0; gap: 8px; align-items: center;', [
-            img('Filter %s Icon' % n, icon, 'width: 16px;'),
-            p('Filter %s Label' % n, label, FB + 'font-size: 14px; font-weight: 600; color: #00050b; margin: 0;'),
-        ]),
-        flex('Filter %s Chips' % n, 'padding: 0; gap: 8px; flex-wrap: wrap;',
-             [chip('Filter %s Chip %d' % (n, i + 1), v, i == 0) for i, v in enumerate(values)]),
-    ])
-
-
-def model_card(i):
+def model_card(i, name, tag, photo, sub, specs):
     n = 'Model Card %d' % i
     return flex(n, 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.08); %s @media(--mobile) { flex: 0 0 auto; }' % EASE, [
-        flex(n + ' Media', 'padding: 26px 20px 10px; flex-direction: column; align-items: center; background-color: #f2f6fb;', [
-            img(n + ' Photo', 'models-t12e', 'width: 100%; height: 110px; object-fit: contain;'),
+        flex(n + ' Media', 'padding: 26px 20px 14px; flex-direction: column; align-items: center; background-color: #f2f6fb;', [
+            img(n + ' Photo', photo, 'width: 100%; height: 130px; object-fit: contain;'),
         ]).c('yt-zoom'),
-        flex(n + ' Body', 'padding: 22px; flex-direction: column; gap: 10px;', [
+        flex(n + ' Body', 'padding: 22px; flex: 1 1 auto; flex-direction: column; gap: 12px;', [
             flex(n + ' Top', 'padding: 0; justify-content: space-between; align-items: center; gap: 8px;', [
-                h(n + ' Name', 'T12E', 'h3', FD + 'font-size: 22px; font-weight: 700; line-height: 28px; color: #003376; margin: 0;', href=URL['quote']),
-                p(n + ' Tag', 'E-Coach', FB + 'width: auto; padding: 4px 10px; border-radius: 20px; background-color: #e3effa; font-size: 11px; font-weight: 600; color: #0160b4; margin: 0;').c('yt-nowrap'),
+                h(n + ' Name', name, 'h3', FD + 'font-size: 24px; font-weight: 700; line-height: 30px; color: #003376; margin: 0;'),
+                p(n + ' Tag', tag, FB + 'width: auto; padding: 4px 10px; border-radius: 20px; background-color: #e3effa; font-size: 11px; font-weight: 600; color: #0160b4; margin: 0;').c('yt-nowrap'),
             ]),
-            flex(n + ' Seats', 'width: auto; padding: 0; gap: 8px; align-items: center;', [
-                img(n + ' Seat Icon', 'models-ic-seat-grey', 'width: 16px;'),
-                p(n + ' Seats Text', 'Seats: 51/53/55', FB + 'font-size: 13px; color: #747474; margin: 0;'),
-            ]),
-            flex(n + ' More', 'width: auto; padding: 6px 0 0; gap: 6px; align-items: center;', [
-                p(n + ' More Text', 'View details', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
+            p(n + ' Sub', sub, FB + 'font-size: 13px; line-height: 20px; color: #747474; margin: 0;'),
+            flex(n + ' Specs', 'padding: 12px 0 0; gap: 8px; margin-top: auto; border-top: 1px solid #e3e9f1;', [
+                flex(n + ' Spec %d' % (k + 1), 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 2px;', [
+                    p(n + ' Spec %d Label' % (k + 1), lab, FB + 'font-size: 11px; color: #747474; margin: 0;'),
+                    p(n + ' Spec %d Value' % (k + 1), val, FD + 'font-size: 14px; font-weight: 600; line-height: 20px; color: #003376; margin: 0;'),
+                ]) for k, (lab, val) in enumerate(specs)]),
+            flex(n + ' More', 'width: auto; padding: 4px 0 0; gap: 6px; align-items: center; align-self: flex-start;', [
+                p(n + ' More Text', 'Request a quote', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
                 img(n + ' More Arrow', 'models-ic-arrow-b16', 'width: 16px;'),
             ], href=URL['quote']),
         ]),
@@ -74,33 +76,17 @@ def model_card(i):
 
 def catalogue():
     rows = [flex('Model Row %d' % (r + 1), 'padding: 0; gap: 24px; align-items: stretch; @media(--mobile) { flex-direction: column; }',
-                 [model_card(r * 3 + c + 1) for c in range(3)]) for r in range(2)]
+                 [model_card(r * 3 + c + 1, *CATALOGUE[r * 3 + c]) for c in range(3)]) for r in range(2)]
     return flex('Catalogue', 'padding: 110px 120px; flex-direction: column; gap: 40px; background-color: #ffffff; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 32px; }', [
         anchor('range'),
-        flex('Catalogue Head', 'padding: 0; justify-content: space-between; align-items: flex-end; gap: 30px; @media(--tablet) { flex-direction: column; align-items: flex-start; gap: 24px; }', [
+        flex('Catalogue Head', 'padding: 0; justify-content: space-between; align-items: flex-end; gap: 30px; @media(--tablet) { flex-direction: column; align-items: flex-start; gap: 16px; }', [
             flex('Catalogue Head Text', 'width: auto; padding: 0; flex-direction: column; gap: 14px;', [
                 eyebrow('Catalogue Eyebrow', 'Our Range'),
                 title('Catalogue Title', 'Sustainable ' + hl('Public Transport') + ' Solutions', 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; @media(--tablet) { font-size: 36px; line-height: 44px; } @media(--mobile) { font-size: 30px; line-height: 38px; }'),
             ]),
-            flex('Catalogue Search', 'width: 340px; max-width: 100%; flex: 0 0 auto; height: 52px; padding: 0 6px 0 18px; gap: 10px; align-items: center; background-color: #f2f6fb; border: 1px solid #e3e9f1; border-radius: 40px;', [
-                img('Catalogue Search Icon', 'models-ic-search', 'width: 18px;'),
-                p('Catalogue Search Text', 'Search', FB + 'flex: 1 1 0; font-size: 14px; color: #747474; margin: 0;'),
-                flex('Catalogue Search Go', 'width: 40px; min-width: 40px; height: 40px; padding: 0; border-radius: 20px; background-color: #0160b4; justify-content: center; align-items: center;', [
-                    img('Catalogue Search Arrow', 'models-ic-arrow-w168', 'width: 17px;'),
-                ]),
-            ]),
+            body('Catalogue Intro', 'Electric, hybrid and diesel buses and coaches for city transit, intercity routes and tourism. Ask our team about availability and specification for the UAE.', 'max-width: 440px; line-height: 26px; @media(--tablet) { max-width: 640px; }', '#747474'),
         ]),
-        flex('Catalogue Body', 'padding: 0; gap: 32px; align-items: flex-start; @media(--tablet) { flex-direction: column; align-items: stretch; } @media(--mobile) { gap: 24px; }', [
-            flex('Filters', 'width: 290px; flex: 0 0 auto; padding: 28px; flex-direction: column; gap: 28px; background-color: #f2f6fb; border-radius: 24px; @media(--tablet) { width: 100%; flex-direction: row; flex-wrap: wrap; } @media(--mobile) { flex-direction: column; padding: 24px 20px; gap: 22px; }', [
-                flex('Filters Head', 'width: auto; padding: 0; gap: 10px; align-items: center; @media(--tablet) { width: 100%; }', [
-                    img('Filters Icon', 'models-ic-filter', 'width: 18px;'),
-                    p('Filters Title', 'Filters', FD + 'font-size: 18px; font-weight: 600; color: #00050b; margin: 0;'),
-                ]),
-                filter_group('Seats', 'Seats', 'models-ic-seat', ['All', '10-30', '31-40', '41-50', '51-60', '61 or']),
-                filter_group('Length', 'Length (m)', 'models-ic-filter-sm', ['All', '7-8', '8-9', '10-11', '11-12', '13 or']),
-            ]),
-            flex('Model Grid', 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 24px; @media(--tablet) { flex: 0 0 auto; }', rows),
-        ]),
+        flex('Model Grid', 'padding: 0; flex-direction: column; gap: 24px;', rows),
     ], tag='section')
 
 
@@ -116,30 +102,33 @@ def stat_row(cid, label, value):
     ])
 
 
+TECH = [
+    ('models-tech', 'Multi-in-One SiC Power Domain Controller',
+     'The first mass-produced SiC controller and the highest-integration power domain controller, so every kWh is well used for longer range and more endurance.',
+     [('Maximum Efficiency', '99.5%'), ('System Weight Reduction', '50%'), ('Energy Consumption Lowered by', '5%')]),
+    ('ytmodels-tech-battery', 'New-Generation High-Safety Super-Capacity Battery',
+     'Sandwich fire-protection structure, nitrogen protection system, 2 m &times; 72 h waterproofing and 1300&deg;C fire protection, with a service life of 0.3–1.5 million km.',
+     [('Volume Density Increased by', '38%'), ('Space Saved by', '40%'), ('Extreme Fire Protection', '1300&deg;C')]),
+    ('ytmodels-tech-edrive', 'Efficient and Lightweight Integrated E-Axle',
+     'High-speed, less-stage transmission with low-sliding-ratio, large-speed-ratio gears, developed on new energy commercial vehicle road spectrum, plus 77% brake energy recovery.',
+     [('System Weight Reduced by', '49%'), ('System Maximum Efficiency', '93%'), ('Vehicle Energy Consumption Cut by', '15%')]),
+]
+
+
 def tech_card(cat, idx):
     n = 'Tech %d' % idx
-    if idx == 0:
-        info = [
-            p(n + ' Eyebrow', 'Electric Control', FB + 'font-size: 13px; font-weight: 600; letter-spacing: 1.3px; color: #0160b4; margin: 0;'),
-            h(n + ' Title', 'Multi-in- One SiC Power Domain Controller', 'h3', FD + 'max-width: 420px; font-size: 30px; font-weight: 700; line-height: 38px; color: #00050b; margin: 0; @media(--mobile) { font-size: 24px; line-height: 32px; }'),
-            flex(n + ' Stats', 'padding: 0; flex-direction: column; gap: 12px;', [
-                stat_row(n + ' Stat 1', 'Maximum Efficiency', '99.5%'),
-                stat_row(n + ' Stat 2', 'System Weight Reduction', '50%'),
-                stat_row(n + ' Stat 3', 'Energy Consumption Lowered by', '5%'),
-            ]),
-            btn(n + ' More', 'Read more', URL['about'], kind='outline-blue'),
-        ]
-    else:
-        # only the Electric Control panel is designed in Figma; the others hold a holding message
-        info = [
-            p(n + ' Eyebrow', cat, FB + 'font-size: 13px; font-weight: 600; letter-spacing: 1.3px; color: #0160b4; margin: 0;'),
-            h(n + ' Title', cat, 'h3', FD + 'font-size: 30px; font-weight: 700; line-height: 38px; color: #00050b; margin: 0; @media(--mobile) { font-size: 24px; line-height: 32px; }'),
-            body(n + ' Text', 'Details of Yutong %s technology are being added to the site. Contact our team for specifications and availability in the UAE.' % cat, 'line-height: 26px;', '#747474'),
-            btn(n + ' More', 'Contact us', URL['contact'], kind='outline-blue'),
-        ]
+    photo, head, text, stats = TECH[idx]
+    info = [
+        p(n + ' Eyebrow', cat, FB + 'font-size: 13px; font-weight: 600; letter-spacing: 1.3px; color: #0160b4; margin: 0;'),
+        h(n + ' Title', head, 'h3', FD + 'max-width: 460px; font-size: 30px; font-weight: 700; line-height: 38px; color: #00050b; margin: 0; @media(--mobile) { font-size: 24px; line-height: 32px; }'),
+        body(n + ' Text', text, 'line-height: 24px;', '#747474', 14),
+        flex(n + ' Stats', 'padding: 0; flex-direction: column; gap: 12px;', [
+            stat_row(n + ' Stat %d' % (k + 1), lab, val) for k, (lab, val) in enumerate(stats)]),
+        btn(n + ' More', 'Read more', URL['about'], kind='outline-blue'),
+    ]
     return flex(n + ' Card', 'padding: 40px 48px; gap: 48px; align-items: center; background-color: #ffffff; border-radius: 28px; box-shadow: 0 10px 14px rgba(0,26,64,0.08); @media(--tablet) { flex-direction: column; align-items: stretch; padding: 32px; gap: 32px; } @media(--mobile) { padding: 20px; gap: 24px; border-radius: 22px; }', [
-        img(n + ' Photo', 'models-tech', 'width: 560px; max-width: 100%; flex: 0 0 auto; height: 340px; object-fit: cover; border-radius: 22px; @media(--tablet) { width: 100%; } @media(--mobile) { height: 220px; border-radius: 16px; }'),
-        flex(n + ' Info', 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; align-items: stretch; gap: 20px; @media(--tablet) { flex: 0 0 auto; }', info),
+        img(n + ' Photo', photo, 'width: 560px; max-width: 100%; flex: 0 0 auto; height: 380px; object-fit: cover; border-radius: 22px; @media(--tablet) { width: 100%; height: 340px; } @media(--mobile) { height: 220px; border-radius: 16px; }'),
+        flex(n + ' Info', 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; align-items: stretch; gap: 18px; @media(--tablet) { flex: 0 0 auto; }', info),
     ])
 
 
@@ -193,11 +182,11 @@ def explore_card(i, label, photo, href):
 
 
 def explore():
-    cards = [('Events', 'models-events', URL['news']), ('Service network', 'models-service-network', URL['ownership']), ('Message', 'models-message', URL['contact'])]
+    cards = [('Events', 'models-events', URL['news']), ('Service Network', 'models-service-network', URL['ownership']), ('Message', 'models-message', URL['contact'])]
     return flex('Explore', 'padding: 110px 120px; flex-direction: column; align-items: center; gap: 40px; background-color: #ffffff; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 28px; }', [
         flex('Explore Head', 'width: auto; padding: 0; flex-direction: column; align-items: center; gap: 14px;', [
             eyebrow('Explore Eyebrow', 'Discover', center=True),
-            title('Explore Title', 'Lorem Ipsum Eednmm', 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; text-align: center; @media(--tablet) { font-size: 36px; line-height: 44px; } @media(--mobile) { font-size: 30px; line-height: 38px; }'),
+            title('Explore Title', 'Stay Connected with ' + hl('Yutong'), 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; text-align: center; @media(--tablet) { font-size: 36px; line-height: 44px; } @media(--mobile) { font-size: 30px; line-height: 38px; }'),
         ]),
         flex('Explore Cards', 'padding: 0; gap: 24px; @media(--mobile) { flex-direction: column; gap: 16px; }',
              [explore_card(i + 1, *c) for i, c in enumerate(cards)]),
