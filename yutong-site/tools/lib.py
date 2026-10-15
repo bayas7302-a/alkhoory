@@ -166,6 +166,7 @@ def payload(post_id, roots, parent=None, mode=None):
         if n.cls:
             cls[cid] = n.cls
 
+    roots = [r for r in roots if r is not None]  # header()/footer() are None when the theme provides them
     for r in roots:
         _wrap(r)
         walk(r)

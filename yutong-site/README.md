@@ -1,8 +1,24 @@
 # Yutong UAE site → WordPress / Elementor (atomic V4)
 
 Built from Figma `zxyrIfPRXJd0H1AQisGmym` (YUTONG, Page 1) on https://soharon.co.uk/yutong/ via the
-`my-blog-elementor` Elementor MCP server. Hello Elementor theme, Elementor 4.3.5 (free, no Pro),
-every page on the **Elementor Canvas** template (header/footer are built into each page).
+`my-blog-elementor` Elementor MCP server. Elementor 4.3.5 (free, no Pro).
+
+## Theme: `theme/yutong-uae` (child of Hello Elementor)
+
+The common header and footer live in the **Yutong UAE** child theme; pages use the
+**Elementor Full Width** template and their Elementor content is only the page body.
+
+- `header.php` / `footer.php` — header bar (logo, menu, search, Request a Quote, Al Khoory logo, native
+  `<details>` mobile menu) and footer (logos, 4 menu columns, contact info, legal links).
+- Menus (Appearance › Menus): locations `yutong-primary`, `yutong-footer-1..4`, `yutong-legal`;
+  `tools/menus.py` creates them via REST. Built-in fallbacks render if a location is empty.
+- Contact details (address, timing, e-mail, phone, map link, quote link, copyright):
+  Appearance › Customize › *Yutong UAE: header & footer*.
+- `assets/css/theme.css` — header/footer styles and all Contact Form 7 styles; CF7 auto-`<p>` is off.
+- Install/update: upload `theme/yutong-uae.zip` in Appearance › Themes › Add New › Upload (replace
+  current), activate, then run `tools/theme_live.py` (assigns menus, switches pages to Full Width,
+  rebuilds every page without its own header/footer, runs the checks). `parts.THEME_CHROME` controls
+  whether page builds include header/footer.
 
 | Page | WP id | slug | Figma frame |
 |---|---|---|---|
@@ -37,7 +53,7 @@ every page on the **Elementor Canvas** template (header/footer are built into ea
 - `tools/finalize.py <post_id>` — the MCP composer only knows atomic widgets, so classic widgets are
   injected into placeholder slots through the REST API: `Quote Form Slot` / `Contact Form Slot` get the
   Contact Form 7 shortcode (form 44 "Yutong Enquiry"; the Contact page uses form 243 "Yutong Contact" with
-  phone/model/seats/consent + `tools/form-contact.css`) + `tools/form.css`; `Anchor <id>` divs get `<span id="<id>">`.
+  phone/model/seats/consent; styles are in the theme); `Anchor <id>` divs get `<span id="<id>">`.
   It then clears Elementor's CSS cache (REST meta writes don't regenerate atomic CSS).
   **Order matters:** publishing re-saves from Elementor's own copy and drops injected widgets, so
   always publish first, finalize last (`run.py` does this).

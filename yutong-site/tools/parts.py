@@ -1,6 +1,10 @@
 """Shared Yutong sections and atoms, reused by every page builder."""
 from lib import *
 
+# The Yutong UAE child theme (theme/yutong-uae) renders the common header and footer on every page
+# (pages use the "Elementor Full Width" template), so page builds no longer include their own copies.
+THEME_CHROME = True
+
 NAV = [('Home', 'home'), ('Models', 'models'), ('Technologies', 'technologies'),
        ('About', 'about'), ('News', 'news'), ('Contact', 'contact')]
 
@@ -66,6 +70,8 @@ def section(cid, css, kids, anchor=None):
 # ---------- header ----------
 
 def header(active):
+    if THEME_CHROME:
+        return None
     links = []
     for label, key in NAV:
         on = key == active
@@ -210,6 +216,8 @@ FOOT_COLS = [
 
 
 def footer():
+    if THEME_CHROME:
+        return None
     cols = []
     for ci, (head, links) in enumerate(FOOT_COLS):
         cols.append(flex('Footer Col %d' % (ci + 1), 'padding: 0; flex: 1 1 0; flex-direction: column; gap: 14px; @media(--mobile) { flex: 1 1 40%; }', [

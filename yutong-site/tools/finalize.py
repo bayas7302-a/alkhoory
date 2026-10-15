@@ -10,10 +10,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 AUTH = json.load(open(os.path.expanduser('~/.claude.json')))['mcpServers']['my-blog-elementor']['headers']['Authorization']
 API = 'https://soharon.co.uk/yutong/wp-json/wp/v2/pages/%s'
 CF7 = '[contact-form-7 id="44" title="Yutong Enquiry"]'
-FORM_CSS = open(os.path.join(HERE, 'form.css')).read()
 # Contact page uses the fuller Figma form (phone, model, seats, consent) -- CF7 form 243
 CF7_CONTACT = '[contact-form-7 id="243" title="Yutong Contact"]'
-CONTACT_CSS = open(os.path.join(HERE, 'form-contact.css')).read()
+
 
 
 def rest(method, url, body=None):
@@ -36,10 +35,10 @@ def main(pid):
         for e in els:
             t = e.get('editor_settings', {}).get('title', '')
             if t == 'Quote Form Slot':
-                e['elements'] = [widget('shortcode', shortcode='<style>%s</style>%s' % (FORM_CSS, CF7))]
+                e['elements'] = [widget('shortcode', shortcode=CF7)]  # form styles live in the theme
                 done.append(t)
             elif t == 'Contact Form Slot':
-                e['elements'] = [widget('shortcode', shortcode='<style>%s%s</style><div class="yt-contact-form">%s</div>' % (FORM_CSS, CONTACT_CSS, CF7_CONTACT))]
+                e['elements'] = [widget('shortcode', shortcode='<div class="yt-contact-form">%s</div>' % CF7_CONTACT)]
                 done.append(t)
             elif t.startswith('Anchor '):
                 e['elements'] = [widget('html', html='<span id="%s"></span>' % t[7:])]
