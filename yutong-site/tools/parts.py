@@ -31,9 +31,9 @@ def btn(cid, text, href, kind='primary', size='md', arrow=True):
 def eyebrow(cid, text, color='#0160b4', center=False, line_color=None):
     """Small uppercase label with a short rule before (and after, when centred)."""
     lc = line_color or color
-    rule = lambda n: div(cid + ' Rule' + n, 'width: 20px; min-width: 20px; height: 1.5px; padding: 0; background-color: %s;' % lc)
+    rule = lambda n: div(cid + ' Rule' + n, 'width: 24px; min-width: 24px; height: 2px; padding: 0; background-color: %s;' % lc)
     kids = [rule('')]
-    kids.append(p(cid + ' Text', text, FB + 'font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: %s; margin: 0;' % color))
+    kids.append(p(cid + ' Text', text, FB + 'font-size: 13px; font-weight: 600; letter-spacing: 1.56px; text-transform: uppercase; color: %s; margin: 0;' % color))
     if center:
         kids.append(rule(' 2'))
     return flex(cid, 'width: auto; padding: 0; gap: 10px; align-items: center; %s' % ('align-self: center;' if center else ''), kids)
