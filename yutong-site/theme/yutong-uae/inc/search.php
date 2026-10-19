@@ -33,7 +33,7 @@ add_action( 'pre_get_posts', function ( $query ) {
 	$query->set( 'post_status', 'publish' );
 	$query->set( 'posts_per_page', 10 );
 	$exclude = array();
-	foreach ( array( 'sample-page', 'privacy-policy' ) as $slug ) {
+	foreach ( array( 'sample-page' ) as $slug ) {
 		$page = get_page_by_path( $slug );
 		if ( $page ) {
 			$exclude[] = $page->ID;

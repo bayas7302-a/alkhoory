@@ -1,6 +1,7 @@
 /* Yutong UAE: quote form helpers.
  * - "Model of Interest" only lists models of the chosen "Vehicle Category".
  * - ?model=<name> in the URL (from "Request a Quote" links) pre-selects the model and its category.
+ * - Empty date fields get .yt-empty so their mm/dd/yyyy hint is greyed like other placeholders.
  */
 (function () {
 	var CATEGORY = {
@@ -50,7 +51,20 @@
 		if (cat) { cat.addEventListener('change', filter); }
 	}
 
+	function markEmpty(input) {
+		input.classList.toggle('yt-empty', !input.value);
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		Array.prototype.forEach.call(document.querySelectorAll('.wpcf7 form'), setup);
+		Array.prototype.forEach.call(document.querySelectorAll('.wpcf7 input[type=date]'), function (input) {
+			markEmpty(input);
+			input.addEventListener('input', function () { markEmpty(input); });
+			input.addEventListener('change', function () { markEmpty(input); });
+		});
+		// CF7 clears fields after a successful send
+		document.addEventListener('wpcf7mailsent', function () {
+			Array.prototype.forEach.call(document.querySelectorAll('.wpcf7 input[type=date]'), markEmpty);
+		});
 	});
 })();

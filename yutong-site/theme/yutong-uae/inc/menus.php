@@ -32,24 +32,22 @@ function yutong_uae_fallback_links( $location ) {
 		'yutong-primary'  => array(
 			'Home'                => '/',
 			'Models'              => array( '/models/', $models ),
-			'Request a Quote'     => '/request-a-quote/',
 			'About Us'            => '/about/',
 			'Ownership & Support' => array( '/ownership-support/', $support ),
 			'News'                => array( '/news/', $news ),
 			'Contact Us'          => '/contact/',
 		),
-		'yutong-footer-1' => $models,
-		'yutong-footer-2' => $support,
-		'yutong-footer-3' => array(
-			'About Us'       => '/about/',
-			'Press Releases' => '/news/',
-			'Awards'         => '/awards/',
-			'Media Library'  => '/library/',
-			'Contact Us'     => '/contact/',
+		'yutong-footer-quick' => array(
+			'About Us'        => '/about/',
+			'Contact Us'      => '/contact/',
+			'Request a Quote' => '/request-a-quote/',
 		),
-		'yutong-legal'    => array(
-			'Privacy Policy' => '#',
-			'Terms of Use'   => '#',
+		'yutong-footer-1'     => array_merge( array( 'All Models' => '/models/' ), $models ),
+		'yutong-footer-2'     => $support,
+		'yutong-footer-news'  => $news,
+		'yutong-legal'        => array(
+			'Privacy Policy' => '/privacy-policy/',
+			'Terms of Use'   => '/terms-of-use/',
 		),
 	);
 	return $links[ $location ] ?? array();
@@ -60,9 +58,10 @@ function yutong_uae_fallback_links( $location ) {
  */
 function yutong_uae_footer_heading( $location ) {
 	$headings = array(
-		'yutong-footer-1' => 'Models',
-		'yutong-footer-2' => 'Ownership & Support',
-		'yutong-footer-3' => 'Company',
+		'yutong-footer-quick' => 'Quick Links',
+		'yutong-footer-1'     => 'Models',
+		'yutong-footer-2'     => 'Ownership & Support',
+		'yutong-footer-news'  => 'News',
 	);
 	$locations = get_nav_menu_locations();
 	if ( ! empty( $locations[ $location ] ) ) {
@@ -129,3 +128,24 @@ function yutong_uae_fallback_list( $items, $class, $depth ) {
 	}
 	echo '</ul>';
 }
+
+/**
+ * "Request a Quote" page URL (the header shows it as a button, not a menu link).
+ */
+function yutong_uae_quote_url() {
+	$page = get_page_by_path( 'request-a-quote' );
+	return $page ? get_permalink( $page ) : home_url( '/request-a-quote/' );
+}
+
+/**
+ * Drop a "Request a Quote" item from the header menu: the header already has the button.
+ */
+add_filter( 'wp_nav_menu_objects', function ( $items, $args ) {
+	if ( 'yutong-primary' !== ( $args->theme_location ?? '' ) ) {
+		return $items;
+	}
+	$quote = untrailingslashit( yutong_uae_quote_url() );
+	return array_filter( $items, function ( $item ) use ( $quote ) {
+		return untrailingslashit( strtok( $item->url, '#?' ) ) !== $quote;
+	} );
+}, 10, 2 );

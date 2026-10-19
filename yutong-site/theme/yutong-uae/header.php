@@ -34,14 +34,25 @@ defined( 'ABSPATH' ) || exit;
 					<?php yutong_uae_search_form( 'header' ); ?>
 				</div>
 			</details>
-			<img class="yt-header__akg" src="<?php echo yutong_uae_asset( 'img/logo-akg.png' ); ?>" width="28" height="42" alt="Al Khoory Group">
+			<a class="yt-btn yt-btn--sm yt-header__quote" href="<?php echo esc_url( yutong_uae_quote_url() ); ?>">
+				<?php esc_html_e( 'Request a Quote', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'arrow', 15 ); ?>
+			</a>
+			<img class="yt-header__dealer" src="<?php echo yutong_uae_asset( 'img/logo-ak-automobiles.png' ); ?>" width="188" height="17" alt="Al Khoory Automobiles LLC">
 
 			<details class="yt-mobile-menu">
 				<summary aria-label="<?php esc_attr_e( 'Menu', 'yutong-uae' ); ?>">
 					<?php echo yutong_uae_icon( 'menu', 20 ) . yutong_uae_icon( 'close', 20 ); ?>
 				</summary>
 				<div class="yt-mobile-menu__panel">
+					<div class="yt-mobile-menu__search"><?php yutong_uae_search_form( 'mobile' ); ?></div>
 					<?php yutong_uae_menu( 'yutong-primary', 'yt-mobile-menu__list', 2 ); ?>
+					<a class="yt-btn yt-mobile-menu__quote" href="<?php echo esc_url( yutong_uae_quote_url() ); ?>">
+						<?php esc_html_e( 'Request a Quote', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'arrow', 15 ); ?>
+					</a>
+					<div class="yt-mobile-menu__dealer">
+						<span><?php esc_html_e( 'Official distributor in the UAE', 'yutong-uae' ); ?></span>
+						<img src="<?php echo yutong_uae_asset( 'img/logo-ak-automobiles.png' ); ?>" width="188" height="17" alt="Al Khoory Automobiles LLC">
+					</div>
 				</div>
 			</details>
 		</div>

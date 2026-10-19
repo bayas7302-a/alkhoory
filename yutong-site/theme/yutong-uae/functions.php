@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'YUTONG_UAE_VERSION', '1.3.0' );
+define( 'YUTONG_UAE_VERSION', '1.4.0' );
 
 require_once __DIR__ . '/inc/customizer.php';
 require_once __DIR__ . '/inc/menus.php';
@@ -21,11 +21,12 @@ require_once __DIR__ . '/inc/search.php';
 add_action( 'after_setup_theme', function () {
 	register_nav_menus(
 		array(
-			'yutong-primary'  => __( 'Header menu', 'yutong-uae' ),
-			'yutong-footer-1' => __( 'Footer column 1 (Models)', 'yutong-uae' ),
-			'yutong-footer-2' => __( 'Footer column 2 (Ownership & Support)', 'yutong-uae' ),
-			'yutong-footer-3' => __( 'Footer column 3 (Company)', 'yutong-uae' ),
-			'yutong-legal'    => __( 'Footer legal links', 'yutong-uae' ),
+			'yutong-primary'      => __( 'Header menu', 'yutong-uae' ),
+			'yutong-footer-quick' => __( 'Footer column: Quick Links', 'yutong-uae' ),
+			'yutong-footer-1'     => __( 'Footer column: Models', 'yutong-uae' ),
+			'yutong-footer-2'     => __( 'Footer column: Ownership & Support', 'yutong-uae' ),
+			'yutong-footer-news'  => __( 'Footer column: News', 'yutong-uae' ),
+			'yutong-legal'        => __( 'Footer legal links', 'yutong-uae' ),
 		)
 	);
 	add_theme_support( 'custom-logo' );

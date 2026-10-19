@@ -2,6 +2,9 @@
 """Create/refresh the theme's WordPress menus via REST and (when the Yutong UAE theme is active)
 assign them to its menu locations. Page-object items get WP's current/ancestor classes for free.
 
+The header menu keeps a "Request a Quote" item; theme 1.4+ hides it there because the header shows it as a button.
+Re-run after a theme upload that adds menu locations, so the new locations get their menus.
+
 usage: menus.py
 """
 import html, json, os, subprocess
@@ -19,10 +22,10 @@ MENUS = [
     ('Header menu', 'yutong-primary', [('Home', 8, None, []), ('Models', 9, None, MODELS_SUB), ('Request a Quote', 641, None, []),
                                        ('About Us', 10, None, []), ('Ownership & Support', 15, None, SUPPORT_SUB),
                                        ('News', 13, None, NEWS_SUB), ('Contact Us', 11, None, [])]),
-    ('Models', 'yutong-footer-1', MODELS_SUB),
+    ('Quick Links', 'yutong-footer-quick', [('About Us', 10, None, []), ('Contact Us', 11, None, []), ('Request a Quote', 641, None, [])]),
+    ('Models', 'yutong-footer-1', [('All Models', 9, None, [])] + MODELS_SUB),
     ('Ownership & Support', 'yutong-footer-2', SUPPORT_SUB),
-    ('Company', 'yutong-footer-3', [('About Us', 10, None, []), ('Press Releases', 13, None, []), ('Awards', 12, None, []),
-                                    ('Media Library', 14, None, []), ('Contact Us', 11, None, [])]),
+    ('News', 'yutong-footer-news', NEWS_SUB),
     ('Footer legal', 'yutong-legal', [('Privacy Policy', 670, None, []), ('Terms of Use', 652, None, [])]),
 ]
 

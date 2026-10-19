@@ -92,7 +92,9 @@ The common header and footer live in the **Yutong UAE** child theme; pages use t
   (20 models, 5 categories) for the Models page (`pages/models.py`, anchors `#coaches` … `#vans`),
   Home tabs, Brochures and form dropdowns. No per-model pages (client decision).
   Photo stand-ins until real ones arrive: D7←T7, C12E←C13E, E11←E11 Pro, ZK6810HG/ZK6890HGQ←ZK6890HG, U12←U10.
-- **Home (8) and About (10) were hand-edited in Elementor — do NOT rebuild them** with `run.py home|about`.
+- **Home (8) and About (10) were hand-edited in Elementor — do NOT rebuild them** with `run.py home|about`;
+  change them with `elementor-manage-elements` (use `style_apply_mode: replace` with the full CSS: a patch of one
+  padding side drops the other padding values), then publish and `finalize.py <id>`.
   `pages/home_tabs.py` replaces only the Home "Models" section children (element `6952b990`).
 - `pages/support.py` (`run.py support [--only=slug,...]`): Request a Quote, Ownership & Support overview,
   Service Centres, Spare Parts, Brochures (buttons `#` until PDFs arrive), Privacy Policy, Terms of Use
@@ -101,3 +103,8 @@ The common header and footer live in the **Yutong UAE** child theme; pages use t
   injected via `Form Slot <id>` slots; recipient is the WP admin email for now.
   `assets/js/forms.js` (theme) filters model by category and preselects `?model=`.
 - Still static: Models quick-contact WhatsApp (links to Contact), Subscribe banner.
+- **Theme 1.4 (Figma header/footer update):** header = Yutong logo, menu, search, "Request a Quote" button,
+  Al Khoory Automobiles logo (the menu's own Request a Quote item is hidden in the header by a filter).
+  Below 1200px the search, menu, quote button and dealer logo move into the menu panel.
+  Footer = white logo lockup, Quick Links / Models / Ownership & Support / News columns, contact, legal, Al Khoory Group mark.
+  After uploading a theme that adds menu locations, re-run `tools/menus.py` to assign them.
