@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 				<p class="yt-footer__about"><?php echo esc_html( yutong_uae_opt( 'about' ) ); ?></p>
 			</div>
 
-			<?php foreach ( array( 'yutong-footer-1', 'yutong-footer-2', 'yutong-footer-3', 'yutong-footer-4' ) as $location ) : ?>
+			<?php foreach ( array( 'yutong-footer-1', 'yutong-footer-2', 'yutong-footer-3' ) as $location ) : ?>
 				<div class="yt-footer__col">
 					<p class="yt-footer__heading"><?php echo esc_html( yutong_uae_footer_heading( $location ) ); ?></p>
 					<?php yutong_uae_menu( $location, 'yt-footer__links' ); ?>
@@ -34,9 +34,14 @@ defined( 'ABSPATH' ) || exit;
 					<li><?php echo yutong_uae_icon( 'mail' ); ?><a href="mailto:<?php echo antispambot( esc_attr( yutong_uae_opt( 'email' ) ) ); ?>"><?php echo antispambot( esc_html( yutong_uae_opt( 'email' ) ) ); ?></a></li>
 					<li><?php echo yutong_uae_icon( 'phone' ); ?><a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', yutong_uae_opt( 'phone' ) ) ); ?>"><?php echo esc_html( yutong_uae_opt( 'phone_label' ) ); ?></a></li>
 				</ul>
-				<a class="yt-btn yt-btn--sm yt-btn--ghost" href="<?php echo esc_url( yutong_uae_opt( 'map_url' ) ); ?>" target="_blank" rel="noopener">
-					<?php esc_html_e( 'View Location', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'pin', 15 ); ?>
-				</a>
+				<div class="yt-footer__ctas">
+					<a class="yt-btn yt-btn--sm" href="<?php echo esc_url( home_url( '/request-a-quote/' ) ); ?>">
+						<?php esc_html_e( 'Request a Quote', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'arrow', 15 ); ?>
+					</a>
+					<a class="yt-btn yt-btn--sm yt-btn--ghost" href="<?php echo esc_url( yutong_uae_opt( 'map_url' ) ); ?>" target="_blank" rel="noopener">
+						<?php esc_html_e( 'View Location', 'yutong-uae' ); ?><?php echo yutong_uae_icon( 'pin', 15 ); ?>
+					</a>
+				</div>
 			</div>
 		</div>
 

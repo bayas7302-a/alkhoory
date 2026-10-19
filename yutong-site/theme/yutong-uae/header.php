@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 		</a>
 
 		<nav class="yt-header__nav" aria-label="<?php esc_attr_e( 'Main', 'yutong-uae' ); ?>">
-			<?php yutong_uae_menu( 'yutong-primary', 'yt-menu' ); ?>
+			<?php yutong_uae_menu( 'yutong-primary', 'yt-menu', 2 ); ?>
 		</nav>
 
 		<div class="yt-header__actions">
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit;
 					<?php echo yutong_uae_icon( 'menu', 20 ) . yutong_uae_icon( 'close', 20 ); ?>
 				</summary>
 				<div class="yt-mobile-menu__panel">
-					<?php yutong_uae_menu( 'yutong-primary', 'yt-mobile-menu__list' ); ?>
+					<?php yutong_uae_menu( 'yutong-primary', 'yt-mobile-menu__list', 2 ); ?>
 				</div>
 			</details>
 		</div>

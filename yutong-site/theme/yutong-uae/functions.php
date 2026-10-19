@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'YUTONG_UAE_VERSION', '1.2.0' );
+define( 'YUTONG_UAE_VERSION', '1.3.0' );
 
 require_once __DIR__ . '/inc/customizer.php';
 require_once __DIR__ . '/inc/menus.php';
@@ -22,10 +22,9 @@ add_action( 'after_setup_theme', function () {
 	register_nav_menus(
 		array(
 			'yutong-primary'  => __( 'Header menu', 'yutong-uae' ),
-			'yutong-footer-1' => __( 'Footer column 1 (Quick Links)', 'yutong-uae' ),
-			'yutong-footer-2' => __( 'Footer column 2 (Models)', 'yutong-uae' ),
-			'yutong-footer-3' => __( 'Footer column 3 (Ownership & Support)', 'yutong-uae' ),
-			'yutong-footer-4' => __( 'Footer column 4 (News)', 'yutong-uae' ),
+			'yutong-footer-1' => __( 'Footer column 1 (Models)', 'yutong-uae' ),
+			'yutong-footer-2' => __( 'Footer column 2 (Ownership & Support)', 'yutong-uae' ),
+			'yutong-footer-3' => __( 'Footer column 3 (Company)', 'yutong-uae' ),
 			'yutong-legal'    => __( 'Footer legal links', 'yutong-uae' ),
 		)
 	);
@@ -53,6 +52,13 @@ add_action( 'wp_enqueue_scripts', function () {
 		get_stylesheet_directory_uri() . '/assets/css/theme.css',
 		array( 'hello-elementor' ),
 		YUTONG_UAE_VERSION . '.' . filemtime( __DIR__ . '/assets/css/theme.css' )
+	);
+	wp_enqueue_script(
+		'yutong-uae-forms',
+		get_stylesheet_directory_uri() . '/assets/js/forms.js',
+		array(),
+		YUTONG_UAE_VERSION . '.' . filemtime( __DIR__ . '/assets/js/forms.js' ),
+		true
 	);
 }, 20 );
 
