@@ -7,7 +7,7 @@ POST = 9
 SLUG = 'models'
 
 # Copy and model data from https://en.yutong.com/ (category pages, product pages, /technology/new-energy-buses/)
-HERO_TEXT = 'From 5–18 m electric and city buses to 6–15 m premium coaches and e-coaches, plus apron buses for airports — explore the Yutong range, sold, serviced and supported in the UAE by Al Khoory Automobiles.'
+HERO_TEXT = 'From coaches and city buses to vans and electric mobility, discover passenger transport solutions designed for different routes, capacities, and operations.'
 TEL = 'tel:+97143146235'
 MAIL = 'mailto:info@subaru-uae.com'
 
@@ -18,7 +18,7 @@ def hero():
     quick = [('Whatsapp', 'models-ic-chat', URL['contact']), ('Hotline', 'models-ic-phone', TEL), ('E-mail', 'models-ic-mail', MAIL)]
     extra = [
         flex('Hero Buttons', 'width: auto; padding: 0; gap: 14px; flex-wrap: wrap;', [
-            btn('Hero Explore', 'Explore Range', '#range'),
+            btn('Hero Explore', 'Explore Range', '#coaches'),
             btn('Hero Contact', 'Contact us', URL['contact'], kind='outline', arrow=False),
         ]),
         flex('Quick Contact', 'width: auto; padding: 18px 24px; gap: 12px; align-items: center; flex-wrap: wrap; border-radius: 20px; background-color: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(12px); @media(--mobile) { padding: 14px; gap: 8px; }', [
@@ -30,64 +30,70 @@ def hero():
     return page_hero('models', [('Home', 'home'), ('Models', None)], 'Yutong ' + hl('Models'), HERO_TEXT, 'models-hero', 640, extra)
 
 
-# ---------- catalogue ----------
+# ---------- catalogue (client range, tools/models_data.py) ----------
 
-# Six models from Yutong's "View Our Models" line-up (product pages /products/<id>.shtml)
-CATALOGUE = [
-    ('U12', 'E-Bus', 'ytmodels-u12', '12m battery electric bus for urban main roads',
-     [('Length', '12 m'), ('Passengers', 'Up to 95'), ('Battery', '465/528 kWh')]),
-    ('IC12E', 'E-Coach', 'ytmodels-ic12e26', 'High-standard battery electric intercity bus',
-     [('Length', '12 m'), ('Seats', 'Up to 61'), ('Battery', '399/465 kWh')]),
-    ('T15E', 'E-Coach', 'ytmodels-t15e', '15m premium battery electric coach',
-     [('Length', '15 m'), ('Seats', '63'), ('Battery', '621/704 kWh')]),
-    ('C13E', 'E-Coach', 'ytmodels-c13e', '13m super-luxury battery electric tourism coach',
-     [('Length', '13 m'), ('Seats', '52/54/58'), ('Battery', '350 kWh')]),
-    ('H10', 'Hybrid Bus', 'ytmodels-h10', '10m hybrid city bus',
-     [('Length', '10 m'), ('Passengers', '80'), ('Emission', 'Euro V/VI')]),
-    ('T12', 'Coach', 'ytmodels-t12', 'Premium tourist coach redefining efficiency and comfort',
-     [('Length', '12 m'), ('Seats', '53'), ('Emission', 'Euro VI')]),
-]
+import models_data as M
+from urllib.parse import quote as _q
+
+CATEGORY_INTRO = {
+    'coaches': 'Diesel coaches for tourism, intercity and corporate travel, from compact 7 m models to 12 m high-capacity coaches.',
+    'e-coaches': 'Battery-electric coaches that bring long-range comfort and lower running costs to intercity and tourism routes.',
+    'city-buses': 'Dependable diesel city buses for daily public and staff transport across busy urban routes.',
+    'e-buses': 'Zero-emission electric buses for city and shuttle operations, from compact 7 m buses to 18 m articulated models.',
+    'vans': 'Versatile vans for corporate, hospitality and shuttle transport, in diesel and electric versions.',
+}
 
 
-def model_card(i, name, tag, photo, sub, specs):
-    n = 'Model Card %d' % i
-    return flex(n, 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.08); %s @media(--mobile) { flex: 0 0 auto; }' % EASE, [
-        flex(n + ' Media', 'padding: 26px 20px 14px; flex-direction: column; align-items: center; background-color: #f2f6fb;', [
-            img(n + ' Photo', photo, 'width: 100%; height: 130px; object-fit: contain;'),
+def model_card(m):
+    n = 'Model %s' % m['name']
+    href = URL['quote'] + '?model=' + _q(m['name'])
+    specs = [flex('%s Spec %d' % (n, k + 1), 'padding: 12px 14px; flex: 1 1 40%; min-width: 0; flex-direction: column; gap: 2px; background-color: #f2f6fb; border-radius: 12px;', [
+        p('%s Spec %d Label' % (n, k + 1), lab, FB + 'font-size: 11px; color: #747474; margin: 0;'),
+        p('%s Spec %d Value' % (n, k + 1), val, FD + 'font-size: 15px; font-weight: 600; line-height: 20px; color: #003376; margin: 0;'),
+    ]) for k, (lab, val) in enumerate(m['specs'])]
+    return flex(n, 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; background-color: #ffffff; border: 1px solid #e3e9f1; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,26,64,0.06); @media(--tablet) { flex: 1 1 40%; } @media(--mobile) { flex: 0 0 auto; }', [
+        flex(n + ' Media', 'height: 200px; padding: 20px; justify-content: center; align-items: center; background-color: #f2f6fb;', [
+            img(n + ' Photo', m['image'], 'width: 100%; height: 160px; object-fit: contain;'),
         ]).c('yt-zoom'),
-        flex(n + ' Body', 'padding: 22px; flex: 1 1 auto; flex-direction: column; gap: 12px;', [
+        flex(n + ' Body', 'padding: 24px; flex: 1 1 auto; flex-direction: column; gap: 12px;', [
             flex(n + ' Top', 'padding: 0; justify-content: space-between; align-items: center; gap: 8px;', [
-                h(n + ' Name', name, 'h3', FD + 'font-size: 24px; font-weight: 700; line-height: 30px; color: #003376; margin: 0;'),
-                p(n + ' Tag', tag, FB + 'width: auto; padding: 4px 10px; border-radius: 20px; background-color: #e3effa; font-size: 11px; font-weight: 600; color: #0160b4; margin: 0;').c('yt-nowrap'),
+                h(n + ' Name', m['name'], 'h3', FD + 'font-size: 26px; font-weight: 700; line-height: 32px; color: #003376; margin: 0;'),
+                p(n + ' Tag', M.label(m['category']), FB + 'width: auto; padding: 4px 10px; border-radius: 20px; background-color: #e3effa; font-size: 11px; font-weight: 600; color: #0160b4; margin: 0;').c('yt-nowrap'),
             ]),
-            p(n + ' Sub', sub, FB + 'font-size: 13px; line-height: 20px; color: #747474; margin: 0;'),
-            flex(n + ' Specs', 'padding: 12px 0 0; gap: 8px; margin-top: auto; border-width: 1px 0 0 0; border-style: solid; border-color: #e3e9f1;', [
-                flex(n + ' Spec %d' % (k + 1), 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; gap: 2px;', [
-                    p(n + ' Spec %d Label' % (k + 1), lab, FB + 'font-size: 11px; color: #747474; margin: 0;'),
-                    p(n + ' Spec %d Value' % (k + 1), val, FD + 'font-size: 14px; font-weight: 600; line-height: 20px; color: #003376; margin: 0;'),
-                ]) for k, (lab, val) in enumerate(specs)]),
-            flex(n + ' More', 'width: auto; padding: 4px 0 0; gap: 6px; align-items: center; align-self: flex-start;', [
-                p(n + ' More Text', 'Contact us', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
-                img(n + ' More Arrow', 'models-ic-arrow-b16', 'width: 16px;'),
-            ], href=URL['contact']),
+            p(n + ' Tagline', m['tagline'], FB + 'font-size: 14px; line-height: 22px; color: #6b7280; margin: 0;'),
+            flex(n + ' Specs', 'padding: 4px 0 0; gap: 8px; flex-wrap: wrap;', specs),
+            flex(n + ' Quote', 'width: auto; padding: 6px 0 0; gap: 6px; align-items: center; align-self: flex-start; margin-top: auto;', [
+                p(n + ' Quote Text', 'Request a Quote', FB + 'font-size: 14px; font-weight: 500; color: #0160b4; margin: 0;'),
+                img(n + ' Quote Arrow', 'models-ic-arrow-b16', 'width: 16px;'),
+            ], href=href),
         ]),
     ]).c('yt-lift')
 
 
-def catalogue():
-    rows = [flex('Model Row %d' % (r + 1), 'padding: 0; gap: 24px; align-items: stretch; @media(--mobile) { flex-direction: column; }',
-                 [model_card(r * 3 + c + 1, *CATALOGUE[r * 3 + c]) for c in range(3)]) for r in range(2)]
-    return flex('Catalogue', 'padding: 110px 120px; flex-direction: column; gap: 40px; background-color: #ffffff; position: relative; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 32px; }', [
-        anchor('range'),
-        flex('Catalogue Head', 'padding: 0; justify-content: space-between; align-items: flex-end; gap: 30px; @media(--tablet) { flex-direction: column; align-items: flex-start; gap: 16px; }', [
-            flex('Catalogue Head Text', 'width: auto; padding: 0; flex-direction: column; gap: 14px;', [
-                eyebrow('Catalogue Eyebrow', 'Our Range'),
-                title('Catalogue Title', 'Sustainable ' + hl('Public Transport') + ' Solutions', 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b; @media(--tablet) { font-size: 36px; line-height: 44px; } @media(--mobile) { font-size: 30px; line-height: 38px; }'),
+def category_section(i, key, plural, anchor_id):
+    items = M.models(key)
+    rows = []
+    for r in range(0, len(items), 3):
+        chunk = items[r:r + 3]
+        cards = [model_card(m) for m in chunk]
+        cards += [div('%s Spacer %d %d' % (plural, r, k), 'padding: 0; flex: 1 1 0; min-width: 0; @media(--tablet) { display: none; }') for k in range(3 - len(chunk))]
+        rows.append(flex('%s Row %d' % (plural, r // 3 + 1), 'padding: 0; gap: 24px; align-items: stretch; @media(--tablet) { flex-wrap: wrap; } @media(--mobile) { flex-direction: column; }', cards))
+    bgc = '#ffffff' if i % 2 == 0 else '#f2f6fb'
+    return flex(plural, 'padding: 110px 120px; flex-direction: column; gap: 40px; position: relative; background-color: %s; @media(--tablet) { padding: 80px 40px; } @media(--mobile) { padding: 64px 20px; gap: 32px; }' % bgc, [
+        anchor(anchor_id),
+        flex(plural + ' Head', 'padding: 0; justify-content: space-between; align-items: flex-end; gap: 30px; @media(--tablet) { flex-direction: column; align-items: flex-start; gap: 14px; }', [
+            flex(plural + ' Head Text', 'width: auto; padding: 0; flex-direction: column; gap: 14px;', [
+                eyebrow(plural + ' Eyebrow', '%d Models' % len(items)),
+                title(plural + ' Title', plural, 'font-size: 42px; font-weight: 700; line-height: 52px; color: #00050b;'),
             ]),
-            body('Catalogue Intro', 'Electric, hybrid and diesel buses and coaches for city transit, intercity routes and tourism. Ask our team about availability and specification for the UAE.', 'max-width: 440px; line-height: 26px; @media(--tablet) { max-width: 640px; }', '#747474'),
+            body(plural + ' Intro', CATEGORY_INTRO[key], 'max-width: 520px; line-height: 26px;', '#747474'),
         ]),
-        flex('Model Grid', 'padding: 0; flex-direction: column; gap: 24px;', rows),
+        flex(plural + ' Grid', 'padding: 0; flex-direction: column; gap: 24px;', rows),
     ], tag='section')
+
+
+def catalogue():
+    return [category_section(i, *c[:2], c[3]) for i, c in enumerate(M.CATEGORIES)]
 
 
 # ---------- new energy technology ----------
@@ -210,7 +216,8 @@ def explore():
 
 SECTIONS = [
     ('models-1', hero),
-    ('models-2', lambda: [catalogue()]),
+    ('models-2', lambda: catalogue()[:3]),
+    ('models-2b', lambda: catalogue()[3:]),
     ('models-3', lambda: [technology(), best_service()]),
     ('models-4', lambda: [explore(), glance_section()]),
     ('models-5', lambda: [quote_section('0 120px 110px'), footer()]),

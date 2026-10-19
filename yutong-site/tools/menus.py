@@ -9,17 +9,21 @@ API = 'https://soharon.co.uk/yutong/wp-json/wp/v2'
 AUTH = json.load(open(os.path.expanduser('~/.claude.json')))['mcpServers']['my-blog-elementor']['headers']['Authorization']
 SITE = 'https://soharon.co.uk/yutong'
 
-# (menu name, location, [(title, page_id or None, url for custom links)])
+# (menu name, location, items); item = (title, page_id or None, url or None, [children])
+M_ = SITE + '/models/#'
+MODELS_SUB = [('Coaches', None, M_ + 'coaches', []), ('E-Coaches', None, M_ + 'e-coaches', []), ('City Buses', None, M_ + 'city-buses', []),
+              ('E-Buses', None, M_ + 'e-buses', []), ('Vans', None, M_ + 'vans', [])]
+SUPPORT_SUB = [('Service Centres', 645, None, []), ('Spare Parts', 647, None, []), ('Brochures', 649, None, [])]
+NEWS_SUB = [('Press Releases', 13, None, []), ('Awards', 12, None, []), ('Media Library', 14, None, [])]
 MENUS = [
-    ('Header menu', 'yutong-primary', [('Home', 8, None), ('Models', 9, None), ('Technologies', None, SITE + '/models/#technology'),
-                                       ('About', 10, None), ('News', 13, None), ('Contact', 11, None)]),
-    ('Quick Links', 'yutong-footer-1', [('About Us', 10, None), ('Contact Us', 11, None), ('Media Library', 14, None)]),
-    ('Models', 'yutong-footer-2', [('All Models', 9, None), ('Coaches', None, SITE + '/models/'), ('Vans', None, SITE + '/models/'), ('E-Buses', None, SITE + '/models/')]),
-    ('Ownership & Support', 'yutong-footer-3', [('Service Centres', None, SITE + '/ownership-support/#service-network'),
-                                                ('Spare Parts', None, SITE + '/ownership-support/#spare-parts')]),
-    ('News', 'yutong-footer-4', [('Press Releases', 13, None), ('Awards', 12, None), ('Media Library', 14, None)]),
-    ('Footer legal', 'yutong-legal', [('Your Privacy Choices', None, '#'), ('Cookie and Ad Preferences', None, '#'),
-                                      ('Conditions of Use', None, '#'), ('Privacy Policy', None, '#')]),
+    ('Header menu', 'yutong-primary', [('Home', 8, None, []), ('Models', 9, None, MODELS_SUB), ('Request a Quote', 641, None, []),
+                                       ('About Us', 10, None, []), ('Ownership & Support', 15, None, SUPPORT_SUB),
+                                       ('News', 13, None, NEWS_SUB), ('Contact Us', 11, None, [])]),
+    ('Models', 'yutong-footer-1', MODELS_SUB),
+    ('Ownership & Support', 'yutong-footer-2', SUPPORT_SUB),
+    ('Company', 'yutong-footer-3', [('About Us', 10, None, []), ('Press Releases', 13, None, []), ('Awards', 12, None, []),
+                                    ('Media Library', 14, None, []), ('Contact Us', 11, None, [])]),
+    ('Footer legal', 'yutong-legal', [('Privacy Policy', 670, None, []), ('Terms of Use', 652, None, [])]),
 ]
 
 
@@ -30,21 +34,30 @@ def rest(method, path, body=None):
     return json.loads(subprocess.run(cmd, input=json.dumps(body) if body is not None else None, capture_output=True, text=True).stdout or 'null')
 
 
-locations = rest('GET', '/menu-locations') or {}
-existing = {html.unescape(m['name']): m['id'] for m in rest('GET', '/menus?per_page=100&context=edit')}
-for name, loc, items in MENUS:
-    body = {'name': name}
-    if loc in locations:
-        body['locations'] = [loc]
-    mid = existing.get(name)
-    mid = rest('POST', '/menus/%d' % mid if mid else '/menus', body)['id']
-    for old in rest('GET', '/menu-items?menus=%d&per_page=100&context=edit' % mid):
-        rest('DELETE', '/menu-items/%d?force=true' % old['id'])
-    for order, (title, page, url) in enumerate(items, 1):
-        item = {'title': title, 'menus': mid, 'menu_order': order, 'status': 'publish'}
+def add_items(mid, items, parent=0):
+    for order, (title, page, url, kids) in enumerate(items, 1):
+        item = {'title': title, 'menus': mid, 'menu_order': order, 'status': 'publish', 'parent': parent}
         if page:
             item.update({'type': 'post_type', 'object': 'page', 'object_id': page})
         else:
             item.update({'type': 'custom', 'url': url})
-        rest('POST', '/menu-items', item)
-    print('%-22s id %-4s items %d  location %s' % (name, mid, len(items), loc if loc in locations else '(theme not active yet)'))
+        new = rest('POST', '/menu-items', item)
+        if kids:
+            add_items(mid, kids, new['id'])
+
+
+locations = rest('GET', '/menu-locations') or {}
+existing = {html.unescape(m['name']): m['id'] for m in rest('GET', '/menus?per_page=100&context=edit')}
+used = {loc for _, loc, _ in MENUS}
+for name, mid in existing.items():  # retire menus no longer in MENUS (e.g. old footer columns)
+    if name not in [m[0] for m in MENUS]:
+        rest('DELETE', '/menus/%d?force=true' % mid)
+        print('removed menu', name)
+for name, loc, items in MENUS:
+    body = {'name': name, 'locations': [loc] if loc in locations else []}
+    mid = existing.get(name)
+    mid = rest('POST', '/menus/%d' % mid if mid else '/menus', body)['id']
+    for old in rest('GET', '/menu-items?menus=%d&per_page=100&context=edit' % mid):
+        rest('DELETE', '/menu-items/%d?force=true' % old['id'])
+    add_items(mid, items)
+    print('%-22s id %-4s items %d  location %s' % (name, mid, len(items), loc if loc in locations else '(not registered by active theme)'))

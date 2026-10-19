@@ -12,7 +12,7 @@ TOL = 6
 bad = 0
 with sync_playwright() as pw:
     b = pw.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args=['--no-sandbox'])
-    for p in ['', 'models/', 'about/', 'contact/', 'awards/', 'news/', 'library/', 'ownership-support/']:
+    for p in ['', 'models/', 'about/', 'contact/', 'awards/', 'news/', 'library/', 'ownership-support/', 'request-a-quote/', 'ownership-support/service-centres/', 'ownership-support/spare-parts/', 'ownership-support/brochures/', 'privacy-policy/', 'terms-of-use/']:
         for w in STD:
             pg = b.new_page(viewport={'width': w, 'height': 900})
             pg.goto('https://soharon.co.uk/yutong/' + p + '?rh=1', wait_until='networkidle')

@@ -42,7 +42,7 @@ MODELS = [
     ('e-buses', 'E12', 'Advanced electric transport with the capacity to move more passengers.', ('12', '399.92', '39', '80'), True),
 
     ('vans', 'V6', 'A versatile van solution for corporate, hospitality, and shuttle transport.', ('6', '120', '14', 'Euro V'), False),
-    ('vans', 'V6E', 'A versatile electric van solution for corporate and shuttle transport.', ('6', '104.32', '14', '120'), True),
+    ('vans', 'V6E', 'A versatile van solution for corporate, hospitality, and shuttle transport.', ('6', '104.32', '14', '120'), True),
 ]
 
 

@@ -26,7 +26,12 @@ URL = {
     'awards': SITE + '/awards/',
     'library': SITE + '/library/',
     'ownership': SITE + '/ownership-support/',
-    'quote': '#request-a-quote',
+    'service': SITE + '/ownership-support/service-centres/',
+    'parts': SITE + '/ownership-support/spare-parts/',
+    'brochures': SITE + '/ownership-support/brochures/',
+    'quote': SITE + '/request-a-quote/',
+    'privacy': SITE + '/privacy-policy/',
+    'terms': SITE + '/terms-of-use/',
 }
 
 FD = 'font-family: var(--yt-display);'

@@ -88,7 +88,16 @@ The common header and footer live in the **Yutong UAE** child theme; pages use t
   (`run.py articles`): children of News (13) and Awards (12) at `/news/<slug>/` and `/awards/<slug>/`.
   The lead paragraph is the card summary; the body, highlights and quote are dummy (lorem) copy to replace.
 - Library videos are 720p web transcodes uploaded to the media library (`yutong-video-1..6.mp4`).
-- Models page catalogue and Home model tabs use real models/specs from en.yutong.com product pages;
-  edit `FEATURED` in `pages/home.py` to swap a featured model.
-- Still static (no backend): Models quick-contact WhatsApp (links to Contact), Subscribe banner,
-  footer legal links (`#`). Model T12E detail page not built (models to be supplied later).
+- **Client copy doc (Oct 2026)** drives the model range: `tools/models_data.py` is the single source
+  (20 models, 5 categories) for the Models page (`pages/models.py`, anchors `#coaches` … `#vans`),
+  Home tabs, Brochures and form dropdowns. No per-model pages (client decision).
+  Photo stand-ins until real ones arrive: D7←T7, C12E←C13E, E11←E11 Pro, ZK6810HG/ZK6890HGQ←ZK6890HG, U12←U10.
+- **Home (8) and About (10) were hand-edited in Elementor — do NOT rebuild them** with `run.py home|about`.
+  `pages/home_tabs.py` replaces only the Home "Models" section children (element `6952b990`).
+- `pages/support.py` (`run.py support [--only=slug,...]`): Request a Quote, Ownership & Support overview,
+  Service Centres, Spare Parts, Brochures (buttons `#` until PDFs arrive), Privacy Policy, Terms of Use
+  (standard text, for client review).
+- Forms: `tools/forms.py` creates CF7 quote/service/parts forms (ids cached in `tools/forms.json`),
+  injected via `Form Slot <id>` slots; recipient is the WP admin email for now.
+  `assets/js/forms.js` (theme) filters model by category and preselects `?model=`.
+- Still static: Models quick-contact WhatsApp (links to Contact), Subscribe banner.

@@ -40,6 +40,9 @@ def main(pid):
             elif t == 'Contact Form Slot':
                 e['elements'] = [widget('shortcode', shortcode='<div class="yt-contact-form">%s</div>' % CF7_CONTACT)]
                 done.append(t)
+            elif t.startswith('Form Slot '):  # generic: 'Form Slot <cf7 id>'
+                e['elements'] = [widget('shortcode', shortcode='[contact-form-7 id="%s"]' % t.split()[-1])]
+                done.append(t)
             elif t.startswith('Anchor '):
                 e['elements'] = [widget('html', html='<span id="%s"></span>' % t[7:])]
                 done.append(t)

@@ -4,7 +4,7 @@ import sys, subprocess
 from playwright.sync_api import sync_playwright
 SITE = 'https://soharon.co.uk/yutong'
 PAGES = {'home': '/', 'models': '/models/', 'about': '/about/', 'contact': '/contact/', 'awards': '/awards/',
-         'news': '/news/', 'library': '/library/', 'ownership': '/ownership-support/'}
+         'news': '/news/', 'library': '/library/', 'ownership': '/ownership-support/', 'quote': '/request-a-quote/', 'service': '/ownership-support/service-centres/', 'parts': '/ownership-support/spare-parts/', 'brochures': '/ownership-support/brochures/', 'privacy': '/privacy-policy/', 'terms': '/terms-of-use/'}
 links = set()
 with sync_playwright() as pw:
     b = pw.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome', args=['--no-sandbox'])
@@ -21,7 +21,7 @@ with sync_playwright() as pw:
                 wide: [...document.querySelectorAll('body *')].filter(e => e.getBoundingClientRect().right > window.innerWidth + 1 && getComputedStyle(e).position !== 'fixed').slice(0, 3).map(e => (e.className || e.tagName).toString().slice(0, 40)),
                 links: [...document.querySelectorAll('a[href]')].map(a => a.href) })''')
             links.update(l.split('#')[0] for l in d['links'] if l.startswith(SITE))
-            flag = 'OK ' if r.status == 200 and d['sw'] <= w and not d['broken'] and d['form'] else 'BAD'
+            flag = 'OK ' if r.status == 200 and d['sw'] <= w and not d['broken'] and (d['form'] or name in ('ownership', 'brochures', 'privacy', 'terms')) else 'BAD'
             print(flag, name, w, 'status', r.status, 'h', d['h'], 'overflow', d['sw'] - w, 'broken', d['broken'][:3], 'forms', d['form'], d['wide'] if d['sw'] > w else '')
             pg.close()
     b.close()
