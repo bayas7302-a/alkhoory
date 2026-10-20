@@ -1,0 +1,75 @@
+<style>
+.yt-carousel{display:flex;flex-wrap:nowrap;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:10px 6px 30px;margin:-10px -6px 0;-webkit-overflow-scrolling:touch}
+.yt-carousel::-webkit-scrollbar{display:none}
+.yt-carousel>.e-con{flex:0 0 calc((100% - 48px)/3);width:auto;min-width:0;scroll-snap-align:start}
+.yt-carousel.is-static{justify-content:center}
+.yt-carousel-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
+.yt-carousel-nav[hidden]{display:none}
+.yt-carousel-nav button{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid #e3e9f1;border-radius:22px;background:#fff;color:#0160b4;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s,opacity .25s}
+.yt-carousel-nav .yt-prev:focus,.yt-carousel-nav .yt-next:focus{background:#fff;border-color:#e3e9f1;color:#0160b4;outline:none}
+.yt-carousel-nav .yt-prev:focus-visible,.yt-carousel-nav .yt-next:focus-visible{outline:2px solid #0160b4;outline-offset:2px}
+.yt-carousel-nav .yt-prev:hover:not(:disabled),.yt-carousel-nav .yt-next:hover:not(:disabled){background:#0160b4;border-color:#0160b4;color:#fff}
+.yt-carousel-nav .yt-prev:disabled,.yt-carousel-nav .yt-next:disabled{opacity:.35;cursor:default;background:#fff;border-color:#e3e9f1;color:#0160b4}
+.yt-carousel-dots{display:flex;gap:8px}
+.yt-carousel-dots button,.yt-carousel-dots button:hover,.yt-carousel-dots button:focus{width:8px;height:8px;min-height:0;padding:0;border:0;border-radius:4px;background:#c9d6e6;cursor:pointer;transition:width .25s,background-color .25s}
+.yt-carousel-dots button.is-active,.yt-carousel-dots button.is-active:hover,.yt-carousel-dots button.is-active:focus{width:24px;background:#0160b4}
+@media (max-width:1024px){.yt-carousel>.e-con{flex-basis:calc((100% - 24px)/2)}}
+@media (max-width:767px){.yt-carousel{gap:16px}.yt-carousel>.e-con{flex-basis:100%}}
+</style>
+<script>
+(function () {
+	var ARROW = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>';
+	function setup(track) {
+		var nav = document.createElement('div');
+		nav.className = 'yt-carousel-nav';
+		nav.innerHTML = '<button type="button" class="yt-prev" aria-label="Previous models">' + ARROW + '</button><div class="yt-carousel-dots"></div><button type="button" class="yt-next" aria-label="Next models" style="transform:scaleX(-1)">' + ARROW + '</button>';
+		track.parentNode.insertBefore(nav, track.nextSibling);
+		var prev = nav.querySelector('.yt-prev'), next = nav.querySelector('.yt-next'), dots = nav.querySelector('.yt-carousel-dots');
+		var cards = Array.prototype.slice.call(track.children);
+		function perView() {
+			var w = cards[0] ? cards[0].getBoundingClientRect().width : 0;
+			return w ? Math.max(1, Math.round((track.clientWidth + 24) / (w + 24))) : 1;
+		}
+		function update() {
+			if (!track.clientWidth) { return; }
+			var pv = perView(), pages = Math.max(1, cards.length - pv + 1);
+			var fits = cards.length <= pv;
+			track.classList.toggle('is-static', fits);
+			nav.hidden = fits;
+			if (fits) { return; }
+			if (dots.children.length !== pages) {
+				dots.innerHTML = '';
+				for (var i = 0; i < pages; i++) {
+					var d = document.createElement('button');
+					d.type = 'button';
+					d.setAttribute('aria-label', 'Go to model ' + (i + 1));
+					d.addEventListener('click', go.bind(null, i));
+					dots.appendChild(d);
+				}
+			}
+			var idx = Math.min(pages - 1, current());
+			Array.prototype.forEach.call(dots.children, function (d, i) { d.classList.toggle('is-active', i === idx); });
+			prev.disabled = track.scrollLeft <= 2;
+			next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+		}
+		function stepWidth() {
+			return cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth;
+		}
+		function current() {
+			return Math.round(track.scrollLeft / stepWidth());
+		}
+		function go(i) {
+			i = Math.max(0, Math.min(cards.length - perView(), i));
+			track.scrollTo({ left: i * stepWidth(), behavior: 'smooth' });
+		}
+		prev.addEventListener('click', function () { go(current() - perView()); });
+		next.addEventListener('click', function () { go(current() + perView()); });
+		track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+		if (window.ResizeObserver) { new ResizeObserver(update).observe(track); }
+		window.addEventListener('resize', update);
+		update();
+	}
+	function init() { Array.prototype.forEach.call(document.querySelectorAll('.yt-carousel'), setup); }
+	if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>

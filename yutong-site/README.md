@@ -95,7 +95,8 @@ The common header and footer live in the **Yutong UAE** child theme; pages use t
 - **Home (8) and About (10) were hand-edited in Elementor — do NOT rebuild them** with `run.py home|about`;
   change them with `elementor-manage-elements` (use `style_apply_mode: replace` with the full CSS: a patch of one
   padding side drops the other padding values), then publish and `finalize.py <id>`.
-  `pages/home_tabs.py` replaces only the Home "Models" section children (element `6952b990`).
+  `pages/home_tabs.py` replaces only the Home "Models" section children (element `6952b990`): one carousel per
+  tab (3 / 2 / 1 cards, centred when they all fit), CSS/JS in `tools/html/home-carousel.html` (finalize `Html Slot`).
 - `pages/support.py` (`run.py support [--only=slug,...]`): Request a Quote, Ownership & Support overview,
   Service Centres, Spare Parts, Brochures (buttons `#` until PDFs arrive), Privacy Policy, Terms of Use
   (standard text, for client review).

@@ -1,5 +1,7 @@
 """Home page: replace ONLY the "Models" section's children (WP page 8, element 6952b990) with the client's
 category tabs -- Coach | E-Coach | City Bus | E-Bus | Van -- listing every model from tools/models_data.py.
+Each tab is a one-row carousel (3 cards desktop / 2 tablet / 1 mobile; centred when they all fit);
+the carousel CSS/JS is tools/html/home-carousel.html, injected by finalize.py into 'Html Slot home-carousel'.
 
 The rest of Home was edited by hand in Elementor and must not be rebuilt; this script is the only
 code-driven change to that page. The section heading/intro are kept as the user wrote them.
@@ -25,7 +27,7 @@ def card(m):
         p('%s Spec %d Value' % (n, k + 1), val, FD + 'font-size: 16px; font-weight: 600; line-height: 22px; color: #003376; margin: 0;'),
     ]) for k, (lab, val) in enumerate(m['specs'])]
     anchor_id = next(c[3] for c in M.CATEGORIES if c[0] == m['category'])
-    return flex(n, 'padding: 0; flex: 1 1 0; min-width: 0; flex-direction: column; border-radius: 24px; overflow: hidden; background-color: #f2f6fb; @media(--tablet) { flex: 1 1 40%; } @media(--mobile) { flex: 0 0 auto; }', [
+    return flex(n, 'padding: 0; flex: 0 0 auto; min-width: 0; flex-direction: column; border-radius: 24px; overflow: hidden; background-color: #f2f6fb;', [
         flex(n + ' Media', 'height: 210px; padding: 24px; justify-content: center; align-items: center;', [
             img(n + ' Photo', m['image'], 'width: 100%; height: 170px; object-fit: contain;')]).c('yt-zoom'),
         flex(n + ' Body', 'padding: 0 26px 28px; flex-direction: column; gap: 12px; flex-grow: 1;', [
@@ -37,20 +39,14 @@ def card(m):
     ]).c('yt-lift')
 
 
-def grid(cid, items):
-    rows = []
-    for r in range(0, len(items), 3):
-        chunk = items[r:r + 3]
-        cards = [card(m) for m in chunk]
-        cards += [div('%s Spacer %d %d' % (cid, r, k), 'padding: 0; flex: 1 1 0; min-width: 0; @media(--tablet) { display: none; }') for k in range(3 - len(chunk))]
-        rows.append(flex('%s Row %d' % (cid, r // 3 + 1), 'padding: 0; gap: 24px; align-items: stretch; @media(--tablet) { flex-wrap: wrap; } @media(--mobile) { flex-direction: column; }', cards))
-    return flex(cid, 'padding: 0; flex-direction: column; gap: 24px;', rows)
+def carousel(cid, items):
+    return flex(cid, 'padding: 0; gap: 24px; align-items: stretch;', [card(m) for m in items]).c('yt-carousel')
 
 
 def nodes():
     tabs = [Node('e-tab', 'Range Tab ' + c[2], {}, FB + 'width: auto; padding: 11px 26px; border-width: 0; border-radius: 34px; background-color: transparent; font-size: 14px; color: #323232; cursor: pointer; @media(--mobile) { padding: 9px 16px; }',
                  [p('Range Tab %s Label' % c[2], c[2], FB + 'font-size: 14px; margin: 0;')]).c('yt-tab') for c in M.CATEGORIES]
-    panels = [Node('e-tab-content', 'Range Panel ' + c[2], {}, 'padding: 0;', [grid('Range Grid ' + c[2], M.models(c[0]))]) for c in M.CATEGORIES]
+    panels = [Node('e-tab-content', 'Range Panel ' + c[2], {}, 'padding: 0;', [carousel('Range Carousel ' + c[2], M.models(c[0]))]) for c in M.CATEGORIES]
     return [
         flex('Models Head', 'padding: 0; flex-direction: column; align-items: center; gap: 14px;', [
             eyebrow('Models Eyebrow', 'Our Range', center=True),
@@ -62,6 +58,7 @@ def nodes():
             Node('e-tabs-content-area', 'Range Tabs Content', {}, 'width: 100%; padding: 0;', panels),
         ]),
         flex('Models Footer', 'padding: 0; justify-content: center;', [btn('Models View All', 'Explore Our Models', URL['models'])]),
+        slot('Html Slot home-carousel'),
     ]
 
 

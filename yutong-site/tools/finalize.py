@@ -3,7 +3,8 @@
 
 usage: finalize.py <post_id>
 Fills 'Quote Form Slot' (and 'Contact Form Slot' if present) with the CF7 form + its CSS,
-and every 'Anchor <name>' div with <span id="<name>">.
+every 'Anchor <name>' div with <span id="<name>">,
+and every 'Html Slot <name>' with tools/html/<name>.html.
 """
 import sys, json, subprocess, os, uuid
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -42,6 +43,9 @@ def main(pid):
                 done.append(t)
             elif t.startswith('Form Slot '):  # generic: 'Form Slot <cf7 id>'
                 e['elements'] = [widget('shortcode', shortcode='[contact-form-7 id="%s"]' % t.split()[-1])]
+                done.append(t)
+            elif t.startswith('Html Slot '):  # 'Html Slot <name>' -> tools/html/<name>.html (page-specific CSS/JS)
+                e['elements'] = [widget('html', html=open(os.path.join(HERE, 'html', t[10:] + '.html')).read())]
                 done.append(t)
             elif t.startswith('Anchor '):
                 e['elements'] = [widget('html', html='<span id="%s"></span>' % t[7:])]
