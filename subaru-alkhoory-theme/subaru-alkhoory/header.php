@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $subaru_viewport = apply_filters( 'hello_elementor_viewport_content', 'width=device-width, initial-scale=1' );
 $subaru_cta      = get_theme_mod( 'subaru_cta_label', 'Book a Test Drive' );
-$subaru_topbar   = get_theme_mod( 'subaru_topbar_text', 'Official Subaru Distributor in the UAE  ·  Al Khoory Automobiles' );
+$subaru_topbar   = get_theme_mod( 'subaru_topbar_text', 'Official Subaru Distributor in Dubai & the Northern Emirates' );
 $subaru_name     = get_bloginfo( 'name' );
 ?>
 <!doctype html>
@@ -49,10 +49,16 @@ $subaru_name     = get_bloginfo( 'name' );
 
 	<div class="sa-mainbar">
 		<div class="sa-mainbar__inner">
-			<a class="sa-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<img class="sa-logo__dark" src="<?php echo esc_url( subaru_logo_url( 'dark' ) ); ?>" alt="<?php echo esc_attr( $subaru_name ); ?>" width="150" height="24">
-				<img class="sa-logo__light" src="<?php echo esc_url( subaru_logo_url( 'light' ) ); ?>" alt="" aria-hidden="true" width="150" height="24">
-			</a>
+			<div class="sa-brand">
+				<?php if ( get_theme_mod( 'subaru_show_badge', true ) ) : ?>
+					<img class="sa-badge50" src="<?php echo esc_url( subaru_image_url( 'subaru_badge', '50-years-badge.png' ) ); ?>" alt="<?php esc_attr_e( '50 Years of trust — Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="62" height="38">
+					<span class="sa-brand__sep" aria-hidden="true"></span>
+				<?php endif; ?>
+				<a class="sa-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img class="sa-logo__dark" src="<?php echo esc_url( subaru_logo_url( 'dark' ) ); ?>" alt="<?php echo esc_attr( $subaru_name ); ?>" width="150" height="24">
+					<img class="sa-logo__light" src="<?php echo esc_url( subaru_logo_url( 'light' ) ); ?>" alt="" aria-hidden="true" width="150" height="24">
+				</a>
+			</div>
 
 			<nav class="sa-nav" id="sa-nav" aria-label="<?php esc_attr_e( 'Main', 'subaru-alkhoory' ); ?>">
 				<?php subaru_render_primary_nav(); ?>
@@ -64,9 +70,16 @@ $subaru_name     = get_bloginfo( 'name' );
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'subaru-alkhoory' ); ?></span>
 				</button>
 				<a class="sa-btn sa-btn--sm sa-actions__cta" href="<?php echo esc_url( subaru_cta_url() ); ?>"><?php echo esc_html( $subaru_cta ); ?></a>
-				<?php if ( get_theme_mod( 'subaru_show_badge', true ) ) : ?>
+				<?php
+				// Al Khoory Automobiles logo on the right: Customizer upload, else a bundled file once supplied.
+				$subaru_aka = get_theme_mod( 'subaru_aka_logo' );
+				if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobiles.png' ) ) {
+					$subaru_aka = SUBARU_URI . '/assets/img/al-khoory-automobiles.png';
+				}
+				if ( $subaru_aka ) :
+					?>
 					<span class="sa-actions__sep" aria-hidden="true"></span>
-					<img class="sa-badge50" src="<?php echo esc_url( subaru_image_url( 'subaru_badge', '50-years-badge.png' ) ); ?>" alt="<?php esc_attr_e( '50 Years of trust — Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="62" height="38">
+					<img class="sa-aka-logo" src="<?php echo esc_url( $subaru_aka ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="120" height="36">
 				<?php endif; ?>
 				<button type="button" class="sa-burger" aria-controls="sa-mmenu" aria-expanded="false">
 					<span class="sa-burger__lines" aria-hidden="true"><span></span><span></span><span></span></span>

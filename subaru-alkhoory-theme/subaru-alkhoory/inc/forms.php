@@ -27,6 +27,19 @@ function subaru_model_options() {
  *
  * @return array
  */
+function subaru_service_model_options() {
+	$out = subaru_model_options();
+	foreach ( array( 'Outback', 'WRX STI', 'Legacy' ) as $m ) {
+		$out[ $m ] = 'Subaru ' . $m;
+	}
+	return apply_filters( 'subaru_service_model_options', $out );
+}
+
+/**
+ * Emirate options.
+ *
+ * @return array
+ */
 function subaru_emirate_options() {
 	$out = array();
 	foreach ( array( 'Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah' ) as $e ) {
@@ -41,11 +54,10 @@ function subaru_emirate_options() {
  * @return array value => array( label, group )
  */
 function subaru_grade_options() {
+	// Only the sports models offer a transmission choice on the test drive; the field is hidden for the SUVs.
 	$grades = array(
-		'Forester'  => array( '2.5i-S EyeSight', '2.5i EyeSight', '2.5i-Sport EyeSight' ),
-		'Crosstrek' => array( '2.0i-S EyeSight', '2.0i-L EyeSight' ),
-		'WRX'       => array( 'WRX tS EyeSight', 'WRX HIGH EyeSight', 'WRX HIGH' ),
-		'BRZ'       => array( 'BRZ Automatic', 'BRZ Manual' ),
+		'WRX' => array( 'WRX Automatic', 'WRX Manual' ),
+		'BRZ' => array( 'BRZ Automatic', 'BRZ Manual' ),
 	);
 	$out = array();
 	foreach ( $grades as $model => $list ) {
@@ -69,7 +81,10 @@ function subaru_location_options( $kind ) {
 		if ( 'service' === $kind && false === strpos( $type, 'service' ) ) {
 			continue;
 		}
-		if ( 'showroom' === $kind && false === strpos( $type, 'showroom' ) ) {
+		if ( in_array( $kind, array( 'showroom', 'test-drive' ), true ) && false === strpos( $type, 'showroom' ) ) {
+			continue;
+		}
+		if ( 'test-drive' === $kind && false === strpos( $type, 'dubai' ) ) {
 			continue;
 		}
 		$out[ $s['name'] ] = $s['name'];
@@ -79,7 +94,9 @@ function subaru_location_options( $kind ) {
 			$out[ $s['name'] ] = $s['name'];
 		}
 	}
-	$out['No preference'] = __( 'No preference', 'subaru-alkhoory' );
+	if ( 'test-drive' !== $kind ) {
+		$out['No preference'] = __( 'No preference', 'subaru-alkhoory' );
+	}
 	return $out;
 }
 
@@ -90,16 +107,15 @@ function subaru_location_options( $kind ) {
  */
 function subaru_enquiry_types() {
 	return array(
-		'general'    => __( 'General enquiry', 'subaru-alkhoory' ),
-		'sales'      => __( 'New vehicle sales', 'subaru-alkhoory' ),
-		'test-drive' => __( 'Test drive', 'subaru-alkhoory' ),
-		'brochure'   => __( 'Brochure request', 'subaru-alkhoory' ),
-		'offer'      => __( 'Current offers', 'subaru-alkhoory' ),
-		'service'    => __( 'Service & maintenance', 'subaru-alkhoory' ),
+		'general'    => __( 'General Enquiry', 'subaru-alkhoory' ),
+		'sales'      => __( 'New Vehicle Sales', 'subaru-alkhoory' ),
+		'parts'      => __( 'Parts & Accessories', 'subaru-alkhoory' ),
+		'service'    => __( 'Service & Maintenance', 'subaru-alkhoory' ),
+		'test-drive' => __( 'Test Drive', 'subaru-alkhoory' ),
+		'brochure'   => __( 'Brochure Request', 'subaru-alkhoory' ),
+		'offer'      => __( 'Current Offers', 'subaru-alkhoory' ),
 		'warranty'   => __( 'Warranty', 'subaru-alkhoory' ),
-		'assistance' => __( 'On-road assistance', 'subaru-alkhoory' ),
-		'hybrid'     => __( 'Hybrid technology', 'subaru-alkhoory' ),
-		'parts'      => __( 'Parts & accessories', 'subaru-alkhoory' ),
+		'courtesy'   => __( 'Courtesy Drop-Off Service', 'subaru-alkhoory' ),
 		'feedback'   => __( 'Feedback', 'subaru-alkhoory' ),
 	);
 }
@@ -126,6 +142,7 @@ function subaru_form_fields( $type ) {
 		'Evening (4pm – 8pm)'    => __( 'Evening (4pm – 8pm)', 'subaru-alkhoory' ),
 	);
 	$time    = array( 'label' => __( 'Preferred Time', 'subaru-alkhoory' ), 'placeholder' => __( 'Select a time slot', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => $slots );
+	$captcha = array( 'label' => __( 'Security check', 'subaru-alkhoory' ), 'type' => 'captcha', 'required' => true );
 
 	switch ( $type ) {
 		case 'test-drive':
@@ -133,14 +150,24 @@ function subaru_form_fields( $type ) {
 			$fields = array(
 				'model'    => array( 'label' => __( 'Model', 'subaru-alkhoory' ), 'type' => 'hidden', 'required' => true, 'options' => subaru_model_options(), 'required_msg' => __( 'Please choose a model above (step 1).', 'subaru-alkhoory' ) ),
 				'date'     => $date,
-				'time'     => $time,
-				'showroom' => array( 'label' => __( 'Location', 'subaru-alkhoory' ), 'placeholder' => __( 'Select location', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_location_options( 'showroom' ) ),
-				'grade'    => array( 'label' => __( 'Grade (optional)', 'subaru-alkhoory' ), 'placeholder' => __( 'Select grade', 'subaru-alkhoory' ), 'type' => 'select', 'required' => false, 'half' => true, 'options' => subaru_grade_options(), 'filter_by' => 'model' ),
+				'time'     => array_merge(
+					$time,
+					array(
+						'options' => array(
+							'Morning (9:30am – 12pm)' => __( 'Morning (9:30am – 12pm)', 'subaru-alkhoory' ),
+							'Afternoon (12pm – 4pm)'  => __( 'Afternoon (12pm – 4pm)', 'subaru-alkhoory' ),
+							'Evening (4pm – 8pm)'     => __( 'Evening (4pm – 8pm)', 'subaru-alkhoory' ),
+						),
+					)
+				),
+				'showroom' => array( 'label' => __( 'Location', 'subaru-alkhoory' ), 'placeholder' => __( 'Select location', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_location_options( 'test-drive' ) ),
+				'grade'    => array( 'label' => __( 'Grade (optional)', 'subaru-alkhoory' ), 'placeholder' => __( 'Select grade', 'subaru-alkhoory' ), 'type' => 'select', 'required' => false, 'half' => true, 'options' => subaru_grade_options(), 'filter_by' => 'model', 'hide_if_empty' => true ),
 				'name'     => $name,
 				'mobile'   => $mobile,
 				'email'    => $email,
 				'emirate'  => $emirate,
 				'consent'  => array( 'label' => __( 'I hold a valid UAE driving licence and agree to the test drive terms and Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true ),
+				'captcha'  => $captcha,
 			);
 			break;
 		case 'contact':
@@ -148,16 +175,17 @@ function subaru_form_fields( $type ) {
 				'name'    => array_merge( $name, array( 'label' => __( 'Your Name', 'subaru-alkhoory' ) ) ),
 				'mobile'  => $mobile,
 				'email'   => $email,
-				'emirate' => array_merge( $emirate, array( 'required' => false ) ),
-				'model'   => array_merge( $model, array( 'required' => false ) ),
+				'emirate' => $emirate,
+				'model'   => $model,
 				'enquiry' => array( 'label' => __( 'Enquiry Type', 'subaru-alkhoory' ), 'placeholder' => __( 'Sales, service or parts', 'subaru-alkhoory' ), 'type' => 'select', 'required' => true, 'half' => true, 'options' => subaru_enquiry_types() ),
 				'message' => array( 'label' => __( 'Comments', 'subaru-alkhoory' ), 'placeholder' => __( 'Tell us how we can help', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => false ),
 				'consent' => array( 'label' => __( 'I agree to be contacted by Subaru UAE regarding my enquiry and accept the Privacy Policy.', 'subaru-alkhoory' ), 'type' => 'consent', 'required' => true ),
+				'captcha' => $captcha,
 			);
 			break;
 		case 'service':
 			$fields = array(
-				'model'   => $model,
+				'model'   => array_merge( $model, array( 'options' => subaru_service_model_options() ) ),
 				'vin'     => array( 'label' => __( 'Registration / VIN', 'subaru-alkhoory' ), 'placeholder' => __( 'e.g. Dubai X 12345', 'subaru-alkhoory' ), 'type' => 'text', 'required' => true, 'half' => true ),
 				'service' => array(
 					'label'       => __( 'Service Type', 'subaru-alkhoory' ),
@@ -174,11 +202,21 @@ function subaru_form_fields( $type ) {
 						'Other'                 => __( 'Other', 'subaru-alkhoory' ),
 					),
 				),
-				'mileage' => array( 'label' => __( 'Current Mileage', 'subaru-alkhoory' ), 'placeholder' => __( 'e.g. 35,000 km', 'subaru-alkhoory' ), 'type' => 'number', 'required' => false, 'half' => true ),
+				'mileage' => array( 'label' => __( 'Current Mileage', 'subaru-alkhoory' ), 'placeholder' => __( 'e.g. 35,000 km', 'subaru-alkhoory' ), 'type' => 'number', 'required' => true, 'half' => true ),
 				'date'    => $date,
-				'time'    => $time,
+				'time'    => array_merge(
+					$time,
+					array(
+						'options' => array(
+							'Morning (9am – 12pm)'   => __( 'Morning (9am – 12pm)', 'subaru-alkhoory' ),
+							'Afternoon (12pm – 4pm)' => __( 'Afternoon (12pm – 4pm)', 'subaru-alkhoory' ),
+							'Evening (4pm – 6pm)'    => __( 'Evening (4pm – 6pm)', 'subaru-alkhoory' ),
+						),
+					)
+				),
 				'name'    => $name,
 				'mobile'  => $mobile,
+				'captcha' => $captcha,
 			);
 			break;
 		case 'brochure':
@@ -198,6 +236,7 @@ function subaru_form_fields( $type ) {
 				'model'   => $model,
 				'message' => array( 'label' => __( 'Message (optional)', 'subaru-alkhoory' ), 'type' => 'textarea', 'required' => false ),
 				'consent' => $consent,
+				'captcha' => $captcha,
 			);
 			break;
 		case 'newsletter':
@@ -375,6 +414,17 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 	$label    = esc_html( $f['label'] ) . ( $required && ! $is_news ? '<span class="sa-req" aria-hidden="true">*</span>' : '' );
 	$ph       = isset( $f['placeholder'] ) ? $f['placeholder'] : '';
 
+	if ( 'captcha' === $f['type'] ) {
+		$cap = subaru_captcha_challenge();
+		echo '<div class="sa-field sa-field--captcha is-half">';
+		echo '<input type="text" id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" value="" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="' . esc_attr__( 'Your answer', 'subaru-alkhoory' ) . '" aria-describedby="' . esc_attr( $err_id ) . '" required aria-required="true">';
+		/* translators: 1: first number, 2: second number. */
+		echo '<label for="' . esc_attr( $id ) . '">' . esc_html( sprintf( __( 'Security check: what is %1$d + %2$d?', 'subaru-alkhoory' ), $cap['a'], $cap['b'] ) ) . '</label>';
+		echo '<input type="hidden" name="sa_captcha_token" value="' . esc_attr( $cap['token'] ) . '">';
+		echo '<span class="sa-field__error" id="' . esc_attr( $err_id ) . '"></span></div>';
+		return;
+	}
+
 	if ( 'hidden' === $f['type'] ) {
 		$msg = ! empty( $f['required_msg'] ) ? ' data-required-msg="' . esc_attr( $f['required_msg'] ) . '"' : '';
 		echo '<div class="sa-field sa-field--hidden">';
@@ -387,7 +437,7 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 
 	switch ( $f['type'] ) {
 		case 'select':
-			$sel_extra = ( $ph ? ' data-placeholder="' . esc_attr( $ph ) . '"' : '' ) . ( ! empty( $f['filter_by'] ) ? ' data-filter-by="' . esc_attr( $f['filter_by'] ) . '"' : '' );
+			$sel_extra = ( $ph ? ' data-placeholder="' . esc_attr( $ph ) . '"' : '' ) . ( ! empty( $f['filter_by'] ) ? ' data-filter-by="' . esc_attr( $f['filter_by'] ) . '"' : '' ) . ( ! empty( $f['hide_if_empty'] ) ? ' data-hide-empty="1"' : '' );
 			echo '<select id="' . esc_attr( $id ) . '" name="' . esc_attr( $key ) . '" aria-describedby="' . esc_attr( $describe ) . '"' . $req_attr . $sel_extra . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo '<option value="">' . esc_html( $ph ) . '</option>';
 			foreach ( $f['options'] as $ov => $ol ) {
@@ -562,6 +612,13 @@ function subaru_form_submit() {
 			case 'consent':
 				$val = $raw ? 'Yes' : '';
 				break;
+			case 'captcha':
+				$val   = preg_replace( '/\D/', '', $raw );
+				$token = isset( $_POST['sa_captcha_token'] ) ? sanitize_text_field( wp_unslash( $_POST['sa_captcha_token'] ) ) : '';
+				if ( '' !== $val && ! subaru_captcha_verify( $val, $token ) ) {
+					$errors[ $key ] = __( 'That answer is not correct. Please try again.', 'subaru-alkhoory' );
+				}
+				break;
 			case 'textarea':
 				$val = sanitize_textarea_field( $raw );
 				$val = function_exists( 'mb_substr' ) ? mb_substr( $val, 0, 3000 ) : substr( $val, 0, 3000 );
@@ -631,6 +688,9 @@ function subaru_form_submit() {
 		if ( '' === $val ) {
 			continue;
 		}
+		if ( 'captcha' === $fields[ $key ]['type'] ) {
+			continue;
+		}
 		$label = wp_strip_all_tags( $fields[ $key ]['label'] );
 		if ( 'consent' === $fields[ $key ]['type'] ) {
 			$label = __( 'Consent', 'subaru-alkhoory' );
@@ -690,7 +750,7 @@ add_action( 'wp_ajax_nopriv_subaru_form_submit', 'subaru_form_submit' );
 function subaru_form_send_emails( $type, $labels, $email, $name, $page, $post_id ) {
 	$types      = subaru_form_types();
 	$recipients = subaru_setting( 'recipient_' . $type );
-	$recipients = $recipients ? array_map( 'trim', explode( ',', $recipients ) ) : array( get_option( 'admin_email' ) );
+	$recipients = $recipients ? array_map( 'trim', explode( ',', $recipients ) ) : array( SUBARU_DEFAULT_RECIPIENT );
 	$from_name  = subaru_setting( 'from_name', get_bloginfo( 'name' ) );
 	$site       = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
 
@@ -763,3 +823,40 @@ function subaru_mail_from_name( $name ) {
 	return $name;
 }
 add_filter( 'wp_mail_from_name', 'subaru_mail_from_name' );
+
+/**
+ * Simple self-hosted CAPTCHA: an addition question whose answer is signed into a token.
+ * No third-party keys required; the token expires after 30 days.
+ *
+ * @return array a, b, token
+ */
+function subaru_captcha_challenge() {
+	$a  = wp_rand( 1, 9 );
+	$b  = wp_rand( 1, 9 );
+	$ts = time();
+	return array(
+		'a'     => $a,
+		'b'     => $b,
+		'token' => $ts . '.' . substr( wp_hash( 'subaru-captcha|' . ( $a + $b ) . '|' . $ts ), 0, 20 ),
+	);
+}
+
+/**
+ * Check a CAPTCHA answer against its token.
+ *
+ * @param string $answer Digits entered by the visitor.
+ * @param string $token  Token from the form.
+ * @return bool
+ */
+function subaru_captcha_verify( $answer, $token ) {
+	$parts = explode( '.', (string) $token );
+	if ( 2 !== count( $parts ) ) {
+		return false;
+	}
+	$ts = (int) $parts[0];
+	// Long lifetime so pages served from a page cache keep working.
+	if ( ! $ts || ( time() - $ts ) > 30 * DAY_IN_SECONDS ) {
+		return false;
+	}
+	return hash_equals( substr( wp_hash( 'subaru-captcha|' . (int) $answer . '|' . $ts ), 0, 20 ), $parts[1] );
+}

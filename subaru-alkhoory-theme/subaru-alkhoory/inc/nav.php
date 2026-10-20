@@ -57,7 +57,7 @@ function subaru_fallback_menu( $location ) {
 	$after = array(
 		subaru_nav_item( __( 'Schedule Service', 'subaru-alkhoory' ), '/after-sales-services/#schedule-service' ),
 		subaru_nav_item( __( 'Service Maintenance', 'subaru-alkhoory' ), '/after-sales-services/#service-maintenance' ),
-		subaru_nav_item( __( 'On-Road Assistance', 'subaru-alkhoory' ), '/after-sales-services/#on-road-assistance' ),
+		subaru_nav_item( __( 'Courtesy Drop-Off Service', 'subaru-alkhoory' ), '/after-sales-services/#courtesy-drop-off' ),
 		subaru_nav_item( __( 'Warranty', 'subaru-alkhoory' ), '/after-sales-services/#warranty' ),
 	);
 	$resources = array(

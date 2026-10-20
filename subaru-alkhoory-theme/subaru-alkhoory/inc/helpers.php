@@ -21,12 +21,12 @@ define( 'SUBARU_OPTION', 'subaru_settings' );
  */
 function subaru_setting_defaults() {
 	return array(
-		'recipient_test-drive' => '',
-		'recipient_contact'    => '',
-		'recipient_service'    => '',
-		'recipient_newsletter' => '',
-		'recipient_brochure'   => '',
-		'recipient_offer'      => '',
+		'recipient_test-drive' => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_contact'    => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_service'    => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_newsletter' => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_brochure'   => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_offer'      => SUBARU_DEFAULT_RECIPIENT,
 		'autoreply'            => 1,
 		'from_name'            => 'Subaru UAE – Al Khoory Automobiles',
 		'whatsapp_number'      => '',
@@ -80,7 +80,7 @@ function subaru_models() {
 		),
 		'crosstrek' => array(
 			'name'    => 'Crosstrek',
-			'tagline' => __( 'Go Further. Live Freer.', 'subaru-alkhoory' ),
+			'tagline' => __( 'Go Further. Explore More.', 'subaru-alkhoory' ),
 			'path'    => '/our-range/crosstrek/',
 			'type'    => 'SUV',
 		),

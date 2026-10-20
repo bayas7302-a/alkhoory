@@ -731,3 +731,16 @@ html, body { overflow-x: clip; }
 /* CTA image must fill the card (the generic .sa-theme img { height:auto } rule would otherwise win). */
 .sa-cta .sa-cta__img { height: 100%; max-width: none; }
 @media (max-width: 767px) { .sa-cta .sa-cta__img { height: 55%; } }
+
+/* v1.2 — header brand group (50 Years badge left of the Subaru logo), Al Khoory Automobiles logo on the right,
+   Al Khoory Group logo centred below the footer. */
+.sa-brand { display: flex; align-items: center; gap: 18px; flex: none; }
+.sa-brand__sep { width: 1px; height: 28px; background: var(--sub-line); transition: background-color .35s; }
+.sa-aka-logo { display: block; height: 32px; width: auto; max-width: 150px; object-fit: contain; transition: filter .35s; }
+.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-brand__sep { background: rgba(255, 255, 255, .3); }
+.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo,
+.sa-header.menu-open .sa-aka-logo { filter: brightness(0) invert(1); }
+.sa-footer__group-band { display: flex; justify-content: center; padding: 40px 20px 48px; border-top: 1px solid rgba(255, 255, 255, .08); }
+.sa-footer__group-band .sa-footer__group { width: 66px; height: auto; filter: brightness(0) invert(1); }
+@media (max-width: 1140px) { .sa-brand { gap: 12px; } .sa-brand .sa-badge50 { width: 52px; height: 32px; } }
+@media (max-width: 767px) { .sa-brand__sep, .sa-aka-logo { display: none; } .sa-brand .sa-badge50 { width: 46px; height: 28px; } }

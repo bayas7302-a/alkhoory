@@ -211,14 +211,22 @@
 			if (!src) { return; }
 			function apply() {
 				var group = src.value;
+				var hideEmpty = sel.hasAttribute('data-hide-empty');
+				var visible = 0;
 				Array.prototype.forEach.call(sel.options, function (o) {
 					if (!o.value) { return; }
-					var ok = !group || o.getAttribute('data-group') === group;
+					var ok = hideEmpty ? (!!group && o.getAttribute('data-group') === group) : (!group || o.getAttribute('data-group') === group);
 					o.hidden = !ok;
 					o.disabled = !ok;
+					if (ok) { visible++; }
 				});
 				var f = fieldOf(sel);
-				if (f) { $$('.sa-select__opt[data-group]', f).forEach(function (li) { li.hidden = !!group && li.getAttribute('data-group') !== group; }); }
+				if (hideEmpty && f) {
+					// e.g. the test-drive grade: only WRX/BRZ have options; hide it for the SUVs and before a model is picked.
+					f.hidden = !visible;
+					sel.disabled = !visible;
+				}
+				if (f) { $$('.sa-select__opt[data-group]', f).forEach(function (li) { li.hidden = hideEmpty ? li.getAttribute('data-group') !== group : (!!group && li.getAttribute('data-group') !== group); }); }
 				var cur = sel.options[sel.selectedIndex];
 				if (cur && cur.disabled) { sel.value = ''; sel.dispatchEvent(new Event('change', { bubbles: true })); }
 			}

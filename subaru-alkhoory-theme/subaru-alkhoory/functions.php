@@ -9,7 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SUBARU_VERSION', '1.1.4' );
+define( 'SUBARU_DEFAULT_RECIPIENT', 'info@subaru-uae.com' );
+define( 'SUBARU_VERSION', '1.2.0' );
 define( 'SUBARU_DIR', get_stylesheet_directory() );
 define( 'SUBARU_URI', get_stylesheet_directory_uri() );
 

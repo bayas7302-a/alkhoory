@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter, ImageDraw
 src, out = sys.argv[1], sys.argv[2]
 im = Image.open(src).convert('RGB'); px = im.load()
 def lum(c): return 0.3*c[0]+0.59*c[1]+0.11*c[2]
-RECTS = {'alkah': (70, 243, 337, 259), 'tayyeb': (621, 242, 891, 258), 'elite_urban': (621, 296, 906, 318)}
+RECTS = {'elite_urban': (621, 296, 906, 318)}
 for name, (x0, y0, x1, y1) in RECTS.items():
     vals = [px[x, y] for x in range(x0, x1+1) for y in range(y0, y1+1)]
     dark = [c for c in vals if lum(c) < 110 and abs(c[0]-c[1]) < 25]

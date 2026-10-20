@@ -29,6 +29,7 @@ function subaru_customize_register( $wp_customize ) {
 		'subaru_logo_light' => __( 'Logo — white version (transparent header / dark backgrounds)', 'subaru-alkhoory' ),
 		'subaru_badge'      => __( '50 Years badge', 'subaru-alkhoory' ),
 		'subaru_group_logo' => __( 'Footer group logo (Al Khoory Group)', 'subaru-alkhoory' ),
+		'subaru_aka_logo'   => __( 'Header right logo (Al Khoory Automobiles)', 'subaru-alkhoory' ),
 		'subaru_member_logo' => __( 'Footer "A member of" logo', 'subaru-alkhoory' ),
 	);
 	foreach ( $images as $key => $label ) {
@@ -51,7 +52,7 @@ function subaru_customize_register( $wp_customize ) {
 	}
 
 	$texts = array(
-		'subaru_topbar_text' => array( __( 'Top bar text', 'subaru-alkhoory' ), 'Official Subaru Distributor in the UAE  ·  Al Khoory Automobiles' ),
+		'subaru_topbar_text' => array( __( 'Top bar text', 'subaru-alkhoory' ), 'Official Subaru Distributor in Dubai & the Northern Emirates' ),
 		'subaru_cta_label'   => array( __( 'Header button label', 'subaru-alkhoory' ), 'Book a Test Drive' ),
 		'subaru_cta_url'     => array( __( 'Header button URL', 'subaru-alkhoory' ), '/book-a-test-drive/' ),
 		'subaru_copyright'   => array( __( 'Copyright holder', 'subaru-alkhoory' ), 'Al Khoory Automobiles LLC' ),
