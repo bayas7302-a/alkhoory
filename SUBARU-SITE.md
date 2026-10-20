@@ -49,3 +49,4 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Header logo: client "Logo (6)" cropped to remove "Confidence in Motion" (theme v1.1.3).
 - Showroom image: non-Subaru signage (Alkah Establishment, M. Tayyeb Khoory & Sons, The Elite Cars, Urban) blanked to plain fascia panels (`client-assets/edit_showroom.py`); used on About Us, "Subaru's Trusted Partner" section (media 779).
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
+- v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).

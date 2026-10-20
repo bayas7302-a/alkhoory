@@ -727,3 +727,7 @@ html, body { overflow-x: clip; }
 	.elementor .sub-subnav > .e-con { min-width: 0; overflow-x: auto; scrollbar-width: none; }
 	.elementor .sub-subnav > .e-con::-webkit-scrollbar { display: none; }
 }
+
+/* CTA image must fill the card (the generic .sa-theme img { height:auto } rule would otherwise win). */
+.sa-cta .sa-cta__img { height: 100%; max-width: none; }
+@media (max-width: 767px) { .sa-cta .sa-cta__img { height: 55%; } }
