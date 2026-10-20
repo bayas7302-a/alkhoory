@@ -41,3 +41,6 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Contact, Book a Test Drive and After-Sales forms rebuilt to the Figma field sets and style (labels above fields, compact inputs, placeholders, Emirate/Grade selects; test-drive model comes from the step-1 cards and Grade is filtered by the chosen model).
 - Newsroom/theme CTA band: grille image restored (bundled fallback) and "Find a Showroom" is an outline button again (CSS specificity fix).
 - Section spacing reduced site-wide: 80px desktop / 64px tablet / 48px mobile (was up to 120px).
+
+## v1.1.3
+- Header logo replaced with the client-supplied white Subaru logo (tagline "Confidence in Motion" cropped out); matching dark version generated from the same artwork for the scrolled header.
