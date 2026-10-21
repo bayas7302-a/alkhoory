@@ -51,6 +51,13 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.2.1 — Al Khoory Automobiles logo (Oct 2026)
+
+- Client's AKA logo bundled as `assets/img/al-khoory-automobiles.png` (original colours) and `al-khoory-automobiles-white.png` (white text, emblem colours kept).
+- Wide desktop (>1140px): logo sits at the right end of the top bar (white version). The main nav row has no free width for a 10:1 wordmark.
+- Tablet (768–1140px, burger layout): logo moves into the main bar after the CTA, swapping white/original with the transparent/solid header state.
+- Hidden on mobile. Customizer › "Header right logo" still overrides the original-colour version.
+
 ## v1.2.0 — "Subaru UAE Website Feedback" (Oct 2026)
 Reverted: Our Range hero back to the original image; showroom edit redone hiding only Elite Cars + URBAN (About Us); range image moved to the Book a Test Drive hero.
 

@@ -736,11 +736,23 @@ html, body { overflow-x: clip; }
    Al Khoory Group logo centred below the footer. */
 .sa-brand { display: flex; align-items: center; gap: 18px; flex: none; }
 .sa-brand__sep { width: 1px; height: 28px; background: var(--sub-line); transition: background-color .35s; }
-.sa-aka-logo { display: block; height: 32px; width: auto; max-width: 150px; object-fit: contain; transition: filter .35s; }
+.sa-aka-logo { position: relative; display: block; flex: none; height: 22px; }
+.sa-aka-logo img { display: block; height: 22px; width: auto; max-width: none; transition: opacity .35s; }
+.sa-aka-logo .sa-aka-logo__light { position: absolute; inset: 0 auto auto 0; opacity: 0; }
 .sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-brand__sep { background: rgba(255, 255, 255, .3); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo,
-.sa-header.menu-open .sa-aka-logo { filter: brightness(0) invert(1); }
+.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo__dark,
+.sa-header.menu-open .sa-aka-logo__dark { opacity: 0; }
+.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo__light,
+.sa-header.menu-open .sa-aka-logo__light { opacity: 1; }
+/* Wide desktop: logo at the right of the top bar. Tablet (burger layout): logo in the main bar. */
+:root .sa-topbar__aka { display: block; flex: none; height: 18px; width: auto; max-width: none; margin-left: -4px; padding-left: 24px; border-left: 1px solid rgba(255, 255, 255, .18); }
+.sa-topbar__nav { margin-left: auto; }
+.sa-aka-sep, .sa-aka-logo { display: none; }
+.sa-topbar__list a { white-space: nowrap; }
+@media (max-width: 1520px) { .sa-topbar__list a { padding-inline: 14px; } .sa-topbar__list { margin-right: -14px; } :root .sa-topbar__aka { margin-left: 2px; padding-left: 18px; } }
+@media (max-width: 1360px) { .sa-topbar__text { display: none; } }
+@media (max-width: 1140px) { :root .sa-topbar__aka { display: none; } .sa-topbar__nav { margin-left: 0; } .sa-aka-sep, .sa-aka-logo { display: block; } }
 .sa-footer__group-band { display: flex; justify-content: center; padding: 40px 20px 48px; border-top: 1px solid rgba(255, 255, 255, .08); }
 .sa-footer__group-band .sa-footer__group { width: 66px; height: auto; filter: brightness(0) invert(1); }
 @media (max-width: 1140px) { .sa-brand { gap: 12px; } .sa-brand .sa-badge50 { width: 52px; height: 32px; } }
-@media (max-width: 767px) { .sa-brand__sep, .sa-aka-logo { display: none; } .sa-brand .sa-badge50 { width: 46px; height: 28px; } }
+@media (max-width: 767px) { :root .sa-brand__sep, :root .sa-aka-sep, :root .sa-aka-logo { display: none; } .sa-brand .sa-badge50 { width: 46px; height: 28px; } }

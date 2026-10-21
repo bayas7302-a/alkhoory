@@ -37,6 +37,14 @@ $subaru_name     = get_bloginfo( 'name' );
 
 <div class="sa-progress" aria-hidden="true"><span></span></div>
 
+<?php
+// Al Khoory Automobiles logo: Customizer upload (dark version), else the bundled pair.
+$subaru_aka       = get_theme_mod( 'subaru_aka_logo' );
+$subaru_aka_light = SUBARU_URI . '/assets/img/al-khoory-automobiles-white.png';
+if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobiles.png' ) ) {
+	$subaru_aka = SUBARU_URI . '/assets/img/al-khoory-automobiles.png';
+}
+?>
 <header class="sa-header" id="sa-header" data-sa-header>
 	<div class="sa-topbar">
 		<div class="sa-topbar__inner">
@@ -44,6 +52,9 @@ $subaru_name     = get_bloginfo( 'name' );
 			<nav class="sa-topbar__nav" aria-label="<?php esc_attr_e( 'Quick actions', 'subaru-alkhoory' ); ?>">
 				<?php subaru_render_links( 'topbar', 'sa-topbar__list', true ); ?>
 			</nav>
+			<?php if ( $subaru_aka ) : ?>
+				<img class="sa-topbar__aka" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="201" height="18">
+			<?php endif; ?>
 		</div>
 	</div>
 
@@ -71,15 +82,14 @@ $subaru_name     = get_bloginfo( 'name' );
 				</button>
 				<a class="sa-btn sa-btn--sm sa-actions__cta" href="<?php echo esc_url( subaru_cta_url() ); ?>"><?php echo esc_html( $subaru_cta ); ?></a>
 				<?php
-				// Al Khoory Automobiles logo on the right: Customizer upload, else a bundled file once supplied.
-				$subaru_aka = get_theme_mod( 'subaru_aka_logo' );
-				if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobiles.png' ) ) {
-					$subaru_aka = SUBARU_URI . '/assets/img/al-khoory-automobiles.png';
-				}
+				// Tablet: the nav collapses to the burger, so the logo moves into the main bar.
 				if ( $subaru_aka ) :
 					?>
-					<span class="sa-actions__sep" aria-hidden="true"></span>
-					<img class="sa-aka-logo" src="<?php echo esc_url( $subaru_aka ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="120" height="36">
+					<span class="sa-actions__sep sa-aka-sep" aria-hidden="true"></span>
+					<span class="sa-aka-logo" aria-hidden="true">
+						<img class="sa-aka-logo__dark" src="<?php echo esc_url( $subaru_aka ); ?>" alt="" width="246" height="22">
+						<img class="sa-aka-logo__light" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="" aria-hidden="true" width="246" height="22">
+					</span>
 				<?php endif; ?>
 				<button type="button" class="sa-burger" aria-controls="sa-mmenu" aria-expanded="false">
 					<span class="sa-burger__lines" aria-hidden="true"><span></span><span></span><span></span></span>
