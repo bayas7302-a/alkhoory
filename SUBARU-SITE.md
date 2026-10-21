@@ -51,6 +51,11 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.2.2 — Footer line + Home tech icons (Oct 2026)
+
+- Removed the divider line above the Al Khoory Group logo in the footer.
+- Live data: Home "Subaru Way" card icons swapped to redrawn transparent line icons (media 809 AWD, 810 BOXER, 811 EyeSight); the old dark-filled 315/320 are untouched elsewhere.
+
 ## v1.2.1 — Al Khoory Automobiles logo (Oct 2026)
 
 - Client's AKA logo bundled as `assets/img/al-khoory-automobiles.png` (original colours) and `al-khoory-automobiles-white.png` (white text, emblem colours kept).

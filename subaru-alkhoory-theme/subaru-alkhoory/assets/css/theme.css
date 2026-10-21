@@ -752,7 +752,7 @@ html, body { overflow-x: clip; }
 @media (max-width: 1520px) { .sa-topbar__list a { padding-inline: 14px; } .sa-topbar__list { margin-right: -14px; } :root .sa-topbar__aka { margin-left: 2px; padding-left: 18px; } }
 @media (max-width: 1360px) { .sa-topbar__text { display: none; } }
 @media (max-width: 1140px) { :root .sa-topbar__aka { display: none; } .sa-topbar__nav { margin-left: 0; } .sa-aka-sep, .sa-aka-logo { display: block; } }
-.sa-footer__group-band { display: flex; justify-content: center; padding: 40px 20px 48px; border-top: 1px solid rgba(255, 255, 255, .08); }
+.sa-footer__group-band { display: flex; justify-content: center; padding: 8px 20px 48px; }
 .sa-footer__group-band .sa-footer__group { width: 66px; height: auto; filter: brightness(0) invert(1); }
 @media (max-width: 1140px) { .sa-brand { gap: 12px; } .sa-brand .sa-badge50 { width: 52px; height: 32px; } }
 @media (max-width: 767px) { :root .sa-brand__sep, :root .sa-aka-sep, :root .sa-aka-logo { display: none; } .sa-brand .sa-badge50 { width: 46px; height: 28px; } }
