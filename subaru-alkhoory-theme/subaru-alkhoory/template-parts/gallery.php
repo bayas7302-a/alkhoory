@@ -44,17 +44,36 @@ $subaru_total = count( $subaru_items );
 			$subaru_more   = 'feature' === $subaru_layout && 2 === $subaru_i && $subaru_total > 3 ? $subaru_total - 3 : 0;
 			?>
 			<figure class="sa-gal__item" data-model="<?php echo esc_attr( $subaru_it['model'] ); ?>"<?php echo $subaru_hidden ? ' hidden' : ''; ?>>
-				<a class="sa-gal__link" href="<?php echo subaru_asset_url( $subaru_it['path'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
-					<?php
-					echo subaru_asset_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				<?php
+				$subaru_sizes = 'feature' === $subaru_layout && 0 === $subaru_i ? '(max-width: 767px) 100vw, 60vw' : '(max-width: 767px) 100vw, 33vw';
+				if ( ! empty( $subaru_it['id'] ) ) {
+					// Media Library photo (from the model pages).
+					$subaru_href = wp_get_attachment_image_url( $subaru_it['id'], 'full' );
+					$subaru_img  = wp_get_attachment_image(
+						$subaru_it['id'],
+						'large',
+						false,
+						array(
+							'class'    => 'sa-gal__img',
+							'loading'  => 'lazy',
+							'decoding' => 'async',
+							'sizes'    => $subaru_sizes,
+						)
+					);
+				} else {
+					$subaru_href = subaru_asset_url( $subaru_it['path'] );
+					$subaru_img  = subaru_asset_img(
 						$subaru_it['path'],
 						array(
 							'alt'   => $subaru_it['alt'],
 							'class' => 'sa-gal__img',
-							'sizes' => 'feature' === $subaru_layout && 0 === $subaru_i ? '(max-width: 767px) 100vw, 60vw' : '(max-width: 767px) 100vw, 33vw',
+							'sizes' => $subaru_sizes,
 						)
 					);
-					?>
+				}
+				?>
+				<a class="sa-gal__link" href="<?php echo esc_url( $subaru_href ); ?>">
+					<?php echo $subaru_img; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php if ( $subaru_more ) : ?>
 						<span class="sa-gal__more" aria-hidden="true">+<?php echo (int) $subaru_more; ?></span>
 						<span class="screen-reader-text"><?php echo esc_html( sprintf( /* translators: %d: number of photos */ _n( 'and %d more photo', 'and %d more photos', $subaru_more, 'subaru-alkhoory' ), $subaru_more ) ); ?></span>

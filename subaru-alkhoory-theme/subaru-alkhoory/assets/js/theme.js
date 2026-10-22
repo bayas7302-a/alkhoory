@@ -895,6 +895,35 @@
 		});
 	}
 
+	/* Accordions: when an item opens, the one closing above it would push the page and leave the
+	   reader at the bottom of the new item. Glide the opened header up under the sticky bars instead. */
+	function initAccordionScroll() {
+		if (!once(d, 'accscroll')) { return; }
+		var clicked = null;
+		d.addEventListener('click', function (e) {
+			var sum = e.target.closest('details.sub-faq-item > summary, .sub-faq details > summary');
+			clicked = sum ? sum.parentNode : null;
+		}, true);
+		d.addEventListener('toggle', function (e) {
+			var det = e.target;
+			if (!det.open || det !== clicked || !det.matches || !det.matches('details.sub-faq-item, .sub-faq details')) { return; }
+			clicked = null;
+			var sum = $('summary', det);
+			var end = Date.now() + 700;
+			(function follow() {
+				// Target: just below whatever sticky bars are on screen right now (header, model sub-nav).
+				var top = 0;
+				[header, subnav].forEach(function (bar) {
+					if (bar && isVisible(bar)) { top = Math.max(top, bar.getBoundingClientRect().bottom); }
+				});
+				var diff = sum.getBoundingClientRect().top - (top + 16);
+				// behavior 'instant': the page's smooth-scroll CSS would otherwise restart on every frame.
+				if (Math.abs(diff) > 1) { w.scrollTo({ top: w.pageYOffset + (reduced() || Date.now() > end - 150 ? diff : diff * 0.25), behavior: 'instant' }); }
+				if (Date.now() < end) { w.requestAnimationFrame(follow); }
+			})();
+		}, true);
+	}
+
 	/* ------------------------------------------------------ 11. FAQ accordion */
 	function initFaq(scope) {
 		// Browsers with interpolate-size animate <details> natively via Elementor's CSS.
@@ -1111,7 +1140,7 @@
 		initIds(scope);
 		initHero(scope);
 		initSwatches(scope);
-		initCounters(scope);
+		// Count-up numbers removed (v1.3.4): figures simply show their value.
 		initGallery(scope);
 		initFaq(scope);
 		initReveal(scope);
@@ -1137,6 +1166,7 @@
 		initCookie();
 		initCopy();
 		initModelPicker();
+		initAccordionScroll();
 		initialHash();
 		// Late layout changes (fonts, images) affect header/sub-nav heights.
 		w.addEventListener('load', function () { measureHeader(); updateHeader(); });

@@ -184,7 +184,8 @@ function subaru_configurator_shortcode( $atts ) {
 add_shortcode( 'subaru_configurator', 'subaru_configurator_shortcode' );
 
 /**
- * [subaru_gallery model="" layout="feature|masonry" filter="yes|no" link=""]
+ * [subaru_gallery model="" layout="feature|masonry" filter="yes|no" media="yes|no"]
+ * media="yes" (default for masonry) adds the Media Library photos used on the model pages ('gallery_media').
  *
  * @param array $atts Attributes.
  * @return string
@@ -195,10 +196,12 @@ function subaru_gallery_shortcode( $atts ) {
 			'model'  => '',
 			'layout' => 'masonry',
 			'filter' => 'no',
+			'media'  => '',
 		),
 		$atts,
 		'subaru_gallery'
 	);
+	$media  = '' === $atts['media'] ? 'feature' !== $atts['layout'] : 'yes' === $atts['media'];
 	$all    = subaru_asset_data();
 	$models = $atts['model'] ? array_filter( array( subaru_model( $atts['model'] ) ) ) : $all['models'];
 	$items  = array();
@@ -211,6 +214,17 @@ function subaru_gallery_shortcode( $atts ) {
 					'model' => $m['slug'],
 					'name'  => $m['name'],
 				);
+			}
+		}
+		if ( $media && ! empty( $m['gallery_media'] ) ) {
+			foreach ( $m['gallery_media'] as $id ) {
+				if ( wp_attachment_is_image( $id ) ) {
+					$items[] = array(
+						'id'    => (int) $id,
+						'model' => $m['slug'],
+						'name'  => $m['name'],
+					);
+				}
 			}
 		}
 	}

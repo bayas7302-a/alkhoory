@@ -51,6 +51,8 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.3.4 — Configurator images no longer zoom/overflow (Elementor img height:auto overridden); no pink Hello Elementor button states; interior photos shown whole; grade accordions scroll the opened grade into view; Media Gallery adds the model-page photos (gallery_media, Forester filter back); home range cards use matching 360 frames + smaller logos; Subaru Way logos smaller; calmer motion (no image hover zoom outside galleries, no count-up, no pulse, one short heading fade per page).
+
 ## v1.3.3 — 360 view: colour photo hidden once a frame shows (no double image), frames scaled to match the photos, soft image edges. Legacy hidden sections removed from the model and Media Gallery pages.
 
 ## v1.3.2 — 360 folders the web server cannot read are skipped (reported at /wp-json/subaru/v1/assets as "unreadable") instead of breaking the configurator; duplicate img attributes removed.

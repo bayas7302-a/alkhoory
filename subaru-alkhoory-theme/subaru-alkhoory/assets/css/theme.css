@@ -768,3 +768,12 @@ html, body { overflow-x: clip; }
 /* Logos keep their proportions; the BRZ file holds two lock-ups, show the horizontal one (top band). */
 .elementor img[src*="/subaru-assets/01_Logos/"] { object-fit: contain; }
 .elementor img[src*="/subaru-assets/01_Logos/Model_names/BRZ_logo_"] { aspect-ratio: 2000 / 210; object-fit: cover; object-position: top; }
+
+/* v1.3.4 — calmer motion: no hover zoom on page images (galleries keep a slight one), no endless pulse. */
+.elementor .sub-zoom:hover img, .elementor img.sub-zoom:hover, .elementor :hover > img.sub-zoom, .elementor .sub-card:hover .sub-zoom img,
+.elementor .sub-zoom:hover .sa-px-img, .elementor .sa-px-img.sub-zoom:hover { scale: none; }
+.elementor .sub-gallery .sub-zoom:hover img { scale: 1.02; }
+.sa-cta__card:hover .sa-cta__img, .sa-card:hover .sa-card__media img, .sa-mega__card:hover .sa-mega__media img { transform: none; }
+.sa-whatsapp::before { animation: none; opacity: 0; }
+/* 360° frames used as still images (home range cards): the car sits small in a wide frame. */
+.elementor img[src*="/subaru-assets/06_360_Spins/"] { object-fit: contain !important; mix-blend-mode: multiply; scale: 1.3; }
