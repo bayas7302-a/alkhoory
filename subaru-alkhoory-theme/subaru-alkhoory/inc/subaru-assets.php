@@ -339,7 +339,8 @@ function subaru_spin_index( $slug ) {
 				return strlen( $b ) - strlen( $a );
 			}
 		);
-		$it = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ) );
+		// CATCH_GET_CHILD: folders the web server cannot read are skipped (see subaru_spin_unreadable()).
+		$it = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ), RecursiveIteratorIterator::LEAVES_ONLY, RecursiveIteratorIterator::CATCH_GET_CHILD );
 		$n  = 0;
 		foreach ( $it as $file ) {
 			if ( ++$n > 3000 ) {
@@ -362,8 +363,30 @@ function subaru_spin_index( $slug ) {
 			$index[ $key ] = array_values( $frames );
 		}
 	}
-	set_transient( $cache_key, $index, 12 * HOUR_IN_SECONDS );
+	// While folders are unreadable (permissions still being fixed), look again after 10 minutes.
+	set_transient( $cache_key, $index, subaru_spin_unreadable( $slug ) ? 10 * MINUTE_IN_SECONDS : 12 * HOUR_IN_SECONDS );
 	return $index;
+}
+
+/**
+ * Sub-folders of a model's 360° folder that the web server cannot open (wrong permissions).
+ *
+ * @param string $slug Model slug.
+ * @return string[] Relative folder paths.
+ */
+function subaru_spin_unreadable( $slug ) {
+	$model = subaru_model( $slug );
+	$dir   = $model ? subaru_assets_dir() . trim( $model['spin_dir'], '/' ) : '';
+	$out   = array();
+	if ( $dir && is_dir( $dir ) ) {
+		$dirs = array_merge( array( $dir ), (array) glob( $dir . '/*', GLOB_ONLYDIR ) );
+		foreach ( $dirs as $d ) {
+			if ( ! is_readable( $d ) || ! is_executable( $d ) ) {
+				$out[] = substr( $d, strlen( subaru_assets_dir() ) );
+			}
+		}
+	}
+	return $out;
 }
 
 /**
@@ -412,7 +435,10 @@ function subaru_assets_filter_html( $content ) {
 				$add .= ' width="' . (int) $w . '" height="' . (int) $h . '"';
 			}
 			if ( ! preg_match( '/\sloading=/i', $tag ) ) {
-				$add .= $hero ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"';
+				$add .= $hero ? ' loading="eager"' : ' loading="lazy"';
+			}
+			if ( $hero && ! preg_match( '/\sfetchpriority=/i', $tag ) ) {
+				$add .= ' fetchpriority="high"';
 			}
 			if ( ! preg_match( '/\sdecoding=/i', $tag ) ) {
 				$add .= ' decoding="async"';
@@ -423,7 +449,21 @@ function subaru_assets_filter_html( $content ) {
 					$add .= ' srcset="' . esc_attr( $srcset ) . '" sizes="' . ( $hero ? '100vw' : '(max-width: 767px) 100vw, 50vw' ) . '"';
 				}
 			}
-			return $add ? preg_replace( '/\s*\/?>$/', $add . '>', $tag ) : $tag;
+			$tag = $add ? preg_replace( '/\s*\/?>$/', $add . '>', $tag ) : $tag;
+			// Elementor may already have added loading/fetchpriority: keep the first of each attribute.
+			$seen = array();
+			return preg_replace_callback(
+				'/\s([a-z-]+)(="[^"]*")?/i',
+				function ( $a ) use ( &$seen ) {
+					$k = strtolower( $a[1] );
+					if ( isset( $seen[ $k ] ) ) {
+						return '';
+					}
+					$seen[ $k ] = true;
+					return $a[0];
+				},
+				$tag
+			);
 		},
 		$content
 	);
@@ -498,22 +538,17 @@ function subaru_assets_rest_report( $req ) {
 				'first'  => $frames ? $frames[0] : '',
 			);
 		}
-		$sample = array();
-		$dir    = subaru_assets_dir() . $m['spin_dir'];
-		if ( is_dir( $dir ) ) {
-			$it = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ), RecursiveIteratorIterator::SELF_FIRST );
-			foreach ( $it as $f ) {
-				$sample[] = substr( str_replace( '\\', '/', $f->getPathname() ), strlen( subaru_assets_dir() ) );
-				if ( count( $sample ) >= 15 ) {
-					break;
-				}
-			}
+		$folders = array();
+		$dir     = subaru_assets_dir() . $m['spin_dir'];
+		foreach ( is_dir( $dir ) ? (array) glob( $dir . '/*', GLOB_ONLYDIR ) : array() as $d ) {
+			$folders[] = basename( $d );
 		}
 		$out['models'][ $slug ] = array(
 			'missing'       => $missing,
 			'spins'         => $spins,
 			'spin_expected' => $m['spin_frames'],
-			'spin_dir_list' => $sample,
+			'spin_folders'  => $folders,
+			'unreadable'    => subaru_spin_unreadable( $slug ),
 		);
 	}
 	return $out;

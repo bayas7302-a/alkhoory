@@ -51,6 +51,8 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.3.2 — 360 folders the web server cannot read are skipped (reported at /wp-json/subaru/v1/assets as "unreadable") instead of breaking the configurator; duplicate img attributes removed.
+
 ## v1.3.1 — Fix: v1.3.0 redeclared subaru_models() (fatal error); the pack data accessor is now subaru_asset_data().
 
 ## v1.3.0 — Image pack (wp-content/uploads/subaru-assets/) (Oct 2026)
