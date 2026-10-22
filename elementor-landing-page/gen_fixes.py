@@ -105,6 +105,10 @@ css.append(f"""
 {SL} .scf .wpcf7-submit{{width:100% !important;height:64px !important;margin:0 !important;padding:0 24px !important;border:0 !important;border-radius:100px !important;background:var(--hl-green) !important;color:var(--hl-cream) !important;box-shadow:none !important;font:400 20px/1 "TypoSlab Irregular Demo",var(--font-body),serif !important;letter-spacing:.3px;cursor:pointer;transition:transform .45s cubic-bezier(.22,1,.36,1), background-color .35s ease !important;}}
 {SL} .scf .wpcf7-submit:hover{{background:var(--hl-ink) !important;transform:translateY(-2px);}}
 {SL} .wpcf7-spinner{{position:absolute;}}
+{SL} .scf .wpcf7-form-control-wrap{{position:relative;display:block;}}
+{SL} .scf input.wpcf7-not-valid, {SL} .scf textarea.wpcf7-not-valid{{border-color:var(--hl-coral) !important;}}
+{SL} .scf input[type=text] ~ .wpcf7-not-valid-tip, {SL} .scf input[type=email] ~ .wpcf7-not-valid-tip, {SL} .scf input[type=tel] ~ .wpcf7-not-valid-tip{{position:absolute !important;right:22px;top:50%;left:auto !important;transform:translateY(-50%);margin:0 !important;font:500 12px/1 var(--font-body),sans-serif !important;color:var(--hl-coral) !important;pointer-events:none;white-space:nowrap;background:var(--hl-cream);padding-left:6px;}}
+{SL} .wpcf7-response-output{{margin:16px 0 0 !important;padding:12px 18px !important;border-radius:14px !important;font:500 14px/1.4 var(--font-body),sans-serif !important;}}
 @media (max-width:767px){{
   {SL} .scf{{grid-template-columns:1fr;grid-template-areas:"name" "email" "phone" "company" "brief" "submit";}}
   {SL} .scf textarea{{min-height:150px !important;}}
@@ -136,9 +140,9 @@ WA_SVG = '<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" foc
 CALL_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>'
 WA_URL = 'https://wa.me/971556138232'
 FLOAT_HTML = ('<div class="hl-float" id="hl-float-buttons" aria-label="Quick contact">'
-  '<a id="hl-float-whatsapp" class="hl-float-btn hl-float-btn--wa" href="' + WA_URL + '" target="_blank" rel="noopener" '
+  '<a id="whatsapp-landing-page-web-uae" class="hl-float-btn hl-float-btn--wa" href="' + WA_URL + '" target="_blank" rel="noopener" '
   'data-track="whatsapp" aria-label="Chat with us on WhatsApp">' + WA_SVG + '</a>'
-  '<a id="hl-float-call" class="hl-float-btn hl-float-btn--call" href="tel:+971556138232" data-track="call" '
+  '<a id="call-landing-page-web-uae" class="hl-float-btn hl-float-btn--call" href="tel:+971556138232" data-track="call" '
   'aria-label="Call us on +971 55 613 8232">' + CALL_SVG + '</a></div>')
 css.append("""
 .hl-float{position:fixed;right:22px;bottom:22px;z-index:9990;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
@@ -219,7 +223,12 @@ js_extra = '''<script nowprocket>(function(){
     if(slot){
       var ph={'your-name':'Your Name','your-email':'Your Email','your-phone':'Your Contact Number','your-company':'Your Company','your-message':'Your Brief'};
       Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f) f.setAttribute('placeholder',ph[n]); });
-      slot.querySelectorAll('.scf-pills input[type=radio]').forEach(function(r){ r.checked=false; });
+      /* CF7 always requires a choice in a radio group; these questions are hidden here, so answer them neutrally */
+      [['project-type','Other'],['project-budget',"I\\'m not sure yet"]].forEach(function(p){ var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; });
+      var fillHidden=function(){ [['project-type','Other'],['project-budget',"I\\'m not sure yet"]].forEach(function(p){ if(slot.querySelector('input[type=radio][name="'+p[0]+'"]:checked')) return; var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; }); };
+      slot.addEventListener('submit',fillHidden,true);            /* capture: runs before CF7's own submit handler */
+      slot.addEventListener('pointerdown',function(e){ if(e.target.closest('.wpcf7-submit')) fillHidden(); },true);
+      slot.addEventListener('wpcf7reset',function(){ setTimeout(function(){ [['project-type','Other'],['project-budget',"I\\'m not sure yet"]].forEach(function(p){ var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; }); },0); });
       var sb=slot.querySelector('.wpcf7-submit'); if(sb) sb.value='Submit';
       var ta=slot.querySelector('textarea'); if(ta) ta.setAttribute('rows','6');
     }
