@@ -22,7 +22,15 @@
 .sa-cfg__img { opacity: 0; transition: opacity .45s ease; }
 .sa-cfg__img.is-on { opacity: 1; }
 .sa-cfg__img.is-off { opacity: 0; }
-.sa-cfg__spin { z-index: 1; background: #eef1f5; user-select: none; -webkit-user-drag: none; }
+.sa-cfg__spin { z-index: 1; user-select: none; -webkit-user-drag: none; transform: scale(1.25); } /* frames have more white space than the colour photos */
+.sa-cfg__stage.is-spin-ready .sa-cfg__img { visibility: hidden; }
+/* Fade the photo edges so the off-white floor shading of the JPGs never shows as a rectangle. */
+.sa-cfg__stage:not(.sa-cfg__stage--int) :is(.sa-cfg__img, .sa-cfg__spin) {
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent), linear-gradient(to bottom, #000 90%, transparent);
+	-webkit-mask-composite: source-in;
+	mask-image: linear-gradient(to right, transparent, #000 4%, #000 96%, transparent), linear-gradient(to bottom, #000 90%, transparent);
+	mask-composite: intersect;
+}
 
 .sa-cfg__stage--int { background: #0d0f12; }
 .sa-cfg__stage--int .sa-cfg__layers { inset: 0; }

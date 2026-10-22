@@ -143,7 +143,8 @@
 			// Show the nearest loaded frame while the requested one is still loading.
 			for (var off = 0; off < n; off++) {
 				var k = (spin.frame + off) % n;
-				if (e.imgs[k] && e.imgs[k].dataset.done) { spin.img.src = e.imgs[k].src; break; }
+				// Once a frame is showing, the colour photo underneath is hidden (both use multiply blending).
+				if (e.imgs[k] && e.imgs[k].dataset.done) { spin.img.src = e.imgs[k].src; if (spin.on) { ext.classList.add('is-spin-ready'); } break; }
 			}
 			ext.setAttribute('aria-valuenow', String(spin.frame + 1));
 			ext.setAttribute('aria-valuetext', fmt(t.frame || 'Frame %1$s of %2$s', spin.frame + 1, n));
@@ -185,6 +186,7 @@
 				if (hint && !spin.used) { hint.hidden = false; }
 			} else {
 				if (spin.img) { spin.img.hidden = true; }
+				ext.classList.remove('is-spin-ready');
 				['tabindex', 'role', 'aria-label', 'aria-valuemin', 'aria-valuemax', 'aria-valuenow', 'aria-valuetext'].forEach(function (a) { ext.removeAttribute(a); });
 				if (hint) { hint.hidden = true; }
 				if (progress) { progress.hidden = true; }
