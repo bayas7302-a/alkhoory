@@ -83,7 +83,7 @@ function subaru_component_render( $slug, $args ) {
  * @return array
  */
 function subaru_configurator_data( $model ) {
-	$all     = subaru_models();
+	$all     = subaru_asset_data();
 	$colours = array();
 	foreach ( $model['colours'] as $key ) {
 		$path = subaru_picker_path( $model, $key );
@@ -199,7 +199,7 @@ function subaru_gallery_shortcode( $atts ) {
 		$atts,
 		'subaru_gallery'
 	);
-	$all    = subaru_models();
+	$all    = subaru_asset_data();
 	$models = $atts['model'] ? array_filter( array( subaru_model( $atts['model'] ) ) ) : $all['models'];
 	$items  = array();
 	foreach ( $models as $m ) {

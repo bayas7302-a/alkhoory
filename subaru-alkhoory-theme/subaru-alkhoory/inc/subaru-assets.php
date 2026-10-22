@@ -4,7 +4,7 @@
  * (7 folders, uploaded via cPanel) and is never registered in the Media Library.
  *
  * - subaru_asset_url() / subaru_asset_img(): URLs and complete <img> tags (width/height, alt, srcset).
- * - subaru_models() / subaru_model(): the data file (inc/subaru-models.php).
+ * - subaru_asset_data() / subaru_model(): the data file (inc/subaru-models.php).
  * - subaru_spin_frames(): 360° frames, discovered on disk so folder/file naming can vary.
  * - Elementor output filter: adds width/height/loading/decoding/srcset to pack images placed in pages.
  * - GET /wp-json/subaru/v1/assets (administrators): health check of the pack against the data file.
@@ -51,7 +51,7 @@ function subaru_asset_exists( $path ) {
  *
  * @return array
  */
-function subaru_models() {
+function subaru_asset_data() {
 	static $data = null;
 	if ( null === $data ) {
 		$data = apply_filters( 'subaru_models_data', require SUBARU_DIR . '/inc/subaru-models.php' );
@@ -66,7 +66,7 @@ function subaru_models() {
  * @return array|null
  */
 function subaru_model( $slug ) {
-	$all = subaru_models();
+	$all = subaru_asset_data();
 	$slug = sanitize_key( $slug );
 	return isset( $all['models'][ $slug ] ) ? $all['models'][ $slug ] : null;
 }
@@ -78,7 +78,7 @@ function subaru_model( $slug ) {
  * @return array { name, hex }
  */
 function subaru_colour( $key ) {
-	$all = subaru_models();
+	$all = subaru_asset_data();
 	if ( isset( $all['colours'][ $key ] ) ) {
 		return $all['colours'][ $key ];
 	}
@@ -458,7 +458,7 @@ add_action( 'rest_api_init', 'subaru_assets_rest_routes' );
  * @return array
  */
 function subaru_assets_rest_report( $req ) {
-	$data = subaru_models();
+	$data = subaru_asset_data();
 	$out  = array(
 		'base_url' => subaru_asset_url( '' ),
 		'base_dir' => is_dir( subaru_assets_dir() ),
