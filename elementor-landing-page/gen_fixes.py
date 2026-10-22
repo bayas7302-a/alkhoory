@@ -140,22 +140,22 @@ WA_SVG = '<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" foc
 CALL_SVG = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/></svg>'
 WA_URL = 'https://wa.me/971556138232'
 FLOAT_HTML = ('<div class="hl-float" id="hl-float-buttons" aria-label="Quick contact">'
-  '<a id="whatsapp-landing-page-web-uae" class="hl-float-btn hl-float-btn--wa" href="' + WA_URL + '" target="_blank" rel="noopener" '
+  '<a id="whatsapp-landing-page-web-uae" class="whatsapp-landing-page-web-uae" href="' + WA_URL + '" target="_blank" rel="noopener" '
   'data-track="whatsapp" aria-label="Chat with us on WhatsApp">' + WA_SVG + '</a>'
-  '<a id="call-landing-page-web-uae" class="hl-float-btn hl-float-btn--call" href="tel:+971556138232" data-track="call" '
+  '<a id="call-landing-page-web-uae" class="call-landing-page-web-uae" href="tel:+971556138232" data-track="call" '
   'aria-label="Call us on +971 55 613 8232">' + CALL_SVG + '</a></div>')
 css.append("""
 .hl-float{position:fixed;right:22px;bottom:22px;z-index:9990;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
-.hl-float-btn{position:relative;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1.5px solid var(--hl-ink);box-shadow:3px 3px 0 0 var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
-.hl-float-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 0 var(--hl-ink);}
-.hl-float-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 0 var(--hl-ink);}
-.hl-float-btn--wa{background:#25D366;}
-.hl-float-btn--call{background:var(--hl-coral);}
-.hl-float-btn--wa::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #25D366;animation:hl-pulse 2.4s ease-out infinite;pointer-events:none;}
+.hl-float > a{position:relative;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1.5px solid var(--hl-ink);box-shadow:3px 3px 0 0 var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
+.hl-float > a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 0 var(--hl-ink);}
+.hl-float > a:active{transform:translate(1px,1px);box-shadow:1px 1px 0 0 var(--hl-ink);}
+.hl-float > .whatsapp-landing-page-web-uae{background:#25D366;}
+.hl-float > .call-landing-page-web-uae{background:var(--hl-coral);}
+.hl-float > .whatsapp-landing-page-web-uae::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #25D366;animation:hl-pulse 2.4s ease-out infinite;pointer-events:none;}
 @keyframes hl-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
 .hl-menu-open .hl-float{opacity:0;pointer-events:none;}
-@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float-btn{width:52px;height:52px;}}
-@media (prefers-reduced-motion:reduce){.hl-float-btn--wa::after{animation:none;}}
+@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float > a{width:52px;height:52px;}}
+@media (prefers-reduced-motion:reduce){.hl-float > .whatsapp-landing-page-web-uae::after{animation:none;}}
 """)
 
 # Mobile header: hamburger + flyout panel (built by JS from the existing nav links)
