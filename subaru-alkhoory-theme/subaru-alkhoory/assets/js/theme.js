@@ -1122,7 +1122,8 @@
 		scrollTo: scrollToEl,
 		counters: initCounters,
 		reveal: initReveal,
-		headerOffset: headerBottom
+		headerOffset: headerBottom,
+		lightbox: openLightbox
 	};
 	w.SubaruTheme = cfg;
 

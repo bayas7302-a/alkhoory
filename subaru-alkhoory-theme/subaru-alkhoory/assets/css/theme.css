@@ -756,3 +756,15 @@ html, body { overflow-x: clip; }
 .sa-footer__group-band .sa-footer__group { width: 66px; height: auto; filter: brightness(0) invert(1); }
 @media (max-width: 1140px) { .sa-brand { gap: 12px; } .sa-brand .sa-badge50 { width: 52px; height: 32px; } }
 @media (max-width: 767px) { :root .sa-brand__sep, :root .sa-aka-sep, :root .sa-aka-logo { display: none; } .sa-brand .sa-badge50 { width: 46px; height: 28px; } }
+
+/* v1.3 — image pack (wp-content/uploads/subaru-assets/), see inc/subaru-assets.php */
+/* Components inserted in Elementor are wrapped in .sub-await-theme (hidden by Elementor until this theme
+   version is active); the sections they replace carry .sub-legacy. */
+.elementor .sub-await-theme { display: block !important; width: 100%; }
+.elementor .sub-legacy { display: none !important; }
+.sub-await-theme .elementor-widget-shortcode, .sub-await-theme .elementor-shortcode { width: 100%; }
+/* Car cut-outs and colour-picker images are JPGs on white: contain them and blend the white into light backgrounds. */
+.elementor img:is([src*="/subaru-assets/02_Car_Cutouts/"], [src*="/subaru-assets/07_Colour_Picker/"]) { object-fit: contain !important; mix-blend-mode: multiply; }
+/* Logos keep their proportions; the BRZ file holds two lock-ups, show the horizontal one (top band). */
+.elementor img[src*="/subaru-assets/01_Logos/"] { object-fit: contain; }
+.elementor img[src*="/subaru-assets/01_Logos/Model_names/BRZ_logo_"] { aspect-ratio: 2000 / 210; object-fit: cover; object-position: top; }

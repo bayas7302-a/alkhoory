@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'SUBARU_DEFAULT_RECIPIENT', 'info@subaru-uae.com' );
-define( 'SUBARU_VERSION', '1.2.2' );
+define( 'SUBARU_VERSION', '1.3.0' );
 define( 'SUBARU_DIR', get_stylesheet_directory() );
 define( 'SUBARU_URI', get_stylesheet_directory_uri() );
 
@@ -24,6 +24,8 @@ $subaru_includes = array(
 	'inc/enquiries.php',     // Enquiry CPT, admin columns, CSV export.
 	'inc/forms.php',         // Form rendering + AJAX handler.
 	'inc/shortcodes.php',    // [subaru_form] [subaru_posts] [subaru_showrooms] [subaru_anchor].
+	'inc/subaru-assets.php', // Image pack in uploads/subaru-assets: URLs, <img>, 360 frames, health check.
+	'inc/subaru-components.php', // [subaru_configurator] [subaru_gallery] (data: inc/subaru-models.php).
 	'inc/template-tags.php', // Blog helpers (cards, reading time, share, pagination).
 	'inc/seo.php',           // Meta description, JSON-LD.
 	'inc/security.php',      // SVG uploads for administrators.

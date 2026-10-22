@@ -1,0 +1,100 @@
+/**
+ * Subaru model components: configurator (colours, 360° view, interior) and photo galleries.
+ * Loaded only on pages that use [subaru_configurator] / [subaru_gallery].
+ */
+
+/* ------------------------------------------------------------ configurator */
+.sa-cfg { display: flex; flex-direction: column; align-items: center; gap: 28px; width: 100%; }
+.sa-cfg [hidden] { display: none !important; }
+
+.sa-cfg__tabs { display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: var(--sub-bg); }
+.sa-cfg__tab { padding: 10px 22px; border: 0; border-radius: 999px; background: transparent; color: var(--sub-ink); font: 600 15px/1.2 var(--font-body); cursor: pointer; }
+.sa-cfg__tab[aria-selected="true"] { background: var(--sub-ink); color: #fff; box-shadow: 0 8px 20px rgba(16, 21, 28, .18); }
+
+.sa-cfg__panel { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
+
+/* Fixed 16:9 stage (capped height on wide screens): switching images never shifts the layout. */
+.sa-cfg__stage { position: relative; width: 100%; aspect-ratio: 16 / 9; max-height: 640px; overflow: hidden; border-radius: 24px; background: #eef1f5; }
+.sa-cfg__layers { position: absolute; inset: 4% 6% 13%; }
+.sa-cfg__img, .sa-cfg__spin { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: contain; }
+/* Exterior images are JPGs on white: multiply blends the white into the stage colour. */
+.sa-cfg__stage:not(.sa-cfg__stage--int) :is(.sa-cfg__img, .sa-cfg__spin) { mix-blend-mode: multiply; }
+.sa-cfg__img { opacity: 0; transition: opacity .45s ease; }
+.sa-cfg__img.is-on { opacity: 1; }
+.sa-cfg__img.is-off { opacity: 0; }
+.sa-cfg__spin { z-index: 1; background: #eef1f5; user-select: none; -webkit-user-drag: none; }
+
+.sa-cfg__stage--int { background: #0d0f12; }
+.sa-cfg__stage--int .sa-cfg__layers { inset: 0; }
+.sa-cfg__stage--int .sa-cfg__img { object-fit: cover; }
+
+.sa-cfg__name { position: absolute; left: 50%; bottom: 22px; z-index: 3; margin: 0; padding: 10px 18px; border-radius: 999px; background: #fff; box-shadow: 0 8px 24px rgba(7, 20, 42, .12); color: var(--sub-ink); font: 600 15px/1.2 var(--font-body); white-space: nowrap; transform: translateX(-50%); }
+
+.sa-cfg__spin-btn { position: absolute; top: 18px; inset-inline-end: 18px; z-index: 3; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--sub-line); border-radius: 999px; background: #fff; color: var(--sub-ink); font: 600 14px/1.2 var(--font-body); cursor: pointer; }
+.sa-cfg__spin-btn[aria-pressed="true"] { border-color: var(--sub-ink); background: var(--sub-ink); color: #fff; }
+.sa-cfg__spin-btn:disabled { opacity: .45; cursor: not-allowed; }
+.sa-cfg__hint { position: absolute; top: 22px; left: 50%; z-index: 3; margin: 0; padding: 8px 14px; border-radius: 999px; background: rgba(16, 21, 28, .8); color: #fff; font: 500 13px/1.2 var(--font-body); pointer-events: none; transform: translateX(-50%); }
+.sa-cfg__progress { position: absolute; left: 24px; right: 24px; bottom: 10px; z-index: 3; height: 3px; overflow: hidden; border-radius: 3px; background: rgba(1, 96, 180, .15); }
+.sa-cfg__progress span { display: block; width: 0; height: 100%; background: var(--sub-blue); transition: width .2s linear; }
+.sa-cfg__stage.is-spinning { cursor: grab; touch-action: pan-y; user-select: none; }
+.sa-cfg__stage.is-dragging { cursor: grabbing; }
+.sa-cfg__stage[role="slider"]:focus-visible { outline: 2px solid var(--sub-blue); outline-offset: 4px; }
+
+/* Swatches: colour circles with a ring when selected. */
+.sa-cfg__swatches { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 760px; }
+.sa-cfg__swatch { position: relative; width: 38px; height: 38px; padding: 0; border: 0; border-radius: 50%; background: var(--sw, #ccc); box-shadow: inset 0 0 0 1px rgba(16, 21, 28, .14); cursor: pointer; }
+.sa-cfg__swatch[aria-pressed="true"] { box-shadow: inset 0 0 0 1px rgba(16, 21, 28, .14), 0 0 0 3px #fff, 0 0 0 5px var(--sub-blue); }
+.sa-cfg__swatch:focus-visible { outline: 2px solid var(--sub-blue); outline-offset: 6px; }
+.sa-cfg__swatch--view { display: grid; place-items: center; background: #fff; color: var(--sub-ink); box-shadow: inset 0 0 0 1px var(--sub-line); }
+.sa-cfg__swatch--view[aria-pressed="true"] { box-shadow: inset 0 0 0 1px var(--sub-line), 0 0 0 3px #fff, 0 0 0 5px var(--sub-blue); }
+
+.sa-cfg__grades { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.sa-cfg__grade { padding: 10px 18px; border: 1px solid var(--sub-line); border-radius: 999px; background: #fff; color: var(--sub-ink); font: 600 14px/1.2 var(--font-body); cursor: pointer; }
+.sa-cfg__grade[aria-pressed="true"] { border-color: var(--sub-ink); background: var(--sub-ink); color: #fff; }
+
+@media (max-width: 767px) {
+	.sa-cfg { gap: 20px; }
+	.sa-cfg__stage { border-radius: 18px; aspect-ratio: 4 / 3; }
+	.sa-cfg__layers { inset: 6% 3% 18%; }
+	.sa-cfg__name { bottom: 14px; padding: 8px 14px; font-size: 14px; }
+	.sa-cfg__spin-btn { top: 12px; inset-inline-end: 12px; padding: 8px 12px; font-size: 13px; }
+	.sa-cfg__hint { top: auto; bottom: 62px; }
+	.sa-cfg__swatches { gap: 12px; }
+	.sa-cfg__swatch { width: 34px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.sa-cfg__img, .sa-cfg__progress span { transition: none; }
+}
+
+/* ----------------------------------------------------------------- gallery */
+.sa-gal { display: flex; flex-direction: column; gap: 32px; width: 100%; }
+.sa-gal [hidden] { display: none !important; }
+.sa-gal__filters { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.sa-gal__filter { padding: 12px 20px; border: 1px solid var(--sub-line); border-radius: 999px; background: #fff; color: var(--sub-ink); font: 600 15px/1.2 var(--font-body); cursor: pointer; }
+.sa-gal__filter[aria-pressed="true"] { border-color: var(--sub-ink); background: var(--sub-ink); color: #fff; box-shadow: 0 8px 20px rgba(16, 21, 28, .18); }
+.sa-gal__item { margin: 0; }
+.sa-gal__link { position: relative; display: block; height: 100%; overflow: hidden; border-radius: 20px; background: var(--sub-bg); }
+.sa-gal__img { display: block; width: 100%; height: auto; transition: transform .6s var(--sa-ease); }
+.sa-gal__link:hover .sa-gal__img { transform: scale(1.04); }
+.sa-gal__link:focus-visible { outline: 2px solid var(--sub-blue); outline-offset: 3px; }
+
+.sa-gal--masonry .sa-gal__grid { columns: 3 260px; column-gap: 24px; }
+.sa-gal--masonry .sa-gal__item { break-inside: avoid; margin-bottom: 24px; }
+
+/* Feature: one large photo + two stacked. */
+.sa-gal--feature .sa-gal__grid { display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 24px; aspect-ratio: 1250 / 565; }
+.sa-gal--feature .sa-gal__item:first-child { grid-row: 1 / span 2; }
+.sa-gal--feature .sa-gal__img { height: 100%; object-fit: cover; }
+.sa-gal__more { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(7, 20, 42, .55); color: #fff; font: 400 34px/1 var(--font-display); }
+
+@media (max-width: 767px) {
+	.sa-gal__filters { justify-content: flex-start; }
+	.sa-gal__filter { padding: 10px 16px; font-size: 14px; }
+	.sa-gal--feature .sa-gal__grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; aspect-ratio: auto; gap: 12px; }
+	.sa-gal--feature .sa-gal__item:first-child { grid-row: auto; grid-column: 1 / span 2; }
+	.sa-gal--feature .sa-gal__item { aspect-ratio: 3 / 2; }
+	.sa-gal--feature .sa-gal__link { border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.sa-gal__img { transition: none; }
+}

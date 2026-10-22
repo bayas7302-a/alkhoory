@@ -51,6 +51,29 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.3.0 — Image pack (wp-content/uploads/subaru-assets/) (Oct 2026)
+
+The client asset pack (7 folders) lives on the server in `wp-content/uploads/subaru-assets/`, uploaded via cPanel.
+It is not in the Media Library, the theme or this repo.
+
+**Theme files**
+- `inc/subaru-assets.php`: `subaru_asset_url()`, `subaru_asset_img()` (width/height, alt, lazy/eager, srcset), 360 frame discovery (`subaru_spin_index()`), Elementor output filter (adds width/height/loading/decoding/srcset to pack images; `.sub-lcp` = hero, eager + fetchpriority), admin health check `GET /wp-json/subaru/v1/assets` (`?flush=1` clears the 360 cache).
+- `inc/subaru-models.php`: single data source (colours + swatch hex, logos, grades, interiors, galleries, hero/home images).
+- `inc/subaru-asset-dims.php`: generated pixel sizes of the pack files.
+- `inc/subaru-components.php`: `[subaru_configurator model="…"]`, `[subaru_gallery model="…" layout="feature|masonry" filter="yes"]`.
+- `template-parts/configurator.php`, `template-parts/gallery.php`, `assets/js/models.js`, `assets/css/models.css` (loaded only where used).
+- Resized copies are cached on demand in `wp-content/uploads/subaru-assets-cache/{640|1024|1600}/…` (≈2.5 s budget per request). Disable with `add_filter( 'subaru_assets_resize', '__return_false' )`.
+
+**Switch-over:** component wrappers carry the global class `.sub-await-theme`, which Elementor hides until 1.3.0 is active. The sections they replace carry `.sub-legacy`, which 1.3.0 hides. Once 1.3.0 is live, the legacy sections can be deleted in Elementor.
+
+**Nearest-match mappings (confirm with the client):**
+- Crosstrek 2.0i-L uses the 2.5i-L EyeSight cut-out and interior.
+- WRX HIGH / HIGH EyeSight interior uses the pack's GT ultrasuede photo.
+
+**Placeholders (Elementor navigator title "TODO: client image"):**
+- After-Sales: hero, Service & Maintenance, Courtesy Drop-Off.
+- Forester: hero and gallery photos (none in the pack, so the current images are kept).
+
 ## v1.2.2 — Footer line + Home tech icons (Oct 2026)
 
 - Removed the divider line above the Al Khoory Group logo in the footer.
