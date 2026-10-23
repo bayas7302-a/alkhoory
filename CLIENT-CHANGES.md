@@ -79,3 +79,31 @@ Backups of every page/template touched: `site-backups/2026-10-05-before-changes/
 5. WhatsApp order flow: skipped for now.
 6. WhatsApp API: skipped.
 7. Free shipping threshold AED 150 is measured before VAT.
+
+## Round 3 – client remarks of 2026-10-23 (zip: desktop + mobile)
+Backups taken before these changes: `site-backups/2026-10-23-before-changes/` (Elementor data of header, footer, product, archive, loop, home, cart, checkout, account, contact).
+
+### Done & verified
+- ✅ Desktop top bar: currency selector now 18px, same as "Free Delivery".
+- ✅ Mobile header: currency selector centred between the menu icon and the logo (±3px at 360/390/430px).
+- ✅ Mobile header: wishlist/cart count circles overlap the icons' top-right corner like the client's example.
+- ✅ Images & videos: right-click / long-press save and dragging blocked site-wide; videos have download, picture-in-picture and casting turned off. (Determined users can still screenshot or use developer tools – no website can fully prevent that.)
+- ✅ "SAVE 30%" corner badge text crisper (thin rotated text was rendering soft).
+- ✅ Footer: "Stockist" removed from Support (desktop + mobile); it linked to a non-existent page.
+- ✅ Home (desktop): the 3 banners line up with the Best Sellers cards (a hidden script widget was taking a slot + 30px gap).
+- ✅ Product page: main images load full size (were 600px shown at 683px+); thumbnails use 300px.
+- ✅ Product page (mobile): tap the image to zoom in place, drag to look around, tap again to zoom out – no fullscreen popup. Desktop popup unchanged.
+- ✅ Category pages: product model (hover) photos load full size instead of 300×300.
+- ✅ Collection page (desktop + mobile): category links filter the products in place (no page change), like the home page; Prev/Next page buttons work the same way.
+- ✅ VAT removed: prices are VAT-inclusive (WooCommerce tax calculation turned off). No VAT line in cart or checkout.
+- ✅ Checkout: "Shipment" → "Shipping"; "(Price inclusive of all taxes)" under the total (desktop + mobile).
+- ✅ Checkout (desktop): Your Order box starts level with the first billing field.
+- ✅ Cart (desktop): 80px between the slider dots and "Lets Socialize" (same as the product page).
+- ✅ Cart (mobile): QUANTITY heading removed; discounted items show old (crossed-out) and new price.
+- ✅ Floating cart: "Shipping will be calculated at checkout" (word "Taxes" removed).
+- ✅ Contact form (mobile): typed text starts close to the field edge like the example.
+
+### Needs files / answers
+- ⏳ Home banners look soft: the mobile banner files are only 680×160 px and the desktop ones 528×360 px. Phones need ~3× and laptops ~2× the displayed size. Please supply: mobile banners at least 1360×320 px (ideally 2040×480), desktop banners at least 1056×720 px.
+- ℹ️ Apple Pay / Google Pay / Link buttons on checkout: normal – this is Stripe's "express checkout". They can be turned off in WooCommerce → Settings → Payments → Stripe → Express checkouts, or limited to product/cart pages.
+- ℹ️ Laptop widths (below ~1720px): the Best Sellers cards run to the screen edge while banner rows keep a 40px margin. Not changed (not in the remarks); can align if wanted.
