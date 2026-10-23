@@ -144,19 +144,6 @@ FLOAT_HTML = ('<div class="hl-float" id="hl-float-buttons" aria-label="Quick con
   'data-track="whatsapp" aria-label="Chat with us on WhatsApp">' + WA_SVG + '</a>'
   '<a id="call-landing-page-web-uae" class="call-landing-page-web-uae" href="tel:+971556138232" data-track="call" '
   'aria-label="Call us on +971 55 613 8232">' + CALL_SVG + '</a></div>')
-css.append("""
-.hl-float{position:fixed;right:22px;bottom:22px;z-index:9990;display:flex;flex-direction:column;gap:12px;align-items:flex-end;}
-.hl-float > a{position:relative;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1.5px solid var(--hl-ink);box-shadow:3px 3px 0 0 var(--hl-ink);transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1);}
-.hl-float > a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 0 var(--hl-ink);}
-.hl-float > a:active{transform:translate(1px,1px);box-shadow:1px 1px 0 0 var(--hl-ink);}
-.hl-float > .whatsapp-landing-page-web-uae{background:#25D366;}
-.hl-float > .call-landing-page-web-uae{background:var(--hl-coral);}
-.hl-float > .whatsapp-landing-page-web-uae::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:2px solid #25D366;animation:hl-pulse 2.4s ease-out infinite;pointer-events:none;}
-@keyframes hl-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
-.hl-menu-open .hl-float{opacity:0;pointer-events:none;}
-@media (max-width:767px){.hl-float{right:14px;bottom:14px;gap:10px;}.hl-float > a{width:52px;height:52px;}}
-@media (prefers-reduced-motion:reduce){.hl-float > .whatsapp-landing-page-web-uae::after{animation:none;}}
-""")
 
 # Mobile header: hamburger + flyout panel (built by JS from the existing nav links)
 css.append("""
@@ -207,17 +194,6 @@ css.append('''
 
 js_extra = '''<script nowprocket>(function(){
   function go(){
-    /* floating WhatsApp / Call: attach to <body> so position:fixed is relative to the viewport, push GTM events */
-    var fb=document.getElementById('hl-float-buttons');
-    if(fb && fb.parentNode!==document.body) document.body.appendChild(fb);
-    if(fb && !fb.dataset.bound){ fb.dataset.bound='1';
-      var lastT={};
-      fb.addEventListener('click',function(e){ var a=e.target.closest('a[data-track]'); if(!a) return;
-        var now=Date.now(); if(lastT[a.id] && now-lastT[a.id]<800) return; lastT[a.id]=now;  /* count each click once */
-        window.dataLayer=window.dataLayer||[];
-        window.dataLayer.push({event: a.dataset.track==='whatsapp' ? 'floating_whatsapp_click' : 'floating_call_click', button_id: a.id, link_url: a.href, page_path: location.pathname});
-      });
-    }
     /* simple contact form: reference placeholders, no pre-selected options */
     var slot=document.querySelector('.elementor-element-__SLOT__');
     if(slot){
@@ -309,5 +285,5 @@ js = """<script nowprocket>(function(){
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',spy);else spy();
 })();</script>""" % NAV_ROOT
 
-open('page_fixes.html', 'w').write('<style id="hl-page-fixes">' + '\n'.join(css) + '</style>' + FLOAT_HTML + js + js_menu + js_extra)
+open('page_fixes.html', 'w').write('<style id="hl-page-fixes">' + '\n'.join(css) + '</style>' + js + js_menu + js_extra)
 print('slab ids:', len(slab), 'bytes:', len(open('page_fixes.html').read()))

@@ -11,3 +11,4 @@ Built from Figma `YRL5n3TdN3Vy26zjBZMBSH` (frame 263:2) on soharon.com, draft pa
 - Fonts come from the Elementor global font variables `--font-display` (Anton) and `--font-body` (Hanken Grotesk).
 
 - Contact card: `contact-details` was moved (Elementor) from `contact-intro` to be the last child of `contact-card`; page-fixes CSS lays it out as a full-width row.
+- Floating WhatsApp/Call buttons: own container + HTML widget at the end of the page (`floating-contact-widget.html`); tracking class on <a>, <svg> and <path>, plus id on <a>.
