@@ -107,3 +107,14 @@ Backups taken before these changes: `site-backups/2026-10-23-before-changes/` (E
 - ⏳ Home banners look soft: the mobile banner files are only 680×160 px and the desktop ones 528×360 px. Phones need ~3× and laptops ~2× the displayed size. Please supply: mobile banners at least 1360×320 px (ideally 2040×480), desktop banners at least 1056×720 px.
 - ℹ️ Apple Pay / Google Pay / Link buttons on checkout: normal – this is Stripe's "express checkout". They can be turned off in WooCommerce → Settings → Payments → Stripe → Express checkouts, or limited to product/cart pages.
 - ℹ️ Laptop widths (below ~1720px): the Best Sellers cards run to the screen edge while banner rows keep a 40px margin. Not changed (not in the remarks); can align if wanted.
+
+## Round 4 – client remarks of 2026-10-27
+Backups before these changes: `site-backups/2026-10-27-before-changes/` (header, footer, cart, checkout, returns page).
+
+- ✅ Checkout (desktop): "— OR —" now sits between PLACE ORDER and the Apple Pay / Google Pay / Link buttons. Mobile unchanged (buttons → OR → billing).
+- ✅ Mobile header: currency selector vertically centred with the menu icon and logo (was 4.6px high).
+- ✅ Mobile header: count circles smaller (12px) and sitting on the icons' top-right corner so they no longer cover the icons.
+- ✅ Cart (desktop): PRICE column widened to 200px (quantity moved left) so old + new price fit inside it at 1024–1920px.
+- ✅ New pages: Privacy & Cookie Policy (`/privacy-cookie-policy/`) and Terms & Conditions (`/terms-conditions/`), same design as the other info pages, linked from the footer (desktop + mobile). Text source: `content/legal_pages.py`.
+  - Should be reviewed by the client / a legal adviser before launch (company legal name, trade licence details if they want them shown).
+  - Pages use the Returns & Exchange banner; swap in a dedicated banner if available.
