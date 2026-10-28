@@ -149,3 +149,6 @@
 .sa-form--stacked .sa-form__submit > .sa-icon, .sa-form--stacked .sa-form__req { display: none; }
 @media (max-width: 767px) { .sa-form--stacked .sa-form__grid { gap: 16px; } }
 .sa-form--stacked .sa-field :is(input, select), :root .sa-form--stacked .sa-enhanced .sa-select__btn { height: 46px; }
+
+/* Fields hidden by script (e.g. Grade for Forester/Crosstrek) must stay hidden: .sa-field sets display:flex. */
+.sa-form .sa-field[hidden], .sa-select__opt[hidden] { display: none !important; }

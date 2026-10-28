@@ -152,7 +152,11 @@
 			if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
 				e.preventDefault();
 				if (!isOpen) { open(); return; }
-				setActive(active + (e.key === 'ArrowDown' ? 1 : -1));
+				// Skip options hidden by a dependent filter (e.g. grades of another model).
+				var step = e.key === 'ArrowDown' ? 1 : -1;
+				var n = active + step;
+				while (lis[n] && lis[n].hidden) { n += step; }
+				if (lis[n]) { setActive(n); }
 			} else if (e.key === 'Enter' || e.key === ' ') {
 				e.preventDefault();
 				if (isOpen && active > -1) { choose(active); close(); } else { open(); }
@@ -166,7 +170,7 @@
 				typed += e.key.toLowerCase();
 				clearTimeout(typedTimer);
 				typedTimer = setTimeout(function () { typed = ''; }, 600);
-				var hit = opts.findIndex(function (o) { return o.textContent.toLowerCase().indexOf(typed) === 0; });
+				var hit = opts.findIndex(function (o, k) { return !lis[k].hidden && o.textContent.toLowerCase().indexOf(typed) === 0; });
 				if (hit > -1) { if (!isOpen) { open(); } setActive(hit); }
 			}
 		});

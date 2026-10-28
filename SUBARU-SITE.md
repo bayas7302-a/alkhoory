@@ -51,6 +51,8 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.3.6 — Test drive form: Grade field really hidden for Forester/Crosstrek and only the chosen model's grades listed for WRX/BRZ ([hidden] was overridden by .sa-field / .sa-select__opt display rules); arrow keys skip hidden grades.
+
 ## v1.3.5 — "Subaru Website Changes 26/10/2026" (Oct 2026)
 
 Theme:
