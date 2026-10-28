@@ -192,13 +192,26 @@ css.append('''
 @media (prefers-reduced-motion:reduce){.elementor .elementor-element.elementor-element-__TLOGOS__{animation:none;overflow-x:auto !important;}}
 '''.replace('__TSEC__', json.load(open('roots.json'))['trusted'][0]).replace('__TLOGOS__', M['trusted-logos']))
 
+# docx update: longer SEO H1, two-line "Why" items, new types/features sections
+NS = json.load(open('new_sections.json'))
+css.append(s1('hero-title') + '{font-size:clamp(40px,5.6vw,80px) !important;line-height:1 !important;}')
+css.append('@media (max-width:1024px){' + s1('hero-title') + '{font-size:clamp(38px,7vw,58px) !important;}}')
+css.append('@media (max-width:767px){' + s1('hero-title') + '{font-size:38px !important;}}')
+css.append(','.join('.elementor .elementor-element-%s' % M['about-feature-%d' % i] for i in range(1, 6)) + '{align-items:flex-start !important;}')
+css.append(','.join('.elementor .elementor-element-%s' % M['about-feature-check-%d' % i] for i in range(1, 6)) + '{margin-top:2px !important;flex-shrink:0;}')
+css.append(','.join(s1('about-feature-text-%d' % i) for i in range(1, 6)) + '{font-weight:400 !important;color:#56665f !important;}')
+css.append(','.join(x + ' strong' for i in range(1, 6) for x in s1('about-feature-text-%d' % i).split(', ')) + '{font-weight:700;color:var(--hl-ink,#0e2a25);}')
+css.append('.elementor .elementor-element-%s h2 span{color:#eeac4c;}' % NS['features'])
+css.append('.elementor .elementor-element-%s h2 span{color:var(--hl-coral,#e15338);}' % NS['types'])
+css.append('.elementor .elementor-element-%s h3, .elementor .elementor-element-%s h3{line-height:1.08 !important;}' % (NS['features'], NS['types']))
+
 js_extra = '''<script nowprocket>(function(){
   function go(){
     /* simple contact form: reference placeholders, no pre-selected options */
     var slot=document.querySelector('.elementor-element-__SLOT__');
     if(slot){
       var ph={'your-name':'Your Name','your-email':'Your Email','your-phone':'Your Contact Number','your-company':'Your Company','your-message':'Your Brief'};
-      Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f) f.setAttribute('placeholder',ph[n]); });
+      Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f){ f.setAttribute('placeholder',ph[n]); f.setAttribute('aria-label',ph[n].replace(/^Your /,'')); } });
       /* CF7 always requires a choice in a radio group; these questions are hidden here, so answer them neutrally */
       [['project-type','Other'],['project-budget',"I\\'m not sure yet"]].forEach(function(p){ var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; });
       var fillHidden=function(){ [['project-type','Other'],['project-budget',"I\\'m not sure yet"]].forEach(function(p){ if(slot.querySelector('input[type=radio][name="'+p[0]+'"]:checked')) return; var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; }); };

@@ -199,7 +199,17 @@ html.hl-menu-open{overflow:hidden;}
   .elementor-24951 .hl-clone{display:flex !important;}
 }
 @media (prefers-reduced-motion:reduce){.elementor .elementor-element.elementor-element-6ed39e70{animation:none;overflow-x:auto !important;}}
-</style><script nowprocket>(function(){
+
+.elementor [data-interaction-id="573465c1"], .elementor .elementor-element.elementor-element-573465c1{font-size:clamp(40px,5.6vw,80px) !important;line-height:1 !important;}
+@media (max-width:1024px){.elementor [data-interaction-id="573465c1"], .elementor .elementor-element.elementor-element-573465c1{font-size:clamp(38px,7vw,58px) !important;}}
+@media (max-width:767px){.elementor [data-interaction-id="573465c1"], .elementor .elementor-element.elementor-element-573465c1{font-size:38px !important;}}
+.elementor .elementor-element-2a2febe9,.elementor .elementor-element-67d618e8,.elementor .elementor-element-412f769e,.elementor .elementor-element-4c15f184,.elementor .elementor-element-32ab45a1{align-items:flex-start !important;}
+.elementor .elementor-element-55193f0c,.elementor .elementor-element-611117c7,.elementor .elementor-element-6eac1980,.elementor .elementor-element-ff4af6b,.elementor .elementor-element-6642ea71{margin-top:2px !important;flex-shrink:0;}
+.elementor [data-interaction-id="6d388184"], .elementor .elementor-element.elementor-element-6d388184,.elementor [data-interaction-id="961b32b"], .elementor .elementor-element.elementor-element-961b32b,.elementor [data-interaction-id="1cdd1bd2"], .elementor .elementor-element.elementor-element-1cdd1bd2,.elementor [data-interaction-id="3758b4e"], .elementor .elementor-element.elementor-element-3758b4e,.elementor [data-interaction-id="5dc999b8"], .elementor .elementor-element.elementor-element-5dc999b8{font-weight:400 !important;color:#56665f !important;}
+.elementor [data-interaction-id="6d388184"] strong,.elementor .elementor-element.elementor-element-6d388184 strong,.elementor [data-interaction-id="961b32b"] strong,.elementor .elementor-element.elementor-element-961b32b strong,.elementor [data-interaction-id="1cdd1bd2"] strong,.elementor .elementor-element.elementor-element-1cdd1bd2 strong,.elementor [data-interaction-id="3758b4e"] strong,.elementor .elementor-element.elementor-element-3758b4e strong,.elementor [data-interaction-id="5dc999b8"] strong,.elementor .elementor-element.elementor-element-5dc999b8 strong{font-weight:700;color:var(--hl-ink,#0e2a25);}
+.elementor .elementor-element-57fae3ad h2 span{color:#eeac4c;}
+.elementor .elementor-element-6b4a72fc h2 span{color:var(--hl-coral,#e15338);}
+.elementor .elementor-element-57fae3ad h3, .elementor .elementor-element-6b4a72fc h3{line-height:1.08 !important;}</style><script nowprocket>(function(){
   function spy(){
     var nav=document.querySelector('[data-id="67ad7a50"]'); if(!nav) return;
     var map=[].slice.call(nav.querySelectorAll('a[href^="#"]')).map(function(a){return {a:a,t:document.getElementById(a.getAttribute('href').slice(1))};}).filter(function(x){return x.t;});
@@ -252,7 +262,7 @@ html.hl-menu-open{overflow:hidden;}
     var slot=document.querySelector('.elementor-element-3be999f0');
     if(slot){
       var ph={'your-name':'Your Name','your-email':'Your Email','your-phone':'Your Contact Number','your-company':'Your Company','your-message':'Your Brief'};
-      Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f) f.setAttribute('placeholder',ph[n]); });
+      Object.keys(ph).forEach(function(n){ var f=slot.querySelector('[name="'+n+'"]'); if(f){ f.setAttribute('placeholder',ph[n]); f.setAttribute('aria-label',ph[n].replace(/^Your /,'')); } });
       /* CF7 always requires a choice in a radio group; these questions are hidden here, so answer them neutrally */
       [['project-type','Other'],['project-budget',"I\'m not sure yet"]].forEach(function(p){ var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; });
       var fillHidden=function(){ [['project-type','Other'],['project-budget',"I\'m not sure yet"]].forEach(function(p){ if(slot.querySelector('input[type=radio][name="'+p[0]+'"]:checked')) return; var r=slot.querySelector('input[type=radio][name="'+p[0]+'"][value="'+p[1]+'"]') || slot.querySelector('input[type=radio][name="'+p[0]+'"]'); if(r) r.checked=true; }); };
