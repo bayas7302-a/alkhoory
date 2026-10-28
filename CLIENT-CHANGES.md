@@ -118,3 +118,16 @@ Backups before these changes: `site-backups/2026-10-27-before-changes/` (header,
 - ✅ New pages: Privacy & Cookie Policy (`/privacy-cookie-policy/`) and Terms & Conditions (`/terms-conditions/`), same design as the other info pages, linked from the footer (desktop + mobile). Text source: `content/legal_pages.py`.
   - Should be reviewed by the client / a legal adviser before launch (company legal name, trade licence details if they want them shown).
   - Pages use the Returns & Exchange banner; swap in a dedicated banner if available.
+
+## Round 5 – client remarks of 2026-10-28
+Backups before these changes: `site-backups/2026-10-28-before-changes/` (cart, checkout, privacy, terms).
+
+- ✅ Cart (mobile): the remove (×) is centred vertically in each product row.
+- ✅ Cart (mobile): discounted items show the old (crossed-out) price and the new price side by side on one line, like the example (checked at 360/390/430px).
+- ✅ Checkout (mobile): "— OR —" and the Google Pay / Apple Pay / Link buttons moved to the bottom, after PLACE ORDER, in the same order as desktop (OR first, then the buttons).
+- ✅ Privacy & Cookie Policy (desktop): title on one line, centred between the two lines (mobile was already one line).
+
+### Shipping / FedEx
+- Client: FedEx rates for international customers only; UAE customers pay a fixed AED 25.
+- ⏳ The zip sent with this message held only the 3 layout screenshots, with no FedEx rates or account details. Still needed: FedEx account number + API keys (entered directly in the plugin, not sent by chat), ship-from address, box sizes/weights, services and countries.
+- ❓ "Fixed AED 25" for UAE: the site currently gives free shipping from AED 150 (and the top bar, Terms and Shipping pages say so). Keep free over 150, or always charge AED 25?
