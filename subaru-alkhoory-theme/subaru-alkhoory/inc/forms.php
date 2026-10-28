@@ -414,6 +414,15 @@ function subaru_render_field( $uid, $key, $f, $value = '', $is_news = false ) {
 	$label    = esc_html( $f['label'] ) . ( $required && ! $is_news ? '<span class="sa-req" aria-hidden="true">*</span>' : '' );
 	$ph       = isset( $f['placeholder'] ) ? $f['placeholder'] : '';
 
+	if ( 'captcha' === $f['type'] && subaru_recaptcha_enabled() ) {
+		// Google reCAPTCHA v2 ("I'm not a robot") when keys are set in Subaru Settings.
+		wp_enqueue_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, array( 'in_footer' => true, 'strategy' => 'async' ) ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		echo '<div class="sa-field sa-field--recaptcha">';
+		echo '<div class="g-recaptcha" data-sitekey="' . esc_attr( subaru_setting( 'recaptcha_site_key' ) ) . '"></div>';
+		echo '<span class="sa-field__error" id="' . esc_attr( $err_id ) . '"></span></div>';
+		return;
+	}
+
 	if ( 'captcha' === $f['type'] ) {
 		$cap = subaru_captcha_challenge();
 		echo '<div class="sa-field sa-field--captcha is-half">';
@@ -613,6 +622,16 @@ function subaru_form_submit() {
 				$val = $raw ? 'Yes' : '';
 				break;
 			case 'captcha':
+				if ( subaru_recaptcha_enabled() ) {
+					$resp = isset( $_POST['g-recaptcha-response'] ) ? sanitize_text_field( wp_unslash( $_POST['g-recaptcha-response'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce checked above.
+					$val  = $resp ? 'ok' : '';
+					if ( $resp && ! subaru_recaptcha_verify( $resp ) ) {
+						$errors[ $key ] = __( 'Please confirm you are not a robot.', 'subaru-alkhoory' );
+					} elseif ( ! $resp ) {
+						$errors[ $key ] = __( 'Please tick "I\'m not a robot".', 'subaru-alkhoory' );
+					}
+					break;
+				}
 				$val   = preg_replace( '/\D/', '', $raw );
 				$token = isset( $_POST['sa_captcha_token'] ) ? sanitize_text_field( wp_unslash( $_POST['sa_captcha_token'] ) ) : '';
 				if ( '' !== $val && ! subaru_captcha_verify( $val, $token ) ) {
@@ -825,7 +844,41 @@ function subaru_mail_from_name( $name ) {
 add_filter( 'wp_mail_from_name', 'subaru_mail_from_name' );
 
 /**
- * Simple self-hosted CAPTCHA: an addition question whose answer is signed into a token.
+ * Whether Google reCAPTCHA v2 keys are configured (Subaru Settings → Spam protection).
+ *
+ * @return bool
+ */
+function subaru_recaptcha_enabled() {
+	return '' !== (string) subaru_setting( 'recaptcha_site_key' ) && '' !== (string) subaru_setting( 'recaptcha_secret_key' );
+}
+
+/**
+ * Verify a reCAPTCHA response with Google.
+ *
+ * @param string $response g-recaptcha-response value.
+ * @return bool
+ */
+function subaru_recaptcha_verify( $response ) {
+	$res = wp_remote_post(
+		'https://www.google.com/recaptcha/api/siteverify',
+		array(
+			'timeout' => 10,
+			'body'    => array(
+				'secret'   => subaru_setting( 'recaptcha_secret_key' ),
+				'response' => $response,
+				'remoteip' => isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '',
+			),
+		)
+	);
+	if ( is_wp_error( $res ) ) {
+		return false;
+	}
+	$data = json_decode( wp_remote_retrieve_body( $res ), true );
+	return ! empty( $data['success'] );
+}
+
+/**
+ * Simple self-hosted CAPTCHA (used when reCAPTCHA keys are not set): an addition question whose answer is signed into a token.
  * No third-party keys required; the token expires after 30 days.
  *
  * @return array a, b, token

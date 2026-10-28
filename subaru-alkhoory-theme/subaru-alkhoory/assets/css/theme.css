@@ -777,3 +777,8 @@ html, body { overflow-x: clip; }
 .sa-whatsapp::before { animation: none; opacity: 0; }
 /* 360° frames used as still images (home range cards): the car sits small in a wide frame. */
 .elementor img[src*="/subaru-assets/06_360_Spins/"] { object-fit: contain !important; mix-blend-mode: multiply; scale: 1.3; }
+
+/* v1.3.5 — model pages: every feature-card image (grade details) uses the same 16:10 frame, so cards line up.
+   The Grades overview cards (full-car cut-outs) are excluded. */
+:is(.page-id-63, .page-id-65, .page-id-67, .page-id-69) .elementor :is(.sub-grade-item, [role="tabpanel"]) .sub-card .sub-zoom { aspect-ratio: 16 / 10; height: auto !important; overflow: hidden; }
+:is(.page-id-63, .page-id-65, .page-id-67, .page-id-69) .elementor :is(.sub-grade-item, [role="tabpanel"]) .sub-card .sub-zoom img { width: 100% !important; height: 100% !important; object-fit: cover !important; mix-blend-mode: normal; }

@@ -51,6 +51,21 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - Subaru range image: upscaled 960px original to 1920px; used as the Our Range hero background (media 780). A higher-resolution original from the client would look sharper.
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
+## v1.3.5 — "Subaru Website Changes 26/10/2026" (Oct 2026)
+
+Theme:
+- Optional Google reCAPTCHA v2 for all forms (Subaru Settings → Spam protection); maths question stays as fallback while keys are empty.
+- Model pages: grade-detail feature images share one 16:10 frame (uniform cards).
+- /wp-json/subaru/v1/assets also lists form recipients and whether reCAPTCHA is on.
+
+Live content (Elementor):
+- Home hero slides → media 832 Forester, 829 BRZ, 831 WRX, 830 Crosstrek.
+- About: "SUBARU History" → subaru.co.jp history page (new tab); "Safety History" → Safety page #passive-safety; building photo shown uncropped.
+- BOXER page overview image → 276 (engine cutaway; old 474 was cropped at source).
+- After-Sales: hero → 212, Service Maintenance → 151, Courtesy Drop-Off → 211. Test drive hero → pack Crosstrek_lifestyle_driver_interior.jpg.
+- Model pages: 37 feature crops made from the image pack (media 833–870, titles "Subaru <model> …"); BRZ MT shifter → 729; BRZ Manual feature list added; Forester "Easy-to-Clean Interior" → "One-touch Folding Switches".
+- Still needing client photos: Crosstrek aluminium pedals, Forester upper cargo hooks, a workshop photo for the After-Sales hero.
+
 ## v1.3.4 — Configurator images no longer zoom/overflow (Elementor img height:auto overridden); no pink Hello Elementor button states; interior photos shown whole; grade accordions scroll the opened grade into view; Media Gallery adds the model-page photos (gallery_media, Forester filter back); home range cards use matching 360 frames + smaller logos; Subaru Way logos smaller; calmer motion (no image hover zoom outside galleries, no count-up, no pulse, one short heading fade per page).
 
 ## v1.3.3 — 360 view: colour photo hidden once a frame shows (no double image), frames scaled to match the photos, soft image edges. Legacy hidden sections removed from the model and Media Gallery pages.

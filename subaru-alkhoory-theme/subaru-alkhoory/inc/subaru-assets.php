@@ -503,7 +503,14 @@ function subaru_assets_rest_report( $req ) {
 		'base_url' => subaru_asset_url( '' ),
 		'base_dir' => is_dir( subaru_assets_dir() ),
 		'models'   => array(),
+		// Where each form's enquiries are emailed (Subaru Settings → Enquiry form recipients).
+		'recipients' => array(),
+		'recaptcha'  => function_exists( 'subaru_recaptcha_enabled' ) && subaru_recaptcha_enabled(),
 	);
+	foreach ( array_keys( subaru_form_types() ) as $type ) {
+		$r = subaru_setting( 'recipient_' . $type );
+		$out['recipients'][ $type ] = $r ? $r : SUBARU_DEFAULT_RECIPIENT;
+	}
 	foreach ( $data['models'] as $slug => $m ) {
 		if ( $req->get_param( 'flush' ) ) {
 			delete_transient( 'subaru_spins_' . $slug . '_' . md5( SUBARU_VERSION . $m['spin_dir'] ) );

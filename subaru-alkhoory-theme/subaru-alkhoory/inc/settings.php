@@ -77,6 +77,8 @@ function subaru_settings_sanitize( $input ) {
 	$out['cookie_notice'] = empty( $input['cookie_notice'] ) ? 0 : 1;
 	$out['page_intro']   = empty( $input['page_intro'] ) ? 0 : 1;
 
+	$out['recaptcha_site_key']   = isset( $input['recaptcha_site_key'] ) ? sanitize_text_field( $input['recaptcha_site_key'] ) : '';
+	$out['recaptcha_secret_key'] = isset( $input['recaptcha_secret_key'] ) ? sanitize_text_field( $input['recaptcha_secret_key'] ) : '';
 	$out['from_name']        = isset( $input['from_name'] ) ? sanitize_text_field( $input['from_name'] ) : '';
 	$out['whatsapp_number']  = isset( $input['whatsapp_number'] ) ? preg_replace( '/[^0-9]/', '', (string) $input['whatsapp_number'] ) : '';
 	$out['whatsapp_message'] = isset( $input['whatsapp_message'] ) ? sanitize_text_field( $input['whatsapp_message'] ) : '';
@@ -176,7 +178,7 @@ function subaru_settings_page() {
 			<h2><?php esc_html_e( 'Enquiry form recipients', 'subaru-alkhoory' ); ?></h2>
 			<p><?php
 				/* translators: %s: admin email */
-				printf( esc_html__( 'Comma-separate multiple addresses. Empty = site admin email (%s).', 'subaru-alkhoory' ), esc_html( get_option( 'admin_email' ) ) );
+				printf( esc_html__( 'Comma-separate multiple addresses. Empty = %s.', 'subaru-alkhoory' ), esc_html( SUBARU_DEFAULT_RECIPIENT ) );
 			?></p>
 			<table class="form-table" role="presentation">
 				<?php
@@ -185,6 +187,15 @@ function subaru_settings_page() {
 				}
 				subaru_settings_field( 'autoreply', __( 'Customer auto-reply', 'subaru-alkhoory' ), __( 'Send a confirmation email to the customer', 'subaru-alkhoory' ), 'checkbox' );
 				subaru_settings_field( 'from_name', __( 'Email "from" name', 'subaru-alkhoory' ) );
+				?>
+			</table>
+
+			<h2><?php esc_html_e( 'Spam protection (Google reCAPTCHA)', 'subaru-alkhoory' ); ?></h2>
+			<p><?php esc_html_e( 'Create reCAPTCHA v2 "I\'m not a robot" keys for this domain at google.com/recaptcha/admin and paste them here. While either key is empty, the forms use the built-in maths question.', 'subaru-alkhoory' ); ?></p>
+			<table class="form-table" role="presentation">
+				<?php
+				subaru_settings_field( 'recaptcha_site_key', __( 'reCAPTCHA site key', 'subaru-alkhoory' ) );
+				subaru_settings_field( 'recaptcha_secret_key', __( 'reCAPTCHA secret key', 'subaru-alkhoory' ) );
 				?>
 			</table>
 

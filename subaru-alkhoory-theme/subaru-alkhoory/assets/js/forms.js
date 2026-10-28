@@ -286,6 +286,12 @@
 					if (label) { label.textContent = labelText; }
 					var data = json && json.data ? json.data : {};
 					if (json && json.success) { showSuccess(form, data); return; }
+					// A reCAPTCHA response can only be used once: ask for a fresh tick after any failed attempt.
+					if (w.grecaptcha && form.querySelector('.g-recaptcha')) { try { w.grecaptcha.reset(); } catch (e) { /* ignore */ } }
+					if (data.errors && data.errors.captcha && !form.elements.captcha) {
+						var rc = form.querySelector('.sa-field--recaptcha');
+						if (rc) { setError(rc, data.errors.captcha); }
+					}
 					if (data.errors) {
 						var first = null;
 						Object.keys(data.errors).forEach(function (k) {
