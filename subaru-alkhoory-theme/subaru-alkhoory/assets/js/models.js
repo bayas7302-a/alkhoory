@@ -404,9 +404,27 @@
 		}
 	}
 
+	/* ----------------------------------------------------------- location map */
+	function initLocMap(root) {
+		var tabs = $$('.sa-locmap__tab', root);
+		var frame = $('iframe', root);
+		var dir = $('.sa-locmap__dir', root);
+		tabs.forEach(function (b) {
+			b.addEventListener('click', function () {
+				tabs.forEach(function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });
+				if (frame && frame.getAttribute('src') !== b.dataset.embed) {
+					frame.src = b.dataset.embed;
+					frame.title = 'Map: ' + b.textContent.trim();
+				}
+				if (dir) { dir.href = b.dataset.dir; }
+			});
+		});
+	}
+
 	function boot() {
 		$$('[data-sa-cfg]').forEach(initConfigurator);
 		$$('[data-sa-gal]').forEach(initGallery);
+		$$('[data-sa-locmap]').forEach(initLocMap);
 	}
 	if (d.readyState === 'loading') { d.addEventListener('DOMContentLoaded', boot); } else { boot(); }
 })();

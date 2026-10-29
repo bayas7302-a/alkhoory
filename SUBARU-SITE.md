@@ -52,6 +52,7 @@ Until the theme is active, form/news shortcodes show as plain text and the heade
 - v1.1.4: CTA band image fills the full card height (was cut short by a generic img rule).
 
 ## v1.3.7 — Galleries: Elementor's own image lightbox disabled on gallery links (it opened on top of the theme lightbox); Media Gallery uses an even 3/2/1-column grid instead of masonry; duplicate Media Library photos removed and gallery order curated (lifestyle first, then details).
+## v1.3.8 — Contact page: interactive location map `[subaru_location_map]` with a button for each location (Dubai Showroom, Service Centre – Dubai, Parts Centre – Dubai, Parts Centre – Sharjah); the map and the "Get Directions" link follow the selected location. Locations are filterable via `subaru_map_locations`. The old static map switches off automatically (`sub-legacy-138` / `sub-await-138`).
 
 ## v1.3.6 — Test drive form: Grade field really hidden for Forester/Crosstrek and only the chosen model's grades listed for WRX/BRZ ([hidden] was overridden by .sa-field / .sa-select__opt display rules); arrow keys skip hidden grades.
 

@@ -782,3 +782,7 @@ html, body { overflow-x: clip; }
    The Grades overview cards (full-car cut-outs) are excluded. */
 :is(.page-id-63, .page-id-65, .page-id-67, .page-id-69) .elementor :is(.sub-grade-item, [role="tabpanel"]) .sub-card .sub-zoom { aspect-ratio: 16 / 10; height: auto !important; overflow: hidden; }
 :is(.page-id-63, .page-id-65, .page-id-67, .page-id-69) .elementor :is(.sub-grade-item, [role="tabpanel"]) .sub-card .sub-zoom img { width: 100% !important; height: 100% !important; object-fit: cover !important; mix-blend-mode: normal; }
+
+/* v1.3.8 — Contact page: interactive location map replaces the static map (same switch-over pattern). */
+.elementor .sub-await-138 { display: block !important; width: 100%; }
+.elementor .sub-legacy-138 { display: none !important; }

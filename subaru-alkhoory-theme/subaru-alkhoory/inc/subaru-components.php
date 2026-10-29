@@ -49,7 +49,7 @@ function subaru_components_maybe_enqueue() {
 	}
 	$id     = get_queried_object_id();
 	$source = (string) get_post_field( 'post_content', $id ) . (string) get_post_meta( $id, '_elementor_data', true );
-	if ( preg_match( '/subaru_(configurator|gallery)/', $source ) ) {
+	if ( preg_match( '/subaru_(configurator|gallery|location_map)/', $source ) ) {
 		subaru_components_enqueue();
 	}
 }
@@ -242,3 +242,57 @@ function subaru_gallery_shortcode( $atts ) {
 	);
 }
 add_shortcode( 'subaru_gallery', 'subaru_gallery_shortcode' );
+
+/**
+ * Contact locations shown on the location map (same searches as the "Get Directions" links).
+ * Override with add_filter( 'subaru_map_locations', ... ).
+ *
+ * @return array[] name, query.
+ */
+function subaru_map_locations() {
+	return apply_filters(
+		'subaru_map_locations',
+		array(
+			array( 'name' => __( 'Dubai Showroom', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Subaru Showroom Dubai' ),
+			array( 'name' => __( 'Service Centre – Dubai', 'subaru-alkhoory' ), 'query' => 'Al Khoory Subaru Service Centre Al Quoz Dubai' ),
+			array( 'name' => __( 'Parts Centre – Dubai', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Parts Centre Dubai' ),
+			array( 'name' => __( 'Parts Centre – Sharjah', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Parts Centre Sharjah' ),
+		)
+	);
+}
+
+/**
+ * [subaru_location_map] — interactive map with one button per location; the map and the
+ * "Get Directions" link follow the selected location. Without JavaScript the first location shows.
+ *
+ * @return string
+ */
+function subaru_location_map_shortcode() {
+	$locs = subaru_map_locations();
+	if ( ! $locs ) {
+		return '';
+	}
+	subaru_components_enqueue();
+	$embed = function ( $q ) {
+		return 'https://maps.google.com/maps?q=' . rawurlencode( $q ) . '&z=15&output=embed';
+	};
+	$dir = function ( $q ) {
+		return 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $q );
+	};
+	ob_start();
+	?>
+	<div class="sa-locmap" data-sa-locmap>
+		<div class="sa-locmap__tabs" role="group" aria-label="<?php esc_attr_e( 'Choose a location', 'subaru-alkhoory' ); ?>">
+			<?php foreach ( $locs as $i => $l ) : ?>
+				<button type="button" class="sa-locmap__tab" aria-pressed="<?php echo 0 === $i ? 'true' : 'false'; ?>" data-embed="<?php echo esc_url( $embed( $l['query'] ) ); ?>" data-dir="<?php echo esc_url( $dir( $l['query'] ) ); ?>"><?php echo esc_html( $l['name'] ); ?></button>
+			<?php endforeach; ?>
+		</div>
+		<div class="sa-locmap__frame">
+			<iframe src="<?php echo esc_url( $embed( $locs[0]['query'] ) ); ?>" title="<?php echo esc_attr( sprintf( /* translators: %s: location */ __( 'Map: %s', 'subaru-alkhoory' ), $locs[0]['name'] ) ); ?>" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+		</div>
+		<a class="sa-btn sa-btn--outline sa-locmap__dir" href="<?php echo esc_url( $dir( $locs[0]['query'] ) ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Get Directions', 'subaru-alkhoory' ); ?></a>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'subaru_location_map', 'subaru_location_map_shortcode' );
