@@ -86,8 +86,11 @@
 .sa-gal__link:hover .sa-gal__img { transform: scale(1.02); }
 .sa-gal__link:focus-visible { outline: 2px solid var(--sub-blue); outline-offset: 3px; }
 
-.sa-gal--masonry .sa-gal__grid { columns: 3 260px; column-gap: 24px; }
-.sa-gal--masonry .sa-gal__item { break-inside: avoid; margin-bottom: 24px; }
+.sa-gal--masonry .sa-gal__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.sa-gal--masonry .sa-gal__link { aspect-ratio: 3 / 2; }
+.sa-gal--masonry .sa-gal__img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1024px) { .sa-gal--masonry .sa-gal__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+@media (max-width: 560px) { .sa-gal--masonry .sa-gal__grid { grid-template-columns: 1fr; } }
 
 /* Feature: one large photo + two stacked. */
 .sa-gal--feature .sa-gal__grid { display: grid; grid-template-columns: 1.45fr 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 24px; aspect-ratio: 1250 / 565; }

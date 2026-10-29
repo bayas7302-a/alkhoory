@@ -115,7 +115,7 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 628, 630, 650, 644, 649, 663, 652, 634, 662, 661, 674 ),
+			'gallery_media'  => array( 628, 630, 634, 644, 674, 650, 662, 661, 649, 652 ),
 			'gallery'        => array(), // None in the pack: the page keeps its current gallery.
 		),
 
@@ -161,7 +161,7 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 232, 304, 295, 291, 296, 299, 301, 327, 331, 336, 329, 334 ),
+			'gallery_media'  => array( 327, 232, 304, 331, 295, 291, 296, 299, 301, 336, 329 ),
 			'gallery'        => array(
 				array( '04_Media_Gallery/Crosstrek_exterior_coastroad_blue.jpg', 'Subaru Crosstrek in blue on a coastal road' ),
 				array( '04_Media_Gallery/Crosstrek_exterior_desert_blue.jpg', 'Subaru Crosstrek in blue driving through the desert' ),
@@ -223,7 +223,7 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 364, 382, 384, 385, 387, 389, 390, 391, 392, 426, 427, 428, 429, 430, 432, 433, 434, 435, 436, 437 ),
+			'gallery_media'  => array( 364, 387, 392, 390, 385, 382, 384, 389, 391 ),
 			'gallery'        => array(
 				array( '04_Media_Gallery/WRX_exterior_road_blue.jpg', 'Subaru WRX in blue on the road' ),
 				array( '04_Media_Gallery/WRX_exterior_road_purple.jpg', 'Subaru WRX in Galaxy Purple Pearl on the road' ),
@@ -270,7 +270,7 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 712, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726 ),
+			'gallery_media'  => array( 712, 717, 715, 716, 722, 721, 723, 718, 720, 724, 725, 726, 719 ),
 			'gallery'        => array(
 				array( '04_Media_Gallery/BRZ_photo_M0150_blue.jpg', 'Subaru BRZ in blue, front three-quarter view' ),
 				array( '04_Media_Gallery/BRZ_photo_M0120_red.jpg', 'Subaru BRZ in Ignition Red' ),

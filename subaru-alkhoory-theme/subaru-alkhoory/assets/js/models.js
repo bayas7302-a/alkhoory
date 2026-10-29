@@ -391,6 +391,8 @@
 		// The feature layout steps through every photo of the model (including those not shown as tiles);
 		// the masonry layout through the photos left by the current filter.
 		var all = root.classList.contains('sa-gal--feature');
+		// Our lightbox only: stop Elementor's own image lightbox opening on top of it.
+		$$('.sa-gal__link', root).forEach(function (a) { a.setAttribute('data-elementor-open-lightbox', 'no'); });
 		if (api && api.lightbox) {
 			root.addEventListener('click', function (e) {
 				var a = e.target.closest('.sa-gal__link');

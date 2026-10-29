@@ -72,7 +72,7 @@ $subaru_total = count( $subaru_items );
 					);
 				}
 				?>
-				<a class="sa-gal__link" href="<?php echo esc_url( $subaru_href ); ?>">
+				<a class="sa-gal__link" href="<?php echo esc_url( $subaru_href ); ?>" data-elementor-open-lightbox="no">
 					<?php echo $subaru_img; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php if ( $subaru_more ) : ?>
 						<span class="sa-gal__more" aria-hidden="true">+<?php echo (int) $subaru_more; ?></span>
