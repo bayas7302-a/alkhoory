@@ -125,9 +125,6 @@ final class Arosa_Gift_Wrap {
 						<span><?php esc_html_e( 'To someone else', 'arosa-gift-wrap' ); ?></span>
 					</label>
 				</div>
-				<p class="arosa-gift__hint" data-for="someone_else" <?php echo 'someone_else' === $s['recipient'] ? '' : 'hidden'; ?>>
-					<?php esc_html_e( 'Please enter the recipient’s details under “Ship to a different address”.', 'arosa-gift-wrap' ); ?>
-				</p>
 
 				<label class="arosa-gift__label" for="arosa_gift_message">
 					<?php
@@ -284,7 +281,7 @@ final class Arosa_Gift_Wrap {
 .arosa-gift__price{margin-inline-start:6px}
 .arosa-gift__desc{margin:10px 0 0!important;padding-inline-start:32px;line-height:1.5}
 .arosa-gift__panel{margin-top:22px;padding-top:22px;border-top:1px solid var(--ag-line)}
-.arosa-gift__panel[hidden],.arosa-gift__hint[hidden]{display:none!important}
+.arosa-gift__panel[hidden]{display:none!important}
 .arosa-gift__label{display:block;margin:0 0 10px!important}
 .arosa-gift__toggle{display:inline-flex;max-width:100%;gap:4px;padding:4px;background:#fff;border:1px solid var(--ag-line);border-radius:0;margin-bottom:22px}
 .arosa-gift__toggle label{flex:0 0 auto;margin:0!important;cursor:pointer;position:relative}
@@ -293,7 +290,6 @@ final class Arosa_Gift_Wrap {
 .arosa-gift__toggle label:hover span{background:var(--ag-soft)}
 .woocommerce-checkout .arosa-gift .arosa-gift__toggle input:checked+span{background:var(--ag-brown)!important;color:#fff!important}
 .arosa-gift__toggle input:focus-visible+span{outline:2px solid var(--ag-brown);outline-offset:1px}
-.arosa-gift__hint{margin:-12px 0 22px!important;opacity:.8}
 .woocommerce form.woocommerce-checkout .arosa-gift textarea{width:100%;min-height:120px;padding:14px 16px;border:1px solid var(--ag-line);resize:vertical;background:#fff}
 .woocommerce-checkout .arosa-gift .arosa-gift__count,.woocommerce-checkout .arosa-gift .arosa-gift__count *{font-size:13px!important;opacity:.75}
 .arosa-gift__count{margin:6px 0 0!important}
@@ -318,7 +314,6 @@ jQuery(function($){
 
   $wrap.on('change', 'input[name="arosa_gift_recipient"]', function(){
     var other = this.value === 'someone_else';
-    $wrap.find('.arosa-gift__hint').prop('hidden', !other);
     if ($ship.length && $ship.prop('checked') !== other) {
       $ship.prop('checked', other).trigger('change');
     }
