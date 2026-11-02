@@ -286,17 +286,18 @@ final class Arosa_Gift_Wrap {
 .arosa-gift__panel{margin-top:22px;padding-top:22px;border-top:1px solid var(--ag-line)}
 .arosa-gift__panel[hidden],.arosa-gift__hint[hidden]{display:none!important}
 .arosa-gift__label{display:block;margin:0 0 10px!important}
-.arosa-gift__toggle{display:flex;padding:4px;background:var(--ag-soft);border-radius:999px;margin-bottom:22px}
-.arosa-gift__toggle label{flex:1;margin:0!important;cursor:pointer;position:relative}
+.arosa-gift__toggle{display:inline-flex;max-width:100%;gap:4px;padding:4px;background:#fff;border:1px solid var(--ag-line);border-radius:999px;margin-bottom:22px}
+.arosa-gift__toggle label{flex:0 0 auto;margin:0!important;cursor:pointer;position:relative}
 .arosa-gift__toggle input{position:absolute;opacity:0;width:1px;height:1px}
-.arosa-gift__toggle span{display:block;text-align:center;white-space:nowrap;padding:11px 10px;border-radius:999px;transition:background .2s,box-shadow .2s}
-.arosa-gift__toggle input:checked+span{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.arosa-gift__toggle span{display:block;text-align:center;white-space:nowrap;padding:9px 26px;border-radius:999px;transition:background .2s,color .2s}
+.arosa-gift__toggle label:hover span{background:var(--ag-soft)}
+.woocommerce-checkout .arosa-gift .arosa-gift__toggle input:checked+span{background:var(--ag-brown)!important;color:#fff!important}
 .arosa-gift__toggle input:focus-visible+span{outline:2px solid var(--ag-brown);outline-offset:1px}
 .arosa-gift__hint{margin:-12px 0 22px!important;opacity:.8}
 .woocommerce form.woocommerce-checkout .arosa-gift textarea{width:100%;min-height:120px;padding:14px 16px;border:1px solid var(--ag-line);resize:vertical;background:#fff}
 .woocommerce-checkout .arosa-gift .arosa-gift__count,.woocommerce-checkout .arosa-gift .arosa-gift__count *{font-size:13px!important;opacity:.75}
 .arosa-gift__count{margin:6px 0 0!important}
-@media (max-width:767px){.arosa-gift{padding:20px 16px}.arosa-gift__desc{padding-inline-start:0}.woocommerce-checkout .arosa-gift .arosa-gift__toggle span{font-size:15px!important}}
+@media (max-width:767px){.arosa-gift{padding:20px 16px}.arosa-gift__desc{padding-inline-start:0}.woocommerce-checkout .arosa-gift .arosa-gift__toggle span{font-size:15px!important;padding:9px 18px}}
 CSS;
 	}
 
