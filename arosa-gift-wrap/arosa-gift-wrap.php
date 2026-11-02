@@ -286,10 +286,10 @@ final class Arosa_Gift_Wrap {
 .arosa-gift__panel{margin-top:22px;padding-top:22px;border-top:1px solid var(--ag-line)}
 .arosa-gift__panel[hidden],.arosa-gift__hint[hidden]{display:none!important}
 .arosa-gift__label{display:block;margin:0 0 10px!important}
-.arosa-gift__toggle{display:inline-flex;max-width:100%;gap:4px;padding:4px;background:#fff;border:1px solid var(--ag-line);border-radius:999px;margin-bottom:22px}
+.arosa-gift__toggle{display:inline-flex;max-width:100%;gap:4px;padding:4px;background:#fff;border:1px solid var(--ag-line);border-radius:0;margin-bottom:22px}
 .arosa-gift__toggle label{flex:0 0 auto;margin:0!important;cursor:pointer;position:relative}
 .arosa-gift__toggle input{position:absolute;opacity:0;width:1px;height:1px}
-.arosa-gift__toggle span{display:block;text-align:center;white-space:nowrap;padding:9px 26px;border-radius:999px;transition:background .2s,color .2s}
+.arosa-gift__toggle span{display:block;text-align:center;white-space:nowrap;padding:9px 26px;border-radius:0;transition:background .2s,color .2s}
 .arosa-gift__toggle label:hover span{background:var(--ag-soft)}
 .woocommerce-checkout .arosa-gift .arosa-gift__toggle input:checked+span{background:var(--ag-brown)!important;color:#fff!important}
 .arosa-gift__toggle input:focus-visible+span{outline:2px solid var(--ag-brown);outline-offset:1px}
