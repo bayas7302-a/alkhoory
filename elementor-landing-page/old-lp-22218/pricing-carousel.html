@@ -1,0 +1,61 @@
+<!-- Pricing carousel (old UAE landing page): the 4 plan cards sit in one row (container d634fa7).
+     Desktop shows plans A + B with plan C peeking; swipe/drag or use the arrows for C and D. -->
+<style id="shp-pricing">
+  .elementor-element-d634fa7{flex-wrap:nowrap !important;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    scrollbar-width:none;gap:28px !important;padding:40px 2px 30px !important;margin-top:-40px !important;cursor:grab;justify-content:flex-start !important;align-items:stretch !important;}
+  .elementor-element-d634fa7::-webkit-scrollbar{display:none;}
+  .elementor-element-d634fa7.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none;}
+  .elementor-element-d634fa7.is-dragging a{pointer-events:none;}
+  .elementor-element-d634fa7 > .outer-box{flex:0 0 41% !important;width:41% !important;max-width:none !important;scroll-snap-align:start;}
+  .elementor-element-d634fa7 > .outer-box .arrow-holder{display:none;}
+  .shp-pc{display:flex;align-items:center;gap:18px;width:100%;max-width:1250px;margin:6px auto 0;font-family:Poppins,sans-serif;}
+  .shp-pc__progress{position:relative;flex:1;height:4px;border-radius:4px;background:#f1d6d3;cursor:pointer;touch-action:none;}
+  .shp-pc__progress::before{content:"";position:absolute;inset:-10px 0;}
+  .shp-pc__thumb{position:absolute;top:0;left:0;height:100%;border-radius:4px;background:linear-gradient(90deg,#ee3523,#ff9389);}
+  .shp-pc__count{font-size:14px;font-weight:600;color:#54595f;white-space:nowrap;}
+  .shp-pc__count b{color:#ee3523;font-size:20px;}
+  .shp-pc__btn{width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:20px;color:#fff;
+    background:linear-gradient(47deg,#ee3523 0%,#ff9389 100%);box-shadow:-6px 10px 30px -8px rgba(255,92,92,.65);transition:transform .3s ease,opacity .3s ease;}
+  .shp-pc__btn:hover:not(:disabled){transform:scale(1.06);}
+  .shp-pc__btn:disabled{opacity:.35;cursor:default;}
+  @media (max-width:1024px){.elementor-element-d634fa7 > .outer-box{flex-basis:62% !important;width:62% !important;}}
+  @media (max-width:767px){.elementor-element-d634fa7{flex-direction:row !important;gap:16px !important;}
+    .elementor-element-d634fa7 > .outer-box{flex-basis:86% !important;width:86% !important;margin:0 !important;}
+    .shp-pc__btn{width:42px;height:42px;font-size:17px;}}
+</style>
+<script nowprocket>
+(function(){
+  function init(){
+    var row=document.querySelector('.elementor-element-d634fa7'); if(!row||row.dataset.pc) return; row.dataset.pc='1';
+    var cards=row.querySelectorAll(':scope > .outer-box'), count=cards.length; if(count<2) return;
+    var bar=document.createElement('div'); bar.className='shp-pc';
+    bar.innerHTML='<span class="shp-pc__count" aria-live="polite"><b class="shp-pc__cur">01</b> / '+('0'+count).slice(-2)+'</span>'+
+      '<div class="shp-pc__progress" role="scrollbar" aria-label="Scroll packages" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="shp-pc__thumb"></div></div>'+
+      '<button type="button" class="shp-pc__btn shp-pc__prev" aria-label="Previous package">&larr;</button>'+
+      '<button type="button" class="shp-pc__btn shp-pc__next" aria-label="Next package">&rarr;</button>';
+    row.parentNode.insertBefore(bar,row.nextSibling);
+    var prev=bar.querySelector('.shp-pc__prev'),next=bar.querySelector('.shp-pc__next'),cur=bar.querySelector('.shp-pc__cur'),prog=bar.querySelector('.shp-pc__progress'),thumb=bar.querySelector('.shp-pc__thumb');
+    function step(){return cards[0].getBoundingClientRect().width+(parseFloat(getComputedStyle(row).columnGap)||0);}
+    function max(){return Math.max(1,row.scrollWidth-row.clientWidth);}
+    function update(){var f=Math.min(1,row.scrollLeft/max()),w=Math.max(.15,row.clientWidth/row.scrollWidth);
+      thumb.style.width=(w*100)+'%';thumb.style.left=(f*(1-w)*100)+'%';prog.setAttribute('aria-valuenow',Math.round(f*100));
+      cur.textContent=('0'+Math.min(count,Math.round(row.scrollLeft/step())+1)).slice(-2);
+      prev.disabled=row.scrollLeft<4;next.disabled=row.scrollLeft>max()-4;}
+    prev.addEventListener('click',function(){row.scrollBy({left:-step(),behavior:'smooth'});});
+    next.addEventListener('click',function(){row.scrollBy({left:step(),behavior:'smooth'});});
+    var drag=null,moved=false;
+    row.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;drag={x:e.clientX,s:row.scrollLeft};moved=false;});
+    window.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x;if(!moved&&Math.abs(dx)>5){moved=true;row.classList.add('is-dragging');}if(moved)row.scrollLeft=drag.s-dx;});
+    window.addEventListener('pointerup',function(){if(!drag)return;drag=null;if(moved){row.classList.remove('is-dragging');row.scrollTo({left:Math.round(row.scrollLeft/step())*step(),behavior:'smooth'});}});
+    row.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
+    row.addEventListener('dragstart',function(e){e.preventDefault();});
+    var sb=false;function fr(x){var r=prog.getBoundingClientRect();return Math.max(0,Math.min(1,(x-r.left)/r.width));}
+    prog.addEventListener('pointerdown',function(e){sb=true;prog.setPointerCapture(e.pointerId);row.style.scrollBehavior='auto';row.scrollLeft=fr(e.clientX)*max();});
+    prog.addEventListener('pointermove',function(e){if(sb)row.scrollLeft=fr(e.clientX)*max();});
+    prog.addEventListener('pointerup',function(){sb=false;row.style.scrollBehavior='';});
+    var raf;row.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(update);},{passive:true});
+    window.addEventListener('resize',update);update();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
