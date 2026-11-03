@@ -1,0 +1,1 @@
+- Stats strip (container 77209dc): the "25% Upfront Payment" counter (1b6d0b4) was removed; 4 stats remain.
