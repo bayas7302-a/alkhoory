@@ -1,5 +1,5 @@
 <!-- Pricing carousel (old UAE landing page): the 4 plan cards sit in one row (container d634fa7).
-     Desktop shows plans A + B with plan C peeking; swipe/drag or use the arrows for C and D. -->
+     Desktop shows plans A + B with plan C peeking; the arrows/counter/progress bar sit above the cards. Mobile stacks A-D. -->
 <style id="shp-pricing">
   .elementor-element-d634fa7{flex-wrap:nowrap !important;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;
     scrollbar-width:none;gap:28px !important;padding:44px 40px 64px !important;margin:-44px -40px -34px !important;width:calc(100% + 80px) !important;max-width:none !important;scroll-padding:0 40px;cursor:grab;justify-content:flex-start !important;align-items:stretch !important;}
@@ -7,7 +7,7 @@
   .elementor-element-d634fa7.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none;}
   .elementor-element-d634fa7.is-dragging a{pointer-events:none;}
   .elementor-element-d634fa7 > .outer-box{flex:0 0 calc((100% - 56px) / 2.8) !important;width:calc((100% - 56px) / 2.8) !important;max-width:none !important;scroll-snap-align:start;}
-  .shp-pc{display:flex;align-items:center;gap:18px;width:100%;max-width:1250px;margin:6px auto 0;font-family:Poppins,sans-serif;}
+  .shp-pc{display:flex;align-items:center;gap:18px;width:100%;max-width:1250px;margin:0 auto 56px;position:relative;z-index:4;font-family:Poppins,sans-serif;}
   .shp-pc__progress{position:relative;flex:1;height:4px;border-radius:4px;background:#f1d6d3;cursor:pointer;touch-action:none;}
   .shp-pc__progress::before{content:"";position:absolute;inset:-10px 0;}
   .shp-pc__thumb{position:absolute;top:0;left:0;height:100%;border-radius:4px;background:linear-gradient(90deg,#ee3523,#ff9389);}
@@ -33,7 +33,7 @@
       '<div class="shp-pc__progress" role="scrollbar" aria-label="Scroll packages" aria-orientation="horizontal" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="shp-pc__thumb"></div></div>'+
       '<button type="button" class="shp-pc__btn shp-pc__prev" aria-label="Previous package">&larr;</button>'+
       '<button type="button" class="shp-pc__btn shp-pc__next" aria-label="Next package">&rarr;</button>';
-    row.parentNode.insertBefore(bar,row.nextSibling);
+    row.parentNode.insertBefore(bar,row); /* controls above the cards so the slider is obvious */
     var prev=bar.querySelector('.shp-pc__prev'),next=bar.querySelector('.shp-pc__next'),cur=bar.querySelector('.shp-pc__cur'),prog=bar.querySelector('.shp-pc__progress'),thumb=bar.querySelector('.shp-pc__thumb');
     function step(){return cards[0].getBoundingClientRect().width+(parseFloat(getComputedStyle(row).columnGap)||0);}
     function max(){return Math.max(1,row.scrollWidth-row.clientWidth);}
