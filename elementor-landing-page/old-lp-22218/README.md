@@ -1,1 +1,5 @@
 - Stats strip (container 77209dc): the "25% Upfront Payment" counter (1b6d0b4) was removed; 4 stats remain.
+- Copy no longer promises "no advance payment" (we now take an advance); the only currency used is AED:
+  - Why-us intro (d1c4687) and card 01 "Zero Guesswork" (4f006b1, 6baa74d, 812eb5c)
+  - Our approach card 04 "You Review. We Refine. Then We Launch." (f998f9e, 44529f2)
+  - Closing CTA "Your website. Clear plan. Fixed price." (942c627, eac54ac)
