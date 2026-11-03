@@ -4,4 +4,4 @@
   - Our approach card 04 "You Review. We Refine. Then We Launch." (f998f9e, 44529f2)
   - Closing CTA "Your website. Clear plan. Fixed price." (942c627, eac54ac)
 - Plan "Example Websites" lists (icon-list widgets 29c5c8b / 69bc97a / da30fd9 / fe78f04) updated to the client's
-  current projects; every link opens in a new tab.
+  current projects; every link opens in a new tab. E-commerce keeps shop-zavi, slatepalm, oryxhill plus try-b, kipp, sunshinessweettooth.
