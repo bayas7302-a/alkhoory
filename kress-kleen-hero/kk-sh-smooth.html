@@ -4,7 +4,11 @@
   Replaces the original  <script id="kk-sh-js"> … </script>  block that the hero
   shortcode prints (child theme). Paste this whole file in its place.
   See README.md in this folder.
+  Uses GSAP + ScrollTrigger (free, from cdnjs) for the scroll smoothing; if they
+  fail to load, the script falls back to its own smoothing.
 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style id="kk-sh-smooth-css">
 /* faster, softer card hand-over so the text keeps up with the video */
 .kk-sh .kk-sh__card {
@@ -54,18 +58,27 @@
 
     var DUR   = parseFloat(root.getAttribute('data-duration')) || 35;
     var INTRO = parseFloat(root.getAttribute('data-intro')) || 0;
-    var PERVH = parseFloat(root.getAttribute('data-pervh')) || 14;
-    var TAU   = 0.16;   // scroll smoothing in seconds (higher = softer, lazier)
+    /* SPEED: how much scrolling (in % of the screen height) one second of video
+       takes. Higher = slower video. The original was 14. */
+    var PERVH = 24;
+    var SCRUB = 1.2;    // GSAP smoothing: seconds the video takes to catch up with the scroll
+    var TAU   = 0.35;   // same idea, used only if GSAP did not load
+    var MAXRATE = 2;    // never play faster than 2x while catching up
     var HYS   = 0.08;   // seconds of hysteresis so a card never flickers on a boundary
 
     root.classList.add('is-ready');
 
     var hasFrame = false, canPlay = true, playPending = false;
     var tgt = 0, want = 0, lastTs = 0, raf = 0, inView = true, active = 0, lastS = -1;
+    var gsap = window.gsap, ST = window.ScrollTrigger, useGsap = !!(gsap && ST);
+    var proxy = { p: 0 };   // scroll progress 0..1, smoothed by GSAP
 
     function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
     function introFrac() { return INTRO / (INTRO + DUR * PERVH); }
-    function setLen() { root.style.setProperty('--kk-sh-len', (100 + INTRO + DUR * PERVH) + 'vh'); }
+    function setLen() {
+        root.style.setProperty('--kk-sh-len', (100 + INTRO + DUR * PERVH) + 'vh');
+        if (useGsap) { ST.refresh(); }
+    }
 
     video.muted = true;
     video.playsInline = true;
@@ -147,7 +160,7 @@
             return false;
         }
         if (canPlay && diff > 0 && diff < 1.5) {
-            var rate = clamp(diff / 0.22, 0.25, 4);
+            var rate = clamp(diff / 0.3, 0.15, MAXRATE);
             if (Math.abs(video.playbackRate - rate) > 0.05) { video.playbackRate = rate; }
             play();
         } else {
@@ -161,6 +174,11 @@
         return true;
     }
 
+    function timeAt(s) {
+        var f = introFrac();
+        return s <= f ? 0 : ((s - f) / (1 - f)) * DUR;
+    }
+
     function frame(ts) {
         raf = 0;
         var dt = lastTs ? clamp((ts - lastTs) / 1000, 0, 0.1) : 1 / 60;
@@ -168,12 +186,19 @@
 
         var r     = track.getBoundingClientRect();
         var total = Math.max(1, track.offsetHeight - stick.offsetHeight);
-        var s     = clamp(-r.top / total, 0, 1);
+        var raw   = clamp(-r.top / total, 0, 1);
         var f     = introFrac();
+        var s;
 
-        tgt = s <= f ? 0 : ((s - f) / (1 - f)) * DUR;
-        want += (tgt - want) * (1 - Math.exp(-dt / TAU));   // same feel at 60/120/144 Hz
-        if (Math.abs(tgt - want) < 0.002) { want = tgt; }
+        tgt = timeAt(raw);
+        if (useGsap) {
+            s = proxy.p;                                      // GSAP-smoothed progress
+            want = timeAt(s);
+        } else {
+            want += (tgt - want) * (1 - Math.exp(-dt / TAU)); // same feel at 60/120/144 Hz
+            if (Math.abs(tgt - want) < 0.002) { want = tgt; }
+            s = raw;
+        }
 
         var moving = driveVideo();
 
@@ -222,6 +247,22 @@
             window.scrollTo({ top: Math.round(top), behavior: 'smooth' });
         });
     });
+
+    if (useGsap) {
+        gsap.registerPlugin(ST);
+        gsap.to(proxy, {
+            p: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: track,
+                start: 'top top',
+                end: function () { return '+=' + Math.max(1, track.offsetHeight - stick.offsetHeight); },
+                scrub: SCRUB,
+                invalidateOnRefresh: true
+            },
+            onUpdate: kick
+        });
+    }
 
     setLen();
     kick();
