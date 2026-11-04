@@ -1,0 +1,229 @@
+<!--
+  Kress Kleen home hero ("kk-sh" scroll video) – smooth version.
+
+  Replaces the original  <script id="kk-sh-js"> … </script>  block that the hero
+  shortcode prints (child theme). Paste this whole file in its place.
+  See README.md in this folder.
+-->
+<style id="kk-sh-smooth-css">
+/* faster, softer card hand-over so the text keeps up with the video */
+.kk-sh .kk-sh__card {
+  transition: opacity 0.35s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.6s;
+}
+.kk-sh .kk-sh__card.is-active {
+  transition: opacity 0.45s ease 0.1s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, visibility 0s;
+}
+.kk-sh .kk-sh__card.is-leaving {
+  transform: translate3d(0, -14px, 0);
+  transition: opacity 0.25s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+}
+.kk-sh .kk-sh__card.is-active > :nth-child(1) { transition-delay: 0.14s; }
+.kk-sh .kk-sh__card.is-active > :nth-child(2) { transition-delay: 0.20s; }
+.kk-sh .kk-sh__card.is-active > :nth-child(3) { transition-delay: 0.26s; }
+.kk-sh .kk-sh__card.is-active > :nth-child(4) { transition-delay: 0.32s; }
+.kk-sh .kk-sh__dot { transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease; }
+.kk-sh .kk-sh__stick video.kk-sh__video { transform: translateZ(0); backface-visibility: hidden; }
+.kk-sh .kk-sh__bar i { will-change: transform; }
+</style>
+<script id="kk-sh-js">
+(function () {
+    var root = document.getElementById('kk-sh');
+    if (!root || root.kkShReady) { return; }
+    root.kkShReady = true;
+
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var editor = document.body.classList.contains('elementor-editor-active') || /elementor-preview/.test(window.location.search);
+    if (reduce || editor) { return; }   // static banner: first card + image only
+
+    var track  = root.querySelector('.kk-sh__track');
+    var stick  = root.querySelector('.kk-sh__stick');
+    var video  = root.querySelector('.kk-sh__video');
+    var poster = root.querySelector('.kk-sh__poster');
+    var bar    = root.querySelector('.kk-sh__bar i');
+    var cards  = [].slice.call(root.querySelectorAll('.kk-sh__card'));
+    var dots   = [].slice.call(root.querySelectorAll('.kk-sh__dot'));
+
+    /* Card start times (seconds), matched to the scene changes in
+       kress-kleen-hero-scrub.mp4. Each card appears in the middle of the
+       wipe into its product. If the video changes, update these numbers
+       (or remove this list to use the shortcode's data-times attribute). */
+    var TIMES = [0, 1.9, 4.1, 9.1, 11.0, 13.0, 16.6, 19.7, 22.6, 25.7, 28.8];
+    if (TIMES.length !== cards.length) {
+        try { TIMES = JSON.parse(root.getAttribute('data-times')); } catch (e) {}
+    }
+
+    var DUR   = parseFloat(root.getAttribute('data-duration')) || 35;
+    var INTRO = parseFloat(root.getAttribute('data-intro')) || 0;
+    var PERVH = parseFloat(root.getAttribute('data-pervh')) || 14;
+    var TAU   = 0.16;   // scroll smoothing in seconds (higher = softer, lazier)
+    var HYS   = 0.08;   // seconds of hysteresis so a card never flickers on a boundary
+
+    root.classList.add('is-ready');
+
+    var hasFrame = false, canPlay = true, playPending = false;
+    var tgt = 0, want = 0, lastTs = 0, raf = 0, inView = true, active = 0, lastS = -1;
+
+    function clamp(v, a, b) { return v < a ? a : (v > b ? b : v); }
+    function introFrac() { return INTRO / (INTRO + DUR * PERVH); }
+    function setLen() { root.style.setProperty('--kk-sh-len', (100 + INTRO + DUR * PERVH) + 'vh'); }
+
+    video.muted = true;
+    video.playsInline = true;
+    video.addEventListener('loadedmetadata', function () {
+        if (isFinite(video.duration) && video.duration > 1) { DUR = video.duration; setLen(); kick(); }
+    });
+    video.addEventListener('loadeddata', function () { hasFrame = true; kick(); });
+    video.addEventListener('seeked', kick);
+
+    // Phones only let a video be controlled after it has been "started" once
+    function unlock() {
+        var p;
+        try { p = video.play(); } catch (e) {}
+        if (p && p.then) { p.then(function () { if (Math.abs(want - video.currentTime) < 0.05) { video.pause(); } }).catch(function () {}); }
+        else { video.pause(); }
+    }
+    unlock();
+    ['touchstart', 'pointerdown', 'wheel', 'keydown'].forEach(function (evt) {
+        window.addEventListener(evt, function once() {
+            window.removeEventListener(evt, once);
+            canPlay = true;
+            unlock();
+        }, { passive: true });
+    });
+
+    function play() {
+        if (playPending || !video.paused) { return; }
+        var p;
+        playPending = true;
+        try { p = video.play(); } catch (e) { p = null; }
+        if (p && p.then) {
+            p.then(function () { playPending = false; })
+             .catch(function () { playPending = false; canPlay = false; });   // e.g. iOS low power mode: fall back to seeking
+        } else {
+            playPending = false;
+        }
+    }
+
+    function setChapter(i) {
+        var prev = active;
+        active = i;
+        cards.forEach(function (c, k) {
+            if (k === i) {
+                c.classList.remove('is-leaving');
+                c.classList.add('is-active');
+            } else if (k === prev) {
+                c.classList.remove('is-active');
+                c.classList.add('is-leaving');
+                setTimeout(function () { if (active !== k) { c.classList.remove('is-leaving'); } }, 450);
+            } else {
+                c.classList.remove('is-active', 'is-leaving');
+            }
+        });
+        dots.forEach(function (d, k) {
+            d.classList.toggle('is-active', k === i);
+            d.setAttribute('aria-current', k === i ? 'true' : 'false');
+        });
+    }
+
+    function chapterAt(t) {
+        var idx = 0;
+        for (var i = 0; i < TIMES.length; i++) { if (t >= TIMES[i]) { idx = i; } }
+        // only step back once we are clearly before the current card's start
+        if (idx < active && t > TIMES[active] - HYS) { idx = active; }
+        return idx;
+    }
+
+    // Moves the video towards `want`. Small forward steps are *played* (with the
+    // speed following the scroll), which decodes frames continuously and looks
+    // like normal playback. Backward steps and big jumps fall back to seeking.
+    function driveVideo() {
+        if (!hasFrame) { return false; }
+        var vt   = video.currentTime;
+        var diff = want - vt;
+        var end  = DUR - 0.05;
+
+        if (Math.abs(diff) < 0.03 || (diff > 0 && vt >= end)) {
+            if (!video.paused) { video.pause(); }
+            return false;
+        }
+        if (canPlay && diff > 0 && diff < 1.5) {
+            var rate = clamp(diff / 0.22, 0.25, 4);
+            if (Math.abs(video.playbackRate - rate) > 0.05) { video.playbackRate = rate; }
+            play();
+        } else {
+            if (!video.paused) { video.pause(); }
+            if (!video.seeking) {
+                var to = Math.min(want, end);
+                if (video.fastSeek && Math.abs(diff) > 2) { video.fastSeek(to); }
+                else { video.currentTime = to; }
+            }
+        }
+        return true;
+    }
+
+    function frame(ts) {
+        raf = 0;
+        var dt = lastTs ? clamp((ts - lastTs) / 1000, 0, 0.1) : 1 / 60;
+        lastTs = ts;
+
+        var r     = track.getBoundingClientRect();
+        var total = Math.max(1, track.offsetHeight - stick.offsetHeight);
+        var s     = clamp(-r.top / total, 0, 1);
+        var f     = introFrac();
+
+        tgt = s <= f ? 0 : ((s - f) / (1 - f)) * DUR;
+        want += (tgt - want) * (1 - Math.exp(-dt / TAU));   // same feel at 60/120/144 Hz
+        if (Math.abs(tgt - want) < 0.002) { want = tgt; }
+
+        var moving = driveVideo();
+
+        // everything on screen follows the frame that is actually shown
+        var shown = hasFrame ? video.currentTime : want;
+
+        var fade = hasFrame ? 1 - Math.min(1, shown / 1.2) : 1;
+        var zoom = 1 + (f > 0 ? Math.min(s, f) / f : 0) * 0.05;
+        poster.style.opacity = fade.toFixed(3);
+        poster.style.transform = 'scale(' + zoom.toFixed(4) + ')';
+        poster.style.visibility = fade <= 0.001 ? 'hidden' : 'visible';
+
+        var idx = chapterAt(shown);
+        if (idx !== active) { setChapter(idx); }
+
+        if (s !== lastS) {
+            bar.style.transform = 'scaleX(' + s.toFixed(4) + ')';
+            root.classList.toggle('is-scrolled', s > 0.004);
+            lastS = s;
+        }
+
+        if (inView || moving || Math.abs(tgt - want) > 0.002) { raf = requestAnimationFrame(frame); }
+        else { lastTs = 0; if (!video.paused) { video.pause(); } }
+    }
+
+    function kick() { if (!raf) { raf = requestAnimationFrame(frame); } }
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            inView = entries[0].isIntersecting;
+            if (inView) { kick(); }
+        }, { rootMargin: '100px 0px' }).observe(track);
+    }
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', kick);
+    window.addEventListener('pageshow', kick);
+
+    // chapter dots scroll to the middle of their product scene
+    dots.forEach(function (d, k) {
+        d.addEventListener('click', function () {
+            var total = Math.max(1, track.offsetHeight - stick.offsetHeight);
+            var f = introFrac();
+            var t = k === 0 ? 0 : Math.min(DUR, TIMES[k] + 0.25);
+            var s = k === 0 ? 0 : f + (t / DUR) * (1 - f);
+            var top = track.getBoundingClientRect().top + window.pageYOffset + s * total;
+            window.scrollTo({ top: Math.round(top), behavior: 'smooth' });
+        });
+    });
+
+    setLen();
+    kick();
+})();
+</script>
