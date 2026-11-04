@@ -1,0 +1,44 @@
+<!-- Cross-browser / Safari (iOS + macOS) hardening for the old UAE landing page.
+     1. Plan prices: "STARTING FROM" / number / AED laid out with flexbox instead of <sup> + line-height,
+        so AED never rides up onto the "STARTING FROM" line (it did on phones, in every engine).
+     2. Gradient text (#ttext, .gra-txt-a, .gra-txt-c): Safari does not paint background-clip:text into
+        nested <b>/<span> children, so those children carry the gradient themselves.
+     3. Contact form: the hidden questions are also hidden by class (for Safari < 15.4, which lacks :has()).
+     4. Laptop screens in the portfolio carousel keep their 16:10 shape where aspect-ratio is unsupported. -->
+<style id="sh-safari">
+  .elementor-element-db067b7 .elementor-heading-title,
+  .elementor-element-1b6a1c1 .elementor-heading-title,
+  .elementor-element-7af2d0f .elementor-heading-title,
+  .elementor-element-b4302a5 .elementor-heading-title{display:flex !important;flex-wrap:wrap;align-items:flex-start;line-height:1 !important;}
+  .elementor-element-db067b7 .elementor-heading-title > span:first-child,
+  .elementor-element-1b6a1c1 .elementor-heading-title > span:first-child,
+  .elementor-element-7af2d0f .elementor-heading-title > span:first-child,
+  .elementor-element-b4302a5 .elementor-heading-title > span:first-child{flex:0 0 100%;margin-bottom:6px;}
+  .elementor-element-db067b7 .elementor-heading-title > span + span,
+  .elementor-element-1b6a1c1 .elementor-heading-title > span + span,
+  .elementor-element-7af2d0f .elementor-heading-title > span + span,
+  .elementor-element-b4302a5 .elementor-heading-title > span + span{line-height:1 !important;white-space:nowrap;}
+  .elementor-element-db067b7 #rupee-sym, .elementor-element-1b6a1c1 #rupee-sym,
+  .elementor-element-7af2d0f #rupee-sym, .elementor-element-b4302a5 #rupee-sym{vertical-align:top;position:static;font-size:30px;line-height:1 !important;margin:2px 0 0 10px;}
+  @media (max-width:767px){
+    .elementor-element-db067b7 #rupee-sym, .elementor-element-1b6a1c1 #rupee-sym,
+    .elementor-element-7af2d0f #rupee-sym, .elementor-element-b4302a5 #rupee-sym{font-size:26px;}
+  }
+  #ttext, .gra-txt-a, .gra-txt-c{-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+  .gra-txt-a *, .gra-txt-c *, #ttext *{background:inherit;background-size:inherit;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:inherit;}
+  .elementor-element-9df76f9 .sh-hide{display:none !important;}
+  @supports not (aspect-ratio: 16 / 10){
+    .shp__screen{height:0;padding-top:62.5%;}
+  }
+</style>
+<script nowprocket>
+(function(){
+  function go(){
+    var slot=document.querySelector('.elementor-element-9df76f9'); if(!slot) return;
+    Array.prototype.forEach.call(slot.querySelectorAll('.scf-field'),function(f){
+      if(f.querySelector('.scf-pills, [name="your-site"]')) f.classList.add('sh-hide');
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',go); else go();
+})();
+</script>

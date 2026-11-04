@@ -8,3 +8,6 @@
 - Why-us cards: red "… your advantage" taglines (divider widgets 812eb5c, 141feb9, 75b4e11) removed.
 - "Trusted by 300+ CLIENTS Around UAE" (bcaa115, was "Around Globe").
 - H1 keyword "website design company" now appears in 4 paragraphs: 174c6dd, 23a530c, d1c4687, eac54ac.
+- safari-fixes.html (HTML widget "Safari fixes" in the pricing section): price block "STARTING FROM / number / AED"
+  laid out with flexbox (AED used to ride up onto the STARTING FROM line on phones), gradient text painted on nested
+  <b>/<span> for Safari, :has() fallback for the hidden form questions, aspect-ratio fallback for the laptop screens.
