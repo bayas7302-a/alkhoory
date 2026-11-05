@@ -18,7 +18,48 @@
         update();
     }
 
-    /* ---------- 2. catalogue filters: accordion (desktop) + drawer (tablet / mobile) ---------- */
+    /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
+       The page animation starts the reveal when a picture scrolls into view, but these
+       pictures are lazy-loaded, so only the first was ready in time. Here each one is
+       downloaded early and revealed only once it is decoded. */
+    var hl = [].slice.call(document.querySelectorAll('.kk-highlight'));
+    if (hl.length && html.classList.contains('kk-anim') && 'IntersectionObserver' in window) {
+        var ready = function (img) {
+            return new Promise(function (resolve) {
+                if (!img) { resolve(); return; }
+                var done = false, ok = function () { if (!done) { done = true; resolve(); } };
+                var dec = function () { if (img.decode) { img.decode().then(ok, ok); } else { ok(); } };
+                if (img.complete && img.naturalWidth > 0) { dec(); } else {
+                    img.addEventListener('load', dec, { once: true });
+                    img.addEventListener('error', ok, { once: true });
+                }
+                setTimeout(ok, 5000);
+            });
+        };
+        var hio = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) { return; }
+                var el = e.target;
+                hio.unobserve(el);
+                ready(el.querySelector('img')).then(function () {
+                    requestAnimationFrame(function () {
+                        el.classList.add('kk-in');
+                        setTimeout(function () { el.classList.add('kk-done'); el.classList.remove('kk-in'); }, 2100);
+                    });
+                });
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+        hl.forEach(function (el) {
+            if (el.classList.contains('kk-done')) { return; }
+            el.__kkRevealed = true;   // the general page animation leaves these to us
+            el.__kkDone = true;
+            var img = el.querySelector('img');
+            if (img) { img.loading = 'eager'; img.decoding = 'async'; }
+            hio.observe(el);
+        });
+    }
+
+    /* ---------- 3. catalogue filters: accordion (desktop) + drawer (tablet / mobile) ---------- */
     var side = document.querySelector('.kk-cat__side');
     if (!side) { return; }
 
