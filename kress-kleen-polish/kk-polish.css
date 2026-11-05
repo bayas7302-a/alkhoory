@@ -501,8 +501,10 @@ body .elementor-153 .elementor-element.elementor-element-092cb7a .elementor-head
 }
 
 /* =====================================================================
-   9. CATALOGUE – banner, filters (accordion + mobile drawer), grid
+   9. CATALOGUE – banner, filters (phones: accordion in a slide-up drawer), grid
    ===================================================================== */
+/* accordion: phones only – tablet / desktop keep the original sidebar */
+@media (max-width: 767px) {
 body .kk-cat__group { margin-bottom: 0 !important; border-bottom: 1px solid rgba(0, 97, 61, 0.14); }
 body .kk-cat__group:last-child { border-bottom: 0; }
 body .kk-cat__side .kp-acc__btn {
@@ -567,14 +569,18 @@ body .kk-cat__side .kk-cat__link.is-active { color: var(--kp-orange) !important;
 @media (hover: hover) {
   body .kk-cat__side .kk-cat__link:hover { padding-left: 4px; }
 }
+}
 
-/* filter bar + drawer (tablet / mobile) */
+/* filter bar + drawer (phones only) */
 body .kp-filterbar { display: none; }
 body .kp-drawer__head, body .kp-drawer__foot { display: none; }
 
 @media (max-width: 1024px) {
   body .kk-hero { padding-top: 56px !important; padding-bottom: 40px !important; }
   body .kk-hero .kk-hero__crumbs { font-size: 11px; margin-bottom: 8px; }
+}
+
+@media (max-width: 767px) {
 
   body .kp-filterbar {
     position: sticky;

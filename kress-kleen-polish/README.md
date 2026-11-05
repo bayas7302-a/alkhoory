@@ -19,7 +19,7 @@ One snippet for the child theme's `functions.php` that fixes layout, typography 
 | Footer (tablet/mobile) | Everything centred: logo, Quick Links row, full-width buttons of equal height, and the copyright under a thin divider. |
 | Who We Are | Rebuilt for tablet and mobile. Headings scaled (30, 22, 15px), the broom image fits the screen, the 4 feature cards form a 2 × 2 grid, the dark statement boxes are tighter, "No over-engineering" fits the screen, "Guaranteed…" is 54px. The page no longer scrolls sideways (it was 679px wide on phones). |
 | Where to buy | Banner, "Find Stores Near You" and the brand text scaled for mobile. |
-| Catalogue filters | **Desktop:** each group (Solutions / Categories / Areas) is an accordion with an item count. The group with the current filter opens automatically. **Tablet/mobile:** a sticky "Filter" button and a "Showing: Brooms" chip above the products. The button opens a slide-up drawer with the same accordions plus "Show all" and "Done". The drawer closes on Esc or a tap outside, and focus returns to the button. Products show 2 per row on mobile. |
+| Catalogue filters | **Phones only (≤767px):** a sticky "Filter" button and a "Showing: Brooms" chip above the products open a slide-up drawer. Inside it, Solutions / Categories / Areas are accordions with item counts (the current group is open), plus "Show all" and "Done". The drawer closes on Esc or a tap outside, and focus returns to the button. Products show 2 per row. **Tablet and desktop keep the original sidebar unchanged**, and resizing from phone to desktop restores it exactly. |
 | Whole site | No sideways scrolling on any page (home, Who We Are and Catalogue used to scroll). Image widgets clip their zoom effects. |
 
 ## Tested
