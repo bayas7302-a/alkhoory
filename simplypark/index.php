@@ -17,15 +17,14 @@ require __DIR__ . '/includes/header.php';
             </div>
 
             <div class="hero-timeline">
-                <?php foreach ($hero['items'] as $i => $item): ?>
-                <?php if ($i > 0): ?>
-                <div class="hero-line reveal" data-anim="slide-from-top">
-                    <img src="assets/img/line-1.png" width="25" height="464" alt="">
-                </div>
-                <?php endif; ?>
+                <?php $last = count($hero['items']) - 1; foreach ($hero['items'] as $i => $item): ?>
                 <div class="hero-item reveal<?= $i === 0 ? ' hero-item-slow' : '' ?>" data-anim="fade-in-down">
                     <div class="hero-item-icon">
                         <img src="<?= e($item['icon']) ?>" width="150" height="149" alt="" loading="<?= $i === 0 ? 'eager' : 'lazy' ?>">
+                        <?php if ($i < $last): ?>
+                        <!-- connector: always runs from this icon to the next one -->
+                        <span class="hero-line reveal" data-anim="slide-from-top" aria-hidden="true"><span></span></span>
+                        <?php endif; ?>
                     </div>
                     <div class="hero-item-content">
                         <h4 class="hero-item-title<?= $item['dark'] ? ' is-dark' : '' ?>"><?= e($item['title']) ?></h4>
@@ -73,7 +72,7 @@ require __DIR__ . '/includes/header.php';
 
     <!-- ===== VIDEO ===== -->
     <section class="video-section">
-        <video class="site-video" src="<?= e($video) ?>" autoplay loop muted playsinline controls controlslist="nodownload" preload="metadata"></video>
+        <video class="site-video" src="<?= e($video) ?>" autoplay loop muted playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
     </section>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

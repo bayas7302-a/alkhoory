@@ -142,8 +142,15 @@ button { font: inherit; }
     display: flex;
     flex-direction: column;
 }
-.hero-item { display: flex; align-items: flex-start; text-align: left; }
-.hero-item-icon { flex-shrink: 0; padding-right: 30px; }
+.hero-item { display: flex; align-items: stretch; text-align: left; }
+.hero-item-icon {
+    flex-shrink: 0;
+    width: 160px;            /* 130px icon + 30px gap */
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .hero-item-icon img { width: 130px; border-radius: 50%; }
 .hero-item-content { flex: 1; min-width: 0; }
 .hero-item-title {
@@ -157,16 +164,30 @@ button { font: inherit; }
     font: 500 16px/24px var(--font);
     color: var(--white);
 }
-.hero-line { width: 17%; max-width: 17%; text-align: center; }
-.hero-line img { width: 3%; display: inline-block; vertical-align: top; }
+/* connector line: grows to fill the space between the two icons (81px on desktop) */
+.hero-line { flex: 1 0 81px; width: 4.36px; display: block; }
+.hero-line > span {
+    display: block;
+    height: 100%;
+    background: url("../img/line-1.png") center / 100% 100% no-repeat;
+}
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-logo { width: 100%; }
+    .hero-logo img { max-width: 320px; }
+    .hero-timeline { width: 100%; max-width: 720px; margin: 20px auto 0; }
+}
 @media (max-width: 767px) {
     .hero-heading-wrap, .hero-logo, .hero-timeline { width: 100%; }
-    .hero-heading { font-size: 35px; line-height: 40px; margin: 7px auto 21px; max-width: 250px; }
+    .hero-logo img { max-width: 300px; }
+    .hero-heading { font-size: 35px; line-height: 40px; margin: 7px auto 21px; }
     .hero-item { flex-direction: column; align-items: center; text-align: center; }
-    .hero-item-icon { padding-right: 0; }
+    .hero-item-icon { padding-right: 0; width: auto; }
     .hero-item-title { font-size: 25px; margin-top: 6px; }
     .hero-line { display: none; }
+}
+@media (max-width: 480px) {
+    .hero-heading { max-width: 250px; }
 }
 
 /* ==========================================================================
@@ -387,8 +408,8 @@ button { font: inherit; }
 .footer-copy { padding: 10px; text-align: right; font-size: 12px; line-height: 18px; }
 
 @media (max-width: 1024px) {
-    .footer-logo { max-width: 29%; width: 100%; }
-    .footer-col { width: 50%; }
+    .footer-logo { max-width: 220px; width: 100%; }
+    .footer-col { width: 33.333%; }
     .footer-col-empty { display: none; }
 }
 @media (max-width: 767px) {

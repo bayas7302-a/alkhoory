@@ -34,22 +34,21 @@
             </div>
 
             <div class="hero-timeline">
-                                                <div class="hero-item reveal hero-item-slow" data-anim="fade-in-down">
+                                <div class="hero-item reveal hero-item-slow" data-anim="fade-in-down">
                     <div class="hero-item-icon">
                         <img src="assets/img/icon1.png" width="150" height="149" alt="" loading="eager">
-                    </div>
+                                                <!-- connector: always runs from this icon to the next one -->
+                        <span class="hero-line reveal" data-anim="slide-from-top" aria-hidden="true"><span></span></span>
+                                            </div>
                     <div class="hero-item-content">
                         <h4 class="hero-item-title is-dark">HISTORICALLY</h4>
                         <p>Parking Systems were adopted by facilities experiencing a considerable flow of traffic and looking for ways to manage this traffic with possibility of generating revenue.</p>
                     </div>
                 </div>
-                                                <div class="hero-line reveal" data-anim="slide-from-top">
-                    <img src="assets/img/line-1.png" width="25" height="464" alt="">
-                </div>
                                 <div class="hero-item reveal" data-anim="fade-in-down">
                     <div class="hero-item-icon">
                         <img src="assets/img/icon2.png" width="150" height="149" alt="" loading="lazy">
-                    </div>
+                                            </div>
                     <div class="hero-item-content">
                         <h4 class="hero-item-title">TODAY,</h4>
                         <p>Facility Parking is seeing more challenges than just traffic management and revenue generation.</p>
@@ -213,7 +212,7 @@
     
     <!-- ===== VIDEO ===== -->
     <section class="video-section">
-        <video class="site-video" src="assets/video/Final-Clip-SP-1.mp4" autoplay loop muted playsinline controls controlslist="nodownload" preload="metadata"></video>
+        <video class="site-video" src="assets/video/Final-Clip-SP-1.mp4" autoplay loop muted playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
     </section>
 </main>
 <footer class="site-footer">
