@@ -1,0 +1,36 @@
+# Simply Park – Apache settings
+
+DirectoryIndex index.php index.html
+Options -Indexes
+
+<IfModule mod_headers.c>
+    # Only scripts from this site may run. A <script src="https://other-domain/..."> injected
+    # into the page (like the rebrato.com malware on the old WordPress site) is blocked by the browser.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Block direct access to the PHP partials
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^build\.php$ - [F,L]
+</IfModule>
+
+# Old WordPress URLs -> home page
+<IfModule mod_rewrite.c>
+    RewriteRule ^(wp-admin|wp-content|wp-includes|wp-json|feed|comments)(/.*)?$ / [R=301,L]
+    RewriteRule ^(xmlrpc|wp-login)\.php$ / [R=301,L]
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
