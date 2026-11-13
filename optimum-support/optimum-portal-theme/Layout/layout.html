@@ -2,6 +2,28 @@
 
 <main class="fw-main-wrapper" id="fw-main-content">
   {{ content_for_layout }}
+
+  {% if portal.current_page != "csat_survey" %}
+    {% if portal.current_tab == "home" or portal.current_tab == "solutions" %}
+      <section class="container-fluid px-0">
+        <div class="container">
+          <div class="opt-cta">
+            <div class="opt-cta__main">
+              <span class="opt-ico" aria-hidden="true"><svg class="opt-svg" viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg></span>
+              <div>
+                <h2>Can’t find what you’re looking for?</h2>
+                <p>Our support team is here to help with your application or verification request.</p>
+              </div>
+            </div>
+            <div class="opt-cta__actions">
+              <a class="opt-btn opt-btn--ghost" href="{{ portal.tickets_home_url }}">View my tickets</a>
+              <a class="opt-btn opt-btn--light" href="{{ portal.new_ticket_url }}">Submit a ticket <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
 </main>
 
 {{footer}}

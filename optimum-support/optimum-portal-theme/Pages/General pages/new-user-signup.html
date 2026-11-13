@@ -1,9 +1,27 @@
-<section class="container">
-  <div class="row fw-loginform-wrapper justify-content-center align-items-center">
-    <div class="col-lg-6 fw-form-section">
-      {{ page_message }}
-      {% snippet signup_form %}
-      {% snippet agent_login %}
+<section class="container opt-auth-page">
+  <div class="opt-auth">
+    <aside class="opt-auth__intro">
+      <img class="opt-auth__logo" src="{{ portal.logo_url }}" alt="{{ portal.logo_alt_text | escape_once }}">
+      <div>
+        <h2>Create your account</h2>
+        <p>Sign up to submit and manage your support requests in one place.</p>
+        <ul class="opt-auth__list">
+          <li>Submit tickets in a few steps</li>
+          <li>Receive updates by email</li>
+          <li>Keep all your requests together</li>
+        </ul>
+      </div>
+      <small>{{ portal.name | escape_once }}</small>
+    </aside>
+
+    <div class="opt-auth__forms">
+      <div class="row fw-loginform-wrapper justify-content-center align-items-center">
+        <div class="col-12 fw-form-section">
+          {{ page_message }}
+          {% snippet signup_form %}
+          {% snippet agent_login %}
+        </div>
+      </div>
     </div>
   </div>
 </section>

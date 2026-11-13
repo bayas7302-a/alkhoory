@@ -40,6 +40,8 @@
   <section class="container-fluid px-0 py-24">
     <div class="container">
       {{ page_message }}
+      <div class="opt-with-aside">
+      <div>
         {% paginate folder.entity_collection by 10 %}
           <section class="row fw-category-wrapper box-shadow br-12 mx-0 g-0 bg-light">
             <ul class="fw-no-bullet fw-articles fw-section-content">
@@ -60,5 +62,17 @@
           </section>
           {{ paginate | pagination }}
         {% endpaginate %}
+      </div>
+      <aside class="opt-side-card" aria-labelledby="opt-browse-cats">
+        <h2 id="opt-browse-cats">Browse categories</h2>
+        <ul class="fw-no-bullet">
+          {% for cat in portal.solution_categories %}
+            {% if cat.folders_count > 0 %}
+              <li><a href="{{ cat.url }}"{% if cat.url == category.url %} class="is-on" aria-current="page"{% endif %}>{{ cat.name | escape_once }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </aside>
+      </div>
     </div>
   </section>
