@@ -287,17 +287,21 @@ function subaru_is_mega( $node ) {
 }
 
 /**
- * Thumbnail for a model menu item: featured image of the linked page, else model page lookup.
+ * Thumbnail for a model menu item: the bundled transparent cutout (same angle, colour and
+ * lighting for every model), else the featured image of the linked page, else model page lookup.
  *
  * @param array $node Node.
  * @return string URL or ''.
  */
 function subaru_menu_item_thumb( $node ) {
+	$slug = subaru_model_from_url( $node['url'] );
+	if ( $slug && file_exists( SUBARU_DIR . '/assets/img/models/' . $slug . '-cutout.png' ) ) {
+		return SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png';
+	}
 	$id = ! empty( $node['object_id'] ) ? (int) $node['object_id'] : url_to_postid( $node['url'] );
 	if ( $id && has_post_thumbnail( $id ) ) {
 		return (string) get_the_post_thumbnail_url( $id, 'subaru-thumb' );
 	}
-	$slug = subaru_model_from_url( $node['url'] );
 	return $slug ? subaru_model_thumb( $slug, 'subaru-thumb' ) : '';
 }
 

@@ -42,6 +42,10 @@ $subaru_wa      = subaru_setting( 'whatsapp_number' );
 			</div>
 		</div>
 
+		<div class="sa-footer__group-band">
+			<img class="sa-footer__group" src="<?php echo esc_url( subaru_image_url( 'subaru_group_logo', 'al-khoory-group.png' ) ); ?>" alt="<?php esc_attr_e( 'Al Khoory Group', 'subaru-alkhoory' ); ?>" width="96" height="144" loading="lazy">
+		</div>
+
 		<div class="sa-footer__rule" aria-hidden="true"></div>
 
 		<div class="sa-footer__bottom">
@@ -77,9 +81,6 @@ $subaru_wa      = subaru_setting( 'whatsapp_number' );
 				<?php subaru_render_links( 'legal', 'sa-legal' ); ?>
 			</nav>
 		</div>
-	</div>
-	<div class="sa-footer__group-band">
-		<img class="sa-footer__group" src="<?php echo esc_url( subaru_image_url( 'subaru_group_logo', 'al-khoory-group.png' ) ); ?>" alt="<?php esc_attr_e( 'Al Khoory Group', 'subaru-alkhoory' ); ?>" width="66" height="99" loading="lazy">
 	</div>
 </footer>
 

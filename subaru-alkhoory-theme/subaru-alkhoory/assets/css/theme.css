@@ -786,3 +786,47 @@ html, body { overflow-x: clip; }
 /* v1.3.8 — Contact page: interactive location map replaces the static map (same switch-over pattern). */
 .elementor .sub-await-138 { display: block !important; width: 100%; }
 .elementor .sub-legacy-138 { display: none !important; }
+
+/* v1.4.0 — Header: official colour Subaru logo; on wide desktops the Al Khoory Automobiles logo
+   sits in the menu bar beside "Book a Test Drive" (narrower screens keep it in the top bar). */
+.sa-logo img { height: 24px; }
+@media (min-width: 1536px) {
+	.sa-topbar__inner, .sa-mainbar__inner { --sa-gutter: clamp(40px, 3.2vw, 100px); max-width: calc(1440px + var(--sa-gutter) * 2); }
+	:root .sa-topbar__aka { display: none; }
+	.sa-aka-sep, .sa-aka-logo { display: block; }
+	.sa-aka-logo, .sa-aka-logo img { height: 15px; }
+	.sa-nav__list { gap: 20px; }
+	.sa-actions { gap: 16px; }
+}
+:root .sa-topbar__aka { height: 13px; }
+@media (max-width: 1140px) { .sa-aka-logo, .sa-aka-logo img { height: 16px; } }
+
+/* v1.4.0 — Footer: Al Khoory Group logo moved up above the legal row, larger and centred. */
+.sa-footer__inner .sa-footer__group-band { padding: 8px 0 40px; }
+.sa-footer__inner .sa-footer__group-band .sa-footer__group { width: 96px; }
+@media (max-width: 767px) { .sa-footer__inner .sa-footer__group-band { padding: 40px 0 28px; } .sa-footer__inner .sa-footer__group-band .sa-footer__group { width: 80px; } }
+
+/* v1.4.0 — Mega menu: transparent model cutouts, shown whole on the tinted card. */
+.sa-mega__media img[src*="/assets/img/models/"] { object-fit: contain; object-position: center bottom; padding: 6% 6% 2%; box-sizing: border-box; }
+
+/* v1.4.0 — WRX: only the tS EyeSight grade remains, so its grade card sits centred on its own. */
+.page-id-67 .elementor-element-193c241a { grid-template-columns: minmax(0, 460px) !important; justify-content: center; }
+
+/* v1.4.0 — Brochure pop-up (opened by any "brochure" link; see initBrochures in theme.js). */
+.sa-broch { position: fixed; inset: 0; z-index: 1100; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+.sa-broch[hidden] { display: none; }
+.sa-broch__backdrop { position: absolute; inset: 0; background: rgba(7, 20, 42, .62); opacity: 0; transition: opacity .35s; }
+.sa-broch__panel { position: relative; width: min(1040px, 100%); max-height: calc(100vh - 48px); overflow: auto; padding: 44px 40px 40px; border-radius: 24px; background: #fff; box-shadow: var(--sa-shadow); opacity: 0; transform: translateY(16px); transition: opacity .35s, transform .35s var(--sa-ease); box-sizing: border-box; }
+.sa-broch.is-open .sa-broch__backdrop { opacity: 1; }
+.sa-broch.is-open .sa-broch__panel { opacity: 1; transform: none; }
+.sa-broch__panel:focus { outline: none; }
+:root .sa-broch__close { position: absolute; top: 16px; right: 16px; margin: 0; }
+.sa-broch__title { margin: 6px 0 28px; font-family: var(--font-display); font-size: clamp(24px, 3vw, 34px); font-weight: 400; line-height: 1.15; text-transform: uppercase; color: var(--sub-ink); }
+.sa-broch__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.sa-broch__item { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px 14px 20px; border: 1px solid var(--sub-line); border-radius: 18px; background: var(--sub-bg); text-align: center; transition: border-color .25s, box-shadow .25s; }
+.sa-broch__item.is-match { border-color: var(--sub-blue); box-shadow: 0 0 0 2px rgba(0, 94, 184, .18); }
+.sa-broch__img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: contain; }
+.sa-broch__name { font-size: 16px; font-weight: 600; color: var(--sub-ink); }
+.sa-broch__btn { margin-top: auto; }
+@media (max-width: 900px) { .sa-broch__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .sa-broch__panel { padding: 40px 18px 22px; } .sa-broch__list { gap: 10px; } .sa-broch__item { padding: 12px 8px 14px; } .sa-broch__name { font-size: 14px; } :root .sa-broch__btn { padding-inline: 12px; font-size: 13px; white-space: nowrap; } }

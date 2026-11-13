@@ -1154,6 +1154,45 @@
 		headerOffset: headerBottom,
 		lightbox: openLightbox
 	};
+	/* Brochure pop-up: every brochure-request link opens the dialog (the link itself stays as the no-JS fallback). */
+	function initBrochures() {
+		var box = $('#sa-brochures');
+		if (!box) { return; }
+		var opener = null;
+		function open(model) {
+			opener = d.activeElement;
+			$$('.sa-broch__item', box).forEach(function (it) { it.classList.toggle('is-match', !!model && it.getAttribute('data-model') === model); });
+			box.hidden = false;
+			void box.offsetWidth;
+			box.classList.add('is-open');
+			lockScroll(true);
+			setTimeout(function () {
+				var first = $('.sa-broch__item.is-match .sa-broch__btn', box) || $('.sa-broch__panel', box);
+				if (first) { first.focus(); }
+			}, 60);
+		}
+		function close() {
+			if (box.hidden) { return; }
+			box.classList.remove('is-open');
+			lockScroll(false);
+			setTimeout(function () { box.hidden = true; }, reduced() ? 0 : 350);
+			if (opener && opener.focus) { opener.focus(); }
+		}
+		d.addEventListener('click', function (e) {
+			var a = e.target.closest && e.target.closest('a[href*="enquiry=brochure"]');
+			if (!a || a.hasAttribute('data-sa-broch-skip') || e.ctrlKey || e.metaKey || e.shiftKey) { return; }
+			e.preventDefault();
+			var m = /[?&]model=([^&#]+)/i.exec(a.getAttribute('href'));
+			open(m ? decodeURIComponent(m[1]).toLowerCase() : '');
+		});
+		$$('[data-sa-broch-close]', box).forEach(function (b) { b.addEventListener('click', close); });
+		box.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') { close(); }
+			trapTab(e, box);
+		});
+		if (/[?&]brochures\b/.test(w.location.search)) { open(''); }
+	}
+
 	w.SubaruTheme = cfg;
 
 	ready(function () {
@@ -1167,6 +1206,7 @@
 		initCopy();
 		initModelPicker();
 		initAccordionScroll();
+		initBrochures();
 		initialHash();
 		// Late layout changes (fonts, images) affect header/sub-nav heights.
 		w.addEventListener('load', function () { measureHeader(); updateHeader(); });

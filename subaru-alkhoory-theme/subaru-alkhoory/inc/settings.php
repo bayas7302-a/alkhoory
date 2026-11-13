@@ -90,6 +90,10 @@ function subaru_settings_sanitize( $input ) {
 		$out[ 'social_' . $net ] = isset( $input[ 'social_' . $net ] ) ? esc_url_raw( trim( $input[ 'social_' . $net ] ) ) : '';
 	}
 
+	foreach ( array_keys( subaru_brochure_defaults() ) as $slug ) {
+		$out[ 'brochure_' . $slug ] = isset( $input[ 'brochure_' . $slug ] ) ? esc_url_raw( trim( $input[ 'brochure_' . $slug ] ) ) : '';
+	}
+
 	// Showrooms: JSON array of objects. Sanitise every field.
 	$out['showrooms'] = '';
 	$raw              = isset( $input['showrooms'] ) ? trim( (string) $input['showrooms'] ) : '';
@@ -216,6 +220,16 @@ function subaru_settings_page() {
 				subaru_settings_field( 'social_facebook', 'Facebook', '', 'url' );
 				subaru_settings_field( 'social_linkedin', 'LinkedIn', '', 'url' );
 				subaru_settings_field( 'social_youtube', 'YouTube', __( 'Empty profiles are hidden in the footer.', 'subaru-alkhoory' ), 'url' );
+				?>
+			</table>
+
+			<h2><?php esc_html_e( 'Brochures', 'subaru-alkhoory' ); ?></h2>
+			<p><?php esc_html_e( 'PDF links shown in the "Download a Brochure" pop-up. Upload a PDF to the Media Library and paste its file URL here; leave a field empty to use the bundled brochure (or, if there is none, the brochure request form).', 'subaru-alkhoory' ); ?></p>
+			<table class="form-table" role="presentation">
+				<?php
+				foreach ( subaru_brochures() as $subaru_slug => $subaru_b ) {
+					subaru_settings_field( 'brochure_' . $subaru_slug, $subaru_b['name'], '', 'url' );
+				}
 				?>
 			</table>
 

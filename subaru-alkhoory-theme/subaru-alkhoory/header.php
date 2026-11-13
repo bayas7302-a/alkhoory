@@ -53,7 +53,7 @@ if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobil
 				<?php subaru_render_links( 'topbar', 'sa-topbar__list', true ); ?>
 			</nav>
 			<?php if ( $subaru_aka ) : ?>
-				<img class="sa-topbar__aka" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="201" height="18">
+				<img class="sa-topbar__aka" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="200" height="13">
 			<?php endif; ?>
 		</div>
 	</div>
@@ -66,8 +66,8 @@ if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobil
 					<span class="sa-brand__sep" aria-hidden="true"></span>
 				<?php endif; ?>
 				<a class="sa-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img class="sa-logo__dark" src="<?php echo esc_url( subaru_logo_url( 'dark' ) ); ?>" alt="<?php echo esc_attr( $subaru_name ); ?>" width="150" height="24">
-					<img class="sa-logo__light" src="<?php echo esc_url( subaru_logo_url( 'light' ) ); ?>" alt="" aria-hidden="true" width="150" height="24">
+					<img class="sa-logo__dark" src="<?php echo esc_url( subaru_logo_url( 'dark' ) ); ?>" alt="<?php echo esc_attr( $subaru_name ); ?>" width="153" height="24">
+					<img class="sa-logo__light" src="<?php echo esc_url( subaru_logo_url( 'light' ) ); ?>" alt="" aria-hidden="true" width="153" height="24">
 				</a>
 			</div>
 
@@ -87,8 +87,8 @@ if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobil
 					?>
 					<span class="sa-actions__sep sa-aka-sep" aria-hidden="true"></span>
 					<span class="sa-aka-logo" aria-hidden="true">
-						<img class="sa-aka-logo__dark" src="<?php echo esc_url( $subaru_aka ); ?>" alt="" width="246" height="22">
-						<img class="sa-aka-logo__light" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="" aria-hidden="true" width="246" height="22">
+						<img class="sa-aka-logo__dark" src="<?php echo esc_url( $subaru_aka ); ?>" alt="" width="230" height="15">
+						<img class="sa-aka-logo__light" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="" aria-hidden="true" width="230" height="15">
 					</span>
 				<?php endif; ?>
 				<button type="button" class="sa-burger" aria-controls="sa-mmenu" aria-expanded="false">

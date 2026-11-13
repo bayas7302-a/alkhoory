@@ -115,16 +115,19 @@ function subaru_configurator_data( $model ) {
 	foreach ( $model['interiors'] as $id => $set ) {
 		$views = array();
 		foreach ( $set['views'] as $v ) {
-			if ( ! subaru_asset_exists( $v['file'] ) ) {
+			// A view is either a pack file ('file') or a Media Library photo ('id').
+			$media_id = ! empty( $v['id'] ) && wp_attachment_is_image( $v['id'] ) ? (int) $v['id'] : 0;
+			if ( ! $media_id && ( empty( $v['file'] ) || ! subaru_asset_exists( $v['file'] ) ) ) {
 				continue;
 			}
 			$views[] = array(
 				'label'  => $v['label'],
 				'trim'   => $v['trim'],
 				'hex'    => isset( $all['trims'][ $v['trim'] ] ) ? $all['trims'][ $v['trim'] ] : '',
-				'path'   => $v['file'],
-				'src'    => subaru_asset_url( $v['file'] ),
-				'srcset' => subaru_asset_srcset( $v['file'] ),
+				'id'     => $media_id,
+				'path'   => $media_id ? '' : $v['file'],
+				'src'    => $media_id ? (string) wp_get_attachment_image_url( $media_id, 'full' ) : subaru_asset_url( $v['file'] ),
+				'srcset' => $media_id ? (string) wp_get_attachment_image_srcset( $media_id, 'full' ) : subaru_asset_srcset( $v['file'] ),
 				/* translators: 1: model (and grade), 2: view label */
 				'alt'    => sprintf( __( 'Subaru %1$s interior: %2$s', 'subaru-alkhoory' ), $set['label'] === $model['name'] ? $model['name'] : $model['name'] . ' ' . $set['label'], strtolower( $v['label'] ) ),
 			);
@@ -185,7 +188,7 @@ add_shortcode( 'subaru_configurator', 'subaru_configurator_shortcode' );
 
 /**
  * [subaru_gallery model="" layout="feature|masonry" filter="yes|no" media="yes|no"]
- * media="yes" (default for masonry) adds the Media Library photos used on the model pages ('gallery_media').
+ * media="no" leaves out the Media Library photos ('gallery_media'), which are included by default.
  *
  * @param array $atts Attributes.
  * @return string
@@ -201,7 +204,7 @@ function subaru_gallery_shortcode( $atts ) {
 		$atts,
 		'subaru_gallery'
 	);
-	$media  = '' === $atts['media'] ? 'feature' !== $atts['layout'] : 'yes' === $atts['media'];
+	$media  = '' === $atts['media'] || 'yes' === $atts['media'];
 	$all    = subaru_asset_data();
 	$models = $atts['model'] ? array_filter( array( subaru_model( $atts['model'] ) ) ) : $all['models'];
 	$items  = array();
@@ -254,8 +257,8 @@ function subaru_map_locations() {
 		'subaru_map_locations',
 		array(
 			array( 'name' => __( 'Dubai Showroom', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Subaru Showroom Dubai' ),
-			array( 'name' => __( 'Service Centre – Dubai', 'subaru-alkhoory' ), 'query' => 'Al Khoory Subaru Service Centre Al Quoz Dubai' ),
-			array( 'name' => __( 'Parts Centre – Dubai', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Parts Centre Dubai' ),
+			// Service and parts share one site in Dubai, so they are a single pin.
+			array( 'name' => __( 'Service & Parts Centre – Dubai', 'subaru-alkhoory' ), 'query' => 'Al Khoory Subaru Service Centre Al Quoz Dubai' ),
 			array( 'name' => __( 'Parts Centre – Sharjah', 'subaru-alkhoory' ), 'query' => 'Al Khoory Automobiles Parts Centre Sharjah' ),
 		)
 	);
@@ -296,3 +299,100 @@ function subaru_location_map_shortcode() {
 	return ob_get_clean();
 }
 add_shortcode( 'subaru_location_map', 'subaru_location_map_shortcode' );
+
+/*
+ * Brochure pop-up ------------------------------------------------------------------------------
+ * Every "brochure" link (top bar, model pages, cards) opens one dialog listing each model's PDF.
+ * Links keep pointing at the brochure request form, so without JavaScript nothing breaks.
+ */
+
+/**
+ * Bundled brochure PDFs (Media Library attachment IDs on this site).
+ *
+ * @return array slug => attachment ID (0 = none yet).
+ */
+function subaru_brochure_defaults() {
+	return array(
+		'forester'  => 0, // The Forester PDF (23 MB) still has to be uploaded: paste its URL in Subaru Settings.
+		'crosstrek' => 974,
+		'wrx'       => 975,
+		'brz'       => 976,
+	);
+}
+
+/**
+ * Brochures in menu order with their resolved PDF URL (settings override, else bundled file).
+ *
+ * @return array slug => array( name, url, image, request )
+ */
+function subaru_brochures() {
+	$out = array();
+	foreach ( subaru_brochure_defaults() as $slug => $id ) {
+		$url = (string) subaru_setting( 'brochure_' . $slug, '' );
+		if ( ! $url && $id && 'application/pdf' === get_post_mime_type( $id ) ) {
+			$url = (string) wp_get_attachment_url( $id );
+		}
+		$name = ucfirst( $slug );
+		if ( 'wrx' === $slug || 'brz' === $slug ) {
+			$name = strtoupper( $slug );
+		}
+		$out[ $slug ] = array(
+			'name'    => 'Subaru ' . $name,
+			'url'     => $url,
+			'image'   => file_exists( SUBARU_DIR . '/assets/img/models/' . $slug . '-cutout.png' ) ? SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png' : '',
+			'request' => add_query_arg(
+				array(
+					'enquiry' => 'brochure',
+					'model'   => $name,
+				),
+				home_url( '/contact-us/' )
+			),
+		);
+	}
+	return apply_filters( 'subaru_brochures', $out );
+}
+
+/**
+ * Print the brochure dialog in the footer.
+ */
+function subaru_brochure_dialog() {
+	$items = subaru_brochures();
+	if ( ! $items ) {
+		return;
+	}
+	?>
+	<div class="sa-broch" id="sa-brochures" role="dialog" aria-modal="true" aria-labelledby="sa-broch-title" hidden>
+		<div class="sa-broch__backdrop" data-sa-broch-close></div>
+		<div class="sa-broch__panel" tabindex="-1">
+			<button type="button" class="sa-iconbtn sa-broch__close" data-sa-broch-close>
+				<?php subaru_the_icon( 'close', 22 ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( 'Close', 'subaru-alkhoory' ); ?></span>
+			</button>
+			<p class="sa-eyebrow"><?php esc_html_e( 'E-brochures', 'subaru-alkhoory' ); ?></p>
+			<h2 class="sa-broch__title" id="sa-broch-title"><?php esc_html_e( 'Download a brochure', 'subaru-alkhoory' ); ?></h2>
+			<ul class="sa-broch__list">
+				<?php foreach ( $items as $slug => $b ) : ?>
+					<li class="sa-broch__item" data-model="<?php echo esc_attr( $slug ); ?>">
+						<?php if ( $b['image'] ) : ?>
+							<img class="sa-broch__img" src="<?php echo esc_url( $b['image'] ); ?>" alt="" width="400" height="250" loading="lazy" decoding="async">
+						<?php endif; ?>
+						<span class="sa-broch__name"><?php echo esc_html( $b['name'] ); ?></span>
+						<?php if ( $b['url'] ) : ?>
+							<a class="sa-btn sa-btn--sm sa-broch__btn" href="<?php echo esc_url( $b['url'] ); ?>" target="_blank" rel="noopener" download>
+								<?php esc_html_e( 'Download PDF', 'subaru-alkhoory' ); ?>
+								<span class="screen-reader-text"><?php echo esc_html( $b['name'] ); ?></span>
+							</a>
+						<?php else : ?>
+							<a class="sa-btn sa-btn--sm sa-btn--outline sa-broch__btn" href="<?php echo esc_url( $b['request'] ); ?>" data-sa-broch-skip>
+								<?php esc_html_e( 'Request by email', 'subaru-alkhoory' ); ?>
+								<span class="screen-reader-text"><?php echo esc_html( $b['name'] ); ?></span>
+							</a>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'wp_footer', 'subaru_brochure_dialog', 5 );

@@ -524,7 +524,9 @@ function subaru_assets_rest_report( $req ) {
 		}
 		foreach ( $m['interiors'] as $set ) {
 			foreach ( $set['views'] as $v ) {
-				$files[] = $v['file'];
+				if ( ! empty( $v['file'] ) ) {
+					$files[] = $v['file'];
+				}
 			}
 		}
 		foreach ( $m['gallery'] as $g ) {

@@ -73,14 +73,27 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 			<div class="sa-cfg__stage sa-cfg__stage--int" data-stage="int">
 				<div class="sa-cfg__layers">
 					<?php
-					echo subaru_asset_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						$subaru_first['views'][0]['path'],
-						array(
-							'alt'   => $subaru_first['views'][0]['alt'],
-							'class' => 'sa-cfg__img is-on',
-							'sizes' => '(max-width: 1250px) 100vw, 1250px',
-						)
-					);
+					if ( $subaru_first['views'][0]['id'] ) {
+						echo wp_get_attachment_image( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							$subaru_first['views'][0]['id'],
+							'full',
+							false,
+							array(
+								'alt'   => $subaru_first['views'][0]['alt'],
+								'class' => 'sa-cfg__img is-on',
+								'sizes' => '(max-width: 1250px) 100vw, 1250px',
+							)
+						);
+					} else {
+						echo subaru_asset_img( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							$subaru_first['views'][0]['path'],
+							array(
+								'alt'   => $subaru_first['views'][0]['alt'],
+								'class' => 'sa-cfg__img is-on',
+								'sizes' => '(max-width: 1250px) 100vw, 1250px',
+							)
+						);
+					}
 					?>
 				</div>
 				<p class="sa-cfg__name" aria-live="polite"><?php echo esc_html( $subaru_first['views'][0]['label'] ); ?></p>

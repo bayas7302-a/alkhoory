@@ -68,14 +68,9 @@ return array(
 			'spin_frames'    => 12,
 			'default_colour' => 'Sapphire_Blue_Pearl',
 			'colours'        => array( 'Sapphire_Blue_Pearl', 'Crystal_White_Pearl', 'Ice_Silver_Metallic', 'Mag_Grey_Metallic', 'Crystal_Black_Silica', 'Crimson_Red_Pearl', 'Autumn_Green_Metallic', 'Brilliant_Bronze_Metallic', 'Cashmere_Gold_Opal', 'Horizon_Blue_Pearl', 'River_Rock_Pearl' ),
+			// Trim order requested by the client (9 Nov): 2.5i, 2.5i Sport, 2.5i-S EyeSight.
 			'grades'         => array(
 				// No Forester grade cut-outs exist: the cards use colour-picker images in different colours.
-				array(
-					'name'     => 'Forester 2.5i-S EyeSight',
-					'image'    => '07_Colour_Picker/Forester/Forester_Sapphire_Blue_Pearl_front34.jpg',
-					'colour'   => 'Sapphire_Blue_Pearl',
-					'interior' => '2.5i-S',
-				),
 				array(
 					'name'     => 'Forester 2.5i EyeSight',
 					'image'    => '07_Colour_Picker/Forester/Forester_Crystal_White_Pearl_front34.jpg',
@@ -88,20 +83,19 @@ return array(
 					'colour'   => 'Mag_Grey_Metallic',
 					'interior' => '2.5i-Sport',
 				),
-			),
-			'interiors'      => array(
-				'2.5i-S'     => array(
-					'label' => '2.5i-S EyeSight',
-					'views' => array(
-						array( 'label' => 'Dashboard', 'trim' => 'view', 'file' => '05_Interiors/Forester/Forester_2.5i-S-EyeSight_interior_dashboard.jpg' ),
-						array( 'label' => 'Black leather', 'trim' => 'black', 'file' => '05_Interiors/Forester/Forester_2.5i-S-EyeSight_interior_seats_black.jpg' ),
-						array( 'label' => 'Brown leather', 'trim' => 'brown', 'file' => '05_Interiors/Forester/Forester_2.5i-S-EyeSight_interior_seats_brown.jpg' ),
-					),
+				array(
+					'name'     => 'Forester 2.5i-S EyeSight',
+					'image'    => '07_Colour_Picker/Forester/Forester_Sapphire_Blue_Pearl_front34.jpg',
+					'colour'   => 'Sapphire_Blue_Pearl',
+					'interior' => '2.5i-S',
 				),
+			),
+			// Dashboards are the client's left-hand-drive photos (Media Library); the pack ones are right-hand drive.
+			'interiors'      => array(
 				'2.5i'       => array(
 					'label' => '2.5i EyeSight',
 					'views' => array(
-						array( 'label' => 'Dashboard', 'trim' => 'view', 'file' => '05_Interiors/Forester/Forester_2.5i-EyeSight_interior_dashboard.jpg' ),
+						array( 'label' => 'Cabin', 'trim' => 'view', 'id' => 961 ),
 						array( 'label' => 'Black', 'trim' => 'black', 'file' => '05_Interiors/Forester/Forester_2.5i-EyeSight_interior_seats_black.jpg' ),
 						array( 'label' => 'Platinum', 'trim' => 'platinum', 'file' => '05_Interiors/Forester/Forester_2.5i-EyeSight_interior_seats_platinum.jpg' ),
 					),
@@ -109,13 +103,20 @@ return array(
 				'2.5i-Sport' => array(
 					'label' => '2.5i-Sport EyeSight',
 					'views' => array(
-						array( 'label' => 'Dashboard', 'trim' => 'view', 'file' => '05_Interiors/Forester/Forester_2.5i-Sport-EyeSight_interior_dashboard.jpg' ),
+						array( 'label' => 'Dashboard', 'trim' => 'view', 'id' => 960 ),
 						array( 'label' => 'Seats', 'trim' => 'black', 'file' => '05_Interiors/Forester/Forester_2.5i-Sport-EyeSight_interior_seats.jpg' ),
 					),
 				),
+				'2.5i-S'     => array(
+					'label' => '2.5i-S EyeSight',
+					'views' => array(
+						array( 'label' => 'Black leather', 'trim' => 'black', 'file' => '05_Interiors/Forester/Forester_2.5i-S-EyeSight_interior_seats_black.jpg' ),
+						array( 'label' => 'Brown leather', 'trim' => 'brown', 'file' => '05_Interiors/Forester/Forester_2.5i-S-EyeSight_interior_seats_brown.jpg' ),
+					),
+				),
 			),
-			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 628, 630, 634, 644, 674, 650, 662, 661, 649, 652 ),
+			// Approved UAE photoshoot images (Media Library), shown on the Media Gallery page.
+			'gallery_media'  => array( 986, 987, 988 ),
 			'gallery'        => array(), // None in the pack: the page keeps its current gallery.
 		),
 
@@ -187,24 +188,14 @@ return array(
 			'spin_dir'       => '06_360_Spins/WRX',
 			'spin_frames'    => 18,
 			'default_colour' => 'WR_Blue_Pearl',
-			'colours'        => array( 'WR_Blue_Pearl', 'Ignition_Red', 'Ceramic_White', 'Ice_Silver_Metallic', 'Mag_Grey_Metallic', 'Crystal_Black_Silica', 'Sapphire_Blue_Pearl', 'Galaxy_Purple_Pearl' ),
+			// Core palette only (client brief, 9 Nov): blue, white and silver.
+			'colours'        => array( 'WR_Blue_Pearl', 'Ceramic_White', 'Ice_Silver_Metallic' ),
 			'grades'         => array(
 				array(
 					'name'     => 'WRX tS EyeSight',
 					'image'    => '02_Car_Cutouts/WRX/WRX_tS-EyeSight-CVT_CeramicWhite_front34.jpg',
 					'colour'   => 'Ceramic_White',
 					'interior' => 'ts',
-				),
-				// HIGH grades keep the red and silver cut-outs already on the site.
-				array(
-					'name'     => 'WRX HIGH EyeSight',
-					'image'    => '',
-					'interior' => 'high',
-				),
-				array(
-					'name'     => 'WRX HIGH',
-					'image'    => '',
-					'interior' => 'high',
 				),
 			),
 			'interiors'      => array(
@@ -214,22 +205,10 @@ return array(
 						array( 'label' => 'Recaro sports seats', 'trim' => 'black', 'file' => '05_Interiors/WRX/WRX_tS_interior_recaro.jpg' ),
 					),
 				),
-				'high' => array(
-					'label' => 'HIGH grades',
-					'note'  => 'Pack has a GT interior, not HIGH: nearest match.',
-					'views' => array(
-						array( 'label' => 'Ultrasuede trim', 'trim' => 'black', 'file' => '05_Interiors/WRX/WRX_GT_interior_ultrasuede.jpg' ),
-					),
-				),
 			),
-			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 364, 387, 392, 390, 385, 382, 384, 389, 391 ),
-			'gallery'        => array(
-				array( '04_Media_Gallery/WRX_exterior_road_blue.jpg', 'Subaru WRX in blue on the road' ),
-				array( '04_Media_Gallery/WRX_exterior_road_purple.jpg', 'Subaru WRX in Galaxy Purple Pearl on the road' ),
-				array( '04_Media_Gallery/WRX_exterior_desert_blue.jpg', 'Subaru WRX in blue in the desert' ),
-				array( '04_Media_Gallery/WRX_exterior_desert_grey.jpg', 'Subaru WRX in grey in the desert' ),
-			),
+			// Approved photoshoot and official WRX tS images (Media Library); blue, white and silver only.
+			'gallery_media'  => array( 989, 954, 990, 952, 950, 951, 953 ),
+			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 
 		'brz'       => array(
@@ -269,16 +248,9 @@ return array(
 					),
 				),
 			),
-			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 712, 717, 715, 716, 722, 721, 723, 718, 720, 724, 725, 726, 719 ),
-			'gallery'        => array(
-				array( '04_Media_Gallery/BRZ_photo_M0150_blue.jpg', 'Subaru BRZ in blue, front three-quarter view' ),
-				array( '04_Media_Gallery/BRZ_photo_M0120_red.jpg', 'Subaru BRZ in Ignition Red' ),
-				array( '04_Media_Gallery/BRZ_photo_M0130_white.jpg', 'Subaru BRZ in Crystal White Pearl' ),
-				array( '04_Media_Gallery/BRZ_photo_M0090_silver.jpg', 'Subaru BRZ in Ice Silver Metallic' ),
-				array( '04_Media_Gallery/BRZ_photo_M0170_blue.jpg', 'Subaru BRZ in blue on the road' ),
-				array( '04_Media_Gallery/BRZ_photo_M0190_interior.jpg', 'Subaru BRZ cockpit and sports seats' ),
-			),
+			// Approved UAE photoshoot images (Media Library), shown on the model page and the Media Gallery page.
+			'gallery_media'  => array( 977, 978, 979, 980, 981, 982, 983, 984, 985 ),
+			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 	),
 );
