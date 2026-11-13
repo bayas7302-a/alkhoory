@@ -1,0 +1,116 @@
+<section class="fw-sticky fw-searchbar-wrapper">
+  <div class="container">
+    <div class="row align-items-center py-8">
+      <div class="col-md-6">
+        {% element 'secondary_nav' %}
+          {
+            "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                            { "label":"#{{ticket.id}}", "url": "{{ticket.url}}"}]
+          }
+        {% endelement %}
+      </div>
+      <div class="col-md-4 ms-auto">
+        {{ portal | search_element }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid px-0 fw-page-title-wrapper">
+  <div class="container">
+    <div class="py-24 py-lg-92 mx-0 fw-search-meta-info g-0">
+      <div class="fw-icon-holder pe-8">
+        <span class="icon-{{ ticket.source_id | ticket_source_icon }}-ticket"></span>
+      </div>
+      <div class="text-start">
+        <h1 class="fw-page-title">{{ ticket.subject }} #{{ ticket.id }}</h1>
+        <p>{{ 'portal_translations.created_on' | t}} {{ ticket.created_on | short_day_with_time }} - via {{ticket.source_name}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid bg-light pt-32 pb-60">
+  <div class="container px-0">
+    {{ page_message }}
+    <div class="row mx-0 g-0 fw-wrapper-shadow">
+      <div class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+        <div class="fw-comments-wrapper line-numbers px-16 px-md-24 py-16">
+          <div class="row meta-info flex-column-reverse flex-md-row">
+            <div class="col-md-7">
+              {% assign status = 'portal_translations.archive_tickets.archived' | t %}
+			        {% if ticket.outbound_email? %}
+                {% if ticket.friendly_email_replies? %}
+                  {{ ticket.primary_email_name | profile_avatar_with_name }}
+                  <span class="semi-bold">{{ ticket.primary_email_name }}</span>
+                {% else %}
+                  {{ ticket.outbound_initiator | ticket_profile_avatar }}
+                  <span class="semi-bold">{{ ticket.outbound_initiator.name }}</span>
+                {% endif %}
+                <span>{{ 'portal_translations.archive_tickets.reported_info' | t }} {{ ticket.created_on | time_ago_info }}</span>
+                {{ ticket.status_id | ticket_status: status }}
+			        {% else %}
+                {{ ticket.requester | ticket_profile_avatar }}
+                <span class="semi-bold">{{ ticket.requester.name }}</span>
+                <span>{{ 'portal_translations.archive_tickets.reported_info' | t }} {{ ticket.created_on | time_ago_info }}</span>
+                {{ ticket.status_id | ticket_status: status }}
+              {% endif %}
+            </div>
+          </div>
+          <div class="ps-lg-46 pt-16 pe-lg-64 overflow-auto">
+            <div>
+              {{ ticket.description_html }}
+            </div>
+            {{ ticket | public_ticket_attachments }}
+          </div>
+          <div class="fw-comments mt-8">
+            {% if ticket.public_comments.size > 1 %}
+              <div class="fw-comments-meta row align-items-center">
+                <div class="offset-md-6 col-md-6 mt-12 mt-md-0">
+                  <div class="d-flex align-items-center justify-content-end fw-sortby-dropdown">
+                    {{ 'portal_translations.sorted_by' | t  }}{{ ticket | ticket_reply_sort }}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+            <div class="fw-comments-list mt-16">
+              {% for comment in ticket.public_comments %}
+                {% if comment.survey %}
+                  {{ comment | ticket_reply_survey }}
+                {% else %}
+			            <div class="fw-comment-item mb-16 mx-0 d-flex">
+                    <div class="px-0">
+                      {% if comment.by_agent and ticket.friendly_email_replies? %}
+                        {{ ticket.primary_email_name | profile_avatar_with_name }}
+                      {% else %}
+                        {{ comment | profile_avatar }}
+                      {% endif %}
+                    </div>
+                    <div class="bg-grey p-12 br-6 w-100 comment-container">
+                      <p class="author-info">
+                        <span class="semi-bold">
+                          {% if comment.by_agent and ticket.friendly_email_replies? %}
+                            {{ ticket.primary_email_name }}
+                          {% else %}
+                            {{ comment.user.name }}
+                          {% endif %}
+                        </span>
+                        <span>{{ 'portal_translations.tickets.said' | t }} {{ comment.created_on | time_ago_info }}</span>
+                      </p>
+                      <div class="pt-12 comment-scroll" >
+                        {{ comment.description }}
+                      </div>
+                      {{ comment | public_comment_attachments }}
+                    </div>
+                  </div>
+                {% endif %}
+			        {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% snippet public_ticket_details %}
+    </div>
+  </div>
+</section>
+{% element 'lightbox_modal' %}{}{% endelement %}

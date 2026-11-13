@@ -1,0 +1,336 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+        <div class="col-md-6">
+          {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.forums' | t }}", "url":"{{portal.discussions_home_url}}" },
+                             { "label":"{{ forum.forum_category.name | escape_once }}", "url":"{{forum.forum_category.url}}" },
+                             { "label":"{{ forum.name | escape_once }}", "url":"{{forum.url}}" },
+                             { "label":"{{ topic.title | escape_once }}", "url":"{{topic.url}}" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="fw-icon-holder pe-8">
+          <span class="icon-topic"></span>
+        </div>
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ topic.title | escape_once}}</h1>
+          <p>{{ 'portal_translations.posted' | t }} {{ topic.created_on | time_ago_info }} {{ 'portal_translations.by' | t }} {{ topic.user.name }}</p>
+          {% if forum.type_class != 'announcement' %}
+            {{ portal | discussions_new_topic_button: 'btn mt-16 new-topic-button fw-primary-button' }}
+          {% endif %}
+          {{ topic | discussions_topic_follow_button: 'btn mt-16 fw-secondary-button fw-follow-button', portal }}
+          {{ topic | discussions_comment_button: 'btn mt-16 fw-secondary-button fw-comment-button', portal }}
+          {{ topic | discussions_topic_solve_button: 'btn mt-16 fw-secondary-button fw-solve-button'}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid pt-32 pb-60">
+    <div class="container px-0">
+     {{ page_message }}
+      <div class="row mx-0 g-0 bg-light fw-wrapper-shadow">
+        <div class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+          <div class="fw-comments-wrapper line-numbers px-16 px-md-24 py-16">
+            <div class="row pb-8 mx-0 g-0">
+              <ul class="small col-md-8 d-flex fw-no-bullet fw-topic-state">
+                {% if topic.sticky? %} <li><span class="icon-pin"></span><span class="ps-8 pe-8">{{ 'portal_translations.forums.pinned_topic' | t }}</span></li>{% endif %}
+                {% if topic.locked? %} <li><span class="icon-lock"></span><span class="ps-8 pe-8">{{ 'portal_translations.forums.locked_topic' | t }}</span></li>{% endif %}
+                {% if topic.merged? %} <li><span class="icon-merge"></span><span class="ps-8 pe-8">{{ 'portal_translations.forums.merged_topic' | t }}</span></li>{% endif %}
+              </ul>
+              <div class="col-md-4 fw-modified text-end">
+                {{ topic | discussions_topic_status }}
+              </div>
+           </div>
+            <div class="row meta-info align-items-center flex-column-reverse flex-md-row">
+              <div class="col-md-6">
+                {{ topic.first_post | profile_avatar }}
+                <span class="semi-bold">{{ topic.first_post.user.name }}</span>
+                {% if topic.first_post.user.is_agent %}
+                  {% element 'badge' %}
+                    {
+                      "badge": "role",
+                      "content": "{{ 'portal_translations.forums.admin' | t }}"
+                    }
+                  {% endelement %}
+                {% endif %}
+              </div>
+              <div class="col-md-6 text-md-end mt-12 mt-md-0">
+                {% if forum.type_class != 'announcement' %}
+                 {{ portal | discussions_new_topic_button: 'btn p-8 mb-8 mb-md-0 me-4 fw-topic-action d-none fw-secondary-button new-topic-button' }}
+                {% endif %}
+                {{ topic | discussions_topic_follow_button: 'btn p-8 mb-8 mb-md-0 me-4 fw-topic-action d-none fw-secondary-button fw-follow-button', portal }}
+                {{ topic | discussions_comment_button: 'btn p-8 mb-8 mb-md-0 me-4 fw-topic-action d-none fw-secondary-button fw-comment-button', portal }}
+                {{ topic | discussions_topic_solve_button: 'btn p-8 mb-8 mb-md-0 me-4 fw-topic-action d-none fw-secondary-button fw-solve-button'}}
+              </div>
+            </div>
+            <div class="ps-lg-46 pt-16 pe-lg-64">
+              <p>
+                {{ topic.first_post.body_html }}
+              </p>
+              {{ topic.first_post | attachments }}
+              {% snippet topic_vote %}
+            </div>
+
+            {% if topic.best_answer != nil %}
+              <div class="fw-comment-item mt-24 mb-16 mx-0 d-flex">
+                <div class="px-0">
+                  {{ topic.best_answer | profile_avatar }}
+                </div>
+                <div class="bg-grey p-12 br-6 w-100">
+                  <p class="author-info">
+                  <span class="semi-bold">{{ topic.best_answer.user.name }}</span>
+                  <span> {{ 'portal_translations.forums.posted' | t }} {{ topic.best_answer.created_on | time_ago_info }} </span>
+                  {% if topic.best_answer.user.is_agent %}
+                    {% element 'badge' %}
+                      {
+                       "badge": "role",
+                       "content": "{{ 'portal_translations.forums.admin' | t }}"
+                      }
+                    {% endelement %}
+                  {% endif %}
+                  {% element 'badge' %}
+                    {
+                     "badge": "best-answer",
+                     "content": "{{ 'portal_translations.forums.post.best_answer' | t }}"
+                    }
+                  {% endelement %}
+                  </p>
+                  <div class="pt-12">
+                    {{ topic.best_answer.body_html }}
+                  </div>
+                  {{ topic.best_answer | attachments }}
+                  {{ topic.best_answer | discussions_post_vote: portal, 'fw-best-answer', 'fw-best-answer-votes-count'}}
+                </div>
+              </div>
+            {% endif %}
+            <hr class="mt-24" />
+
+            <div class="fw-comments">
+              <div class="fw-comments-meta row align-items-center">
+                <div class="col-md-6">
+                  <p class="fs-20 semi-bold">{{ topic.comment_count }} {{ 'portal_translations.forums.comment' | t }}</p>
+                </div>
+                {% if topic.comment_count > 1 %}
+                  <div class="col-md-6 mt-12 mt-md-0">
+                    <div class="d-flex align-items-center justify-content-end fw-sortby-dropdown">
+                      <label>{{'portal_translations.sorted_by' | t }}</label>{{ 'topic' | discussions_sort, topic, topic.sort_by }}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="fw-comments-list mt-16">
+			            {% paginate topic.posts by 15 %}
+                    {% for post in paginate.collection %}
+                      {% if post.id != topic.first_post.id %}
+                        <div class="fw-comment-item mb-16 mx-0 d-flex">
+                          <div class="px-0">
+                            {{ post | profile_avatar }}
+                          </div>
+                          <div class="bg-grey p-12 br-6 w-100">
+                            <p class="author-info">
+                            <span class="semi-bold">{{ post.user.name }}</span>
+                            <span>{{ 'portal_translations.forums.posted' | t }} {{ post.created_on | time_ago_info }}</span>
+                            {% if post.user.is_agent %}
+                              {% element 'badge' %}
+                                {
+                                  "badge": "role",
+                                  "content": "{{ 'portal_translations.forums.admin' | t }}"
+                                }
+                              {% endelement %}
+                            {% endif %}
+                            {{ post | discussions_comment_actions: portal }}
+                            {% if post.answer? %}
+                              {% element 'badge' %}
+                              {
+                                "badge": "best-answer",
+                                "content": "{{ 'portal_translations.forums.post.answer' | t }}"
+                              }
+                              {% endelement %}
+                            {% endif %}
+                            </p>
+                            <div>
+                            <div class="pt-12">
+                              {{ post.body_html }}
+                            </div>
+                            {{ post | attachments }}
+                            </div>
+                            {% if post.answer? %}
+                              {{ post | discussions_post_vote: portal, 'fw-best-answer-comment', 'fw-comment-best-answer-votes-count'}}
+                            {% else %}
+                              {{ post | discussions_post_vote: portal, '', 'comment-votes-count'}}
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                    {{ paginate | pagination }}
+                  {% endpaginate %}
+                  {% unless topic.locked? %}
+                    {% if portal.user %}
+                      <div class="fw-comment-item m-16 mx-0 d-flex">
+                       <div class="px-0">
+                        {{ portal | profile_avatar }}
+                       </div>
+                       <div class="fw-comment-editor">
+                         <input class="form-control fw-comment-button fw-comment-fake-box" aria-label="comment" rows="1" placeholder="{{ 'portal.topic.comment_placeholder' | t }}" data-proxy-for="add-reply-form"/>
+				        	       <div id="add-reply-form" class="d-none">
+						               {% snippet topic_reply %}
+					               </div>
+                       </div>
+                      </div>
+                    {% else %}
+                      <p class="fs-20">
+                        {% if portal.facebook_portal %}
+                          {% element 'link' %}
+                           {
+                            "url": "",
+                            "class": "semi-bold",
+                            "content": "{{'portal_translations.header.user_actions.login' | t }}"
+                           }
+                          {% endelement %}
+                        {% else %}
+                         {% element 'link' %}
+                          {
+                           "url": "{{ portal.topic_reply_url }}",
+                           "class": "semi-bold",
+                           "content": "{{'portal_translations.header.user_actions.login' | t }}"
+                          }
+                         {% endelement %} {% if portal.can_signup_feature %}
+                           {{'portal_translations.or' | t }} {% element 'link' %}
+                            {
+                             "url": "{{ portal.signup_url }}",
+                             "class": "semi-bold",
+                             "content": "{{'portal_translations.header.user_actions.signup' | t }}"
+                            }
+                           {% endelement %}
+                         {% endif %}
+                         {% endif %} {{'portal_translations.forums.to_post_comment' | t }}
+                       </p>
+                    {% endif %}
+                  {% endunless %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 fw-sidebar-wrapper">
+          <aside class="bg-grey fw-sidebar">
+            {% if forum.popular_topics.size > 0 %}
+             <section class="mb-20">
+               <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.popular_topics' | t }}</h2>
+               <ul class="fw-no-bullet">
+                {% for topic in forum.popular_topics limit:4 %}
+                  <li>
+                   {% element 'link' %}
+                     {
+                      "url": "{{ topic.url }}",
+                      "class": "fw-topic",
+                      "content": "{{ topic.title | escape_once }}"
+                     }
+                   {% endelement %}
+                  </li>
+                {% endfor %}
+               </ul>
+              </section>
+            {% endif %}
+
+            {% if portal.my_topics.size > 0 %}
+              <section class="mb-20">
+                <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.my_topics' | t }}</h2>
+                <ul class="fw-no-bullet">
+                  {% for topic in portal.my_topics limit:4 %}
+                    <li>
+                     {% element 'link' %}
+                      {
+                       "url": "{{ topic.url }}",
+                       "class": "fw-topic",
+                       "content": "{{ topic.title | escape_once }}"
+                      }
+                     {% endelement %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            {% endif %}
+
+            {% if topic.merged? %}
+             <section class="mb-20">
+               <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.source_topic' | t }}</h2>
+               {{ 'portal_translations.forums.topic_merged_info' | t }} {{ topic | discussions_source_topic }}
+              </section>
+            {% endif %}
+
+            {% if topic.has_merged_topics? %}
+             <section class="mb-20">
+               <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.merged_topics' | t }}</h2>
+               <ul class="fw-no-bullet">
+                {% for topic in topic.merged_topics %}
+                  <li>
+                   {% element 'link' %}
+                     {
+                      "url": "{{ topic.url }}",
+                      "class": "fw-topic",
+                      "content": "{{ topic.title | escape_once }}"
+                     }
+                   {% endelement %}
+                  </li>
+                {% endfor %}
+               </ul>
+              </section>
+            {% endif %}
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal fade" id="votesModal" tabindex="-1" role="dialog" aria-labelledby="{{ 'portal_translations.forums.votes_modal' | t }}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header pt-12 pb-0 border-bottom-0">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body row pt-16 pb-32 px-32">
+          <div class="col-md-12 mx-auto text-center">
+            <p class="fs-18 semi-bold">{{ 'portal_translations.forums.votes_modal_heading' | t }}</p>
+          </div>
+          <div class="col-12 mt-20">
+            <ul class="fw-no-bullet fw-voters-container"></ul>
+          </div>
+        </div>
+        <div class="modal-footer bg-grey">
+          <button type="button" class="btn fw-secondary-button py-8" data-bs-dismiss="modal">{{ 'portal_translations.cancel' | t }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center pt-32 pb-32 px-32">
+          <div class="fs-18 semi-bold"><span class="icon-bin"></span> {{ 'portal_translations.forums.delete_comment' | t }}</div>
+          <p class="fs-14 mt-12">{{ 'portal_translations.forums.post_deletion_message' | t }}</p>
+        </div>
+        <div class="modal-footer justify-content-center bg-grey">
+          <button type="button" class="btn fw-btn-gradient py-8" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn fw-post-delete-confirmation fw-btn-delete py-8">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% element 'code_insert' %}{}{% endelement %}
+  {% element 'lightbox_modal' %}{}{% endelement %}

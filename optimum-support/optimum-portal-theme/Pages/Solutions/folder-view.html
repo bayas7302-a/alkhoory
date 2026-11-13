@@ -1,0 +1,64 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+       <div class="col-md-6">
+         {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.solutions' | t }}", "url":"{{portal.solutions_home_url}}" },
+                             { "label": "{{ category.name | escape_once }}", "url":"{{category.url}}" },
+                             { "label": "{{ folder.name | escape_once }}", "url":"{{folder.url}}" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        {% if folder.icon %}
+          <div class="fw-fig">
+            <img src="{{folder.icon}}" class="img-fluid" alt="category image">
+          </div>
+        {% else %}
+          <div class="fw-icon-holder pe-8">
+            <span class="icon-folder"></span>
+          </div>
+        {% endif %}
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ folder.name }} ({{ folder.entity_collection.size}})</h1>
+          <p>{{ folder.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-0 py-24">
+    <div class="container">
+      {{ page_message }}
+        {% paginate folder.entity_collection by 10 %}
+          <section class="row fw-category-wrapper box-shadow br-12 mx-0 g-0 bg-light">
+            <ul class="fw-no-bullet fw-articles fw-section-content">
+              {% for entity in paginate.collection %}
+                <li>
+                  <a href="{{ entity.url }}" class="row mx-0 g-0">
+                    <div class="col-md-8 d-flex">
+                      {% if entity.icon %}<div class='fw-folder-icon fw-subfolder-icon text-center me-8'><img src='{{entity.icon}}' class='img-fluid'></div>{% else %}<div class="pe-8 pt-4"><span class="icon-{{entity.source_type}}"></span></div>{% endif %}
+                      <div class="line-clamp-2">{{ entity.name }}</div>
+                    </div>
+                    <div class="col-md-4 fw-modified fw-meta-info small">
+                      {{ entity | solution_author_info: 'article-list' }}
+                    </div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
+          {{ paginate | pagination }}
+        {% endpaginate %}
+    </div>
+  </section>

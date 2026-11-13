@@ -1,0 +1,64 @@
+<header class="container-fluid px-0 fw-nav-wrapper fixed-top">
+  <section class="bg-light container-fluid">
+    <div class="container">
+      {% element 'link' %}
+       {
+         "url": "#fw-main-content",
+         "class": "show-on-focus",
+         "content": "{{ 'portal_translations.header.skip_content' | t }}"
+       }
+      {% endelement %}
+    </div>
+  </section>
+
+  {% if  portal.current_page != "csat_survey" %}
+    <section class="container">
+      <nav aria-label="{{ 'portal_translations.header.primary_nav' | t }}" class="navbar navbar-expand-xl navbar-light px-0 py-8 pt-xl-4 pb-xl-0">
+        {% element 'header/logo' %}
+         {
+          "linkback_url": "{{ portal.linkback_url }}",
+          "logo_url": "{{ portal.logo_url }}",
+          "logo_alt_text": "{{ portal.logo_alt_text | escape_once }}",
+          "name": "{{ portal.name | escape_once }}"
+         }
+        {% endelement %}
+        {% element 'hamburger' %}{}{% endelement %}
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto mt-64 mt-xl-0">
+            {% for tab in portal.tabs %}
+              <li class="nav-item {% if tab.tab_type == portal.current_tab %}active{% endif %}">
+                <a href="{{ tab.url }}" class="nav-link"{% if tab.tab_type == portal.current_tab %} aria-current="page"{% endif %}>
+                  <span class="d-md-none icon-{{tab.tab_type}}" aria-hidden="true"></span> {{tab.label}}
+                </a>
+              </li>
+            {% endfor %}
+            <li class="nav-item no-hover">
+             {{ portal | header_new_ticket_button }}
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-row align-items-center ps-8 fw-nav-dropdown-wrapper">
+            {{ portal | header_user_navigation }}
+            <li class="nav-item dropdown no-hover ms-auto">
+             {{portal | header_language_list }}
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <div class="nav-overlay d-none"></div>
+  {% else %}
+    <section class="container">
+      <nav aria-label="{{ 'portal_translations.header.primary_nav' | t }}" class="navbar navbar-expand-xl navbar-light px-0 py-16 pt-xl-4 pb-xl-0">
+        {% element 'header/logo' %}
+        {
+         "logo_url": "{{ portal.survey_logo_url }}",
+         "logo_alt_text": "{{ portal.logo_alt_text | escape_once }}",
+         "name": "{{ portal.name | escape_once }}"
+        }
+        {% endelement %}
+      </nav>
+    </section>
+  {% endif %}
+</header>
+

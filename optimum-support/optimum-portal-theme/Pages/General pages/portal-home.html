@@ -1,0 +1,208 @@
+<style>
+  /* Optimum: hover effect for home cards and knowledge base cards */
+  a.card.fw-horizontal,
+  a.card.fw-kbase-card {
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  a.card.fw-horizontal:hover,
+  a.card.fw-horizontal:focus-visible,
+  a.card.fw-kbase-card:hover,
+  a.card.fw-kbase-card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(21, 50, 30, .18);
+    border-color: #4EA848;
+    text-decoration: none;
+  }
+  a.card.fw-horizontal:hover .card-title,
+  a.card.fw-kbase-card:hover .card-title {
+    color: #15321E;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    a.card.fw-horizontal, a.card.fw-kbase-card { transition: none; }
+    a.card.fw-horizontal:hover, a.card.fw-kbase-card:hover { transform: none; }
+  }
+</style>
+
+  {% if portal.current_tab and portal.current_tab == "home" %}
+    <section>
+      {{ page_message }}
+    </section>
+    <section class="container-fluid px-0 fw-helpcenter mb-md-n64">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 col-lg-6 mx-auto">
+            {% assign search_text = 'portal_translations.banner.search_text' | t %}
+            {{ portal | search_element: search_text }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="container-fluid px-0 mt-16">
+    <div class="container">
+      {% assign fw_has_home_cards = false %}
+      {% for card in portal.home_cards %}
+        {% if card.show %}{% assign fw_has_home_cards = true %}{% endif %}
+      {% endfor %}
+      {% if fw_has_home_cards %}
+      <ul class="row justify-content-center list-unstyled mb-0" role="list">
+        {%for card in portal.home_cards %}
+          {% if card.show %}
+            <li class="col-md-6 col-xl-3 mb-8">
+              <a class="card fw-horizontal" href="{{card.url}}" data-customize-id="{{card.id}}">
+                <div class="col-3 px-0 my-auto text-center">
+                  <div class="fw-category-icon">
+                    {{ card.image }}
+                  </div>
+                </div>
+                <div class="card-body col-9">
+                  <h2 class="mt-0 card-title fs-18 line-clamp-2">{{card.label}}</h2>
+                  <p class="line-clamp-5">{{card.description}}</p>
+                </div>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+
+  {% assign solutionCards = 1 %}
+  {% assign solutionCardsLimit = 3 %}
+  {% if portal.has_solutions and solutionCardsLimit != 0 %}
+    <section class="container-fluid px-0">
+      <div class="container">
+        <div class="fw-section-heading text-center mt-28 mt-md-44 mb-24 mb-md-16">
+          <h2>{{ 'portal_translations.home.solutions' | t }}</h2>
+          <a href="{{ portal.solutions_home_url }}">{{ 'portal_translations.home.view_articles' | t }}</a>
+        </div>
+        <div class="row justify-content-center">
+          {% for category in portal.solution_categories %}
+            {% if solutionCards > solutionCardsLimit %}{% break %}{% endif %}
+		        {% if category.folders_count > 0 %}
+              {% for folder in category.folders %}
+                {% assign solutionCards = solutionCards | plus:1 %}
+                <div class="col-md-4 col-xl-3 mb-8">
+                  <a class="card h-100 fw-kbase-card" href="{{ category.url }}">
+                    <div class="px-0 my-auto fw-icon-holder">
+                      {% if category.icon %}
+                        <img src="{{category.icon}}" class="img-fluid" alt="">
+                      {% else %}
+                        <span class="icon-category"></span>
+                      {% endif %}
+                    </div>
+                    <div class="card-body">
+                      <h3 class="mt-0 card-title fs-18 line-clamp-2">{{ category.name | escape_once }}</h3>
+                      <p class="line-clamp-2">{{ category.description }}</p>
+                    </div>
+                  </a>
+                </div>
+                {% break %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {% assign forumCards = 1 %}
+  {% assign forumCardsLimit = 3 %}
+  {% if portal.has_forums and forumCardsLimit != 0 %}
+    <section class="container-fluid px-0 pb-60">
+      <div class="container">
+        <div class="fw-section-heading text-center mt-28 mt-md-44 mb-24 mb-md-16">
+          <h2>{{ 'portal_translations.home.forums' | t }}</h2>
+          <a href="{{ portal.discussions_home_url }}">{{ 'portal_translations.home.view_topics' | t }}</a>
+        </div>
+        <div class="row justify-content-center">
+          {% for category in portal.forum_categories %}
+            {% if forumCards > forumCardsLimit %}{% break %}{% endif %}
+            {% if category.forums_count > 0 %}
+              {% for forum in category.forums %}
+                {% assign forumCards = forumCards | plus:1 %}
+                <div class="col-md-4 col-xl-3 mb-8">
+                  <a class="card h-100" href="{{ category.url }}">
+                    <div class="card-body">
+                      <h3 class="mt-0 card-title fs-18 line-clamp-2">{{ category.name | escape_once }}</h3>
+                      <p class="line-clamp-2">{{ category.description | escape_once }}</p>
+                    </div>
+                  </a>
+                </div>
+                {% break %}
+              {% endfor %}
+            {% endif %}
+         {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="container-fluid px-0 pt-60 pb-44 bg-light">
+    <div class="container">
+    {% if portal.has_solutions %}
+      {% assign articles = portal | popular_articles:4 %}
+      {% if articles.size > 0 %}
+        <div class="col-xl-9 mx-auto mb-32">
+          <div class="fw-section-heading row mb-16">
+            <div class="col-md-8 text-center text-lg-start">
+              <h3>{{ 'portal_translations.home.popular_articles' | t }}</h3>
+            </div>
+            <div class="col-md-4 text-center text-end">
+              <a href="{{portal.solutions_home_url}}">{{ 'portal_translations.home.view_articles' | t }}</a>
+            </div>
+          </div>
+          <div class="fw-articles">
+            <ul class="row list-unstyled mb-0" role="list">
+              {% for article in articles %}
+              <li class="col-md-6 fw-article-info position-relative">
+                <a class="d-flex stretched-link" href="{{article.url}}">
+                  <div class="pt-4 pe-8"><span class="icon-article pr-8"></span></div>
+                  <div>
+                    <h4 class="fs-18 semi-bold line-clamp-2">{{ article.title }}</h4>
+                    <p class="line-clamp-2 fw-meta-info">{{ article | solution_author_info: 'portal_home' | split: ' by ' | first }}
+                    </p>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
+    {% if portal.has_forums %}
+      {% assign topics = portal.most_viewed_topics %}
+      {% if topics.size > 0 %}
+        <div class="col-xl-9 mx-auto">
+          <div class="fw-section-heading row mb-16">
+            <div class="col-md-8  text-center text-lg-start">
+              <h3>{{ 'portal_translations.home.treanding_topics' | t }}</h3>
+            </div>
+            <div class="col-md-4 text-center text-end">
+              <a href="{{portal.discussions_home_url}}">{{ 'portal_translations.home.view_topics' | t }}</a>
+            </div>
+          </div>
+          <div class="fw-articles odd-count">
+            <ul class="row list-unstyled mb-0" role="list">
+              {% for topic in topics limit:4 %}
+              <li class="col-md-6 fw-article-info position-relative">
+                <a class="d-flex stretched-link" href="{{topic.topic_url}}">
+                  <div class="pt-4 pe-8"><span class="icon-topic pe-8"></span></div>
+                  <div>
+                    <h4 class="fs-18 semi-bold line-clamp-2">{{ topic.title | escape_once }}</h4>
+                    <p class="line-clamp-2 fw-meta-info">{% translate portal_translations.home.topic.created_on %} {{topic.created_on_strftime}} {% translate portal_translations.home.topic.by %} {{topic.author_name}}</p>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+    </div>
+  </section>

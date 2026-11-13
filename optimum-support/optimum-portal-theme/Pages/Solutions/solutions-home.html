@@ -1,0 +1,100 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+        <div class="col-md-6">
+          {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.solutions' | t }}", "url":"{{portal.solutions_home_url}}" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ 'portal_translations.header.tabs.solutions' | t }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-0 py-24">
+    <div class="container">
+      {{page_message}}
+      {% for category in portal.solution_categories %}
+        {% if category.folders_count > 0 %}
+          <section class="row fw-category-wrapper box-shadow br-12 mx-0 g-0 bg-light">
+            <div class="col-12 fw-section-heading align-items-center">
+              {% if category.icon %}
+                <div class="fw-fig">
+                  <img src="{{category.icon}}" class="img-fluid" alt="category image">
+                </div>
+              {% else %}
+                <div class="fw-icon-holder pe-12">
+                  <span class="icon-category"></span>
+                </div>
+              {% endif %}
+              <div class="info">
+                <h2>
+                 {% element 'link' %}
+                  {
+                    "url": "{{ category.url }}",
+                    "content": "{{ category.name | escape_once }} ({{ category.folders_count }})"
+                  }
+                 {% endelement %}
+                </h2>
+                <p>{{ category.description }}</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 fw-section-content g-0">
+              {% for folder in category.folders %}
+                {% if folder.entity_collection.size > 0 %}
+                  <div class="col-md-6 fw-folder">
+                    <h3 class="fw-folder-title fs-20 mb-24 semi-bold">
+                     {% element 'link' %}
+                      {
+                       "url": "{{ folder.url }}",
+                       "class": "fw-heading d-flex",
+                       "content": "{% if folder.icon %}<span class='fw-folder-icon text-center me-8'><img src='{{folder.icon}}' class='img-fluid' alt='folder icon'></span>{% else %}<span class='fw-folder-icon text-center pt-4 me-8'><span class='icon-folder'></span></span>{% endif %}<span class='line-clamp-2'> {{ folder.name | escape_once }} ({{ folder.entity_collection.size }})</span>"
+                      }
+                     {% endelement %}
+                    </h3>
+                    <ul class="fw-no-bullet ms-36">
+                      {% for entity in folder.entity_collection limit:3 %}
+                        <li>
+                         {% element 'link' %}
+                          {
+                           "url": "{{ entity.url }}",
+                           "class": "d-flex",
+                           "content": "{% if entity.icon %}<div class='fw-folder-icon fw-subfolder-icon text-center me-8'><img src='{{entity.icon}}' class='img-fluid' alt='entity icon'></div>{% else %}<div class='pe-8'><span class='icon-{{entity.source_type}}'></span></div>{% endif %}<div class='line-clamp-2'>{{ entity.name | escape_once }}</div>"
+                          }
+                         {% endelement %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                    {% if folder.entity_collection.size > 3 %}
+                      {% element 'link' %}
+                          {
+                           "url": "{{ folder.url }}",
+                           "content": "{{ 'portal_translations.view_all' | t }} {{folder.entity_collection.size}}",
+                           "class": "ms-36 my-16 d-block"
+                          }
+                      {% endelement %}
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>

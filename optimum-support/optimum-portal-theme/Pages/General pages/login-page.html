@@ -1,0 +1,43 @@
+<section class="container">
+  <div class="row fw-loginform-wrapper justify-content-center align-items-center" id="loginForm">
+    <div class="col-lg-6 fw-form-section">
+      {{ page_message }}
+      {% snippet login_error_messages %}
+      <div class="form">
+        {% snippet login_form %}
+        {% if portal.has_alternate_login %}
+          <div class="fw-or">
+            <div><span>{{ 'portal_translations.login.login_options' | t }}</span></div>
+            <hr role="presentation" />
+          </div>
+          <div class="fw-social-media-login row">
+            <div class="col-md-8 mx-auto">            
+              {% snippet social_login %}
+            </div>
+          </div>
+        {% endif %}
+          <div class="text-center fw-forget-section"><a role="button" tabindex="0" id="forgetPassLink">{{ 'portal_translations.login.forgot' | t }}</a></div>
+      </div>
+      {% snippet agent_login %}
+      {% snippet customer_login %}
+    </div>
+  </div>
+    <div class="row fw-loginform-wrapper justify-content-center d-none" id="forgetPassForm">
+    <div class="col-lg-6 fw-form-section">
+      <div class="form">
+        {% snippet forgot_password_form %}
+        {% if portal.has_alternate_login %}
+          <div class="fw-or">
+            <div><span>{{ 'portal_translations.login.login_options' | t }}</span></div>
+            <hr role="presentation" />
+          </div>
+          <div class="fw-social-media-login row">
+            <div class="col-md-8 mx-auto">            
+              {% snippet social_login %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

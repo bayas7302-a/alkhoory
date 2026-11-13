@@ -1,0 +1,43 @@
+    <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+        <div class="col-md-6">
+          {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.archive_tickets' | t }}", "url":"/support/tickets/archived" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ 'portal_translations.header.tabs.tickets' | t }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid bg-light pt-32 pb-60">
+    <div class="container px-0">
+    {{ page_message }}
+      <div class="row mx-0 g-0 flex-row-reverse flex-lg-row tickets-list-wrapper fw-category-wrapper fw-wrapper-shadow">
+        <div id="archive-ticket-list" class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+          {% snippet archive_ticket_list %}
+        </div>
+        <div id="archive-ticket-toolbar" class="col-lg-3 fw-sidebar-wrapper">
+          {% snippet archive_ticket_filters %}
+        </div>
+      </div>
+      {{ 'Archive' | tickets_pagination }}
+    </div>
+  </section>
+  <div class="modal fade" id="fw-export-modal" tabindex="-1" role="dialog" aria-labelledby="<%= t('portal_translations.tickets.export_modal')%>" aria-hidden="true">
+   <div class="modal-dialog" role="document"></div>
+  </div>

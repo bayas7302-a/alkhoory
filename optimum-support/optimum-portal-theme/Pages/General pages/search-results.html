@@ -1,0 +1,121 @@
+<section class="fw-sticky fw-searchbar-wrapper">
+  <div class="container">
+    <div class="row align-items-center py-8">
+      <div class="col-md-6">
+        {% element 'secondary_nav' %}
+         {
+           "breadcrumbs": [{ "label":"{{ 'header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                           { "label":"{{ 'header.search' | t }}" }]
+         }
+        {% endelement %}
+      </div>
+      <div class="col-md-4 ms-auto">
+        {% assign search_text = 'portal_translations.banner.search_text' | t %}
+        {{ portal | search_element:search_text, search.current_search_filter, search.term }}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-fluid px-0 fw-page-title-wrapper">
+  <div class="container">
+    <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+      <div class="text-start">
+        <h1 class="fw-page-title">{{ 'portal_translations.search.results_for' | t }} "{{ search.term | escape_once }}" {% if search.total_result_count !=0 %} ({{search.total_result_count}}) {%endif%}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-fluid pt-32 pb-60">
+  <div class="container px-0">
+    <h2 class="fs-20 semi-bold fw-search-title d-none">{{ 'portal_translations.search.results_for' | t }} "{{ search.term | escape_once }}" {% if search.total_result_count !=0 %} ({{search.total_result_count}}) {%endif%}</h2>
+    {% if portal.has_solutions or portal.has_forums or portal.has_tickets %}
+      <div class="fw-filter-nav my-24">
+        <ul class="fw-no-bullet d-flex">
+          {% if portal.has_solutions %}<li><a href="{{ portal.solutions_support_search_path }}?term={{search.term | escape_once}}" {% if search.current_search_filter == "solutions" %} class="active" {% endif %}>{{ 'portal_translations.search.filters.solutions' | t }}</a></li>{% endif %}
+          {% if portal.has_forums %}<li><a href="{{ portal.topics_support_search_path }}?term={{search.term | escape_once}}" {% if search.current_search_filter == "topics" %} class="active" {% endif %}>{{ 'portal_translations.search.filters.topics' | t }}</a></li>{% endif %}
+          {% if portal.has_tickets %}<li><a href="{{ portal.tickets_support_search_path }}?term={{search.term | escape_once}}" {% if search.current_search_filter == "tickets" %} class="active" {% endif %}>{{ 'portal_translations.search.filters.tickets' | t }}</a></li>{% endif %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if search.total_result_count !=0 %}
+      {% assign search_results = search.search_filter_results %}
+
+      {% if portal.has_solutions and search.current_search_filter == "solutions" %}
+        <h3>{{ 'portal_translations.search.filters.solutions' | t }}:</h3>
+        <section class="row fw-category-wrapper box-shadow br-12 mx-0 mt-16 g-0 bg-light">
+          <ul class="fw-no-bullet fw-articles mb-24">
+            {% for result in search_results['solution'] %}
+              <li>
+                <a href="{{result.url}}" class="row mx-0 g-0">
+                  <div class="col-12 d-flex">
+                    <div class="pt-4 pe-8">
+                      <span class="icon-article"></span>
+                    </div>
+                    <div>
+                      <p>{{result.title}}{% if result.group != blank %}<span class="ms-8 fw-status-badge fw-status-badge__best-answer fw-status-badge--search-group">{{result.group}}</span>{% endif %}</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      {% if portal.has_forums and search.current_search_filter == "topics" %}
+      <h3>{{ 'portal_translations.search.filters.topics' | t }}:</h3>
+      <section class="row fw-category-wrapper box-shadow br-12 mx-0 mt-16 g-0 bg-light">
+        <ul class="fw-no-bullet fw-articles mb-24">
+          {% for result in search_results['topic'] %}
+            <li>
+              <a href="{{result.url}}" class="row mx-0 g-0">
+                <div class="col-12 d-flex">
+                  <div class="pt-4 pe-8">
+                   <span class="icon-topic"></span>
+                  </div>
+                  <div>
+                   <p>{{result.title}}{% if result.group != blank %}<span class="ms-8 fw-status-badge fw-status-badge__best-answer fw-status-badge--search-group">{{result.group}}</span>{% endif %}</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      {% if portal.has_tickets and search.current_search_filter == "tickets" %}
+        <h3>{{ 'portal_translations.search.filters.tickets' | t }}:</h3>
+        <section class="row fw-category-wrapper box-shadow br-12 mx-0 mt-16 g-0 bg-light">
+          <ul class="fw-no-bullet fw-articles mb-24">
+            {% for result in search_results['ticket'] %}
+              <li>
+                <a href="{{result.url}}" class="row mx-0 g-0 align-items-center">
+                  <div class="col-md-10 d-flex">
+                    <div class="pt-4 pe-8">
+                      <span class="icon-{{ result.source.source_name | downcase }}-ticket"></span>
+                    </div>
+                    <div>
+                      <p>{{result.title}} #{{result.source.id}}{% if result.group != blank %}<span class="ms-8 fw-status-badge fw-status-badge__best-answer fw-status-badge--search-group">{{result.group}}</span>{% endif %}</p>
+                      <p  class="small line-clamp-2 pt-4">{{ 'portal_translations.created_on' | t }} {{ result.source.created_on | short_day_with_time }} - {{ 'portal_translations.via' | t }} {{result.source.source}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-2 fw-modified text-end">
+                    {{ result.source.status_id | ticket_status: result.source.requester_status_name }}
+                  </div>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+      {{ search.pagination }}
+    {% else %}
+      <section class="my-16 no-results-wrapper text-center py-140">
+        <img src="{{'images/no-results.png' | portal_asset_path }}" class="img-fluid fw-no-results-img" alt="{{ 'portal_translations.search.alt_no_results' | t }}" />
+        <p class="mt-24">{{ 'portal_translations.search.no_results_msg' | t }}<br /> <strong>“{{ search.term | escape_once }}”</strong></p>
+      </section>
+    {% endif %}
+  </div>
+</section>

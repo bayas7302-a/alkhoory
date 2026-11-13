@@ -1,0 +1,78 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+        <div class="col-md-6">
+          {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.forums' | t }}", "url":"{{portal.discussions_home_url}}" },
+                             { "label":"{{ category.name | escape_once }}", "url":"{{ category.url}}" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="fw-icon-holder pe-8">
+          <span class="icon-category"></span>
+        </div>
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ category.name | escape_once }} ({{ category.forums_count }})</h1>
+          <p>{{ category.description | escape_once }}</p>
+          {{ portal | discussions_new_topic_button: 'btn mt-16 new-topic-button fw-primary-button' }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-0 py-24">
+    <div class="container">
+      {{ page_message }}
+      <section class="row box-shadow br-12 fw-category-wrapper mx-0 g-0 bg-light">
+        <div class="row mx-0 fw-section-content g-0">
+          {% for forum in category.forums %}
+              <div class="col-md-6 fw-folder">
+                <div class="fs-20 mb-24 semi-bold">
+                 {% element 'link' %}
+                  {
+                   "url": "{{ forum.url }}",
+                   "class": "fw-heading  d-flex",
+                   "content": "<div class='fw-folder-icon text-center pt-4 me-8'><span class='icon-{{forum.type_class}}-forum'></span></div><div class='line-clamp-2'> {{ forum.name | escape_once }} ({{ forum.topics_count }})</div>",
+                   "other_attributes": [{ "key":"role", "value":"heading" }]
+                  }
+                 {% endelement %}
+                </div>
+                <ul class="fw-no-bullet ms-36">
+                  {% for topic in forum.topics limit:3 %}
+                    <li>
+                     {% element 'link' %}
+                      {
+                       "url": "{{ topic.url }}",
+                       "class": "d-flex",
+                       "content": "<div class='pe-8'><span class='icon-topic'></span></div><div class='line-clamp-2'>{{ topic.title | escape_once}}</div>"
+                      }
+                     {% endelement %}
+                    </li>
+                  {% endfor %}
+                </ul>
+                {% if forum.topics_count > 3 %}
+                  {% element 'link' %}
+                   {
+                    "url": "{{ forum.url }}",
+                    "content": "{{ 'portal_translations.view_all' | t }} {{ forum.topics_count }} {{ 'portal_translations.topics' | t }}",
+                    "class": "ms-36 my-16 d-block"
+                   }
+                  {% endelement %}
+                {% endif %}
+              </div>
+          {% endfor %}
+        </div>
+      </section>
+    </div>
+  </section>

@@ -1,0 +1,101 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+        <div class="col-md-6">
+          {% element 'secondary_nav' %}
+           {
+             "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                             { "label":"{{ 'portal_translations.header.tabs.forums' | t }}", "url":"{{portal.discussions_home_url}}" },
+                             { "label":"{{ 'portal_translations.forums.new_topic' | t }}", "url":"{{portal.new_topic_url}}" }]
+           }
+          {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      {{ page_message }}
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="fw-icon-holder pe-8">
+          <span class="icon-topic"></span>
+        </div>
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ 'portal_translations.forums.new_topic' | t }}</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid pt-32 pb-60">
+    <div class="container fw-wrapper-shadow px-0 bg-light">
+      <div class="row mx-0 g-0">
+        <div class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+          <div class="fw-content fw-new-ticket">
+            {% snippet new_topic_form %}
+          </div>
+        </div>
+        <div class="col-lg-3 fw-sidebar-wrapper">
+          <aside class="bg-grey fw-sidebar">
+            <section class="mb-20">
+               <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.similar_topics' | t }}</h2>
+               <ul class="fw-no-bullet fw-suggestions-results">
+                <p> {{ 'portal_translations.forums.similar_topics_desc' | t }} <p>
+               </ul>
+            </section>
+
+            {% if portal.recent_popular_topics.size > 0 %}
+              <section class="mb-20">
+                <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.forums.popular_topics' | t }}</h2>
+                <ul class="fw-no-bullet">
+                  {% for topic in portal.recent_popular_topics limit:4 %}
+                    <li>
+                     {% element 'link' %}
+                       {
+                        "url": "{{ topic.url }}",
+                        "class": "fw-topic",
+                        "content": "{{ topic.title | escape_once }}"
+                       }
+                     {% endelement %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            {% endif %}
+
+            {% if portal.my_topics.size > 0 %}
+              <section class="mb-20">
+                <div class="row">
+                  <h2 class="mb-12 fs-20 semi-bold col-6">{{ 'portal_translations.forums.my_topics' | t }}</h2>
+                  {% element 'link' %}
+                    {
+                      "url": "{{ portal.my_topics_url }}",
+                      "class": "col-6 text-end link",
+                      "content": "{{ 'portal_translations.view_all' | t }}"
+                    }
+                  {% endelement %}
+                </div>
+                <ul class="fw-no-bullet">
+                  {% for topic in portal.my_topics limit:4 %}
+                   <li>
+                     {% element 'link' %}
+                       {
+                        "url": "{{ topic.url }}",
+                        "class": "fw-topic",
+                        "content": "{{ topic.title | escape_once }}"
+                       }
+                     {% endelement %}
+                   </li>
+                 {% endfor %}
+               </ul>
+             </section>
+            {% endif %}
+          </aside>
+        </div>
+    </div>
+  </div>
+</section>
+{% element 'code_insert' %}{}{% endelement %}

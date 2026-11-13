@@ -1,0 +1,104 @@
+  <section class="fw-sticky fw-searchbar-wrapper">
+    <div class="container">
+      <div class="row align-items-center py-8">
+       <div class="col-md-6">
+         {% element 'secondary_nav' %}
+          {
+           "breadcrumbs": [{ "label":"{{ 'portal_translations.header.tabs.home' | t }}", "url":"{{portal.home_url}}" },
+                           { "label":"{{ 'portal_translations.header.tabs.solutions' | t }}", "url":"{{ portal.solutions_home_url }}" },
+                           { "label": "{{ article.category.name | escape_once }}", "url":"{{ article.category.url }}" },
+                           { "label": "{{ article.folder.name | escape_once }}", "url":"{{ article.folder.url }}" },
+                           { "label": "{{ article.title | escape_once }}", "url":"{{ article.url }}" }]
+          }
+         {% endelement %}
+        </div>
+        <div class="col-md-4 ms-auto">
+          {{ portal | search_element }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid px-0 fw-page-title-wrapper">
+    <div class="container">
+      <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
+        <div class="fw-icon-holder pe-8">
+          <span class="icon-article"></span>
+        </div>
+        <div class="text-start">
+          <h1 class="fw-page-title">{{ article.title }}</h1>
+          <p>{% assign meta = article | solution_author_info: 'article-detail' %}{% if meta contains 'Modified on ' %}Modified on {{ meta | split: 'Modified on ' | last | split: ' by ' | first }}{% endif %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid pt-32 pb-60">
+    <div class="container fw-wrapper-shadow px-0 bg-light">
+      {{page_message}}
+      <div class="row mx-0 g-0">
+        <div class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+          <div class="fw-content fw-content--single-article line-numbers">
+            {{ article.body }}
+            {{ article | attachments }}
+          </div>
+          {{ article | solution_article_feedback }}
+        </div>
+
+        <div class="col-lg-3 fw-sidebar-wrapper">
+          <aside class="bg-grey fw-sidebar">
+            <div class="print mb-20">
+             <a href="#" id="print-article"><span class="icon-print pe-8"></span>{{ 'portal_translations.print' | t }}</a>
+            </div>
+
+            <section class="mb-20">
+              <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.solutions.folder_articles' | t }}</h2>
+              <ul class="fw-no-bullet">
+                {% for article in article.folder.articles limit:4 %}
+                 <li>
+                  {% element 'link' %}
+                   {
+                    "url": "{{ article.url }}",
+                    "class": "fw-article",
+                    "content": "{{ article.title | escape_once }}"
+                   }
+                  {% endelement %}
+                 </li>
+                {% endfor %}
+              </ul>
+            </section>
+
+            {% if article.related_articles.size > 0 %}
+              <section class="mb-20">
+                <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.solutions.similar_articles' | t }}</h2>
+                <ul class="fw-no-bullet">
+                  {% for article in article.related_articles limit:4 %}
+                   <li>
+                    {% element 'link' %}
+                     {
+                      "url": "{{ article.url }}",
+                      "class": "fw-article",
+                      "content": "{{ article.title | escape_once }}"
+                     }
+                    {% endelement %}
+                   </li>
+                  {% endfor %}
+                </ul>
+              </section>
+            {% endif %}
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% element 'lightbox_modal' %}{}{% endelement %}
+
+<script nonce="{{portal.nonce}}">
+  ['click', 'keypress'].forEach(function eventsCallback(event) {
+    document.getElementById('print-article').addEventListener(event, function (e) {
+      if (event === 'keypress' && e.key !== 'Enter') return;
+      e.preventDefault();
+      print();
+    });
+  });
+</script>
+
