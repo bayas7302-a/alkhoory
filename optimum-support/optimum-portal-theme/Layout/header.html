@@ -33,6 +33,10 @@ a:hover { color: var(--opt-ink); }
 .fw-main-wrapper .container.px-0 { padding-left: 12px !important; padding-right: 12px !important; }
 @media (max-width: 575px) { .fw-main-wrapper .container.px-0 { padding-left: 16px !important; padding-right: 16px !important; } }
 :focus-visible { outline: 2px solid var(--opt-accent); outline-offset: 2px; }
+/* No focus rings after a mouse click (Freshdesk adds blue/olive rings); keyboard users still get the outline above */
+*:focus:not(:focus-visible), .btn:focus:not(:focus-visible), .dropdown-toggle:focus:not(:focus-visible) { outline: none !important; box-shadow: none !important; }
+input:focus-visible, textarea:focus-visible, select:focus-visible, .form-control:focus-visible { outline: none; }
+.fw-nav-dropdown-wrapper .dropdown-toggle, .fw-nav-dropdown-wrapper .dropdown-toggle:focus, .fw-nav-dropdown-wrapper .dropdown-toggle:active { border: 0 !important; box-shadow: none !important; }
 
 /* ---------- Buttons ---------- */
 .btn, .fw-primary-button, .fw-secondary-button, button.btn { border-radius: 100px !important; font-weight: 600; font-size: 14px; padding: 12px 24px; transition: background .15s, border-color .15s, color .15s; }
@@ -48,7 +52,7 @@ a:hover { color: var(--opt-ink); }
   border: 1px solid var(--opt-field); border-radius: 12px; font-family: var(--opt-body); font-size: 15px; color: var(--opt-ink); min-height: 48px; }
 textarea.form-control { min-height: 140px; }
 .form-control::placeholder, input::placeholder, textarea::placeholder { color: var(--opt-ph); }
-.form-control:focus, .form-select:focus, select:focus, textarea:focus, input:focus { border-color: var(--opt-green); box-shadow: 0 0 0 3px rgba(168, 168, 9, .18); outline: none; }
+.form-control:focus, .form-select:focus, select:focus, textarea:focus, input:focus { border-color: var(--opt-green); box-shadow: none; outline: none; }
 label, .form-label, .control-label { font-size: 13px; font-weight: 500; margin-bottom: 8px; }
 .required_star, .form-group .required, label .text-danger { color: var(--opt-accent) !important; }
 .form-check-input:checked { background-color: var(--opt-green); border-color: var(--opt-green); }
@@ -113,8 +117,15 @@ label, .form-label, .control-label { font-size: 13px; font-weight: 500; margin-b
 .fw-searchbar-wrapper .input-group .form-control { border-radius: 12px !important; width: 100%; }
 .fw-searchbar-wrapper .btn-search { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); z-index: 5; width: 40px; height: 40px; padding: 0 !important; border-radius: 10px !important; background: var(--opt-green) !important; border: 0 !important; display: flex; align-items: center; justify-content: center; }
 .fw-searchbar-wrapper .btn-search [class*="icon-"] { color: #fff; }
-.fw-autocomplete-wrapper { border-radius: 16px !important; border: 1px solid var(--opt-line); box-shadow: var(--opt-shadow) !important; }
-.fw-search-tab.fw-active-search-tab { color: var(--opt-ink); border-color: var(--opt-accent) !important; }
+.fw-autocomplete-wrapper { border-radius: 16px !important; border: 1px solid var(--opt-line); box-shadow: 0 16px 40px rgba(20, 40, 24, .16) !important; }
+.fw-autocomplete-header { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.fw-search .fw-autocomplete-header .fw-search-tab { border: 0 !important; background: var(--opt-chip) !important; color: var(--opt-muted) !important; border-radius: 100px; height: 30px; padding: 0 14px; font-family: var(--opt-head); font-size: 13px; font-weight: 500; box-shadow: none !important; }
+.fw-search .fw-autocomplete-header .fw-search-tab:hover { background: var(--opt-soft) !important; color: var(--opt-ink) !important; }
+.fw-search .fw-autocomplete-header .fw-search-tab.fw-active-search-tab, .fw-search .fw-autocomplete-header .fw-search-tab.fw-active-search-tab:hover { background: var(--opt-green) !important; color: #fff !important; }
+.fw-search .fw-autocomplete-header .fw-search-tab:focus-visible { box-shadow: 0 0 0 2px var(--opt-accent) !important; }
+.fw-autocomplete-wrapper h2 { font-size: 15px !important; font-weight: 600; }
+.fw-autocomplete-wrapper .btn-link, .fw-autocomplete-wrapper .fw-clear-all { font-size: 13px; padding: 4px 0 !important; }
+.fw-searchbar-wrapper .btn-search .search-input-icon:before { color: #fff; }
 @media (max-width: 767px) { .fw-page-title, .fw-page-title-wrapper h1 { font-size: 26px; line-height: 34px; } .fw-searchbar-wrapper .col-md-4 { margin-top: 12px; } }
 
 /* ---------- Cards & white panels ---------- */

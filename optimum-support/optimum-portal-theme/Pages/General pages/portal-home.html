@@ -1,9 +1,12 @@
 <style>
   /* Optimum home – Figma styling */
-  .opt-hero { position: relative; overflow: hidden; background: var(--opt-ink); padding: 72px 0 80px; text-align: center; }
-  .opt-hero::before, .opt-hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.07); border-radius: 50%; pointer-events: none; }
-  .opt-hero::before { width: 820px; height: 820px; right: -310px; top: -350px; box-shadow: 0 0 0 130px rgba(255,255,255,.015); }
-  .opt-hero::after { width: 380px; height: 380px; left: -190px; top: 250px; }
+  .opt-hero { position: relative; z-index: 3; overflow: visible; background: var(--opt-ink); padding: 72px 0 80px; text-align: center; }
+  /* Decorative rings drawn as a background layer, so the hero needn't clip (the search suggestions can drop below it) */
+  .opt-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(circle at calc(100% + 100px) 60px, transparent 409px, rgba(255,255,255,.07) 410px, transparent 411px),
+                radial-gradient(circle at calc(100% + 100px) 60px, transparent 539px, rgba(255,255,255,.04) 540px, transparent 541px),
+                radial-gradient(circle at 0 100%, transparent 189px, rgba(255,255,255,.07) 190px, transparent 191px); }
+  .opt-hero > .container { position: relative; z-index: 1; }
   .opt-hero .opt-eyebrow { color: rgba(255,255,255,.75); margin-bottom: 20px; }
   .opt-hero .opt-eyebrow::after { content: ""; width: 24px; height: 2px; background: var(--opt-accent); }
   /* Freshdesk's search element prints its own <h1> ("Hi, how can we help you?") before the form;
@@ -12,7 +15,9 @@
   .opt-hero__search { display: contents; }
   .opt-hero .opt-eyebrow { order: 1; } .opt-hero h1 { order: 2; } .opt-hero__lead { order: 3; } .opt-hero form { order: 4; width: 100%; max-width: 720px; } .opt-popular { order: 5; }
   .opt-hero h1 { color: #fff; font-size: 40px; line-height: 48px; font-weight: 700; letter-spacing: -.3px; margin: 0 0 14px; }
-  .opt-hero .fw-autocomplete-wrapper { text-align: left; position: absolute; left: 0; right: 0; top: 72px; z-index: 20; }
+  .opt-hero .fw-autocomplete-wrapper { text-align: left; position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 30; max-height: 70vh; overflow-y: auto; }
+  .opt-hero #searchInput:focus { border-color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .opt-hero .btn-search .search-input-icon:before { color: #fff; }
   .opt-hero__lead { color: rgba(255,255,255,.72); font-size: 16px; line-height: 26px; max-width: 600px; margin: 0 auto 28px; }
   .opt-hero form { position: relative; z-index: 2; }
   .opt-hero .input-group { position: relative; }
