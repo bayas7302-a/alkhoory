@@ -345,11 +345,61 @@ main.fw-main-wrapper > section > .alert .btn-close { position: absolute; top: 50
 .choices__list--dropdown .choices__item.is-selected, .choices__list[aria-expanded] .choices__item.is-selected { font-weight: 600; color: var(--opt-green); }
 .choices__heading { border-bottom: 1px solid var(--opt-line); color: var(--opt-ph); font-size: 12px; padding: 8px 12px; }
 
+/* Dropdown opening upwards (near the bottom of the screen) */
+.choices.is-flipped.is-open .choices__inner { border-radius: 0 0 12px 12px !important; }
+.choices.is-flipped .choices__list--dropdown, .choices.is-flipped .choices__list[aria-expanded] { border: 1px solid var(--opt-green) !important; border-bottom: 0 !important; border-radius: 12px 12px 0 0 !important; margin-bottom: -1px; box-shadow: 0 -12px 32px rgba(20, 40, 24, .12); }
+/* Freshdesk's "dropdown-divider" option in Sort by: show it as a thin line, not text */
+.choices__list--dropdown .choices__item[data-value*="divider"], .choices__list[aria-expanded] .choices__item[data-value*="divider"], .choices__item[data-value*="divider"] { font-size: 0 !important; line-height: 0; height: 1px; min-height: 0; padding: 0 !important; margin: 6px 4px; background: var(--opt-line); pointer-events: none; border-radius: 0 !important; }
+
+/* ---------- Date picker (flatpickr) ---------- */
+.flatpickr-calendar { background: #fff; border: 1px solid var(--opt-line) !important; border-radius: 16px !important; box-shadow: 0 16px 40px rgba(20, 40, 24, .16) !important; padding: 8px; font-family: var(--opt-body); width: auto !important; }
+.flatpickr-calendar::before, .flatpickr-calendar::after { display: none !important; }
+.flatpickr-calendar select, .flatpickr-calendar input { min-height: 0 !important; height: auto !important; border: 0 !important; border-radius: 6px !important; box-shadow: none !important; background: transparent !important; padding: 0 2px !important; }
+.flatpickr-months { align-items: center; height: 44px; padding: 0 4px; }
+.flatpickr-months .flatpickr-month { height: 44px; background: transparent !important; color: var(--opt-ink); }
+.flatpickr-current-month { height: auto; padding: 0; top: 50%; transform: translateY(-50%); font-family: var(--opt-head); font-size: 14px !important; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.flatpickr-current-month .flatpickr-monthDropdown-months, .flatpickr-current-month input.cur-year, .flatpickr-current-month span.cur-month { font-family: var(--opt-head); font-size: 14px !important; font-weight: 600 !important; color: var(--opt-ink) !important; line-height: 20px; margin: 0; }
+.flatpickr-current-month .numInputWrapper { width: 5ch; }
+.flatpickr-months .flatpickr-prev-month, .flatpickr-months .flatpickr-next-month { top: 14px !important; transform: none; height: 32px; width: 32px; padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+.flatpickr-months .flatpickr-prev-month:hover, .flatpickr-months .flatpickr-next-month:hover { background: var(--opt-soft); }
+.flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg { fill: var(--opt-ink) !important; width: 12px; height: 12px; }
+.flatpickr-weekdays, .flatpickr-weekdaycontainer, span.flatpickr-weekday { background: transparent !important; color: var(--opt-ph) !important; font-family: var(--opt-head); font-size: 11px !important; font-weight: 600 !important; text-transform: uppercase; }
+.flatpickr-innerContainer, .flatpickr-rContainer, .flatpickr-days, .dayContainer { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.flatpickr-calendar .dayContainer + .dayContainer { box-shadow: none !important; border-left: 1px solid var(--opt-line) !important; padding-left: 8px; }
+.flatpickr-day { border-radius: 10px !important; color: var(--opt-ink); font-size: 13px; height: 36px; line-height: 34px; max-width: none; flex-basis: 14.2857%; margin: 2px 0; border: 1px solid transparent; box-shadow: none !important; }
+.flatpickr-day:hover, .flatpickr-day:focus { background: var(--opt-soft) !important; border-color: var(--opt-soft) !important; }
+.flatpickr-day.today { border-color: var(--opt-accent) !important; background: transparent; color: var(--opt-ink); font-weight: 600; }
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.selected:hover, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover { background: var(--opt-green) !important; border-color: var(--opt-green) !important; color: #fff !important; }
+.flatpickr-day.inRange, .flatpickr-calendar.multiMonth .flatpickr-days .dayContainer .flatpickr-day.inRange { background: var(--opt-soft) !important; border-color: var(--opt-soft) !important; color: var(--opt-ink) !important; box-shadow: none !important; border-radius: 0 !important; }
+.flatpickr-input.active { background: #fff !important; border-color: var(--opt-green) !important; }
+.flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+1) .flatpickr-day.inRange:nth-child(7n+7), .flatpickr-calendar.multiMonth .flatpickr-days .dayContainer:nth-child(n+2) .flatpickr-day.inRange:nth-child(7n+1), .flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)), .flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)) { box-shadow: none !important; }
+.flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.flatpickr-disabled { color: #c3cac5 !important; }
+
+/* ---------- Pop-up windows (e.g. Export tickets) ---------- */
+.modal-content { overflow: hidden; }
+.modal-header { padding: 22px 28px 14px !important; border-bottom: 1px solid var(--opt-line) !important; }
+.modal-header h1, .modal-header h2, .modal-header h3, .modal-header h4, .modal-header h5, .modal-title, .fw-export-modal h3, .fw-export-modal .modal-header * { font-family: var(--opt-head); font-size: 18px !important; font-weight: 600 !important; color: var(--opt-ink); margin: 0; }
+.modal-body { padding: 20px 28px !important; }
+.modal-footer { padding: 14px 20px !important; background: var(--opt-bg); border-top: 1px solid var(--opt-line) !important; gap: 10px; }
+.modal-footer > * { margin: 0 !important; }
+.modal-header .btn-close { width: 32px; height: 32px; border-radius: 50% !important; padding: 0 !important; margin: 0 !important; background-size: 10px; opacity: .6; }
+.modal-header .btn-close:hover { background-color: var(--opt-soft); opacity: 1; }
+.fw-export-modal label, .modal-body label { font-family: var(--opt-body); font-size: 14px; font-weight: 400; color: var(--opt-ink) !important; }
+.fw-export-modal .fw-ticket-fields { row-gap: 6px; }
+.form-check-input { width: 18px; height: 18px; margin-top: 2px; border: 1.5px solid var(--opt-field); }
+.form-check-input:checked { background-color: var(--opt-green) !important; border-color: var(--opt-green) !important; }
+.form-check-input:focus { box-shadow: none !important; border-color: var(--opt-green); }
+.form-check { display: flex; align-items: flex-start; gap: 8px; padding-left: 0; }
+.form-check .form-check-input { float: none; margin-left: 0; flex: 0 0 18px; }
+
+/* Ticket filter panel: one clean card (no inner grey panel offset inside it) */
+#ticket-toolbar > *, #ticket-toolbar .fw-sidebar, #ticket-toolbar .bg-grey, #ticket-toolbar .fw-advanced-filters { background: transparent !important; box-shadow: none !important; border: 0 !important; margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: 100% !important; position: static !important; transform: none !important; }
+
 /* ---------- My tickets (list + filter panel) ---------- */
 .tickets-list-wrapper { border: 0 !important; box-shadow: none !important; background: none !important; overflow: visible; gap: 24px; flex-wrap: nowrap; }
 .tickets-list-wrapper > #ticket-list { flex: 1 1 auto; width: auto; max-width: none; background: #fff; border: 1px solid var(--opt-line) !important; border-radius: 16px !important; box-shadow: var(--opt-shadow) !important; padding: 24px !important; }
 .tickets-list-wrapper > #ticket-toolbar { flex: 0 0 300px; width: 300px; max-width: 300px; overflow: visible !important; height: auto !important; max-height: none !important; align-self: flex-start;
-  background: #fff; border: 1px solid var(--opt-line) !important; border-radius: 16px !important; box-shadow: var(--opt-shadow) !important; padding: 20px !important; }
+  background: #fff !important; border: 1px solid var(--opt-line) !important; border-radius: 16px !important; box-shadow: var(--opt-shadow) !important; padding: 20px !important; overflow: visible !important; }
 #ticket-toolbar *, #ticket-toolbar { box-sizing: border-box; }
 #ticket-toolbar .form-control, #ticket-toolbar .choices, #ticket-toolbar input, #ticket-toolbar .btn { max-width: 100%; }
 #ticket-toolbar .fw-filter-elements-wrapper, .fw-advanced-filters .fw-filter-elements-wrapper { min-height: 0 !important; }
