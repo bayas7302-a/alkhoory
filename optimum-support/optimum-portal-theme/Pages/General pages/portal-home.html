@@ -56,6 +56,7 @@
   .opt-cat__folder .opt-svg { width: 16px; height: 16px; color: var(--opt-green); }
   .opt-forums { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 96px; }
   .opt-list { list-style: none; margin: 0 0 64px; padding: 8px; background: #fff; border: 1px solid var(--opt-line); border-radius: 20px; box-shadow: var(--opt-shadow); }
+  .opt-list li { padding: 0 !important; margin: 0 !important; border: 0; }
   .opt-list li + li { border-top: 1px solid var(--opt-line); }
   .opt-list a { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-radius: 14px; color: var(--opt-ink); text-decoration: none; }
   .opt-list a:hover { background: var(--opt-bg); }
@@ -106,7 +107,7 @@
           {% elsif card.url contains 'discussions' %}{% assign opt_cta = 'Join the discussion' %}
           {% else %}{% assign opt_cta = 'Open' %}{% endif %}
           <li>
-            <a class="card fw-horizontal opt-action" href="{{card.url}}" data-customize-id="{{card.id}}">
+            <a class="opt-action" href="{{card.url}}" data-customize-id="{{card.id}}">
               <span class="opt-ico fw-category-icon" aria-hidden="true">{{ card.image }}</span>
               <div>
                 <h2 class="card-title line-clamp-2">{{card.label}}</h2>
