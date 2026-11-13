@@ -1,7 +1,7 @@
 <style>
   /* Optimum: guided "Submit a ticket" form – Figma styling */
   .opt-intro { color: var(--opt-muted); font-size: 16px; margin: 10px 0 0; }
-  .opt-newticket { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+  .opt-newticket { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
   @media (max-width: 991px) { .opt-newticket { grid-template-columns: 1fr; } }
   .opt-newticket .fw-new-ticket-wrapper .fw-content-wrapper { padding: 32px; }
   @media (max-width: 767px) { .opt-newticket .fw-new-ticket-wrapper .fw-content-wrapper { padding: 24px 18px; } }
@@ -55,6 +55,23 @@
   .opt-aside__art svg { width: 72px; height: 72px; }
   .opt-aside__card h3 { font-size: 16px; font-weight: 600; margin: 0 8px 6px; }
   .opt-aside__card p { color: var(--opt-muted); font-size: 14px; line-height: 22px; margin: 0 8px; }
+  .opt-aside__art svg { width: 160px; height: 110px; }
+  .opt-aside__tip { display: flex; gap: 14px; align-items: center; background: #fff; border: 1px solid var(--opt-line); border-radius: 16px; padding: 12px; box-shadow: var(--opt-shadow); }
+  .opt-aside__tip svg { flex: 0 0 96px; width: 96px; height: auto; }
+  .opt-aside__tip h3 { font-size: 14px; font-weight: 600; margin: 0 0 4px; }
+  .opt-aside__tip p { color: var(--opt-muted); font-size: 13px; line-height: 19px; margin: 0; }
+  /* Form layout: everything full width; Cancel + Submit right-aligned under a divider */
+  .opt-newticket form.ticket-form { display: flex; flex-wrap: wrap; align-items: center; }
+  .opt-newticket form.ticket-form > * { flex: 0 0 100%; max-width: 100%; }
+  .opt-newticket form.ticket-form::after { content: ""; order: 98; flex: 0 0 100%; border-top: 1px solid var(--opt-line); margin: 8px 0 20px; }
+  .opt-newticket form.ticket-form > a.fw-secondary-button { order: 99; flex: 0 0 auto; margin-left: auto; }
+  .opt-newticket form.ticket-form > .new-ticket-submit-button { order: 100; flex: 0 0 auto; margin-left: 12px; }
+  .opt-newticket form.ticket-form > .new-ticket-submit-button::after { content: " →"; }
+  .opt-newticket .mandatory-fields-notice { order: -1; text-align: right; margin-bottom: -8px; }
+  .opt-newticket .recaptcha-control, .opt-newticket .g-recaptcha { margin-top: 4px; }
+  .opt-subw { margin-top: 24px !important; }
+  .opt-sec.opt-cols { padding-bottom: 0; }
+  .opt-newticket .attachments-container .btn-link { font-family: var(--opt-head); font-weight: 600; font-size: 14px; color: var(--opt-green); text-decoration: none; }
 </style>
 
   <section class="fw-sticky fw-searchbar-wrapper">
@@ -110,9 +127,16 @@
               <a class="opt-btn opt-btn--light opt-btn--sm" href="{{ portal.solutions_home_url }}">Browse articles <span aria-hidden="true">→</span></a>
             </div>
             <div class="opt-aside__card">
-              <div class="opt-aside__art" aria-hidden="true"><svg class="opt-svg" viewBox="0 0 24 24" stroke-width="1.2"><rect x="3" y="6" width="16" height="11" rx="1.5"/><path d="m3 7 8 6 8-6"/><circle cx="19" cy="17" r="3.2" fill="#18301d" stroke="#18301d"/><path d="m17.6 17 1 1 1.8-1.9" stroke="#fff"/></svg></div>
+              <div class="opt-aside__art" aria-hidden="true"><svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="22" width="92" height="64" rx="10" fill="white" stroke="#18301D" stroke-width="2"/><path d="M33 29L76 59L119 29" stroke="#18301D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 82L62 57M118 82L90 57" stroke="#D9DED9" stroke-width="2" stroke-linecap="round"/><circle cx="122" cy="80" r="16" fill="#142818"/><path d="M115 80L120 85L129 75" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="32" r="3" fill="#A8A809"/><circle cx="140" cy="22" r="2" fill="#A8A809"/><rect x="12" y="72" width="10" height="2" rx="1" fill="#A8A809"/></svg></div>
               <h3>Before you submit</h3>
               <p>Check that your email address is correct — all updates about your ticket will be sent there.</p>
+            </div>
+            <div class="opt-aside__tip">
+              <svg width="116" height="85" viewBox="0 0 116 85" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="115.2" height="84.2" rx="14" fill="#EFF2EC"/><rect x="22.88" y="21.64" width="62" height="40.92" rx="6.2" fill="white" stroke="#18301D" stroke-width="1.24"/><circle cx="37.76" cy="39" r="6.82" fill="#EFF2EC" stroke="#18301D" stroke-width="1.24"/><rect x="50.16" y="34.04" width="26.04" height="2.48" rx="1.24" fill="#18301D"/><rect x="50.16" y="40.86" width="17.36" height="2.48" rx="1.24" fill="#D9DED9"/><rect x="30.32" y="52.64" width="37.2" height="2.48" rx="1.24" fill="#D9DED9"/><circle cx="84.88" cy="57.6" r="9.92" fill="#142818"/><circle cx="83.33" cy="56.05" r="3.41" stroke="white" stroke-width="1.364"/><path d="M85.81 58.53L88.6 61.32" stroke="white" stroke-width="1.364" stroke-linecap="round"/><circle cx="17.92" cy="26.6" r="1.86" fill="#A8A809"/><circle cx="94.8" cy="25.36" r="1.24" fill="#A8A809"/><rect x="15.44" y="57.6" width="6.2" height="1.24" rx=".62" fill="#A8A809"/></svg>
+              <div>
+                <h3>Tip before you continue</h3>
+                <p>Have your application reference number ready — it helps our team respond faster.</p>
+              </div>
             </div>
           </aside>
         </div>

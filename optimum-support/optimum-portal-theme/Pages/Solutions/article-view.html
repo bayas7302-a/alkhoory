@@ -24,19 +24,22 @@
         <div class="fw-icon-holder pe-8">
           <span class="icon-article"></span>
         </div>
-        <div class="text-start">
+        <div class="text-start flex-grow-1">
           <h1 class="fw-page-title">{{ article.title }}</h1>
-          <p>{% assign meta = article | solution_author_info: 'article-detail' %}{% if meta contains 'Modified on ' %}Modified on {{ meta | split: 'Modified on ' | last | split: ' by ' | first }}{% endif %}</p>
+          <p class="opt-article-meta"><span class="opt-chip">{{ article.folder.name | escape_once }}</span>{% assign meta = article | solution_author_info: 'article-detail' %}{% if meta contains 'Modified on ' %}<span>Modified on {{ meta | split: 'Modified on ' | last | split: ' by ' | first }}</span>{% endif %}</p>
+        </div>
+        <div class="print opt-print">
+          <a href="#" id="print-article"><span class="icon-print pe-8"></span>{{ 'portal_translations.print' | t }}</a>
         </div>
       </div>
     </div>
   </section>
 
   <section class="container-fluid pt-32 pb-60">
-    <div class="container fw-wrapper-shadow px-0 bg-light">
+    <div class="container px-0">
       {{page_message}}
-      <div class="row mx-0 g-0">
-        <div class="col-lg-9 fw-content-wrapper mb-16 mb-lg-0">
+      <div class="opt-with-aside opt-article">
+        <div class="opt-article__main fw-content-wrapper">
           <div class="fw-content fw-content--single-article line-numbers">
             {{ article.body }}
             {{ article | attachments }}
@@ -44,56 +47,34 @@
           {{ article | solution_article_feedback }}
         </div>
 
-        <div class="col-lg-3 fw-sidebar-wrapper">
-          <aside class="bg-grey fw-sidebar">
-            <div class="print mb-20">
-             <a href="#" id="print-article"><span class="icon-print pe-8"></span>{{ 'portal_translations.print' | t }}</a>
-            </div>
+        <aside class="opt-article__aside fw-sidebar-wrapper">
+          <section class="opt-side-card">
+            <h2>{{ 'portal_translations.solutions.folder_articles' | t }}</h2>
+            <ul class="fw-no-bullet">
+              {% for folder_article in article.folder.articles limit:4 %}
+               <li><a href="{{ folder_article.url }}" class="fw-article{% if folder_article.url == article.url %} is-on{% endif %}"{% if folder_article.url == article.url %} aria-current="page"{% endif %}>{{ folder_article.title | escape_once }}</a></li>
+              {% endfor %}
+            </ul>
+          </section>
 
-            <section class="mb-20">
-              <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.solutions.folder_articles' | t }}</h2>
+          {% if article.related_articles.size > 0 %}
+            <section class="opt-side-card">
+              <h2>{{ 'portal_translations.solutions.similar_articles' | t }}</h2>
               <ul class="fw-no-bullet">
-                {% for article in article.folder.articles limit:4 %}
-                 <li>
-                  {% element 'link' %}
-                   {
-                    "url": "{{ article.url }}",
-                    "class": "fw-article",
-                    "content": "{{ article.title | escape_once }}"
-                   }
-                  {% endelement %}
-                 </li>
+                {% for related in article.related_articles limit:4 %}
+                 <li><a href="{{ related.url }}" class="fw-article">{{ related.title | escape_once }}</a></li>
                 {% endfor %}
               </ul>
             </section>
+          {% endif %}
 
-            {% if article.related_articles.size > 0 %}
-              <section class="mb-20">
-                <h2 class="mb-12 fs-20 semi-bold">{{ 'portal_translations.solutions.similar_articles' | t }}</h2>
-                <ul class="fw-no-bullet">
-                  {% for article in article.related_articles limit:4 %}
-                   <li>
-                    {% element 'link' %}
-                     {
-                      "url": "{{ article.url }}",
-                      "class": "fw-article",
-                      "content": "{{ article.title | escape_once }}"
-                     }
-                    {% endelement %}
-                   </li>
-                  {% endfor %}
-                </ul>
-              </section>
-            {% endif %}
-
-            <section class="opt-help-box">
-              <span class="opt-ico" aria-hidden="true"><svg class="opt-svg" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5M12 16v.2"/></svg></span>
-              <h2 class="fs-16 semi-bold">Still have questions?</h2>
-              <p>Submit a ticket and our team will get back to you.</p>
-              <a class="opt-link-arrow" href="{{ portal.new_ticket_url }}">Submit a ticket</a>
-            </section>
-          </aside>
-        </div>
+          <section class="opt-side-card opt-help-card">
+            <div class="opt-illus" aria-hidden="true"><svg width="160" height="110" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M38 18H90C93.713 18 97.274 19.475 99.8995 22.1005C102.525 24.726 104 28.287 104 32V54C104 57.713 102.525 61.274 99.8995 63.8995C97.274 66.525 93.713 68 90 68H50L38 80V68C34.287 68 30.726 66.525 28.1005 63.8995C25.475 61.274 24 57.713 24 54V32C24 28.287 25.475 24.726 28.1005 22.1005C30.726 19.475 34.287 18 38 18Z" fill="white" stroke="#18301D" stroke-width="2" stroke-linejoin="round"/><path d="M80 33H40a2 2 0 0 0 0 4h40a2 2 0 0 0 0-4ZM66 45H40a2 2 0 0 0 0 4h26a2 2 0 0 0 0-4Z" fill="#D9DED9"/><path d="M88 46H122C125.713 46 129.274 47.475 131.899 50.1005C134.525 52.726 136 56.287 136 60V76C136 79.713 134.525 83.274 131.899 85.8995C129.274 88.525 125.713 90 122 90V100L110 90H88C84.287 90 80.726 88.525 78.1005 85.8995C75.475 83.274 74 79.713 74 76V60C74 56.287 75.475 52.726 78.1005 50.1005C80.726 47.475 84.287 46 88 46Z" fill="#142818"/><path d="M102.09 65a2.9 2.9 0 0 1 5.83.97c0 2-3 3-3 3" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="105" cy="73.2" r="1.4" fill="white"/><circle cx="16" cy="26" r="3" fill="#A8A809"/><circle cx="144" cy="36" r="2" fill="#A8A809"/><rect x="140" y="92" width="10" height="2" rx="1" fill="#A8A809"/></svg></div>
+            <h2>Still have questions?</h2>
+            <p>Submit a ticket and our team will get back to you.</p>
+            <a class="opt-link-arrow" href="{{ portal.new_ticket_url }}">Submit a ticket</a>
+          </section>
+        </aside>
       </div>
     </div>
   </section>
