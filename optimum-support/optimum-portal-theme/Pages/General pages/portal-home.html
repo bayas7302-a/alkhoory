@@ -6,23 +6,33 @@
   .opt-hero::after { width: 380px; height: 380px; left: -190px; top: 250px; }
   .opt-hero .opt-eyebrow { color: rgba(255,255,255,.75); margin-bottom: 20px; }
   .opt-hero .opt-eyebrow::after { content: ""; width: 24px; height: 2px; background: var(--opt-accent); }
+  /* Freshdesk's search element prints its own <h1> ("Hi, how can we help you?") before the form;
+     display:contents lets us place it above the intro text. */
+  .opt-hero > .container { display: flex; flex-direction: column; align-items: center; }
+  .opt-hero__search { display: contents; }
+  .opt-hero .opt-eyebrow { order: 1; } .opt-hero h1 { order: 2; } .opt-hero__lead { order: 3; } .opt-hero form { order: 4; width: 100%; max-width: 720px; } .opt-popular { order: 5; }
   .opt-hero h1 { color: #fff; font-size: 48px; line-height: 58px; font-weight: 700; margin: 0 0 20px; }
+  .opt-hero .fw-autocomplete-wrapper { text-align: left; position: absolute; left: 0; right: 0; top: 72px; z-index: 20; }
   .opt-hero__lead { color: rgba(255,255,255,.72); font-size: 17px; line-height: 28px; max-width: 640px; margin: 0 auto 28px; }
-  .opt-hero__search { max-width: 720px; margin: 0 auto; position: relative; z-index: 1; }
-  .opt-hero__search form { position: relative; }
-  .opt-hero__search input[type="text"], .opt-hero__search input[type="search"] { height: 64px; border-radius: 16px; border: 1px solid #fff; padding: 0 130px 0 22px; font-size: 16px; }
-  .opt-hero__search button, .opt-hero__search .btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); height: 48px; min-width: 104px; border-radius: 100px !important; background: var(--opt-green) !important; color: #fff !important; border: 0 !important; font-family: var(--opt-head); font-weight: 600; }
+  .opt-hero form { position: relative; z-index: 2; }
+  .opt-hero .input-group { position: relative; }
+  .opt-hero #searchInput, .opt-hero .input-group .form-control { height: 64px; border-radius: 16px !important; border: 1px solid #fff; padding: 0 76px 0 22px; font-size: 16px; width: 100%; }
+  .opt-hero .btn-search, .opt-hero .input-group .btn { position: absolute; right: 8px; top: 8px; z-index: 5; width: 48px; height: 48px; padding: 0 !important; border-radius: 50% !important; background: var(--opt-green) !important; color: #fff !important; border: 0 !important; display: flex; align-items: center; justify-content: center; }
+  .opt-hero .btn-search [class*="icon-"] { color: #fff; }
   .opt-popular { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 20px; position: relative; z-index: 1; }
   .opt-popular span { color: rgba(255,255,255,.6); font-size: 14px; }
   .opt-popular a { border: 1px solid rgba(255,255,255,.2); border-radius: 100px; padding: 6px 14px; font-family: var(--opt-head); font-size: 13px; font-weight: 500; color: rgba(255,255,255,.85); text-decoration: none; }
   .opt-popular a:hover { border-color: #fff; color: #fff; }
-  @media (max-width: 767px) { .opt-hero { padding: 56px 0 64px; } .opt-hero h1 { font-size: 32px; line-height: 40px; } .opt-hero__search input[type="text"], .opt-hero__search input[type="search"] { padding-right: 16px; } .opt-hero__search button, .opt-hero__search .btn { position: static; transform: none; width: 100%; margin-top: 10px; } }
+  @media (max-width: 767px) { .opt-hero { padding: 56px 0 64px; } .opt-hero h1 { font-size: 32px; line-height: 40px; } .opt-hero #searchInput { height: 56px; } .opt-hero .btn-search { width: 40px; height: 40px; } }
   .opt-home { padding-top: 64px; }
   .opt-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 0 0 96px; }
   .opt-action, .opt-cat, .opt-forum { display: flex; flex-direction: column; gap: 24px; height: 100%; background: #fff; border: 1px solid var(--opt-line); border-radius: 20px; padding: 32px; box-shadow: var(--opt-shadow); color: var(--opt-ink); text-decoration: none;
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
   a.opt-action:hover, a.opt-action:focus-visible, .opt-cat:hover, a.opt-forum:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(21,50,30,.14); border-color: var(--opt-green); color: var(--opt-ink); text-decoration: none; }
-  .opt-action .opt-ico img, .opt-action .opt-ico svg { max-width: 24px; max-height: 24px; }
+  .opt-action .opt-ico img, .opt-action .opt-ico svg { width: 30px; height: 30px; }
+  /* Recolour Freshdesk's default card icons to the Optimum palette */
+  .opt-action .opt-ico [stroke="#475867" i] { stroke: var(--opt-green); }
+  .opt-action .opt-ico [stroke="#00a886" i] { stroke: var(--opt-accent); }
   .opt-action h2, .opt-forum h3 { font-size: 20px; line-height: 28px; font-weight: 700; margin: 0 0 8px; }
   .opt-action p, .opt-cat p, .opt-forum p { color: var(--opt-muted); margin: 0; line-height: 24px; }
   .opt-action .opt-link-arrow { margin-top: auto; }
@@ -63,7 +73,6 @@
     <section class="container-fluid px-0 fw-helpcenter opt-hero">
       <div class="container">
         <p class="opt-eyebrow">Optimum Support Centre</p>
-        <h1>Hi, how can we help you?</h1>
         <p class="opt-hero__lead">Search our knowledge base, follow up on your tickets or reach our support team about your verification request.</p>
         <div class="opt-hero__search">
           {% assign search_text = 'portal_translations.banner.search_text' | t %}
