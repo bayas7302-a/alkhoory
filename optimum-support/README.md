@@ -5,10 +5,10 @@
 Design source: Figma "OPTIMUM-SUPPORT", page "Support Portal – Desktop".
 
 ## Install order
-1. **Layout → header.html.** The new file starts with a `<style>` block that holds **all the shared theme styles**. It has to be here: Freshdesk doesn't output the Stylesheet file, and `head.html` is printed *before* Freshdesk's own `theme.css`, which would then override our rules. The rest of `header.html` is the same as before.
+1. **Layout → header.html** and **Layout → footer.html.** The shared theme styles are split between a `<style>` block at the top of each file. Each file must stay under about **50,000 characters**: the Freshdesk editor silently didn't save a 50 KB header, while 43 KB saved fine. Both are now about 36 KB. The styles live here, not in `head.html` or the Stylesheet, because these files are printed after Freshdesk's own `theme.css`, so our rules win.
 2. **Layout → head.html** (adds the Poppins and Cairo fonts).
 3. **Layout → layout.html** (adds the "Can’t find what you’re looking for?" band on Home and Knowledge base pages).
-4. **Layout → footer.html** (new footer; the guided ticket-form script is still at the end, logic unchanged).
+4. (footer.html also holds the new footer and, at the end, the guided ticket-form script, logic unchanged.)
 5. **The changed pages:** `portal-home`, `login-page`, `new-user-signup`, `submit-ticket`, `ticket-list`, `article-view`, `folder-view`, `solutions-home`.
 6. **Stylesheet → css.css:** leave it empty (it only holds a note).
 7. Every other page is unchanged and picks up the new look from the styles in `header.html`.
