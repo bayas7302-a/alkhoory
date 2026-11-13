@@ -35,7 +35,7 @@
           <section class="opt-kbcat">
             <div class="opt-kbcat__head">
               <span class="opt-ico" aria-hidden="true">
-                {% if category.icon %}<img src="{{category.icon}}" alt="">{% else %}<svg class="opt-svg" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>{% endif %}
+                {% assign opt_cn = category.name | downcase %}{% if category.icon %}<img src="{{category.icon}}" alt="">{% elsif opt_cn contains 'faq' or opt_cn contains 'question' %}<svg class="opt-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5v.4M12 16.8v.2"/></svg>{% else %}<svg class="opt-svg" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>{% endif %}
               </span>
               <div class="opt-kbcat__info">
                 <h2><a href="{{ category.url }}">{{ category.name | escape_once }}</a></h2>

@@ -21,15 +21,13 @@
   <section class="container-fluid px-0 fw-page-title-wrapper">
     <div class="container">
       <div class="py-24 py-lg-60 mx-0 fw-search-meta-info g-0">
-        <div class="fw-icon-holder pe-8">
-          <span class="icon-article"></span>
-        </div>
+        <span class="opt-ico opt-ico--lg" aria-hidden="true"><svg class="opt-svg" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
         <div class="text-start flex-grow-1">
           <h1 class="fw-page-title">{{ article.title }}</h1>
           <p class="opt-article-meta"><span class="opt-chip">{{ article.folder.name | escape_once }}</span>{% assign meta = article | solution_author_info: 'article-detail' %}{% if meta contains 'Modified on ' %}<span>Modified on {{ meta | split: 'Modified on ' | last | split: ' by ' | first }}</span>{% endif %}</p>
         </div>
         <div class="print opt-print">
-          <a href="#" id="print-article"><span class="icon-print pe-8"></span>{{ 'portal_translations.print' | t }}</a>
+          <a href="#" id="print-article"><svg class="opt-svg" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7" rx="1"/></svg>{{ 'portal_translations.print' | t }}</a>
         </div>
       </div>
     </div>
