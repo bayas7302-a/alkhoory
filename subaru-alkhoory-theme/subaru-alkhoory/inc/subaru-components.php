@@ -313,7 +313,7 @@ add_shortcode( 'subaru_location_map', 'subaru_location_map_shortcode' );
  */
 function subaru_brochure_defaults() {
 	return array(
-		'forester'  => 0, // The Forester PDF (23 MB) still has to be uploaded: paste its URL in Subaru Settings.
+		'forester'  => 993, // Compressed from 23 MB to 10 MB (images resampled to 150 ppi, colour profile kept).
 		'crosstrek' => 974,
 		'wrx'       => 975,
 		'brz'       => 976,

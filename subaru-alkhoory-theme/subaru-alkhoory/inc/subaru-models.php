@@ -116,7 +116,7 @@ return array(
 				),
 			),
 			// Approved UAE photoshoot images (Media Library), shown on the Media Gallery page.
-			'gallery_media'  => array( 986, 987, 988 ),
+			'gallery_media'  => array( 1004, 1005, 1000, 997, 986, 1001, 1003, 987, 1002, 988, 994, 995, 996, 998, 999 ),
 			'gallery'        => array(), // None in the pack: the page keeps its current gallery.
 		),
 
@@ -206,8 +206,8 @@ return array(
 					),
 				),
 			),
-			// Approved photoshoot and official WRX tS images (Media Library); blue, white and silver only.
-			'gallery_media'  => array( 989, 954, 990, 952, 950, 951, 953 ),
+			// Approved UAE photoshoot images (Media Library); blue WRX tS only.
+			'gallery_media'  => array( 1017, 1016, 1010, 1012, 1007, 1014, 989, 1006, 1018, 1015, 1008, 1013, 990, 1009, 1011 ),
 			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 
@@ -249,7 +249,7 @@ return array(
 				),
 			),
 			// Approved UAE photoshoot images (Media Library), shown on the model page and the Media Gallery page.
-			'gallery_media'  => array( 977, 978, 979, 980, 981, 982, 983, 984, 985 ),
+			'gallery_media'  => array( 1019, 977, 1020, 978, 1021, 979, 980, 981, 982, 983, 984, 985 ),
 			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 	),
