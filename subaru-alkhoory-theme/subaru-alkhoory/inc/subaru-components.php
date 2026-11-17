@@ -339,7 +339,7 @@ function subaru_brochures() {
 		$out[ $slug ] = array(
 			'name'    => 'Subaru ' . $name,
 			'url'     => $url,
-			'image'   => file_exists( SUBARU_DIR . '/assets/img/models/' . $slug . '-cutout.png' ) ? SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png' : '',
+			'image'   => file_exists( SUBARU_DIR . '/assets/img/models/' . $slug . '-cutout.png' ) ? SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png?v=' . SUBARU_VERSION : '',
 			'request' => add_query_arg(
 				array(
 					'enquiry' => 'brochure',

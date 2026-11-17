@@ -40,9 +40,9 @@ $subaru_name     = get_bloginfo( 'name' );
 <?php
 // Al Khoory Automobiles logo: Customizer upload (dark version), else the bundled pair.
 $subaru_aka       = get_theme_mod( 'subaru_aka_logo' );
-$subaru_aka_light = SUBARU_URI . '/assets/img/al-khoory-automobiles-white.png';
+$subaru_aka_light = SUBARU_URI . '/assets/img/al-khoory-automobiles-white.png?v=' . SUBARU_VERSION;
 if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobiles.png' ) ) {
-	$subaru_aka = SUBARU_URI . '/assets/img/al-khoory-automobiles.png';
+	$subaru_aka = SUBARU_URI . '/assets/img/al-khoory-automobiles.png?v=' . SUBARU_VERSION;
 }
 ?>
 <header class="sa-header" id="sa-header" data-sa-header>

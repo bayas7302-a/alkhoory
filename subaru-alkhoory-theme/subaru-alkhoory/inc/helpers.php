@@ -304,13 +304,13 @@ function subaru_the_icon( $name, $size = 18, $class = '' ) {
 function subaru_logo_url( $variant = 'dark' ) {
 	if ( 'light' === $variant ) {
 		$url = get_theme_mod( 'subaru_logo_light' );
-		return $url ? $url : SUBARU_URI . '/assets/img/subaru-logo-white.png';
+		return $url ? $url : SUBARU_URI . '/assets/img/subaru-logo-white.png?v=' . SUBARU_VERSION;
 	}
 	$url = get_theme_mod( 'subaru_logo_dark' );
 	if ( ! $url && has_custom_logo() ) {
 		$url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
 	}
-	return $url ? $url : SUBARU_URI . '/assets/img/subaru-logo.png';
+	return $url ? $url : SUBARU_URI . '/assets/img/subaru-logo.png?v=' . SUBARU_VERSION;
 }
 
 /**

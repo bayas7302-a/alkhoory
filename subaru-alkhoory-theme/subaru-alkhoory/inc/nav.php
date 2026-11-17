@@ -296,7 +296,7 @@ function subaru_is_mega( $node ) {
 function subaru_menu_item_thumb( $node ) {
 	$slug = subaru_model_from_url( $node['url'] );
 	if ( $slug && file_exists( SUBARU_DIR . '/assets/img/models/' . $slug . '-cutout.png' ) ) {
-		return SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png';
+		return SUBARU_URI . '/assets/img/models/' . $slug . '-cutout.png?v=' . SUBARU_VERSION;
 	}
 	$id = ! empty( $node['object_id'] ) ? (int) $node['object_id'] : url_to_postid( $node['url'] );
 	if ( $id && has_post_thumbnail( $id ) ) {
