@@ -24,7 +24,7 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 	<?php if ( $subaru_int ) : ?>
 		<div class="sa-cfg__tabs" role="tablist" aria-label="<?php esc_attr_e( 'View', 'subaru-alkhoory' ); ?>">
 			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-ext" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-ext" aria-selected="true"><?php esc_html_e( 'Exterior', 'subaru-alkhoory' ); ?></button>
-			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-int" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-int" aria-selected="false" tabindex="-1"><?php echo esc_html( ! empty( $subaru_int[0]['pano'] ) ? __( 'Interior 360°', 'subaru-alkhoory' ) : __( 'Interior', 'subaru-alkhoory' ) ); ?></button>
+			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-int" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-int" aria-selected="false" tabindex="-1"><?php esc_html_e( 'Interior', 'subaru-alkhoory' ); ?></button>
 		</div>
 	<?php endif; ?>
 
@@ -72,8 +72,28 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 			<?php endif; ?>
 			<?php if ( ! empty( $subaru_first['pano'] ) ) : ?>
 			<div class="sa-cfg__stage sa-cfg__stage--int sa-cfg__stage--pano" data-stage="int">
-				<div class="sa-cfg__pano" data-sa-pano></div>
-				<p class="sa-cfg__hint sa-cfg__hint--pano"><?php esc_html_e( 'Drag to look around', 'subaru-alkhoory' ); ?></p>
+				<div class="sa-cfg__layers">
+					<?php
+					if ( $subaru_first['still'] ) {
+						echo wp_get_attachment_image( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							$subaru_first['still'],
+							'full',
+							false,
+							array(
+								'alt'   => $subaru_first['alt'],
+								'class' => 'sa-cfg__img is-on',
+								'sizes' => '(max-width: 1250px) 100vw, 1250px',
+							)
+						);
+					}
+					?>
+				</div>
+				<div class="sa-cfg__pano" data-sa-pano hidden></div>
+				<button type="button" class="sa-cfg__spin-btn sa-cfg__pano-btn" aria-pressed="false">
+					<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+					<span><?php esc_html_e( '360° view', 'subaru-alkhoory' ); ?></span>
+				</button>
+				<p class="sa-cfg__hint sa-cfg__hint--pano" hidden><?php esc_html_e( 'Drag to look around', 'subaru-alkhoory' ); ?></p>
 				<p class="sa-cfg__name" aria-live="polite"><?php echo esc_html( $subaru_first['label'] ); ?></p>
 			</div>
 			<?php else : ?>

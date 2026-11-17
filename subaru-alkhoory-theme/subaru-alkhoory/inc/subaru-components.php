@@ -119,10 +119,16 @@ function subaru_configurator_data( $model ) {
 		$faces = array_filter( array_map( 'wp_get_attachment_url', $scene['faces'] ) );
 		if ( 6 === count( $faces ) ) {
 			$interiors[] = array(
-				'id'    => 'pano-' . $k,
-				'label' => $scene['label'],
-				'views' => array(),
-				'pano'  => array_values( $faces ),
+				'id'      => 'pano-' . $k,
+				'label'   => $scene['label'],
+				'views'   => array(),
+				'pano'    => array_values( $faces ),
+				'yaw'     => isset( $scene['yaw'] ) ? (int) $scene['yaw'] : 0,
+				'still'   => ! empty( $scene['still'] ) ? (int) $scene['still'] : 0,
+				'src'     => ! empty( $scene['still'] ) ? (string) wp_get_attachment_image_url( $scene['still'], 'full' ) : '',
+				'srcset'  => ! empty( $scene['still'] ) ? (string) wp_get_attachment_image_srcset( $scene['still'], 'full' ) : '',
+				/* translators: 1: model, 2: view label */
+				'alt'     => sprintf( __( 'Subaru %1$s interior (left-hand drive): %2$s', 'subaru-alkhoory' ), $model['name'], strtolower( $scene['label'] ) ),
 			);
 		}
 	}

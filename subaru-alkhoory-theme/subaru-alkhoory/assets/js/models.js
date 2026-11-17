@@ -289,7 +289,6 @@
 			});
 			if (focus) { tabs[n].focus(); }
 			if (n !== 0 && spin.on) { toggleSpin(false); }
-			if (n !== 0 && onIntShow) { onIntShow(); }
 		}
 		tabs.forEach(function (tb, k) { tb.addEventListener('click', function () { selectTab(k); }); });
 		if (tabs.length) {
@@ -341,30 +340,42 @@
 			setPressed(btns, 0);
 			return btns;
 		}
-		/* 3D interior (left-hand drive): Pannellum cube panorama, created on first view of the tab. */
+		/* Interior photos first; the "360° view" button swaps in a Pannellum cube panorama (left-hand drive). */
 		var panoEl = $('[data-sa-pano]', root);
+		var panoBtn = $('.sa-cfg__pano-btn', root);
+		var panoHint = $('.sa-cfg__hint--pano', root);
 		var pano = null;
-		var onIntShow = null;
-		if (panoEl && sets[0] && sets[0].pano) {
-			onIntShow = function () {
-				if (pano || !w.pannellum) { return; }
+		var panoOn = false;
+		function sceneConf(st) { return { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: -6, yaw: st.yaw || 0, minHfov: 60, maxHfov: 115 }; }
+		function togglePano(on) {
+			panoOn = on;
+			panoBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+			$('span', panoBtn).textContent = on ? (t.spinOff || 'Exit 360° view') : (t.spinOn || '360° view');
+			panoEl.hidden = !on;
+			intStage.classList.toggle('is-pano', on);
+			if (panoHint) { panoHint.hidden = !on || intStage.classList.contains('is-pano-used'); }
+			if (on && !pano && w.pannellum) {
 				var scenes = {};
-				sets.forEach(function (st) { scenes[st.id] = { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: -6, yaw: 0, minHfov: 60, maxHfov: 115 }; });
+				sets.forEach(function (st) { scenes[st.id] = sceneConf(st); });
 				pano = w.pannellum.viewer(panoEl, {
 					default: { firstScene: sets[setIdx].id, autoLoad: true, sceneFadeDuration: 400, mouseZoom: false, keyboardZoom: false, compass: false, showFullscreenCtrl: true },
 					scenes: scenes
 				});
-				pano.on('mousedown', function () { root.classList.add('is-pano-used'); });
-				pano.on('touchstart', function () { root.classList.add('is-pano-used'); });
-			};
+				var used = function () { intStage.classList.add('is-pano-used'); if (panoHint) { panoHint.hidden = true; } };
+				pano.on('mousedown', used); pano.on('touchstart', used);
+			} else if (on && pano && pano.getScene() !== sets[setIdx].id) {
+				pano.loadScene(sets[setIdx].id, -6, sets[setIdx].yaw || 0, 105);
+			}
 		}
+		if (panoEl && panoBtn) { panoBtn.addEventListener('click', function () { togglePano(!panoOn); }); }
 		function selectSet(i) {
 			if (!sets[i]) { return; }
 			setIdx = i;
 			setPressed(gradeBtns, i);
 			if (panoEl) {
 				$('.sa-cfg__name', intStage).textContent = sets[i].label;
-				if (pano) { pano.loadScene(sets[i].id); }
+				if (sets[i].src) { swapImage(intStage, sets[i].src, sets[i].srcset, sets[i].alt); }
+				if (pano && panoOn) { pano.loadScene(sets[i].id, -6, sets[i].yaw || 0, 105); }
 				return;
 			}
 			buildTrims();

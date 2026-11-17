@@ -91,10 +91,10 @@ return array(
 				),
 			),
 			// Dashboards are the client's left-hand-drive photos (Media Library); the pack ones are right-hand drive.
-			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
-				array( 'label' => 'Cabin', 'faces' => array( 1045, 1046, 1047, 1048, 1049, 1050 ) ),
-				array( 'label' => 'Rear seats folded', 'faces' => array( 1051, 1052, 1053, 1054, 1055, 1056 ) ),
+				array( 'label' => 'Cabin', 'still' => 1094, 'yaw' => 0, 'faces' => array( 1045, 1046, 1047, 1048, 1049, 1050 ) ),
+				array( 'label' => 'Rear seats folded', 'still' => 1095, 'yaw' => 180, 'faces' => array( 1051, 1052, 1053, 1054, 1055, 1056 ) ),
 			),
 			'interiors'      => array(
 				'2.5i'       => array(
@@ -152,10 +152,10 @@ return array(
 					'note'     => 'Pack has no 2.0i-L: uses the 2.5i-L EyeSight cut-out and interior.',
 				),
 			),
-			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
-				array( 'label' => 'Cabin', 'faces' => array( 1057, 1058, 1059, 1060, 1061, 1062 ) ),
-				array( 'label' => 'Rear seats folded', 'faces' => array( 1063, 1064, 1065, 1066, 1067, 1068 ) ),
+				array( 'label' => 'Cabin', 'still' => 1096, 'yaw' => 0, 'faces' => array( 1057, 1058, 1059, 1060, 1061, 1062 ) ),
+				array( 'label' => 'Rear seats folded', 'still' => 1097, 'yaw' => 180, 'faces' => array( 1063, 1064, 1065, 1066, 1067, 1068 ) ),
 			),
 			'interiors'      => array(
 				'2.0i-S' => array(
@@ -205,10 +205,10 @@ return array(
 					'interior' => 'ts',
 				),
 			),
-			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
-				array( 'label' => 'Cabin', 'faces' => array( 1069, 1070, 1071, 1072, 1073, 1074 ) ),
-				array( 'label' => 'Rear seats folded', 'faces' => array( 1075, 1076, 1077, 1078, 1079, 1080 ) ),
+				array( 'label' => 'Cabin', 'still' => 1098, 'yaw' => 0, 'faces' => array( 1069, 1070, 1071, 1072, 1073, 1074 ) ),
+				array( 'label' => 'Rear seats folded', 'still' => 1099, 'yaw' => 180, 'faces' => array( 1075, 1076, 1077, 1078, 1079, 1080 ) ),
 			),
 			'interiors'      => array(
 				'ts'   => array(
@@ -251,10 +251,10 @@ return array(
 					'interior' => 'brz',
 				),
 			),
-			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
-				array( 'label' => 'Manual', 'faces' => array( 1081, 1082, 1083, 1084, 1085, 1086 ) ),
-				array( 'label' => 'Automatic', 'faces' => array( 1087, 1088, 1089, 1090, 1091, 1092 ) ),
+				array( 'label' => 'Manual', 'still' => 1100, 'yaw' => 0, 'faces' => array( 1081, 1082, 1083, 1084, 1085, 1086 ) ),
+				array( 'label' => 'Automatic', 'still' => 1101, 'yaw' => 0, 'faces' => array( 1087, 1088, 1089, 1090, 1091, 1092 ) ),
 			),
 			'interiors'      => array(
 				'brz' => array(
