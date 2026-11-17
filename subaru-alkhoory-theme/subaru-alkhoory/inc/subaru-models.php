@@ -91,6 +91,11 @@ return array(
 				),
 			),
 			// Dashboards are the client's left-hand-drive photos (Media Library); the pack ones are right-hand drive.
+			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			'interior360'    => array(
+				array( 'label' => 'Cabin', 'faces' => array( 1045, 1046, 1047, 1048, 1049, 1050 ) ),
+				array( 'label' => 'Rear seats folded', 'faces' => array( 1051, 1052, 1053, 1054, 1055, 1056 ) ),
+			),
 			'interiors'      => array(
 				'2.5i'       => array(
 					'label' => '2.5i EyeSight',
@@ -147,6 +152,11 @@ return array(
 					'note'     => 'Pack has no 2.0i-L: uses the 2.5i-L EyeSight cut-out and interior.',
 				),
 			),
+			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			'interior360'    => array(
+				array( 'label' => 'Cabin', 'faces' => array( 1057, 1058, 1059, 1060, 1061, 1062 ) ),
+				array( 'label' => 'Rear seats folded', 'faces' => array( 1063, 1064, 1065, 1066, 1067, 1068 ) ),
+			),
 			'interiors'      => array(
 				'2.0i-S' => array(
 					'label' => '2.0i-S EyeSight',
@@ -162,17 +172,14 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 327, 232, 304, 331, 295, 291, 296, 299, 301, 336, 329 ),
+			'gallery_media'  => array( 327, 232, 304, 331, 295, 291, 296, 299, 301, 336, 329, 1042, 1043 ),
 			'gallery'        => array(
 				array( '04_Media_Gallery/Crosstrek_exterior_coastroad_blue.jpg', 'Subaru Crosstrek in blue on a coastal road' ),
 				array( '04_Media_Gallery/Crosstrek_exterior_desert_blue.jpg', 'Subaru Crosstrek in blue driving through the desert' ),
 				array( '04_Media_Gallery/Crosstrek_exterior_offroad_sanddune.jpg', 'Subaru Crosstrek in Sand Dune Pearl on an off-road trail' ),
 				array( '04_Media_Gallery/Crosstrek_exterior_rocks_blue.jpg', 'Subaru Crosstrek in blue parked among rocks' ),
 				array( '04_Media_Gallery/Crosstrek_exterior_snow_red.jpg', 'Subaru Crosstrek in red on a snowy road' ),
-				array( '04_Media_Gallery/Crosstrek_interior_dashboard_view.jpg', 'Subaru Crosstrek dashboard and 11.6-inch centre display' ),
-				array( '04_Media_Gallery/Crosstrek_interior_seats.jpg', 'Subaru Crosstrek front seats' ),
 				array( '04_Media_Gallery/Crosstrek_lifestyle_cycling_silver.jpg', 'Subaru Crosstrek in silver with bikes on a cycling trip' ),
-				array( '04_Media_Gallery/Crosstrek_lifestyle_driver_interior.jpg', 'Driver at the wheel of a Subaru Crosstrek' ),
 				array( '04_Media_Gallery/Crosstrek_lifestyle_mountains_red.jpg', 'Subaru Crosstrek in red in the mountains' ),
 			),
 		),
@@ -197,6 +204,11 @@ return array(
 					'colour'   => 'Ceramic_White',
 					'interior' => 'ts',
 				),
+			),
+			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			'interior360'    => array(
+				array( 'label' => 'Cabin', 'faces' => array( 1069, 1070, 1071, 1072, 1073, 1074 ) ),
+				array( 'label' => 'Rear seats folded', 'faces' => array( 1075, 1076, 1077, 1078, 1079, 1080 ) ),
 			),
 			'interiors'      => array(
 				'ts'   => array(
@@ -238,6 +250,11 @@ return array(
 					'image'    => '',
 					'interior' => 'brz',
 				),
+			),
+			// Left-hand-drive 3D interior (Subaru SMP 'Interior 360° View Data'): cube faces front, right, back, left, up, down.
+			'interior360'    => array(
+				array( 'label' => 'Manual', 'faces' => array( 1081, 1082, 1083, 1084, 1085, 1086 ) ),
+				array( 'label' => 'Automatic', 'faces' => array( 1087, 1088, 1089, 1090, 1091, 1092 ) ),
 			),
 			'interiors'      => array(
 				'brz' => array(

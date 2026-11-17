@@ -19,8 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register the component assets.
  */
 function subaru_components_register_assets() {
-	wp_register_style( 'subaru-models', SUBARU_URI . '/assets/css/models.css', array( 'subaru-theme' ), subaru_asset_ver( 'assets/css/models.css' ) );
-	wp_register_script( 'subaru-models', SUBARU_URI . '/assets/js/models.js', array( 'subaru-theme' ), subaru_asset_ver( 'assets/js/models.js' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	wp_register_style( 'subaru-models', SUBARU_URI . '/assets/css/models.css', array( 'subaru-theme', 'pannellum' ), subaru_asset_ver( 'assets/css/models.css' ) );
+	wp_register_style( 'pannellum', SUBARU_URI . '/assets/vendor/pannellum/pannellum.css', array(), '2.5.6' );
+	wp_register_script( 'pannellum', SUBARU_URI . '/assets/vendor/pannellum/pannellum.js', array(), '2.5.6', array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	wp_register_script( 'subaru-models', SUBARU_URI . '/assets/js/models.js', array( 'subaru-theme', 'pannellum' ), subaru_asset_ver( 'assets/js/models.js' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
 	wp_localize_script(
 		'subaru-models',
 		'SubaruModels',
@@ -112,7 +114,19 @@ function subaru_configurator_data( $model ) {
 	}
 
 	$interiors = array();
-	foreach ( $model['interiors'] as $id => $set ) {
+	// A 3D (left-hand-drive) interior replaces the still photos: one "set" per scene.
+	foreach ( ! empty( $model['interior360'] ) ? $model['interior360'] : array() as $k => $scene ) {
+		$faces = array_filter( array_map( 'wp_get_attachment_url', $scene['faces'] ) );
+		if ( 6 === count( $faces ) ) {
+			$interiors[] = array(
+				'id'    => 'pano-' . $k,
+				'label' => $scene['label'],
+				'views' => array(),
+				'pano'  => array_values( $faces ),
+			);
+		}
+	}
+	foreach ( $interiors ? array() : $model['interiors'] as $id => $set ) {
 		$views = array();
 		foreach ( $set['views'] as $v ) {
 			// A view is either a pack file ('file') or a Media Library photo ('id').

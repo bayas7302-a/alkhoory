@@ -135,3 +135,13 @@
 .sa-locmap__frame { position: relative; overflow: hidden; border-radius: 24px; background: var(--sub-bg); aspect-ratio: 420 / 360; }
 .sa-locmap__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .sa-locmap__dir { align-self: flex-start; }
+
+/* 3D interior (Pannellum): left-hand-drive cabin panorama in the Interior tab. */
+.sa-cfg__stage--pano { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 24px; background: #0e1117; }
+.sa-cfg__pano { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sa-cfg__pano .pnlm-load-box { background: rgba(7, 20, 42, .7); border-radius: 12px; }
+.sa-cfg__pano .pnlm-controls-container { top: 16px; left: 16px; }
+.sa-cfg__hint--pano { position: absolute; left: 50%; bottom: 56px; z-index: 3; transform: translateX(-50%); margin: 0; padding: 8px 16px; border-radius: 999px; background: rgba(7, 20, 42, .6); color: #fff; font-size: 13px; pointer-events: none; transition: opacity .4s; }
+.is-pano-used .sa-cfg__hint--pano { opacity: 0; }
+.sa-cfg__stage--pano .sa-cfg__name { position: absolute; left: 0; right: 0; bottom: 16px; z-index: 3; margin: 0; color: #fff; text-align: center; text-shadow: 0 1px 6px rgba(0, 0, 0, .6); pointer-events: none; }
+@media (max-width: 767px) { .sa-cfg__stage--pano { aspect-ratio: 4 / 3; border-radius: 16px; } }

@@ -24,7 +24,7 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 	<?php if ( $subaru_int ) : ?>
 		<div class="sa-cfg__tabs" role="tablist" aria-label="<?php esc_attr_e( 'View', 'subaru-alkhoory' ); ?>">
 			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-ext" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-ext" aria-selected="true"><?php esc_html_e( 'Exterior', 'subaru-alkhoory' ); ?></button>
-			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-int" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-int" aria-selected="false" tabindex="-1"><?php esc_html_e( 'Interior', 'subaru-alkhoory' ); ?></button>
+			<button type="button" class="sa-cfg__tab" role="tab" id="<?php echo esc_attr( $subaru_uid ); ?>-tab-int" aria-controls="<?php echo esc_attr( $subaru_uid ); ?>-int" aria-selected="false" tabindex="-1"><?php echo esc_html( ! empty( $subaru_int[0]['pano'] ) ? __( 'Interior 360°', 'subaru-alkhoory' ) : __( 'Interior', 'subaru-alkhoory' ) ); ?></button>
 		</div>
 	<?php endif; ?>
 
@@ -70,6 +70,13 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
+			<?php if ( ! empty( $subaru_first['pano'] ) ) : ?>
+			<div class="sa-cfg__stage sa-cfg__stage--int sa-cfg__stage--pano" data-stage="int">
+				<div class="sa-cfg__pano" data-sa-pano></div>
+				<p class="sa-cfg__hint sa-cfg__hint--pano"><?php esc_html_e( 'Drag to look around', 'subaru-alkhoory' ); ?></p>
+				<p class="sa-cfg__name" aria-live="polite"><?php echo esc_html( $subaru_first['label'] ); ?></p>
+			</div>
+			<?php else : ?>
 			<div class="sa-cfg__stage sa-cfg__stage--int" data-stage="int">
 				<div class="sa-cfg__layers">
 					<?php
@@ -98,6 +105,7 @@ $subaru_spin  = (bool) array_filter( wp_list_pluck( $subaru_data['colours'], 'fr
 				</div>
 				<p class="sa-cfg__name" aria-live="polite"><?php echo esc_html( $subaru_first['views'][0]['label'] ); ?></p>
 			</div>
+			<?php endif; ?>
 			<div class="sa-cfg__swatches sa-cfg__swatches--trim" role="group" aria-label="<?php esc_attr_e( 'Interior view', 'subaru-alkhoory' ); ?>"></div>
 		</div>
 	<?php endif; ?>

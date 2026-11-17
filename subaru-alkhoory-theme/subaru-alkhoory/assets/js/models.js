@@ -289,6 +289,7 @@
 			});
 			if (focus) { tabs[n].focus(); }
 			if (n !== 0 && spin.on) { toggleSpin(false); }
+			if (n !== 0 && onIntShow) { onIntShow(); }
 		}
 		tabs.forEach(function (tb, k) { tb.addEventListener('click', function () { selectTab(k); }); });
 		if (tabs.length) {
@@ -340,16 +341,39 @@
 			setPressed(btns, 0);
 			return btns;
 		}
+		/* 3D interior (left-hand drive): Pannellum cube panorama, created on first view of the tab. */
+		var panoEl = $('[data-sa-pano]', root);
+		var pano = null;
+		var onIntShow = null;
+		if (panoEl && sets[0] && sets[0].pano) {
+			onIntShow = function () {
+				if (pano || !w.pannellum) { return; }
+				var scenes = {};
+				sets.forEach(function (st) { scenes[st.id] = { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: -6, yaw: 0, minHfov: 60, maxHfov: 115 }; });
+				pano = w.pannellum.viewer(panoEl, {
+					default: { firstScene: sets[setIdx].id, autoLoad: true, sceneFadeDuration: 400, mouseZoom: false, keyboardZoom: false, compass: false, showFullscreenCtrl: true },
+					scenes: scenes
+				});
+				pano.on('mousedown', function () { root.classList.add('is-pano-used'); });
+				pano.on('touchstart', function () { root.classList.add('is-pano-used'); });
+			};
+		}
 		function selectSet(i) {
 			if (!sets[i]) { return; }
 			setIdx = i;
 			setPressed(gradeBtns, i);
+			if (panoEl) {
+				$('.sa-cfg__name', intStage).textContent = sets[i].label;
+				if (pano) { pano.loadScene(sets[i].id); }
+				return;
+			}
 			buildTrims();
 			selectView(0);
 		}
 		if (intStage && sets.length) {
 			gradeBtns.forEach(function (b, k) { b.addEventListener('click', function () { selectSet(k); }); });
 			if (gradeBtns.length) { rovingGroup(gradeBtns[0].parentNode, gradeBtns, selectSet); }
+			if (panoEl) { return; }
 			buildTrims();
 			// Grade cards elsewhere on the page (matched by their heading) select their interior.
 			var grades = data.grades || [];
