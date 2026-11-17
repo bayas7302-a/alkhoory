@@ -346,7 +346,11 @@
 		var panoHint = $('.sa-cfg__hint--pano', root);
 		var pano = null;
 		var panoOn = false;
-		function sceneConf(st) { return { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: -6, yaw: st.yaw || 0, minHfov: 60, maxHfov: 115 }; }
+		function sceneConf(st) { return { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: st.pitch || -6, yaw: st.yaw || 0, minHfov: 60, maxHfov: 115 }; }
+		function showView(st) {
+			if (pano.getScene() !== st.scene) { pano.loadScene(st.scene, st.pitch || -6, st.yaw || 0, 105); }
+			else { pano.lookAt(st.pitch || -6, st.yaw || 0, 105, 700); }
+		}
 		function togglePano(on) {
 			panoOn = on;
 			panoBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
@@ -356,15 +360,16 @@
 			if (panoHint) { panoHint.hidden = !on || intStage.classList.contains('is-pano-used'); }
 			if (on && !pano && w.pannellum) {
 				var scenes = {};
-				sets.forEach(function (st) { scenes[st.id] = sceneConf(st); });
+				sets.forEach(function (st) { if (!scenes[st.scene]) { scenes[st.scene] = sceneConf(st); } });
+				scenes[sets[setIdx].scene] = sceneConf(sets[setIdx]);
 				pano = w.pannellum.viewer(panoEl, {
-					default: { firstScene: sets[setIdx].id, autoLoad: true, sceneFadeDuration: 400, mouseZoom: false, keyboardZoom: false, compass: false, showFullscreenCtrl: true },
+					default: { firstScene: sets[setIdx].scene, autoLoad: true, sceneFadeDuration: 400, mouseZoom: false, keyboardZoom: false, compass: false, showFullscreenCtrl: true },
 					scenes: scenes
 				});
 				var used = function () { intStage.classList.add('is-pano-used'); if (panoHint) { panoHint.hidden = true; } };
 				pano.on('mousedown', used); pano.on('touchstart', used);
-			} else if (on && pano && pano.getScene() !== sets[setIdx].id) {
-				pano.loadScene(sets[setIdx].id, -6, sets[setIdx].yaw || 0, 105);
+			} else if (on && pano) {
+				showView(sets[setIdx]);
 			}
 		}
 		if (panoEl && panoBtn) { panoBtn.addEventListener('click', function () { togglePano(!panoOn); }); }
@@ -375,7 +380,7 @@
 			if (panoEl) {
 				$('.sa-cfg__name', intStage).textContent = sets[i].label;
 				if (sets[i].src) { swapImage(intStage, sets[i].src, sets[i].srcset, sets[i].alt); }
-				if (pano && panoOn) { pano.loadScene(sets[i].id, -6, sets[i].yaw || 0, 105); }
+				if (pano && panoOn) { showView(sets[i]); }
 				return;
 			}
 			buildTrims();

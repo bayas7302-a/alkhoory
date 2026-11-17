@@ -96,6 +96,14 @@ return array(
 				array( 'label' => 'Cabin', 'still' => 1094, 'yaw' => 0, 'faces' => array( 1045, 1046, 1047, 1048, 1049, 1050 ) ),
 				array( 'label' => 'Rear seats folded', 'still' => 1095, 'yaw' => 180, 'faces' => array( 1051, 1052, 1053, 1054, 1055, 1056 ) ),
 			),
+			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			'interior_views' => array(
+				array( 'label' => 'Dashboard', 'still' => 1094, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
+				array( 'label' => 'Driver\'s seat', 'still' => 1103, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
+				array( 'label' => 'Centre console', 'still' => 1104, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
+				array( 'label' => 'Rear seats', 'still' => 1105, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
+				array( 'label' => 'Rear seats folded', 'still' => 1095, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+			),
 			'interiors'      => array(
 				'2.5i'       => array(
 					'label' => '2.5i EyeSight',
@@ -157,6 +165,14 @@ return array(
 				array( 'label' => 'Cabin', 'still' => 1096, 'yaw' => 0, 'faces' => array( 1057, 1058, 1059, 1060, 1061, 1062 ) ),
 				array( 'label' => 'Rear seats folded', 'still' => 1097, 'yaw' => 180, 'faces' => array( 1063, 1064, 1065, 1066, 1067, 1068 ) ),
 			),
+			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			'interior_views' => array(
+				array( 'label' => 'Dashboard', 'still' => 1096, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
+				array( 'label' => 'Driver\'s seat', 'still' => 1106, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
+				array( 'label' => 'Centre console', 'still' => 1107, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
+				array( 'label' => 'Rear seats', 'still' => 1108, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
+				array( 'label' => 'Rear seats folded', 'still' => 1097, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+			),
 			'interiors'      => array(
 				'2.0i-S' => array(
 					'label' => '2.0i-S EyeSight',
@@ -210,6 +226,14 @@ return array(
 				array( 'label' => 'Cabin', 'still' => 1098, 'yaw' => 0, 'faces' => array( 1069, 1070, 1071, 1072, 1073, 1074 ) ),
 				array( 'label' => 'Rear seats folded', 'still' => 1099, 'yaw' => 180, 'faces' => array( 1075, 1076, 1077, 1078, 1079, 1080 ) ),
 			),
+			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			'interior_views' => array(
+				array( 'label' => 'Dashboard', 'still' => 1098, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
+				array( 'label' => 'Driver\'s seat', 'still' => 1109, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
+				array( 'label' => 'Centre console', 'still' => 1110, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
+				array( 'label' => 'Rear seats', 'still' => 1111, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
+				array( 'label' => 'Rear seats folded', 'still' => 1099, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+			),
 			'interiors'      => array(
 				'ts'   => array(
 					'label' => 'tS EyeSight',
@@ -255,6 +279,14 @@ return array(
 			'interior360'    => array(
 				array( 'label' => 'Manual', 'still' => 1100, 'yaw' => 0, 'faces' => array( 1081, 1082, 1083, 1084, 1085, 1086 ) ),
 				array( 'label' => 'Automatic', 'still' => 1101, 'yaw' => 0, 'faces' => array( 1087, 1088, 1089, 1090, 1091, 1092 ) ),
+			),
+			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			'interior_views' => array(
+				array( 'label' => 'Dashboard', 'still' => 1100, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
+				array( 'label' => 'Driver\'s seat', 'still' => 1112, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
+				array( 'label' => 'Centre console', 'still' => 1113, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
+				array( 'label' => 'Rear seats', 'still' => 1114, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
+				array( 'label' => 'Automatic', 'still' => 1101, 'scene' => 1, 'yaw' => 0, 'pitch' => -6 ),
 			),
 			'interiors'      => array(
 				'brz' => array(
