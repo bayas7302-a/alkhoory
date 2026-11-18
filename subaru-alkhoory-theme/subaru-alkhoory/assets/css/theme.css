@@ -830,3 +830,21 @@ html, body { overflow-x: clip; }
 .sa-broch__btn { margin-top: auto; }
 @media (max-width: 900px) { .sa-broch__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .sa-broch__panel { padding: 40px 18px 22px; } .sa-broch__list { gap: 10px; } .sa-broch__item { padding: 12px 8px 14px; } .sa-broch__name { font-size: 14px; } :root .sa-broch__btn { padding-inline: 12px; font-size: 13px; white-space: nowrap; } }
+
+/* 17. v1.4.6 Home hero: the car is never under the text.
+   Desktop: text sits on a dark panel on the left; the photo fills the right ~60% and fades into the panel
+   (each slide's background-position frames its car). Phones/tablets: photo on top, text underneath. */
+.elementor .sub-hero-carousel .sub-hero-slide { background-color: #07142a !important; }
+@media (min-width: 1100px) {
+	.sub-hero-carousel .sub-hero-slide > .sa-kb { left: 40%; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24%); mask-image: linear-gradient(to right, transparent 0, #000 24%); }
+	.elementor .sub-hero-carousel .sub-hero-slide > .e-con > * { max-width: min(560px, calc(46vw - var(--sa-side))) !important; }
+	.elementor .sub-hero-carousel .sub-hero-slide :is(h1, h2) { font-size: clamp(34px, 3.3vw, 56px) !important; line-height: 1.08 !important; }
+}
+@media (max-width: 1099px) {
+	.sub-hero-carousel .sub-hero-slide > .sa-kb { bottom: auto; height: 46svh; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent); mask-image: linear-gradient(to bottom, #000 72%, transparent); }
+	.elementor .sub-hero-carousel .sub-hero-slide > .e-con { justify-content: flex-end !important; padding-top: calc(46svh - 24px) !important; }
+}
+@media (max-width: 767px) {
+	.elementor .sub-hero-carousel .sub-hero-slide > .e-con { padding-bottom: 120px !important; }
+	.elementor .sub-hero-carousel .sub-hero-slide :is(h1, h2) { font-size: 30px !important; }
+}

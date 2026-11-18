@@ -340,17 +340,13 @@
 			setPressed(btns, 0);
 			return btns;
 		}
-		/* Interior photos first; the "360° view" button swaps in a Pannellum cube panorama (left-hand drive). */
+		/* Interior photo gallery; the "360° view" button swaps in one Pannellum cube panorama (left-hand drive). Picking a photo closes it. */
 		var panoEl = $('[data-sa-pano]', root);
 		var panoBtn = $('.sa-cfg__pano-btn', root);
 		var panoHint = $('.sa-cfg__hint--pano', root);
 		var pano = null;
 		var panoOn = false;
 		function sceneConf(st) { return { type: 'cubemap', cubeMap: st.pano, hfov: 105, pitch: st.pitch || -6, yaw: st.yaw || 0, minHfov: 60, maxHfov: 115 }; }
-		function showView(st) {
-			if (pano.getScene() !== st.scene) { pano.loadScene(st.scene, st.pitch || -6, st.yaw || 0, 105); }
-			else { pano.lookAt(st.pitch || -6, st.yaw || 0, 105, 700); }
-		}
 		function togglePano(on) {
 			panoOn = on;
 			panoBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
@@ -368,8 +364,6 @@
 				});
 				var used = function () { intStage.classList.add('is-pano-used'); if (panoHint) { panoHint.hidden = true; } };
 				pano.on('mousedown', used); pano.on('touchstart', used);
-			} else if (on && pano) {
-				showView(sets[setIdx]);
 			}
 		}
 		if (panoEl && panoBtn) { panoBtn.addEventListener('click', function () { togglePano(!panoOn); }); }
@@ -380,7 +374,7 @@
 			if (panoEl) {
 				$('.sa-cfg__name', intStage).textContent = sets[i].label;
 				if (sets[i].src) { swapImage(intStage, sets[i].src, sets[i].srcset, sets[i].alt); }
-				if (pano && panoOn) { showView(sets[i]); }
+				if (panoOn) { togglePano(false); }
 				return;
 			}
 			buildTrims();

@@ -94,15 +94,18 @@ return array(
 			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
 				array( 'label' => 'Cabin', 'still' => 1094, 'yaw' => 0, 'faces' => array( 1045, 1046, 1047, 1048, 1049, 1050 ) ),
-				array( 'label' => 'Rear seats folded', 'still' => 1095, 'yaw' => 180, 'faces' => array( 1051, 1052, 1053, 1054, 1055, 1056 ) ),
 			),
 			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			// Official Subaru left-hand-drive (E3/C0 spec) interior photos from the SMP portal; the 360° view is separate.
 			'interior_views' => array(
-				array( 'label' => 'Dashboard', 'still' => 1094, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
-				array( 'label' => 'Driver\'s seat', 'still' => 1103, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
-				array( 'label' => 'Centre console', 'still' => 1104, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
-				array( 'label' => 'Rear seats', 'still' => 1105, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
-				array( 'label' => 'Rear seats folded', 'still' => 1095, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+				array( 'label' => 'Dashboard', 'still' => 1116 ),
+				array( 'label' => 'Front cabin', 'still' => 1117 ),
+				array( 'label' => 'Steering wheel', 'still' => 1118 ),
+				array( 'label' => 'Multimedia display', 'still' => 1119 ),
+				array( 'label' => 'Instrument cluster', 'still' => 1120 ),
+				array( 'label' => 'Rear seats', 'still' => 1121 ),
+				array( 'label' => 'Rear seats folded', 'still' => 1122 ),
+				array( 'label' => 'Panoramic sunroof', 'still' => 1123 ),
 			),
 			'interiors'      => array(
 				'2.5i'       => array(
@@ -129,7 +132,7 @@ return array(
 				),
 			),
 			// Approved UAE photoshoot images (Media Library), shown on the Media Gallery page.
-			'gallery_media'  => array( 1004, 1005, 1000, 997, 986, 1001, 1003, 987, 1002, 988, 994, 995, 996, 998, 999 ),
+			'gallery_media'  => array( 1155, 1156, 1151, 1175, 1173, 1152, 1154, 1174, 1153, 988, 994, 995, 996, 998, 999 ),
 			'gallery'        => array(), // None in the pack: the page keeps its current gallery.
 		),
 
@@ -163,15 +166,19 @@ return array(
 			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
 				array( 'label' => 'Cabin', 'still' => 1096, 'yaw' => 0, 'faces' => array( 1057, 1058, 1059, 1060, 1061, 1062 ) ),
-				array( 'label' => 'Rear seats folded', 'still' => 1097, 'yaw' => 180, 'faces' => array( 1063, 1064, 1065, 1066, 1067, 1068 ) ),
 			),
 			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			// Official Subaru left-hand-drive (E3/C0 spec) interior photos from the SMP portal; the 360° view is separate.
 			'interior_views' => array(
-				array( 'label' => 'Dashboard', 'still' => 1096, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
-				array( 'label' => 'Driver\'s seat', 'still' => 1106, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
-				array( 'label' => 'Centre console', 'still' => 1107, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
-				array( 'label' => 'Rear seats', 'still' => 1108, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
-				array( 'label' => 'Rear seats folded', 'still' => 1097, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+				array( 'label' => 'Dashboard', 'still' => 1124 ),
+				array( 'label' => 'Front cabin', 'still' => 1125 ),
+				array( 'label' => 'Steering wheel', 'still' => 1126 ),
+				array( 'label' => 'Multimedia display', 'still' => 1127 ),
+				array( 'label' => 'Instrument cluster', 'still' => 1128 ),
+				array( 'label' => 'Front seats', 'still' => 1129 ),
+				array( 'label' => 'Rear seats', 'still' => 1130 ),
+				array( 'label' => 'Rear seats folded', 'still' => 1131 ),
+				array( 'label' => 'Sunroof', 'still' => 1132 ),
 			),
 			'interiors'      => array(
 				'2.0i-S' => array(
@@ -224,15 +231,18 @@ return array(
 			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
 				array( 'label' => 'Cabin', 'still' => 1098, 'yaw' => 0, 'faces' => array( 1069, 1070, 1071, 1072, 1073, 1074 ) ),
-				array( 'label' => 'Rear seats folded', 'still' => 1099, 'yaw' => 180, 'faces' => array( 1075, 1076, 1077, 1078, 1079, 1080 ) ),
 			),
 			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			// Official Subaru left-hand-drive (E3/C0 spec) interior photos from the SMP portal; the 360° view is separate.
 			'interior_views' => array(
-				array( 'label' => 'Dashboard', 'still' => 1098, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
-				array( 'label' => 'Driver\'s seat', 'still' => 1109, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
-				array( 'label' => 'Centre console', 'still' => 1110, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
-				array( 'label' => 'Rear seats', 'still' => 1111, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
-				array( 'label' => 'Rear seats folded', 'still' => 1099, 'scene' => 1, 'yaw' => 180, 'pitch' => -6 ),
+				array( 'label' => 'Cabin (automatic)', 'still' => 1133 ),
+				array( 'label' => 'Cabin (manual)', 'still' => 1134 ),
+				array( 'label' => 'Steering wheel', 'still' => 1135 ),
+				array( 'label' => 'Multimedia display', 'still' => 1136 ),
+				array( 'label' => 'Instrument cluster', 'still' => 1137 ),
+				array( 'label' => 'Recaro seat', 'still' => 1138 ),
+				array( 'label' => 'Automatic selector', 'still' => 1139 ),
+				array( 'label' => '6-speed manual', 'still' => 1140 ),
 			),
 			'interiors'      => array(
 				'ts'   => array(
@@ -243,7 +253,7 @@ return array(
 				),
 			),
 			// Approved UAE photoshoot images (Media Library); blue WRX tS only.
-			'gallery_media'  => array( 1017, 1016, 1010, 1012, 1007, 1014, 989, 1006, 1018, 1015, 1008, 1013, 990, 1009, 1011 ),
+			'gallery_media'  => array( 1164, 1163, 1158, 1159, 1157, 1161, 989, 1006, 1165, 1162, 1008, 1160, 990, 1009, 1011 ),
 			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 
@@ -278,15 +288,18 @@ return array(
 			// Left-hand-drive interior (Subaru SMP 'Interior 360° View Data'): 'still' photo shown first, cube faces (front, right, back, left, up, down) for the 360° view, 'yaw' = starting direction.
 			'interior360'    => array(
 				array( 'label' => 'Manual', 'still' => 1100, 'yaw' => 0, 'faces' => array( 1081, 1082, 1083, 1084, 1085, 1086 ) ),
-				array( 'label' => 'Automatic', 'still' => 1101, 'yaw' => 0, 'faces' => array( 1087, 1088, 1089, 1090, 1091, 1092 ) ),
 			),
 			// Interior photos (left-hand drive), each linked to a 360° scene and starting angle.
+			// Official Subaru left-hand-drive (E3/C0 spec) interior photos from the SMP portal; the 360° view is separate.
 			'interior_views' => array(
-				array( 'label' => 'Dashboard', 'still' => 1100, 'scene' => 0, 'yaw' => 0, 'pitch' => -6 ),
-				array( 'label' => 'Driver\'s seat', 'still' => 1112, 'scene' => 0, 'yaw' => -60, 'pitch' => -18 ),
-				array( 'label' => 'Centre console', 'still' => 1113, 'scene' => 0, 'yaw' => 0, 'pitch' => -50 ),
-				array( 'label' => 'Rear seats', 'still' => 1114, 'scene' => 0, 'yaw' => 180, 'pitch' => -12 ),
-				array( 'label' => 'Automatic', 'still' => 1101, 'scene' => 1, 'yaw' => 0, 'pitch' => -6 ),
+				array( 'label' => 'Dashboard', 'still' => 1141 ),
+				array( 'label' => 'Front cabin', 'still' => 1142 ),
+				array( 'label' => 'Sports seats', 'still' => 1143 ),
+				array( 'label' => 'Digital cluster', 'still' => 1144 ),
+				array( 'label' => 'Paddle shifters', 'still' => 1145 ),
+				array( 'label' => '6-speed manual', 'still' => 1146 ),
+				array( 'label' => 'Climate control', 'still' => 1147 ),
+				array( 'label' => 'Aluminium pedals', 'still' => 1148 ),
 			),
 			'interiors'      => array(
 				'brz' => array(
@@ -298,7 +311,7 @@ return array(
 				),
 			),
 			// Approved UAE photoshoot images (Media Library), shown on the model page and the Media Gallery page.
-			'gallery_media'  => array( 1019, 977, 1020, 978, 1021, 979, 980, 981, 982, 983, 984, 985 ),
+			'gallery_media'  => array( 1166, 1169, 1167, 1170, 1168, 1171, 980, 981, 982, 1172, 984, 985 ),
 			'gallery'        => array(), // Pack photos replaced by the approved photoshoot images above.
 		),
 	),

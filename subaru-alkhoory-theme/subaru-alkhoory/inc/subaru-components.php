@@ -114,7 +114,7 @@ function subaru_configurator_data( $model ) {
 	}
 
 	$interiors = array();
-	// Left-hand-drive interior: photos first ('interior_views'), each opening the 360° panorama ('interior360') at its own angle.
+	// Left-hand-drive interior: a gallery of official photos ('interior_views') plus one separate 360° panorama ('interior360', first scene).
 	$scenes = array();
 	foreach ( ! empty( $model['interior360'] ) ? $model['interior360'] : array() as $k => $scene ) {
 		$faces = array_filter( array_map( 'wp_get_attachment_url', $scene['faces'] ) );
@@ -123,17 +123,17 @@ function subaru_configurator_data( $model ) {
 		}
 	}
 	foreach ( $scenes && ! empty( $model['interior_views'] ) ? $model['interior_views'] : array() as $k => $view ) {
-		if ( empty( $scenes[ $view['scene'] ] ) || ! wp_attachment_is_image( $view['still'] ) ) {
+		if ( ! wp_attachment_is_image( $view['still'] ) ) {
 			continue;
 		}
 		$interiors[] = array(
 			'id'     => 'view-' . $k,
 			'label'  => $view['label'],
 			'views'  => array(),
-			'scene'  => 'scene-' . $view['scene'],
-			'pano'   => $scenes[ $view['scene'] ],
-			'yaw'    => (int) $view['yaw'],
-			'pitch'  => (int) $view['pitch'],
+			'scene'  => 'scene-0',
+			'pano'   => reset( $scenes ),
+			'yaw'    => 0,
+			'pitch'  => -6,
 			'still'  => (int) $view['still'],
 			'src'    => (string) wp_get_attachment_image_url( $view['still'], 'full' ),
 			'srcset' => (string) wp_get_attachment_image_srcset( $view['still'], 'full' ),
