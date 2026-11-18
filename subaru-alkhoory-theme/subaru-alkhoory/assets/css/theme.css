@@ -162,25 +162,8 @@ body.sa-theme ::selection { background: var(--sub-blue); color: #fff; }
 .sa-header.is-compact { transform: translate3d(0, calc(var(--sa-topbar-h) * -1), 0); }
 .sa-header.is-hidden { transform: translate3d(0, -101%, 0); }
 .sa-header.is-compact .sa-mainbar { box-shadow: 0 10px 30px rgba(7, 20, 42, .08); }
-
-/* Transparent over hero (top of page only) */
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-topbar { background: rgba(7, 20, 42, .35); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-mainbar { background: transparent; border-bottom-color: rgba(255, 255, 255, .14); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered)::before { content: ""; position: absolute; inset: 0 0 -40px; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(7, 20, 42, .55) 0%, rgba(7, 20, 42, 0) 100%); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-nav__link, :root .sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-nav__toggle, :root .sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-iconbtn, :root .sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-burger { color: #fff; }
-:root .sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-iconbtn:hover { background: rgba(255, 255, 255, .12); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-logo__dark { opacity: 0; }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-logo__light { opacity: 1; }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-actions__sep { background: rgba(255, 255, 255, .3); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-badge50 { filter: brightness(0) invert(1); }
-
-/* Menu open (mobile overlay): dark header */
-.sa-header.menu-open .sa-mainbar { background: var(--sub-navy); border-bottom-color: rgba(255, 255, 255, .1); box-shadow: none; }
-.sa-header.menu-open .sa-logo__dark { opacity: 0; }
-.sa-header.menu-open .sa-logo__light { opacity: 1; }
-:root .sa-header.menu-open .sa-burger, :root .sa-header.menu-open .sa-iconbtn { color: #fff; }
-.sa-header.menu-open .sa-badge50 { filter: brightness(0) invert(1); }
-.sa-header.menu-open .sa-actions__sep { background: rgba(255, 255, 255, .25); }
+/* Header stays solid white everywhere, also over a hero and with the mobile menu open (v1.4.7):
+   the Subaru and Al Khoory Automobiles logos always show in their own colours. */
 
 /* 5. Dropdowns & mega menu -------------------------------------------------- */
 .sa-dropdown, .sa-mega { visibility: hidden; opacity: 0; pointer-events: none; transition: opacity .3s var(--sa-ease), transform .35s var(--sa-ease), visibility 0s .35s; }
@@ -739,11 +722,6 @@ html, body { overflow-x: clip; }
 .sa-aka-logo { position: relative; display: block; flex: none; height: 22px; }
 .sa-aka-logo img { display: block; height: 22px; width: auto; max-width: none; transition: opacity .35s; }
 .sa-aka-logo .sa-aka-logo__light { position: absolute; inset: 0 auto auto 0; opacity: 0; }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-brand__sep { background: rgba(255, 255, 255, .3); }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo__dark,
-.sa-header.menu-open .sa-aka-logo__dark { opacity: 0; }
-.sa-hero-first .sa-header.is-top:not(.menu-open):not(.is-hovered) .sa-aka-logo__light,
-.sa-header.menu-open .sa-aka-logo__light { opacity: 1; }
 /* Wide desktop: logo at the right of the top bar. Tablet (burger layout): logo in the main bar. */
 :root .sa-topbar__aka { display: block; flex: none; height: 18px; width: auto; max-width: none; margin-left: -4px; padding-left: 24px; border-left: 1px solid rgba(255, 255, 255, .18); }
 .sa-topbar__nav { margin-left: auto; }
@@ -848,3 +826,9 @@ html, body { overflow-x: clip; }
 	.elementor .sub-hero-carousel .sub-hero-slide > .e-con { padding-bottom: 120px !important; }
 	.elementor .sub-hero-carousel .sub-hero-slide :is(h1, h2) { font-size: 30px !important; }
 }
+
+/* 18. v1.4.7 Al Khoory Automobiles logo in the top bar: the full-colour logo on a white chip (never recoloured). */
+:root .sa-topbar__aka { box-sizing: content-box; height: 14px; padding: 4px 10px; margin-left: 20px; border-left: 0; background: #fff; border-radius: 4px; }
+@media (max-width: 1520px) { :root .sa-topbar__aka { margin-left: 14px; padding-left: 10px; } }
+/* Small tablets (768–900px): the header CTA moves into the menu so the logos and menu button fit on one line. */
+@media (max-width: 900px) { :root .sa-actions__cta { display: none; } }

@@ -53,7 +53,7 @@ if ( ! $subaru_aka && file_exists( SUBARU_DIR . '/assets/img/al-khoory-automobil
 				<?php subaru_render_links( 'topbar', 'sa-topbar__list', true ); ?>
 			</nav>
 			<?php if ( $subaru_aka ) : ?>
-				<img class="sa-topbar__aka" src="<?php echo esc_url( $subaru_aka_light ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="200" height="13">
+				<img class="sa-topbar__aka" src="<?php echo esc_url( $subaru_aka ); ?>" alt="<?php esc_attr_e( 'Al Khoory Automobiles', 'subaru-alkhoory' ); ?>" width="200" height="13">
 			<?php endif; ?>
 		</div>
 	</div>
