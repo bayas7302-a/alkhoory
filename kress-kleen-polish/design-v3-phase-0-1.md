@@ -57,3 +57,30 @@ Tablet (768px) and phone (375px) keep their current sizes. The font family chang
 
 ## To apply
 Replace the "Kress Kleen – site polish" block in `functions.php` with the new `kk-polish-snippet.php`, then clear the LiteSpeed cache.
+
+---
+
+# Phase 2 – header, all pages (CSS, section 13 of `kk-polish.css`)
+
+Done in CSS for the same reason as Phase 1: the header (template 25) is built from classic V3 widgets, which the MCP can't edit. All results below were measured at 1920px against the live pages with the new snippet swapped in.
+
+| ID | Fix | Result at 1920px |
+|---|---|---|
+| X-05 | "KLEENING SINCE 2003" → Albula Pro Bold 16.8px, #b5b5b5 | Done. Phones keep their 10px size. |
+| X-07 | Menu icon → three thin equal lines, ~36 × 19px | Done: **36 × 19px**, drawn in CSS. Tablet uses 28 × 15px and phones 26 × 14px. The icon still opens the side menu. |
+| X-08 | ENGLISH first, then Arabic | Done (ENGLISH at 218px, Arabic at 310px). On phones they stack, ENGLISH on top. |
+| X-09 | ENGLISH → Albula Pro Bold 16px | Done. |
+| X-10 | Arabic → Janna LT Bold 17px, full white | Done. **The Janna LT Bold font is already loaded on the site** (Soharon Fonts in `functions.php`), so no asset is needed. |
+| X-11 | Menu icon left edge → 135px | Done: **135px**. |
+| X-12 | WHERE TO BUY right edge → 1784px | Done: **1784px**. |
+| X-13 | Logo → ~364 × 203px | Done: **364 × 196px**. The logo file's own proportion gives 196px; the design's 203 includes the star. |
+| X-14 | WHERE TO BUY → ~179 × 52px, Satoshi Bold 18.9px | Done: **183 × 52px**, Satoshi Bold 18.9px. |
+| X-15 | Inner-page header → 310px | Done: **310px** including the marquee, on Where to Buy, Who We Are, Catalogue/category and product pages. |
+| X-16 | Inner-page header colour → dark green #003820–#004326 | Done: dark green gradient over the existing mosaic tile image. This also fixes a bug where the top ~34px of inner-page headers was white, which made the white marquee text invisible. |
+| W-02, K-04, P-01, A-03 | 9px white line between header and banner | Done on all inner pages (desktop). |
+
+Tablet (820px) and phone (375px) were checked on every page. Header sizes there are unchanged, the header stays sticky on phones, and nothing scrolls sideways.
+
+### Not changed (outside Phase 2 or waiting on Jameer)
+- **X-06:** the marquee still shows on inner pages. The design has it on the home page only; this is in "Ask Jameer first".
+- **Home header:** on the home page the marquee sits on a white band above the hero, so the grey text is hard to read. The design shows it on a dark bar over the hero. The brief has no fix line for this, so it's untouched. Say if you want it.

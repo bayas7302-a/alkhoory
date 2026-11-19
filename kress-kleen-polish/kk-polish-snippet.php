@@ -5,7 +5,8 @@
  * Mobile sticky header, hover fixes, typography + spacing on every page,
  * mobile/tablet footer, Who We Are + Where to buy responsive layout,
  * catalogue filters on phones (accordion inside a slide-up drawer),
- * design v3 Phase 1 (1646px content width, Satoshi Black headings, desktop text sizes).
+ * design v3 Phase 1 (1646px content width, Satoshi Black headings, desktop text sizes),
+ * design v3 Phase 2 (header: marquee, menu icon, language switch, logo, button, inner-page header).
  * Paste at the END of functions.php. To undo, delete this block.
  * Source files: kress-kleen-polish/kk-polish.css + kk-polish.js
  */
@@ -845,6 +846,109 @@ body .elementor-153 .elementor-element.elementor-element-89c5073 .elementor-head
   body .elementor-153 .elementor-element.elementor-element-7ed0220 .elementor-heading-title {
     font-size: 22.2px !important;
     line-height: 1.45 !important;
+  }
+}
+
+
+/* =====================================================================
+   13. DESIGN v3 – PHASE 2 (header, all pages)
+   X-05 marquee text, X-07 menu icon, X-08..X-10 language switch,
+   X-11/X-12 edges, X-13 logo, X-14 WHERE TO BUY, X-15 inner-page header
+   height, X-16 inner-page header colour, W-02/K-04/P-01/A-03 white line.
+   Sizes are desktop (>= 1025px); tablet/mobile keep their current sizes.
+   ===================================================================== */
+
+/* X-05 "KLEENING SINCE 2003": Albula Pro Bold, light grey */
+body #masthead .sk-marquee__group span {
+  font-family: "Albula Pro", "Satoshi", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  color: #b5b5b5 !important;
+}
+
+/* X-07 menu icon: three thin, equal lines (drawn in CSS, the old icon is hidden) */
+body #masthead .elementor-element.elementor-element-98f606d .elementor-icon svg { display: none !important; }
+body #masthead .elementor-element.elementor-element-98f606d .elementor-icon {
+  display: block;
+  width: 36px;
+  height: 19px;
+  font-size: 0;
+  background:
+    linear-gradient(#ffffff, #ffffff) 0 0 / 100% 2px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 0 50% / 100% 2px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 0 100% / 100% 2px no-repeat;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  body #masthead .elementor-element.elementor-element-98f606d .elementor-icon { width: 28px; height: 15px; }
+}
+@media (max-width: 767px) {
+  body #masthead .elementor-element.elementor-element-98f606d .elementor-icon { width: 26px; height: 14px; }
+}
+
+/* X-08 language order: ENGLISH first, then Arabic */
+body #masthead .gtranslate_wrapper { display: flex !important; flex-direction: row !important; align-items: center; justify-content: flex-start !important; gap: 12px !important; }
+@media (max-width: 767px) {
+  body #masthead .gtranslate_wrapper { flex-direction: column !important; align-items: flex-start; gap: 3px !important; }
+}
+body #masthead .gtranslate_wrapper a[data-gt-lang="en"] { order: 1 !important; }
+body #masthead .gtranslate_wrapper a[data-gt-lang="ar"] { order: 2 !important; }
+/* X-09 ENGLISH: Albula Pro Bold */
+body #masthead a[data-gt-lang="en"]::after {
+  font-family: "Albula Pro", "Satoshi", Arial, sans-serif !important;
+  font-weight: 700 !important;
+}
+/* X-10 Arabic: Janna LT Bold, full white */
+body #masthead a[data-gt-lang="ar"]::after {
+  font-family: "Janna LT", "Noto Sans Arabic", Tahoma, sans-serif !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+/* X-16 inner pages: the header carries its own dark-green tiled background
+   (the old green strips behind it are hidden; they left the top of the header white) */
+body:not(.home) #masthead {
+  background-color: #003d23;
+  background-image:
+    linear-gradient(180deg, rgba(0, 56, 32, 0.9) 0%, rgba(0, 67, 38, 0.9) 100%),
+    url("https://soharon.co.uk/off-29/wp-content/uploads/2026/10/Emerald-Mosaic-Tech-Background.png");
+  background-size: cover;
+  background-position: center;
+}
+body.page-id-153 .elementor-element.elementor-element-3e090a4,
+body.page-id-132 .elementor-element.elementor-element-54f2649,
+body:not(.home) .kk-sp-bg { display: none !important; }
+/* the stuck mobile header keeps the same dark green */
+body:not(.home) #masthead.kp-stuck { background-color: #003d23; }
+
+@media (min-width: 1025px) {
+  /* X-05 size */
+  body #masthead .sk-marquee__group span { font-size: 16.8px !important; }
+
+  /* X-11 menu icon starts on the page edge (135px at 1920) */
+  body #masthead .elementor-element.elementor-element-f760a15 { padding-left: 0 !important; margin-left: -2px; gap: 47px !important; --gap: 47px; }
+
+  /* X-09 / X-10 sizes */
+  body #masthead .gtranslate_wrapper { gap: 16px !important; }
+  body #masthead a[data-gt-lang="en"]::after { font-size: 16px !important; }
+  body #masthead a[data-gt-lang="ar"]::after { font-size: 17px !important; }
+
+  /* X-13 logo ~364px wide */
+  body #masthead .elementor-element.elementor-element-ae1ae2e img { width: 364px !important; max-width: none; height: auto; }
+
+  /* X-14 WHERE TO BUY ~179 x 52, Satoshi Bold 18.9px */
+  body #masthead .elementor-element.elementor-element-0a2ca92 .elementor-button {
+    padding: 16px 20px !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 18.9px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+  }
+
+  /* X-15 inner-page header 310px (incl. the marquee) + 9px white line before the banner (W-02, K-04, P-01, A-03) */
+  body:not(.home) #masthead { border-bottom: 9px solid #ffffff; }
+  body:not(.home) #masthead .elementor-element.elementor-element-4a693fd {
+    --min-height: calc(310px - var(--kp-marquee-h, 47px));
+    min-height: calc(310px - var(--kp-marquee-h, 47px)) !important;
   }
 }
 </style>
