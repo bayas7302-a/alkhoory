@@ -4,7 +4,8 @@
  * Kress Kleen – site polish
  * Mobile sticky header, hover fixes, typography + spacing on every page,
  * mobile/tablet footer, Who We Are + Where to buy responsive layout,
- * catalogue filters on phones (accordion inside a slide-up drawer).
+ * catalogue filters on phones (accordion inside a slide-up drawer),
+ * design v3 Phase 1 (1646px content width, Satoshi Black headings, desktop text sizes).
  * Paste at the END of functions.php. To undo, delete this block.
  * Source files: kress-kleen-polish/kk-polish.css + kk-polish.js
  */
@@ -763,6 +764,88 @@ body .kp-drawer__head, body .kp-drawer__foot { display: none; }
    ===================================================================== */
 @media (prefers-reduced-motion: reduce) {
   body .kk-cat__side, body .kp-drawer-overlay, body .kk-cat__side .kp-acc__panel, body #masthead { transition: none !important; }
+}
+
+
+/* =====================================================================
+   12. DESIGN v3 – PHASE 1 (global layout and fonts)
+   X-01 width, X-02 heading font, X-03 desktop sizes, X-04 heading green.
+   Widths/sizes apply on desktop only (>= 1025px); tablet/mobile keep
+   their current values. At 1440px and below the page width is unchanged.
+   ===================================================================== */
+
+/* X-02 headings: Satoshi Black (were Albula Pro SemiBold / Aeonik Pro Bold) */
+body .elementor-43 .elementor-element.elementor-element-9a43ca3 .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-cb4ed5d .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-b21629b .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-665f377 .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-252f948 .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-f8975af .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-bcefc1b .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-884f790 .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-36490c5 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-5d0b5e3 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-b86e4b4 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-89c5073 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-162ec16 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-6d7d498 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-2dd9171 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-ceb558a .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-29ee88f .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title,
+body .elementor-132 .elementor-element.elementor-element-846c896 .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-85d3640 .elementor-icon-box-title,
+body .elementor-43 .elementor-element.elementor-element-63b71db .elementor-icon-box-title,
+body .elementor-43 .elementor-element.elementor-element-704d045 .elementor-icon-box-title {
+  font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
+}
+/* X-02 buttons and footer links: Satoshi (were Aeonik Pro); form fields keep Aeonik Pro */
+body .elementor-widget-button .elementor-button,
+body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-text {
+  font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+}
+
+/* X-04 dark green in headings: #00653f -> #00623d */
+body .elementor-43 .elementor-element.elementor-element-cb4ed5d .elementor-heading-title,
+body .elementor-43 .elementor-element.elementor-element-884f790 .elementor-heading-title,
+body .elementor-132 .elementor-element.elementor-element-506a975 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-5d0b5e3 .elementor-heading-title,
+body .elementor-153 .elementor-element.elementor-element-89c5073 .elementor-heading-title {
+  color: #00623d !important;
+}
+
+@media (min-width: 1025px) {
+  /* X-01 page content width: 1646px at 1920px (137px side margins), 1300px at 1440px and below */
+  body .e-con.e-con-boxed {
+    --content-width: max(min(1646px, calc(100vw - 274px)), min(1300px, 100vw)) !important;
+  }
+  :root {
+    --kk-page-w: max(min(1646px, calc(100vw - 274px)), min(1300px, 100vw));
+  }
+
+  /* X-03 section headings ~34px */
+  body .elementor-43 .elementor-element.elementor-element-9a43ca3 .elementor-heading-title,
+  body .elementor-43 .elementor-element.elementor-element-cb4ed5d .elementor-heading-title,
+  body .elementor-43 .elementor-element.elementor-element-884f790 .elementor-heading-title,
+  body .elementor-43 .elementor-element.elementor-element-36490c5 .elementor-heading-title,
+  body .elementor-132 .elementor-element.elementor-element-506a975 .elementor-heading-title,
+  body .elementor-132 .elementor-element.elementor-element-846c896 .elementor-heading-title {
+    font-size: 33.7px !important;
+    line-height: 1.2 !important;
+  }
+  /* X-03 body text 22px */
+  body .elementor-43 .elementor-element.elementor-element-1bde407 .elementor-heading-title,
+  body .elementor-43 .elementor-element.elementor-element-08f48e7 .elementor-heading-title,
+  body .elementor-43 .elementor-element.elementor-element-85d3640 .elementor-icon-box-description,
+  body .elementor-43 .elementor-element.elementor-element-63b71db .elementor-icon-box-description,
+  body .elementor-43 .elementor-element.elementor-element-704d045 .elementor-icon-box-description,
+  body .elementor-43 .elementor-element.elementor-element-51cf488 .elementor-icon-list-text,
+  body .elementor-132 .elementor-element.elementor-element-e1a9a94 .elementor-heading-title,
+  body .elementor-153 .elementor-element.elementor-element-7ed0220 .elementor-heading-title {
+    font-size: 22.2px !important;
+    line-height: 1.45 !important;
+  }
 }
 </style>
     <?php
