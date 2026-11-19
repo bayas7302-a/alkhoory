@@ -229,3 +229,116 @@ F-04 (extra slides and arrows) is in Needs assets. F-10 ("Eortless") is a Phase 
 ### About the script
 - The line breaks are `<br class="kp-br">` added on page load and shown on desktop only. Phone and tablet wrap the text naturally.
 - Card links and the pop-up side are set on page load and don't change anything stored in WordPress.
+
+---
+
+# Phases 5–8 and Phase 0 completion (sections 16–19 of `kk-polish.css` + script blocks 1a, 1d–1g)
+
+Measured at 1920px against the live pages with the new snippet swapped in. Every page was also checked at 1440, 820 and 375px: no page scrolls sideways, and the large display sizes scale down proportionally below 1920.
+
+## Phase 0 – now complete in the snippet
+The six V3 text fixes weren't made in the editor yet, so the script now corrects the exact typos on the page. If you fix them in Elementor later, the script simply finds nothing to change.
+
+| ID | Fix |
+|---|---|
+| X-17 / N-01 | "Catelog" → "Catalogue" |
+| X-18 | "Download Catelouge" → "Download Catalogue" |
+| X-19 | "Lets Connect" → "Let’s Connect" |
+| W-26 | "We oer" → "We offer" |
+| F-10 | "Eortless" → "Effortless" |
+| W-21 | Label reads **WHO WE ARE** in #f05a38, letter-spaced |
+
+**K-01 slug:** the snippet adds a 301 redirect from `/catelog/` to `/catalogue/`. It only runs after the slug is changed, so it's safe to paste first. Once the snippet is live, change the slug in Pages → Catalogue → Slug. The menu updates by itself, and the hard-coded footer link is caught by the redirect. I didn't change the slug from here because the redirect only exists once the snippet is pasted.
+
+## Phase 5 – Where to Buy
+| ID | Result at 1920 |
+|---|---|
+| W-01 | Banner **325px**. |
+| W-03–W-06 | Breadcrumb #75c4a8, Satoshi Regular 20.5px, thin chevron with wide gaps, no underline. |
+| W-07 | Title Satoshi Bold 95px, letter-spaced. |
+| W-08 | Breadcrumb and title both at **137px**. |
+| W-10 | "Find Stores Near You" Satoshi Black 33.7px, #00623d. |
+| W-11 | 45px gap to the dropdowns. |
+| W-12 | Pale-yellow dropdown borders. |
+| W-13 | Dropdowns and Apply in Aeonik Pro 18px. |
+| W-17 | Map **1507 × 830**. |
+| W-19 / W-20 | Logo strip 270px, full width, large logos (grey background kept, as in the design). |
+| W-21 | Label "WHO WE ARE". |
+| W-22–W-24 | Brand heading Satoshi Black 33.7px #00623d, line 1 ends "brand", 40px line height. |
+| W-25 / W-27 | Paragraph 22.2px with the design's three lines. |
+| W-28 | 116px gap. |
+
+W-14 is ask-first. W-15, W-16 and W-18 need the My Maps embed (assets). W-09 is ask-first.
+
+## Phase 6 – Catalogue (and category pages)
+| ID | Result at 1920 |
+|---|---|
+| K-02 | Banner photo is now the **green floor wiper on tiles** (found in the media library). |
+| K-03 | Banner **325px**. |
+| K-05–K-07 | Breadcrumb 20.5px, #75c4a8, chevron; title Bold 95px; both at **137px**. |
+| K-08 | Sidebar **604px**. |
+| K-09 | Sidebar text at **162px**. |
+| K-10–K-13 | On desktop all three lists are open, with no badges, no +/− icons and no dividers. (The phone filter drawer is unchanged.) |
+| K-14 | Labels Satoshi Regular 16px, letter-spaced, #f05a38. |
+| K-15 | Links Satoshi Black 33.7px, #00623d, **46px** pitch. |
+| K-16 | Yellow underline on the active filter. |
+| K-18 / K-19 | Cards **488 × 570**, 95px between the columns. |
+| K-20 | Photo fills the card width, broom cropped large. |
+| K-21–K-23 | Item code 17px #00915d; name 23px on two lines; DISCOVER 17px. |
+
+K-17 (three more products) is in Needs assets.
+
+## Phase 7 – Product page (K-8051)
+| ID | Result at 1920 |
+|---|---|
+| P-03 | Left floor panel **604px**. |
+| P-04 | Product image **826px**, from 172px. |
+| P-05 | Item code 61px under the header. |
+| P-06–P-09 | 17px / 23px / bullets 19px on a 30px pitch / label 17px. |
+| P-10–P-14 | Table 16.5px; pills 33px tall on a 41.6px pitch; labels all **149px**; values all **222px** and white. |
+| P-15 | White 96px square with a down chevron at **x 1689**, level with the table. It scrolls to the highlight images. |
+| P-16–P-18 | Feature images **725px**, left-aligned with the text at 1060px, with a soft shadow. |
+
+P-02 (wood floor photo) is in Needs assets; the library only has a grey floor.
+
+## Phase 8 – Who We Are
+| ID | Result at 1920 |
+|---|---|
+| A-01 | Banner photo is now the **white string mop** (from the library). |
+| A-02 | Banner 325px. |
+| A-04 | Breadcrumb and title as on Where to Buy. |
+| A-05 / A-06 | 92.5px Satoshi Black; green #00915d. |
+| A-07 | Clean SVG down arrow, 95px. |
+| A-08 | 62.5px. |
+| A-09 | 22.2px. |
+| A-10 | Exploded broom **600 × 800**, from **1275px**. |
+| A-11–A-14 | Photos **375 × 307**; titles Satoshi Black 32px; underlines **99 × 5**; green #00915d. |
+| A-16 / A-17 | Section **515px**, statement Bold 40px on four lines. |
+| A-18 | Clean SVG four-point stars. |
+| A-20–A-22 | Section **681px**, large line Bold 154px, text Bold 40px with line 1 ending "affordable doesn’t". |
+| A-24 / A-25 | Section **587px**, Black 53px. |
+| A-26–A-28 | 223px, #4f4f4f, section **414px**. |
+
+Page height at 1920: **4439px** (design 4454px).
+
+- **A-15:** the dark mop-strand photo isn't in the media library, so the statement section keeps its current photo.
+- **A-23 (dusk skyline):** needs the asset.
+- **A-19:** ask-first.
+
+## Everything still open (all need you or Jameer)
+- **Ask Jameer first:** H-01/02/10/11 (scroll hero, and with it L-02), N-05, L-06, X-06, X-20/D-04, O-09/11/12, W-14, W-09, A-19, N-04, D-02.
+- **Needs assets:**
+  - Catalogue PDF (X-25)
+  - Retailer logos (L-07, W-20 files)
+  - Card icons (S-06)
+  - Transparent house (O-08)
+  - Featured slides (F-04)
+  - Cyclone product (F-14)
+  - Three products (K-17)
+  - Wood floor (P-02)
+  - Mop-strand photo (A-15)
+  - Skyline (A-23)
+  - My Maps embed (W-15/16/18)
+  - Real email/phone and socials (N-02/N-03)
+  - READ MORE target (N-06)
+- **Your step:** after pasting the snippet, change the Catalogue slug to `catalogue` (K-01).

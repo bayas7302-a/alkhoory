@@ -17,6 +17,30 @@
         update();
     }
 
+    /* ---------- 1a. text fixes (design v3 Phase 0) ----------
+       Corrects the exact typos only; once fixed in Elementor these do nothing. */
+    (function () {
+        var fixes = [
+            [/\bCatelouge\b/g, 'Catalogue'],             // X-18
+            [/\bCatelog\b/g, 'Catalogue'],               // X-17, N-01
+            [/\bLets Connect\b/g, 'Let’s Connect'], // X-19
+            [/\bWe oer\b/g, 'We offer'],                 // W-26
+            [/\bEortless\b/g, 'Effortless']              // F-10
+        ];
+        var scope = document.querySelectorAll('.elementor-30, .elementor-43, .elementor-132, .kk-side, .kk-hero');
+        scope.forEach(function (root) {
+            var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+            while ((n = w.nextNode())) {
+                var v = n.nodeValue, o = v;
+                fixes.forEach(function (f) { v = v.replace(f[0], f[1]); });
+                if (v !== o) { n.nodeValue = v; }
+            }
+        });
+        // W-21: label above the Where to Buy brand heading
+        var lbl = document.querySelector('.elementor-132 .elementor-element-142ce73 .elementor-heading-title');
+        if (lbl && /^\s*FEATURED PRODUCT\s*$/i.test(lbl.textContent)) { lbl.textContent = 'WHO WE ARE'; lbl.classList.add('kp-w21'); }
+    })();
+
     /* ---------- 1b. footer links (X-21, X-25) ----------
        "Contact" and "Let's Connect" go to the contact form on the home page.
        Only fills a link that is missing (no link / "#"), so links set in Elementor win. */
@@ -46,33 +70,34 @@
         }
     })();
 
+    // forced line breaks from the design (shown on desktop only, .kp-br)
+    function kpAddBreak(el, phrase) {
+        if (!el || el.__kpBr && el.__kpBr[phrase]) { return; }
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], full = '', n;
+        while ((n = walker.nextNode())) { nodes.push({ node: n, start: full.length }); full += n.nodeValue; }
+        var re = new RegExp(phrase.trim().split(/\s+/).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('\\s+'));
+        var m = re.exec(full);
+        if (!m) { return; }
+        var hit = null;
+        for (var i = nodes.length - 1; i >= 0; i--) { if (nodes[i].start <= m.index) { hit = nodes[i]; break; } }
+        if (!hit) { return; }
+        var br = document.createElement('br');
+        br.className = 'kp-br';
+        var word = hit.node.parentElement && hit.node.parentElement.closest('.kk-w');
+        if (word && el.contains(word)) {
+            word.parentNode.insertBefore(br, word);
+        } else {
+            var after = hit.node.splitText(m.index - hit.start);
+            after.parentNode.insertBefore(br, after);
+        }
+        (el.__kpBr = el.__kpBr || {})[phrase] = true;
+    }
+
     /* ---------- 1c. home page (design v3 Phase 4) ---------- */
     (function () {
         var page = document.querySelector('.elementor-43');
         if (!page) { return; }
 
-        // forced line breaks from the design (shown on desktop only, .kp-br)
-        function addBreak(el, phrase) {
-            if (!el || el.__kpBr && el.__kpBr[phrase]) { return; }
-            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], full = '', n;
-            while ((n = walker.nextNode())) { nodes.push({ node: n, start: full.length }); full += n.nodeValue; }
-            var re = new RegExp(phrase.trim().split(/\s+/).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('\\s+'));
-            var m = re.exec(full);
-            if (!m) { return; }
-            var hit = null;
-            for (var i = nodes.length - 1; i >= 0; i--) { if (nodes[i].start <= m.index) { hit = nodes[i]; break; } }
-            if (!hit) { return; }
-            var br = document.createElement('br');
-            br.className = 'kp-br';
-            var word = hit.node.parentElement && hit.node.parentElement.closest('.kk-w');
-            if (word && el.contains(word)) {
-                word.parentNode.insertBefore(br, word);
-            } else {
-                var after = hit.node.splitText(m.index - hit.start);
-                after.parentNode.insertBefore(br, after);
-            }
-            (el.__kpBr = el.__kpBr || {})[phrase] = true;
-        }
         var T = function (id, inner) { return page.querySelector('.elementor-element-' + id + ' ' + (inner || '.elementor-heading-title')); };
         [
             ['9a43ca3', null, ['TO KLEEN']],                                    // G-04
@@ -89,7 +114,7 @@
             ['9d92933', null, ['get in touch']]                                 // C-04
         ].forEach(function (r) {
             var el = T(r[0], r[1]);
-            r[2].forEach(function (ph) { addBreak(el, ph); });
+            r[2].forEach(function (ph) { kpAddBreak(el, ph); });
         });
 
         // N-07: Sweep and Mop cards go to their solution pages, like Wipe / Scrub / Dust
@@ -129,6 +154,51 @@
             });
             window.addEventListener('resize', function () { var open = hs.querySelector('.sk-hs__card.is-open'); if (open) { placeLeft(open); } else { line.style.display = 'none'; } });
         }
+    })();
+
+    /* ---------- 1d. Where to Buy (design v3 Phase 5) ---------- */
+    (function () {
+        var page = document.querySelector('.elementor-132');
+        if (!page) { return; }
+        var T = function (id) { return page.querySelector('.elementor-element-' + id + ' .elementor-heading-title'); };
+        kpAddBreak(T('846c896'), 'specializing in household');   // W-23: line 1 ends "brand"
+        kpAddBreak(T('e1a9a94'), 'We o');                         // W-27: "We offer…" starts line 2
+        kpAddBreak(T('e1a9a94'), 'performing square');            // W-27: "performing…" starts line 3
+    })();
+
+    /* ---------- 1e. Catalogue cards (design v3 Phase 6, K-22): name on two lines, after the closing quote ---------- */
+    document.querySelectorAll('.kk-cat ul.products .woocommerce-loop-product__title').forEach(function (t) {
+        if (t.querySelector('.kp-br')) { return; }
+        var m = /^(.*”)\s+(.+)$/.exec(t.textContent.trim());
+        if (!m || t.children.length) { return; }
+        t.textContent = '';
+        t.appendChild(document.createTextNode(m[1] + ' '));
+        var br = document.createElement('br'); br.className = 'kp-br'; t.appendChild(br);
+        t.appendChild(document.createTextNode(m[2]));
+    });
+
+    /* ---------- 1f. product page scroll-down box (design v3 Phase 7, P-15) ---------- */
+    (function () {
+        var info = document.querySelector('.kk-sp .kk-pinfo');
+        var target = document.querySelector('.kk-sp .kk-highlights, .kk-sp #kk-highlight');
+        if (!info || !target || info.querySelector('.kp-sp-down')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'kp-sp-down';
+        b.setAttribute('aria-label', 'Scroll to the product highlights');
+        b.addEventListener('click', function () {
+            var y = target.getBoundingClientRect().top + window.pageYOffset - 24;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+        info.appendChild(b);
+    })();
+
+    /* ---------- 1g. Who We Are (design v3 Phase 8): A-17 four lines, A-22 line 1 ends "affordable doesn't" ---------- */
+    (function () {
+        var page = document.querySelector('.elementor-153');
+        if (!page) { return; }
+        var T = function (id) { return page.querySelector('.elementor-element-' + id + ' .elementor-heading-title'); };
+        kpAddBreak(T('f6db65f'), 'have to mean ordinary');
     })();
 
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------

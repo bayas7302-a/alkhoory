@@ -8,10 +8,29 @@
  * design v3 Phase 1 (1646px content width, Satoshi Black headings, desktop text sizes),
  * design v3 Phase 2 (header: marquee, menu icon, language switch, logo, button, inner-page header),
  * design v3 Phase 3 (footer: layout, fonts, buttons, long arrows, logo, Contact / Let's Connect links),
- * design v3 Phase 4 (home page: hero card, logo strip, green strip, cards, One Home, featured product, contact).
+ * design v3 Phase 4 (home page) and Phases 5-8 (Where to Buy, Catalogue, product page, Who We Are),
+ * Phase 0 text fixes, and a 301 redirect /catelog/ -> /catalogue/ (K-01).
  * Paste at the END of functions.php. To undo, delete this block.
  * Source files: kress-kleen-polish/kk-polish.css + kk-polish.js
  */
+/* K-01: once the Catalogue page slug is "catalogue", the old /catelog/ address redirects to it (301).
+   Only runs on a 404, so it does nothing while the old slug is still in use. */
+add_action( 'template_redirect', 'kk_polish_catalogue_redirect' );
+function kk_polish_catalogue_redirect() {
+    if ( ! is_404() ) {
+        return;
+    }
+    $path = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ), '/' );
+    if ( ! preg_match( '#(^|/)catelog$#', $path ) ) {
+        return;
+    }
+    $page = get_page_by_path( 'catalogue' );
+    if ( $page ) {
+        wp_safe_redirect( get_permalink( $page ), 301 );
+        exit;
+    }
+}
+
 add_action( 'wp_head', 'kk_polish_css', 999 );
 function kk_polish_css() {
     if ( is_admin() ) {
@@ -1022,7 +1041,7 @@ body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-butto
   /* X-22 quick links block (starts at ~604px at 1920) */
   body .elementor-30 .elementor-element.elementor-element-ce94520 {
     width: auto !important; flex: 0 0 auto !important;
-    margin: 0 0 0 159px !important;
+    margin: 0 0 0 min(159px, 8.28vw) !important;
     padding: 58px 0 0 !important;
     --gap: 8px; gap: 8px !important;
   }
@@ -1306,8 +1325,8 @@ body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
   }
   /* O-07 house illustration from ~585px to ~1810px (at 1920), vertically centred */
   body .elementor-43 .elementor-element.elementor-element-38068a6 {
-    width: 1225px !important; max-width: none !important; flex: 0 0 1225px;
-    margin: 40px -27px 0 0 !important;
+    width: auto !important; max-width: 1225px !important; flex: 1 1 0 !important;
+    margin: 40px calc(110px - (100vw - var(--kk-w)) / 2) 0 0 !important;
   }
 
   /* ================= FEATURED PRODUCT (8e91e85) ================= */
@@ -1319,10 +1338,10 @@ body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
   }
   body .elementor-43 .elementor-element.elementor-element-8e91e85 > .e-con-inner { max-width: none !important; padding: 0 !important; gap: 0 !important; align-items: stretch !important; flex-wrap: nowrap !important; }
   /* F-03 left photo ~722px wide */
-  body .elementor-43 .elementor-element.elementor-element-d7da6a9 { width: 722px !important; max-width: none !important; flex: 0 0 722px; margin: 0 !important; }
-  body .elementor-43 .elementor-element.elementor-element-d7da6a9 img { width: 100% !important; height: 600px !important; object-fit: cover; }
-  body .elementor-43 .elementor-element.elementor-element-1676003 { --width: auto; width: auto !important; flex: 1 1 auto !important; padding: 0 0 0 51px !important; align-items: stretch !important; gap: 0 !important; }
-  body .elementor-43 .elementor-element.elementor-element-91b1f1f { --width: auto; width: 590px !important; flex: 0 0 590px; padding: 85px 0 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-d7da6a9 { width: 37.6vw !important; max-width: none !important; flex: 0 0 37.6vw; margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-d7da6a9 img { width: 100% !important; height: max(600px, 31.25vw) !important; object-fit: cover; }
+  body .elementor-43 .elementor-element.elementor-element-1676003 { --width: auto; width: auto !important; flex: 1 1 auto !important; padding: 0 0 0 2.66vw !important; align-items: stretch !important; gap: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-91b1f1f { --width: auto; width: 30.73vw !important; flex: 0 1 30.73vw; min-width: 420px; padding: 85px 0 0 !important; --gap: 0px; gap: 0 !important; }
   body .elementor-43 :is(.elementor-element.elementor-element-d688fd8, .elementor-element.elementor-element-36490c5, .elementor-element.elementor-element-0818b88, .elementor-element.elementor-element-51cf488, .elementor-element.elementor-element-041e5ca) { margin: 0 !important; }
   /* F-06 label */
   body .elementor-43 .elementor-element.elementor-element-d688fd8 .elementor-heading-title { font-size: 16px !important; letter-spacing: 0.12em !important; line-height: 1.2 !important; }
@@ -1352,8 +1371,8 @@ body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
     letter-spacing: 0.12em !important; line-height: 1 !important;
   }
   /* F-15 right bucket image ~450 x 550 */
-  body .elementor-43 .elementor-element.elementor-element-9b21423 { width: 450px !important; max-width: none !important; flex: 0 0 450px; margin: 25px 130px 0 auto !important; }
-  body .elementor-43 .elementor-element.elementor-element-9b21423 img { width: 450px !important; height: 550px !important; max-height: none !important; object-fit: contain; }
+  body .elementor-43 .elementor-element.elementor-element-9b21423 { align-self: flex-start; width: 23.44vw !important; max-width: none !important; flex: 0 0 23.44vw; margin: 25px 6.77vw 0 auto !important; }
+  body .elementor-43 .elementor-element.elementor-element-9b21423 img { width: 100% !important; height: 28.65vw !important; max-height: none !important; object-fit: contain; }
 
   /* ================= CONTACT FORM (1c24237) ================= */
   /* C-01 761px; C-08 / C-09 photo ~850 x 735, reaching ~1840px, from above the heading down to the footer */
@@ -1364,15 +1383,15 @@ body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
     overflow: hidden;
   }
   body .elementor-43 .elementor-element.elementor-element-1c24237 > .e-con-inner { padding: 0 !important; align-items: flex-start !important; }
-  body .elementor-43 .elementor-element.elementor-element-5448b30 { --width: auto; width: 860px !important; flex: 0 0 860px; padding: 182px 0 0 !important; --gap: 0px; gap: 0 !important; position: relative; z-index: 1; }
+  body .elementor-43 .elementor-element.elementor-element-5448b30 { --width: auto; width: 860px !important; max-width: 52vw; flex: 0 1 860px; padding: 182px 0 0 !important; --gap: 0px; gap: 0 !important; position: relative; z-index: 1; }
   body .elementor-43 :is(.elementor-element.elementor-element-2799513, .elementor-element.elementor-element-9d92933, .elementor-element.elementor-element-22940b5) { margin: 0 !important; }
   body .elementor-43 .elementor-element.elementor-element-7fb41c0 {
     position: absolute !important;
-    right: calc(50vw - 960px + 80px); bottom: 0;
-    width: 850px !important; max-width: none !important; height: 735px;
+    right: 4.17vw; bottom: 0;
+    width: 44.27vw !important; max-width: none !important; height: 38.28vw;
     margin: 0 !important;
   }
-  body .elementor-43 .elementor-element.elementor-element-7fb41c0 img { width: 850px !important; height: 735px !important; max-height: none !important; object-fit: contain; object-position: center bottom; }
+  body .elementor-43 .elementor-element.elementor-element-7fb41c0 img { width: 100% !important; height: 100% !important; max-height: none !important; object-fit: contain; object-position: center bottom; }
   /* C-02 heading Satoshi Bold Italic 40px */
   body .elementor-43 .elementor-element.elementor-element-2799513 .elementor-heading-title {
     font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
@@ -1400,6 +1419,391 @@ body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
   body .cf7-custom-form input[type="submit"],
   body .cf7-custom-form .wpcf7-submit { height: 45px !important; line-height: 45px !important; }
 }
+
+
+
+/* =====================================================================
+   16. DESIGN v3 – PHASE 5 (Where to Buy, page 132)
+   W-01, W-03..W-08, W-10..W-13, W-17, W-19, W-20, W-22..W-25, W-27, W-28
+   ===================================================================== */
+
+/* ---------- inner-page breadcrumb (W-03 colour, W-05 chevron, W-06 no underline) – all widths ---------- */
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs-text,
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs a { color: #75c4a8 !important; text-decoration: none !important; }
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs-separator-text { display: none !important; }
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs-separator::before {
+  content: "";
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-top: 1.5px solid #75c4a8;
+  border-right: 1.5px solid #75c4a8;
+  transform: rotate(45deg);
+  margin: 0 4px 2px 0;
+}
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs { display: flex; align-items: center; gap: 14px; padding-left: 0 !important; margin-left: 0 !important; }
+body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs li { margin: 0 !important; padding: 0 !important; }
+/* W-22 brand heading green, W-12 dropdown border pale yellow */
+body .elementor-132 .elementor-element.elementor-element-846c896 .elementor-heading-title { color: #00623d !important; }
+body .elementor-132 .sk-fs .sk-fs__select select { border-color: #fae3af !important; }
+
+@media (min-width: 1025px) {
+  /* W-01 banner 325px; W-08 breadcrumb and title on the same edge */
+  body .elementor-132 .elementor-element.elementor-element-39346a4 {
+    --min-height: 325px; min-height: 325px !important;
+    padding-top: 94px !important; padding-bottom: 0 !important;
+    justify-content: flex-start !important;
+  }
+  body .elementor-132 .elementor-element.elementor-element-39346a4 > .e-con-inner { justify-content: flex-start !important; padding: 0 !important; gap: 0 !important; }
+  body .elementor-132 .elementor-element.elementor-element-b0e94d1,
+  body .elementor-132 .elementor-element.elementor-element-4cd68f2 { margin: 0 !important; padding: 0 !important; }
+  /* W-04 breadcrumb Satoshi Regular 20.5px with wide gaps */
+  body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs { gap: 20px; }
+  body .elementor-132 .elementor-element.elementor-element-b0e94d1 .hfe-breadcrumbs-text {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 20.5px !important; font-weight: 400 !important; line-height: 25px !important; text-transform: uppercase;
+  }
+  /* W-07 title Satoshi Bold 95px, letter-spaced */
+  body .elementor-132 .elementor-element.elementor-element-4cd68f2 { margin-top: 26px !important; }
+  body .elementor-132 .elementor-element.elementor-element-4cd68f2 .elementor-heading-title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: min(95px, 4.95vw) !important; font-weight: 700 !important; letter-spacing: 0.04em !important; line-height: 1.1 !important;
+  }
+
+  /* W-10 Find Stores Near You: Satoshi Black 33.7px */
+  body .elementor-132 .elementor-element.elementor-element-609ea42 { padding-top: 108px !important; padding-bottom: 142px !important; }
+  body .elementor-132 .elementor-element.elementor-element-609ea42 > .e-con-inner { padding: 0 !important; }
+  body .elementor-132 .elementor-element.elementor-element-506a975 { margin: 0 !important; }
+  body .elementor-132 .elementor-element.elementor-element-506a975 .elementor-heading-title { font-weight: 900 !important; }
+  /* W-11 45px from the heading to the dropdowns */
+  body .elementor-132 .elementor-element.elementor-element-4cc55bc { margin-top: 45px !important; }
+  body .elementor-132 .sk-fs { padding-top: 0 !important; padding-bottom: 0 !important; }
+  /* W-13 dropdowns and Apply: Aeonik Pro Regular 18px */
+  body .elementor-132 .sk-fs .sk-fs__select select,
+  body .elementor-132 .sk-fs button.sk-fs__apply {
+    font-family: "Aeonik Pro", "Satoshi", Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+  }
+  body .elementor-132 .sk-fs .sk-fs__select { width: 264px; }
+  /* W-17 map ~1507 x 830 */
+  body .elementor-132 .sk-fs .sk-fs__map { max-width: 1507px !important; margin-top: 65px !important; }
+  body .elementor-132 .sk-fs .sk-fs__map iframe { height: 830px !important; }
+
+  /* W-19 / W-20 logo strip: 270px tall, six large logos across the full width (grey background stays) */
+  body .elementor-132 .elementor-element.elementor-element-e3418af {
+    --content-width: calc(100vw - 120px) !important;
+    --min-height: 270px; min-height: 270px !important;
+    padding-top: 0 !important; padding-bottom: 0 !important;
+    justify-content: center;
+  }
+  body .elementor-132 .elementor-element.elementor-element-e3418af > .e-con-inner { justify-content: center; padding: 0 !important; }
+  body .elementor-132 .elementor-element.elementor-element-648e3e1 { width: 100%; }
+  body .elementor-132 .elementor-element.elementor-element-648e3e1 .swiper-slide { display: flex; justify-content: center; align-items: center; }
+  body .elementor-132 .elementor-element.elementor-element-648e3e1 .swiper-slide img,
+  body .elementor-132 .elementor-element.elementor-element-648e3e1 .swiper-slide-image { width: 100% !important; max-width: 250px !important; height: auto !important; }
+
+  /* W-28 116px from the logo strip to the label; brand block centred */
+  body .elementor-132 .elementor-element.elementor-element-9039a56 { padding-top: 116px !important; padding-bottom: 220px !important; }
+  body .elementor-132 .elementor-element.elementor-element-9039a56 > .e-con-inner { padding: 0 !important; gap: 0 !important; align-items: center !important; }
+  body .elementor-132 :is(.elementor-element.elementor-element-142ce73, .elementor-element.elementor-element-846c896, .elementor-element.elementor-element-e1a9a94) { margin: 0 !important; }
+  body .elementor-132 .elementor-element.elementor-element-142ce73 .elementor-heading-title { font-size: 16px !important; letter-spacing: 0.12em !important; line-height: 1.2 !important; }
+  /* W-22..W-24 brand heading, ~40px line height, line 1 ends "brand" */
+  body .elementor-132 .elementor-element.elementor-element-846c896 { margin-top: 24px !important; width: auto !important; max-width: 1300px !important; }
+  body .elementor-132 .elementor-element.elementor-element-846c896 .elementor-heading-title { line-height: 40px !important; text-align: center; }
+  /* W-25 / W-27 paragraph 22.2px, three-line second paragraph */
+  body .elementor-132 .elementor-element.elementor-element-e1a9a94 { margin-top: 44px !important; width: 100% !important; max-width: 1507px !important; }
+  body .elementor-132 .elementor-element.elementor-element-e1a9a94 .elementor-heading-title { line-height: 33px !important; text-align: center; }
+}
+
+
+/* =====================================================================
+   17. DESIGN v3 – PHASE 6 (Catalogue + category pages, .kk-hero / .kk-cat)
+   K-03, K-05..K-16, K-18..K-23 (desktop >= 1025px; the phone filter drawer is untouched)
+   ===================================================================== */
+/* K-05 breadcrumb colour (all widths) */
+body .kk-hero .kk-hero__crumbs,
+body .kk-hero .kk-hero__crumbs a { color: #75c4a8 !important; text-decoration: none !important; }
+
+@media (min-width: 1025px) {
+  /* K-03 banner 325px; K-07 breadcrumb and title on the page edge (135px at 1920) */
+  body .kk-hero {
+    box-sizing: border-box;
+    min-height: 325px;
+    padding: 94px 0 0 !important;
+  }
+  body .kk-hero .kk-hero__inner { padding-left: 0 !important; }
+  /* K-05 breadcrumb Satoshi Regular 20.5px with a thin chevron */
+  body .kk-hero .kk-hero__crumbs {
+    display: flex; align-items: center; gap: 20px;
+    margin: 0 !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 20.5px !important; font-weight: 400 !important; line-height: 25px !important; letter-spacing: 0 !important;
+    text-transform: uppercase;
+  }
+  body .kk-hero .kk-hero__sep { font-size: 0 !important; display: inline-block; }
+  body .kk-hero .kk-hero__sep::before {
+    content: ""; display: inline-block;
+    width: 8px; height: 8px;
+    border-top: 1.5px solid #75c4a8; border-right: 1.5px solid #75c4a8;
+    transform: rotate(45deg); margin: 0 4px 2px 0;
+  }
+  /* K-06 title Satoshi Bold 95px */
+  body .kk-hero .kk-hero__title {
+    margin: 26px 0 0 !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: min(95px, 4.95vw) !important; font-weight: 700 !important; line-height: 1.1 !important; letter-spacing: 0.04em !important;
+  }
+
+  /* K-08 sidebar 604px (31%), K-09 text from 161px; mint panel on the sidebar itself */
+  body .kk-cat { display: flex !important; padding: 0 !important; align-items: stretch; }
+  body .kk-cat .kk-cat__side {
+    flex: 0 0 31.46vw !important;
+    width: 31.46vw !important; max-width: none !important;
+    box-sizing: border-box;
+    padding: 90px 24px 120px 8.44vw !important;
+    background: #e4f3ec !important;
+  }
+  body .kk-cat .kk-cat__side::before { display: none !important; }
+  /* K-13 no dividers between groups */
+  body .kk-cat .kk-cat__group { border: 0 !important; margin: 0 0 76px !important; padding: 0 !important; }
+  body .kk-cat .kk-cat__group:last-child { margin-bottom: 0 !important; }
+  /* K-14 group labels Satoshi Regular 16px, letter-spaced, orange */
+  body .kk-cat .kk-cat__label {
+    margin: 0 0 18px !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 16px !important; font-weight: 400 !important; letter-spacing: 0.12em !important; line-height: 1.2 !important;
+    color: #f05a38 !important; text-transform: uppercase;
+  }
+  /* K-15 filter links Satoshi Black 33.7px, #00623d, 46px pitch */
+  body .kk-cat .kk-cat__list { margin: 0 !important; padding: 0 !important; list-style: none; }
+  body .kk-cat .kk-cat__list li { display: block; height: 46px; margin: 0 !important; padding: 0 !important; line-height: 40px; }
+  body .kk-cat .kk-cat__link {
+    display: inline-block; vertical-align: top;
+    padding: 0 !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: min(33.7px, 1.76vw) !important; font-weight: 900 !important; line-height: 1.19 !important;
+    color: #00623d !important; text-decoration: none !important;
+    border: 0 !important;
+  }
+  /* K-16 selected filter: yellow underline */
+  body .kk-cat .kk-cat__link.is-active { box-shadow: inset 0 -2px 0 #f0b232; color: #00623d !important; }
+
+  /* products area: starts ~107px right of the sidebar, ~87px under the banner */
+  body .kk-cat .kk-cat__main { flex: 1 1 auto !important; width: auto !important; padding: 87px 0 120px 5.57vw !important; box-sizing: border-box; }
+  body .kk-cat .kk-cat__main .site-main { margin: 0 !important; padding: 0 !important; max-width: none !important; width: auto !important; }
+  /* K-18 / K-19 cards ~488 x 570, 95px between the columns */
+  body .kk-cat ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(2, 25.42vw) !important;
+    column-gap: 4.95vw !important; row-gap: 85px !important;
+    justify-content: start !important;
+    margin: 0 !important; width: auto !important;
+  }
+  body .kk-cat ul.products::before, body .kk-cat ul.products::after { display: none !important; }
+  body .kk-cat ul.products li.product {
+    width: auto !important; float: none !important; margin: 0 !important;
+    min-height: 570px;
+    padding: 0 41px 40px !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  /* K-20 photo fills the card width, broom cropped large */
+  body .kk-cat ul.products li.product img {
+    display: block;
+    width: calc(100% + 82px) !important; max-width: none !important;
+    height: 358px !important;
+    margin: 0 -41px 22px !important;
+    object-fit: cover; object-position: center 30%;
+  }
+  /* K-21 item code, K-22 name (two lines), K-23 DISCOVER */
+  body .kk-cat .kk-loop-code { font-size: 17px !important; font-weight: 700 !important; color: #00915d !important; letter-spacing: 0.01em !important; line-height: 1.3 !important; margin-bottom: 6px !important; }
+  body .kk-cat ul.products li.product .woocommerce-loop-product__title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 23px !important; font-weight: 700 !important; line-height: 30px !important;
+    padding: 0 !important; margin: 0 !important;
+  }
+  body .kk-cat .kk-loop-more { display: inline-block; margin-top: 34px !important; font-size: 17px !important; font-weight: 700 !important; letter-spacing: 0.02em !important; }
+}
+
+
+/* =====================================================================
+   18. DESIGN v3 – PHASE 7 (product page, .kk-sp) – desktop (>= 1025px)
+   P-03..P-18 (P-02 wood photo needs the asset)
+   ===================================================================== */
+@media (min-width: 1025px) {
+  /* P-03 left floor photo 604px (31.46vw) */
+  body .kk-sp::before { width: 31.46vw !important; }
+  /* P-04 product image ~826px wide, starting ~172px from the left */
+  body .kk-sp .kk-sp__wood img.kk-sp__img {
+    width: 43vw !important;
+    margin-left: calc(8.96vw - (100vw - var(--kk-w)) / 2) !important;
+  }
+  /* text column from ~1060px (at 1920), 61px under the header (P-05) */
+  body .kk-sp .kk-sp__panel { padding-top: 61px !important; padding-left: 35.9% !important; padding-right: 0 !important; }
+  body .kk-sp .kk-sp__content { width: 37.76vw !important; max-width: 725px !important; }
+  /* P-06 item code */
+  body .kk-sp .kk-itemcode { font-size: 17px !important; font-weight: 700 !important; margin: 0 0 4px !important; letter-spacing: 0.01em; }
+  /* P-07 title */
+  body .kk-sp h1.kk-sp__title { font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important; font-size: 23px !important; font-weight: 700 !important; line-height: 1.3 !important; margin: 0 0 32px !important; }
+  /* P-08 bullets 19px, 30px pitch */
+  body .kk-sp .kk-features { margin: 0 0 68px !important; padding-left: 18px !important; }
+  body .kk-sp .kk-features li { font-size: 19px !important; line-height: 30px !important; color: #111111; }
+  /* P-09 label */
+  body .kk-sp .kk-pinfo { position: relative; }
+  body .kk-sp .kk-pinfo__title { font-size: 17px !important; font-weight: 700 !important; margin: 0 0 16px !important; }
+  /* P-10..P-14 table: 33px pills, 41.6px pitch, equal widths, white values */
+  body .kk-sp .kk-pinfo__row { display: flex !important; gap: 7px !important; margin: 0 0 8.6px !important; flex-wrap: nowrap !important; }
+  body .kk-sp .kk-pinfo__label,
+  body .kk-sp .kk-pinfo__value {
+    box-sizing: border-box;
+    height: 33px !important; line-height: 33px !important;
+    font-size: 16.5px !important;
+    border-radius: 999px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  body .kk-sp .kk-pinfo__label { flex: 0 0 149px !important; width: 149px !important; padding: 0 12px !important; font-weight: 500 !important; }
+  body .kk-sp .kk-pinfo__value { flex: 0 0 222px !important; width: 222px !important; padding: 0 16px !important; font-weight: 400 !important; background: #ffffff !important; }
+  /* P-15 scroll-down box: white square, ~96px, down chevron, level with the table, on the right */
+  body .kk-sp .kp-sp-down {
+    position: absolute; right: 0; top: 41px;
+    display: flex; align-items: center; justify-content: center;
+    width: 96px; height: 96px;
+    padding: 0; border: 0; border-radius: 0;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+  }
+  body .kk-sp .kp-sp-down::before {
+    content: ""; width: 44px; height: 44px; margin-top: -24px;
+    border-right: 1.5px solid #1a1a1a; border-bottom: 1.5px solid #1a1a1a;
+    transform: rotate(45deg);
+  }
+  body .kk-sp .kp-sp-down:hover { transform: translateY(3px); }
+  body .kk-sp .kp-sp-down:focus-visible { outline: 3px solid #f0b232; outline-offset: 3px; }
+  /* P-16..P-18 feature images: text-column width (~725px), left-aligned with the text, soft shadow */
+  body .kk-sp .kk-highlights { margin-top: 52px !important; margin-left: 0 !important; width: 100% !important; }
+  body .kk-sp .kk-highlight img { width: 100% !important; box-shadow: 10px 12px 22px rgba(0, 0, 0, 0.16); }
+}
+@media (max-width: 1024px) { body .kk-sp .kp-sp-down { display: none; } }
+
+
+
+/* =====================================================================
+   19. DESIGN v3 – PHASE 8 (Who We Are, page 153) + banner photos
+   A-01..A-14, A-16..A-18, A-20..A-22, A-24..A-28; K-02 catalogue banner photo
+   ===================================================================== */
+
+/* K-02 catalogue banner: green floor wiper on tiles */
+:root { --kk-hero-img: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/10/WhatsApp-Image-2026-09-03-at-11.32.14-4.jpeg"); }
+body .kk-hero { background-position: center 62% !important; }
+/* A-01 Who We Are banner: white string mop */
+body .elementor-153 .elementor-element.elementor-element-cc1a00a { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/10/WhatsApp-Image-2026-09-03-at-11.32.14-2.jpeg") !important; background-size: cover !important; background-position: center 72% !important; }
+
+/* A-04 breadcrumb (same as Where to Buy): mint, chevron, no underline – all widths */
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs-text,
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs a { color: #75c4a8 !important; text-decoration: none !important; }
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs-separator-text { display: none !important; }
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs-separator::before {
+  content: ""; display: inline-block; width: 8px; height: 8px;
+  border-top: 1.5px solid #75c4a8; border-right: 1.5px solid #75c4a8;
+  transform: rotate(45deg); margin: 0 4px 2px 0;
+}
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs { display: flex; align-items: center; gap: 14px; padding-left: 0 !important; margin-left: 0 !important; }
+body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs li { margin: 0 !important; padding: 0 !important; }
+
+/* A-06 / A-14 bright brand green */
+body .elementor-153 :is(.elementor-element.elementor-element-5d0b5e3, .elementor-element.elementor-element-89c5073) .elementor-heading-title { color: #00915d !important; }
+body .elementor-153 :is(.elementor-element.elementor-element-12b049b, .elementor-element.elementor-element-87a16f6) { --divider-color: #00915d !important; }
+body .elementor-153 :is(.elementor-element.elementor-element-12b049b, .elementor-element.elementor-element-87a16f6) .elementor-divider-separator { border-color: #00915d !important; }
+/* A-27 Guaranteed… grey */
+body .elementor-153 .elementor-element.elementor-element-092cb7a .elementor-heading-title { color: #4f4f4f !important; }
+
+/* A-07 clean down arrow (thin line + arrowhead) replaces the screenshot image */
+body .elementor-153 .elementor-element.elementor-element-71918f6 img { display: none !important; }
+body .elementor-153 .elementor-element.elementor-element-71918f6 .elementor-widget-container,
+body .elementor-153 .elementor-element.elementor-element-71918f6 {
+  min-height: 60px;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2014%2096%27%20fill%3D%27none%27%20stroke%3D%27%23111111%27%20stroke-width%3D%271.4%27%3E%3Cpath%20d%3D%27M7%200v94%27%2F%3E%3Cpath%20d%3D%27M2%2088l5%207%205-7%27%20fill%3D%27%23111111%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E") left top / auto 100% no-repeat;
+}
+/* A-18 clean four-point sparkle stars replace the screenshot images */
+body .elementor-153 :is(.elementor-element.elementor-element-1b9f740, .elementor-element.elementor-element-3686e69, .elementor-element.elementor-element-f5a2f5e, .elementor-element.elementor-element-e6c8adb) img { display: none !important; }
+body .elementor-153 :is(.elementor-element.elementor-element-1b9f740, .elementor-element.elementor-element-3686e69, .elementor-element.elementor-element-f5a2f5e, .elementor-element.elementor-element-e6c8adb) {
+  min-height: 27px;
+  width: 100% !important;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20fill%3D%27%23ffffff%27%20d%3D%27M12%200c.7%206.6%205.4%2011.3%2012%2012-6.6.7-11.3%205.4-12%2012-.7-6.6-5.4-11.3-12-12C6.6%2011.3%2011.3%206.6%2012%200z%27%2F%3E%3C%2Fsvg%3E") center / 27px 27px no-repeat !important;
+}
+
+@media (min-width: 1025px) {
+  /* A-02 banner 325px; A-04 breadcrumb 20.5px + title Bold 95px on the same edge */
+  body .elementor-153 .elementor-element.elementor-element-cc1a00a { --min-height: 325px; min-height: 325px !important; padding-top: 94px !important; padding-bottom: 0 !important; justify-content: flex-start !important; }
+  body .elementor-153 .elementor-element.elementor-element-cc1a00a > .e-con-inner { justify-content: flex-start !important; padding: 0 !important; gap: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-90a5b6c, body .elementor-153 .elementor-element.elementor-element-901a2db { margin: 0 !important; padding: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs { gap: 20px; }
+  body .elementor-153 .elementor-element.elementor-element-90a5b6c .hfe-breadcrumbs-text { font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important; font-size: 20.5px !important; font-weight: 400 !important; line-height: 25px !important; text-transform: uppercase; }
+  body .elementor-153 .elementor-element.elementor-element-901a2db { margin-top: 26px !important; }
+  body .elementor-153 .elementor-element.elementor-element-901a2db .elementor-heading-title { font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important; font-size: min(95px, 4.95vw) !important; font-weight: 700 !important; letter-spacing: 0.04em !important; line-height: 1.1 !important; }
+
+  /* intro: text column 137 → 1275, exploded broom ~600 x 800 from 1275 to ~1875 (A-10) */
+  body .elementor-153 .elementor-element.elementor-element-79a8b7a { padding: 0 0 70px !important; }
+  body .elementor-153 .elementor-element.elementor-element-79a8b7a > .e-con-inner { padding: 0 !important; gap: 0 !important; align-items: flex-start !important; flex-wrap: nowrap !important; }
+  body .elementor-153 .elementor-element.elementor-element-1a21684 { --width: auto; width: auto !important; flex: 1 1 auto !important; padding: 122px 0 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-153 :is(.elementor-element.elementor-element-5d0b5e3, .elementor-element.elementor-element-b86e4b4, .elementor-element.elementor-element-71918f6, .elementor-element.elementor-element-89c5073, .elementor-element.elementor-element-162ec16, .elementor-element.elementor-element-7ed0220) { margin: 0 !important; padding: 0 !important; }
+  /* A-05 92.5px, A-08 62.5px Satoshi Black */
+  body .elementor-153 :is(.elementor-element.elementor-element-5d0b5e3, .elementor-element.elementor-element-b86e4b4) .elementor-heading-title { font-size: min(92.5px, 4.82vw) !important; font-weight: 900 !important; line-height: 1.12 !important; }
+  body .elementor-153 .elementor-element.elementor-element-71918f6 { margin-top: 40px !important; height: 95px; min-height: 95px; width: 14px !important; }
+  body .elementor-153 .elementor-element.elementor-element-89c5073 { margin-top: 64px !important; }
+  body .elementor-153 :is(.elementor-element.elementor-element-89c5073, .elementor-element.elementor-element-162ec16) .elementor-heading-title { font-size: min(62.5px, 3.26vw) !important; font-weight: 900 !important; line-height: 1.12 !important; }
+  /* A-09 intro paragraph 22.2px */
+  body .elementor-153 .elementor-element.elementor-element-7ed0220 { margin-top: 36px !important; max-width: 860px; }
+  body .elementor-153 .elementor-element.elementor-element-7ed0220 .elementor-heading-title { font-size: 22.2px !important; line-height: 33px !important; }
+  body .elementor-153 .elementor-element.elementor-element-4c01e73 {
+    width: 31.25vw !important; max-width: none !important; flex: 0 0 31.25vw;
+    margin: 0 calc(45px - (100vw - var(--kk-w)) / 2) 0 0 !important;
+  }
+  body .elementor-153 .elementor-element.elementor-element-4c01e73 img { width: 31.25vw !important; height: 41.67vw !important; max-height: none !important; object-fit: contain; object-position: center top; }
+
+  /* A-11..A-13 four feature photos 375 x 307 (row 171 → 1727), Satoshi Black 32px titles, 99 x 5 underlines */
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 { padding: 30px 0 76px !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 > .e-con-inner { justify-content: center !important; gap: 0.99vw !important; padding: 0 !important; flex-wrap: nowrap !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 > .e-con,
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 > .e-con-inner > .e-con { --width: auto; width: 19.53vw !important; flex: 0 0 19.53vw !important; padding: 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-widget-image { margin: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-widget-image img { width: 100% !important; height: 15.99vw !important; object-fit: cover; border-radius: 14px; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-widget-heading { margin: 30px 0 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-widget-heading .elementor-heading-title { font-size: 32px !important; font-weight: 900 !important; line-height: 1.2 !important; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-widget-divider { margin: 18px 0 0 !important; --divider-width: 99px; --divider-border-width: 5px; }
+  body .elementor-153 .elementor-element.elementor-element-bbc3710 .elementor-divider-separator { width: 99px !important; border-top-width: 5px !important; margin: 0 auto !important; }
+
+  /* A-16 / A-17 dark statement 515px, Satoshi Bold 40px, four lines */
+  body .elementor-153 .elementor-element.elementor-element-1753931 { --min-height: 515px; min-height: 515px !important; padding: 64px 0 !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-1753931 > .e-con-inner { padding: 0 !important; gap: 40px !important; justify-content: center !important; }
+  body .elementor-153 :is(.elementor-element.elementor-element-1b9f740, .elementor-element.elementor-element-3686e69, .elementor-element.elementor-element-f17afcf, .elementor-element.elementor-element-f5a2f5e, .elementor-element.elementor-element-e5f7c30, .elementor-element.elementor-element-e6c8adb) { margin: 0 auto !important; }
+  body .elementor-153 .elementor-element.elementor-element-f17afcf { width: 1250px !important; max-width: 100% !important; }
+  body .elementor-153 .elementor-element.elementor-element-f17afcf .elementor-heading-title { font-size: min(40px, 2.08vw) !important; font-weight: 700 !important; line-height: 1.28 !important; }
+
+  /* A-20..A-22 "No…" section 681px, large line Satoshi Bold 154px, text Bold 40px (line 1 ends "affordable doesn't") */
+  body .elementor-153 .elementor-element.elementor-element-5419111 { --min-height: 681px; min-height: 681px !important; padding: 64px 0 !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-5419111 > .e-con-inner { padding: 0 !important; justify-content: center !important; gap: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-fb87731 { margin: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title { font-size: min(154px, 8.02vw) !important; font-weight: 700 !important; line-height: 1.15 !important; }
+  body .elementor-153 .elementor-element.elementor-element-f6db65f { width: 1410px !important; max-width: 100% !important; margin: 52px auto 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-f6db65f .elementor-heading-title { font-size: min(40px, 2.08vw) !important; font-weight: 700 !important; line-height: 1.3 !important; }
+
+  /* A-24 / A-25 "Born in the UAE" 587px, Satoshi Black 53px */
+  body .elementor-153 .elementor-element.elementor-element-915d10f { --min-height: 587px; min-height: 587px !important; padding: 64px 0 !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-915d10f > .e-con-inner { padding: 0 !important; gap: 40px !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-e5f7c30 .elementor-heading-title { font-size: min(53px, 2.76vw) !important; font-weight: 900 !important; line-height: 1.43 !important; }
+
+  /* A-26 / A-28 "Guaranteed…" 223px, section 414px */
+  body .elementor-153 .elementor-element.elementor-element-bcabc46 { --min-height: 414px; min-height: 414px !important; padding: 40px 0 !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-bcabc46 > .e-con-inner { padding: 0 !important; justify-content: center !important; }
+  body .elementor-153 .elementor-element.elementor-element-092cb7a { margin: 0 !important; }
+  body .elementor-153 .elementor-element.elementor-element-092cb7a .elementor-heading-title { font-size: min(223px, 11.6vw) !important; line-height: 1.1 !important; }
+}
+
+/* W-21 label colour (text set in kk-polish.js) */
+body .elementor-132 .elementor-element.elementor-element-142ce73 .elementor-heading-title { color: #f05a38 !important; letter-spacing: 0.12em !important; }
 </style>
     <?php
 }
@@ -1430,6 +1834,30 @@ function kk_polish_js() {
         update();
     }
 
+    /* ---------- 1a. text fixes (design v3 Phase 0) ----------
+       Corrects the exact typos only; once fixed in Elementor these do nothing. */
+    (function () {
+        var fixes = [
+            [/\bCatelouge\b/g, 'Catalogue'],             // X-18
+            [/\bCatelog\b/g, 'Catalogue'],               // X-17, N-01
+            [/\bLets Connect\b/g, 'Let’s Connect'], // X-19
+            [/\bWe oer\b/g, 'We offer'],                 // W-26
+            [/\bEortless\b/g, 'Effortless']              // F-10
+        ];
+        var scope = document.querySelectorAll('.elementor-30, .elementor-43, .elementor-132, .kk-side, .kk-hero');
+        scope.forEach(function (root) {
+            var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+            while ((n = w.nextNode())) {
+                var v = n.nodeValue, o = v;
+                fixes.forEach(function (f) { v = v.replace(f[0], f[1]); });
+                if (v !== o) { n.nodeValue = v; }
+            }
+        });
+        // W-21: label above the Where to Buy brand heading
+        var lbl = document.querySelector('.elementor-132 .elementor-element-142ce73 .elementor-heading-title');
+        if (lbl && /^\s*FEATURED PRODUCT\s*$/i.test(lbl.textContent)) { lbl.textContent = 'WHO WE ARE'; lbl.classList.add('kp-w21'); }
+    })();
+
     /* ---------- 1b. footer links (X-21, X-25) ----------
        "Contact" and "Let's Connect" go to the contact form on the home page.
        Only fills a link that is missing (no link / "#"), so links set in Elementor win. */
@@ -1459,33 +1887,34 @@ function kk_polish_js() {
         }
     })();
 
+    // forced line breaks from the design (shown on desktop only, .kp-br)
+    function kpAddBreak(el, phrase) {
+        if (!el || el.__kpBr && el.__kpBr[phrase]) { return; }
+        var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], full = '', n;
+        while ((n = walker.nextNode())) { nodes.push({ node: n, start: full.length }); full += n.nodeValue; }
+        var re = new RegExp(phrase.trim().split(/\s+/).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('\\s+'));
+        var m = re.exec(full);
+        if (!m) { return; }
+        var hit = null;
+        for (var i = nodes.length - 1; i >= 0; i--) { if (nodes[i].start <= m.index) { hit = nodes[i]; break; } }
+        if (!hit) { return; }
+        var br = document.createElement('br');
+        br.className = 'kp-br';
+        var word = hit.node.parentElement && hit.node.parentElement.closest('.kk-w');
+        if (word && el.contains(word)) {
+            word.parentNode.insertBefore(br, word);
+        } else {
+            var after = hit.node.splitText(m.index - hit.start);
+            after.parentNode.insertBefore(br, after);
+        }
+        (el.__kpBr = el.__kpBr || {})[phrase] = true;
+    }
+
     /* ---------- 1c. home page (design v3 Phase 4) ---------- */
     (function () {
         var page = document.querySelector('.elementor-43');
         if (!page) { return; }
 
-        // forced line breaks from the design (shown on desktop only, .kp-br)
-        function addBreak(el, phrase) {
-            if (!el || el.__kpBr && el.__kpBr[phrase]) { return; }
-            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], full = '', n;
-            while ((n = walker.nextNode())) { nodes.push({ node: n, start: full.length }); full += n.nodeValue; }
-            var re = new RegExp(phrase.trim().split(/\s+/).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('\\s+'));
-            var m = re.exec(full);
-            if (!m) { return; }
-            var hit = null;
-            for (var i = nodes.length - 1; i >= 0; i--) { if (nodes[i].start <= m.index) { hit = nodes[i]; break; } }
-            if (!hit) { return; }
-            var br = document.createElement('br');
-            br.className = 'kp-br';
-            var word = hit.node.parentElement && hit.node.parentElement.closest('.kk-w');
-            if (word && el.contains(word)) {
-                word.parentNode.insertBefore(br, word);
-            } else {
-                var after = hit.node.splitText(m.index - hit.start);
-                after.parentNode.insertBefore(br, after);
-            }
-            (el.__kpBr = el.__kpBr || {})[phrase] = true;
-        }
         var T = function (id, inner) { return page.querySelector('.elementor-element-' + id + ' ' + (inner || '.elementor-heading-title')); };
         [
             ['9a43ca3', null, ['TO KLEEN']],                                    // G-04
@@ -1502,7 +1931,7 @@ function kk_polish_js() {
             ['9d92933', null, ['get in touch']]                                 // C-04
         ].forEach(function (r) {
             var el = T(r[0], r[1]);
-            r[2].forEach(function (ph) { addBreak(el, ph); });
+            r[2].forEach(function (ph) { kpAddBreak(el, ph); });
         });
 
         // N-07: Sweep and Mop cards go to their solution pages, like Wipe / Scrub / Dust
@@ -1542,6 +1971,51 @@ function kk_polish_js() {
             });
             window.addEventListener('resize', function () { var open = hs.querySelector('.sk-hs__card.is-open'); if (open) { placeLeft(open); } else { line.style.display = 'none'; } });
         }
+    })();
+
+    /* ---------- 1d. Where to Buy (design v3 Phase 5) ---------- */
+    (function () {
+        var page = document.querySelector('.elementor-132');
+        if (!page) { return; }
+        var T = function (id) { return page.querySelector('.elementor-element-' + id + ' .elementor-heading-title'); };
+        kpAddBreak(T('846c896'), 'specializing in household');   // W-23: line 1 ends "brand"
+        kpAddBreak(T('e1a9a94'), 'We o');                         // W-27: "We offer…" starts line 2
+        kpAddBreak(T('e1a9a94'), 'performing square');            // W-27: "performing…" starts line 3
+    })();
+
+    /* ---------- 1e. Catalogue cards (design v3 Phase 6, K-22): name on two lines, after the closing quote ---------- */
+    document.querySelectorAll('.kk-cat ul.products .woocommerce-loop-product__title').forEach(function (t) {
+        if (t.querySelector('.kp-br')) { return; }
+        var m = /^(.*”)\s+(.+)$/.exec(t.textContent.trim());
+        if (!m || t.children.length) { return; }
+        t.textContent = '';
+        t.appendChild(document.createTextNode(m[1] + ' '));
+        var br = document.createElement('br'); br.className = 'kp-br'; t.appendChild(br);
+        t.appendChild(document.createTextNode(m[2]));
+    });
+
+    /* ---------- 1f. product page scroll-down box (design v3 Phase 7, P-15) ---------- */
+    (function () {
+        var info = document.querySelector('.kk-sp .kk-pinfo');
+        var target = document.querySelector('.kk-sp .kk-highlights, .kk-sp #kk-highlight');
+        if (!info || !target || info.querySelector('.kp-sp-down')) { return; }
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'kp-sp-down';
+        b.setAttribute('aria-label', 'Scroll to the product highlights');
+        b.addEventListener('click', function () {
+            var y = target.getBoundingClientRect().top + window.pageYOffset - 24;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        });
+        info.appendChild(b);
+    })();
+
+    /* ---------- 1g. Who We Are (design v3 Phase 8): A-17 four lines, A-22 line 1 ends "affordable doesn't" ---------- */
+    (function () {
+        var page = document.querySelector('.elementor-153');
+        if (!page) { return; }
+        var T = function (id) { return page.querySelector('.elementor-element-' + id + ' .elementor-heading-title'); };
+        kpAddBreak(T('f6db65f'), 'have to mean ordinary');
     })();
 
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
