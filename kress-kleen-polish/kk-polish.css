@@ -1074,3 +1074,308 @@ body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-butto
     text-align: center !important;
   }
 }
+
+
+
+/* =====================================================================
+   15. DESIGN v3 – PHASE 4 (home page)
+   Hero H-03..H-09, logos L-01/L-03..L-05, green strip G-01..G-12,
+   cards S-01..S-16, One Home O-01..O-07/O-10/O-13/O-14,
+   featured product F-01..F-15, contact C-01..C-09.
+   Line breaks, card links and the hotspot pop-up side are set in kk-polish.js.
+   Colours apply at every width; sizes and layout on desktop (>= 1025px) only.
+   ===================================================================== */
+
+/* forced design line breaks only on desktop */
+.kp-br { display: none; }
+@media (min-width: 1025px) { .kp-br { display: inline; } }
+
+/* ---------- colours (all widths) ---------- */
+/* L-01 logo strip white */
+body .elementor-43 .elementor-element.elementor-element-287ec07,
+body .elementor-43 .elementor-element.elementor-element-287ec07 > .elementor-motion-effects-container > .elementor-motion-effects-layer { background-color: #ffffff !important; }
+/* G-02 green strip: no blue flash while the image loads */
+body .elementor-43 .elementor-element.elementor-element-b12f160 { background-color: #0c4c31 !important; }
+/* O-01 One Home background */
+body .elementor-43 .elementor-element.elementor-element-7149c5d,
+body .elementor-43 .elementor-element.elementor-element-7149c5d > .elementor-motion-effects-container > .elementor-motion-effects-layer { background-color: #f0f8f5 !important; }
+/* S-12..S-16 EXPLORE colours */
+body .elementor-43 .elementor-element.elementor-element-48efe92 .elementor-button { color: #f05a38 !important; }
+body .elementor-43 .elementor-element.elementor-element-fe08656 .elementor-button { color: #00915d !important; }
+body .elementor-43 .elementor-element.elementor-element-98d794c .elementor-button { color: #f1af1d !important; }
+body .elementor-43 .elementor-element.elementor-element-3cf0f5b .elementor-button { color: #45a3d7 !important; }
+body .elementor-43 .elementor-element.elementor-element-33cb841 .elementor-button { color: #707070 !important; }
+/* F-05 dark panel, F-12 button colour */
+body .elementor-43 .elementor-element.elementor-element-1676003 { background-color: #1f2324 !important; }
+body .elementor-43 .elementor-element.elementor-element-041e5ca .elementor-button { background-color: #f05a38 !important; }
+/* O-13 hotspots: flat green circle, thin white ring, no glow */
+body .sk-hs .sk-hs__dot { animation: none !important; box-shadow: none !important; border-width: 2px !important; }
+/* C-06 field borders pale yellow, C-07 placeholder grey */
+body .cf7-custom-form input[type="text"],
+body .cf7-custom-form input[type="email"],
+body .cf7-custom-form input[type="tel"],
+body .cf7-custom-form textarea { border-color: #fae3af !important; }
+body .cf7-custom-form input::placeholder,
+body .cf7-custom-form textarea::placeholder { color: #808080 !important; }
+
+@media (min-width: 1025px) {
+
+  /* ================= HERO (section.kk-sh) ================= */
+  /* H-03 natural brightness, dark fade only at the very top */
+  body .kk-sh { --kk-sh-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.12) 12%, rgba(0, 0, 0, 0) 24%); }
+  body .kk-sh .kk-sh__overlay::after { display: none; }
+  /* H-04 card on the page grid (138px at 1920), bottom ~249px above the hero bottom */
+  body .kk-sh .kk-sh__inner { width: max(min(1646px, calc(100vw - 274px)), min(1300px, calc(100vw - 48px))); }
+  body .kk-sh .kk-sh__card--left,
+  body .kk-sh .kk-sh__card--right,
+  body .kk-sh .kk-sh__card--center { bottom: 23vh; }
+  /* H-05 card ~555 x 290, radius ~30, thick soft frosted edge */
+  body .kk-sh .kk-sh__card {
+    width: min(555px, 100%);
+    min-height: 290px;
+    padding: 36px 47px 40px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.55);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+      inset 0 0 0 6px rgba(255, 255, 255, 0.28),
+      inset 0 0 22px rgba(255, 255, 255, 0.45),
+      0 18px 50px rgba(0, 0, 0, 0.22);
+  }
+  body .kk-sh .kk-sh__card--center { margin-left: calc(min(555px, 100%) / -2); }
+  /* H-06 code line */
+  body .kk-sh .kk-sh__eyebrow { font-size: 22px; font-weight: 400; letter-spacing: 0; line-height: 1.2; text-transform: uppercase; }
+  /* H-07 title */
+  body .kk-sh h2.kk-sh__title { margin: 6px 0 14px; font-size: 33.7px; font-weight: 900; line-height: 1.2; letter-spacing: 0.02em; }
+  /* H-08 sub-line */
+  body .kk-sh .kk-sh__text { margin: 0 0 24px; font-size: 22px; line-height: 1.3; }
+  /* H-09 LET'S DISCOVER pill ~200 x 38 */
+  body .kk-sh a.kk-sh__btn {
+    justify-content: center;
+    width: 200px; height: 38px;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px; font-weight: 400;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+
+  /* ================= LOGO STRIP (287ec07) ================= */
+  /* L-03 full width (60px margins), L-05 170px tall, L-04 larger logos */
+  body .elementor-43 .elementor-element.elementor-element-287ec07 {
+    --content-width: calc(100vw - 120px) !important;
+    --min-height: 170px; min-height: 170px !important;
+    padding-top: 0 !important; padding-bottom: 0 !important;
+    justify-content: center;
+  }
+  body .elementor-43 .elementor-element.elementor-element-287ec07 > .e-con-inner { justify-content: center; padding: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-631eaef { width: 100%; }
+  body .elementor-43 .elementor-element.elementor-element-631eaef .swiper-slide { display: flex; justify-content: center; align-items: center; }
+  body .elementor-43 .elementor-element.elementor-element-631eaef .swiper-slide img,
+  body .elementor-43 .elementor-element.elementor-element-631eaef .swiper-slide-image { width: 100% !important; max-width: 250px !important; height: auto !important; }
+
+  /* ================= GREEN STRIP (b12f160) ================= */
+  /* G-01 471px */
+  body .elementor-43 .elementor-element.elementor-element-b12f160 {
+    --min-height: 471px; min-height: 471px !important;
+    padding-top: 88px !important; padding-bottom: 40px !important;
+  }
+  body .elementor-43 .elementor-element.elementor-element-b12f160 > .e-con-inner { align-items: flex-start !important; padding: 0 !important; }
+  /* G-07 left block on the page edge */
+  body .elementor-43 .elementor-element.elementor-element-ad39a46 { padding: 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-9a43ca3,
+  body .elementor-43 .elementor-element.elementor-element-1bde407,
+  body .elementor-43 .elementor-element.elementor-element-c03da2d { margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-9a43ca3 .elementor-heading-title { line-height: 1.24 !important; }
+  body .elementor-43 .elementor-element.elementor-element-1bde407 { margin-top: 24px !important; }
+  body .elementor-43 .elementor-element.elementor-element-1bde407 .elementor-heading-title { line-height: 33px !important; }
+  body .elementor-43 .elementor-element.elementor-element-c03da2d { margin-top: 44px !important; }
+  /* G-06 READ MORE ~200 x 38, Satoshi Regular 16, wide spacing */
+  body .elementor-43 .elementor-element.elementor-element-c03da2d .elementor-button {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 200px; height: 38px; padding: 0 !important; box-sizing: border-box;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 16px !important; font-weight: 400 !important;
+    letter-spacing: 0.12em !important; line-height: 1 !important;
+  }
+  /* G-11 columns centred at ~1017 / 1341 / 1647 (at 1920): 308 / 340 / 272 wide, ending on the page edge */
+  body .elementor-43 .elementor-element.elementor-element-755069b {
+    --width: auto; width: 920px !important; max-width: 920px; flex: 0 0 920px;
+    margin-left: auto !important;
+    padding: 9px 0 0 !important;
+    --gap: 0px; gap: 0 !important;
+    flex-wrap: nowrap !important;
+  }
+  body .elementor-43 .elementor-element.elementor-element-85d3640 { width: 308px !important; max-width: 308px !important; flex: 0 0 308px; }
+  body .elementor-43 .elementor-element.elementor-element-63b71db { width: 340px !important; max-width: 340px !important; flex: 0 0 340px; }
+  body .elementor-43 .elementor-element.elementor-element-704d045 { width: 272px !important; max-width: 272px !important; flex: 0 0 272px; }
+  /* G-12 1px dividers */
+  body .elementor-43 .elementor-element.elementor-element-85d3640,
+  body .elementor-43 .elementor-element.elementor-element-63b71db { border-right-width: 1px !important; }
+  /* G-08 / G-09 column text */
+  body .elementor-43 :is(.elementor-element.elementor-element-85d3640, .elementor-element.elementor-element-63b71db, .elementor-element.elementor-element-704d045) .elementor-icon-box-title { font-size: 29px !important; letter-spacing: 0.03em; margin-bottom: 10px !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-85d3640, .elementor-element.elementor-element-63b71db, .elementor-element.elementor-element-704d045) .elementor-icon-box-description { line-height: 27px !important; }
+
+  /* ================= SOLUTION CARDS (975d254) ================= */
+  /* S-02 772px */
+  body .elementor-43 .elementor-element.elementor-element-975d254 {
+    --min-height: 772px; min-height: 772px !important;
+    padding-top: 122px !important; padding-bottom: 96px !important;
+  }
+  body .elementor-43 .elementor-element.elementor-element-975d254 > .e-con-inner { padding: 0 !important; --gap: 34px; gap: 34px !important; }
+  body .elementor-43 .elementor-element.elementor-element-cb4ed5d { margin: 0 !important; }
+  /* S-03 / S-04 five cards ~321 x 477, photo ~266 */
+  body .elementor-43 .elementor-element.elementor-element-79b14eb { padding: 0 !important; --gap: 10px; gap: 10px !important; flex-wrap: nowrap !important; }
+  body .elementor-43 .elementor-element.elementor-element-79b14eb > .kkc-card,
+  body .elementor-43 .elementor-element.elementor-element-79b14eb > .e-con {
+    --width: auto; width: calc((100% - 40px) / 5) !important; flex: 1 1 0 !important;
+    min-height: 477px;
+    padding: 0 0 19px !important;
+    --gap: 0px; gap: 0 !important;
+  }
+  body .elementor-43 .kkc-card .elementor-widget-image { margin: 0 !important; }
+  body .elementor-43 .kkc-card .elementor-widget-image img { height: 266px !important; width: 100% !important; object-fit: cover; }
+  /* S-05 66px badge with a white ring, centred on the photo edge */
+  body .elementor-43 .kkc-card .elementor-widget-icon { margin: -33px 0 0 14px !important; position: relative; z-index: 2; }
+  body .elementor-43 .kkc-card .elementor-widget-icon .elementor-icon { font-size: 66px; line-height: 0; }
+  body .elementor-43 .kkc-card .elementor-widget-icon svg { width: 66px !important; height: 66px !important; border-radius: 50%; box-shadow: 0 0 0 4px #ffffff; }
+  /* S-07 / S-08 / S-09 text, 79px from the card edge */
+  body .elementor-43 .kkc-card .elementor-widget-heading { margin: 0 16px 0 78px !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-b21629b, .elementor-element.elementor-element-665f377, .elementor-element.elementor-element-252f948, .elementor-element.elementor-element-f8975af, .elementor-element.elementor-element-bcefc1b) { margin-top: -10px !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-b21629b, .elementor-element.elementor-element-665f377, .elementor-element.elementor-element-252f948, .elementor-element.elementor-element-f8975af, .elementor-element.elementor-element-bcefc1b) .elementor-heading-title { font-size: 32px !important; line-height: 1.15 !important; letter-spacing: 0.03em; }
+  body .elementor-43 :is(.elementor-element.elementor-element-ed3bfa7, .elementor-element.elementor-element-21ba642, .elementor-element.elementor-element-07011f8, .elementor-element.elementor-element-ccba669, .elementor-element.elementor-element-ce02014) { margin-top: 12px !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-ed3bfa7, .elementor-element.elementor-element-21ba642, .elementor-element.elementor-element-07011f8, .elementor-element.elementor-element-ccba669, .elementor-element.elementor-element-ce02014) .elementor-heading-title { font-size: 20px !important; line-height: 27px !important; }
+  /* S-11 EXPLORE: Satoshi Black 17.7px, letter-spaced, followed by ">" */
+  body .elementor-43 .kkc-card .elementor-widget-button { margin: auto 0 0 !important; padding: 34px 0 0 78px !important; }
+  body .elementor-43 .kkc-card .elementor-widget-button .elementor-button {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 17.7px !important; font-weight: 900 !important; letter-spacing: 0.1em !important;
+    padding: 0 !important; line-height: 1.2 !important;
+  }
+  body .elementor-43 .kkc-card .elementor-widget-button .elementor-button-content-wrapper { gap: 10px !important; }
+  body .elementor-43 .kkc-card .elementor-widget-button .elementor-button-icon svg { display: none !important; }
+  body .elementor-43 .kkc-card .elementor-widget-button .elementor-button-icon::before { content: ">"; font: inherit; letter-spacing: 0; }
+
+  /* ================= ONE HOME (7149c5d) ================= */
+  /* O-02 793px + O-14 61px white gap below */
+  body .elementor-43 .elementor-element.elementor-element-7149c5d {
+    --min-height: 793px; min-height: 793px !important;
+    padding: 0 !important;
+    margin-bottom: 61px !important;
+    overflow: hidden;
+  }
+  body .elementor-43 .elementor-element.elementor-element-7149c5d > .e-con-inner { align-items: flex-start !important; padding: 0 !important; gap: 0 !important; flex-wrap: nowrap !important; }
+  body .elementor-43 .elementor-element.elementor-element-743fae7 { --width: auto; width: 448px !important; flex: 0 0 448px; padding: 115px 0 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-884f790,
+  body .elementor-43 .elementor-element.elementor-element-08f48e7 { margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-884f790 .elementor-heading-title { line-height: 40px !important; letter-spacing: 0.03em; }
+  body .elementor-43 .elementor-element.elementor-element-08f48e7 { margin-top: 30px !important; }
+  body .elementor-43 .elementor-element.elementor-element-08f48e7 .elementor-heading-title { line-height: 33px !important; }
+  /* O-06 area buttons ~250 x 38, light grey border, Satoshi Medium 21px, 10px gap */
+  body .elementor-43 :is(.elementor-element.elementor-element-a682427, .elementor-element.elementor-element-3a87742, .elementor-element.elementor-element-e648c86, .elementor-element.elementor-element-0f74986) { max-width: 250px !important; width: 250px !important; margin: 10px 0 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-a682427 { margin-top: 34px !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-a682427, .elementor-element.elementor-element-3a87742, .elementor-element.elementor-element-e648c86, .elementor-element.elementor-element-0f74986) .elementor-button {
+    min-height: 38px !important; height: 38px;
+    padding: 0 16px 0 21px !important;
+    border-color: #adadad !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 21px !important; font-weight: 500 !important; letter-spacing: 0.04em !important;
+  }
+  /* O-07 house illustration from ~585px to ~1810px (at 1920), vertically centred */
+  body .elementor-43 .elementor-element.elementor-element-38068a6 {
+    width: 1225px !important; max-width: none !important; flex: 0 0 1225px;
+    margin: 40px -27px 0 0 !important;
+  }
+
+  /* ================= FEATURED PRODUCT (8e91e85) ================= */
+  /* F-01 full page width, F-02 600px */
+  body .elementor-43 .elementor-element.elementor-element-8e91e85 {
+    --content-width: 100vw !important;
+    --min-height: 600px; min-height: 600px !important;
+    padding: 0 !important;
+  }
+  body .elementor-43 .elementor-element.elementor-element-8e91e85 > .e-con-inner { max-width: none !important; padding: 0 !important; gap: 0 !important; align-items: stretch !important; flex-wrap: nowrap !important; }
+  /* F-03 left photo ~722px wide */
+  body .elementor-43 .elementor-element.elementor-element-d7da6a9 { width: 722px !important; max-width: none !important; flex: 0 0 722px; margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-d7da6a9 img { width: 100% !important; height: 600px !important; object-fit: cover; }
+  body .elementor-43 .elementor-element.elementor-element-1676003 { --width: auto; width: auto !important; flex: 1 1 auto !important; padding: 0 0 0 51px !important; align-items: stretch !important; gap: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-91b1f1f { --width: auto; width: 590px !important; flex: 0 0 590px; padding: 85px 0 0 !important; --gap: 0px; gap: 0 !important; }
+  body .elementor-43 :is(.elementor-element.elementor-element-d688fd8, .elementor-element.elementor-element-36490c5, .elementor-element.elementor-element-0818b88, .elementor-element.elementor-element-51cf488, .elementor-element.elementor-element-041e5ca) { margin: 0 !important; }
+  /* F-06 label */
+  body .elementor-43 .elementor-element.elementor-element-d688fd8 .elementor-heading-title { font-size: 16px !important; letter-spacing: 0.12em !important; line-height: 1.2 !important; }
+  /* F-07 / F-08 title */
+  body .elementor-43 .elementor-element.elementor-element-36490c5 { margin-top: 20px !important; }
+  body .elementor-43 .elementor-element.elementor-element-36490c5 .elementor-heading-title { line-height: 40px !important; letter-spacing: 0.03em; }
+  /* F-09 tagline */
+  body .elementor-43 .elementor-element.elementor-element-0818b88 { margin-top: 22px !important; }
+  body .elementor-43 .elementor-element.elementor-element-0818b88 .elementor-heading-title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 23px !important; font-weight: 700 !important; line-height: 1.3 !important;
+  }
+  /* F-11 bullets: plain "•", 22.2px */
+  body .elementor-43 .elementor-element.elementor-element-51cf488 { margin-top: 30px !important; }
+  body .elementor-43 .elementor-element.elementor-element-51cf488 .elementor-icon-list-icon { display: none !important; }
+  body .elementor-43 .elementor-element.elementor-element-51cf488 .elementor-icon-list-item { padding: 0 !important; margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-51cf488 .elementor-icon-list-text { line-height: 33px !important; padding: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-51cf488 .elementor-icon-list-text::before { content: "\2022\00a0"; }
+  /* F-13 button ~275 x 39, Satoshi Regular 16, letter-spaced */
+  body .elementor-43 .elementor-element.elementor-element-041e5ca { margin-top: 44px !important; }
+  body .elementor-43 .elementor-element.elementor-element-041e5ca .elementor-button {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 275px; height: 39px; padding: 0 !important; box-sizing: border-box;
+    border-radius: 999px !important;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 16px !important; font-weight: 400 !important;
+    letter-spacing: 0.12em !important; line-height: 1 !important;
+  }
+  /* F-15 right bucket image ~450 x 550 */
+  body .elementor-43 .elementor-element.elementor-element-9b21423 { width: 450px !important; max-width: none !important; flex: 0 0 450px; margin: 25px 130px 0 auto !important; }
+  body .elementor-43 .elementor-element.elementor-element-9b21423 img { width: 450px !important; height: 550px !important; max-height: none !important; object-fit: contain; }
+
+  /* ================= CONTACT FORM (1c24237) ================= */
+  /* C-01 761px; C-08 / C-09 photo ~850 x 735, reaching ~1840px, from above the heading down to the footer */
+  body .elementor-43 .elementor-element.elementor-element-1c24237 {
+    position: relative;
+    --min-height: 761px; min-height: 761px !important;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+  body .elementor-43 .elementor-element.elementor-element-1c24237 > .e-con-inner { padding: 0 !important; align-items: flex-start !important; }
+  body .elementor-43 .elementor-element.elementor-element-5448b30 { --width: auto; width: 860px !important; flex: 0 0 860px; padding: 182px 0 0 !important; --gap: 0px; gap: 0 !important; position: relative; z-index: 1; }
+  body .elementor-43 :is(.elementor-element.elementor-element-2799513, .elementor-element.elementor-element-9d92933, .elementor-element.elementor-element-22940b5) { margin: 0 !important; }
+  body .elementor-43 .elementor-element.elementor-element-7fb41c0 {
+    position: absolute !important;
+    right: calc(50vw - 960px + 80px); bottom: 0;
+    width: 850px !important; max-width: none !important; height: 735px;
+    margin: 0 !important;
+  }
+  body .elementor-43 .elementor-element.elementor-element-7fb41c0 img { width: 850px !important; height: 735px !important; max-height: none !important; object-fit: contain; object-position: center bottom; }
+  /* C-02 heading Satoshi Bold Italic 40px */
+  body .elementor-43 .elementor-element.elementor-element-2799513 .elementor-heading-title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 40px !important; font-weight: 700 !important; font-style: italic !important; line-height: 1.2 !important;
+  }
+  /* C-03 / C-04 intro ~20px, three lines */
+  body .elementor-43 .elementor-element.elementor-element-9d92933 { margin-top: 18px !important; max-width: 660px; }
+  body .elementor-43 .elementor-element.elementor-element-9d92933 .elementor-heading-title { font-size: 20px !important; line-height: 27px !important; }
+  /* C-05 two columns ~410px; C-07 Aeonik Pro Regular 18px for fields and Submit */
+  body .elementor-43 .elementor-element.elementor-element-22940b5 { margin-top: 50px !important; width: 843px !important; max-width: none !important; }
+  body .elementor-43 .cf7-custom-form { grid-template-columns: 410px 410px !important; column-gap: 23px !important; row-gap: 12px; }
+  body .cf7-custom-form input[type="text"],
+  body .cf7-custom-form input[type="email"],
+  body .cf7-custom-form input[type="tel"],
+  body .cf7-custom-form textarea,
+  body .cf7-custom-form input[type="submit"],
+  body .cf7-custom-form .wpcf7-submit {
+    font-family: "Aeonik Pro", "Satoshi", Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+  }
+  body .cf7-custom-form input[type="text"],
+  body .cf7-custom-form input[type="email"],
+  body .cf7-custom-form input[type="tel"],
+  body .cf7-custom-form input[type="submit"],
+  body .cf7-custom-form .wpcf7-submit { height: 45px !important; line-height: 45px !important; }
+}

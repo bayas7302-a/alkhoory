@@ -46,6 +46,91 @@
         }
     })();
 
+    /* ---------- 1c. home page (design v3 Phase 4) ---------- */
+    (function () {
+        var page = document.querySelector('.elementor-43');
+        if (!page) { return; }
+
+        // forced line breaks from the design (shown on desktop only, .kp-br)
+        function addBreak(el, phrase) {
+            if (!el || el.__kpBr && el.__kpBr[phrase]) { return; }
+            var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), nodes = [], full = '', n;
+            while ((n = walker.nextNode())) { nodes.push({ node: n, start: full.length }); full += n.nodeValue; }
+            var re = new RegExp(phrase.trim().split(/\s+/).map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('\\s+'));
+            var m = re.exec(full);
+            if (!m) { return; }
+            var hit = null;
+            for (var i = nodes.length - 1; i >= 0; i--) { if (nodes[i].start <= m.index) { hit = nodes[i]; break; } }
+            if (!hit) { return; }
+            var br = document.createElement('br');
+            br.className = 'kp-br';
+            var word = hit.node.parentElement && hit.node.parentElement.closest('.kk-w');
+            if (word && el.contains(word)) {
+                word.parentNode.insertBefore(br, word);
+            } else {
+                var after = hit.node.splitText(m.index - hit.start);
+                after.parentNode.insertBefore(br, after);
+            }
+            (el.__kpBr = el.__kpBr || {})[phrase] = true;
+        }
+        var T = function (id, inner) { return page.querySelector('.elementor-element-' + id + ' ' + (inner || '.elementor-heading-title')); };
+        [
+            ['9a43ca3', null, ['TO KLEEN']],                                    // G-04
+            ['1bde407', null, ['design, practical', 'make everyday']],          // G-05
+            ['63b71db', '.elementor-icon-box-description', ['cleaning easier']],// G-10
+            ['704d045', '.elementor-icon-box-description', ['Built to last']],  // G-10
+            ['ed3bfa7', null, ['dust and dirt']],                               // S-10 (design)
+            ['21ba642', null, ['fresh and spotless']],                          // S-10
+            ['07011f8', null, ['clean and shine']],                             // S-10 (design)
+            ['ccba669', null, ['with ease']],                                   // S-10
+            ['ce02014', null, ['keep it dust']],                                // S-10
+            ['884f790', null, ['MANY CLEANING', 'CHALLENGES']],                 // O-04
+            ['36490c5', null, ['EASY-WRING', 'MOP BUCKET']],                    // F-08
+            ['9d92933', null, ['get in touch']]                                 // C-04
+        ].forEach(function (r) {
+            var el = T(r[0], r[1]);
+            r[2].forEach(function (ph) { addBreak(el, ph); });
+        });
+
+        // N-07: Sweep and Mop cards go to their solution pages, like Wipe / Scrub / Dust
+        [['48efe92', /\/product-category\/brooms\/?$/, 'solution/sweep/'], ['fe08656', /\/product-category\/mops\/?$/, 'solution/mop/']].forEach(function (r) {
+            var a = page.querySelector('.elementor-element-' + r[0] + ' a.elementor-button');
+            if (a && r[1].test(a.getAttribute('href') || '')) { a.setAttribute('href', a.href.replace(r[1], '/' + r[2])); }
+        });
+
+        // O-10: on desktop the area pop-up opens to the LEFT of its hotspot, joined by a thin line
+        var hs = document.getElementById('sk-hs');
+        if (hs) {
+            var line = document.createElement('span');
+            line.className = 'kp-hs-line';
+            line.setAttribute('aria-hidden', 'true');
+            line.style.cssText = 'position:absolute;z-index:2;height:1px;background:#ffffff;box-shadow:0 0 2px rgba(0,0,0,.35);pointer-events:none;display:none;';
+            hs.appendChild(line);
+            var desk = window.matchMedia('(min-width: 1025px)');
+            var placeLeft = function (card) {
+                line.style.display = 'none';
+                if (!desk.matches || !card.classList.contains('is-open')) { return; }
+                var dot = hs.querySelector('.sk-hs__dot[data-target="' + card.id + '"]');
+                if (!dot) { return; }
+                var px = dot.offsetLeft + dot.offsetWidth / 2, py = dot.offsetTop + dot.offsetHeight / 2;
+                var r = dot.offsetWidth / 2, gap = 64, cw = card.offsetWidth, ch = card.offsetHeight;
+                var x = px - r - gap - cw;
+                if (x < 8) { return; }   // no room on the left: keep the original placement
+                var y = Math.max(8, Math.min(py - 52, hs.clientHeight - ch - 8));
+                card.style.left = x + 'px';
+                card.style.top = y + 'px';
+                line.style.left = (x + cw) + 'px';
+                line.style.top = py + 'px';
+                line.style.width = (gap) + 'px';
+                line.style.display = 'block';
+            };
+            hs.querySelectorAll('.sk-hs__card').forEach(function (card) {
+                new MutationObserver(function () { placeLeft(card); }).observe(card, { attributes: true, attributeFilter: ['class'] });
+            });
+            window.addEventListener('resize', function () { var open = hs.querySelector('.sk-hs__card.is-open'); if (open) { placeLeft(open); } else { line.style.display = 'none'; } });
+        }
+    })();
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is
