@@ -84,3 +84,32 @@ Tablet (820px) and phone (375px) were checked on every page. Header sizes there 
 ### Not changed (outside Phase 2 or waiting on Jameer)
 - **X-06:** the marquee still shows on inner pages. The design has it on the home page only; this is in "Ask Jameer first".
 - **Home header:** on the home page the marquee sits on a white band above the hero, so the grey text is hard to read. The design shows it on a dark bar over the hero. The brief has no fix line for this, so it's untouched. Say if you want it.
+
+---
+
+# Phase 3 – footer, all pages (section 14 of `kk-polish.css` + footer links in `kk-polish.js`)
+
+The footer (template 30) is built from classic V3 widgets, which the MCP can't edit, so this is CSS plus a small script. Measured at 1920px against the live pages with the new snippet swapped in. Design positions were read from the PDF rendered at 2×.
+
+| ID | Fix | Result at 1920px |
+|---|---|---|
+| X-21 | "Contact" plain text → link to the contact form | Done (script). It links to `home/#contact`. The home page contact section gets the anchor `contact`, and the sticky mobile header doesn't cover it. |
+| X-22 | Quick links Satoshi Regular 19px; "QUICK LINK" Satoshi Bold 18px | Done. The separators now have the design's wider spacing (about 26px). The block starts at **604px**, as in the design. |
+| X-23 | Buttons 52px tall, ~211 / 272 / 245px, Satoshi Bold 19px | Done: **211 / 272 / 211 × 52px**, Satoshi Bold 19px, 14px apart, ending at 1783px. Note: the design PDF measures "Let’s Connect" at **~211px**, not 245px; I followed the PDF. |
+| X-24 | Long thin line arrow | Done (drawn in CSS). It's also used on tablet and phone, a bit shorter there. |
+| X-25 | "Let’s Connect" → contact form | Done (script): `home/#contact`. "Download Catalogue" still links to `#` because the catalogue PDF is in "Needs assets". |
+| X-26 | Logo ~285px wide | Done: **285px**, left edge at 160px, top 21px. In the PDF the star sits just inside the footer's top edge (pages 1 and 2), so I matched the PDF. |
+| X-27 | Copyright Satoshi Regular 19px | Done, centred under the buttons as in the design. |
+| X-28 | Footer height 209 → 222px | Done: **222px**. |
+
+Tablet (820px) and phone (375px) keep the centred stacked footer from earlier, now with the long arrow. Nothing scrolls sideways.
+
+The links are filled in by the script only where they are missing (no link or `#`). A link set later in the Elementor editor takes over automatically. If you prefer, set them in the editor now:
+- Footer → Icon List → "Contact" → link `/#contact`.
+- "Let’s Connect" button → `/#contact`.
+- Home page → contact section (`1c24237`) → Advanced → CSS ID `contact`.
+
+### Waiting on others
+- **X-17, X-18, X-19 (Phase 0 text):** "Catelog", "Catelouge" and "Lets Connect" still need the editor edits.
+- **X-20 / D-04 (Ask Jameer):** which quick-link set to use on inner pages.
+- **X-25 (Needs assets):** the catalogue PDF for "Download Catalogue".

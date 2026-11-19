@@ -17,6 +17,35 @@
         update();
     }
 
+    /* ---------- 1b. footer links (X-21, X-25) ----------
+       "Contact" and "Let's Connect" go to the contact form on the home page.
+       Only fills a link that is missing (no link / "#"), so links set in Elementor win. */
+    (function () {
+        var footer = document.querySelector('.elementor-30');
+        if (!footer) { return; }
+        var homeLink = footer.querySelector('.elementor-element-501b3e5 a');
+        var home = homeLink ? homeLink.href.split('#')[0] : '/';
+        var target = home + '#contact';
+
+        // give the home page contact section an anchor
+        var form = document.querySelector('.elementor-43 .elementor-element-1c24237');
+        if (form && !document.getElementById('contact')) { form.id = 'contact'; }
+
+        footer.querySelectorAll('.elementor-element-501b3e5 .elementor-icon-list-item').forEach(function (li) {
+            if (li.querySelector('a')) { return; }
+            if (!/^\s*contact\s*$/i.test(li.textContent)) { return; }
+            var a = document.createElement('a');
+            a.href = target;
+            while (li.firstChild) { a.appendChild(li.firstChild); }
+            li.appendChild(a);
+        });
+        var lc = footer.querySelector('.elementor-element-cec317d a.elementor-button');
+        if (lc) {
+            var h = lc.getAttribute('href');
+            if (!h || h === '#') { lc.setAttribute('href', target); }
+        }
+    })();
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is

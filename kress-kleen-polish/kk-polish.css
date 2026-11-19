@@ -932,3 +932,145 @@ body:not(.home) #masthead.kp-stuck { background-color: #003d23; }
     min-height: calc(310px - var(--kp-marquee-h, 47px)) !important;
   }
 }
+
+
+/* =====================================================================
+   14. DESIGN v3 – PHASE 3 (footer, all pages)
+   X-22 quick links, X-23 buttons, X-24 long arrow, X-26 logo,
+   X-27 copyright, X-28 height. (X-21 / X-25 links: see kk-polish.js)
+   Sizes and layout are desktop (>= 1025px); tablet/mobile keep theirs.
+   ===================================================================== */
+
+/* X-24 long thin arrow on the footer buttons (replaces the short solid arrow) */
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  flex: 0 0 auto;
+}
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon svg,
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon i { display: none !important; }
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 1px; top: 50%;
+  height: 1.5px;
+  margin-top: -0.75px;
+  background: currentColor;
+}
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon::after {
+  content: "";
+  position: absolute;
+  right: 1px; top: 50%;
+  width: 7px; height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+@media (max-width: 1024px) {
+  body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-icon { width: 30px; }
+}
+
+/* contact form section: room for the sticky header when jumped to */
+#contact { scroll-margin-top: 90px; }
+
+@media (min-width: 1025px) {
+  /* X-28 footer 222px; content aligned like the design */
+  body .elementor-30 .elementor-element.elementor-element-ab6f316 {
+    --min-height: 222px; min-height: 222px !important;
+    padding-top: 0 !important; padding-bottom: 0 !important;
+  }
+  body .elementor-30 .elementor-element.elementor-element-ab6f316 > .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* X-26 logo ~285px wide, starting 160px from the left at 1920 */
+  body .elementor-30 .elementor-element.elementor-element-9f80d62 {
+    width: 285px !important; max-width: none !important; flex: 0 0 285px;
+    margin: 21px 0 0 23px !important;
+  }
+  body .elementor-30 .elementor-element.elementor-element-9f80d62 img { width: 285px !important; max-width: none; height: auto; }
+
+  /* X-22 quick links block (starts at ~604px at 1920) */
+  body .elementor-30 .elementor-element.elementor-element-ce94520 {
+    width: auto !important; flex: 0 0 auto !important;
+    margin: 0 0 0 159px !important;
+    padding: 58px 0 0 !important;
+    --gap: 8px; gap: 8px !important;
+  }
+  body .elementor-30 .elementor-element.elementor-element-0302daf .elementor-heading-title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+  }
+  body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-text,
+  body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-text a {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* quick links: wider space around the "|" separators, as in the design */
+  body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-items.elementor-inline-items { margin-inline: -13px !important; }
+  body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item { margin-inline: 13px !important; }
+  body .elementor-30 .elementor-element.elementor-element-501b3e5 .elementor-icon-list-items.elementor-inline-items .elementor-icon-list-item::after { inset-inline-end: -13px !important; height: 62% !important; }
+
+  /* X-23 buttons: 52px tall, ~211 / 272 / 211px, Satoshi Bold 19px, 14px apart, ending on the page edge */
+  body .elementor-30 .elementor-element.elementor-element-6e495df {
+    width: auto !important; flex: 1 1 auto !important;
+    margin: 0 0 0 auto !important;
+    padding: 59px 0 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    align-content: flex-start !important;
+    column-gap: 14px !important;
+    row-gap: 38px !important;
+  }
+  body .elementor-30 .elementor-element.elementor-element-6e495df > .elementor-widget-button { margin: 0 !important; flex: 0 0 auto; }
+  body .elementor-30 .elementor-element.elementor-element-65405a2,
+  body .elementor-30 .elementor-element.elementor-element-65405a2 .elementor-button { width: 211px !important; }
+  body .elementor-30 .elementor-element.elementor-element-9649bf7,
+  body .elementor-30 .elementor-element.elementor-element-9649bf7 .elementor-button { width: 272px !important; }
+  body .elementor-30 .elementor-element.elementor-element-cec317d,
+  body .elementor-30 .elementor-element.elementor-element-cec317d .elementor-button { width: 211px !important; }
+  body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 16px !important;
+    box-sizing: border-box;
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 19px !important;
+    line-height: 1 !important;
+    white-space: nowrap;
+  }
+  body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button-content-wrapper { gap: 14px !important; align-items: center; }
+
+  /* X-27 copyright: Satoshi Regular 19px, centred under the buttons */
+  body .elementor-30 .elementor-element.elementor-element-4ba5bf5 {
+    flex: 0 0 100% !important; width: 100% !important;
+    margin: 0 !important;
+    padding-left: calc(100% - 211px - 272px - 211px - 28px) !important;
+    box-sizing: border-box;
+  }
+  body .elementor-30 .elementor-element.elementor-element-4ba5bf5 .elementor-heading-title {
+    font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 19px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+  }
+}
