@@ -1159,3 +1159,12 @@ body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-head
 }
 .kp-rot__txt { display: inline-block; white-space: inherit; }
 @media (max-width: 767px) { .kp-rot__txt { display: block; } }
+
+/* rotating heading: "No" and the phrase scale together, vertically centred in a fixed-height line */
+@media (min-width: 768px) {
+  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { transition: font-size 0.7s cubic-bezier(0.65, 0, 0.35, 1); overflow: visible; }
+  .kp-rot-ready .kp-no, .kp-rot-ready .kp-rot { vertical-align: middle; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { transition: none; }
+}

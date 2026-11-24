@@ -159,13 +159,32 @@
         var i = 2;   // start on "over-engineering"
         // each phrase gets the width it needs; a phrase too long for the line is shrunk to fit
         var narrow = window.matchMedia('(max-width: 767px)');
+        var base = 0;
+        // desktop/tablet: "No" and the phrase are always the same size; a phrase too long for the line
+        // scales the whole line down (smoothly), the line height stays fixed so nothing below moves
+        function apply(n) {
+            var it = items[n];
+            if (narrow.matches || !base) { h.style.removeProperty('font-size'); rot.style.width = ''; return; }
+            h.style.setProperty('font-size', (base * it.__k).toFixed(2) + 'px', 'important');
+            rot.style.width = (it.__em * 1.03).toFixed(4) + 'em';
+        }
+        // once the size change has finished, fit the box to the phrase's real width
+        function settle() {
+            if (narrow.matches || !base) { return; }
+            var t = items[i].__t;
+            rot.style.width = Math.ceil(t.getBoundingClientRect().width + 2) + 'px';
+        }
+        h.addEventListener('transitionend', function (e) { if (e.target === h && e.propertyName === 'font-size') { settle(); } });
         function fit() {
+            h.style.removeProperty('font-size');
+            h.style.removeProperty('height');
+            h.style.removeProperty('line-height');
+            items.forEach(function (it) { it.__t.style.fontSize = ''; });
             if (narrow.matches) {   // phones: stacked; a phrase that needs more than two lines is shrunk a little
+                base = 0;
                 rot.style.width = '';
                 items.forEach(function (it) {
-                    it.__w = 0;
                     var k = 100;
-                    it.__t.style.fontSize = '';
                     while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) {
                         k -= 5;
                         it.__t.style.fontSize = k + '%';
@@ -173,15 +192,16 @@
                 });
                 return;
             }
-            var avail = h.clientWidth - no.offsetWidth - 4;
+            base = parseFloat(getComputedStyle(h).fontSize) || 0;
+            var noW = no.offsetWidth, room = h.clientWidth - 4;
             items.forEach(function (it) {
-                it.__t.style.fontSize = '';
                 var w = it.__t.offsetWidth;
-                var k = w > avail ? avail / w : 1;
-                it.__t.style.fontSize = k < 1 ? (k * 100).toFixed(2) + '%' : '';
-                it.__w = Math.ceil(Math.min(w, avail));
+                it.__em = w / base;
+                it.__k = Math.min(1, room / (noW + w));
             });
-            rot.style.width = items[i].__w ? items[i].__w + 'px' : '';
+            h.style.setProperty('height', (base * 1.15).toFixed(1) + 'px', 'important');
+            h.style.setProperty('line-height', (base * 1.15).toFixed(1) + 'px', 'important');
+            apply(i);
         }
         function show(n, first) {
             items.forEach(function (it, k) {
@@ -190,7 +210,8 @@
                 if (k !== n && k !== i) { it.classList.remove('is-leaving'); }
             });
             i = n;
-            rot.style.width = items[n].__w ? items[n].__w + 'px' : '';
+            apply(n);
+            setTimeout(settle, 760);
         }
         fit();
         show(i, true);
