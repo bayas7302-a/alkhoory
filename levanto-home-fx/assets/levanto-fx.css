@@ -1,0 +1,330 @@
+/* Levanto Home FX — motion + pattern layer for the Elementor home page.
+   Every selector targets an lv-* global class from the Elementor kit, so the
+   page still renders (static) if this plugin is switched off. */
+
+:root {
+	--lv-ease: cubic-bezier(.22, 1, .36, 1);
+	--lv-flame-c: #f0652a;
+	--lv-ember-c: #b74712;
+	--lv-amber-c: #ffb067;
+	--lv-ink-c: #050d18;
+	--lv-navy-c: #0c2b4b;
+}
+
+@property --lv-ripple {
+	syntax: '<length>';
+	inherits: false;
+	initial-value: 0px;
+}
+
+html { scroll-behavior: smooth; }
+body { background-color: #faf6f0; }
+[class*="lv-sec-"] { scroll-margin-top: 96px; }
+
+/* ------------------------------------------------------------- typography */
+.elementor .lv-grad-span span,
+.elementor .lv-grad-amber span {
+	background-image: linear-gradient(90deg, var(--lv-flame-c) 0%, var(--lv-ember-c) 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+.elementor .lv-grad-amber span {
+	background-image: linear-gradient(90deg, var(--lv-flame-c) 0%, var(--lv-amber-c) 100%);
+}
+.elementor .lv-chip-text,
+.elementor .lv-btn-label,
+.elementor .lv-navlink,
+.elementor .lv-counter,
+.elementor .lv-svc-num,
+.elementor .lv-marquee-track > *,
+.elementor .lv-panel-vtitle,
+.elementor .lv-wordmark { white-space: nowrap; }
+@media (min-width: 768px) {
+	.elementor .lv-footlink { white-space: nowrap; }
+}
+
+/* ---------------------------------------------------- scroll progress bar */
+.lv-progress {
+	position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 10000;
+	background: linear-gradient(90deg, var(--lv-flame-c), var(--lv-amber-c));
+	transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+}
+
+/* ------------------------------------------------------------- patterns */
+/* Concentric rings that ripple outward */
+.elementor .lv-rings:not(.lv-cta-ring) {
+	--lv-ring-c: rgba(240, 101, 42, .30);
+	--lv-ring-gap: 52px;
+	border: 0 !important;
+	background: repeating-radial-gradient(circle at center,
+		transparent 0, transparent var(--lv-ripple),
+		var(--lv-ring-c) var(--lv-ripple), var(--lv-ring-c) calc(var(--lv-ripple) + 1px),
+		transparent calc(var(--lv-ripple) + 1.5px), transparent calc(var(--lv-ripple) + var(--lv-ring-gap)));
+	-webkit-mask-image: radial-gradient(circle at center, #000 0%, #000 45%, transparent 70%);
+	mask-image: radial-gradient(circle at center, #000 0%, #000 45%, transparent 70%);
+	animation: lv-ripple 7s linear infinite;
+}
+.elementor .lv-rings.lv-rings-light:not(.lv-cta-ring) { --lv-ring-c: rgba(255, 255, 255, .85); --lv-ring-gap: 54px; }
+.elementor .lv-sec-brands .lv-rings { --lv-ring-c: rgba(255, 255, 255, .9); --lv-ring-gap: 69px; animation-duration: 9s; }
+@keyframes lv-ripple { to { --lv-ripple: var(--lv-ring-gap, 52px); } }
+
+/* CTA rings breathe */
+.elementor .lv-cta-ring {
+	border: 1px solid rgba(255, 255, 255, .32) !important;
+	background: none !important;
+	animation: lv-breathe 8s var(--lv-ease) infinite;
+}
+.elementor .lv-cta-ring + .lv-cta-ring { animation-delay: -2.6s; }
+.elementor .lv-cta-ring + .lv-cta-ring + .lv-cta-ring { animation-delay: -5.2s; }
+@keyframes lv-breathe {
+	0%, 100% { transform: scale(1); opacity: .85; }
+	50% { transform: scale(1.06); opacity: .45; }
+}
+
+/* Drifting dot grid */
+.elementor .lv-dots {
+	background-image: radial-gradient(circle, rgba(12, 43, 75, .28) 1.6px, transparent 2.1px);
+	background-size: 18px 18px;
+	-webkit-mask-image: linear-gradient(135deg, #000 30%, transparent 100%);
+	mask-image: linear-gradient(135deg, #000 30%, transparent 100%);
+	animation: lv-drift 14s linear infinite;
+}
+.elementor .lv-sec-industries .lv-dots { background-image: radial-gradient(circle, rgba(240, 101, 42, .5) 1.6px, transparent 2.1px); }
+@keyframes lv-drift { to { background-position: 18px 18px; } }
+
+/* Floating glows */
+.elementor .lv-glow {
+	filter: blur(8px);
+	animation: lv-float 16s ease-in-out infinite alternate;
+}
+@keyframes lv-float {
+	0% { transform: translate3d(0, 0, 0) scale(1); }
+	50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+	100% { transform: translate3d(-20px, 20px, 0) scale(.96); }
+}
+
+/* Flowing lines (Industries) — lines turning a corner with a travelling spark */
+.elementor .lv-flow {
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 320' fill='none'%3E%3Cstyle%3E.b%7Bstroke:%230c2b4b;stroke-opacity:.16;stroke-width:1.2%7D.s%7Bstroke:%23f0652a;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:70 900;animation:d 7s linear infinite%7D.s:nth-of-type(2n)%7Banimation-duration:9s;animation-delay:-3s%7D.s:nth-of-type(3n)%7Banimation-duration:11s;animation-delay:-6s%7D@keyframes d%7Bfrom%7Bstroke-dashoffset:970%7Dto%7Bstroke-dashoffset:0%7D%7D%3C/style%3E%3Cg class='b'%3E%3Cpath d='M0 20H380a160 160 0 0 1 160 160V320'/%3E%3Cpath d='M0 42H380a138 138 0 0 1 138 138V320'/%3E%3Cpath d='M0 64H380a116 116 0 0 1 116 116V320'/%3E%3Cpath d='M0 86H380a94 94 0 0 1 94 94V320'/%3E%3Cpath d='M0 108H380a72 72 0 0 1 72 72V320'/%3E%3Cpath d='M0 130H380a50 50 0 0 1 50 50V320'/%3E%3C/g%3E%3Cpath class='s' d='M0 20H380a160 160 0 0 1 160 160V320'/%3E%3Cpath class='s' d='M0 64H380a116 116 0 0 1 116 116V320'/%3E%3Cpath class='s' d='M0 108H380a72 72 0 0 1 72 72V320'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+	mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
+}
+
+/* Brand flow grid (Why Levanto) — truchet arcs drifting slowly */
+.elementor .lv-flowgrid {
+	opacity: .55 !important;
+	background-image:
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480' fill='none'%3E%3Cpath d='M240 0a240 240 0 0 1-240 240' stroke='%23f0652a' stroke-opacity='.55' stroke-width='2'/%3E%3C/svg%3E"),
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' fill='none' stroke='%239fb2c6' stroke-opacity='.35' stroke-width='2'%3E%3Cpath d='M80 0a80 80 0 0 1-80 80M160 80a80 80 0 0 0-80 80'/%3E%3Cpath d='M56 0a56 56 0 0 1-56 56M160 104a56 56 0 0 0-56 56M104 0a104 104 0 0 1-104 104M160 56a104 104 0 0 0-104 104'/%3E%3C/svg%3E");
+	background-size: 480px 480px, 160px 160px;
+	animation: lv-grid-drift 60s linear infinite;
+}
+@keyframes lv-grid-drift { to { background-position: 480px 480px, 160px 160px; } }
+
+/* -------------------------------------------------------------------- hero */
+.elementor .lv-hero-bg { animation: lv-kenburns 26s ease-in-out infinite alternate; will-change: transform; }
+@keyframes lv-kenburns {
+	from { transform: scale(1.02) translate3d(0, 0, 0); }
+	to { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+}
+
+/* sticky nav pill */
+.lv-nav-pill { transition: background-color .4s, box-shadow .4s, transform .5s var(--lv-ease); }
+.lv-nav-pill.lv-is-fixed {
+	position: fixed !important; z-index: 9999; top: 12px; left: 50%;
+	width: min(1312px, calc(100% - 24px)) !important;
+	transform: translateX(-50%);
+	background-color: rgba(5, 13, 24, .78) !important;
+	box-shadow: 0 18px 50px rgba(5, 13, 24, .35);
+	animation: lv-drop .6s var(--lv-ease);
+}
+@keyframes lv-drop { from { transform: translate(-50%, -120%); } to { transform: translate(-50%, 0); } }
+.elementor .lv-navlink { position: relative; transition: color .3s; }
+.elementor .lv-navlink::after {
+	content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; border-radius: 2px;
+	background: linear-gradient(90deg, var(--lv-flame-c), var(--lv-amber-c));
+	transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--lv-ease);
+}
+.elementor .lv-navlink:hover { color: #fff; }
+.elementor .lv-navlink:hover::after, .elementor .lv-navlink.is-current::after { transform: scaleX(1); }
+
+/* mobile menu */
+.lv-burger {
+	display: none; width: 44px; height: 44px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, .18);
+	background: rgba(255, 255, 255, .08); color: #fff; cursor: pointer; margin-left: auto; margin-right: 10px;
+	align-items: center; justify-content: center; padding: 0;
+}
+.lv-burger span, .lv-burger span::before, .lv-burger span::after {
+	display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; position: relative; transition: transform .35s var(--lv-ease), background .2s;
+}
+.lv-burger span::before, .lv-burger span::after { content: ''; position: absolute; left: 0; }
+.lv-burger span::before { top: -6px; }
+.lv-burger span::after { top: 6px; }
+.lv-menu-open .lv-burger span { background: transparent; }
+.lv-menu-open .lv-burger span::before { transform: translateY(6px) rotate(45deg); }
+.lv-menu-open .lv-burger span::after { transform: translateY(-6px) rotate(-45deg); }
+.lv-mobile-menu {
+	position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 50;
+	display: grid; gap: 4px; padding: 14px; border-radius: 24px;
+	background: rgba(5, 13, 24, .94); border: 1px solid rgba(255, 255, 255, .12);
+	backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+	opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .3s, transform .4s var(--lv-ease);
+}
+.lv-mobile-menu a {
+	color: rgba(255, 255, 255, .86); font: 500 16px/22px Inter, sans-serif; padding: 12px 14px; border-radius: 14px; text-decoration: none;
+}
+.lv-mobile-menu a:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+.lv-menu-open .lv-mobile-menu { opacity: 1; transform: none; pointer-events: auto; }
+@media (max-width: 1024px) {
+	.lv-burger { display: inline-flex; }
+}
+@media (max-width: 767px) {
+	.lv-nav-pill .lv-btn .lv-btn-label { display: none; }
+	.lv-nav-pill .lv-btn { padding: 5px !important; }
+}
+
+/* ---------------------------------------------------------------- buttons */
+.elementor .lv-btn { position: relative; overflow: hidden; transition: transform .4s var(--lv-ease), box-shadow .4s var(--lv-ease); }
+.elementor .lv-btn::before {
+	content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%;
+	background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .28), transparent);
+	transform: skewX(-20deg); transition: left .8s var(--lv-ease); pointer-events: none;
+}
+.elementor .lv-btn:hover { transform: translateY(-3px); }
+.elementor .lv-btn-primary:hover { box-shadow: 0 16px 40px rgba(240, 101, 42, .45); }
+.elementor .lv-btn-dark:hover { box-shadow: 0 16px 36px rgba(5, 13, 24, .35); }
+.elementor .lv-btn:hover::before { left: 130%; }
+.elementor .lv-btn-icon { transition: transform .5s var(--lv-ease); }
+.elementor .lv-btn:hover .lv-btn-icon { transform: scale(1.08); }
+.elementor .lv-arrow { transition: transform .5s var(--lv-ease); }
+.elementor .lv-btn:hover .lv-arrow,
+.elementor .lv-ind-card:hover .lv-arrow,
+.elementor .lv-svc:hover .lv-arrow,
+.elementor .lv-panel.is-open .lv-arrow { transform: rotate(0deg); }
+.elementor .lv-circle { transition: background-color .4s, border-color .4s, color .4s, transform .5s var(--lv-ease); }
+
+/* -------------------------------------------------------------- marquee */
+.elementor .lv-marquee-track {
+	width: max-content !important;
+	animation: lv-marquee var(--lv-marquee-dur, 40s) linear infinite;
+	will-change: transform;
+}
+.elementor .lv-marquee-track:hover { animation-play-state: paused; }
+.elementor .lv-marquee-track > * { flex-shrink: 0; }
+@keyframes lv-marquee { to { transform: translate3d(calc(-1 * var(--lv-marquee-shift, 50%)), 0, 0); } }
+
+/* ------------------------------------------------- product accordion */
+.elementor .lv-accordion .lv-panel {
+	flex: 0 0 104px !important;
+	cursor: pointer;
+	border: 1px solid rgba(255, 255, 255, .12) !important;
+	border-radius: 32px !important;
+	transition: flex-basis .75s var(--lv-ease), flex-grow .75s var(--lv-ease), border-color .4s, border-radius .4s, box-shadow .5s;
+	outline: none;
+}
+.elementor .lv-accordion .lv-panel.is-open {
+	flex: 1 1 480px !important;
+	border: 1.5px solid var(--lv-flame-c) !important;
+	border-radius: 36px !important;
+	box-shadow: 0 30px 70px rgba(12, 43, 75, .25);
+}
+.elementor .lv-accordion .lv-panel:focus-visible { box-shadow: 0 0 0 3px rgba(240, 101, 42, .6); }
+.elementor .lv-panel .lv-panel-bg { transition: transform 1.4s var(--lv-ease); }
+.elementor .lv-panel:hover .lv-panel-bg, .elementor .lv-panel.is-open .lv-panel-bg { transform: scale(1.06); }
+.elementor .lv-panel .lv-panel-full {
+	display: flex !important;
+	min-width: 436px;
+	opacity: 0; visibility: hidden; transform: translateY(18px);
+	transition: opacity .35s, transform .6s var(--lv-ease), visibility 0s linear .35s;
+}
+.elementor .lv-panel.is-open .lv-panel-full {
+	opacity: 1; visibility: visible; transform: none;
+	transition: opacity .5s .3s, transform .8s var(--lv-ease) .3s, visibility 0s;
+}
+.elementor .lv-panel .lv-panel-mini { display: flex !important; transition: opacity .4s .25s; }
+.elementor .lv-panel.is-open .lv-panel-mini { opacity: 0; pointer-events: none; transition: opacity .2s; }
+.elementor .lv-panel-vtitle { writing-mode: vertical-rl; transform: rotate(180deg); }
+.elementor .lv-panel .lv-plus { transition: transform .5s var(--lv-ease); }
+.elementor .lv-panel:hover .lv-plus { transform: rotate(90deg); }
+@media (min-width: 768px) and (max-width: 1024px) {
+	.elementor .lv-accordion .lv-panel { flex-basis: 72px !important; }
+	.elementor .lv-accordion .lv-panel.is-open { flex: 1 1 420px !important; }
+	.elementor .lv-panel .lv-panel-full { min-width: 380px; }
+}
+@media (max-width: 767px) {
+	.elementor .lv-accordion .lv-panel { flex: 0 0 auto !important; height: 88px !important; transition: height .7s var(--lv-ease), border-color .4s; }
+	.elementor .lv-accordion .lv-panel.is-open { flex: 0 0 auto !important; height: 460px !important; }
+	.elementor .lv-panel .lv-panel-full { min-width: 0; }
+	.elementor .lv-panel-vtitle { writing-mode: horizontal-tb; transform: none; }
+}
+
+/* ---------------------------------------------------------- services */
+.elementor .lv-svc-list .lv-svc { transition: background-color .5s var(--lv-ease), transform .5s var(--lv-ease); }
+.elementor .lv-svc-list .lv-svc:not(.is-active) { background-color: #faf6f0 !important; }
+.elementor .lv-svc-list .lv-svc.is-active { background-color: var(--lv-ink-c) !important; }
+.elementor .lv-svc-list .lv-svc:not(.is-active):hover { transform: translateX(6px); }
+.elementor .lv-svc .lv-svc-title, .elementor .lv-svc .lv-svc-desc, .elementor .lv-svc .lv-svc-num { transition: color .4s; }
+.elementor .lv-svc.is-active .lv-svc-title { color: #fff !important; }
+.elementor .lv-svc:not(.is-active) .lv-svc-title { color: var(--lv-navy-c) !important; }
+.elementor .lv-svc.is-active .lv-svc-desc { color: #9fb2c6 !important; }
+.elementor .lv-svc:not(.is-active) .lv-svc-desc { color: #536779 !important; }
+.elementor .lv-svc.is-active .lv-svc-num { color: var(--lv-flame-c) !important; }
+.elementor .lv-svc:not(.is-active) .lv-svc-num { color: var(--lv-ember-c) !important; }
+.elementor .lv-svc.is-active .lv-circle {
+	background-image: linear-gradient(135deg, var(--lv-flame-c) 0%, var(--lv-ember-c) 72%) !important;
+	border-color: transparent !important; color: #fff !important;
+}
+.elementor .lv-svc:not(.is-active) .lv-circle {
+	background-image: none !important; border: 1px solid rgba(12, 43, 75, .25) !important; color: var(--lv-navy-c) !important;
+}
+.elementor .lv-svc .lv-svc-img { transition: opacity .5s, width .6s var(--lv-ease), min-width .6s var(--lv-ease), margin .6s var(--lv-ease); }
+.elementor .lv-svc:not(.is-active) .lv-svc-img { opacity: 0; width: 0 !important; min-width: 0 !important; margin-left: -36px; }
+
+/* --------------------------------------------------------- industries */
+.elementor .lv-ind-card {
+	transition: transform .7s var(--lv-ease), box-shadow .7s var(--lv-ease);
+	transform-style: preserve-3d;
+}
+.elementor .lv-ind-card:hover { box-shadow: 0 34px 70px rgba(12, 43, 75, .28); }
+.elementor .lv-ind-card .lv-panel-bg { transition: transform 1.4s var(--lv-ease); }
+.elementor .lv-ind-card:hover .lv-panel-bg { transform: scale(1.08); }
+.elementor .lv-ind-card:hover .lv-circle { background-color: var(--lv-flame-c) !important; border-color: var(--lv-flame-c) !important; }
+
+/* -------------------------------------------------------------- why */
+.elementor .lv-reason { position: relative; transition: transform .5s var(--lv-ease); }
+.elementor .lv-reason::before {
+	content: ''; position: absolute; top: -1px; left: 0; height: 1px; width: 100%;
+	background: linear-gradient(90deg, var(--lv-flame-c), var(--lv-amber-c));
+	transform: scaleX(0); transform-origin: 0 50%; transition: transform .8s var(--lv-ease);
+}
+.elementor .lv-reason:hover::before { transform: scaleX(1); }
+.elementor .lv-reason:hover { transform: translateX(6px); }
+
+/* ------------------------------------------------------ logos */
+.elementor .lv-brand, .elementor .lv-client { transition: transform .5s var(--lv-ease), box-shadow .5s var(--lv-ease), background-color .4s; }
+.elementor .lv-brand img, .elementor .lv-client img { filter: grayscale(1); opacity: .72; transition: filter .5s, opacity .5s, transform .6s var(--lv-ease); }
+.elementor .lv-brand:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(12, 43, 75, .12); }
+.elementor .lv-brand:hover img, .elementor .lv-client:hover img { filter: none; opacity: 1; transform: scale(1.04); }
+.elementor .lv-client:hover { background-color: #fffaf5; }
+
+/* --------------------------------------------------------- footer */
+.elementor .lv-footlink { transition: color .3s, transform .4s var(--lv-ease); display: inline-block; }
+.elementor .lv-footlink:hover { color: #fff !important; transform: translateX(4px); }
+.elementor .lv-wordmark {
+	color: transparent !important;
+	-webkit-text-stroke: 1px rgba(159, 178, 198, .28);
+	background-image: linear-gradient(100deg, transparent 0%, transparent 40%, rgba(240, 101, 42, .55) 50%, transparent 60%, transparent 100%);
+	background-size: 250% 100%;
+	-webkit-background-clip: text; background-clip: text;
+	animation: lv-sheen 7s linear infinite;
+}
+@keyframes lv-sheen { from { background-position: 125% 0; } to { background-position: -125% 0; } }
+
+/* ------------------------------------------------ reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+	html { scroll-behavior: auto; }
+}
