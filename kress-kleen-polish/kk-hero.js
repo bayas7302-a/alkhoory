@@ -118,7 +118,7 @@
     }
 
     /* ---------- the move ---------- */
-    var busy = false, raf = 0, ownScroll = false, lastSetY = -1, pending = 0;
+    var busy = false, raf = 0, ownScroll = false, lastSetY = -1;
     function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
 
     function goTo(targetT, targetY, chapter) {
@@ -126,7 +126,7 @@
         busy = true;
         var fromY = window.pageYOffset, fromT = nowTime();
         var seg = Math.abs(targetT - fromT);
-        var D = Math.max(900, Math.min(1700, seg * 330));
+        var D = Math.max(1400, Math.min(2100, seg * 420));
         var rate = seg > 0.05 ? Math.max(0.5, Math.min(8, seg / (D / 1000))) : 1;
         var forward = targetT > fromT + 0.03, backward = targetT < fromT - 0.03;
         var switched = false;
@@ -181,8 +181,6 @@
                     setPoster(targetT);
                     var other = active === vf ? vr : vf;
                     seek(other, active === vf ? DUR - targetT : targetT);
-                    // a scroll that came in while moving runs now
-                    if (pending) { var d = pending; pending = 0; if (inZone(d)) { stepBy(d); } }
                 })();
             })(t0);
         });
@@ -221,15 +219,15 @@
             var dy = e.deltaY;
             if (Math.abs(dy) < 1) { return; }
             var dir = dy > 0 ? 1 : -1;
-            var now = performance.now(), ad = Math.abs(dy), gap = now - lastWheel;
-            // a new gesture: a pause, a swipe that speeds up again, or a separate mouse-wheel click
-            var notch = gap > 45 && ad >= 40 && Math.abs(ad - lastAbs) < 1;
-            var fresh = gap > 220 || ad > lastAbs * 1.6 + 8 || notch || dir !== lastDir;
-            lastWheel = now; lastAbs = ad; lastDir = dir;
-            if (busy) { e.preventDefault(); if (fresh) { pending = dir; } return; }
+            var now = performance.now(), gap = now - lastWheel, turned = dir !== lastDir;
+            lastWheel = now; lastDir = dir;
+            // one card per scroll gesture: anything during a move, or the rest of the same
+            // gesture after it, is ignored. A new gesture = a short pause, or scrolling the other way.
+            if (busy) { e.preventDefault(); return; }
             if (!inZone(dir)) { return; }
             e.preventDefault();
-            if (!fresh && now - lastDone < 400) { return; }   // the tail of the same swipe
+            var fresh = gap > 350 || (turned && now - lastDone > 150);
+            if (!fresh) { return; }
             stepBy(dir);
         }, { passive: false });
 
@@ -246,7 +244,7 @@
             ty = null;
             if (Math.abs(dy) < 30) { return; }
             var dir = dy > 0 ? 1 : -1;
-            if (busy) { pending = dir; return; }
+            if (busy) { return; }
             if (inZone(dir)) { stepBy(dir); }
         }, { passive: true });
 
@@ -257,7 +255,7 @@
             if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) { dir = 1; }
             if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) { dir = -1; }
             if (!dir) { return; }
-            if (busy) { e.preventDefault(); pending = dir; return; }
+            if (busy || e.repeat) { e.preventDefault(); return; }
             if (inZone(dir)) { e.preventDefault(); stepBy(dir); }
         });
     }
