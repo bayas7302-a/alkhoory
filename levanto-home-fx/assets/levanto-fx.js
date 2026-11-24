@@ -318,6 +318,21 @@
 		});
 	}
 
+	/* ---------- 9c. Clean outline filter for the footer wordmark ---------- */
+	var marks = $$('.lv-wordmark');
+	if (marks.length) {
+		var defs = mk('svg', { width: 0, height: 0, 'aria-hidden': 'true', style: 'position:absolute;width:0;height:0;overflow:hidden' });
+		var f = mk('filter', { id: 'lv-outline', x: '-2%', y: '-10%', width: '104%', height: '120%', 'color-interpolation-filters': 'sRGB' }, defs);
+		mk('feMorphology', { 'in': 'SourceGraphic', operator: 'dilate', radius: 1.3, result: 'grow' }, f);
+		mk('feComposite', { 'in': 'grow', in2: 'SourceAlpha', operator: 'out', result: 'ring' }, f);
+		mk('feColorMatrix', { 'in': 'SourceGraphic', type: 'matrix', values: '1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.07 0', result: 'tint' }, f);
+		var merge = mk('feMerge', {}, f);
+		mk('feMergeNode', { 'in': 'tint' }, merge);
+		mk('feMergeNode', { 'in': 'ring' }, merge);
+		document.body.appendChild(defs);
+		marks.forEach(function (m) { m.classList.add('lv-outlined'); });
+	}
+
 	/* ---------- 10. Parallax on decorative patterns ---------- */
 	if (!reduceMotion) {
 		var decos = $$('.lv-rings, .lv-glow, .lv-dots, .lv-flow').filter(function (d) { return !d.classList.contains('lv-cta-ring'); });

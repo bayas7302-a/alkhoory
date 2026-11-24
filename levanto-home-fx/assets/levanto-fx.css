@@ -317,15 +317,20 @@ body { background-color: #faf6f0; }
 /* --------------------------------------------------------- footer */
 .elementor .lv-footlink { transition: color .3s, transform .4s var(--lv-ease); display: inline-block; }
 .elementor .lv-footlink:hover { color: #fff !important; transform: translateX(4px); }
-.elementor .lv-wordmark {
+/* Footer wordmark: a clean outline made by an SVG filter (#lv-outline, injected by
+   levanto-fx.js) instead of text-stroke, which traces the overlapping shapes inside
+   variable-font letters. The letters are filled with a moving gradient; the filter
+   keeps only a thin ring around the outside, so the outline carries a travelling
+   burnt-orange sheen, plus a faint inner tint. */
+.elementor .lv-wordmark.lv-outlined {
 	color: transparent !important;
-	-webkit-text-stroke: 1px rgba(159, 178, 198, .28);
-	background-image: linear-gradient(100deg, transparent 0%, transparent 40%, rgba(240, 101, 42, .55) 50%, transparent 60%, transparent 100%);
-	background-size: 250% 100%;
+	background-image: linear-gradient(100deg, #3c4c5e 0%, #3c4c5e 38%, #b9612f 47%, #d9894f 50%, #b9612f 53%, #3c4c5e 62%, #3c4c5e 100%);
+	background-size: 260% 100%;
 	-webkit-background-clip: text; background-clip: text;
-	animation: lv-sheen 7s linear infinite;
+	filter: url(#lv-outline);
+	animation: lv-sheen 9s ease-in-out infinite;
 }
-@keyframes lv-sheen { from { background-position: 125% 0; } to { background-position: -125% 0; } }
+@keyframes lv-sheen { from { background-position: 130% 0; } to { background-position: -30% 0; } }
 
 /* ------------------------------------------------ reduced motion */
 @media (prefers-reduced-motion: reduce) {
