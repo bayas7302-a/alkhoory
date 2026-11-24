@@ -1098,3 +1098,64 @@ body .cf7-custom-form .wpcf7-submit:focus-visible { outline: 3px solid #f0b232; 
 body .kk-cat ul.products li.product { padding-top: 0 !important; overflow: hidden; }
 body .kk-cat ul.products li.product a img,
 body .kk-cat ul.products li.product img { margin-top: 0 !important; }
+
+
+/* =====================================================================
+   24. Who We Are: sparkle stars (new image) + rotating "No …" heading
+   ===================================================================== */
+body .elementor-153 :is(.elementor-element-1b9f740, .elementor-element-3686e69, .elementor-element-f5a2f5e, .elementor-element-e6c8adb) img.kp-star,
+body .elementor-153 .elementor-element.elementor-element-e6c8adb img.kp-star,
+body .elementor-153 .elementor-element.elementor-element-f5a2f5e img.kp-star {
+  width: auto !important;
+  height: 30px !important;
+  max-width: none !important;
+  margin: 0 auto;
+  display: block;
+}
+@media (max-width: 767px) {
+  body .elementor-153 :is(.elementor-element.elementor-element-1b9f740, .elementor-element.elementor-element-3686e69, .elementor-element.elementor-element-f5a2f5e, .elementor-element.elementor-element-e6c8adb) img.kp-star { height: 22px !important; }
+}
+
+/* rotating heading: "No" stays, the rest rotates; the line stays centred */
+body .elementor-153 .elementor-element.elementor-element-fb87731 { width: 100% !important; max-width: 100% !important; }
+body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready {
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+}
+.kp-rot-ready .kp-no { display: inline-block; vertical-align: top; line-height: 1.15em; }
+.kp-rot {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  height: 1.15em;
+  overflow: hidden;
+  text-align: left;
+  transition: width 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.kp-rot__item {
+  position: absolute;
+  left: 0; top: 0;
+  height: 1.15em;
+  display: block;
+  line-height: 1.15em;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+}
+.kp-rot__item.is-active { opacity: 1; transform: none; }
+.kp-rot__item.is-leaving { opacity: 0; transform: translate3d(0, -100%, 0); }
+@media (prefers-reduced-motion: reduce) {
+  .kp-rot, .kp-rot__item { transition: none !important; }
+}
+
+/* phones: "No" on its own line, the rotating phrase centred below (long phrase wraps, never tiny) */
+@media (max-width: 767px) {
+  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { white-space: normal; }
+  .kp-rot-ready .kp-no { display: block; }
+  .kp-rot { display: block; width: 100% !important; height: 2.3em; }
+  .kp-rot__item { left: 0; right: 0; height: 2.3em; display: flex; align-items: center; justify-content: center; text-align: center; white-space: normal; line-height: 1.1; }
+}
+.kp-rot__txt { display: inline-block; white-space: inherit; }
+@media (max-width: 767px) { .kp-rot__txt { display: block; } }

@@ -108,6 +108,104 @@
         wrap.appendChild(btn);
     });
 
+    /* ---------- 1f. Who We Are: new sparkle stars ---------- */
+    (function () {
+        var STAR = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-sparkle-star.png';
+        ['1b9f740', '3686e69', 'f5a2f5e', 'e6c8adb'].forEach(function (id) {
+            var img = document.querySelector('.elementor-153 .elementor-element-' + id + ' img');
+            if (!img || img.classList.contains('kp-star')) { return; }
+            img.removeAttribute('srcset');
+            img.removeAttribute('sizes');
+            img.removeAttribute('width');
+            img.removeAttribute('height');
+            img.loading = 'eager';
+            img.src = STAR;
+            img.alt = '';
+            img.classList.add('kp-star');
+        });
+    })();
+
+    /* ---------- 1g. Who We Are: "No" stays, the rest rotates smoothly ---------- */
+    (function () {
+        var h = document.querySelector('.elementor-153 .elementor-element-fb87731 .elementor-heading-title');
+        if (!h || h.classList.contains('kp-rot-ready')) { return; }
+        var phrases = ['hype.', 'gimmicks.', 'over-engineering.', 'premium price without premium value.'];
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        h.setAttribute('aria-label', 'No ' + phrases.join(' No '));
+        h.textContent = '';
+        var no = document.createElement('span');
+        no.className = 'kp-no';
+        no.textContent = 'No ';
+        var rot = document.createElement('span');
+        rot.className = 'kp-rot';
+        rot.setAttribute('aria-hidden', 'true');
+        no.setAttribute('aria-hidden', 'true');
+        var items = phrases.map(function (t) {
+            var s = document.createElement('span');
+            s.className = 'kp-rot__item';
+            var tx = document.createElement('span');
+            tx.className = 'kp-rot__txt';
+            tx.textContent = t;
+            s.appendChild(tx);
+            s.__t = tx;
+            rot.appendChild(s);
+            return s;
+        });
+        h.appendChild(no);
+        h.appendChild(rot);
+        h.classList.add('kp-rot-ready');
+
+        var i = 2;   // start on "over-engineering"
+        // each phrase gets the width it needs; a phrase too long for the line is shrunk to fit
+        var narrow = window.matchMedia('(max-width: 767px)');
+        function fit() {
+            if (narrow.matches) {   // phones: stacked; a phrase that needs more than two lines is shrunk a little
+                rot.style.width = '';
+                items.forEach(function (it) {
+                    it.__w = 0;
+                    var k = 100;
+                    it.__t.style.fontSize = '';
+                    while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) {
+                        k -= 5;
+                        it.__t.style.fontSize = k + '%';
+                    }
+                });
+                return;
+            }
+            var avail = h.clientWidth - no.offsetWidth - 4;
+            items.forEach(function (it) {
+                it.__t.style.fontSize = '';
+                var w = it.__t.offsetWidth;
+                var k = w > avail ? avail / w : 1;
+                it.__t.style.fontSize = k < 1 ? (k * 100).toFixed(2) + '%' : '';
+                it.__w = Math.ceil(Math.min(w, avail));
+            });
+            rot.style.width = items[i].__w ? items[i].__w + 'px' : '';
+        }
+        function show(n, first) {
+            items.forEach(function (it, k) {
+                it.classList.toggle('is-active', k === n);
+                it.classList.toggle('is-leaving', !first && k === i && k !== n);
+                if (k !== n && k !== i) { it.classList.remove('is-leaving'); }
+            });
+            i = n;
+            rot.style.width = items[n].__w ? items[n].__w + 'px' : '';
+        }
+        fit();
+        show(i, true);
+        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); }
+        window.addEventListener('resize', function () { fit(); });
+        if (reduce) { return; }
+
+        var timer = null;
+        function start() { if (!timer) { timer = setInterval(function () { show((i + 1) % items.length); }, 2600); } }
+        function stop() { clearInterval(timer); timer = null; }
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (e) { if (e[0].isIntersecting) { start(); } else { stop(); } }).observe(h);
+        } else { start(); }
+    })();
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is
