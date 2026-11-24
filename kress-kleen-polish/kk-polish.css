@@ -1000,3 +1000,22 @@ body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .
 @media (max-width: 767px) {
   body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .elementor-button { padding: 0 32px !important; font-size: 13px !important; }
 }
+
+
+/* =====================================================================
+   20. Solution cards: new icons (Sweep / Mop / Wipe / Scrub / Dust)
+   images in the media library: kk-solution-icon-*.png
+   ===================================================================== */
+body .elementor-43 :is(.elementor-element-be16fc7, .elementor-element-8327566, .elementor-element-8a4b513, .elementor-element-deef3eb, .elementor-element-6a9b900) .elementor-icon svg,
+body .elementor-43 :is(.elementor-element-be16fc7, .elementor-element-8327566, .elementor-element-8a4b513, .elementor-element-deef3eb, .elementor-element-6a9b900) .elementor-icon i { display: none !important; }
+body .elementor-43 :is(.elementor-element-be16fc7, .elementor-element-8327566, .elementor-element-8a4b513, .elementor-element-deef3eb, .elementor-element-6a9b900) .elementor-icon {
+  display: block;
+  width: 1em; height: 1em;
+  background: center / contain no-repeat;
+  border-radius: 50%;
+}
+body .elementor-43 .elementor-element.elementor-element-be16fc7 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-sweep.png") !important; }
+body .elementor-43 .elementor-element.elementor-element-8327566 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-mop.png") !important; }
+body .elementor-43 .elementor-element.elementor-element-8a4b513 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-wipe.png") !important; }
+body .elementor-43 .elementor-element.elementor-element-deef3eb .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-scrub.png") !important; }
+body .elementor-43 .elementor-element.elementor-element-6a9b900 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-dust.png") !important; }
