@@ -764,6 +764,69 @@ body .kp-drawer__head, body .kp-drawer__foot { display: none; }
 @media (prefers-reduced-motion: reduce) {
   body .kk-cat__side, body .kp-drawer-overlay, body .kk-cat__side .kp-acc__panel, body #masthead { transition: none !important; }
 }
+
+
+/* =====================================================================
+   12. Design v3: header menu icon + scroll-video card style
+   Only the look changes; card positions (left / right / bottom) stay as they are.
+   ===================================================================== */
+
+/* menu icon: three thin, equal lines (as in the design) */
+body #masthead .elementor-element.elementor-element-98f606d .elementor-icon svg { display: none !important; }
+body #masthead .elementor-element.elementor-element-98f606d .elementor-icon {
+  display: block;
+  width: 36px;
+  height: 19px;
+  font-size: 0;
+  line-height: 0;
+  background:
+    linear-gradient(#ffffff, #ffffff) 0 0 / 100% 2px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 0 50% / 100% 2px no-repeat,
+    linear-gradient(#ffffff, #ffffff) 0 100% / 100% 2px no-repeat;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  body #masthead .elementor-element.elementor-element-98f606d .elementor-icon { width: 28px; height: 15px; }
+}
+@media (max-width: 767px) {
+  body #masthead .elementor-element.elementor-element-98f606d .elementor-icon { width: 26px; height: 14px; }
+}
+
+/* video cards: bright frosted glass, soft thick white rim, rounder corners */
+body .kk-sh .kk-sh__card {
+  background: rgba(255, 255, 255, 0.6) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  border: 2px solid rgba(255, 255, 255, 0.92) !important;
+  box-shadow:
+    inset 0 0 0 5px rgba(255, 255, 255, 0.3),
+    inset 0 0 24px rgba(255, 255, 255, 0.55),
+    0 18px 48px rgba(0, 0, 0, 0.22) !important;
+  border-radius: 30px !important;
+  color: #111111;
+}
+body .kk-sh h2.kk-sh__title { font-weight: 900 !important; letter-spacing: 0.02em; }
+body .kk-sh a.kk-sh__btn {
+  justify-content: center;
+  border: 1.5px solid #111111 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.12em !important;
+}
+
+@media (min-width: 1025px) {
+  /* size and text as in the design: ~555 x 290 */
+  body .kk-sh .kk-sh__card { width: min(555px, 100%) !important; min-height: 290px; padding: 36px 47px 40px !important; }
+  body .kk-sh .kk-sh__card--center { margin-left: calc(min(555px, 100%) / -2) !important; }
+  body .kk-sh .kk-sh__eyebrow { font-size: 22px !important; font-weight: 400 !important; letter-spacing: 0 !important; line-height: 1.2 !important; }
+  body .kk-sh h2.kk-sh__title { margin: 6px 0 14px !important; font-size: 33.7px !important; line-height: 1.2 !important; }
+  body .kk-sh .kk-sh__text { margin: 0 0 24px !important; font-size: 22px !important; line-height: 1.3 !important; }
+  body .kk-sh a.kk-sh__btn { width: 200px; height: 38px; padding: 0 !important; box-sizing: border-box; font-size: 16px !important; line-height: 1 !important; }
+}
+@media (max-width: 767px) {
+  body .kk-sh .kk-sh__card { border-radius: 22px !important; }
+}
 </style>
     <?php
 }
