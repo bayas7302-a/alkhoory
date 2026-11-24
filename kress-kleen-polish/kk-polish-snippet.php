@@ -944,8 +944,9 @@ function kk_polish_js() {
                 return;
             }
             hdr.classList.add('kp-hero-pin');
-            // once the end of the video section reaches the header, the header slides up with it
-            var lift = Math.min(0, track.getBoundingClientRect().bottom - hdr.offsetHeight);
+            // the header leaves one screen-height before the end of the video section:
+            // as soon as the pinned video frame starts to scroll away, the header moves up with it
+            var lift = Math.min(0, track.getBoundingClientRect().bottom - window.innerHeight);
             hdr.style.transform = lift < 0 ? 'translate3d(0,' + Math.round(lift) + 'px,0)' : '';
         }
         function kick() { if (!raf) { raf = requestAnimationFrame(update); } }
