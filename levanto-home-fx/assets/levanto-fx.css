@@ -95,9 +95,11 @@ body { background-color: #faf6f0; }
 	-webkit-mask-size: 100% 100%; mask-size: 100% 100%;
 }
 .lv-svgfx { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-.lv-svgfx .lv-drift { animation: lv-svg-drift 70s linear infinite; }
-@keyframes lv-svg-drift { to { transform: translate(-640px, -480px); } }
-.lv-svgfx .lv-runner { filter: drop-shadow(0 0 5px rgba(240, 101, 42, .85)); }
+.lv-svgfx .lv-runner {
+	stroke: #b9612f;
+	opacity: .8;
+	filter: drop-shadow(0 0 3px rgba(183, 71, 18, .45));
+}
 
 /* Floating glows */
 .elementor .lv-glow {
