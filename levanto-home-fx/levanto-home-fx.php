@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Levanto Home FX
  * Description:       Motion layer for the Levanto Elementor home page: animated background patterns, marquee, product accordion, hover transitions, counters, sticky nav and mobile menu. Works on any page that uses the lv-* global classes.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Levanto
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'LEVANTO_FX_VERSION', '1.1.0' );
+define( 'LEVANTO_FX_VERSION', '1.2.0' );
 
 add_action(
 	'wp_enqueue_scripts',

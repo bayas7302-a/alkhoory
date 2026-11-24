@@ -194,6 +194,130 @@
 		counters.forEach(function (c) { cObs.observe(c); });
 	}
 
+	/* ---------- 9b. Vector patterns with orange runners ---------- */
+	var SVGNS = 'http://www.w3.org/2000/svg';
+	var mk = function (tag, attrs, parent) {
+		var el = document.createElementNS(SVGNS, tag);
+		Object.keys(attrs || {}).forEach(function (k) { el.setAttribute(k, attrs[k]); });
+		if (parent) { parent.appendChild(el); }
+		return el;
+	};
+	var rand = function (a, b) { return a + Math.random() * (b - a); };
+	var whenVisible = function (el, start) {
+		if (!('IntersectionObserver' in window)) { start(true); return; }
+		new IntersectionObserver(function (es) { es.forEach(function (e) { start(e.isIntersecting); }); }, { rootMargin: '100px' }).observe(el);
+	};
+	// Animate an orange dash along `path`; resolves when done.
+	var runDash = function (svg, d, opts) {
+		var p = mk('path', { d: d, fill: 'none', stroke: opts.color || '#f0652a', 'stroke-width': opts.width || 3, 'stroke-linecap': 'round', 'class': 'lv-runner' }, svg);
+		var total = p.getTotalLength(), len = Math.min(opts.len || 110, total * 0.6);
+		p.style.strokeDasharray = len + ' ' + (total + len);
+		p.style.strokeDashoffset = len;
+		var anim = p.animate([{ strokeDashoffset: len }, { strokeDashoffset: -total }],
+			{ duration: Math.max(1600, total / (opts.speed || 0.12)), easing: 'cubic-bezier(.45,.05,.55,.95)' });
+		return new Promise(function (res) { anim.onfinish = function () { p.remove(); res(); }; });
+	};
+	// Keep up to `max` runners alive at random intervals while the element is on screen.
+	var runnerLoop = function (el, svg, pick, opts) {
+		var live = 0, on = false;
+		var spawn = function () {
+			if (!on || live >= opts.max) { return; }
+			live++;
+			runDash(svg, pick(), opts).then(function () { live--; setTimeout(spawn, rand(opts.gap[0], opts.gap[1])); });
+		};
+		whenVisible(el, function (v) {
+			on = v;
+			if (v) { for (var i = live; i < opts.max; i++) { setTimeout(spawn, rand(0, opts.gap[1])); } }
+		});
+	};
+
+	if (!reduceMotion && window.Element && Element.prototype.animate) {
+		/* Industries: six lines that turn a corner (redrawn cleanly from the Figma geometry) */
+		$$('.lv-flow').forEach(function (el) {
+			var W = 540, H = 320, lines = [];
+			for (var k = 0; k < 6; k++) {
+				var yt = 20 + 22 * k, xv = 336 - 22 * k, yb = 286 - 22 * k;
+				var R = Math.min(36, (yb - yt) / 2);
+				lines.push('M-40 ' + yt + 'H' + (xv - R) + 'A' + R + ' ' + R + ' 0 0 1 ' + xv + ' ' + (yt + R) +
+					'V' + (yb - R) + 'A' + R + ' ' + R + ' 0 0 0 ' + (xv + R) + ' ' + yb + 'H' + (W + 20));
+			}
+			var svg = mk('svg', { viewBox: '0 0 ' + W + ' ' + H, preserveAspectRatio: 'xMaxYMin meet', 'class': 'lv-svgfx', 'aria-hidden': 'true' });
+			lines.forEach(function (d) { mk('path', { d: d, fill: 'none', stroke: 'rgba(12,43,75,0.13)', 'stroke-width': 1.6 }, svg); });
+			el.style.backgroundImage = 'none';
+			el.classList.add('lv-has-svg');
+			el.appendChild(svg);
+			runnerLoop(el, svg, function () { return lines[Math.floor(Math.random() * lines.length)]; },
+				{ max: 3, gap: [250, 1800], len: 90, width: 2.2, speed: 0.16 });
+		});
+
+		/* Why Levanto: truchet flow grid (4x3 tiles of 160px, lanes at r = 60/80/100) */
+		var TYPES = [['TL', 'TL', 'TR', 'TL'], ['TR', 'TL', 'TR', 'TR'], ['TL', 'TR', 'TR', 'TL']];
+		var tileType = function (c, r) { return TYPES[((r % 3) + 3) % 3][((c % 4) + 4) % 4]; };
+		var cornersOf = function (c, r) {
+			var x = c * 160, y = r * 160;
+			return tileType(c, r) === 'TL' ? [[x, y], [x + 160, y + 160]] : [[x + 160, y], [x, y + 160]];
+		};
+		var arcD = function (C, S, E, R) {
+			var cross = (S[0] - C[0]) * (E[1] - C[1]) - (S[1] - C[1]) * (E[0] - C[0]);
+			return 'A' + R + ' ' + R + ' 0 0 ' + (cross > 0 ? 1 : 0) + ' ' + E[0] + ' ' + E[1];
+		};
+		$$('.lv-flowgrid').forEach(function (el) {
+			var box = el.getBoundingClientRect();
+			var cols = Math.ceil(box.width / 160) + 5, rows = Math.ceil(box.height / 160) + 4;
+			var svg = mk('svg', { width: '100%', height: '100%', 'class': 'lv-svgfx', 'aria-hidden': 'true' });
+			var g = mk('g', { 'class': 'lv-drift' }, svg);
+			var d = '';
+			for (var r = 0; r < rows; r++) {
+				for (var c = 0; c < cols; c++) {
+					cornersOf(c, r).forEach(function (C) {
+						var sx = C[0] === c * 160 ? 1 : -1, sy = C[1] === r * 160 ? 1 : -1;
+						[60, 80, 100].forEach(function (R) {
+							d += 'M' + (C[0] + sx * R) + ' ' + C[1] + 'A' + R + ' ' + R + ' 0 0 ' + (sx * sy > 0 ? 1 : 0) + ' ' + C[0] + ' ' + (C[1] + sy * R);
+						});
+					});
+				}
+			}
+			mk('path', { d: d, fill: 'none', stroke: '#164974', 'stroke-width': 4, opacity: 0.35 }, g);
+			// static flame accents from the design (tile 2-2 of every 640x480 block)
+			for (var br = 0; br < rows; br += 3) {
+				for (var bc = 0; bc < cols; bc += 4) {
+					var ox = bc * 160 + 160, oy = br * 160 + 160;
+					mk('path', { d: 'M' + (ox + 80) + ' ' + oy + 'A80 80 0 0 1 ' + ox + ' ' + (oy + 80), fill: 'none', stroke: '#b74712', 'stroke-width': 4, opacity: 0.4 }, g);
+				}
+			}
+			// Random route: follow one lane through consecutive tiles.
+			var route = function () {
+				var c = 1 + Math.floor(Math.random() * (cols - 3)), r = 1 + Math.floor(Math.random() * (rows - 3));
+				var R = [60, 80, 100][Math.floor(Math.random() * 3)];
+				var C = cornersOf(c, r)[Math.floor(Math.random() * 2)];
+				var sx = C[0] === c * 160 ? 1 : -1, sy = C[1] === r * 160 ? 1 : -1;
+				var P = [C[0] + sx * R, C[1]];                 // start on the horizontal edge
+				var out = 'M' + P[0] + ' ' + P[1];
+				for (var step = 0; step < 9; step++) {
+					var E = P[1] === C[1] ? [C[0], C[1] + sy * R] : [C[0] + sx * R, C[1]];
+					out += arcD(C, P, E, R);
+					// cross into the neighbouring tile through the edge E lies on
+					if (E[0] === C[0]) { c += (E[0] === c * 160) ? -1 : 1; } else { r += (E[1] === r * 160) ? -1 : 1; }
+					if (c < 0 || r < 0 || c >= cols || r >= rows) { break; }
+					var next = null;
+					cornersOf(c, r).forEach(function (K) {
+						var onEdge = (K[0] === E[0] || K[1] === E[1]);
+						var dist = Math.abs(K[0] - E[0]) + Math.abs(K[1] - E[1]);
+						if (onEdge && (dist === 60 || dist === 80 || dist === 100)) { next = { K: K, R: dist }; }
+					});
+					if (!next) { break; }
+					C = next.K; R = next.R; P = E;
+					sx = C[0] === c * 160 ? 1 : -1; sy = C[1] === r * 160 ? 1 : -1;
+				}
+				return out;
+			};
+			el.style.backgroundImage = 'none';
+			el.classList.add('lv-has-svg');
+			el.appendChild(svg);
+			runnerLoop(el, g, route, { max: 4, gap: [200, 1500], len: 140, width: 4, speed: 0.2 });
+		});
+	}
+
 	/* ---------- 10. Parallax on decorative patterns ---------- */
 	if (!reduceMotion) {
 		var decos = $$('.lv-rings, .lv-glow, .lv-dots, .lv-flow').filter(function (d) { return !d.classList.contains('lv-cta-ring'); });
