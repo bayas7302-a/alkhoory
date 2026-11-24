@@ -1054,6 +1054,65 @@ body .elementor-43 .elementor-element.elementor-element-7149c5d > .e-con-inner {
   body .elementor-43 .elementor-element.elementor-element-7149c5d { margin-bottom: 40px !important; }
   body .elementor-43 .elementor-element.elementor-element-38068a6 { margin-bottom: 0 !important; }
 }
+
+
+/* =====================================================================
+   22. Contact form: Submit styled like the site buttons, same hover
+   (lift + shadow + shine sweep); fields get a matching hover / focus
+   ===================================================================== */
+body .cf7-custom-form .kp-submit {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  isolation: isolate;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+body .cf7-custom-form .kp-submit::after {
+  content: "";
+  position: absolute;
+  top: 0; left: -80%;
+  z-index: 2;
+  width: 45%; height: 100%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0));
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+body .cf7-custom-form input[type="submit"],
+body .cf7-custom-form .wpcf7-submit {
+  display: block;
+  width: 100% !important;
+  height: 44px !important;
+  padding: 0 30px !important;
+  border-radius: 999px !important;
+  text-align: center !important;
+  font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  line-height: 44px !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease !important;
+}
+/* the wrapper does the lift, so the button itself stays put */
+body .cf7-custom-form .kp-submit input[type="submit"],
+body .cf7-custom-form .kp-submit .wpcf7-submit { transform: none !important; box-shadow: none !important; }
+@media (hover: hover) {
+  body .cf7-custom-form .kp-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18); }
+  body .cf7-custom-form .kp-submit:hover::after { left: 140%; transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+  body .cf7-custom-form .kp-submit:hover input[type="submit"],
+  body .cf7-custom-form .kp-submit:hover .wpcf7-submit { background: #007548 !important; border-color: #007548 !important; }
+
+  body .cf7-custom-form :is(input[type="text"], input[type="email"], input[type="tel"], textarea):hover { border-color: #e0a010 !important; }
+}
+body .cf7-custom-form .kp-submit:active { transform: translateY(-1px); }
+body .cf7-custom-form :is(input[type="text"], input[type="email"], input[type="tel"], textarea) { transition: border-color 0.3s ease, box-shadow 0.3s ease !important; }
+body .cf7-custom-form :is(input[type="text"], input[type="email"], input[type="tel"], textarea):focus {
+  border-color: #009160 !important;
+  box-shadow: 0 0 0 3px rgba(0, 145, 96, 0.15) !important;
+}
+body .cf7-custom-form .wpcf7-submit:focus-visible { outline: 3px solid #f0b232; outline-offset: 3px; }
 </style>
     <?php
 }
@@ -1165,6 +1224,15 @@ function kk_polish_js() {
         new MutationObserver(check).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'class'] });
         check();
     })();
+
+    /* ---------- 1e. contact form: wrap Submit so it can show the same shine-on-hover as the other buttons ---------- */
+    document.querySelectorAll('.cf7-custom-form input[type="submit"], .cf7-custom-form .wpcf7-submit').forEach(function (btn) {
+        if (btn.parentElement && btn.parentElement.classList.contains('kp-submit')) { return; }
+        var wrap = document.createElement('span');
+        wrap.className = 'kp-submit';
+        btn.parentNode.insertBefore(wrap, btn);
+        wrap.appendChild(btn);
+    });
 
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these

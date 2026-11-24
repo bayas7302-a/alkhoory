@@ -99,6 +99,15 @@
         check();
     })();
 
+    /* ---------- 1e. contact form: wrap Submit so it can show the same shine-on-hover as the other buttons ---------- */
+    document.querySelectorAll('.cf7-custom-form input[type="submit"], .cf7-custom-form .wpcf7-submit').forEach(function (btn) {
+        if (btn.parentElement && btn.parentElement.classList.contains('kp-submit')) { return; }
+        var wrap = document.createElement('span');
+        wrap.className = 'kp-submit';
+        btn.parentNode.insertBefore(wrap, btn);
+        wrap.appendChild(btn);
+    });
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is
