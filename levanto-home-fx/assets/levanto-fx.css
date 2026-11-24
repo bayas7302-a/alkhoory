@@ -161,21 +161,28 @@ body { background-color: #faf6f0; }
 .lv-mobile-menu {
 	position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 50;
 	display: grid; gap: 4px; padding: 14px; border-radius: 24px;
-	background: rgba(5, 13, 24, .94); border: 1px solid rgba(255, 255, 255, .12);
+	background: #071222; border: 1px solid rgba(255, 255, 255, .12); max-height: calc(100vh - 110px); overflow-y: auto;
 	backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 	opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .3s, transform .4s var(--lv-ease);
 }
 .lv-mobile-menu a {
-	color: rgba(255, 255, 255, .86); font: 500 16px/22px Inter, sans-serif; padding: 12px 14px; border-radius: 14px; text-decoration: none;
+	color: rgba(255, 255, 255, .86); font: 500 16px/22px Inter, sans-serif; padding: 11px 14px; display: block; border-radius: 14px; text-decoration: none;
 }
 .lv-mobile-menu a:hover { background: rgba(255, 255, 255, .06); color: #fff; }
+/* the theme styles every <button>: keep the burger neutral in all states */
+.lv-burger, .lv-burger:hover, .lv-burger:focus, .lv-burger:active {
+	background-color: rgba(255, 255, 255, .08) !important; color: #fff !important;
+	border: 1px solid rgba(255, 255, 255, .18) !important; box-shadow: none !important; outline: none;
+}
+.lv-burger:focus-visible { box-shadow: 0 0 0 3px rgba(185, 97, 47, .6) !important; }
+.lv-menu-open .lv-burger { background-color: rgba(255, 255, 255, .14) !important; }
 .lv-menu-open .lv-mobile-menu { opacity: 1; transform: none; pointer-events: auto; }
 @media (max-width: 1024px) {
 	.lv-burger { display: inline-flex; }
 }
 @media (max-width: 767px) {
-	.lv-nav-pill .lv-btn .lv-btn-label { display: none; }
-	.lv-nav-pill .lv-btn { padding: 5px !important; }
+	.elementor .lv-nav-pill > .lv-btn { display: none !important; }
+	.lv-burger { margin-right: 0; }
 }
 
 /* ---------------------------------------------------------------- icons */

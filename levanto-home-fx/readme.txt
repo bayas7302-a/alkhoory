@@ -1,5 +1,5 @@
 === Levanto Home FX ===
-Version: 1.2.2
+Version: 1.2.3
 
 Motion layer for the Levanto Elementor home page (Elementor 4 / V4 atomic widgets).
 
@@ -22,6 +22,7 @@ Install: WP Admin > Plugins > Add New > Upload Plugin > levanto-home-fx.zip > Ac
 No settings. Deactivating it leaves the page static but intact.
 
 == Changelog ==
+1.2.3 - Mobile header: no quote button, neutral burger button, solid menu panel.
 1.2.2 - Footer wordmark: clean SVG-filter outline (no inner glyph lines) with a travelling burnt-orange sheen.
 1.2.1 - Softer burnt-orange runners; Why Levanto pattern no longer drifts.
 1.2.0 - Why Levanto and Industries patterns redrawn as live vectors with orange
