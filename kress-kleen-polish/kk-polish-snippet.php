@@ -8,6 +8,12 @@
  * Paste at the END of functions.php. To undo, delete this block.
  * Source files: kress-kleen-polish/kk-polish.css + kk-polish.js
  */
+/* Cairo for the Arabic language label in the header */
+add_action( 'wp_enqueue_scripts', 'kk_polish_fonts' );
+function kk_polish_fonts() {
+    wp_enqueue_style( 'kk-cairo', 'https://fonts.googleapis.com/css2?family=Cairo:wght@600;700&display=swap', array(), null );
+}
+
 add_action( 'wp_head', 'kk_polish_css', 999 );
 function kk_polish_css() {
     if ( is_admin() ) {
@@ -847,6 +853,51 @@ body .kk-sh a.kk-sh__btn {
 
 /* Catalogue / category banners: same overlay as the Where to Buy banner (black, 63%) */
 :root { --kk-hero-overlay: rgba(0, 0, 0, 0.63); }
+
+
+/* =====================================================================
+   14. Header language switch: ENGLISH first, then Arabic (as in the design);
+   Arabic label in Cairo (loaded by the snippet)
+   ===================================================================== */
+body #masthead .gtranslate_wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+}
+body #masthead .gtranslate_wrapper a[data-gt-lang="en"] { order: 1 !important; }
+body #masthead .gtranslate_wrapper a[data-gt-lang="ar"] { order: 2 !important; }
+body #masthead .gtranslate_wrapper a[data-gt-lang]::after { line-height: 1 !important; display: inline-block; vertical-align: middle; }
+body #masthead a[data-gt-lang="en"]::after {
+  font-family: "Albula Pro", "Satoshi", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  letter-spacing: 0.02em;
+}
+body #masthead a[data-gt-lang="ar"]::after {
+  font-family: "Cairo", "Noto Sans Arabic", Tahoma, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 17px !important;
+  opacity: 1 !important;
+  position: relative; top: -1px;
+}
+/* space between the menu icon and the languages */
+@media (min-width: 1025px) {
+  body #masthead .elementor-element.elementor-element-f760a15 { gap: 40px !important; --gap: 40px; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body #masthead .elementor-element.elementor-element-f760a15 { gap: 24px !important; --gap: 24px; }
+  body #masthead .gtranslate_wrapper { gap: 12px !important; }
+  body #masthead a[data-gt-lang="en"]::after { font-size: 14px !important; }
+  body #masthead a[data-gt-lang="ar"]::after { font-size: 15px !important; }
+}
+/* phones: the two labels stack, ENGLISH on top */
+@media (max-width: 767px) {
+  body #masthead .gtranslate_wrapper { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; }
+  body #masthead a[data-gt-lang="en"]::after { font-size: 12px !important; }
+  body #masthead a[data-gt-lang="ar"]::after { font-size: 13px !important; top: 0; }
+}
 </style>
     <?php
 }
