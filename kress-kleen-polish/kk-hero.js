@@ -21,9 +21,15 @@
     var cards = [].slice.call(root.querySelectorAll('.kk-sh__card'));
     var dots = [].slice.call(root.querySelectorAll('.kk-sh__dot'));
 
-    // card start times (s), matched to the scene changes in the video
-    var TIMES = [0, 1.9, 4.1, 9.1, 11.0, 13.0, 16.6, 19.7, 22.6, 25.7, 28.8];
-    if (TIMES.length !== cards.length) { try { TIMES = JSON.parse(root.getAttribute('data-times')); } catch (e) {} }
+    // checked frame by frame in the video:
+    // TIMES = where the video stops for each card (product fully in view, steady)
+    // CUTS  = when each product first appears (the card text changes here)
+    var TIMES = [0, 2.8, 5.0, 9.6, 11.6, 15.0, 18.0, 21.2, 23.8, 27.0, 29.8];
+    var CUTS  = [0, 2.0, 4.5, 9.1, 10.9, 14.4, 16.9, 20.3, 22.8, 25.8, 29.0];
+    if (TIMES.length !== cards.length) {
+        try { TIMES = JSON.parse(root.getAttribute('data-times')); } catch (e) {}
+        CUTS = TIMES.slice();
+    }
     var DUR = 35.235;
     var INTRO = parseFloat(root.getAttribute('data-intro')) || 30;
     var PERVH = 24;   // scroll length per video second (vh) – only sets how long the section is
@@ -89,6 +95,7 @@
     function tAt(y) { var s = (y - top0) / total; return s <= frac ? 0 : Math.min(DUR, (s - frac) / (1 - frac) * DUR); }
     function yEnd() { return top0 + total; }
     function chapterAt(t) { var k = 0; for (var i = 0; i < TIMES.length; i++) { if (t >= TIMES[i] - 0.05) { k = i; } } return k; }
+    function cardAt(t) { var k = 0; for (var i = 0; i < CUTS.length; i++) { if (t >= CUTS[i]) { k = i; } } return k; }
 
     /* ---------- cards ---------- */
     var cur = 0;
@@ -111,7 +118,7 @@
     }
 
     /* ---------- the move ---------- */
-    var busy = false, raf = 0, ownScroll = false, lastSetY = -1;
+    var busy = false, raf = 0, ownScroll = false, lastSetY = -1, pending = 0;
     function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
 
     function goTo(targetT, targetY, chapter) {
@@ -152,7 +159,13 @@
                 lastSetY = Math.round(fromY + (targetY - fromY) * ease(p));
                 window.scrollTo({ top: lastSetY, left: 0, behavior: 'instant' });
                 progress();
-                if (!switched && p >= 0.45) { switched = true; if (chapter != null) { setChapter(chapter); } setPoster(targetT); }
+                if (forward || backward) {
+                    var vt = forward ? v.currentTime : DUR - v.currentTime;
+                    var ck = cardAt(vt);
+                    if (chapter != null) { ck = forward ? Math.min(ck, chapter) : Math.max(ck, chapter); }
+                    if (ck !== cur) { setChapter(ck); }
+                    if (vt > 0.15) { setPoster(1); }
+                } else if (!switched && p >= 0.45) { switched = true; if (chapter != null) { setChapter(chapter); } }
                 // stop the video exactly on the target frame
                 if ((forward || backward) && !v.paused && v.currentTime >= endV - 0.03) { v.pause(); }
                 if (p < 1) { raf = requestAnimationFrame(step); return; }
@@ -164,8 +177,12 @@
                     ownScroll = false;
                     busy = false;
                     lastDone = performance.now();
+                    if (chapter != null && cur !== chapter) { setChapter(chapter); }
+                    setPoster(targetT);
                     var other = active === vf ? vr : vf;
                     seek(other, active === vf ? DUR - targetT : targetT);
+                    // a scroll that came in while moving runs now
+                    if (pending) { var d = pending; pending = 0; if (inZone(d)) { stepBy(d); } }
                 })();
             })(t0);
         });
@@ -197,20 +214,22 @@
     }
 
     /* ---------- inputs ---------- */
-    var lastWheel = 0, lastAbs = 0, lastDone = 0;
+    var lastWheel = 0, lastAbs = 0, lastDone = 0, lastDir = 0;
     if (!reduce) {
         window.addEventListener('wheel', function (e) {
             if (e.ctrlKey) { return; }
             var dy = e.deltaY;
             if (Math.abs(dy) < 1) { return; }
             var dir = dy > 0 ? 1 : -1;
-            var now = performance.now();
-            var fresh = (now - lastWheel > 220) || (Math.abs(dy) > lastAbs * 1.6 + 8);
-            lastWheel = now; lastAbs = Math.abs(dy);
-            if (busy) { e.preventDefault(); return; }
+            var now = performance.now(), ad = Math.abs(dy), gap = now - lastWheel;
+            // a new gesture: a pause, a swipe that speeds up again, or a separate mouse-wheel click
+            var notch = gap > 45 && ad >= 40 && Math.abs(ad - lastAbs) < 1;
+            var fresh = gap > 220 || ad > lastAbs * 1.6 + 8 || notch || dir !== lastDir;
+            lastWheel = now; lastAbs = ad; lastDir = dir;
+            if (busy) { e.preventDefault(); if (fresh) { pending = dir; } return; }
             if (!inZone(dir)) { return; }
             e.preventDefault();
-            if (!fresh || now - lastDone < 120) { return; }   // ignore the tail of the same swipe
+            if (!fresh && now - lastDone < 400) { return; }   // the tail of the same swipe
             stepBy(dir);
         }, { passive: false });
 
@@ -225,8 +244,9 @@
             if (ty === null) { return; }
             var dy = ty - (e.changedTouches[0] ? e.changedTouches[0].clientY : ty);
             ty = null;
-            if (busy || Math.abs(dy) < 30) { return; }
+            if (Math.abs(dy) < 30) { return; }
             var dir = dy > 0 ? 1 : -1;
+            if (busy) { pending = dir; return; }
             if (inZone(dir)) { stepBy(dir); }
         }, { passive: true });
 
@@ -237,7 +257,7 @@
             if (e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) { dir = 1; }
             if (e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) { dir = -1; }
             if (!dir) { return; }
-            if (busy) { e.preventDefault(); return; }
+            if (busy) { e.preventDefault(); pending = dir; return; }
             if (inZone(dir)) { e.preventDefault(); stepBy(dir); }
         });
     }
@@ -259,7 +279,7 @@
             measure();
             var t = tAt(window.pageYOffset);
             seek(vf, Math.min(t, DUR - 0.05)).then(function () { showVideo(vf); });
-            var k = chapterAt(t);
+            var k = cardAt(t);
             if (k !== cur) { setChapter(k); }
             setPoster(t);
         }, 90);
