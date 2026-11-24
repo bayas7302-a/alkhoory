@@ -11,12 +11,6 @@
 	--lv-navy-c: #0c2b4b;
 }
 
-@property --lv-ripple {
-	syntax: '<length>';
-	inherits: false;
-	initial-value: 0px;
-}
-
 html { scroll-behavior: smooth; }
 body { background-color: #faf6f0; }
 [class*="lv-sec-"] { scroll-margin-top: 96px; }
@@ -54,46 +48,43 @@ body { background-color: #faf6f0; }
 }
 
 /* ------------------------------------------------------------- patterns */
-/* Concentric rings that ripple outward */
-.elementor .lv-rings:not(.lv-cta-ring) {
-	--lv-ring-c: rgba(240, 101, 42, .30);
-	--lv-ring-gap: 52px;
-	border: 0 !important;
-	background: repeating-radial-gradient(circle at center,
-		transparent 0, transparent var(--lv-ripple),
-		var(--lv-ring-c) var(--lv-ripple), var(--lv-ring-c) calc(var(--lv-ripple) + 1px),
-		transparent calc(var(--lv-ripple) + 1.5px), transparent calc(var(--lv-ripple) + var(--lv-ring-gap)));
-	-webkit-mask-image: radial-gradient(circle at center, #000 0%, #000 45%, transparent 70%);
-	mask-image: radial-gradient(circle at center, #000 0%, #000 45%, transparent 70%);
-	animation: lv-ripple 7s linear infinite;
-}
-.elementor .lv-rings.lv-rings-light:not(.lv-cta-ring) { --lv-ring-c: rgba(255, 255, 255, .85); --lv-ring-gap: 54px; }
-.elementor .lv-sec-brands .lv-rings { --lv-ring-c: rgba(255, 255, 255, .9); --lv-ring-gap: 69px; animation-duration: 9s; }
-@keyframes lv-ripple { to { --lv-ripple: var(--lv-ring-gap, 52px); } }
+/* The pattern artwork itself comes from the Figma file (set on each decorative
+   element in Elementor). Here we only bring it to life. */
 
-/* CTA rings breathe */
-.elementor .lv-cta-ring {
-	border: 1px solid rgba(255, 255, 255, .32) !important;
-	background: none !important;
-	animation: lv-breathe 8s var(--lv-ease) infinite;
+/* Concentric rings: slow breathing pulse, anchored at the rings' centre */
+.elementor .lv-rings:not(.lv-cta-ring) {
+	transform-origin: 100% 0%;
+	animation: lv-ring-pulse 9s ease-in-out infinite;
 }
+.elementor .lv-sec-brands .lv-rings:not(.lv-cta-ring) + .lv-rings { transform-origin: 0% 0%; animation-delay: -4.5s; }
+@keyframes lv-ring-pulse {
+	0%, 100% { transform: scale(1); opacity: 1; }
+	50% { transform: scale(1.05); opacity: .6; }
+}
+
+/* CTA rings breathe in sequence */
+.elementor .lv-cta-ring { animation: lv-breathe 8s var(--lv-ease) infinite; }
 .elementor .lv-cta-ring + .lv-cta-ring { animation-delay: -2.6s; }
 .elementor .lv-cta-ring + .lv-cta-ring + .lv-cta-ring { animation-delay: -5.2s; }
 @keyframes lv-breathe {
-	0%, 100% { transform: scale(1); opacity: .85; }
+	0%, 100% { transform: scale(1); opacity: .9; }
 	50% { transform: scale(1.06); opacity: .45; }
 }
 
-/* Drifting dot grid */
-.elementor .lv-dots {
-	background-image: radial-gradient(circle, rgba(12, 43, 75, .28) 1.6px, transparent 2.1px);
-	background-size: 18px 18px;
-	-webkit-mask-image: linear-gradient(135deg, #000 30%, transparent 100%);
-	mask-image: linear-gradient(135deg, #000 30%, transparent 100%);
-	animation: lv-drift 14s linear infinite;
+/* Light sweeps: a soft highlight travels across the dots and the flow lines */
+.elementor .lv-dots,
+.elementor .lv-flow {
+	-webkit-mask-image: linear-gradient(100deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.35) 35%, #000 50%, rgba(0,0,0,.35) 65%, rgba(0,0,0,.35) 100%);
+	mask-image: linear-gradient(100deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.35) 35%, #000 50%, rgba(0,0,0,.35) 65%, rgba(0,0,0,.35) 100%);
+	-webkit-mask-size: 300% 100%; mask-size: 300% 100%;
+	-webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+	animation: lv-sweep 6s linear infinite;
 }
-.elementor .lv-sec-industries .lv-dots { background-image: radial-gradient(circle, rgba(240, 101, 42, .5) 1.6px, transparent 2.1px); }
-@keyframes lv-drift { to { background-position: 18px 18px; } }
+.elementor .lv-flow { animation-duration: 5s; }
+@keyframes lv-sweep {
+	from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+	to { -webkit-mask-position: 0% 0; mask-position: 0% 0; }
+}
 
 /* Floating glows */
 .elementor .lv-glow {
@@ -106,23 +97,9 @@ body { background-color: #faf6f0; }
 	100% { transform: translate3d(-20px, 20px, 0) scale(.96); }
 }
 
-/* Flowing lines (Industries) — lines turning a corner with a travelling spark */
-.elementor .lv-flow {
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 320' fill='none'%3E%3Cstyle%3E.b%7Bstroke:%230c2b4b;stroke-opacity:.16;stroke-width:1.2%7D.s%7Bstroke:%23f0652a;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:70 900;animation:d 7s linear infinite%7D.s:nth-of-type(2n)%7Banimation-duration:9s;animation-delay:-3s%7D.s:nth-of-type(3n)%7Banimation-duration:11s;animation-delay:-6s%7D@keyframes d%7Bfrom%7Bstroke-dashoffset:970%7Dto%7Bstroke-dashoffset:0%7D%7D%3C/style%3E%3Cg class='b'%3E%3Cpath d='M0 20H380a160 160 0 0 1 160 160V320'/%3E%3Cpath d='M0 42H380a138 138 0 0 1 138 138V320'/%3E%3Cpath d='M0 64H380a116 116 0 0 1 116 116V320'/%3E%3Cpath d='M0 86H380a94 94 0 0 1 94 94V320'/%3E%3Cpath d='M0 108H380a72 72 0 0 1 72 72V320'/%3E%3Cpath d='M0 130H380a50 50 0 0 1 50 50V320'/%3E%3C/g%3E%3Cpath class='s' d='M0 20H380a160 160 0 0 1 160 160V320'/%3E%3Cpath class='s' d='M0 64H380a116 116 0 0 1 116 116V320'/%3E%3Cpath class='s' d='M0 108H380a72 72 0 0 1 72 72V320'/%3E%3C/svg%3E") no-repeat center / 100% 100%;
-	-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
-	mask-image: linear-gradient(90deg, transparent 0%, #000 35%);
-}
-
-/* Brand flow grid (Why Levanto) — truchet arcs drifting slowly */
-.elementor .lv-flowgrid {
-	opacity: .55 !important;
-	background-image:
-		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480' fill='none'%3E%3Cpath d='M240 0a240 240 0 0 1-240 240' stroke='%23f0652a' stroke-opacity='.55' stroke-width='2'/%3E%3C/svg%3E"),
-		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' fill='none' stroke='%239fb2c6' stroke-opacity='.35' stroke-width='2'%3E%3Cpath d='M80 0a80 80 0 0 1-80 80M160 80a80 80 0 0 0-80 80'/%3E%3Cpath d='M56 0a56 56 0 0 1-56 56M160 104a56 56 0 0 0-56 56M104 0a104 104 0 0 1-104 104M160 56a104 104 0 0 0-104 104'/%3E%3C/svg%3E");
-	background-size: 480px 480px, 160px 160px;
-	animation: lv-grid-drift 60s linear infinite;
-}
-@keyframes lv-grid-drift { to { background-position: 480px 480px, 160px 160px; } }
+/* Brand flow grid (Why Levanto): the tile drifts diagonally, seamlessly */
+.elementor .lv-flowgrid { animation: lv-grid-drift 50s linear infinite; }
+@keyframes lv-grid-drift { to { background-position: 640px 480px; } }
 
 /* -------------------------------------------------------------------- hero */
 .elementor .lv-hero-bg { animation: lv-kenburns 26s ease-in-out infinite alternate; will-change: transform; }
@@ -186,6 +163,11 @@ body { background-color: #faf6f0; }
 	.lv-nav-pill .lv-btn { padding: 5px !important; }
 }
 
+/* ---------------------------------------------------------------- icons */
+/* Elementor renders the icon <svg> inline, so it sits on the text baseline and
+   drops below centre inside the round badges. Make it a block. */
+.elementor .e-svg-base > svg { display: block; }
+
 /* ---------------------------------------------------------------- buttons */
 .elementor .lv-btn { position: relative; overflow: hidden; transition: transform .4s var(--lv-ease), box-shadow .4s var(--lv-ease); }
 .elementor .lv-btn::before {
@@ -198,12 +180,19 @@ body { background-color: #faf6f0; }
 .elementor .lv-btn-dark:hover { box-shadow: 0 16px 36px rgba(5, 13, 24, .35); }
 .elementor .lv-btn:hover::before { left: 130%; }
 .elementor .lv-btn-icon { transition: transform .5s var(--lv-ease); }
-.elementor .lv-btn:hover .lv-btn-icon { transform: scale(1.08); }
-.elementor .lv-arrow { transition: transform .5s var(--lv-ease); }
+.elementor .lv-btn:hover .lv-btn-icon { transform: scale(1.06); }
+.elementor .lv-arrow { display: block; transform: rotate(-45deg); }
 .elementor .lv-btn:hover .lv-arrow,
 .elementor .lv-ind-card:hover .lv-arrow,
 .elementor .lv-svc:hover .lv-arrow,
-.elementor .lv-panel.is-open .lv-arrow { transform: rotate(0deg); }
+.elementor .lv-panel:hover .lv-panel-full .lv-arrow { animation: lv-arrow-hop .65s var(--lv-ease); }
+@keyframes lv-arrow-hop {
+	0% { transform: rotate(-45deg) translateX(0); opacity: 1; }
+	45% { transform: rotate(-45deg) translateX(16px); opacity: 0; }
+	46% { transform: rotate(-45deg) translateX(-16px); opacity: 0; }
+	100% { transform: rotate(-45deg) translateX(0); opacity: 1; }
+}
+.elementor .lv-btn-icon, .elementor .lv-circle { overflow: hidden; }
 .elementor .lv-circle { transition: background-color .4s, border-color .4s, color .4s, transform .5s var(--lv-ease); }
 
 /* -------------------------------------------------------------- marquee */

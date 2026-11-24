@@ -1,5 +1,5 @@
 === Levanto Home FX ===
-Version: 1.0.0
+Version: 1.1.0
 
 Motion layer for the Levanto Elementor home page (Elementor 4 / V4 atomic widgets).
 
@@ -20,3 +20,9 @@ plugin adds them, keyed off the lv-* global classes in the Elementor kit:
 
 Install: WP Admin > Plugins > Add New > Upload Plugin > levanto-home-fx.zip > Activate.
 No settings. Deactivating it leaves the page static but intact.
+
+== Changelog ==
+1.1.0 - Patterns now animate the exact Figma artwork (set on the page) instead of
+        CSS approximations; arrows keep the design's diagonal and hop on hover;
+        every Services row gets the dark highlight + image on hover; icons centred.
+1.0.0 - First release.
