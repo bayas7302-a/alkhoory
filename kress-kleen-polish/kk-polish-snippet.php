@@ -1139,57 +1139,70 @@ body .elementor-153 .elementor-element.elementor-element-f5a2f5e img.kp-star {
   body .elementor-153 :is(.elementor-element.elementor-element-1b9f740, .elementor-element.elementor-element-3686e69, .elementor-element.elementor-element-f5a2f5e, .elementor-element.elementor-element-e6c8adb) img.kp-star { height: 22px !important; }
 }
 
-/* rotating heading: "No" stays, the rest rotates; the line stays centred */
+
+
+/* =====================================================================
+   25. Rotating "No …" heading (smooth): one line, centred; transform/opacity only
+   ===================================================================== */
 body .elementor-153 .elementor-element.elementor-element-fb87731 { width: 100% !important; max-width: 100% !important; }
 body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready {
   display: block;
   text-align: center;
   white-space: nowrap;
+  position: relative;
+  height: 1.2em;
+  line-height: 1.2em !important;
+  overflow: visible;
 }
-.kp-rot-ready .kp-no { display: inline-block; vertical-align: top; line-height: 1.15em; }
+/* centred by its own midpoint, so it stays centred even while wider than the page during a change */
+.kp-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.2em;
+  white-space: nowrap;
+  transform: translate3d(-50%, 0, 0);
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.kp-no { flex: 0 0 auto; }
 .kp-rot {
   position: relative;
-  display: inline-block;
-  vertical-align: top;
-  height: 1.15em;
+  flex: 0 0 auto;
+  height: 1.2em;
   overflow: hidden;
-  text-align: left;
-  transition: width 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 .kp-rot__item {
   position: absolute;
   left: 0; top: 0;
-  height: 1.15em;
-  display: block;
-  line-height: 1.15em;
+  height: 1.2em;
+  line-height: 1.2em;
   white-space: nowrap;
   opacity: 0;
-  transform: translate3d(0, 100%, 0);
-  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+  transform: translate3d(0, 70%, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.6s ease;
 }
-.kp-rot__item.is-active { opacity: 1; transform: none; }
-.kp-rot__item.is-leaving { opacity: 0; transform: translate3d(0, -100%, 0); }
-@media (prefers-reduced-motion: reduce) {
-  .kp-rot, .kp-rot__item { transition: none !important; }
-}
-
-/* phones: "No" on its own line, the rotating phrase centred below (long phrase wraps, never tiny) */
+.kp-rot__item.is-active { opacity: 1; transform: translate3d(0, 0, 0); transition-delay: 0.08s; }
+.kp-rot__item.is-leaving { opacity: 0; transform: translate3d(0, -70%, 0); }
+.kp-rot__txt { display: inline-block; }
+/* measuring / first paint: no animation */
+.kp-measuring .kp-rot__item, .kp-no-anim .kp-rot__item, .kp-no-anim .kp-rot, .kp-no-anim .kp-line { transition: none !important; }
+/* phones: "No" on its own line, the rotating phrase centred below (long phrase wraps) */
 @media (max-width: 767px) {
-  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { white-space: normal; }
-  .kp-rot-ready .kp-no { display: block; }
+  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { white-space: normal; height: auto; line-height: 1.1 !important; }
+  .kp-line { position: static; display: block; height: auto; white-space: normal; transform: none !important; }
+  .kp-no { display: block; }
   .kp-rot { display: block; width: 100% !important; height: 2.3em; }
-  .kp-rot__item { left: 0; right: 0; height: 2.3em; display: flex; align-items: center; justify-content: center; text-align: center; white-space: normal; line-height: 1.1; }
-}
-.kp-rot__txt { display: inline-block; white-space: inherit; }
-@media (max-width: 767px) { .kp-rot__txt { display: block; } }
-
-/* rotating heading: "No" and the phrase scale together, vertically centred in a fixed-height line */
-@media (min-width: 768px) {
-  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { transition: font-size 0.7s cubic-bezier(0.65, 0, 0.35, 1); overflow: visible; }
-  .kp-rot-ready .kp-no, .kp-rot-ready .kp-rot { vertical-align: middle; }
+  .kp-rot__item { left: 0; right: 0; height: 2.3em; line-height: 1.1; display: flex; align-items: center; justify-content: center; text-align: center; white-space: normal; }
+  .kp-rot__txt { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
-  body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-heading-title.kp-rot-ready { transition: none; }
+  .kp-line, .kp-rot, .kp-rot__item { transition: none !important; }
 }
 </style>
     <?php
@@ -1329,83 +1342,91 @@ function kk_polish_js() {
         });
     })();
 
-    /* ---------- 1g. Who We Are: "No" stays, the rest rotates smoothly ---------- */
+    /* ---------- 1g. Who We Are: "No" stays, the rest rotates smoothly ----------
+       Widths are measured once at full size; the line only animates with transform / opacity
+       and one width transition, all on the same timing, so there is no reflow jump. */
     (function () {
         var h = document.querySelector('.elementor-153 .elementor-element-fb87731 .elementor-heading-title');
         if (!h || h.classList.contains('kp-rot-ready')) { return; }
         var phrases = ['hype.', 'gimmicks.', 'over-engineering.', 'premium price without premium value.'];
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var narrow = window.matchMedia('(max-width: 767px)');
 
         h.setAttribute('aria-label', 'No ' + phrases.join(' No '));
         h.textContent = '';
+        var line = document.createElement('span');
+        line.className = 'kp-line';
+        line.setAttribute('aria-hidden', 'true');
         var no = document.createElement('span');
         no.className = 'kp-no';
         no.textContent = 'No ';
         var rot = document.createElement('span');
         rot.className = 'kp-rot';
-        rot.setAttribute('aria-hidden', 'true');
-        no.setAttribute('aria-hidden', 'true');
-        var items = phrases.map(function (t) {
+        var items = phrases.map(function (txt) {
             var s = document.createElement('span');
             s.className = 'kp-rot__item';
             var tx = document.createElement('span');
             tx.className = 'kp-rot__txt';
-            tx.textContent = t;
+            tx.textContent = txt;
             s.appendChild(tx);
             s.__t = tx;
             rot.appendChild(s);
             return s;
         });
-        h.appendChild(no);
-        h.appendChild(rot);
+        line.appendChild(no);
+        line.appendChild(rot);
+        h.appendChild(line);
         h.classList.add('kp-rot-ready');
 
         var i = 2;   // start on "over-engineering"
-        // each phrase gets the width it needs; a phrase too long for the line is shrunk to fit
-        var narrow = window.matchMedia('(max-width: 767px)');
-        var base = 0;
-        // desktop/tablet: "No" and the phrase are always the same size; a phrase too long for the line
-        // scales the whole line down (smoothly), the line height stays fixed so nothing below moves
-        function apply(n) {
-            var it = items[n];
-            if (narrow.matches || !base) { h.style.removeProperty('font-size'); rot.style.width = ''; return; }
-            h.style.setProperty('font-size', (base * it.__k).toFixed(2) + 'px', 'important');
-            rot.style.width = (it.__em * 1.03).toFixed(4) + 'em';
-        }
-        // once the size change has finished, fit the box to the phrase's real width
-        function settle() {
-            if (narrow.matches || !base) { return; }
-            var t = items[i].__t;
-            rot.style.width = Math.ceil(t.getBoundingClientRect().width + 2) + 'px';
-        }
-        h.addEventListener('transitionend', function (e) { if (e.target === h && e.propertyName === 'font-size') { settle(); } });
+
         function fit() {
-            h.style.removeProperty('font-size');
-            h.style.removeProperty('height');
-            h.style.removeProperty('line-height');
+            h.classList.add('kp-measuring');
             items.forEach(function (it) { it.__t.style.fontSize = ''; });
             if (narrow.matches) {   // phones: stacked; a phrase that needs more than two lines is shrunk a little
-                base = 0;
                 rot.style.width = '';
+                line.style.transform = '';
+                h.classList.remove('kp-measuring');
                 items.forEach(function (it) {
                     var k = 100;
-                    while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) {
-                        k -= 5;
-                        it.__t.style.fontSize = k + '%';
-                    }
+                    while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) { k -= 5; it.__t.style.fontSize = k + '%'; }
                 });
                 return;
             }
-            base = parseFloat(getComputedStyle(h).fontSize) || 0;
-            var noW = no.offsetWidth, room = h.clientWidth - 4;
+            var room = h.clientWidth - 8;
+            line.style.transform = 'translate3d(-50%, 0, 0)';
+            noW = no.getBoundingClientRect().width;
             items.forEach(function (it) {
-                var w = it.__t.offsetWidth;
-                it.__em = w / base;
+                var w = Math.ceil(it.__t.getBoundingClientRect().width) + 2;
+                it.__w = w;
                 it.__k = Math.min(1, room / (noW + w));
             });
-            h.style.setProperty('height', (base * 1.15).toFixed(1) + 'px', 'important');
-            h.style.setProperty('line-height', (base * 1.15).toFixed(1) + 'px', 'important');
-            apply(i);
+            h.classList.remove('kp-measuring');
+            apply(i, true);
+        }
+        // the visible line width and the zoom move together in one animation, so the line never overshoots
+        var cur = null, anim = 0, noW = 0;
+        function setState(w, k) {
+            rot.style.width = w.toFixed(2) + 'px';
+            line.style.transform = 'translate3d(-50%, 0, 0)' + (k < 0.9999 ? ' scale(' + k.toFixed(5) + ')' : '');
+            cur = { w: w, k: k };
+        }
+        function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+        function apply(n, instant) {
+            if (narrow.matches) { return; }
+            var to = { w: items[n].__w, k: items[n].__k };
+            cancelAnimationFrame(anim);
+            if (instant || !cur || reduce || h.classList.contains('kp-no-anim')) { setState(to.w, to.k); return; }
+            var from = { w: cur.w, k: cur.k };
+            var v0 = from.k * (noW + from.w), v1 = to.k * (noW + to.w);   // visible widths
+            var t0 = performance.now(), D = 800;
+            (function step(now) {
+                var p = Math.min(1, (now - t0) / D), e = ease(p);
+                var k = from.k + (to.k - from.k) * e;
+                var v = v0 + (v1 - v0) * e;
+                setState(Math.max(0, v / k - noW), k);
+                if (p < 1) { anim = requestAnimationFrame(step); }
+            })(t0);
         }
         function show(n, first) {
             items.forEach(function (it, k) {
@@ -1415,16 +1436,22 @@ function kk_polish_js() {
             });
             i = n;
             apply(n);
-            setTimeout(settle, 760);
         }
+
+        // first layout without animation
+        h.classList.add('kp-no-anim');
         fit();
         show(i, true);
-        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); }
-        window.addEventListener('resize', function () { fit(); });
+        requestAnimationFrame(function () { requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); });
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function () { h.classList.add('kp-no-anim'); fit(); requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); });
+        }
+        var rt = 0;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { h.classList.add('kp-no-anim'); fit(); requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); }, 150); });
         if (reduce) { return; }
 
         var timer = null;
-        function start() { if (!timer) { timer = setInterval(function () { show((i + 1) % items.length); }, 2600); } }
+        function start() { if (!timer) { timer = setInterval(function () { if (!document.hidden) { show((i + 1) % items.length); } }, 3000); } }
         function stop() { clearInterval(timer); timer = null; }
         if ('IntersectionObserver' in window) {
             new IntersectionObserver(function (e) { if (e[0].isIntersecting) { start(); } else { stop(); } }).observe(h);

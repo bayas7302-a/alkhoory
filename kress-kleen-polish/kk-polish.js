@@ -125,83 +125,91 @@
         });
     })();
 
-    /* ---------- 1g. Who We Are: "No" stays, the rest rotates smoothly ---------- */
+    /* ---------- 1g. Who We Are: "No" stays, the rest rotates smoothly ----------
+       Widths are measured once at full size; the line only animates with transform / opacity
+       and one width transition, all on the same timing, so there is no reflow jump. */
     (function () {
         var h = document.querySelector('.elementor-153 .elementor-element-fb87731 .elementor-heading-title');
         if (!h || h.classList.contains('kp-rot-ready')) { return; }
         var phrases = ['hype.', 'gimmicks.', 'over-engineering.', 'premium price without premium value.'];
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var narrow = window.matchMedia('(max-width: 767px)');
 
         h.setAttribute('aria-label', 'No ' + phrases.join(' No '));
         h.textContent = '';
+        var line = document.createElement('span');
+        line.className = 'kp-line';
+        line.setAttribute('aria-hidden', 'true');
         var no = document.createElement('span');
         no.className = 'kp-no';
         no.textContent = 'No ';
         var rot = document.createElement('span');
         rot.className = 'kp-rot';
-        rot.setAttribute('aria-hidden', 'true');
-        no.setAttribute('aria-hidden', 'true');
-        var items = phrases.map(function (t) {
+        var items = phrases.map(function (txt) {
             var s = document.createElement('span');
             s.className = 'kp-rot__item';
             var tx = document.createElement('span');
             tx.className = 'kp-rot__txt';
-            tx.textContent = t;
+            tx.textContent = txt;
             s.appendChild(tx);
             s.__t = tx;
             rot.appendChild(s);
             return s;
         });
-        h.appendChild(no);
-        h.appendChild(rot);
+        line.appendChild(no);
+        line.appendChild(rot);
+        h.appendChild(line);
         h.classList.add('kp-rot-ready');
 
         var i = 2;   // start on "over-engineering"
-        // each phrase gets the width it needs; a phrase too long for the line is shrunk to fit
-        var narrow = window.matchMedia('(max-width: 767px)');
-        var base = 0;
-        // desktop/tablet: "No" and the phrase are always the same size; a phrase too long for the line
-        // scales the whole line down (smoothly), the line height stays fixed so nothing below moves
-        function apply(n) {
-            var it = items[n];
-            if (narrow.matches || !base) { h.style.removeProperty('font-size'); rot.style.width = ''; return; }
-            h.style.setProperty('font-size', (base * it.__k).toFixed(2) + 'px', 'important');
-            rot.style.width = (it.__em * 1.03).toFixed(4) + 'em';
-        }
-        // once the size change has finished, fit the box to the phrase's real width
-        function settle() {
-            if (narrow.matches || !base) { return; }
-            var t = items[i].__t;
-            rot.style.width = Math.ceil(t.getBoundingClientRect().width + 2) + 'px';
-        }
-        h.addEventListener('transitionend', function (e) { if (e.target === h && e.propertyName === 'font-size') { settle(); } });
+
         function fit() {
-            h.style.removeProperty('font-size');
-            h.style.removeProperty('height');
-            h.style.removeProperty('line-height');
+            h.classList.add('kp-measuring');
             items.forEach(function (it) { it.__t.style.fontSize = ''; });
             if (narrow.matches) {   // phones: stacked; a phrase that needs more than two lines is shrunk a little
-                base = 0;
                 rot.style.width = '';
+                line.style.transform = '';
+                h.classList.remove('kp-measuring');
                 items.forEach(function (it) {
                     var k = 100;
-                    while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) {
-                        k -= 5;
-                        it.__t.style.fontSize = k + '%';
-                    }
+                    while (it.__t.offsetHeight > it.clientHeight + 1 && k > 55) { k -= 5; it.__t.style.fontSize = k + '%'; }
                 });
                 return;
             }
-            base = parseFloat(getComputedStyle(h).fontSize) || 0;
-            var noW = no.offsetWidth, room = h.clientWidth - 4;
+            var room = h.clientWidth - 8;
+            line.style.transform = 'translate3d(-50%, 0, 0)';
+            noW = no.getBoundingClientRect().width;
             items.forEach(function (it) {
-                var w = it.__t.offsetWidth;
-                it.__em = w / base;
+                var w = Math.ceil(it.__t.getBoundingClientRect().width) + 2;
+                it.__w = w;
                 it.__k = Math.min(1, room / (noW + w));
             });
-            h.style.setProperty('height', (base * 1.15).toFixed(1) + 'px', 'important');
-            h.style.setProperty('line-height', (base * 1.15).toFixed(1) + 'px', 'important');
-            apply(i);
+            h.classList.remove('kp-measuring');
+            apply(i, true);
+        }
+        // the visible line width and the zoom move together in one animation, so the line never overshoots
+        var cur = null, anim = 0, noW = 0;
+        function setState(w, k) {
+            rot.style.width = w.toFixed(2) + 'px';
+            line.style.transform = 'translate3d(-50%, 0, 0)' + (k < 0.9999 ? ' scale(' + k.toFixed(5) + ')' : '');
+            cur = { w: w, k: k };
+        }
+        function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+        function apply(n, instant) {
+            if (narrow.matches) { return; }
+            var to = { w: items[n].__w, k: items[n].__k };
+            cancelAnimationFrame(anim);
+            if (instant || !cur || reduce || h.classList.contains('kp-no-anim')) { setState(to.w, to.k); return; }
+            var from = { w: cur.w, k: cur.k };
+            var v0 = from.k * (noW + from.w), v1 = to.k * (noW + to.w);   // visible widths
+            var t0 = performance.now(), D = 800;
+            (function step(now) {
+                var p = Math.min(1, (now - t0) / D), e = ease(p);
+                var k = from.k + (to.k - from.k) * e;
+                var v = v0 + (v1 - v0) * e;
+                setState(Math.max(0, v / k - noW), k);
+                if (p < 1) { anim = requestAnimationFrame(step); }
+            })(t0);
         }
         function show(n, first) {
             items.forEach(function (it, k) {
@@ -211,16 +219,22 @@
             });
             i = n;
             apply(n);
-            setTimeout(settle, 760);
         }
+
+        // first layout without animation
+        h.classList.add('kp-no-anim');
         fit();
         show(i, true);
-        if (document.fonts && document.fonts.ready) { document.fonts.ready.then(fit); }
-        window.addEventListener('resize', function () { fit(); });
+        requestAnimationFrame(function () { requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); });
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function () { h.classList.add('kp-no-anim'); fit(); requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); });
+        }
+        var rt = 0;
+        window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { h.classList.add('kp-no-anim'); fit(); requestAnimationFrame(function () { h.classList.remove('kp-no-anim'); }); }, 150); });
         if (reduce) { return; }
 
         var timer = null;
-        function start() { if (!timer) { timer = setInterval(function () { show((i + 1) % items.length); }, 2600); } }
+        function start() { if (!timer) { timer = setInterval(function () { if (!document.hidden) { show((i + 1) % items.length); } }, 3000); } }
         function stop() { clearInterval(timer); timer = null; }
         if ('IntersectionObserver' in window) {
             new IntersectionObserver(function (e) { if (e[0].isIntersecting) { start(); } else { stop(); } }).observe(h);
