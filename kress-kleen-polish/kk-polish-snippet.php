@@ -797,11 +797,11 @@ body .kk-sh .kk-sh__card {
   background: rgba(255, 255, 255, 0.6) !important;
   -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
   backdrop-filter: blur(20px) saturate(150%) !important;
-  border: 2px solid rgba(255, 255, 255, 0.92) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  /* design edge: light-grey rim on the right and bottom + soft drop shadow towards the bottom right */
   box-shadow:
-    inset 0 0 0 5px rgba(255, 255, 255, 0.3),
-    inset 0 0 24px rgba(255, 255, 255, 0.55),
-    0 18px 48px rgba(0, 0, 0, 0.22) !important;
+    4px 5px 0 rgba(208, 208, 208, 0.9),
+    10px 14px 26px rgba(0, 0, 0, 0.28) !important;
   border-radius: 30px !important;
   color: #111111;
 }
@@ -827,6 +827,26 @@ body .kk-sh a.kk-sh__btn {
 @media (max-width: 767px) {
   body .kk-sh .kk-sh__card { border-radius: 22px !important; }
 }
+
+
+/* =====================================================================
+   13. Home: header stays pinned over the scroll video (tablet + desktop),
+   then slides away with the page when the video section ends (kk-polish.js).
+   Phones keep their own sticky header.
+   ===================================================================== */
+@media (min-width: 768px) {
+  body #masthead.kp-hero-pin {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 1000 !important;
+    will-change: transform;
+  }
+  body.admin-bar #masthead.kp-hero-pin { top: 32px; }
+}
+
+/* Catalogue / category banners: same overlay as the Where to Buy banner (black, 63%) */
+:root { --kk-hero-overlay: rgba(0, 0, 0, 0.63); }
 </style>
     <?php
 }
@@ -856,6 +876,33 @@ function kk_polish_js() {
         if (mqMobile.addEventListener) { mqMobile.addEventListener('change', update); }
         update();
     }
+
+    /* ---------- 1b. home: keep the header pinned through the scroll-video section ---------- */
+    (function () {
+        var hero = document.getElementById('kk-sh');
+        var hdr = document.getElementById('masthead');
+        var track = hero && hero.querySelector('.kk-sh__track');
+        if (!hero || !hdr || !track) { return; }
+        var mq = window.matchMedia('(min-width: 768px)');
+        var raf = 0;
+        function update() {
+            raf = 0;
+            if (!mq.matches) {
+                hdr.classList.remove('kp-hero-pin');
+                hdr.style.transform = '';
+                return;
+            }
+            hdr.classList.add('kp-hero-pin');
+            // once the end of the video section reaches the header, the header slides up with it
+            var lift = Math.min(0, track.getBoundingClientRect().bottom - hdr.offsetHeight);
+            hdr.style.transform = lift < 0 ? 'translate3d(0,' + Math.round(lift) + 'px,0)' : '';
+        }
+        function kick() { if (!raf) { raf = requestAnimationFrame(update); } }
+        window.addEventListener('scroll', kick, { passive: true });
+        window.addEventListener('resize', kick);
+        if (mq.addEventListener) { mq.addEventListener('change', kick); }
+        update();
+    })();
 
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these

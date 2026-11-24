@@ -17,6 +17,33 @@
         update();
     }
 
+    /* ---------- 1b. home: keep the header pinned through the scroll-video section ---------- */
+    (function () {
+        var hero = document.getElementById('kk-sh');
+        var hdr = document.getElementById('masthead');
+        var track = hero && hero.querySelector('.kk-sh__track');
+        if (!hero || !hdr || !track) { return; }
+        var mq = window.matchMedia('(min-width: 768px)');
+        var raf = 0;
+        function update() {
+            raf = 0;
+            if (!mq.matches) {
+                hdr.classList.remove('kp-hero-pin');
+                hdr.style.transform = '';
+                return;
+            }
+            hdr.classList.add('kp-hero-pin');
+            // once the end of the video section reaches the header, the header slides up with it
+            var lift = Math.min(0, track.getBoundingClientRect().bottom - hdr.offsetHeight);
+            hdr.style.transform = lift < 0 ? 'translate3d(0,' + Math.round(lift) + 'px,0)' : '';
+        }
+        function kick() { if (!raf) { raf = requestAnimationFrame(update); } }
+        window.addEventListener('scroll', kick, { passive: true });
+        window.addEventListener('resize', kick);
+        if (mq.addEventListener) { mq.addEventListener('change', kick); }
+        update();
+    })();
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is

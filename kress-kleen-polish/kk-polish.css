@@ -780,11 +780,11 @@ body .kk-sh .kk-sh__card {
   background: rgba(255, 255, 255, 0.6) !important;
   -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
   backdrop-filter: blur(20px) saturate(150%) !important;
-  border: 2px solid rgba(255, 255, 255, 0.92) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  /* design edge: light-grey rim on the right and bottom + soft drop shadow towards the bottom right */
   box-shadow:
-    inset 0 0 0 5px rgba(255, 255, 255, 0.3),
-    inset 0 0 24px rgba(255, 255, 255, 0.55),
-    0 18px 48px rgba(0, 0, 0, 0.22) !important;
+    4px 5px 0 rgba(208, 208, 208, 0.9),
+    10px 14px 26px rgba(0, 0, 0, 0.28) !important;
   border-radius: 30px !important;
   color: #111111;
 }
@@ -810,3 +810,23 @@ body .kk-sh a.kk-sh__btn {
 @media (max-width: 767px) {
   body .kk-sh .kk-sh__card { border-radius: 22px !important; }
 }
+
+
+/* =====================================================================
+   13. Home: header stays pinned over the scroll video (tablet + desktop),
+   then slides away with the page when the video section ends (kk-polish.js).
+   Phones keep their own sticky header.
+   ===================================================================== */
+@media (min-width: 768px) {
+  body #masthead.kp-hero-pin {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 1000 !important;
+    will-change: transform;
+  }
+  body.admin-bar #masthead.kp-hero-pin { top: 32px; }
+}
+
+/* Catalogue / category banners: same overlay as the Where to Buy banner (black, 63%) */
+:root { --kk-hero-overlay: rgba(0, 0, 0, 0.63); }
