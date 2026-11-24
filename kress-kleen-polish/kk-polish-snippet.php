@@ -1042,6 +1042,18 @@ body .elementor-43 .elementor-element.elementor-element-8327566 .elementor-icon 
 body .elementor-43 .elementor-element.elementor-element-8a4b513 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-wipe.png") !important; }
 body .elementor-43 .elementor-element.elementor-element-deef3eb .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-scrub.png") !important; }
 body .elementor-43 .elementor-element.elementor-element-6a9b900 .elementor-icon { background-image: url("https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kk-solution-icon-dust.png") !important; }
+
+
+/* =====================================================================
+   21. One Home: the mint section ends at the house image; a white gap follows
+   (61px on desktop as in the design, 40px on phones)
+   ===================================================================== */
+body .elementor-43 .elementor-element.elementor-element-7149c5d { --padding-bottom: 0px; padding-bottom: 0 !important; margin-bottom: 61px !important; }
+body .elementor-43 .elementor-element.elementor-element-7149c5d > .e-con-inner { padding-bottom: 0 !important; }
+@media (max-width: 767px) {
+  body .elementor-43 .elementor-element.elementor-element-7149c5d { margin-bottom: 40px !important; }
+  body .elementor-43 .elementor-element.elementor-element-38068a6 { margin-bottom: 0 !important; }
+}
 </style>
     <?php
 }
