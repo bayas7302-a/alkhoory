@@ -975,3 +975,28 @@ html:is([lang^="ar"], .translated-rtl) body :is(h1, h2, h3, h4, h5, h6, p, a, sp
   font-family: "Cairo", "Noto Sans Arabic", Tahoma, sans-serif !important;
   letter-spacing: 0 !important;
 }
+
+
+/* =====================================================================
+   19. Green strip, matched to the design:
+   dividers run exactly from the top of the icons to the last line of text;
+   READ MORE / DISCOVER THIS PRODUCT: 38px pill, 48px side padding, regular, letter-spaced
+   ===================================================================== */
+@media (min-width: 768px) {
+  body .elementor-43 .elementor-element.elementor-element-755069b { align-items: start !important; align-content: start !important; padding-top: 0 !important; padding-bottom: 0 !important; }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) { padding-top: 0 !important; padding-bottom: 0 !important; }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) :is(.elementor-widget-container, .elementor-icon-box-wrapper) { padding: 0 !important; margin: 0 !important; }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) .elementor-icon-box-description { margin-bottom: 0 !important; padding-bottom: 0 !important; }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) .elementor-icon-box-content > :last-child { margin-bottom: 0 !important; }
+}
+body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .elementor-button {
+  min-height: 38px !important;
+  height: 38px;
+  padding: 0 48px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.12em !important;
+}
+@media (max-width: 767px) {
+  body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .elementor-button { padding: 0 32px !important; font-size: 13px !important; }
+}
