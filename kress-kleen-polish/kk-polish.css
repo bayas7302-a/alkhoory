@@ -1181,3 +1181,14 @@ body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-head
 @media (prefers-reduced-motion: reduce) {
   .kp-line, .kp-rot, .kp-rot__item { transition: none !important; }
 }
+
+
+/* =====================================================================
+   26. Hero step scrolling (kk-hero.js): two stacked videos (forward / reversed),
+   poster fades away after the first card
+   ===================================================================== */
+.kk-sh.kk-step .kk-sh__video { opacity: 0; transition: none; }
+.kk-sh.kk-step .kk-sh__video.is-on { opacity: 1; }
+.kk-sh.kk-step .kk-sh__poster { opacity: 1; visibility: visible; transition: opacity 0.7s ease, visibility 0s; }
+.kk-sh.kk-step .kk-sh__poster.is-off { opacity: 0; visibility: hidden; transition: opacity 0.7s ease, visibility 0s linear 0.7s; }
+.kk-sh.kk-step .kk-sh__bar i { transition: none; }
