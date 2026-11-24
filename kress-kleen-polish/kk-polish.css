@@ -875,3 +875,103 @@ body #masthead a[data-gt-lang="ar"]::after {
   body #masthead a[data-gt-lang="en"]::after { font-size: 12px !important; }
   body #masthead a[data-gt-lang="ar"]::after { font-size: 13px !important; top: 0; }
 }
+
+
+/* =====================================================================
+   15. Retailer logos: one continuous, seamless scroll (built in kk-polish.js)
+   ===================================================================== */
+.kp-logos { position: relative; width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+.kp-logos__track { display: flex; width: max-content; animation: kp-logos 38s linear infinite; will-change: transform; }
+.kp-logos__item { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 230px; height: 96px; margin: 0 22px; }
+.kp-logos__item img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+@keyframes kp-logos { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@media (max-width: 767px) {
+  .kp-logos__track { animation-duration: 26s; }
+  .kp-logos__item { width: 140px; height: 64px; margin: 0 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .kp-logos__track { animation-duration: 90s; } }
+.kp-logos-on .swiper, .kp-logos-on .elementor-image-carousel-wrapper { display: none !important; }
+
+/* =====================================================================
+   16. Home: SMART / FUNCTIONAL / RELIABLE – three equal columns, thin even dividers
+   ===================================================================== */
+@media (min-width: 768px) {
+  body .elementor-43 .elementor-element.elementor-element-755069b {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    gap: 0 !important;
+  }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) {
+    width: auto !important; max-width: none !important;
+    margin: 0 !important;
+    padding: 4px 28px !important;
+    border: 0 !important;
+  }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db) { border-right: 1px solid rgba(255, 255, 255, 0.75) !important; }
+  body .elementor-43 :is(.elementor-element-85d3640, .elementor-element-63b71db, .elementor-element-704d045) .elementor-icon-box-description {
+    max-width: 230px; margin: 0 auto;
+    text-wrap: balance;
+  }
+}
+
+/* =====================================================================
+   17. Buttons: one consistent style across the site
+   text always centred, Satoshi, even padding; pills for content buttons
+   ===================================================================== */
+body .elementor-button,
+body .kk-sh .kk-sh__card a.kk-sh__btn,
+body .sk-fs button.sk-fs__apply {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  line-height: 1 !important;
+  font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important;
+}
+body .elementor-button .elementor-button-content-wrapper { align-items: center; line-height: 1; }
+body .elementor-button .elementor-button-text { line-height: 1; padding-top: 1px; }
+
+/* content buttons (READ MORE, DISCOVER THIS PRODUCT): pill, 44px, letter-spaced */
+body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .elementor-button {
+  min-height: 44px;
+  padding: 0 30px !important;
+  border-radius: 999px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+}
+/* header WHERE TO BUY */
+body #masthead .elementor-element.elementor-element-0a2ca92 .elementor-button {
+  min-height: 45px;
+  padding: 0 22px !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+}
+/* footer buttons: same height and padding */
+body .elementor-30 .elementor-element.elementor-element-6e495df .elementor-button {
+  min-height: 44px;
+  padding: 0 22px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+/* area buttons keep their pill, just the font */
+body .elementor-43 :is(.elementor-element-a682427, .elementor-element-3a87742, .elementor-element-e648c86, .elementor-element-0f74986) .elementor-button { letter-spacing: 0.06em !important; }
+/* form buttons */
+body .cf7-custom-form input[type="submit"], body .cf7-custom-form .wpcf7-submit,
+body .sk-fs button.sk-fs__apply { font-family: "Satoshi", "Helvetica Neue", Arial, sans-serif !important; font-weight: 500 !important; }
+@media (max-width: 767px) {
+  body .elementor-43 :is(.elementor-element-c03da2d, .elementor-element-041e5ca) .elementor-button { min-height: 42px; padding: 0 24px !important; font-size: 13px !important; }
+}
+
+/* =====================================================================
+   18. Arabic version (after translation): Cairo for all text
+   ===================================================================== */
+html:is([lang^="ar"], .translated-rtl) body,
+html:is([lang^="ar"], .translated-rtl) body :is(h1, h2, h3, h4, h5, h6, p, a, span, li, label, button, input, textarea, select, font, div, .elementor-heading-title, .elementor-button) {
+  font-family: "Cairo", "Noto Sans Arabic", Tahoma, sans-serif !important;
+  letter-spacing: 0 !important;
+}

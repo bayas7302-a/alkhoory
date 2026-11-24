@@ -45,6 +45,60 @@
         update();
     })();
 
+    /* ---------- 1c. retailer logos: replace the stop-and-go carousel with a seamless continuous scroll ---------- */
+    document.querySelectorAll('.elementor-widget-image-carousel').forEach(function (w) {
+        if (w.querySelector('.kp-logos')) { return; }
+        var seen = {}, srcs = [];
+        w.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate) img').forEach(function (img) {
+            var src = img.currentSrc || img.src || img.getAttribute('data-src');
+            if (src && !seen[src]) { seen[src] = 1; srcs.push({ src: src, alt: img.alt || '' }); }
+        });
+        if (srcs.length < 2) { return; }
+        var box = document.createElement('div');
+        box.className = 'kp-logos';
+        box.setAttribute('aria-label', 'Our retail partners');
+        var track = document.createElement('div');
+        track.className = 'kp-logos__track';
+        // two identical halves: the animation moves exactly one half, so the loop has no gap or jump
+        for (var r = 0; r < 2; r++) {
+            for (var rep = 0; rep < 2; rep++) {
+                srcs.forEach(function (s) {
+                    var it = document.createElement('div');
+                    it.className = 'kp-logos__item';
+                    var im = document.createElement('img');
+                    im.src = s.src; im.alt = r ? '' : s.alt; im.loading = 'eager'; im.decoding = 'async';
+                    if (r) { it.setAttribute('aria-hidden', 'true'); }
+                    it.appendChild(im);
+                    track.appendChild(it);
+                });
+            }
+        }
+        box.appendChild(track);
+        var host = w.querySelector('.elementor-widget-container') || w;
+        host.appendChild(box);
+        w.classList.add('kp-logos-on');
+    });
+
+    /* ---------- 1d. Arabic version: load Cairo once a page is translated (GTranslate) ---------- */
+    (function () {
+        var done = false;
+        function check() {
+            if (done) { return; }
+            var h = document.documentElement;
+            if (/^ar/i.test(h.getAttribute('lang') || '') || h.classList.contains('translated-rtl')) {
+                done = true;
+                if (!document.getElementById('kp-cairo')) {
+                    var l = document.createElement('link');
+                    l.id = 'kp-cairo'; l.rel = 'stylesheet';
+                    l.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap';
+                    document.head.appendChild(l);
+                }
+            }
+        }
+        new MutationObserver(check).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'class'] });
+        check();
+    })();
+
     /* ---------- 2. product highlight images: every image gets the curtain reveal ----------
        The page animation starts the reveal when a picture scrolls into view, but these
        pictures are lazy-loaded, so only the first was ready in time. Here each one is
