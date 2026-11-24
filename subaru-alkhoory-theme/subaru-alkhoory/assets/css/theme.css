@@ -832,3 +832,13 @@ html, body { overflow-x: clip; }
 @media (max-width: 1520px) { :root .sa-topbar__aka { margin-left: 14px; padding-left: 10px; } }
 /* Small tablets (768–900px): the header CTA moves into the menu so the logos and menu button fit on one line. */
 @media (max-width: 900px) { :root .sa-actions__cta { display: none; } }
+
+/* 19. v1.4.8 Model sticky bar: Brochure / Spec Sheet / Book a Test Drive stay on one line; the section links tighten instead. */
+.elementor .sub-subnav .e-button-base { white-space: nowrap !important; }
+@media (min-width: 1101px) {
+	.elementor .sub-subnav > .e-con:has(.sub-subnav-link) { flex-shrink: 0 !important; column-gap: 22px !important; }
+	.elementor .sub-subnav > p { white-space: nowrap; }
+}
+@media (min-width: 1101px) and (max-width: 1600px) {
+	.elementor .sub-subnav .e-button-base:not(.sub-subnav-link), .elementor .sub-subnav .sub-btn { padding-inline: 18px !important; }
+}

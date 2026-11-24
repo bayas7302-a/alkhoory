@@ -195,14 +195,9 @@ return array(
 				),
 			),
 			// Media Library photos already used on the model page (shown on the Media Gallery page).
-			'gallery_media'  => array( 327, 232, 304, 331, 295, 291, 296, 299, 301, 336, 329, 1042, 1043 ),
+			'gallery_media'  => array( 1188, 1189, 1190, 1191, 1192, 1193, 1195, 232, 304, 331, 295, 1196, 336, 329, 1042, 1043 ), // 296/299/301 dropped: right-hand-drive interiors.
+			// Pack photos with number plates were replaced by plate-free Media Library copies (1188–1193).
 			'gallery'        => array(
-				array( '04_Media_Gallery/Crosstrek_exterior_coastroad_blue.jpg', 'Subaru Crosstrek in blue on a coastal road' ),
-				array( '04_Media_Gallery/Crosstrek_exterior_desert_blue.jpg', 'Subaru Crosstrek in blue driving through the desert' ),
-				array( '04_Media_Gallery/Crosstrek_exterior_offroad_sanddune.jpg', 'Subaru Crosstrek in Sand Dune Pearl on an off-road trail' ),
-				array( '04_Media_Gallery/Crosstrek_exterior_rocks_blue.jpg', 'Subaru Crosstrek in blue parked among rocks' ),
-				array( '04_Media_Gallery/Crosstrek_exterior_snow_red.jpg', 'Subaru Crosstrek in red on a snowy road' ),
-				array( '04_Media_Gallery/Crosstrek_lifestyle_cycling_silver.jpg', 'Subaru Crosstrek in silver with bikes on a cycling trip' ),
 				array( '04_Media_Gallery/Crosstrek_lifestyle_mountains_red.jpg', 'Subaru Crosstrek in red in the mountains' ),
 			),
 		),
