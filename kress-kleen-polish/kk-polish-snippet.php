@@ -1113,6 +1113,14 @@ body .cf7-custom-form :is(input[type="text"], input[type="email"], input[type="t
   box-shadow: 0 0 0 3px rgba(0, 145, 96, 0.15) !important;
 }
 body .cf7-custom-form .wpcf7-submit:focus-visible { outline: 3px solid #f0b232; outline-offset: 3px; }
+
+
+/* =====================================================================
+   23. Catalogue cards: no empty space above the photo (it starts at the card's top edge)
+   ===================================================================== */
+body .kk-cat ul.products li.product { padding-top: 0 !important; overflow: hidden; }
+body .kk-cat ul.products li.product a img,
+body .kk-cat ul.products li.product img { margin-top: 0 !important; }
 </style>
     <?php
 }
