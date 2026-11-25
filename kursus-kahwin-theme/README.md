@@ -34,7 +34,11 @@ Always send the full set (colours, typography, body background, custom_css) toge
 - Testimonials: editorial quotes (gold side rule, wine quote mark, 22px serif). The red top border is removed.
 - Animated Islamic lattice (inline SVG) drifting slowly behind "Kenapa Pilih Kami", testimonials, the trust strip and the footer, plus a slow gold shimmer on section titles. Both are disabled for prefers-reduced-motion.
 
+## v6
+- Fixed the services/poster section: it is a boxed container (`.e-con-inner`), so `>` child selectors never matched. The poster now starts level with the heading and stays in view (sticky) while the text scrolls. Columns are 56/44 on desktop.
+- One button style site-wide: square corners, gold, 56px tall, Cinzel 13px uppercase.
+
 ## Undo
 - Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
-- Kit: revision **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).

@@ -662,7 +662,7 @@ body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header::after { t
    v3: TENTANG KAMI (about) section: open editorial layout
    ========================================================= */
 body .elementor-element-af68fa7 { --gap: 0px; align-items: center !important; padding-top: 110px !important; padding-bottom: 110px !important; }
-body .elementor-element-af68fa7 > .elementor-element-fb6f586 {
+body .elementor-element-af68fa7 .elementor-element-fb6f586 {
   --width: 50% !important; width: 50% !important; max-width: 50%;
   background: none !important; border: 0 !important; box-shadow: none !important;
   padding: 0 64px 0 0 !important; margin: 0 !important; gap: 0 !important;
@@ -713,7 +713,7 @@ body .elementor-element-f918ead .elementor-button-text::after {
 body .elementor-element-f918ead .elementor-button:hover .elementor-button-text::after { transform: translateX(5px); }
 
 /* image column: offset gold frame + seal */
-body .elementor-element-af68fa7 > .elementor-element-2352968 {
+body .elementor-element-af68fa7 .elementor-element-2352968 {
   --width: 50% !important; width: 50% !important; max-width: 50%;
   position: relative; background: none !important; border: 0 !important; box-shadow: none !important; padding: 0 0 0 20px !important;
 }
@@ -760,14 +760,14 @@ body .elementor-element-4b439fb .aux-modern-heading-description p {
 }
 
 @media (max-width: 1024px) {
-  body .elementor-element-af68fa7 > .elementor-element-fb6f586 { padding-right: 36px !important; }
+  body .elementor-element-af68fa7 .elementor-element-fb6f586 { padding-right: 36px !important; }
   body .elementor-element-1e533a5 .col-subtitle { font-size: 36px !important; }
 }
 @media (max-width: 767px) {
   body .elementor-element-af68fa7 { padding-top: 70px !important; padding-bottom: 60px !important; }
-  body .elementor-element-af68fa7 > .elementor-element-fb6f586,
-  body .elementor-element-af68fa7 > .elementor-element-2352968 { --width: 100% !important; width: 100% !important; max-width: 100%; padding: 0 !important; }
-  body .elementor-element-af68fa7 > .elementor-element-2352968 { margin-bottom: 70px !important; padding: 0 22px 0 0 !important; }
+  body .elementor-element-af68fa7 .elementor-element-fb6f586,
+  body .elementor-element-af68fa7 .elementor-element-2352968 { --width: 100% !important; width: 100% !important; max-width: 100%; padding: 0 !important; }
+  body .elementor-element-af68fa7 .elementor-element-2352968 { margin-bottom: 70px !important; padding: 0 22px 0 0 !important; }
   body .elementor-element-1e533a5 .col-subtitle { font-size: 30px !important; }
   body .elementor-element-5426489 .elementor-icon-list-items { grid-template-columns: 1fr; gap: 10px; }
   body .elementor-element-5426489 .elementor-icon-list-item { flex-direction: row; align-items: center; padding: 14px 16px !important; }
@@ -782,7 +782,7 @@ body .elementor-element-4b439fb .aux-modern-heading-description p {
    v4: SERVICES section (replaces Tentang Kami content) + poster
    ========================================================= */
 body .elementor-element-af68fa7 { align-items: flex-start !important; }
-body .elementor-element-af68fa7 > .elementor-element-2352968 { position: sticky !important; top: 110px; align-self: flex-start; }
+body .elementor-element-af68fa7 .elementor-element-2352968 { position: sticky !important; top: 110px; align-self: flex-start; }
 body .elementor-element-1e533a5 .col-subtitle { font-size: 40px !important; text-transform: none !important; }
 body .kk-services { margin: 4px 0 34px !important; }
 body .kk-services .elementor-widget-container { display: flex; flex-direction: column; gap: 18px; }
@@ -897,7 +897,7 @@ body .elementor-element-bc8b358:not(.elementor-motion-effects-element-type-backg
 body .elementor-element-a514da6:not(.elementor-motion-effects-element-type-background) { background-color: #0d0607 !important; }
 
 @media (max-width: 767px) {
-  body .elementor-element-af68fa7 > .elementor-element-2352968 { position: relative !important; top: auto; }
+  body .elementor-element-af68fa7 .elementor-element-2352968 { position: relative !important; top: auto; }
   body .elementor-element-1e533a5 .col-subtitle { font-size: 28px !important; }
   body .kk-svc { padding: 22px 18px 20px 22px; }
   body .kk-services h3.kk-svc-title { font-size: 19px !important; }
@@ -1064,4 +1064,30 @@ body .elementor-element-40fe5c1 .elementor-testimonial-meta-inner::before {
   body .elementor-element-1de4c91, body .elementor-element-4617acd, body .elementor-element-55b81bf,
   body .elementor-element-dbcd0c4, body .elementor-element-ae1e09f, body .elementor-element-86e7159 { padding: 34px 6px 30px !important; }
   body .elementor-element-40fe5c1 .elementor-testimonial-content { font-size: 19px !important; }
+}
+
+/* =========================================================
+   v6: poster column alignment + one square button style
+   ========================================================= */
+body .elementor-element-af68fa7 > .e-con-inner { align-items: flex-start !important; --align-items: flex-start; }
+body .elementor-element-af68fa7 .elementor-element-2352968 {
+  justify-content: flex-start !important; --justify-content: flex-start; height: auto !important; min-height: 0 !important;
+}
+body .elementor-element-af68fa7 .elementor-element-fb6f586 { margin-top: 0 !important; --margin-top: 0px; }
+body .elementor-element-af68fa7 { padding-top: 90px !important; padding-bottom: 90px !important; }
+
+/* one button style everywhere: square, gold, same size */
+body .elementor-button, body .wpcf7-submit, body input[type="submit"], body .elementor-price-table__button,
+body .elementor-element-80f4532 .wpcf7-submit, body .elementor-element-74a7430 .elementor-price-table__button {
+  border-radius: 0 !important;
+  padding: 18px 36px !important; min-height: 56px; box-sizing: border-box;
+  font-family: var(--kk-font-display) !important; font-size: 13px !important; font-weight: 700 !important;
+  letter-spacing: .16em !important; line-height: 1.2 !important; text-transform: uppercase !important;
+  display: inline-flex !important; align-items: center; justify-content: center;
+}
+body .elementor-element-80f4532 .wpcf7-submit, body .elementor-element-74a7430 .elementor-price-table__button { display: flex !important; width: 100% !important; }
+body .elementor-element-2b68993 .elementor-button, body .elementor-element-44a003c .elementor-button { border-radius: 0 !important; }
+@media (min-width: 1025px) {
+  body .elementor-element-af68fa7 .elementor-element-fb6f586 { --width: 56% !important; width: 56% !important; max-width: 56% !important; padding-right: 56px !important; }
+  body .elementor-element-af68fa7 .elementor-element-2352968 { --width: 44% !important; width: 44% !important; max-width: 44% !important; top: 100px !important; }
 }
