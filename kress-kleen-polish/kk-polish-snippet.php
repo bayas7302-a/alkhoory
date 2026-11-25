@@ -25,7 +25,9 @@ function kk_polish_hero_markup( $out, $tag ) {
         return $out;
     }
     // the hero script picks the right video size (1080p / 720p), so no file is fetched before that
-    return preg_replace( '#\s+src="[^"]*kress-kleen-hero-scrub\.mp4"#', '', $out );
+    $out = preg_replace( '#\s+src="[^"]*kress-kleen-hero-scrub\.mp4"#', '', $out );
+    // opening image = the first frame of the hero video
+    return str_replace( 'wp-content/uploads/2026/10/homepage-banner.jpg', 'wp-content/uploads/2026/11/kk-hero-v2-first-frame.jpg', $out );
 }
 add_action( 'wp_footer', 'kk_polish_hero_js', 98 );
 function kk_polish_hero_js() {
@@ -44,6 +46,7 @@ function kk_polish_hero_js() {
     var big = Math.max(window.screen.width || 0, window.innerWidth) * Math.min(window.devicePixelRatio || 1, 2) >= 1700 && window.innerWidth >= 1025;
     var FWD = UP + (big ? 'kk-hero-v2-1080-fwd.mp4' : 'kk-hero-v2-720-fwd.mp4');
     var REV = UP + (big ? 'kk-hero-v2-1080-rev.mp4' : 'kk-hero-v2-720-rev.mp4');
+    var FIRST = UP + (big ? 'kk-hero-v2-first-frame.jpg' : 'kk-hero-v2-first-frame-720.jpg');
 
     var root = document.getElementById('kk-sh');
     if (!root || root.kkShReady) { return; }
@@ -92,6 +95,12 @@ function kk_polish_hero_js() {
     vf.parentNode.insertBefore(vr, vf.nextSibling);
     var active = vf;
     vf.classList.add('is-on');
+    // opening image = the video's own first frame; it simply hands over to the video once that has loaded
+    if (poster && poster.getAttribute('src') !== FIRST) { poster.removeAttribute('srcset'); poster.setAttribute('src', FIRST); }
+    vf.setAttribute('poster', FIRST);
+    function posterOff() { if (vf.readyState >= 2) { poster.classList.add('is-off'); } }
+    vf.addEventListener('loadeddata', posterOff);
+    posterOff();
 
     function unlock() {
         [vf, vr].forEach(function (v) {
@@ -149,7 +158,7 @@ function kk_polish_hero_js() {
         });
         dots.forEach(function (d, i) { d.classList.toggle('is-active', i === k); d.setAttribute('aria-current', i === k ? 'true' : 'false'); });
     }
-    function setPoster(t) { poster.classList.toggle('is-off', t > 0.05); }
+    function setPoster() { posterOff(); }
     function progress() {
         var s = Math.min(1, Math.max(0, (window.pageYOffset - top0) / total));
         if (bar) { bar.style.transform = 'scaleX(' + s.toFixed(4) + ')'; }
@@ -158,7 +167,6 @@ function kk_polish_hero_js() {
 
     /* ---------- the move ---------- */
     var busy = false, raf = 0, ownScroll = false, lastSetY = -1;
-    function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
 
     function goTo(targetT, targetY, chapter) {
         measure();
@@ -190,37 +198,61 @@ function kk_polish_hero_js() {
 
         var t0 = 0;
         vPromise.then(function () {
+            var startV = forward ? fromT : DUR - fromT;
+            var playing = forward || backward;
+            // start the clock only once the video is really moving, so page and video set off together
+            return new Promise(function (go) {
+                if (!playing) { go(); return; }
+                var w0 = performance.now();
+                (function wait() {
+                    if (v.currentTime > startV + 0.004 || performance.now() - w0 > 350) { go(); return; }
+                    requestAnimationFrame(wait);
+                })();
+            });
+        }).then(function () {
             t0 = performance.now();
             cancelAnimationFrame(raf);
-            (function step(now) {
-                var p = Math.min(1, (now - t0) / D);
+            var startV = forward ? fromT : DUR - fromT;
+            var lastRateSet = 0;
+            function place(p) {
                 ownScroll = true;
-                lastSetY = Math.round(fromY + (targetY - fromY) * ease(p));
+                lastSetY = Math.round(fromY + (targetY - fromY) * p);
                 window.scrollTo({ top: lastSetY, left: 0, behavior: 'instant' });
                 progress();
+            }
+            function finish() {
+                if (forward || backward) { v.pause(); v.playbackRate = rate; }
+                place(1);
+                ownScroll = false;
+                busy = false;
+                lastDone = performance.now();
+                if (chapter != null && cur !== chapter) { setChapter(chapter); }
+                var other = active === vf ? vr : vf;
+                seek(other, active === vf ? DUR - targetT : targetT);
+            }
+            (function step(now) {
+                // the page moves at one constant speed (no easing)
+                var p = Math.min(1, (now - t0) / D);
+                place(p);
                 if (forward || backward) {
-                    var vt = forward ? v.currentTime : DUR - v.currentTime;
-                    var ck = cardAt(vt);
+                    var vt = v.currentTime;
+                    // keep the video locked to the page: nudge its speed by up to ±30%
+                    if (now - lastRateSet > 90 && p < 1) {
+                        var want = startV + (endV - startV) * p;
+                        var err = want - vt;
+                        v.playbackRate = Math.max(0.25, rate * (1 + Math.max(-0.3, Math.min(0.3, err * 1.5))));
+                        lastRateSet = now;
+                    }
+                    var t = forward ? vt : DUR - vt;
+                    var ck = cardAt(t);
                     if (chapter != null) { ck = forward ? Math.min(ck, chapter) : Math.max(ck, chapter); }
                     if (ck !== cur) { setChapter(ck); }
-                    if (vt > 0.15) { setPoster(1); }
+                    if (vt >= endV - 0.03) { v.pause(); }
+                    // page arrived: wait (briefly) for the last video frames, then stop exactly on the target frame
+                    if (p >= 1 && !v.paused && vt < endV - 0.03 && now - t0 < D + 900) { raf = requestAnimationFrame(step); return; }
                 } else if (!switched && p >= 0.45) { switched = true; if (chapter != null) { setChapter(chapter); } }
-                // stop the video exactly on the target frame
-                if ((forward || backward) && !v.paused && v.currentTime >= endV - 0.03) { v.pause(); }
                 if (p < 1) { raf = requestAnimationFrame(step); return; }
-                // finish: if the video is a little behind, let it catch up, then pause
-                var tEnd = performance.now();
-                (function settle() {
-                    if ((forward || backward) && !v.paused && v.currentTime < endV - 0.03 && performance.now() - tEnd < 1500) { raf = requestAnimationFrame(settle); return; }
-                    if (forward || backward) { v.pause(); }
-                    ownScroll = false;
-                    busy = false;
-                    lastDone = performance.now();
-                    if (chapter != null && cur !== chapter) { setChapter(chapter); }
-                    setPoster(targetT);
-                    var other = active === vf ? vr : vf;
-                    seek(other, active === vf ? DUR - targetT : targetT);
-                })();
+                finish();
             })(t0);
         });
     }
