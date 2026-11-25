@@ -135,7 +135,7 @@
         busy = true;
         var fromY = window.pageYOffset, fromT = nowTime();
         var seg = Math.abs(targetT - fromT);
-        var D = Math.max(1400, Math.min(2100, seg * 420));
+        var D = Math.max(2400, Math.min(3400, seg * 750));   // slow, calm moves: 2.4–3.4 s per card
         var rate = seg > 0.05 ? Math.max(0.5, Math.min(8, seg / (D / 1000))) : 1;
         var forward = targetT > fromT + 0.03, backward = targetT < fromT - 0.03;
         var switched = false;
