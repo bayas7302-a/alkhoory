@@ -27,7 +27,14 @@ Always send the full set (colours, typography, body background, custom_css) toge
 - Content was written to `_elementor_data` via the WP REST API by `scripts/update_services_section.py`. Pre-change copies are in `backups/`.
 - Burgundy (#7A1424 → #3D0812) added from the poster: hero price card, trust strip, pricing plaque, form header, FAQ open state, section glows, footer.
 
+## v5 refinements
+- Services: no boxes; large outlined numerals 01/02, hairline dividers, 17px text, tagline as an italic pull-quote.
+- Kenapa Pilih Kami: ruled 3×2 grid with outlined numbers, thin gold icon rings, and a wine→gold underline on hover. The blob SVGs are hidden.
+- 5000+ badge: single round wine seal with a slowly rotating dashed gold ring.
+- Testimonials: editorial quotes (gold side rule, wine quote mark, 22px serif). The red top border is removed.
+- Animated Islamic lattice (inline SVG) drifting slowly behind "Kenapa Pilih Kami", testimonials, the trust strip and the footer, plus a slow gold shimmer on section titles. Both are disabled for prefers-reduced-motion.
+
 ## Undo
 - Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
-- Kit: revision **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).
