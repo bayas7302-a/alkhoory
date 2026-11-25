@@ -3,8 +3,11 @@
        One scroll / swipe / key press = move to the next (or previous) card.
        Forward moves PLAY the video between the two cards; backward moves play a
        reversed copy of the video, so both directions are smooth (no seeking). */
-    var FWD = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kress-kleen-hero-720-fwd.mp4';
-    var REV = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kress-kleen-hero-720-rev.mp4';
+    // 1080p for large screens, 720p for phones / small tablets (made from the 1920x1080 master)
+    var UP = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/';
+    var big = Math.max(window.screen.width || 0, window.innerWidth) * Math.min(window.devicePixelRatio || 1, 2) >= 1700 && window.innerWidth >= 1025;
+    var FWD = UP + (big ? 'kk-hero-v2-1080-fwd.mp4' : 'kk-hero-v2-720-fwd.mp4');
+    var REV = UP + (big ? 'kk-hero-v2-1080-rev.mp4' : 'kk-hero-v2-720-rev.mp4');
 
     var root = document.getElementById('kk-sh');
     if (!root || root.kkShReady) { return; }

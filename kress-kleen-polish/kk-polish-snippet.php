@@ -24,11 +24,8 @@ function kk_polish_hero_markup( $out, $tag ) {
     if ( 'kk_scroll_hero' !== $tag ) {
         return $out;
     }
-    return str_replace(
-        'wp-content/uploads/2026/10/kress-kleen-hero-scrub.mp4',
-        'wp-content/uploads/2026/11/kress-kleen-hero-720-fwd.mp4',
-        $out
-    );
+    // the hero script picks the right video size (1080p / 720p), so no file is fetched before that
+    return preg_replace( '#\s+src="[^"]*kress-kleen-hero-scrub\.mp4"#', '', $out );
 }
 add_action( 'wp_footer', 'kk_polish_hero_js', 98 );
 function kk_polish_hero_js() {
@@ -42,8 +39,11 @@ function kk_polish_hero_js() {
        One scroll / swipe / key press = move to the next (or previous) card.
        Forward moves PLAY the video between the two cards; backward moves play a
        reversed copy of the video, so both directions are smooth (no seeking). */
-    var FWD = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kress-kleen-hero-720-fwd.mp4';
-    var REV = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/kress-kleen-hero-720-rev.mp4';
+    // 1080p for large screens, 720p for phones / small tablets (made from the 1920x1080 master)
+    var UP = 'https://soharon.co.uk/off-29/wp-content/uploads/2026/11/';
+    var big = Math.max(window.screen.width || 0, window.innerWidth) * Math.min(window.devicePixelRatio || 1, 2) >= 1700 && window.innerWidth >= 1025;
+    var FWD = UP + (big ? 'kk-hero-v2-1080-fwd.mp4' : 'kk-hero-v2-720-fwd.mp4');
+    var REV = UP + (big ? 'kk-hero-v2-1080-rev.mp4' : 'kk-hero-v2-720-rev.mp4');
 
     var root = document.getElementById('kk-sh');
     if (!root || root.kkShReady) { return; }
