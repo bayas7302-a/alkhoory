@@ -13,9 +13,14 @@ Applied site-wide on kursuskahwinmalaysia.com through the Elementor kit (post 39
 - **Pricing**: split card with a gold price panel on the left and an "Apa Yang Termasuk" checklist plus CTA on the right (stacks on tablet/mobile).
 - **FAQ**: numbered 01–05 list with +/× toggles and a gold bar on the open question.
 
+## v3 "Tentang Kami" section
+Open editorial layout: no boxed panel, lead paragraph with a gold rule, the four points as 2×2 tiles with gold ✦ seals, an arrow on the button, the photo with an offset gold frame and dot pattern, and "A Cemerlang" as a round gold seal on the photo corner.
+
+Note: Elementor strips backslashes from custom CSS, so use literal characters (✦ →) in `content:`, not escapes like `\2726`.
+
 Note: `elementor/update-page-settings` on the kit **replaces** the settings rather than merging them.
 Always send the full set (colours, typography, body background, custom_css) together.
 
 ## Undo
-- Kit: revision **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).
