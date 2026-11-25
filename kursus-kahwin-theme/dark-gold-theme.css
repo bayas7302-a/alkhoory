@@ -1,0 +1,473 @@
+/* =========================================================
+   Kursus Kahwin Malaysia: Dark & Gold theme
+   Lives in: Elementor > Site Settings > Custom CSS (kit 391)
+   Fonts: Cinzel (display, matches logo), Cormorant Garamond
+   (italic accents), Jost (body)
+   ========================================================= */
+
+:root, body.elementor-kit-391, .elementor-kit-391 {
+  --kk-bg: #0b0a08;
+  --kk-bg-2: #110f0b;
+  --kk-surface: #17140f;
+  --kk-surface-2: #1f1a12;
+  --kk-gold: #d4af37;
+  --kk-gold-light: #f5d98b;
+  --kk-gold-pale: #fbecc0;
+  --kk-gold-deep: #a07a1c;
+  --kk-cream: #efe6d2;
+  --kk-muted: rgba(239, 230, 210, .72);
+  --kk-line: rgba(212, 175, 55, .28);
+  --kk-line-soft: rgba(212, 175, 55, .14);
+  --kk-grad: linear-gradient(135deg, #8c6a1a 0%, #d4af37 28%, #fbe7a1 50%, #d4af37 72%, #9a7419 100%);
+  --kk-grad-text: linear-gradient(180deg, #fff3c4 0%, #f2cf6b 38%, #d4af37 62%, #a8801f 100%);
+  --kk-font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --kk-font-serif: "Cormorant Garamond", Georgia, serif;
+  --kk-font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  /* remap Elementor globals (also set in Site Settings) */
+  --e-global-color-primary: #d4af37;
+  --e-global-color-secondary: #f5d98b;
+  --e-global-color-text: rgba(239, 230, 210, .76);
+  --e-global-color-accent: #f0c75e;
+  --e-global-color-2cb0a9bd: #8c6b1f;
+  --e-global-color-d53c2a2: #1c1811;
+  --e-global-color-f4e0263: #fff8ea;
+  --e-global-color-b36625c: #16130e;
+  --e-global-typography-primary-font-family: "Cinzel";
+  --e-global-typography-secondary-font-family: "Cinzel";
+  --e-global-typography-text-font-family: "Jost";
+  --e-global-typography-accent-font-family: "Cormorant Garamond";
+}
+
+/* ---------- Base ---------- */
+html, body, body.elementor-kit-391, #inner-body, .aux-main, .site-main,
+#main, .aux-wrapper, .aux-container, .elementor-page {
+  background-color: var(--kk-bg) !important;
+}
+body {
+  color: var(--kk-muted);
+  font-family: var(--kk-font-body) !important;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--kk-gold); color: #120f08; }
+
+/* body copy everywhere */
+body p, body li, body .elementor-icon-list-text, body .elementor-text-editor,
+body .elementor-widget-text-editor, body .aux-text-widget-content,
+body .elementor-icon-box-description, body .elementor-testimonial-content,
+body .elementor-price-table__feature-inner, body .aux-modern-heading-description,
+body .elementor-image-box-description, body .elementor-counter-title,
+body input, body select, body textarea, body label, body .wpcf7 {
+  font-family: var(--kk-font-body) !important;
+}
+body .elementor-widget-text-editor, body .elementor-widget-text-editor p,
+body .aux-text-widget-content, body .aux-text-widget-content p,
+body .elementor-icon-box-description, body .aux-modern-heading-description {
+  color: var(--kk-muted) !important;
+}
+body .elementor-icon-list-text { color: var(--kk-cream) !important; }
+body .elementor-icon-list-icon i, body .elementor-icon-list-icon svg {
+  color: var(--kk-gold) !important; fill: var(--kk-gold) !important;
+}
+body strong, body b { color: var(--kk-gold-light); }
+
+/* ---------- Headings: Cinzel in gold ----------
+   Phlox widgets: .aux-modern-heading-secondary and .col-subtitle are the BIG titles;
+   .aux-modern-heading-primary and .col-title are the small eyebrow labels. */
+body h1, body h2, body h3, body h4, body h5, body h6,
+body .elementor-heading-title, body .aux-modern-heading-secondary, body .col-subtitle,
+body .elementor-icon-box-title, body .elementor-price-table__heading,
+body .elementor-image-box-title, body .elementor-testimonial-name {
+  font-family: var(--kk-font-display) !important;
+  color: var(--kk-gold-light) !important;
+  letter-spacing: .01em;
+}
+body .aux-modern-heading-secondary, body .col-subtitle, body .elementor-heading-title,
+body .aux-modern-heading-secondary span {
+  background: var(--kk-grad-text);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600 !important; text-transform: none;
+}
+body .aux-modern-heading-secondary .aux-head-highlight {
+  font-family: var(--kk-font-serif) !important; font-style: italic; font-weight: 500 !important;
+  background: linear-gradient(180deg, #fff6d6, #f0cd70); -webkit-background-clip: text; background-clip: text;
+}
+body .elementor-icon-box-title, body .elementor-icon-box-title a { font-weight: 600 !important; font-size: 18px !important; }
+/* eyebrow labels */
+body .aux-modern-heading-primary, body .col-title, body .col-title a {
+  font-family: var(--kk-font-body) !important;
+  color: var(--kk-gold) !important; -webkit-text-fill-color: currentColor;
+  letter-spacing: .26em !important; text-transform: uppercase; font-weight: 500 !important;
+}
+/* the "A" grade badge keeps a big display letter */
+body .elementor-element-4b439fb .aux-modern-heading-primary {
+  font-family: var(--kk-font-display) !important; letter-spacing: 0 !important; font-size: 40px !important;
+  background: var(--kk-grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+body .elementor-element-4b439fb .aux-modern-heading-secondary, body .elementor-element-4b439fb .aux-modern-heading-secondary span {
+  font-family: var(--kk-font-body) !important; letter-spacing: .25em; font-size: 12px !important;
+}
+body .elementor-element-4b439fb .aux-modern-heading-description p { color: var(--kk-muted) !important; font-size: 12px; }
+/* list bullets ✦ */
+body .elementor-icon-list-item:before { color: var(--kk-gold) !important; }
+/* italic accent text in serif */
+body em, body .aux-modern-heading-description em {
+  font-family: var(--kk-font-serif); font-size: 1.12em; color: var(--kk-gold-pale);
+}
+body .elementor-element-d57cc03 .aux-modern-heading-description p,
+body .elementor-element-d57cc03 .aux-modern-heading-description span {
+  font-family: var(--kk-font-serif) !important; font-style: italic; font-size: 22px !important; color: var(--kk-gold-pale) !important;
+}
+
+/* ---------- Links ---------- */
+body a { color: var(--kk-gold-light); transition: color .25s ease; }
+body a:hover { color: var(--kk-gold-pale); }
+
+/* ---------- Header / navigation ---------- */
+body .elementor-location-header, body .elementor-822 > .elementor-element-521fe4e,
+body .elementor-element-521fe4e {
+  background: rgba(11, 10, 8, .86) !important;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--kk-line-soft);
+}
+body .elementor-location-header .e-con, body .elementor-location-header .elementor-section { background-color: transparent !important; }
+body .aux-logo-anchor img, body .aux-widget-logo img {
+  content: url("https://kursuskahwinmalaysia.com/wp-content/uploads/2026/11/kkm-logo-monogram-sm.png");
+  max-height: 64px !important; width: auto !important; height: auto;
+  filter: drop-shadow(0 2px 10px rgba(212, 175, 55, .25));
+}
+body .aux-menu-label, body .aux-master-menu .aux-item-content,
+body .aux-menu-depth-0 > .aux-item-content > .aux-menu-label {
+  font-family: var(--kk-font-display) !important;
+  color: var(--kk-cream) !important;
+  letter-spacing: .12em; font-size: 13px !important; font-weight: 500 !important;
+}
+body .aux-menu-item:hover .aux-menu-label,
+body .aux-menu-item.current-menu-item .aux-menu-label,
+body .aux-menu-item.aux-active .aux-menu-label { color: var(--kk-gold) !important; }
+body .aux-master-menu .aux-menu-depth-0 > .aux-item-content:after { background: var(--kk-gold) !important; }
+body .aux-burger .mid-line, body .aux-burger:before, body .aux-burger:after { background-color: var(--kk-gold) !important; }
+body .aux-fs-popup { background: rgba(11, 10, 8, .97) !important; }
+body .aux-fs-popup .aux-menu-label { font-size: 22px !important; }
+body .aux-fs-popup .aux-close:before, body .aux-fs-popup .aux-close:after { background: var(--kk-gold) !important; }
+
+/* ---------- Buttons ---------- */
+body .elementor-button, body .wpcf7-submit, body input[type="submit"],
+body .elementor-price-table__button, body button.aux-button, body .aux-button {
+  background: var(--kk-grad) !important;
+  background-size: 200% 100% !important; background-position: 0% 50% !important;
+  color: #1a1408 !important; fill: #1a1408 !important;
+  font-family: var(--kk-font-display) !important; font-weight: 700 !important;
+  letter-spacing: .08em; text-transform: uppercase; font-size: 13px !important;
+  border: 1px solid rgba(251, 231, 161, .55) !important; border-radius: 2px !important;
+  box-shadow: 0 8px 24px -10px rgba(212, 175, 55, .55), inset 0 1px 0 rgba(255, 255, 255, .35);
+  transition: background-position .6s ease, transform .25s ease, box-shadow .25s ease !important;
+}
+body .elementor-button:hover, body .wpcf7-submit:hover, body input[type="submit"]:hover,
+body .elementor-price-table__button:hover {
+  background-position: 100% 50% !important; color: #0b0a08 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -10px rgba(212, 175, 55, .7), inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+body .elementor-button .elementor-button-text, body .elementor-button svg { color: inherit !important; fill: currentColor !important; }
+body .elementor-button .elementor-button-text:after { display: none !important; }
+/* secondary (WhatsApp / Lihat Pakej) buttons → outline gold */
+body .elementor-element-2b68993 .elementor-button,
+body .elementor-element-44a003c .elementor-button {
+  background: transparent !important; color: var(--kk-gold-light) !important;
+  border: 1px solid var(--kk-gold) !important; box-shadow: none;
+}
+body .elementor-element-2b68993 .elementor-button:hover,
+body .elementor-element-44a003c .elementor-button:hover {
+  background: rgba(212, 175, 55, .12) !important; color: var(--kk-gold-pale) !important;
+}
+
+/* ---------- Sections: dark, alternating ---------- */
+body .elementor-element.e-con, body .elementor-section { border-color: var(--kk-line-soft); }
+body .elementor-element-97b15bb, body .elementor-element-40fe5c1,
+body .elementor-element-a23d3ae, body .elementor-element-af68fa7,
+body .elementor-element-a02be8c {
+  background-color: var(--kk-bg) !important;
+}
+body .elementor-element-595fedd, body .elementor-element-26b3c2c,
+body .elementor-element-c6393eb, body .elementor-element-4e460b5 {
+  background-color: var(--kk-bg-2) !important;
+  background-image: radial-gradient(ellipse at top, rgba(212, 175, 55, .08), transparent 60%) !important;
+  border-top: 1px solid var(--kk-line-soft); border-bottom: 1px solid var(--kk-line-soft);
+}
+body .elementor-element-97b15bb:not(.elementor-motion-effects-element-type-background),
+body .elementor-element-40fe5c1:not(.elementor-motion-effects-element-type-background),
+body .elementor-element-a23d3ae:not(.elementor-motion-effects-element-type-background) { background-color: var(--kk-bg) !important; }
+body .elementor-element-595fedd:not(.elementor-motion-effects-element-type-background),
+body .elementor-element-26b3c2c:not(.elementor-motion-effects-element-type-background) { background-color: var(--kk-bg-2) !important; }
+/* trust strip */
+body .elementor-element-c6393eb {
+  background: linear-gradient(90deg, #120f09, #1d170c 50%, #120f09) !important;
+}
+body .elementor-element-c6393eb .elementor-icon-list-text {
+  font-family: var(--kk-font-display) !important; letter-spacing: .06em; color: var(--kk-gold-light) !important;
+}
+/* decorative pink SVG blobs → gold, subdued */
+body .aux-simple-svg-container svg, body .aux-the-svg svg { opacity: .18; }
+body .aux-simple-svg-container svg path, body .aux-the-svg svg path { fill: var(--kk-gold) !important; }
+
+/* ---------- Hero ---------- */
+body .elementor-element-8a8ee02 {
+  border: 1px solid var(--kk-line);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9), inset 0 0 0 1px rgba(251, 231, 161, .06);
+}
+body .elementor-element-8a8ee02::before, body .elementor-element-8a8ee02 > .elementor-background-overlay {
+  background: linear-gradient(110deg, rgba(10, 8, 5, .9) 0%, rgba(10, 8, 5, .55) 55%, rgba(10, 8, 5, .25) 100%) !important;
+  opacity: 1 !important;
+}
+body .elementor-element-8a8ee02 .elementor-icon-list-text,
+body .elementor-element-27aae13 .elementor-icon-list-text { color: var(--kk-cream) !important; }
+/* side price card */
+body .elementor-element-c71950c::before,
+body .elementor-element-c71950c > .elementor-background-overlay {
+  background-image: linear-gradient(180deg, rgba(23, 20, 15, .96) 0%, rgba(14, 12, 9, .96) 100%) !important;
+  opacity: 1 !important;
+}
+body .elementor-element-c71950c {
+  background: linear-gradient(180deg, #19150e, #0f0d09) !important;
+  border: 1px solid var(--kk-line) !important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 30px 60px -30px rgba(212, 175, 55, .35), inset 0 1px 0 rgba(251, 231, 161, .12);
+}
+body .elementor-element-c71950c .elementor-counter-number-wrapper,
+body .elementor-element-c71950c .elementor-counter-number,
+body .elementor-element-c71950c .elementor-counter-number-prefix,
+body .elementor-element-c71950c .elementor-counter-number-suffix {
+  font-family: var(--kk-font-display) !important;
+  background: var(--kk-grad-text); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: var(--kk-gold) !important;
+}
+body .elementor-element-c71950c .elementor-counter-title,
+body .elementor-element-c71950c .aux-flex-label-wrap,
+body .elementor-element-c71950c .aux-testimonial-content,
+body .elementor-element-c71950c .aux-testimonial-content p { color: var(--kk-muted) !important; }
+body .elementor-element-c71950c .aux-testimonial-info *,
+body .elementor-element-c71950c .aux-flex-label-wrap * { color: var(--kk-gold-light) !important; }
+
+/* ---------- Images: gold frame, soft glow, hover zoom ---------- */
+body .elementor-widget-image img, body .aux-featured-image img,
+body .elementor-image-box-img img {
+  border-radius: 6px !important;
+  border: 1px solid var(--kk-line) !important;
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, .06), 0 25px 60px -25px rgba(0, 0, 0, .95), 0 0 40px -18px rgba(212, 175, 55, .45);
+  filter: saturate(.9) contrast(1.04);
+  transition: transform .6s cubic-bezier(.2, .7, .2, 1), filter .6s ease, box-shadow .6s ease;
+}
+body .elementor-widget-image:hover img {
+  transform: scale(1.015); filter: saturate(1) contrast(1.06);
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, .12), 0 30px 70px -25px rgba(0, 0, 0, .95), 0 0 50px -15px rgba(212, 175, 55, .6);
+}
+body .elementor-widget-image .elementor-widget-container { position: relative; }
+/* gallery */
+body .aux-gallery-container .aux-frame-darken::after { background-color: rgba(20, 14, 4, .55) !important; }
+body .aux-gallery-container .aux-iso-item .aux-frame-ratio-inner,
+body .aux-gallery-container .aux-iso-item img {
+  border-radius: 4px; outline: 1px solid var(--kk-line-soft); outline-offset: -1px;
+}
+body .aux-gallery-container .aux-iso-item img { filter: saturate(.85) sepia(.12); transition: filter .5s ease, transform .6s ease; }
+body .aux-gallery-container .aux-iso-item:hover img { filter: saturate(1) sepia(0); }
+body .aux-hover-scale-circle-plus .aux-symbol-circle { border-color: var(--kk-gold) !important; background: rgba(212,175,55,.15) !important; }
+body .aux-hover-scale-circle-plus .aux-symbol-plus:before, body .aux-hover-scale-circle-plus .aux-symbol-plus:after { background: var(--kk-gold) !important; }
+
+/* round badge (5000+ / A Cemerlang) */
+body .aux-flex-label-wrap, body .elementor-element-1bd01a3 .elementor-counter {
+  color: #1a1408;
+}
+body .elementor-element-3ec8982, body .elementor-element-1bd01a3 {
+  --kk-x: 0;
+}
+
+/* ---------- Cards: icon boxes, info boxes, testimonials ---------- */
+body .elementor-element-1de4c91, body .elementor-element-4617acd, body .elementor-element-55b81bf,
+body .elementor-element-dbcd0c4, body .elementor-element-ae1e09f, body .elementor-element-86e7159,
+body .elementor-element-2c863b9, body .elementor-element-332ecf0,
+body .elementor-element-888f100, body .elementor-element-8ee265e, body .elementor-element-eb28b23,
+body .elementor-element-2352968 {
+  background: linear-gradient(180deg, var(--kk-surface-2), var(--kk-surface)) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 10px !important;
+  box-shadow: 0 20px 50px -30px rgba(0, 0, 0, .9), inset 0 1px 0 rgba(251, 231, 161, .06);
+  transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+body .elementor-element-1de4c91:hover, body .elementor-element-4617acd:hover, body .elementor-element-55b81bf:hover,
+body .elementor-element-dbcd0c4:hover, body .elementor-element-ae1e09f:hover, body .elementor-element-86e7159:hover,
+body .elementor-element-888f100:hover, body .elementor-element-8ee265e:hover, body .elementor-element-eb28b23:hover {
+  transform: translateY(-4px); border-color: rgba(212, 175, 55, .6) !important;
+  box-shadow: 0 30px 60px -30px rgba(212, 175, 55, .35), inset 0 1px 0 rgba(251, 231, 161, .12);
+}
+body .elementor-icon-box-icon .elementor-icon, body .elementor-icon-box-icon .elementor-icon i,
+body .elementor-icon-box-icon svg, body .aux-ico, body .aux-ico i {
+  color: var(--kk-gold) !important; fill: var(--kk-gold) !important;
+}
+body .aux-ico-box { background: rgba(212, 175, 55, .1) !important; border: 1px solid var(--kk-line) !important; }
+body .elementor-testimonial-content { color: var(--kk-cream) !important; font-style: italic; font-family: var(--kk-font-serif) !important; font-size: 19px !important; line-height: 1.55 !important; }
+body .elementor-testimonial-job { color: var(--kk-gold) !important; }
+body .elementor-star-rating i:before, body .elementor-star-rating__wrapper i:before, body .aux-star-rating span:before { color: var(--kk-gold) !important; }
+body .elementor-star-rating i { color: rgba(212,175,55,.25) !important; }
+
+body [class*="elementor-element-"].e-con::after { background: radial-gradient(120% 120% at 0% 0%, rgba(212,175,55,.16), transparent 60%) !important; }
+body .e-con:hover .info .elementor-icon-box-title, body .e-con:hover .info .elementor-icon-box-description { color: inherit !important; }
+body .e-con:hover .info .elementor-icon-box-description { color: var(--kk-muted) !important; }
+body .e-con:hover .info path { stroke: var(--kk-gold-light) !important; }
+
+/* course card (Pilihan Kursus) */
+body .elementor-element-fb6f586, body .elementor-element-2352968 + .e-con {
+  background: linear-gradient(180deg, var(--kk-surface-2), var(--kk-surface)) !important;
+  border: 1px solid var(--kk-line) !important;
+}
+
+/* ---------- Price tables ---------- */
+body .elementor-element-8cfb80e, body .elementor-element-0a2423e { border-color: var(--kk-line) !important; }
+body .elementor-price-table {
+  background: linear-gradient(180deg, #1c1810, #120f0a) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 40px 80px -40px rgba(212, 175, 55, .35);
+}
+body .elementor-price-table__header {
+  background: var(--kk-grad) !important; border-bottom: 1px solid rgba(251, 231, 161, .5);
+}
+body .elementor-price-table__header .elementor-price-table__heading {
+  color: #160f04 !important; background: none !important; -webkit-text-fill-color: #160f04;
+}
+body .elementor-price-table__subheading { color: #2a1f0a !important; font-family: var(--kk-font-body) !important; }
+body .elementor-price-table__price { background: transparent !important; color: var(--kk-gold-light) !important; }
+body .elementor-price-table__price * { font-family: var(--kk-font-display) !important; color: var(--kk-gold-light) !important; }
+body .elementor-price-table__integer-part {
+  background: var(--kk-grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+body .elementor-price-table__period { color: var(--kk-muted) !important; font-family: var(--kk-font-body) !important; }
+body .elementor-price-table__features-list { background: transparent !important; }
+body .elementor-price-table__features-list li, body .elementor-price-table__feature-inner { color: var(--kk-cream) !important; background: transparent !important; }
+body .elementor-price-table__features-list li:before { border-top-color: var(--kk-line-soft) !important; }
+body .elementor-price-table__features-list i, body .elementor-price-table__features-list svg { color: var(--kk-gold) !important; fill: var(--kk-gold) !important; }
+body .elementor-price-table__footer { background: transparent !important; }
+body .elementor-price-table__additional_info { color: var(--kk-muted) !important; }
+body .elementor-price-table__additional_info img { display: none; }
+
+/* ---------- Contact form ---------- */
+body .elementor-element-a64d14b, body .aux-widget-contact-form {
+  background: linear-gradient(180deg, var(--kk-surface-2), var(--kk-surface)) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 12px !important;
+}
+body .wpcf7 label, body .wpcf7 p { color: var(--kk-gold-light) !important; font-size: 13px; letter-spacing: .04em; }
+body .wpcf7 input:not([type="submit"]), body .wpcf7 select, body .wpcf7 textarea {
+  background: rgba(255, 255, 255, .03) !important; color: var(--kk-cream) !important;
+  border: 0 !important; border-bottom: 1px solid var(--kk-line) !important; border-radius: 0 !important;
+  transition: border-color .25s ease, background .25s ease;
+}
+body .wpcf7 select option { background: #17140f; color: var(--kk-cream); }
+body .wpcf7 input:focus, body .wpcf7 select:focus, body .wpcf7 textarea:focus {
+  border-bottom-color: var(--kk-gold) !important; background: rgba(212, 175, 55, .06) !important; outline: none;
+}
+body .wpcf7 ::placeholder { color: rgba(239, 230, 210, .38) !important; }
+body .wpcf7-response-output { color: var(--kk-cream); border-color: var(--kk-gold) !important; }
+/* contact info column */
+body .elementor-element-b299afd .col-title { font-size: 15px !important; }
+body .elementor-element-b299afd .aux-text-widget-content, body .elementor-element-b299afd .aux-text-widget-content * { color: var(--kk-cream) !important; }
+
+/* ---------- FAQ accordion ---------- */
+body .aux-toggle-item {
+  background: var(--kk-surface) !important; border: 1px solid var(--kk-line-soft) !important;
+  border-radius: 8px; margin-bottom: 12px; overflow: hidden;
+}
+body .aux-toggle-header, body .aux-toggle-header * {
+  color: var(--kk-gold-light) !important; border-color: var(--kk-line-soft) !important;
+  font-family: var(--kk-font-display) !important; letter-spacing: .02em; background: transparent !important;
+}
+body .aux-toggle-item.active .aux-toggle-header, body .aux-toggle-header:hover { background: rgba(212, 175, 55, .08) !important; }
+body .aux-toggle-content, body .aux-toggle-content * { color: var(--kk-muted) !important; background: transparent !important; }
+
+/* ---------- Footer (LP inline footer + site footer 393) ---------- */
+body .elementor-element-bc8b358, body .elementor-element-a514da6, body .elementor-location-footer, body .elementor-location-footer > .e-con,
+body .elementor-location-footer .elementor-element.e-parent {
+  background: radial-gradient(ellipse at top, #1d170c 0%, #0a0907 70%) !important;
+  border-top: 1px solid var(--kk-line) !important;
+}
+body .elementor-element-a514da6:not(.elementor-motion-effects-element-type-background), body .elementor-element-bc8b358:not(.elementor-motion-effects-element-type-background) { background-color: #0d0b08 !important; }
+body .elementor-element-bc8b358::before, body .elementor-location-footer .e-con::before { background: none !important; }
+body .elementor-element-bc8b358 .elementor-image-box-title,
+body .elementor-location-footer .elementor-image-box-title,
+body .elementor-element-bc8b358 .elementor-heading-title,
+body .elementor-location-footer .elementor-heading-title {
+  -webkit-text-fill-color: transparent; background: var(--kk-grad-text); -webkit-background-clip: text; background-clip: text;
+}
+body .elementor-element-bc8b358 .elementor-image-box-description,
+body .elementor-location-footer .elementor-image-box-description,
+body .elementor-element-bc8b358 .elementor-icon-list-text,
+body .elementor-location-footer .elementor-icon-list-text,
+body .aux-copyright, body .aux-copyright * { color: var(--kk-muted) !important; }
+body .elementor-element-89b27d6, body .elementor-location-footer .elementor-widget-divider { --divider-color: rgba(212, 175, 55, .3) !important; }
+body .elementor-social-icon {
+  background: transparent !important; border: 1px solid var(--kk-line) !important;
+}
+body .elementor-social-icon i, body .elementor-social-icon svg { color: var(--kk-gold) !important; fill: var(--kk-gold) !important; }
+body .elementor-social-icon:hover { background: rgba(212,175,55,.15) !important; }
+body .elementor-image-box-img img { box-shadow: none; border: 0 !important; filter: none; }
+
+/* ---------- Misc ---------- */
+body .aux-goto-top-btn, body .aux-goto-top-btn * { border-color: var(--kk-gold) !important; color: var(--kk-gold) !important; }
+body hr, body .elementor-divider-separator { border-color: var(--kk-line) !important; }
+body ::-webkit-scrollbar { width: 10px; }
+body ::-webkit-scrollbar-track { background: #0b0a08; }
+body ::-webkit-scrollbar-thumb { background: linear-gradient(#8c6a1a, #d4af37); border-radius: 10px; }
+
+@media (max-width: 767px) {
+  body .aux-logo-anchor img, body .aux-widget-logo img { max-height: 48px !important; }
+  body .elementor-button { font-size: 12px !important; }
+}
+
+/* ---------- Fixes after first preview ---------- */
+/* "5000+" gold badge: dark text on gold */
+body .elementor-element-1bd01a3 .elementor-counter-number-wrapper,
+body .elementor-element-1bd01a3 .elementor-counter-number-wrapper *,
+body .elementor-element-1bd01a3 .elementor-counter-title { color: #1a1408 !important; -webkit-text-fill-color: #1a1408; background: none !important; }
+body .elementor-element-1bd01a3 .elementor-counter-number-wrapper { font-family: var(--kk-font-display) !important; }
+
+/* "A Cemerlang" badge */
+body .elementor-element-2352968 > .elementor-element-4b439fb, body .elementor-element-4b439fb {
+  border-color: var(--kk-gold) !important;
+}
+
+/* Pricing: one card, transparent inner tables */
+body .elementor-element-8cfb80e {
+  background: linear-gradient(180deg, #1c1810, #0f0d09) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 14px !important; overflow: hidden;
+  box-shadow: 0 50px 100px -50px rgba(212, 175, 55, .45), inset 0 1px 0 rgba(251, 231, 161, .1);
+}
+body .elementor-element-8cfb80e .e-con, body .elementor-element-87bebaa, body .elementor-element-0a2423e {
+  background: transparent !important; border-color: var(--kk-line-soft) !important;
+}
+body .elementor-element-8cfb80e .elementor-price-table { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0; }
+body .elementor-element-cbeb583 .elementor-price-table__features-list li,
+body .elementor-element-89a1ffe .elementor-price-table__features-list li {
+  background: rgba(212,175,55,.05) !important; border: 1px solid var(--kk-line-soft); border-radius: 6px; margin-bottom: 6px;
+}
+
+/* Contact details: values in body font */
+body .elementor-element-b299afd .col-subtitle, body .elementor-element-b299afd .col-subtitle * {
+  font-family: var(--kk-font-body) !important; text-transform: none !important; letter-spacing: .02em !important;
+  font-size: 15px !important; font-weight: 400 !important;
+  -webkit-text-fill-color: var(--kk-cream); color: var(--kk-cream) !important; background: none !important;
+}
+body .elementor-element-b299afd .aux-ico-box, body .elementor-element-b299afd .aux-ico { border-radius: 50%; }
+
+/* Footer logo → new gold logo */
+body .elementor-element-e90cb8d .elementor-image-box-img img,
+body .elementor-element-7d06eaa .elementor-image-box-img img {
+  content: url("https://kursuskahwinmalaysia.com/wp-content/uploads/2026/11/kkm-logo-monogram-sm.png");
+  width: 110px !important; height: auto !important; max-width: 110px;
+}
+
+/* floating call button → gold */
+body a[href^="tel:"] .elementor-icon, body .elementor-element a[href^="tel:"] svg { fill: currentColor; }
+body path.landing-call { fill: var(--kk-gold) !important; }
+body .elementor-element-8f85c9f .elementor-widget-container > div,
+body .elementor-element-8f85c9f [style*="FFFFFF40"] { background: rgba(23,20,15,.8) !important; border: 1px solid var(--kk-line); }
+body .elementor-widget-price-table .elementor-widget-container { background-color: transparent !important; }
+body .elementor-element-8cfb80e:not(.elementor-motion-effects-element-type-background) { background-color: #120f0a !important; }
+body .elementor-element-f190589 { --e-price-table-header-background-color: transparent; }
+body .elementor-price-table__price .elementor-price-table__currency { color: var(--kk-gold) !important; }
