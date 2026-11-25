@@ -1091,3 +1091,94 @@ body .elementor-element-2b68993 .elementor-button, body .elementor-element-44a00
   body .elementor-element-af68fa7 .elementor-element-fb6f586 { --width: 56% !important; width: 56% !important; max-width: 56% !important; padding-right: 56px !important; }
   body .elementor-element-af68fa7 .elementor-element-2352968 { --width: 44% !important; width: 44% !important; max-width: 44% !important; top: 100px !important; }
 }
+
+/* =========================================================
+   v7: SERVICES restructured: centred header + two balanced rows
+   ========================================================= */
+body .elementor-element-af68fa7 { padding-top: 100px !important; padding-bottom: 100px !important; }
+body .elementor-element-af68fa7 > .e-con-inner { flex-direction: column !important; align-items: stretch !important; gap: 0 !important; --gap: 0px; }
+body .kk-v7-header, body .kk-v7-row, body .kk-v7-col { --padding-top: 0px; --padding-bottom: 0px; --padding-left: 0px; --padding-right: 0px; }
+
+/* header */
+body .kk-v7-header { width: 100% !important; max-width: 880px !important; margin: 0 auto 64px !important; padding: 0 !important; text-align: center; }
+body .kk-v7-header .aux-widget-advanced-text { text-align: center !important; }
+body .kk-v7-header .col-title { justify-content: center; }
+body .kk-v7-header .col-subtitle { font-size: 44px !important; line-height: 1.18 !important; margin-bottom: 22px !important; }
+body .kk-v7-header .widget-content { border: 0 !important; border-image: none !important; padding: 0 !important; margin: 0 auto !important; max-width: 720px; }
+body .kk-v7-header .widget-content p { font-size: 18px !important; color: var(--kk-muted) !important; }
+body .kk-v7-header .aux-text-widget-content::after {
+  content: "✦"; display: block; margin: 26px auto 0; color: var(--kk-gold); font-size: 14px; letter-spacing: 0;
+  width: 220px; text-align: center;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,.5) 35%, transparent 35%, transparent 65%, rgba(212,175,55,.5) 65%, transparent) center / 100% 1px no-repeat;
+}
+
+/* rows */
+body .kk-v7-row {
+  display: grid !important; width: 100% !important; gap: 72px !important; align-items: center;
+  padding: 64px 0 !important; border-top: 1px solid var(--kk-line) !important; margin: 0 !important;
+}
+body .kk-v7-row1 { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+body .kk-v7-row2 { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); border-bottom: 1px solid var(--kk-line) !important; }
+body .kk-v7-col { width: auto !important; max-width: none !important; padding: 0 !important; margin: 0 !important; gap: 0 !important; }
+body .kk-v7-row .elementor-widget { margin: 0 !important; }
+
+/* service text blocks (reset older .kk-svc rules) */
+body .kk-v7-text .kk-svc { padding: 0 0 0 100px !important; border: 0 !important; position: relative; }
+body .kk-v7-text .kk-svc-num { left: 0 !important; top: -6px !important; font-size: 72px !important; }
+body .kk-v7-text .kk-svc-head { margin-bottom: 18px !important; }
+body .kk-v7-text h3.kk-svc-title { font-size: 30px !important; line-height: 1.25 !important; }
+body .kk-v7-text p { font-size: 17px !important; }
+body .kk-v7-text p:last-child { margin-bottom: 0 !important; }
+
+/* "Mengapa Memilih Kami" framed panel */
+body .kk-v7-panel {
+  position: relative; padding: 44px 44px 40px !important;
+  background: linear-gradient(160deg, rgba(122,20,36,.42) 0%, rgba(46,5,13,.55) 45%, rgba(15,12,9,.9) 100%) !important;
+  border: 1px solid rgba(212,175,55,.45) !important; border-radius: 0 !important;
+  box-shadow: 0 40px 80px -50px rgba(0,0,0,.9);
+}
+body .kk-v7-panel::before {
+  content: "" !important; position: absolute !important; inset: 10px !important; border: 1px solid rgba(212,175,55,.18) !important;
+  pointer-events: none; background: none !important; opacity: 1 !important; border-radius: 0 !important;
+}
+body .kk-v7-list h4.kk-svc-sub { margin: 0 0 22px !important; font-size: 13px !important; }
+body .kk-v7-list ul.kk-list { gap: 0 !important; }
+body .kk-v7-list ul.kk-list li { padding: 14px 0 14px 32px !important; border-bottom: 1px solid rgba(212,175,55,.14); }
+body .kk-v7-list ul.kk-list li:last-child { border-bottom: 0; padding-bottom: 0 !important; }
+body .kk-v7-list ul.kk-list li::before { top: 16px !important; }
+
+/* poster */
+body .kk-v7-poster .elementor-element-52cfbbd > .elementor-widget-container { margin: 0 22px 22px 0 !important; }
+body .kk-v7-poster .elementor-element-52cfbbd img { border-radius: 0 !important; width: 100%; }
+body .kk-v7-poster .elementor-element-52cfbbd > .elementor-widget-container::before { border-radius: 0 !important; }
+
+/* service 02 column: tagline + button */
+body .kk-v7-s2 .kk-services { margin: 0 !important; }
+body .kk-v7-s2 p.kk-tagline {
+  margin: 32px 0 0 !important; padding: 26px 0 0 !important; border-top: 1px solid var(--kk-line-soft) !important;
+  font-size: 24px !important; line-height: 1.45 !important; text-align: left !important;
+}
+body .kk-v7-s2 p.kk-tagline::before { font-size: 34px !important; margin-bottom: 2px !important; }
+body .kk-v7-s2 .elementor-element-f918ead { margin-top: 30px !important; }
+
+@media (max-width: 1024px) {
+  body .kk-v7-row { gap: 48px !important; }
+  body .kk-v7-row1, body .kk-v7-row2 { grid-template-columns: 1fr; }
+  body .kk-v7-poster { max-width: 520px; margin: 0 auto !important; width: 100% !important; }
+}
+@media (max-width: 767px) {
+  body .elementor-element-af68fa7 { padding-top: 64px !important; padding-bottom: 64px !important; }
+  body .kk-v7-header { margin-bottom: 40px !important; }
+  body .kk-v7-header .col-subtitle { font-size: 28px !important; }
+  body .kk-v7-header .widget-content p { font-size: 16px !important; }
+  body .kk-v7-row { padding: 44px 0 !important; gap: 36px !important; }
+  body .kk-v7-text .kk-svc { padding-left: 0 !important; }
+  body .kk-v7-text .kk-svc-num { position: static !important; display: block; font-size: 52px !important; margin-bottom: 8px; }
+  body .kk-v7-text .kk-svc-head { display: block !important; }
+  body .kk-v7-text h3.kk-svc-title { font-size: 23px !important; }
+  body .kk-v7-panel { padding: 30px 22px 26px !important; }
+  body .kk-v7-s2 p.kk-tagline { font-size: 20px !important; }
+  body .kk-v7-s2 .elementor-element-f918ead .elementor-button { width: 100%; }
+}
+body .kk-v7-header .aux-text-inner, body .kk-v7-header .col-title, body .kk-v7-header .col-subtitle,
+body .kk-v7-header .widget-content, body .kk-v7-header .widget-content p { text-align: center !important; }
