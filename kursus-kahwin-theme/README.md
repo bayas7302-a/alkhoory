@@ -21,6 +21,13 @@ Note: Elementor strips backslashes from custom CSS, so use literal characters (�
 Note: `elementor/update-page-settings` on the kit **replaces** the settings rather than merging them.
 Always send the full set (colours, typography, body background, custom_css) together.
 
+## v4 services section + burgundy accents
+- The "Tentang Kami" section on the landing page (822) and Home (388) now holds the services write-up ("Perkhidmatan Kami": 01 Kursus Pra Perkahwinan Islam, 02 Bantuan Borang Perkahwinan). The old bullet list and the "A Cemerlang" badge were removed.
+- The photo is replaced by the "Isi Borang Kahwin RM40" poster (media 1115). The button reads "Hubungi Kami Hari Ini" and opens WhatsApp (60147184475).
+- Content was written to `_elementor_data` via the WP REST API by `scripts/update_services_section.py`. Pre-change copies are in `backups/`.
+- Burgundy (#7A1424 → #3D0812) added from the poster: hero price card, trust strip, pricing plaque, form header, FAQ open state, section glows, footer.
+
 ## Undo
-- Kit: revision **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
+- Kit: revision **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).
