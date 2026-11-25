@@ -1227,3 +1227,19 @@ body .elementor-element-b97e590 .col-subtitle *, body .elementor-element-3a8205d
   body .elementor-element-b97e590 .col-subtitle, body .elementor-element-3a8205d .col-subtitle, body .elementor-element-fa3838f .col-subtitle, body .elementor-element-0919de1 .col-subtitle { font-size: 16px !important; }
 }
 @media (min-width: 1025px) { body .elementor-widget-aux_logo { margin-right: 36px !important; } }
+
+/* =========================================================
+   v9: hero spacing: gap under header, centred in viewport
+   ========================================================= */
+body .elementor-element-7a621be { padding-top: 48px !important; padding-bottom: 48px !important; }
+body .elementor-element-7a621be > .e-con-inner { padding-top: 0 !important; padding-bottom: 0 !important; }
+@media (min-width: 1025px) {
+  body .elementor-element-7a621be { min-height: calc(100vh - 92px) !important; min-height: calc(100svh - 92px) !important; display: flex !important; align-items: center !important; }
+  body .elementor-element-7a621be > .e-con-inner { align-items: stretch !important; align-self: center; width: 100%; }
+}
+@media (max-width: 1024px) {
+  body .elementor-element-7a621be { padding-top: 32px !important; padding-bottom: 32px !important; }
+}
+@media (max-width: 767px) {
+  body .elementor-element-7a621be { padding-top: 22px !important; padding-bottom: 28px !important; }
+}
