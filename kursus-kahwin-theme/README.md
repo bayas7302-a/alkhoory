@@ -44,7 +44,11 @@ centred header → row 01 (service text | framed "Mengapa Memilih Kami?" panel) 
 Note: containers take their CSS class from `css_classes`; widgets use `_css_classes`.
 The pre-v7 page data is in `backups/page-<id>-elementor_data-v4.json`.
 
+## v8
+- Header logo: horizontal lockup (KK monogram + "KURSUS KAHWIN / MALAYSIA" cropped from the original artwork), `assets/kkm-logo-horizontal*.png`, media 1126, now the WordPress `site_logo` (was 1099).
+- Contact details: rows with square wine icon tiles, gold labels and cream values. This fixes values made invisible by the title shimmer.
+
 ## Undo
 - Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
-- Kit: revision **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1129** / **1127** = before v8 tweaks; **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).
