@@ -23,7 +23,7 @@ function subaru_setting_defaults() {
 	return array(
 		'recipient_test-drive' => SUBARU_DEFAULT_RECIPIENT,
 		'recipient_contact'    => SUBARU_DEFAULT_RECIPIENT,
-		'recipient_service'    => SUBARU_DEFAULT_RECIPIENT,
+		'recipient_service'    => 'servicedxb@alkhoory.com',
 		'recipient_newsletter' => SUBARU_DEFAULT_RECIPIENT,
 		'recipient_brochure'   => SUBARU_DEFAULT_RECIPIENT,
 		'recipient_offer'      => SUBARU_DEFAULT_RECIPIENT,

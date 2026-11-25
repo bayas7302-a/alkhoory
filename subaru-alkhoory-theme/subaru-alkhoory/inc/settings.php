@@ -262,3 +262,27 @@ function subaru_settings_page() {
 	</div>
 	<?php
 }
+
+/**
+ * One-time update (v1.4.9): the client's confirmed destinations for the three main forms.
+ * Service booking -> servicedxb@alkhoory.com; Test drive and Contact -> info@subaru-uae.com.
+ * Runs once, then Subaru Settings -> Enquiry form recipients stays editable as usual.
+ */
+function subaru_apply_confirmed_recipients() {
+	if ( get_option( 'subaru_recipients_confirmed_v149' ) ) {
+		return;
+	}
+	// Start from the saved settings (defaults filled in) and change only the three recipients.
+	$opts = wp_parse_args( (array) get_option( SUBARU_OPTION, array() ), subaru_setting_defaults() );
+	$opts['recipient_service']    = 'servicedxb@alkhoory.com';
+	$opts['recipient_test-drive'] = 'info@subaru-uae.com';
+	$opts['recipient_contact']    = 'info@subaru-uae.com';
+	// The values are fixed, valid addresses: skip the admin sanitiser (it can call admin-only functions on the front end).
+	$had = remove_filter( 'sanitize_option_' . SUBARU_OPTION, 'subaru_settings_sanitize' );
+	update_option( SUBARU_OPTION, $opts );
+	if ( $had ) {
+		add_filter( 'sanitize_option_' . SUBARU_OPTION, 'subaru_settings_sanitize' );
+	}
+	update_option( 'subaru_recipients_confirmed_v149', 1, false );
+}
+add_action( 'init', 'subaru_apply_confirmed_recipients' );
