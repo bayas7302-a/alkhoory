@@ -39,6 +39,12 @@
   --e-global-typography-accent-font-family: "Cormorant Garamond";
 }
 
+/* ---------- Kit base element styles (restored from original kit) ---------- */
+.elementor-kit-391 a { color: var(--e-global-color-f4e0263); font-family: var(--e-global-typography-text-font-family), sans-serif; font-size: var(--e-global-typography-text-font-size); font-weight: var(--e-global-typography-text-font-weight); line-height: var(--e-global-typography-text-line-height); }
+.elementor-kit-391 a:hover { color: var(--e-global-color-accent); }
+.elementor-kit-391 h1 { color: var(--e-global-color-secondary); font-family: var(--e-global-typography-primary-font-family), serif; font-size: var(--e-global-typography-primary-font-size); font-weight: var(--e-global-typography-primary-font-weight); line-height: var(--e-global-typography-primary-line-height); letter-spacing: var(--e-global-typography-primary-letter-spacing); }
+.elementor-kit-391 h2, .elementor-kit-391 h3 { color: var(--e-global-color-secondary); font-family: var(--e-global-typography-secondary-font-family), serif; font-size: var(--e-global-typography-secondary-font-size); font-weight: var(--e-global-typography-secondary-font-weight); line-height: var(--e-global-typography-secondary-line-height); }
+
 /* ---------- Base ---------- */
 html, body, body.elementor-kit-391, #inner-body, .aux-main, .site-main,
 #main, .aux-wrapper, .aux-container, .elementor-page {
@@ -320,66 +326,9 @@ body .elementor-element-fb6f586, body .elementor-element-2352968 + .e-con {
   border: 1px solid var(--kk-line) !important;
 }
 
-/* ---------- Price tables ---------- */
-body .elementor-element-8cfb80e, body .elementor-element-0a2423e { border-color: var(--kk-line) !important; }
-body .elementor-price-table {
-  background: linear-gradient(180deg, #1c1810, #120f0a) !important;
-  border: 1px solid var(--kk-line) !important; border-radius: 10px; overflow: hidden;
-  box-shadow: 0 40px 80px -40px rgba(212, 175, 55, .35);
-}
-body .elementor-price-table__header {
-  background: var(--kk-grad) !important; border-bottom: 1px solid rgba(251, 231, 161, .5);
-}
-body .elementor-price-table__header .elementor-price-table__heading {
-  color: #160f04 !important; background: none !important; -webkit-text-fill-color: #160f04;
-}
-body .elementor-price-table__subheading { color: #2a1f0a !important; font-family: var(--kk-font-body) !important; }
-body .elementor-price-table__price { background: transparent !important; color: var(--kk-gold-light) !important; }
-body .elementor-price-table__price * { font-family: var(--kk-font-display) !important; color: var(--kk-gold-light) !important; }
-body .elementor-price-table__integer-part {
-  background: var(--kk-grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-body .elementor-price-table__period { color: var(--kk-muted) !important; font-family: var(--kk-font-body) !important; }
-body .elementor-price-table__features-list { background: transparent !important; }
-body .elementor-price-table__features-list li, body .elementor-price-table__feature-inner { color: var(--kk-cream) !important; background: transparent !important; }
-body .elementor-price-table__features-list li:before { border-top-color: var(--kk-line-soft) !important; }
-body .elementor-price-table__features-list i, body .elementor-price-table__features-list svg { color: var(--kk-gold) !important; fill: var(--kk-gold) !important; }
-body .elementor-price-table__footer { background: transparent !important; }
-body .elementor-price-table__additional_info { color: var(--kk-muted) !important; }
-body .elementor-price-table__additional_info img { display: none; }
-
-/* ---------- Contact form ---------- */
-body .elementor-element-a64d14b, body .aux-widget-contact-form {
-  background: linear-gradient(180deg, var(--kk-surface-2), var(--kk-surface)) !important;
-  border: 1px solid var(--kk-line) !important; border-radius: 12px !important;
-}
-body .wpcf7 label, body .wpcf7 p { color: var(--kk-gold-light) !important; font-size: 13px; letter-spacing: .04em; }
-body .wpcf7 input:not([type="submit"]), body .wpcf7 select, body .wpcf7 textarea {
-  background: rgba(255, 255, 255, .03) !important; color: var(--kk-cream) !important;
-  border: 0 !important; border-bottom: 1px solid var(--kk-line) !important; border-radius: 0 !important;
-  transition: border-color .25s ease, background .25s ease;
-}
-body .wpcf7 select option { background: #17140f; color: var(--kk-cream); }
-body .wpcf7 input:focus, body .wpcf7 select:focus, body .wpcf7 textarea:focus {
-  border-bottom-color: var(--kk-gold) !important; background: rgba(212, 175, 55, .06) !important; outline: none;
-}
-body .wpcf7 ::placeholder { color: rgba(239, 230, 210, .38) !important; }
-body .wpcf7-response-output { color: var(--kk-cream); border-color: var(--kk-gold) !important; }
 /* contact info column */
 body .elementor-element-b299afd .col-title { font-size: 15px !important; }
 body .elementor-element-b299afd .aux-text-widget-content, body .elementor-element-b299afd .aux-text-widget-content * { color: var(--kk-cream) !important; }
-
-/* ---------- FAQ accordion ---------- */
-body .aux-toggle-item {
-  background: var(--kk-surface) !important; border: 1px solid var(--kk-line-soft) !important;
-  border-radius: 8px; margin-bottom: 12px; overflow: hidden;
-}
-body .aux-toggle-header, body .aux-toggle-header * {
-  color: var(--kk-gold-light) !important; border-color: var(--kk-line-soft) !important;
-  font-family: var(--kk-font-display) !important; letter-spacing: .02em; background: transparent !important;
-}
-body .aux-toggle-item.active .aux-toggle-header, body .aux-toggle-header:hover { background: rgba(212, 175, 55, .08) !important; }
-body .aux-toggle-content, body .aux-toggle-content * { color: var(--kk-muted) !important; background: transparent !important; }
 
 /* ---------- Footer (LP inline footer + site footer 393) ---------- */
 body .elementor-element-bc8b358, body .elementor-element-a514da6, body .elementor-location-footer, body .elementor-location-footer > .e-con,
@@ -432,21 +381,6 @@ body .elementor-element-2352968 > .elementor-element-4b439fb, body .elementor-el
   border-color: var(--kk-gold) !important;
 }
 
-/* Pricing: one card, transparent inner tables */
-body .elementor-element-8cfb80e {
-  background: linear-gradient(180deg, #1c1810, #0f0d09) !important;
-  border: 1px solid var(--kk-line) !important; border-radius: 14px !important; overflow: hidden;
-  box-shadow: 0 50px 100px -50px rgba(212, 175, 55, .45), inset 0 1px 0 rgba(251, 231, 161, .1);
-}
-body .elementor-element-8cfb80e .e-con, body .elementor-element-87bebaa, body .elementor-element-0a2423e {
-  background: transparent !important; border-color: var(--kk-line-soft) !important;
-}
-body .elementor-element-8cfb80e .elementor-price-table { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0; }
-body .elementor-element-cbeb583 .elementor-price-table__features-list li,
-body .elementor-element-89a1ffe .elementor-price-table__features-list li {
-  background: rgba(212,175,55,.05) !important; border: 1px solid var(--kk-line-soft); border-radius: 6px; margin-bottom: 6px;
-}
-
 /* Contact details: values in body font */
 body .elementor-element-b299afd .col-subtitle, body .elementor-element-b299afd .col-subtitle * {
   font-family: var(--kk-font-body) !important; text-transform: none !important; letter-spacing: .02em !important;
@@ -467,7 +401,260 @@ body a[href^="tel:"] .elementor-icon, body .elementor-element a[href^="tel:"] sv
 body path.landing-call { fill: var(--kk-gold) !important; }
 body .elementor-element-8f85c9f .elementor-widget-container > div,
 body .elementor-element-8f85c9f [style*="FFFFFF40"] { background: rgba(23,20,15,.8) !important; border: 1px solid var(--kk-line); }
-body .elementor-widget-price-table .elementor-widget-container { background-color: transparent !important; }
+
+/* =========================================================
+   v2 LAYOUTS: Contact form · Pricing · FAQ
+   ========================================================= */
+
+/* ---------- Contact: single booking card, 2x2 grid ---------- */
+body .elementor-element-a64d14b {
+  position: relative; overflow: hidden;
+  background: linear-gradient(180deg, #1b1710 0%, #100e0a 100%) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 18px !important;
+  padding: 0 !important;
+  box-shadow: 0 40px 90px -45px rgba(0,0,0,.95), 0 0 0 1px rgba(0,0,0,.5), inset 0 1px 0 rgba(251,231,161,.1);
+}
+body .elementor-element-80f4532 .aux-widget-contact-form::before {
+  content: "Borang Tempahan";
+  display: block; width: 100%; box-sizing: border-box;
+  padding: 26px 36px 22px;
+  font-family: var(--kk-font-display); font-size: 22px; font-weight: 600; letter-spacing: .04em;
+  color: var(--kk-gold-light);
+  background: linear-gradient(90deg, rgba(212,175,55,.14), rgba(212,175,55,0) 70%);
+  border-bottom: 1px solid var(--kk-line-soft);
+}
+body .elementor-element-a64d14b::before, body .elementor-element-87bebaa::before { display: none; }
+body .elementor-element-a64d14b { box-shadow: inset 0 2px 0 #d4af37, 0 40px 90px -45px rgba(0,0,0,.95); }
+body .elementor-element-80f4532 { width: 100%; padding: 0 !important; box-sizing: border-box; }
+body .elementor-element-80f4532 .wpcf7 { padding: 28px 36px 34px; }
+body .elementor-element-80f4532 .aux-widget-contact-form { background: none !important; border: 0 !important; padding: 0 !important; }
+body .elementor-element-80f4532 .wpcf7-form {
+  display: grid !important; grid-template-columns: 1fr 1fr; gap: 20px 18px; margin: 0;
+}
+body .elementor-element-80f4532 .wpcf7-form > .column { display: contents; }
+body .elementor-element-80f4532 .wpcf7-form .col {
+  width: auto !important; float: none !important; padding: 0 !important; margin: 0 !important; min-width: 0;
+}
+body .elementor-element-80f4532 .wpcf7-form .col:has(textarea),
+body .elementor-element-80f4532 .wpcf7-form .col:has(.wpcf7-submit),
+body .elementor-element-80f4532 .wpcf7-response-output { grid-column: 1 / -1; }
+body .elementor-element-80f4532 .wpcf7-form > p, body .elementor-element-80f4532 .hidden-fields-container { display: none !important; }
+body .elementor-element-80f4532 .wpcf7-form .col p { margin: 0 !important; display: flex; flex-direction: column; gap: 8px; }
+body .elementor-element-80f4532 .wpcf7-form label {
+  font-family: var(--kk-font-body) !important; font-size: 11px !important; font-weight: 500;
+  letter-spacing: .22em !important; text-transform: uppercase; color: var(--kk-gold) !important; margin: 0 !important;
+}
+body .elementor-element-80f4532 .wpcf7-form-control-wrap { display: block; }
+body .elementor-element-80f4532 .wpcf7 input:not([type="submit"]),
+body .elementor-element-80f4532 .wpcf7 select,
+body .elementor-element-80f4532 .wpcf7 textarea {
+  width: 100% !important; box-sizing: border-box; margin: 0 !important;
+  height: 52px; padding: 0 16px !important;
+  font-family: var(--kk-font-body) !important; font-size: 15px !important; color: var(--kk-cream) !important;
+  background: #0c0a07 !important;
+  border: 1px solid rgba(212,175,55,.22) !important; border-radius: 10px !important;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.5);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+body .elementor-element-80f4532 .wpcf7 select {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, #d4af37 50%), linear-gradient(135deg, #d4af37 50%, transparent 50%) !important;
+  background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50% !important;
+  background-size: 6px 6px, 6px 6px !important; background-repeat: no-repeat !important;
+  background-color: #0c0a07 !important;
+}
+body .elementor-element-80f4532 .wpcf7 select option { background: #17140f; color: var(--kk-cream); }
+body .elementor-element-80f4532 .wpcf7 textarea { height: 150px; padding: 14px 16px !important; resize: vertical; }
+body .elementor-element-80f4532 .wpcf7 input:focus,
+body .elementor-element-80f4532 .wpcf7 select:focus,
+body .elementor-element-80f4532 .wpcf7 textarea:focus {
+  outline: none; border-color: var(--kk-gold) !important;
+  box-shadow: 0 0 0 3px rgba(212,175,55,.15), inset 0 2px 6px rgba(0,0,0,.5);
+}
+body .elementor-element-80f4532 .wpcf7 ::placeholder { color: rgba(239,230,210,.32) !important; font-style: normal; }
+body .elementor-element-80f4532 .wpcf7-submit {
+  width: 100% !important; height: 56px; margin-top: 4px !important; border-radius: 10px !important;
+  font-size: 14px !important; letter-spacing: .18em !important;
+}
+body .elementor-element-80f4532 .wpcf7-spinner { position: absolute; }
+body .elementor-element-80f4532 .wpcf7-response-output {
+  margin: 0 !important; border-radius: 10px; color: var(--kk-cream) !important; border-color: var(--kk-gold) !important;
+}
+
+/* ---------- Pricing: split card (gold price panel | inclusions) ---------- */
+body .elementor-element-8cfb80e {
+  display: grid !important; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  grid-template-rows: 1fr auto; gap: 0 !important; padding: 0 !important;
+  background: linear-gradient(180deg, #1a160f, #0f0d09) !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 22px !important; overflow: hidden;
+  box-shadow: 0 60px 120px -60px rgba(212,175,55,.45), inset 0 1px 0 rgba(251,231,161,.1);
+}
 body .elementor-element-8cfb80e:not(.elementor-motion-effects-element-type-background) { background-color: #120f0a !important; }
-body .elementor-element-f190589 { --e-price-table-header-background-color: transparent; }
-body .elementor-price-table__price .elementor-price-table__currency { color: var(--kk-gold) !important; }
+body .elementor-element-8cfb80e > .elementor-element { width: auto !important; max-width: none !important; margin: 0 !important; }
+body .elementor-element-8cfb80e .elementor-widget-container { background: transparent !important; }
+body .elementor-element-8cfb80e .elementor-price-table { background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 0 !important; }
+
+/* left: gold panel */
+body .elementor-element-f190589 {
+  grid-column: 1; grid-row: 1 / span 2; position: relative;
+  background: var(--kk-grad) !important; --e-price-table-header-background-color: transparent;
+}
+body .elementor-element-f190589::after {
+  content: ""; position: absolute; inset: 14px; border: 1px solid rgba(26,20,8,.35); border-radius: 12px; pointer-events: none;
+}
+body .elementor-element-f190589 .elementor-widget-container,
+body .elementor-element-f190589 .elementor-price-table { height: 100%; }
+body .elementor-element-f190589 .elementor-price-table {
+  display: flex !important; flex-direction: column; justify-content: center; align-items: center;
+  padding: 56px 40px !important; text-align: center; gap: 6px;
+}
+body .elementor-element-f190589 .elementor-price-table__header { background: none !important; border: 0 !important; padding: 0 !important; order: 2; }
+body .elementor-element-f190589 .elementor-price-table__heading {
+  font-family: var(--kk-font-display) !important; font-size: 20px !important; line-height: 1.3 !important;
+  color: #1a1408 !important; -webkit-text-fill-color: #1a1408; background: none !important; margin: 0 0 6px !important;
+}
+body .elementor-element-f190589 .elementor-price-table__subheading {
+  font-family: var(--kk-font-body) !important; font-size: 12px !important; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(26,20,8,.7) !important;
+}
+body .elementor-element-f190589 .elementor-price-table__price {
+  order: 1; display: flex !important; flex-wrap: wrap; justify-content: center; align-items: flex-start;
+  background: none !important; padding: 0 0 18px !important; margin-bottom: 18px;
+  border-bottom: 1px solid rgba(26,20,8,.25);
+}
+body .elementor-element-f190589 .elementor-price-table__price * {
+  font-family: var(--kk-font-display) !important; color: #1a1408 !important; -webkit-text-fill-color: #1a1408; background: none !important;
+}
+body .elementor-element-f190589 .elementor-price-table__currency { font-size: 26px !important; margin-top: 14px; font-weight: 600; }
+body .elementor-element-f190589 .elementor-price-table__integer-part { font-size: 110px !important; line-height: 1 !important; font-weight: 700; }
+body .elementor-element-f190589 .elementor-price-table__period {
+  flex-basis: 100%; font-family: var(--kk-font-body) !important; font-size: 13px !important; letter-spacing: .2em;
+  text-transform: uppercase; margin-top: 10px; color: rgba(26,20,8,.75) !important; -webkit-text-fill-color: rgba(26,20,8,.75);
+}
+body .elementor-element-f190589 .elementor-price-table__features-list { display: none !important; }
+
+/* right top: inclusions as one checklist */
+body .elementor-element-87bebaa {
+  grid-column: 2; grid-row: 1;
+  display: flex !important; flex-direction: column !important; gap: 0 !important;
+  padding: 48px 48px 8px !important; background: transparent !important; border: 0 !important;
+}
+body .elementor-element-cbeb583 .elementor-widget-container::before {
+  content: "Apa Yang Termasuk"; display: block; margin-bottom: 18px;
+  font-family: var(--kk-font-body); font-size: 12px; font-weight: 500; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--kk-gold);
+}
+body .elementor-element-87bebaa > .elementor-element { width: 100% !important; max-width: none !important; margin: 0 !important; }
+body .elementor-element-cbeb583 .elementor-price-table__header, body .elementor-element-cbeb583 .elementor-price-table__price,
+body .elementor-element-89a1ffe .elementor-price-table__header, body .elementor-element-89a1ffe .elementor-price-table__price { display: none !important; }
+body .elementor-element-87bebaa .elementor-price-table__features-list { margin: 0 !important; padding: 0 !important; background: none !important; }
+body .elementor-element-87bebaa .elementor-price-table__features-list li {
+  margin: 0 !important; padding: 15px 0 !important; background: none !important; border: 0 !important;
+  border-bottom: 1px solid var(--kk-line-soft) !important; border-radius: 0 !important;
+}
+body .elementor-element-87bebaa .elementor-price-table__features-list li::before { display: none !important; }
+body .elementor-element-87bebaa .elementor-price-table__feature-inner {
+  display: flex !important; align-items: center; gap: 14px; margin: 0 !important; text-align: left;
+  font-family: var(--kk-font-body) !important; font-size: 16px !important; color: var(--kk-cream) !important; background: none !important;
+}
+body .elementor-element-87bebaa .elementor-price-table__feature-inner i {
+  flex: 0 0 30px; width: 30px; height: 30px; display: inline-flex !important; align-items: center; justify-content: center;
+  border-radius: 50%; background: rgba(212,175,55,.12); border: 1px solid var(--kk-line);
+  color: var(--kk-gold) !important; font-size: 13px !important; margin: 0 !important;
+}
+
+/* right bottom: CTA */
+body .elementor-element-0a2423e {
+  grid-column: 2; grid-row: 2; padding: 28px 48px 44px !important; background: transparent !important; border: 0 !important;
+}
+body .elementor-element-74a7430 .elementor-price-table { padding: 0 !important; }
+body .elementor-element-74a7430 .elementor-price-table__header,
+body .elementor-element-74a7430 .elementor-price-table__price,
+body .elementor-element-74a7430 .elementor-price-table__features-list { display: none !important; }
+body .elementor-element-74a7430 .elementor-price-table__footer { padding: 0 !important; background: none !important; text-align: left; }
+body .elementor-element-74a7430 .elementor-price-table__button {
+  display: block !important; width: 100%; box-sizing: border-box; text-align: center;
+  padding: 18px 20px !important; border-radius: 10px !important; font-size: 14px !important; letter-spacing: .18em !important;
+}
+body .elementor-element-74a7430 .elementor-price-table__additional_info img { display: none !important; }
+body .elementor-element-74a7430 .elementor-price-table__additional_info {
+  margin: 14px 0 0 !important; text-align: center; font-family: var(--kk-font-body) !important; font-size: 13px !important;
+  color: var(--kk-muted) !important;
+}
+
+/* ---------- FAQ: numbered editorial list ---------- */
+body .aux-widget-accordion .widget-inner { counter-reset: kkfaq !important; border-top: 1px solid var(--kk-line) !important; }
+body .aux-widget-accordion .aux-toggle-item {
+  counter-increment: kkfaq !important; position: relative !important;
+  background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--kk-line) !important;
+  border-radius: 0 !important; margin: 0 !important; overflow: visible !important;
+  transition: background .35s ease !important;
+}
+body .aux-widget-accordion .aux-toggle-item::before {
+  content: "" !important; position: absolute !important; left: 0 !important; top: -1px !important; bottom: -1px !important; width: 2px !important;
+  background: var(--kk-grad) !important; transform: scaleY(0) !important; transform-origin: top !important; transition: transform .4s ease !important;
+}
+body .aux-widget-accordion .aux-toggle-item.active { background: linear-gradient(90deg, rgba(212,175,55,.08), rgba(212,175,55,0) 80%) !important; }
+body .aux-widget-accordion .aux-toggle-item.active::before { transform: scaleY(1) !important; }
+body .aux-widget-accordion .aux-toggle-header {
+  position: relative !important; display: flex !important; align-items: center !important; gap: 22px !important; cursor: pointer !important;
+  margin: 0 !important; padding: 24px 64px 24px 22px !important;
+  background: transparent !important; border: 0 !important;
+  font-family: var(--kk-font-body) !important; font-size: 17px !important; font-weight: 500 !important;
+  letter-spacing: .01em !important; text-transform: none !important; line-height: 1.4 !important;
+  color: var(--kk-cream) !important; transition: color .25s ease !important;
+}
+body .aux-widget-accordion .aux-toggle-header::before {
+  content: counter(kkfaq, decimal-leading-zero) !important;
+  flex: 0 0 auto !important; min-width: 38px !important;
+  font-family: var(--kk-font-display) !important; font-size: 22px !important; font-weight: 600 !important; line-height: 1 !important;
+  background: var(--kk-grad-text) !important; -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important;
+  opacity: .55 !important; transition: opacity .3s ease !important;
+}
+body .aux-widget-accordion .aux-toggle-header::after {
+  content: "+" !important; position: absolute !important; right: 16px !important; top: 50% !important; width: 34px !important; height: 34px !important; margin-top: -17px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  border: 1px solid var(--kk-line) !important; border-radius: 50% !important;
+  font-family: var(--kk-font-body) !important; font-size: 20px !important; font-weight: 300 !important; line-height: 1 !important; color: var(--kk-gold) !important;
+  transition: transform .35s ease, background .35s ease, color .35s ease !important;
+}
+body .aux-widget-accordion .aux-toggle-header:hover { color: var(--kk-gold-light) !important; }
+body .aux-widget-accordion .aux-toggle-header:hover::before { opacity: 1 !important; }
+body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header { color: var(--kk-gold-light) !important; }
+body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header::before { opacity: 1 !important; }
+body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header::after { transform: rotate(45deg) !important; background: var(--kk-gold) !important; color: #1a1408 !important; border-color: var(--kk-gold) !important; }
+body .aux-widget-accordion .aux-toggle-content { background: transparent !important; border: 0 !important; padding: 0 64px 0 82px !important; }
+body .aux-widget-accordion .aux-toggle-content p {
+  margin: 0 0 24px !important; font-family: var(--kk-font-body) !important; font-size: 15px !important; line-height: 1.75 !important;
+  color: var(--kk-muted) !important;
+}
+
+body .aux-widget-accordion .aux-toggle-item .aux-toggle-header::after { background-image: none !important; }
+body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header::after { background: #d4af37 !important; }
+
+body .aux-widget-accordion .aux-toggle-item .aux-toggle-header::before {
+  position: static !important; top: auto !important; right: auto !important; left: auto !important;
+  width: auto !important; height: auto !important; transform: none !important; margin: 0 !important;
+  background-color: transparent !important; border: 0 !important; border-radius: 0 !important;
+}
+body .aux-widget-accordion .aux-toggle-item .aux-toggle-header::after { transform: none !important; }
+body .aux-widget-accordion .aux-toggle-item.active .aux-toggle-header::after { transform: rotate(45deg) !important; }
+
+/* ---------- v2 responsive ---------- */
+@media (max-width: 1024px) {
+  body .elementor-element-8cfb80e { grid-template-columns: 1fr; grid-template-rows: auto; }
+  body .elementor-element-f190589, body .elementor-element-87bebaa, body .elementor-element-0a2423e { grid-column: 1; grid-row: auto; }
+  body .elementor-element-f190589 .elementor-price-table { padding: 44px 28px !important; }
+}
+@media (max-width: 767px) {
+  body .elementor-element-80f4532 .aux-widget-contact-form::before { padding: 22px 22px 18px; font-size: 19px; }
+  body .elementor-element-80f4532 .wpcf7 { padding: 22px 20px 26px; }
+  body .elementor-element-80f4532 .wpcf7-form { grid-template-columns: 1fr; gap: 16px; }
+  body .elementor-element-87bebaa { padding: 32px 24px 4px !important; }
+  body .elementor-element-0a2423e { padding: 22px 24px 30px !important; }
+  body .elementor-element-f190589 .elementor-price-table__integer-part { font-size: 84px !important; }
+  body .aux-widget-accordion .aux-toggle-header { padding: 20px 54px 20px 14px !important; gap: 14px !important; font-size: 15px !important; }
+  body .aux-widget-accordion .aux-toggle-header::before { min-width: 30px !important; font-size: 18px !important; }
+  body .aux-widget-accordion .aux-toggle-header::after { right: 8px !important; width: 30px !important; height: 30px !important; margin-top: -15px !important; }
+  body .aux-widget-accordion .aux-toggle-content { padding: 0 20px 0 58px !important; }
+}
