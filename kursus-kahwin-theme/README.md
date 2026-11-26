@@ -57,7 +57,13 @@ The v5 `prefers-reduced-motion` rule disabled ALL animations. Phlox scroll-revea
 Now the rule only stops our decorative motion and forces reveal widgets visible.
 Testing tip: never use `?s=` as a cache-buster, because it is WordPress search and returns a 404 page.
 
+## v11
+- Browser tab title: tagline cleared (Settings → General → Tagline; was "Pusat Kursus Kesedaran Insan"), so the home tab shows only "Kursus Kahwin Malaysia".
+- Header: the logo keeps its real width and the menu shrinks between it and the button. Compact sizes at 1025–1365px. Two-row header on tablets (768–1024px): logo centred, menu centred, header button hidden.
+- The theme's text site-title beside the logo is visually hidden (kept for SEO/screen readers).
+- Note: the host firewall shows a "One moment, please…" challenge after many rapid requests. Space out automated checks.
+
 ## Undo
 - Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
-- Kit: revision **1133** = before v10; **1131** = before v9; **1129** / **1127** = before v8 tweaks; **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1135** / **1137** = before v11 header changes; **1133** = before v10; **1131** = before v9; **1129** / **1127** = before v8 tweaks; **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).

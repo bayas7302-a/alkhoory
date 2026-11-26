@@ -1251,3 +1251,56 @@ body .elementor-element-7a621be > .e-con-inner { padding-top: 0 !important; padd
 @media (max-width: 767px) {
   body .elementor-element-7a621be { padding-top: 22px !important; padding-bottom: 28px !important; }
 }
+
+/* =========================================================
+   v11: header: logo keeps its real width, menu fits between
+   ========================================================= */
+body .elementor-widget-aux_logo { flex: 0 0 auto !important; width: auto !important; max-width: none !important; --container-widget-width: auto; }
+body .elementor-widget-aux_logo .elementor-widget-container, body .elementor-widget-aux_logo .aux-widget-logo { width: auto !important; }
+body .elementor-widget-aux_menu_box { flex: 1 1 auto !important; min-width: 0 !important; width: auto !important; }
+body .elementor-widget-aux_menu_box .aux-master-menu.aux-horizontal { display: flex !important; flex-wrap: nowrap !important; justify-content: center; }
+body .elementor-widget-aux_menu_box .aux-menu-depth-0 { flex: 0 0 auto; }
+body .elementor-location-header .elementor-widget-button, body .elementor-element-521fe4e .elementor-widget-button { flex: 0 0 auto !important; }
+@media (min-width: 1025px) and (max-width: 1365px) {
+  body .aux-logo-anchor img, body .aux-widget-logo img { height: 50px !important; max-height: 50px !important; }
+  body .elementor-widget-aux_logo { margin-right: 18px !important; }
+  body .aux-menu-depth-0 > .aux-item-content { padding-left: 11px !important; padding-right: 11px !important; }
+  body .aux-menu-label { font-size: 12px !important; letter-spacing: .08em !important; }
+  body .elementor-location-header .elementor-button, body .elementor-element-521fe4e .elementor-button { padding: 14px 20px !important; min-height: 46px; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .aux-logo-anchor img, body .aux-widget-logo img { height: 42px !important; max-height: 42px !important; }
+  body .elementor-widget-aux_logo { margin-right: 10px !important; }
+  body .aux-menu-depth-0 > .aux-item-content { padding-left: 7px !important; padding-right: 7px !important; }
+  body .aux-menu-label { font-size: 11px !important; letter-spacing: .05em !important; }
+  body .elementor-location-header .elementor-button, body .elementor-element-521fe4e .elementor-button { padding: 12px 14px !important; min-height: 40px; font-size: 11px !important; letter-spacing: .1em !important; }
+  body .elementor-location-header .e-con, body .elementor-element-521fe4e { --padding-left: 20px; --padding-right: 20px; }
+}
+body .elementor-widget-aux_menu_box .aux-master-menu.aux-horizontal { align-items: center !important; }
+body .elementor-widget-aux_menu_box .aux-menu-depth-0, body .elementor-widget-aux_menu_box .aux-menu-depth-0 > .aux-item-content {
+  display: flex !important; align-items: center !important; margin-top: 0 !important; margin-bottom: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; height: auto !important;
+}
+body .elementor-widget-aux_menu_box .aux-menu-label { line-height: 1 !important; }
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .elementor-location-header .elementor-widget-button, body .elementor-element-521fe4e .elementor-widget-button { display: none !important; }
+  body .elementor-widget-aux_menu_box .aux-master-menu.aux-horizontal { justify-content: flex-end !important; }
+}
+/* tablet: two-row header (logo centred, menu centred below) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .elementor-element-a89e987 > .e-con-inner, body .elementor-element-521fe4e, body .elementor-element-521fe4e > .e-con-inner {
+    flex-wrap: wrap !important; justify-content: center !important; row-gap: 10px !important; padding-top: 14px !important; padding-bottom: 10px !important;
+  }
+  body .elementor-element-7044b19, body .elementor-element-d894ad6 { flex: 0 0 100% !important; width: 100% !important; margin: 0 !important; text-align: center; }
+  body .elementor-element-7044b19 .aux-widget-logo, body .elementor-element-d894ad6 .aux-widget-logo { display: flex !important; justify-content: center; width: 100% !important; }
+  body .elementor-element-3cc4f7c, body .elementor-element-fe8dc8a { flex: 0 0 100% !important; width: 100% !important; }
+  body .elementor-element-3cc4f7c .aux-master-menu.aux-horizontal, body .elementor-element-fe8dc8a .aux-master-menu.aux-horizontal { justify-content: center !important; }
+  body .elementor-element-2872c8c, body .elementor-element-44a003c { display: none !important; }
+  body .aux-logo-anchor img, body .aux-widget-logo img { height: 46px !important; max-height: 46px !important; }
+  body .aux-menu-depth-0 > .aux-item-content { padding-left: 12px !important; padding-right: 12px !important; }
+  body .aux-menu-label { font-size: 12px !important; }
+}
+/* the theme's text site-title next to the logo image: keep for SEO/screen readers, never show */
+body .aux-widget-logo .aux-logo-text, body .aux-has-logo .aux-logo-text {
+  position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important; white-space: nowrap !important; margin: -1px !important; padding: 0 !important; border: 0 !important;
+}
