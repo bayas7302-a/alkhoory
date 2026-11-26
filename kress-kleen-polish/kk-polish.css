@@ -1192,3 +1192,16 @@ body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-head
 .kk-sh.kk-step .kk-sh__poster { opacity: 1; visibility: visible; transition: opacity 0.7s ease, visibility 0s; }
 .kk-sh.kk-step .kk-sh__poster.is-off { opacity: 0; visibility: hidden; transition: opacity 0.7s ease, visibility 0s linear 0.7s; }
 .kk-sh.kk-step .kk-sh__bar i { transition: none; }
+
+
+/* =====================================================================
+   27. Video cards: heading and paragraph 25% smaller (desktop + tablet)
+   ===================================================================== */
+@media (min-width: 1025px) {
+  body .kk-sh h2.kk-sh__title { font-size: 25.3px !important; margin: 4px 0 10px !important; }   /* was 33.7px */
+  body .kk-sh .kk-sh__text { font-size: 16.5px !important; margin: 0 0 20px !important; }        /* was 22px */
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  body .kk-sh h2.kk-sh__title { font-size: 18px !important; }   /* was 24px */
+  body .kk-sh .kk-sh__text { font-size: 13px !important; }      /* was 16px (13px keeps it readable) */
+}
