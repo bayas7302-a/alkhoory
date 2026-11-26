@@ -74,14 +74,23 @@
         window.addEventListener(ev, function once() { window.removeEventListener(ev, once); unlock(); }, { passive: true });
     });
 
+    // frame k of the forward video is frame (N-1-k) of the reversed one: one frame offset
+    var FD = 1 / 29.97;
+    function rv(t) { return Math.max(0, DUR - FD - t); }
+
     function seek(v, t) {
         return new Promise(function (res) {
             t = Math.max(0, Math.min(DUR - 0.04, t));
             if (Math.abs(v.currentTime - t) < 0.02 && v.readyState >= 2) { res(); return; }
             var done = false;
-            function ok() { if (!done) { done = true; v.removeEventListener('seeked', ok); res(); } }
-            v.addEventListener('seeked', ok);
-            setTimeout(ok, 700);
+            function ok() { if (!done) { done = true; v.removeEventListener('seeked', painted); res(); } }
+            function painted() {
+                // wait until the decoded frame is ready to show, so a swap never shows an old frame
+                if (v.requestVideoFrameCallback) { v.requestVideoFrameCallback(function () { ok(); }); setTimeout(ok, 150); }
+                else { requestAnimationFrame(function () { requestAnimationFrame(ok); }); }
+            }
+            v.addEventListener('seeked', painted);
+            setTimeout(ok, 900);
             try { v.currentTime = t; } catch (e) { ok(); }
         });
     }
@@ -91,7 +100,7 @@
         active.classList.remove('is-on');
         active = v;
     }
-    function nowTime() { return active === vr ? DUR - vr.currentTime : vf.currentTime; }
+    function nowTime() { return active === vr ? rv(vr.currentTime) : vf.currentTime; }
 
     /* ---------- geometry ---------- */
     var top0 = 0, total = 1, frac = 0;
@@ -143,13 +152,13 @@
         // video
         var vPromise = Promise.resolve();
         var v = forward ? vf : vr;
-        var endV = forward ? targetT : DUR - targetT;
+        var endV = forward ? targetT : rv(targetT);
         if ((forward || backward) && seg / (D / 1000) > 8) {
             // a long jump (e.g. a dot several cards away): cut straight to the target frame
             forward = backward = false;
             vPromise = seek(vf, targetT).then(function () { showVideo(vf); });
         } else if (forward || backward) {
-            var startV = forward ? fromT : DUR - fromT;
+            var startV = forward ? fromT : rv(fromT);
             vPromise = (active === v || Math.abs(v.currentTime - startV) < 0.05 ? Promise.resolve() : seek(v, startV)).then(function () {
                 showVideo(v);
                 v.playbackRate = rate;
@@ -160,7 +169,7 @@
 
         var t0 = 0;
         vPromise.then(function () {
-            var startV = forward ? fromT : DUR - fromT;
+            var startV = forward ? fromT : rv(fromT);
             var playing = forward || backward;
             // start the clock only once the video is really moving, so page and video set off together
             return new Promise(function (go) {
@@ -174,7 +183,7 @@
         }).then(function () {
             t0 = performance.now();
             cancelAnimationFrame(raf);
-            var startV = forward ? fromT : DUR - fromT;
+            var startV = forward ? fromT : rv(fromT);
             var lastRateSet = 0;
             function place(p) {
                 ownScroll = true;
@@ -183,14 +192,17 @@
                 progress();
             }
             function finish() {
-                if (forward || backward) { v.pause(); v.playbackRate = rate; }
+                if (forward || backward) {
+                    v.pause(); v.playbackRate = rate;
+                    if (Math.abs(v.currentTime - endV) > 0.06) { seek(v, endV); }   // land exactly on the stop frame
+                }
                 place(1);
                 ownScroll = false;
                 busy = false;
                 lastDone = performance.now();
                 if (chapter != null && cur !== chapter) { setChapter(chapter); }
                 var other = active === vf ? vr : vf;
-                seek(other, active === vf ? DUR - targetT : targetT);
+                seek(other, active === vf ? rv(targetT) : targetT);
             }
             (function step(now) {
                 // the page moves at one constant speed (no easing)
@@ -205,13 +217,13 @@
                         v.playbackRate = Math.max(0.25, rate * (1 + Math.max(-0.3, Math.min(0.3, err * 1.5))));
                         lastRateSet = now;
                     }
-                    var t = forward ? vt : DUR - vt;
+                    var t = forward ? vt : rv(vt);
                     var ck = cardAt(t);
                     if (chapter != null) { ck = forward ? Math.min(ck, chapter) : Math.max(ck, chapter); }
                     if (ck !== cur) { setChapter(ck); }
                     if (vt >= endV - 0.03) { v.pause(); }
                     // page arrived: wait (briefly) for the last video frames, then stop exactly on the target frame
-                    if (p >= 1 && !v.paused && vt < endV - 0.03 && now - t0 < D + 900) { raf = requestAnimationFrame(step); return; }
+                    if (p >= 1 && !v.paused && vt < endV - 0.03 && now - t0 < D + 2500) { raf = requestAnimationFrame(step); return; }
                 } else if (!switched && p >= 0.45) { switched = true; if (chapter != null) { setChapter(chapter); } }
                 if (p < 1) { raf = requestAnimationFrame(step); return; }
                 finish();
@@ -259,6 +271,8 @@
             if (busy) { e.preventDefault(); return; }
             if (!inZone(dir)) { return; }
             e.preventDefault();
+            // coming back up from the next section (even mid-swipe): take over right away
+            if (dir < 0 && window.pageYOffset > yAt(TIMES[LAST]) + 6) { enterFromBelow(); return; }
             var fresh = gap > 350 || (turned && now - lastDone > 150);
             if (!fresh) { return; }
             stepBy(dir);
@@ -300,9 +314,24 @@
     });
 
     /* ---------- other scrolling (scrollbar, links, reduced motion): follow the position ---------- */
-    var st = 0;
+    var st = 0, prevY = window.pageYOffset;
+    function enterFromBelow() {
+        // scrolling up from the next section: stop the momentum at the end of the hero
+        // and play back to the last card straight away (no frozen frame, no jump)
+        clearTimeout(st);
+        ownScroll = true;
+        lastSetY = Math.round(yEnd());
+        window.scrollTo({ top: lastSetY, left: 0, behavior: 'instant' });
+        prevY = lastSetY;
+        lastDone = 0;
+        goTo(TIMES[LAST], yAt(TIMES[LAST]), LAST);
+    }
     window.addEventListener('scroll', function () {
-        if (ownScroll || Math.abs(window.pageYOffset - lastSetY) < 2) { return; }
+        var y = window.pageYOffset, py = prevY;
+        prevY = y;
+        if (ownScroll || busy || Math.abs(y - lastSetY) < 2) { return; }
+        measure();
+        if (!reduce && py >= yEnd() - 2 && y < yEnd() - 2 && y > top0 + 2) { enterFromBelow(); return; }
         progress();
         clearTimeout(st);
         st = setTimeout(function () {
