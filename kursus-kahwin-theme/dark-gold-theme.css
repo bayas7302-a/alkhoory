@@ -932,7 +932,15 @@ body .col-subtitle, body .aux-modern-heading-secondary {
   -webkit-text-fill-color: transparent !important; animation: kkShimmer 9s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
-  body *, body *::before, body *::after { animation: none !important; }
+  /* only stop our own decorative motion */
+  body .elementor-element::after, body .col-subtitle, body .aux-modern-heading-secondary,
+  body .elementor-element-1bd01a3 > .elementor-widget-container::before { animation: none !important; }
+  /* scroll-reveal widgets (Phlox / Elementor) must still become visible: show them immediately */
+  body .aux-appear-watch-animation, body .elementor-invisible, body .animated,
+  body [class*="aux-fade-in"], body [class*="aux-scale"], body [class*="aux-mask-from"] {
+    opacity: 1 !important; visibility: visible !important; transform: none !important;
+    animation: none !important; clip-path: none !important; -webkit-clip-path: none !important;
+  }
 }
 
 /* ---- SERVICES: editorial, no boxes ---- */

@@ -52,7 +52,12 @@ The pre-v7 page data is in `backups/page-<id>-elementor_data-v4.json`.
 Hero (7a621be): 48px top/bottom padding (32px tablet, 22/28px mobile). On desktop it fills the screen under the header with the cards centred.
 Note: a boxed container's `.e-con-inner` inherits `--padding-*` vars, so set real padding on the outer container and zero it on the inner one.
 
+## v10: fix blank sections on phones with Reduce Motion
+The v5 `prefers-reduced-motion` rule disabled ALL animations. Phlox scroll-reveal widgets (`.aux-appear-watch-animation`) start at opacity 0 and only become visible through their animation, so on iPhones with Reduce Motion on, 54 widgets stayed invisible (the client's video).
+Now the rule only stops our decorative motion and forces reveal widgets visible.
+Testing tip: never use `?s=` as a cache-buster, because it is WordPress search and returns a 404 page.
+
 ## Undo
 - Page content: POST `backups/page-<id>-elementor_data.json` back to the `_elementor_data` meta of page 822 / 388.
-- Kit: revision **1131** = before v9; **1129** / **1127** = before v8 tweaks; **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
+- Kit: revision **1133** = before v10; **1131** = before v9; **1129** / **1127** = before v8 tweaks; **1124** = before the mobile centring fix; **1122** = before v7; **1120** = before v6; **1118** = before v5; **1116** = before v4 burgundy; **1112** = before the v3 about-section fix; **1110** = before v3; **1108** = v1 theme (before the v2 layouts); revision **1102** = original pink theme (`elementor/manage-revisions` → restore, post 391), or in WP Admin → Elementor → Site Settings → History.
 - Logo: set `site_logo` back to 405 and `site_icon` to 105 (Appearance → Customize → Site Identity).
