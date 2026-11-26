@@ -223,7 +223,7 @@
                     if (ck !== cur) { setChapter(ck); }
                     if (vt >= endV - 0.03) { v.pause(); }
                     // page arrived: wait (briefly) for the last video frames, then stop exactly on the target frame
-                    if (p >= 1 && !v.paused && vt < endV - 0.03 && now - t0 < D + 2500) { raf = requestAnimationFrame(step); return; }
+                    if (p >= 1 && !v.paused && vt < endV - 0.03 && now - t0 < D + 900) { raf = requestAnimationFrame(step); return; }
                 } else if (!switched && p >= 0.45) { switched = true; if (chapter != null) { setChapter(chapter); } }
                 if (p < 1) { raf = requestAnimationFrame(step); return; }
                 finish();
