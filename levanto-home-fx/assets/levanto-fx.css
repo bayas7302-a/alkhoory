@@ -180,6 +180,23 @@ body { background-color: #faf6f0; }
 @media (max-width: 1024px) {
 	.lv-burger { display: inline-flex; }
 }
+/* laptop widths: keep logo, links and the quote button from colliding */
+.elementor .lv-nav-pill { gap: 24px; }
+@media (min-width: 1025px) and (max-width: 1440px) {
+	.elementor .lv-nav-pill > :first-child { width: 186px !important; max-width: 186px; flex-shrink: 0; }
+	.elementor .lv-nav-pill .lv-navlinks { gap: 20px !important; }
+}
+@media (min-width: 1025px) and (max-width: 1320px) {
+	.elementor .lv-nav-pill .lv-navlinks { gap: 16px !important; }
+	.elementor .lv-nav-pill .lv-navlink { font-size: 13.5px !important; }
+}
+@media (min-width: 1025px) and (max-width: 1199px) {
+	.elementor .lv-nav-pill .lv-navlinks { display: none !important; }
+	.lv-burger { display: inline-flex; }
+}
+@media (min-width: 768px) {
+	.lv-mobile-menu { left: auto; width: 320px; }
+}
 @media (max-width: 767px) {
 	.elementor .lv-nav-pill > .lv-btn { display: none !important; }
 	.lv-burger { margin-right: 0; }
