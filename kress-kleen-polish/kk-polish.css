@@ -1205,3 +1205,19 @@ body .elementor-153 .elementor-element.elementor-element-fb87731 .elementor-head
   body .kk-sh h2.kk-sh__title { font-size: 18px !important; }   /* was 24px */
   body .kk-sh .kk-sh__text { font-size: 13px !important; }      /* was 16px (13px keeps it readable) */
 }
+
+
+/* =====================================================================
+   28. Home hero, simple version: one screen tall, background video, first card only
+   ===================================================================== */
+.kk-sh.kk-simple .kk-sh__track,
+.kk-sh.kk-simple.is-ready .kk-sh__track { height: 100vh !important; height: 100svh !important; }
+.kk-sh.kk-simple .kk-sh__stick { position: relative; top: 0; }
+.kk-sh.kk-simple .kk-sh__video { opacity: 1 !important; }
+.kk-sh.kk-simple .kk-sh__video--rev,
+.kk-sh.kk-simple .kk-sh__dots,
+.kk-sh.kk-simple .kk-sh__hint,
+.kk-sh.kk-simple .kk-sh__bar,
+.kk-sh.kk-simple .kk-sh__card:not(:first-of-type) { display: none !important; }
+.kk-sh.kk-simple .kk-sh__poster { transition: opacity 0.6s ease, visibility 0s; }
+.kk-sh.kk-simple .kk-sh__poster.is-off { opacity: 0; visibility: hidden; transition: opacity 0.6s ease, visibility 0s linear 0.6s; }
